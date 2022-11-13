@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git@github.com:globaleaks/GlobaLeaks.git"
   },
+  "scripts": {
+    "build": "grunt build"
+  },
   "dependencies": {
     "@flowjs/flow.js": "2.14.1",
     "@flowjs/ng-flow": "2.7.8",
