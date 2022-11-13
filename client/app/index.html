@@ -1,15 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html data-ng-app="GL" data-ng-csp data-ng-strict-di data-ng-keydown="keypress($event)" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>GlobaLeaks</title>
-    <meta name="description" content="Secure whistleblowing platform based on GlobaLeaks free and open-source software.">
+    <meta
+      name="description"
+      content="Secure whistleblowing platform based on GlobaLeaks free and open-source software."
+    />
     <meta name="viewport" content="width=device-width, user-scalable=yes" />
 
     <link id="favicon" rel="shortcut icon" href="data/favicon.ico" />
 
     <style>
-      .ng-cloak, #BrowserNotSupported { display:none }
+      .ng-cloak,
+      #BrowserNotSupported {
+        display: none;
+      }
     </style>
 
     <!-- build:css css/styles.css -->
@@ -27,7 +33,11 @@
     <!-- endbuild -->
   </head>
 
-  <body class="container-fluid d-flex flex-column" data-ng-class="{{Utils.getCSSFlags()}}" data-flow-prevent-drop>
+  <body
+    class="container-fluid d-flex flex-column"
+    data-ng-class="{{Utils.getCSSFlags()}}"
+    data-flow-prevent-drop
+  >
     <a class="skip-link d-none ng-cloak" href="#ContentBox"></a>
 
     <div id="PageOverlay" class="ng-cloak" data-ng-hide="!showLoadingPanel">
@@ -35,27 +45,54 @@
     </div>
 
     <div id="PageContent" class="ng-cloak" data-ng-if="started" data-ng-cloak>
-      <div data-ng-if="!public.node.root_tenant && public.node.mode === 'demo'" data-ng-include="'views/partials/demo.html'"></div>
-      <div data-ng-if="Utils.isWhistleblowerPage() && !public.node.disable_privacy_badge" data-ng-include="'views/partials/privacybadge.html'"></div>
+      <div
+        data-ng-if="!public.node.root_tenant && public.node.mode === 'demo'"
+        data-ng-include="'views/partials/demo.html'"
+      ></div>
+      <!-- <div data-ng-if="Utils.isWhistleblowerPage() && !public.node.disable_privacy_badge" data-ng-include="'views/partials/privacybadge.html'"></div> -->
       <div data-ng-include="'views/partials/header.html'"></div>
       <div id="MessagesConsoleBox" data-ng-include="'views/partials/messageconsole.html'"></div>
       <div id="ContentBox">
         <div class="row">
-          <nav data-ng-if="sidebar" id="Sidebar" class="col-md-2 flex-column" data-ng-include="sidebar"></nav>
-          <main id="Content" data-ng-class="{'col-md-10': sidebar, 'col-md-12': !sidebar}" data-ng-view=""></main>
+          <nav
+            data-ng-if="sidebar"
+            id="Sidebar"
+            class="col-md-2 flex-column"
+            data-ng-include="sidebar"
+          ></nav>
+          <main
+            id="Content"
+            data-ng-class="{'col-md-10': sidebar, 'col-md-12': !sidebar}"
+            data-ng-view=""
+          ></main>
         </div>
       </div>
     </div>
 
-    <footer id="FooterBox" class="ng-cloak" data-ng-if="started" data-ng-include="'views/partials/footer.html'" data-ng-cloak></footer>
+    <footer
+      id="FooterBox"
+      class="ng-cloak"
+      data-ng-if="started"
+      data-ng-include="'views/partials/footer.html'"
+      data-ng-cloak
+    ></footer>
 
     <div id="BrowserNotSupported">
-      <h1>Error!</h1><br /><br />
+      <h1>Error!</h1>
+      <br /><br />
       <div>
         You are running an unsupported and potentially vulnerable browser.<br /><br />
-        In order to use GlobaLeaks you are strongly advised to download and install the Tor Browser.<br/>
-        The Tor Browser includes various privacy and security enhancements not present in other browsers.<br /><br />
-        <a href="https://www.torproject.org/download/" rel="noreferrer" target="_blank" class="text-center">[ Download the Tor Browser ]</a><br /><br />
+        In order to use GlobaLeaks you are strongly advised to download and install the Tor
+        Browser.<br />
+        The Tor Browser includes various privacy and security enhancements not present in other
+        browsers.<br /><br />
+        <a
+          href="https://www.torproject.org/download/"
+          rel="noreferrer"
+          target="_blank"
+          class="text-center"
+          >[ Download the Tor Browser ]</a
+        ><br /><br />
         This is the list of the other supported browsers:<br />
         <ul>
           <li>Mozilla Firefox &gt;= 38</li>
@@ -138,7 +175,10 @@
       <br />
       <div>
         Your browser is not running JavaScript that is required to use this site.<br /><br />
-        It is a common belief that JavaScript and security don't work well together and for this reason we advise to use the <a href="https://www.torproject.org/" rel="noreferrer" target="_blank">Tor Browser</a>, a browser designed for security and privacy.
+        It is a common belief that JavaScript and security don't work well together and for this
+        reason we advise to use the
+        <a href="https://www.torproject.org/" rel="noreferrer" target="_blank">Tor Browser</a>, a
+        browser designed for security and privacy.
       </div>
     </noscript>
   </body>
