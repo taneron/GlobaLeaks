@@ -9,7 +9,8 @@ Client consists of *index.html* and *scripts.min.js* which is located at `/usr/s
 
 
 Todo
-	- [] Allow html in footer for linking to custom pages
+
+	- [x] Allow html in footer for linking to custom pages
   - [] Restyle
 
 | [main](https://github.com/globaleaks/GlobaLeaks/tree/main) | [![Build Status](https://travis-ci.com/globaleaks/GlobaLeaks.svg?branch=main)](https://app.travis-ci.com/github/globaleaks/GlobaLeaks) | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c09f1ec9607f4546924d19798a98dd7d)](https://www.codacy.com/gh/globaleaks/GlobaLeaks/dashboard) | [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c09f1ec9607f4546924d19798a98dd7d)](https://www.codacy.com/gh/globaleaks/GlobaLeaks/dashboard) | [![Build Status](https://readthedocs.org/projects/globaleaks/badge/?version=main&style=flat)](https://docs.globaleaks.org/en/main/)
