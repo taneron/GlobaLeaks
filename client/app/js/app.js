@@ -113,6 +113,14 @@ var GL = angular.module("GL", [
     }
 
     $routeProvider.
+      when("/datenschutz", {
+        templateUrl: "views/datenschutz.html",
+        header_title: "Datenschutz"
+      }).
+      when("/impressum", {
+        templateUrl: "views/impressum.html",
+        header_title: "Impressum"
+      }).
       when("/wizard", {
         templateUrl: "views/wizard/main.html",
         controller: "WizardCtrl",
