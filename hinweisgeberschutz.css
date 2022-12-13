@@ -1,11 +1,19 @@
 /* to upload on site for additional css */
-/* Hinweisgeber */
-#PrivacyBadge,
-#WhistleblowerLoginBox,
-#LogoutLinkBox {
+/* Pilgermair */
+#PrivacyBadge {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+}
+/* #LogoutLinkBox {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+} */
+#WhistleblowerLoginBox {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
 }
 #TitleBox .TitleSeparator {
   display: none !important;
@@ -18,11 +26,6 @@
   opacity: 0 !important;
 }
 .public #AttributionClause {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-.col-md-12 .card.card-secondary {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
