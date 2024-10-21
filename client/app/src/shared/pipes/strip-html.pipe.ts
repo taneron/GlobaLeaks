@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from "@angular/core";
 import * as DOMPurify from 'dompurify';
 
 @Pipe({
-  name: "stripHtml"
+    name: "stripHtml",
+    standalone: true
 })
 export class StripHtmlPipe implements PipeTransform {
 
