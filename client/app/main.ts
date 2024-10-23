@@ -53,6 +53,11 @@ import { importProvidersFrom } from "@angular/core";
 import * as Flow from "@flowjs/flow.js";
 import {provideRouter} from "@angular/router";
 
+
+import { ApplicationRef } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(appRoutes),
@@ -77,5 +82,9 @@ bootstrapApplication(AppComponent, {
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
     ]
+}).then(moduleRef => {
+    // Expose Angular stability status to Cypress
+    const appRef = moduleRef.injector.get(ApplicationRef);
+    (window as any).isAngularStable = () => appRef.isStable;
 })
   .catch(err => console.error(err));
