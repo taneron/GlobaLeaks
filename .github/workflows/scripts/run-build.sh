@@ -2,21 +2,6 @@
 
 set -e
 
-LOGFILE="/var/globaleaks/log/globaleaks.log"
-ACCESSLOG="/var/globaleaks/log/access.log"
-
-function atexit {
-  if [[ -f $LOGFILE ]]; then
-    cat $LOGFILE
-  fi
-
-  if [[ -f $ACCESSLOG ]]; then
-    cat $ACCESSLOG
-  fi
-}
-
-trap atexit EXIT
-
 sudo apt-get install -y debootstrap
 
 export chroot="/tmp/globaleaks_chroot/"
