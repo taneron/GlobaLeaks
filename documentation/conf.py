@@ -65,7 +65,7 @@ latex_elements = {
 
 latex_documents = []
 
-latex_logo = 'logo-latex.png'
+latex_logo = 'logo-latex.pdf'
 
 man_pages = [
 (master_doc, 'globaleaks', u'Documentation',
