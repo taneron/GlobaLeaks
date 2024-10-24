@@ -271,6 +271,7 @@ h6 {
 }
 
 #ContentBox {
+  flex: 1 0 auto;
   padding: 1em;
 }
 
@@ -563,10 +564,6 @@ textarea.form-control {
 .sup {
   vertical-align: super;
   font-size: smaller;
-}
-
-.PageContent {
-  flex: 1 0 auto;
 }
 
 @media screen and (min-width >= 768px) {
