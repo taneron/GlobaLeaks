@@ -15,7 +15,7 @@
             @if (appDataService.projectTitle && appDataService.pageTitle) {
               <span class="TitleSeparator"> - </span>
             }
-            <span id="PageTitle">{{appDataService ? appDataService.pageTitle ? appDataService.pageTitle : '' : '' | translate}}</span>
+            <span id="PageTitle">{{appDataService.pageTitle ? appDataService.pageTitle : '' | translate}}</span>
           </h1>
         }
       </div>
