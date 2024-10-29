@@ -55,6 +55,11 @@ a:hover {
   background-color: #103253;
 }
 
+.wy-nav-top a,
+.wy-nav-top a:active,
+.wy-nav-top a:focus,
+.wy-nav-top a:hover,
+.wy-nav-top a:visited,
 .wy-nav-side a,
 .wy-nav-side a:active,
 .wy-nav-side a:focus,

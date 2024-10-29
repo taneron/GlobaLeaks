@@ -54,13 +54,13 @@ html_static_path = ['_static']
 html_context = {
 'description': 'GlobaLeaks is free, open souce whistleblowing software enabling anyone to easily set up and maintain a secure reporting platforms',
 'keywords': 'globaleaks, whistleblowing, globaleaks-whistleblowing-software',
-'author': 'GlobaLeaks',
+'author': 'GLOBALEAKS',
 }
 
 latex_elements = {
-  'sphinxsetup': 'TitleColor={HTML}{377abc}, \
-  InnerLinkColor={HTML}{377abc}, \
-  OuterLinkColor={HTML}{377abc}',
+  'sphinxsetup': 'TitleColor={HTML}{3679BB}, \
+  InnerLinkColor={HTML}{3679BB}, \
+  OuterLinkColor={HTML}{3679BB}',
 }
 
 latex_documents = []
@@ -73,13 +73,13 @@ man_pages = [
 ]
 
 texinfo_documents = [
-(master_doc, 'GlobaLeaks', u'Documentation',
- author, 'GlobaLeaks', ' GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platforms',
+(master_doc, 'GLOBALEAKS', u'Documentation',
+ author, 'GLOBALEAKS', ' GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platforms',
  'Miscellaneous'),
 ]
 
 html_theme_options = {
-  'style_nav_header_background': '#377abc',
+  'style_nav_header_background': '#3679BB',
 }
 
 def setup(app):
