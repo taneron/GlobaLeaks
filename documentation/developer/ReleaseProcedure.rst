@@ -11,13 +11,23 @@ A release is represented by:
 * An updated package on deb.globaleaks.org;
 * A signed repository.
 
-Release tagging
-===============
-To release is tagger by means of the official version bump script by issuing:
+Release versioning
+==================
+A new release version is issued by means of the official version bump script by issuing:
 
 .. code:: sh
 
   cd GlobaLeaks && ./scripts/bump_version.sh $version
+
+Release tagging
+===============
+The release is tagged by meand of the following commands
+
+.. code:: sh
+  export DEBFULLNAME="GlobaLeaks software signing key"
+  export DEBEMAIL="info@globaleaks.org"
+  git tag -s v0.1 -m 'GlobaLeaks version 0.1'
+  git push origin --tags
 
 Release packaging
 =================
