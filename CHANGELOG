@@ -1,3 +1,8 @@
+Changes in version 5.0.21
+    Fix translation of report statuses in case labels are left empty by mistake
+    Bump client dependencies to latest versions
+    Uptade translations
+
 Changes in version 5.0.20
     Fix retrival of account recovery key when 2FA is enabled
 
