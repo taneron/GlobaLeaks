@@ -39,7 +39,7 @@ import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient, HttpClien
 import { appInterceptor, ErrorCatchingInterceptor, CompletedInterceptor } from "@app/services/root/app-interceptor.service";
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy, NgOptimizedImage } from "@angular/common";
 import { FlowInjectionToken, NgxFlowModule } from "@flowjs/ngx-flow";
-import { NgbDatepickerI18n, NgbModule, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbDatepickerI18n, NgbModule, NgbPaginationConfig, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { CustomDatepickerI18n } from "@app/shared/services/custom-datepicker-i18n";
 import { appRoutes } from "@app/app.routes";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
@@ -70,15 +70,29 @@ bootstrapApplication(AppComponent, {
             }
         }), NgxFlowModule, NgOptimizedImage),
         ReceiptValidatorDirective,
-        { provide: 'MockEngine', useValue: mockEngine },
         TranslatorPipe, TranslateService,
-        { provide: HTTP_INTERCEPTORS, useClass: appInterceptor, multi: true },
         { provide: APP_BASE_HREF, useValue: "/" },
-        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: HTTP_INTERCEPTORS, useClass: appInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorCatchingInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: CompletedInterceptor, multi: true },
         { provide: FlowInjectionToken, useValue: Flow },
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
+        {
+          provide: NgbPaginationConfig,
+          useFactory: () => {
+            const config = new NgbPaginationConfig();
+            config.size = 'sm';           // Set pagination size (sm for small, lg for large)
+            config.boundaryLinks = true;  // Display boundary links (first/last)
+            config.directionLinks = true; // Display previous/next buttons
+            config.maxSize = 20;          // Maximum number of pages displayed
+            config.rotate = true;         // Whether to rotate pages when maxSize > number of pages.
+            config.ellipses = true;       // If true, the ellipsis symbols and first/last page numbers
+                                          // will be shown when maxSize > number of pages.
+            return config;
+          }
+        },
+        { provide: 'MockEngine', useValue: mockEngine },
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
     ]
