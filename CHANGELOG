@@ -1,3 +1,11 @@
+Changes in version 5.0.22
+    Correct position of tooltips on questions' hint
+    Enable recipients whistleblowers to leave comments even if report status is closed (#4293)
+    Revise configuration of chunk file uploader
+    Bump client dependencies to latest version
+    Fix pagination style merging changes of 4205edef
+    Fix exception when file upload happens during expired user session
+
 Changes in version 5.0.21
     Fix translation of report statuses in case labels are left empty by mistake
     Bump client dependencies to latest versions
