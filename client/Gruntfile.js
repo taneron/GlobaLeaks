@@ -222,7 +222,7 @@ module.exports = function(grunt) {
         "relationships": {
           "resource": {
             "data": {
-              "id": "o:otf:p:globaleaks:r:main",
+              "id": "o:otf:p:globaleaks:r:stable",
               "type": "resources"
             }
           }
@@ -288,7 +288,7 @@ module.exports = function(grunt) {
               },
               "resource": {
                 "data": {
-                  "id": "o:otf:p:globaleaks:r:main",
+                  "id": "o:otf:p:globaleaks:r:stable",
                   "type": "resources"
                 }
               }
@@ -336,7 +336,7 @@ module.exports = function(grunt) {
 
   async function fetchTxTranslationsForLanguage(langCode, cb) {
     const gettextParser = await loadGettextParser();
-    let url = baseurl + "/resource_language_stats/o:otf:p:globaleaks:r:main:l:" + langCode;
+    let url = baseurl + "/resource_language_stats/o:otf:p:globaleaks:r:stable:l:" + langCode;
 
     agent.get(url)
         .set({"Authorization": "Bearer " + transifexApiKey})
