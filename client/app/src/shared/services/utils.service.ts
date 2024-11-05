@@ -27,7 +27,7 @@ import {Option} from "@app/models/whistleblower/wb-tip-data";
 import {Status} from "@app/models/app/public-model";
 import {AppDataService} from "@app/app-data.service";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
-import {FlowFile} from "@flowjs/flow.js";
+import {FlowFile, FlowOptions} from "@flowjs/flow.js";
 import {AcceptAgreementComponent} from "@app/shared/modals/accept-agreement/accept-agreement.component";
 import {WbFile} from "@app/models/app/shared-public-model";
 import {FileViewComponent} from "@app/shared/modals/file-view/file-view.component";
@@ -761,17 +761,26 @@ export class UtilsService {
     );
   }
 
-  flowDefault = new Flow({
-    testChunks: false,
-    permanentErrors:[500, 501],
-    speedSmoothingFactor:0.01,
-    allowDuplicateUploads:false,
-    singleFile:false,
-    generateUniqueIdentifier:() => {
-      return crypto.randomUUID();
-    },
-    headers:() => {
-      return this.authenticationService.getHeader();
-    }
-  });
+  public getFlowOptions(): FlowOptions {
+    return {
+      chunkSize: 1000 * 1024,
+      forceChunkSize: true,
+      simultaneousUploads: 1,
+      testChunks: false,
+      permanentErrors:[500, 501],
+      speedSmoothingFactor:0.01,
+      allowDuplicateUploads:false,
+      singleFile:false,
+      generateUniqueIdentifier:() => {
+        return crypto.randomUUID();
+      },
+      headers:() => {
+        return this.authenticationService.getHeader();
+      }
+    };
+  }
+
+  public getFlowInstance(): Flow {
+    return new Flow(this.getFlowOptions());
+  }
 }

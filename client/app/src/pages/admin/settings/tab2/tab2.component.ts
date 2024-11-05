@@ -79,7 +79,7 @@ export class Tab2Component implements OnInit {
   onFileSelected(files: FileList | null) {
     if (files && files.length > 0) {
       const file = files[0];
-      const flowJsInstance = this.utilsService.flowDefault;
+      const flowJsInstance = this.utilsService.getFlowInstance();
 
       flowJsInstance.opts.target = "api/admin/files/custom";
       flowJsInstance.opts.allowDuplicateUploads = true;
@@ -91,11 +91,13 @@ export class Tab2Component implements OnInit {
         this.appConfigService.reinit(false);
         this.utilsService.reloadComponent();
       });
+
       flowJsInstance.on("fileError", (_) => {
         if (this.uploaderInput) {
           this.uploaderInput.nativeElement.value = "";
         }
       });
+
       this.utilsService.onFlowUpload(flowJsInstance, file)
     }
   }

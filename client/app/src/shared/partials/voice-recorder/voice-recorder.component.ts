@@ -82,7 +82,7 @@ export class VoiceRecorderComponent implements OnInit {
     this.activeButton = 'record';
     this.seconds = 0;
     this.startTime = Date.now();
-    this.flow = this.utilsService.flowDefault;
+    this.flow = this.utilsService.getFlowInstance();
     this.flow.opts.target =  this.fileUploadUrl;
     this.flow.opts.singleFile =  this.field !== undefined && !this.field.multi_entry;
     this.flow.opts.query = {type: "audio.webm", reference_id: fileId};
