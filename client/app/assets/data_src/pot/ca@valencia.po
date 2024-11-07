@@ -102,7 +102,7 @@ msgid "Allow the recipient to edit the reports' expiration date"
 msgstr "Permet al destinatari canviar la data d'expiració de les denúncies"
 
 msgid "Allow the recipient to delete reports"
-msgstr "Permet al destinatari eliminar denúncies"
+msgstr "Permet a este usuari esborrar denúncies"
 
 msgid "Allow the whistleblower to add attachments"
 msgstr "Permet a l'informador afegir arxius adjunts a l'enviament"
