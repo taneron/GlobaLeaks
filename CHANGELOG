@@ -1,3 +1,6 @@
+Changes in version 5.0.23
+    Fix visualization of steps with no questions (#4298)
+
 Changes in version 5.0.22
     Correct position of tooltips on questions' hint
     Enable recipients whistleblowers to leave comments even if report status is closed (#4293)
