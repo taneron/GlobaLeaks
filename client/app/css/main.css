@@ -1136,3 +1136,7 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 .tooltip {
   position: absolute;
 }
+
+.form-check-input {
+  appearance: auto;
+}
