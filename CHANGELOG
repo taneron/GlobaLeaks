@@ -1,3 +1,6 @@
+Changes in version 5.0.24
+    Fix proper visualization of checkboxes and datepickers
+
 Changes in version 5.0.23
     Fix visualization of steps with no questions (#4298)
 
