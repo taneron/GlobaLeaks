@@ -1,3 +1,4 @@
+import {Location} from '@angular/common';
 import {Injectable, inject} from "@angular/core";
 import {HttpService} from "@app/shared/services/http.service";
 import {UtilsService} from "@app/shared/services/utils.service";
@@ -16,6 +17,7 @@ import {mockEngine} from "@app/services/helper/mocks";
   providedIn: "root"
 })
 export class AppConfigService {
+  private location = inject(Location);
   private customFileLoaderServiceService = inject(CustomFileLoaderServiceService);
   private titleService = inject(TitleService);
   authenticationService = inject(AuthenticationService);
@@ -172,11 +174,11 @@ export class AppConfigService {
     if (this.appDataService.public.node) {
       if (!this.appDataService.public.node.wizard_done) {
         location.replace("/#/wizard");
-      } else if ((this.router.url === "/" || this.router.url === "/submission") && !this.appDataService.public.node.enable_signup && this.appDataService.public.node.adminonly && !this.authenticationService.session) {
-        location.replace("/#/admin/home");
-      } else if (this.router.url === "/" && this.appDataService.public.node.enable_signup && !location.href.endsWith("admin/home")) {
+      } else if ((this.location.path() === "" || this.location.path() === "/submission") && !this.appDataService.public.node.enable_signup && this.appDataService.public.node.adminonly && !this.authenticationService.session) {
+        location.replace("/#/login");
+      } else if (this.location.path() === "" && this.appDataService.public.node.enable_signup && !location.href.endsWith("admin/home")) {
         location.replace("/#/signup");
-      } else if (this.router.url === "/signup" && !this.appDataService.public.node.enable_signup) {
+      } else if (this.location.path() === "/signup" && !this.appDataService.public.node.enable_signup) {
         location.replace("/#/");
       } else if (this.appDataService.page === "blank") {
         this.appDataService.page = "homepage"
