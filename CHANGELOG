@@ -1,3 +1,9 @@
+Changes in version 5.0.25
+    Revise receiver and context images style (#4303)
+    Revise path checks in relation to adminonly configurations
+    Properly communicate to users when a password reset token is expired
+    Bump client dependencies to latest version
+
 Changes in version 5.0.24
     Fix proper visualization of checkboxes and datepickers
 
@@ -15,7 +21,7 @@ Changes in version 5.0.22
 Changes in version 5.0.21
     Fix translation of report statuses in case labels are left empty by mistake
     Bump client dependencies to latest versions
-    Uptade translations
+    Uptate translations
 
 Changes in version 5.0.20
     Fix retrival of account recovery key when 2FA is enabled
