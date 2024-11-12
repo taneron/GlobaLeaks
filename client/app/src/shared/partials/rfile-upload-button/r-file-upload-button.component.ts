@@ -46,29 +46,19 @@ export class RFileUploadButtonComponent implements AfterViewInit, OnInit, OnDest
     this.file_id = this.file_id ? this.file_id:"status_page";
 
     this.flowConfig = this.utilsService.getFlowOptions();
-    console.log(this.flowConfig);
     this.flowConfig.target = this.fileUploadUrl;
     this.flowConfig.singleFile = (this.field !== undefined && !this.field.multi_entry);
     this.flowConfig.query = {reference_id: this.field ? this.field.id:""};
-    this.flowConfig.headers = {"X-Session": this.authenticationService.session.id};
 
     this.fileInput = this.field ? this.field.id : "status_page";
   }
 
   ngAfterViewInit() {
     this.autoUploadSubscription = this.flow.transfers$.subscribe((event,) => {
-
       this.confirmButton = false;
       this.showError = false;
 
-      if (!this.uploads) {
-        this.uploads = {};
-      }
-      if (this.uploads && !this.uploads[this.fileInput]) {
-        this.uploads[this.fileInput] = [];
-      }
       event.transfers.forEach((file)=> {
-
         if (file.paused && this.errorFile) {
           this.errorFile.flowFile.cancel();
           return;
@@ -82,7 +72,7 @@ export class RFileUploadButtonComponent implements AfterViewInit, OnInit, OnDest
           this.confirmButton = true;
         }
       });
-      this.flow.flowJs.opts.headers={"X-Session": this.authenticationService.session.id};
+
       this.uploads[this.fileInput] = this.flow;
       this.notifyFileUpload.emit(this.uploads);
     });

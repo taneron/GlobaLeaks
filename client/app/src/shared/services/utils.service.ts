@@ -775,7 +775,7 @@ export class UtilsService {
         return crypto.randomUUID();
       },
       headers:() => {
-        return this.authenticationService.getHeader();
+        return {"X-Session": this.authenticationService.session.id};
       }
     };
   }

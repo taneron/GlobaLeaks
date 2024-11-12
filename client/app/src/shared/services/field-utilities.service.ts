@@ -148,8 +148,8 @@ export class FieldUtilitiesService {
     }
   }
 
-  updateAnswers(scope: any, parent: any, list: any, answers: any) {
-    let entry, option, i, j;
+  updateAnswers(scope: any, parent: any, list: any, answers: any): boolean {
+    let ret=false, entry, option, i, j;
 
     list.forEach((field: any) => {
       if (this.isFieldTriggered(parent, field, scope.answers, scope.score)) {
@@ -164,10 +164,10 @@ export class FieldUtilitiesService {
 
       if (field.id in answers) {
         for (i = 0; i < answers[field.id].length; i++) {
-          this.updateAnswers(scope, field, field.children, answers[field.id][i]);
+          ret = ret || this.updateAnswers(scope, field, field.children, answers[field.id][i]);
         }
       } else {
-        this.updateAnswers(scope, field, field.children, {});
+        ret = ret || this.updateAnswers(scope, field, field.children, {});
       }
 
       if (!field.enabled) {
@@ -197,11 +197,15 @@ export class FieldUtilitiesService {
               }
             }
           }
-        } else if (field.type === "fileupload") {
-          entry.required_status = field.required && (!scope.uploads[field.id] || !scope.uploads[field.id].size);
+        } else if (["fileupload"].indexOf(field.type) > -1) {
+          entry.required_status = field.required && (!scope.uploads[field.id] || !scope.uploads[field.id].flowJs.files.length);
+        } else if (["voice"].indexOf(field.type) > -1) {
+          entry.required_status = field.required && (!scope.uploads[field.id] || !scope.uploads[field.id].files.length);
         } else {
           entry.required_status = field.required && !entry["value"];
         }
+
+	ret = ret || entry.required_status;
 
         if (["checkbox", "selectbox", "multichoice"].indexOf(field.type) > -1) {
           for (j = 0; j < field.options.length; j++) {
@@ -230,31 +234,37 @@ export class FieldUtilitiesService {
         }
       }
     });
+
+    return ret;
   }
 
-  onAnswersUpdate(scope: any) {
+  onAnswersUpdate(scope: any): boolean {
     scope.block_submission = false;
     scope.score = 0;
     scope.points_to_sum = 0;
     scope.points_to_mul = 1;
 
     if (!scope.questionnaire) {
-      return;
+      return true;
     }
 
     if (scope.submissionService) {
       scope.submissionService.override_receivers = [];
     }
 
+    let ret = false;
+
     scope.questionnaire.steps.forEach((step: any) => {
       step.enabled = this.isFieldTriggered(null, step, scope.answers, scope.score);
-      this.updateAnswers(scope, step, step.children, scope.answers);
+      ret = ret || this.updateAnswers(scope, step, step.children, scope.answers);
     });
 
     if (scope.context) {
       scope.submissionService.submission.score = scope.score;
       scope.submissionService.blocked = scope.block_submission;
     }
+
+    return ret;
   }
 
 

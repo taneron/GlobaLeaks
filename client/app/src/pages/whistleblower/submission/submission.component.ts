@@ -281,9 +281,9 @@ export class SubmissionComponent implements OnInit {
        });
     }
 
-    this.fieldUtilitiesService.onAnswersUpdate(this);
+    const required_status = this.fieldUtilitiesService.onAnswersUpdate(this);
 
-    if (!this.runValidation()) {
+    if (!this.runValidation() || required_status) {
       this.utilsService.scrollToTop();
       return;
     }

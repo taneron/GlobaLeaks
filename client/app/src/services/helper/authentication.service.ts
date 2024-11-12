@@ -222,6 +222,7 @@ export class AuthenticationService {
     if (confirmation) {
       headers = headers.set('X-Confirmation', confirmation);
     }
+
     return headers;
   }
 
