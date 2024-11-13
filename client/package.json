@@ -62,6 +62,7 @@
     "ng2-select": "2.0.0",
     "ngx-clipboard": "16.0.0",
     "ngx-markdown": "18.1.0",
+    "pdfjs-dist": "3.11.174",
     "rxjs": "7.8.1",
     "zone.js": "0.15.0"
   },
