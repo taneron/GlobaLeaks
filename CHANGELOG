@@ -1,3 +1,12 @@
+Changes in version 5.0.26
+    Deprecate (at least temporarely) states motivations for reasons discussed on #4201 with the core globaleaks community.
+    Revise regular expression for email validation to allow domains with tld longer than 5 characters (#4309)
+    Fix inclusion of pdfjs library fix issue on opening PDF files with integrated file viewer
+    Fix issue on loading of images causing white page on settings page (#4311)
+    Fix mandatory checks on file uploads and voice recordings
+    Fix exception on email generation when users has disabled notifications
+    Bump client dependencies to latest versions
+
 Changes in version 5.0.25
     Revise receiver and context images style (#4303)
     Revise path checks in relation to adminonly configurations
