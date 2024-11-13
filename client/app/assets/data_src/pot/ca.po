@@ -115,9 +115,6 @@ msgstr "Permet a les persones reveladores de informació enviar un arxiu adjunt.
 msgid "Allow the whistleblower to write comments"
 msgstr "Permet als informadors escriure comentaris"
 
-msgid "Allow this user to reopen management of a report"
-msgstr "Permetre a este usuari reobrir la gestió d'una denúncia"
-
 msgid "Allow users to sign up"
 msgstr "Permetre als usuaris registrar-se"
 

@@ -145,9 +145,6 @@ msgstr "السّماح للمبلغين باضافة مرفقات إلى الب�
 msgid "Allow the whistleblower to write comments"
 msgstr "تمكين المبلغ من كتابة تعليقات"
 
-msgid "Allow this user to reopen management of a report"
-msgstr "اسمح لهذا المستخدم بإعادة فتح إدارة هذا التقرير."
-
 msgid "Allow users to sign up"
 msgstr "السماح للمستخدمين بالاشتراك"
 

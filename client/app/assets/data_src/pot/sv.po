@@ -119,9 +119,6 @@ msgstr "Tillåt att visselblåsaren lägger till bilagor till rapporten"
 msgid "Allow the whistleblower to write comments"
 msgstr "Tillåt att visselblåsaren skriver kommentarer"
 
-msgid "Allow this user to reopen management of a report"
-msgstr "Tillåt användaren att åter öppna hanteringen av en rapport"
-
 msgid "Allow users to sign up"
 msgstr "Tillåt användarna att registrera sig"
 
