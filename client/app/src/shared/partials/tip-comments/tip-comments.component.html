@@ -54,12 +54,7 @@
                       <div class="preformatted">{{comment.content}}</div>
                     }
                     @if (comment.type === 'auditlog_update_report_status') {
-                      <div>
-                        <div>{{'Status'|translate}}: {{utilsService.getSubmissionStatusText(comment.data.status,comment.data.substatus,appDataService.submissionStatuses) | translate}}</div>
-                        @if (comment.data.motivation) {
-                          <div>{{'Motivation'|translate}}: {{comment.data.motivation}}</div>
-                        }
-                      </div>
+                      <div>{{'Status'|translate}}: {{utilsService.getSubmissionStatusText(comment.data.status,comment.data.substatus,appDataService.submissionStatuses) | translate}}</div>
                     }
                     @if (comment.type === 'auditlog_update_report_expiration') {
                       <div>{{'Expiration date'|translate}}: {{comment.data.curr_expiration_date * 1000 | date:'dd-MM-yyyy'}}</div>

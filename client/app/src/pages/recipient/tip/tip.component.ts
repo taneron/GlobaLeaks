@@ -255,14 +255,12 @@ export class TipComponent implements OnInit {
     const modalRef = this.modalService.open(ChangeSubmissionStatusComponent, {backdrop: 'static', keyboard: false});
     modalRef.componentInstance.arg={
       tip:this.tip,
-      motivation:this.tip.motivation,
       submission_statuses:this.prepareSubmissionStatuses(),
     };
 
-    modalRef.componentInstance.confirmFunction = (status:any,motivation: string) => {
+    modalRef.componentInstance.confirmFunction = (status:any) => {
       this.tip.status = status.status;
       this.tip.substatus = status.substatus;
-      this.tip.motivation = motivation;
       this.updateSubmissionStatus();
     };
     modalRef.componentInstance.cancelFun = null;
@@ -270,17 +268,16 @@ export class TipComponent implements OnInit {
 
   openModalReopen(){
     const modalRef = this.modalService.open(ReopenSubmissionComponent, {backdrop: 'static', keyboard: false});
-    modalRef.componentInstance.confirmFunction = (motivation: string) => {
+    modalRef.componentInstance.confirmFunction = () => {
       this.tip.status = "opened";
       this.tip.substatus = "";
-      this.tip.motivation = motivation;
       this.updateSubmissionStatus();
     };
     modalRef.componentInstance.cancelFun = null;
   }
 
   updateSubmissionStatus() {
-    const args = {"status":  this.tip.status, "substatus": this.tip.substatus ? this.tip.substatus : "", "motivation":  this.tip.motivation || ""};
+    const args = {"status":  this.tip.status, "substatus": this.tip.substatus ? this.tip.substatus : ""};
     this.httpService.tipOperation("update_status", args, this.tip.id)
       .subscribe(
         () => {

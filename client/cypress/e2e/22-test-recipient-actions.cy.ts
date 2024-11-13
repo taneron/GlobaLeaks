@@ -7,10 +7,8 @@ describe("recipient admin tip actions", () => {
 
     cy.get("#tip-action-change-status").click();
     cy.get('#assignSubmissionStatus').select(2);
-    cy.get('textarea[name="reason"]').type("This is a close status test motivation");
     cy.get("#modal-action-ok").click();
     cy.get("#tip-action-reopen-status").click();
-    cy.get('textarea[name="motivation"]').type("This is a reopen status test motivation");
     cy.get("#modal-action-ok").click();
 
     cy.logout();
@@ -77,7 +75,6 @@ describe("recipient admin tip actions", () => {
     cy.get("#tip-0").first().click();
     cy.get("#tip-action-change-status").click();
     cy.get('#assignSubmissionStatus').select(1);
-    cy.get('textarea[name="reason"]').type("This is a test motivation");
     cy.get("#modal-action-ok").click();
     cy.logout();
   });
