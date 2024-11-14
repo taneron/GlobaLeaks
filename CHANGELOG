@@ -1,3 +1,8 @@
+Changes in version 5.0.27
+    Fix issue #4308
+    Fix color of SupportLink
+    Bump client dependencies to latest versions
+
 Changes in version 5.0.26
     Deprecate (at least temporarely) states motivations for reasons discussed on #4201 with the core globaleaks community.
     Revise regular expression for email validation to allow domains with tld longer than 5 characters (#4309)
