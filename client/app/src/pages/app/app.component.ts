@@ -133,13 +133,13 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   }
 
   initIdleState() {
-    this.idle.setIdle(1500);
-    this.idle.setTimeout(300);
+    this.idle.setIdle(1800);
+    this.idle.setTimeout(false);
     this.keepalive.interval(30);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
     this.keepalive.onPing.subscribe(() => {
-      if (this.authenticationService && this.authenticationService.session) {
+      if (this.authenticationService.session) {
         const token = this.authenticationService.session.token;
         this.cryptoService.proofOfWork(token.id).subscribe((result:any) => {
 	  const param = {'token': token.id + ":" + result};
@@ -150,15 +150,8 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
       }
     });
 
-    this.idle.onTimeout.subscribe(() => {
-      if (this.authenticationService && this.authenticationService.session) {
-        if (this.authenticationService.session.role === "whistleblower") {
-          window.location.replace("about:blank");
-        } else {
-          this.authenticationService.deleteSession();
-          this.authenticationService.loginRedirect();
-        }
-      }
+    this.idle.onIdleStart.subscribe(() => {
+      this.authenticationService.deleteSession();
     });
 
     this.reset();
@@ -166,7 +159,6 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
 
   reset() {
     this.idle.watch();
-    this.authenticationService.reset();
   }
 
   protected readonly location = location;

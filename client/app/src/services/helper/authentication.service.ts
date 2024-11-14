@@ -50,17 +50,17 @@ export class AuthenticationService {
   };
 
   deleteSession() {
+    const role = this.session ? this.session.role : 'recipient';
+
     this.session = null;
     window.sessionStorage.removeItem("session");
+
+    if (role === "whistleblower") {
+      window.location.replace("about:blank");
+    } else {
+      this.loginRedirect();
+    }
   };
-
-  isSessionActive() {
-    return this.session;
-  }
-
-  routeLogin() {
-    this.loginRedirect();
-  }
 
   setSession(response: Session) {
     this.session = response;
@@ -232,13 +232,8 @@ export class AuthenticationService {
       {
         next: () => {
           this.reset();
-          if (this.session.role === "whistleblower") {
-            this.deleteSession();
-            this.titleService.setPage("homepage");
-          } else {
-            this.deleteSession();
-            this.loginRedirect();
-          }
+	  this.deleteSession();
+
           if (callback) {
             callback();
           }
