@@ -1019,15 +1019,6 @@ i.fa-solid.fa-chevron-right {
   margin: 0;
 }
 
-#SupportLink {
-  color: #205282;
-  cursor: pointer;
-}
-
-#SupportLink:hover {
-  color: #5797d5;
-}
-
 @keyframes blink {
   0% { opacity: 0; }
   50% { opacity: 1; }

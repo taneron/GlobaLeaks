@@ -30,7 +30,7 @@ export class UserComponent {
   private cdr = inject(ChangeDetectorRef);
   protected authentication = inject(AuthenticationService);
   protected preferences = inject(PreferenceResolver);
-  protected utils = inject(UtilsService);
+  protected utilsService = inject(UtilsService);
   protected appDataService = inject(AppDataService);
   protected translationService = inject(TranslationService);
   private router = inject(Router);
@@ -57,7 +57,7 @@ export class UserComponent {
           sessionStorage.setItem("default_language", currentLang);
           if (!isSubmissionRoute) {
             this.appConfigService.reinit(true);
-            this.utils.reloadCurrentRouteFresh();
+            this.utilsService.reloadCurrentRouteFresh();
           }
         }
       }
@@ -82,6 +82,6 @@ export class UserComponent {
     sessionStorage.removeItem("default_language");
     this.translationService.onChange(this.translationService.language);
     this.appConfigService.reinit(false);
-    this.utils.reloadCurrentRouteFresh(true);
+    this.utilsService.reloadCurrentRouteFresh(true);
   }
 }
