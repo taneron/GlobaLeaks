@@ -19,8 +19,8 @@ class MockEngine {
   private applyMock(mock: Mock): void {
     const e = document.querySelector(mock.selector) as HTMLElement | null;
     if (e) {
-      if (!mock.value || mock.language !== GL.language) {
-        mock.language = GL.language;
+      if (!mock.value || mock.language !== window.GL.language) {
+        mock.language = window.GL.language;
         if (typeof mock.mock === "function") {
           mock.value = mock.mock(e);
         } else {
@@ -92,12 +92,5 @@ class MockEngine {
     this.run();
   }
 }
-
-const GL = {
-  language: 'en',
-  get mockEngine() {
-    return mockEngine;
-  }
-};
 
 export const mockEngine = new MockEngine();

@@ -2,7 +2,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Injectable, inject} from "@angular/core";
 import {TranslateService} from "@ngx-translate/core";
 import {UtilsService} from "@app/shared/services/utils.service";
-import {DOCUMENT} from "@angular/common";
+import {AppDataService} from "@app/app-data.service";
 
 @Injectable({
   providedIn: "root",
@@ -10,7 +10,7 @@ import {DOCUMENT} from "@angular/common";
 export class TranslationService {
   private utilsService = inject(UtilsService);
   protected translate = inject(TranslateService);
-  private document = inject<Document>(DOCUMENT);
+  private appDataService = inject(AppDataService);
 
   language = "";
 
@@ -31,6 +31,8 @@ export class TranslationService {
     this.language = changedLanguage;
     this.changeLocale(this.language);
     this.translate.use(this.language).subscribe(() => {
+      this.appDataService.language = this.language
+      window.GL.language = this.language
       if (callback) {
         callback();
       }

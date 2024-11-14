@@ -34,7 +34,6 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "l10n/", "");
 }
 
-(window as any).mockEngine = mockEngine;
 declare global {
   interface Window {
     GL: {
