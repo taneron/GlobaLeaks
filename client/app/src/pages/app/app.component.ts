@@ -27,6 +27,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {DEFAULT_INTERRUPTSOURCES, Idle} from "@ng-idle/core";
 import {CryptoService} from "@app/shared/services/crypto.service";
 import {HttpService} from "@app/shared/services/http.service";
+import {BodyDomObserverService} from "@app/shared/services/body-dom-observer.service";
 import {Keepalive} from "@ng-idle/keepalive";
 registerLocales();
 
@@ -76,13 +77,13 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   private idle = inject(Idle);
   private keepalive = inject(Keepalive);
   private httpService = inject(HttpService);
+  private bodyDomObserver = inject(BodyDomObserverService);
 
   showSidebar: boolean = true;
   isNavCollapsed: boolean = true;
   showLoadingPanel = false;
   supportedBrowser = true;
   loading = false;
-
 
   constructor() {
     this.initIdleState();

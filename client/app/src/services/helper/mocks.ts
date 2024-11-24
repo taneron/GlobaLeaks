@@ -28,13 +28,13 @@ class MockEngine {
         }
       }
 
-      if (mock.type === "replace") {
-        if (mock.value && e.innerHTML !== mock.value) {
-          e.innerHTML = mock.value;
-        }
+      if (!mock.value) {
+        return;
+      }
 
-        if (mock.value) {
-          mock.value = e.innerHTML;
+      if (mock.type === "replace") {
+        if (e.innerHTML !== mock.value) {
+          e.innerHTML = mock.value;
         }
       } else {
         let custom_elem = e.querySelector(".Mock") as HTMLElement | null;
@@ -42,14 +42,13 @@ class MockEngine {
         if (!custom_elem) {
           custom_elem = document.createElement("div");
           custom_elem.classList.add("Mock");
-        }
+	  custom_elem.innerHTML = mock.value;
 
-        custom_elem.innerHTML = mock.value;
-
-        if (mock.type === "add-before") {
-          e.insertBefore(custom_elem, e.childNodes[0]);
-        } else if (mock.type === "add-after") {
-          e.appendChild(custom_elem);
+          if (mock.type === "add-before") {
+            e.insertBefore(custom_elem, e.childNodes[0]);
+          } else if (mock.type === "add-after") {
+            e.appendChild(custom_elem);
+          }
         }
       }
     }

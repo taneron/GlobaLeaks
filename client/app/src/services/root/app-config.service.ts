@@ -11,7 +11,6 @@ import {LanguagesSupported} from "@app/models/app/public-model";
 import {TitleService} from "@app/shared/services/title.service";
 import {CustomFileLoaderServiceService} from "@app/services/helper/custom-file-loader-service.service";
 import {NgZone} from "@angular/core";
-import {mockEngine} from "@app/services/helper/mocks";
 
 @Injectable({
   providedIn: "root"
@@ -36,20 +35,6 @@ export class AppConfigService {
 
   constructor() {
     this.init();
-  }
-
-  private monitorChangeDetection(): void {
-    this.ngZone.onStable.subscribe(() => {
-      if (this.isRunning) {
-        return;
-      }
-      this.isRunning = true;
-      try {
-        mockEngine.run();
-      } finally {
-        this.isRunning = false;
-      }
-    });
   }
 
   init() {
@@ -95,7 +80,6 @@ export class AppConfigService {
         if (data.body !== null) {
           this.appDataService.public = data.body;
         }
-        this.monitorChangeDetection();
         this.appDataService.contexts_by_id = this.utilsService.array_to_map(this.appDataService.public.contexts);
         this.appDataService.receivers_by_id = this.utilsService.array_to_map(this.appDataService.public.receivers);
         this.appDataService.questionnaires_by_id = this.utilsService.array_to_map(this.appDataService.public.questionnaires);
