@@ -112,6 +112,8 @@ export class AuthenticationService {
     requestObservable.subscribe(
       {
         next: (response: Session) => {
+          this.appDataService.updateShowLoadingPanel(false);
+
           if (response.redirect) {
             response.redirect = this.sanitizer.sanitize(SecurityContext.URL, response.redirect) || '';
 	    if (response.redirect) {
@@ -163,7 +165,6 @@ export class AuthenticationService {
                   this.router.navigate([redirect]);
 		}
               } else {
-                this.appDataService.updateShowLoadingPanel(true);
                 this.router.navigate([this.session.homepage], {
                   queryParams: this.activatedRoute.snapshot.queryParams,
                   queryParamsHandling: "merge"
@@ -177,8 +178,8 @@ export class AuthenticationService {
           }
         },
         error: (error: HttpErrorResponse) => {
-          this.loginInProgress = false;
           this.appDataService.updateShowLoadingPanel(false);
+          this.loginInProgress = false;
           if (error.error && error.error["error_code"]) {
             if (error.error["error_code"] === 4) {
               this.requireAuthCode = true;
