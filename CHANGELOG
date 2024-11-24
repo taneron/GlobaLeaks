@@ -1,3 +1,10 @@
+Changes in version 5.0.28
+    Fix bug in relation to loader not getting removed
+    Revise margins on UI components of the homepage
+    Fix bug and performance on mock implementation using MutationObserver
+    Bump client dependencies to latest version
+    Update translations
+
 Changes in version 5.0.27
     Fix issue #4308
     Fix color of SupportLink
