@@ -99,7 +99,7 @@ msgid "Advanced"
 msgstr "Avançat"
 
 msgid "Allow the recipient to edit the reports' expiration date"
-msgstr "Permet al destinatari canviar la data d'expiració de les denúncies"
+msgstr "Permet a este usuari canviar la data d'expiració de les denúncies"
 
 msgid "Allow the recipient to delete reports"
 msgstr "Permet a este usuari esborrar denúncies"
