@@ -626,10 +626,6 @@ p:last-child {
   padding-left: 1em;
 }
 
-#WhistleblowingQuestion {
-  white-space: pre-wrap;
-}
-
 #WhistleblowerSubmitBox,
 #WhistleblowerLoginBox {
   text-align: center;
