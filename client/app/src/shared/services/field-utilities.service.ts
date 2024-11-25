@@ -252,11 +252,12 @@ export class FieldUtilitiesService {
       scope.submissionService.override_receivers = [];
     }
 
-    let ret = false;
+    let ret = false, recursive_ret = false;
 
     scope.questionnaire.steps.forEach((step: any) => {
       step.enabled = this.isFieldTriggered(null, step, scope.answers, scope.score);
-      ret = ret || this.updateAnswers(scope, step, step.children, scope.answers);
+      recursive_ret = this.updateAnswers(scope, step, step.children, scope.answers);
+      ret = ret || recursive_ret;
     });
 
     if (scope.context) {
