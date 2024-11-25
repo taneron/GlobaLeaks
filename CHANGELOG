@@ -1,3 +1,6 @@
+Changes in version 5.0.29
+    Fix regression on questionnaire validation introduced in release 5.0.26 (#4321)
+
 Changes in version 5.0.28
     Fix bug in relation to loader not getting removed
     Revise margins on UI components of the homepage
