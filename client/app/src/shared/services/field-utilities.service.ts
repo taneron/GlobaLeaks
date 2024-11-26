@@ -148,8 +148,8 @@ export class FieldUtilitiesService {
     }
   }
 
-  updateAnswers(scope: any, parent: any, list: any, answers: any): boolean {
-    let ret=false, entry, option, i, j;
+  updateAnswers(scope: any, parent: any, list: any, answers: any) {
+    let entry, option, i, j;
 
     list.forEach((field: any) => {
       if (this.isFieldTriggered(parent, field, scope.answers, scope.score)) {
@@ -164,10 +164,10 @@ export class FieldUtilitiesService {
 
       if (field.id in answers) {
         for (i = 0; i < answers[field.id].length; i++) {
-          ret = ret || this.updateAnswers(scope, field, field.children, answers[field.id][i]);
+          this.updateAnswers(scope, field, field.children, answers[field.id][i]);
         }
       } else {
-        ret = ret || this.updateAnswers(scope, field, field.children, {});
+        this.updateAnswers(scope, field, field.children, {});
       }
 
       if (!field.enabled) {
@@ -205,8 +205,6 @@ export class FieldUtilitiesService {
           entry.required_status = field.required && !entry["value"];
         }
 
-	ret = ret || entry.required_status;
-
         if (["checkbox", "selectbox", "multichoice"].indexOf(field.type) > -1) {
           for (j = 0; j < field.options.length; j++) {
             option = field.options[j];
@@ -234,38 +232,31 @@ export class FieldUtilitiesService {
         }
       }
     });
-
-    return ret;
   }
 
-  onAnswersUpdate(scope: any): boolean {
+  onAnswersUpdate(scope: any) {
     scope.block_submission = false;
     scope.score = 0;
     scope.points_to_sum = 0;
     scope.points_to_mul = 1;
 
     if (!scope.questionnaire) {
-      return true;
+      return;
     }
 
     if (scope.submissionService) {
       scope.submissionService.override_receivers = [];
     }
 
-    let ret = false, recursive_ret = false;
-
     scope.questionnaire.steps.forEach((step: any) => {
       step.enabled = this.isFieldTriggered(null, step, scope.answers, scope.score);
-      recursive_ret = this.updateAnswers(scope, step, step.children, scope.answers);
-      ret = ret || recursive_ret;
+      this.updateAnswers(scope, step, step.children, scope.answers);
     });
 
     if (scope.context) {
       scope.submissionService.submission.score = scope.score;
       scope.submissionService.blocked = scope.block_submission;
     }
-
-    return ret;
   }
 
 
