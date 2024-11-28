@@ -1,3 +1,6 @@
+Changes in version 5.0.31
+    Revise mock implementation fixing continous reloading on some setups
+
 Changes in version 5.0.30
     Temporarily rollback changes related to enforcing mandatory file uploads or oral messages
     introduced in 5.0.26 that seems to be causing improper form validation.
