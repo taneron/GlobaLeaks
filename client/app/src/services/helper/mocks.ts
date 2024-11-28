@@ -18,7 +18,8 @@ class MockEngine {
 
   private applyMock(mock: Mock): void {
     const e = document.querySelector(mock.selector) as HTMLElement | null;
-    if (e) {
+    if (e !== null && !e.classList.contains("Mock")) {
+      e.classList.add("Mock");
       if (!mock.value || mock.language !== window.GL.language) {
         mock.language = window.GL.language;
         if (typeof mock.mock === "function") {
@@ -37,18 +38,13 @@ class MockEngine {
           e.innerHTML = mock.value;
         }
       } else {
-        let custom_elem = e.querySelector(".Mock") as HTMLElement | null;
+        let custom_elem = document.createElement("div");
+        custom_elem.innerHTML = mock.value;
 
-        if (!custom_elem) {
-          custom_elem = document.createElement("div");
-          custom_elem.classList.add("Mock");
-	  custom_elem.innerHTML = mock.value;
-
-          if (mock.type === "add-before") {
-            e.insertBefore(custom_elem, e.childNodes[0]);
-          } else if (mock.type === "add-after") {
-            e.appendChild(custom_elem);
-          }
+        if (mock.type === "add-before") {
+          e.insertBefore(custom_elem, e.childNodes[0]);
+        } else if (mock.type === "add-after") {
+          e.appendChild(custom_elem);
         }
       }
     }
