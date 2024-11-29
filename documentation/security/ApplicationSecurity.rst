@@ -240,7 +240,9 @@ Additionally, a set of rules is applied to each request type to limit potential 
 
 On the client
 +++++++++++++
-Each server output is strictly validated by the client at rendering time using the Angular component `ngSanitize.$sanitize <http://docs.angularjs.org/api/ngSanitize.$sanitize>`__.
+Each server output is strictly validated by the client at rendering time using the Angular component `ngSanitize.$sanitize <http://docs.angularjs.org/api/ngSanitize.$sanitize>`_.
+
+Few configurations accepts Markdown input and every input is strictly validated stripping every HTML tag with `DOMPurify <https://github.com/cure53/DOMPurify>`_
 
 Form autocomplete off
 ---------------------
