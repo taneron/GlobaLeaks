@@ -223,10 +223,10 @@ In such cases, the following HTTP header is used:
 
 Anchor tags and external urls
 -----------------------------
-The client opens external URLs in a new tab, independent of the application context, by setting ``rel='noreferrer'`` and ``target='_blank'``` on every anchor tag.
+The client opens external URLs in a new tab, independent of the application context, by setting ``target='_blank'``` on remote or untrusted anchor tag.
 ::
 
-  <a href="url" rel="noreferrer" target="_blank">link title</a>
+  <a href="url" target="_blank">link title</a>
 
 Input validation
 ----------------
