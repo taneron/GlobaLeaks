@@ -228,7 +228,7 @@
         <div>
           @if (option.set && option.hint1) {
             <div>
-              <i class="fa-solid fa-info-circle"></i> {{option.hint1}}
+              <i class="fa-solid fa-info-circle"></i> <markdown [data]="option.hint1 | stripHtml"></markdown>
             </div>
           }
         </div>
@@ -239,7 +239,7 @@
     <div>
       @if (option.set && option.hint2) {
         <div [ngClass]="{'text-danger': option.block_submission}">
-          <i class="fa-solid fa-info-circle"></i> {{option.hint2}}
+          <i class="fa-solid fa-info-circle"></i> <markdown [data]="option.hint2 | stripHtml"></markdown>
         </div>
       }
     </div>
