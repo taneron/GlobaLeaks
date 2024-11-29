@@ -157,14 +157,15 @@ export class TipComponent implements OnInit {
   openGrantTipAccessModal(): void {
     this.utils.runUserOperation("get_users_names", {}, false).subscribe({
       next: response => {
+        const names = response as Record<string, string>;
         const selectableRecipients: Receiver[] = [];
         this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
           if (receiver.id !== this.authenticationService.session.user_id && !this.tip.receivers_by_id[receiver.id]) {
+            receiver.name = names[receiver.id];
             selectableRecipients.push(receiver);
           }
         });
         const modalRef = this.modalService.open(GrantAccessComponent, {backdrop: 'static', keyboard: false});
-        modalRef.componentInstance.usersNames = response;
         modalRef.componentInstance.selectableRecipients = selectableRecipients;
         modalRef.componentInstance.confirmFun = (receiver_id: Receiver) => {
           const req = {
@@ -187,14 +188,15 @@ export class TipComponent implements OnInit {
     this.utils.runUserOperation("get_users_names", {}, false).subscribe(
       {
         next: response => {
+          const names = response as Record<string, string>;
           const selectableRecipients: Receiver[] = [];
           this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
             if (receiver.id !== this.authenticationService.session.user_id && this.tip.receivers_by_id[receiver.id]) {
+              receiver.name = names[receiver.id];
               selectableRecipients.push(receiver);
             }
           });
           const modalRef = this.modalService.open(RevokeAccessComponent, {backdrop: 'static', keyboard: false});
-          modalRef.componentInstance.usersNames = response;
           modalRef.componentInstance.selectableRecipients = selectableRecipients;
           modalRef.componentInstance.confirmFun = (receiver_id: Receiver) => {
             const req = {
@@ -218,14 +220,15 @@ export class TipComponent implements OnInit {
     this.utils.runUserOperation("get_users_names", {}, false).subscribe(
       {
         next: response => {
+          const names = response as Record<string, string>;
           const selectableRecipients: Receiver[] = [];
           this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
             if (receiver.id !== this.authenticationService.session.user_id && !this.tip.receivers_by_id[receiver.id]) {
+              receiver.name = names[receiver.id];
               selectableRecipients.push(receiver);
             }
           });
           const modalRef = this.modalService.open(TransferAccessComponent, {backdrop: 'static', keyboard: false});
-          modalRef.componentInstance.usersNames = response;
           modalRef.componentInstance.selectableRecipients = selectableRecipients;
           modalRef.result.then(
             (receiverId) => {
