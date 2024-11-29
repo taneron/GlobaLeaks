@@ -57,7 +57,6 @@ import {provideRouter} from "@angular/router";
 import { ApplicationRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(appRoutes),
@@ -65,7 +64,12 @@ bootstrapApplication(AppComponent, {
             markedOptions: {
                 provide: MARKED_OPTIONS,
                 useValue: {
-                    breaks: true
+                    breaks: true,
+                    renderer: {
+                        link({ href, title, text, tokens }: { href: string; title?: string; text: string; tokens?: any[] }): string {
+                            return `<a target="_blank" href="${href}">${text}</a>`;
+                        },
+                    },
                 }
             }
         }), NgxFlowModule, NgOptimizedImage),
