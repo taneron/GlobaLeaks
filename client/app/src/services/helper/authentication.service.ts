@@ -53,7 +53,7 @@ export class AuthenticationService {
     const role = this.session ? this.session.role : 'recipient';
 
     this.session = null;
-    window.sessionStorage.removeItem("session");
+    window.sessionStorage.clear();
 
     if (role === "whistleblower") {
       window.location.replace("about:blank");

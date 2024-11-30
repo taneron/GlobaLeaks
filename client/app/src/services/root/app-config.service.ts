@@ -48,7 +48,7 @@ export class AppConfigService {
   initRoutes(currentURL: string) {
     if (this.authenticationService && this.authenticationService.session && currentURL !== "login") {
       const queryParams = this.activatedRoute.snapshot.queryParams;
-      const param = sessionStorage.getItem("default_language");
+      const param = sessionStorage.getItem("language");
       if (param) {
         queryParams["lang"] = param;
       }
@@ -60,8 +60,6 @@ export class AppConfigService {
       } else if (this.authenticationService.session.role === "custodian") {
         this.router.navigate(["/custodian"], {queryParams}).then();
       }
-    } else {
-      sessionStorage.removeItem("default_language");
     }
   }
 
@@ -127,23 +125,24 @@ export class AppConfigService {
           }
         });
 
-        let storageLanguage = sessionStorage.getItem("default_language");
+        let storageLanguage = sessionStorage.getItem("language");
         const queryParams = this.activatedRoute.snapshot.queryParams;
         if (languageInit) {
           if (!storageLanguage) {
             storageLanguage = this.appDataService.public.node.default_language;
-            sessionStorage.setItem("default_language", storageLanguage);
+            sessionStorage.setItem("language", storageLanguage);
           }
           if(!queryParams["lang"]){
             const setTitle = () => {
               this.titleService.setTitle();
             };
             this.translationService.onChange(storageLanguage, setTitle);
-          }else {
+          } else {
             this.translationService.onChange(storageLanguage);
           }
+        } else {
+          this.translationService.onChange(storageLanguage || 'en');
         }
-
 
         this.titleService.setTitle();
         this.onValidateInitialConfiguration();

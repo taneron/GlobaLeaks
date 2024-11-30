@@ -31,12 +31,11 @@ export class appInterceptor implements HttpInterceptor {
   private authenticationService = inject(AuthenticationService);
   private httpClient = inject(HttpClient);
   private cryptoService = inject(CryptoService);
-  private translationService = inject(TranslationService);
-
 
   private getAcceptLanguageHeader(): string | null {
-    if (this.translationService.language) {
-      return this.translationService.language;
+    const language = sessionStorage.getItem("language");
+    if (language) {
+      return language;
     } else {
       const url = window.location.href;
       const hashFragment = url.split("#")[1];
