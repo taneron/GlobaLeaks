@@ -1,3 +1,13 @@
+Changes in version 5.0.32
+    Revise language changes utilities in relation to issue #4315
+    Fixed validation of multistep questionnaires and extend validation to files (#4336)
+    Remove redundant rel=noreferrer made unnecessary by ReferrerPolicy header
+    Revise markdown implementation ensuring links are opened always in a new tab
+    Ensure to strip every HTML tag (including safe tags) with DOMPurify before parsing markdown.
+    [doc] Revise application security document in reference to external links protections
+    [doc] Extend documentation adding detail on usage of DOMPurify to filter markdown input
+    Fix issues #4340 and #4338
+
 Changes in version 5.0.31
     Revise mock implementation fixing continous reloading on some setups
 
