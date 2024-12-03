@@ -39,6 +39,6 @@ class StaticFileHandler(BaseHandler):
                                    b"img-src 'self';"
                                    b"media-src 'self';"
                                    b"script-src 'self' 'sha256-l4srTx31TC+tE2K4jVVCnC9XfHivkiSs/v+DPWccDDM=';"
-                                   b"style-src 'self' 'unsafe-inline';")
+                                   b"style-src 'self';")
 
         return self.write_file(filename, abspath)
