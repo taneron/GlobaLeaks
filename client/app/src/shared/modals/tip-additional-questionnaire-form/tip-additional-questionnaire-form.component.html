@@ -25,7 +25,7 @@
           <div>
             @if (step && step.enabled) {
               <span>
-                <div [class.hidden]="navigation !== index">
+                <div [class.d-none]="navigation !== index">
                   <div id="step-{{index}}" ngForm #stepForm="ngForm" ngFormChanges (ngFormChange)="onFormChange()">
                     @if (step.description) {
                       <div class="description">{{step.description}}</div>

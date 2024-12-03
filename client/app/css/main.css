@@ -572,10 +572,6 @@ textarea.form-control {
   }
 }
 
-.hidden {
-  display: none;
-}
-
 .modal-dialog {
   max-width: 900px;
 }
