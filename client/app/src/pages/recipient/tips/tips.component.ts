@@ -384,8 +384,8 @@ export class TipsComponent implements OnInit {
   @HostListener("document:click", ["$event"])
   onClick(event: MouseEvent) {
     const clickedElement = event.target as HTMLElement;
-    const isContainerClicked = clickedElement.classList.contains("ngb-dtepicker-container") || clickedElement.classList.contains("dropdown-multi-select-container") ||
-      clickedElement.closest(".ngb-dtepicker-container") !== null || clickedElement.closest(".dropdown-multi-select-container") !== null;
+    const isContainerClicked = clickedElement.classList.contains("ngb-datepicker-container") || clickedElement.classList.contains("dropdown-multi-select-container") ||
+      clickedElement.closest(".ngb-datepicker-container") !== null || clickedElement.closest(".dropdown-multi-select-container") !== null;
     if (!isContainerClicked) {
       this.closeAllDatePickers();
     }
