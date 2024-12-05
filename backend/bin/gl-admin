@@ -226,7 +226,7 @@ def disable_2fa(args):
 
     admin_id, admin_salt, admin_hash = admin_user[0], admin_user[1], admin_user[2]
 
-    if not GCE.check_password(admin_password, user_salt, admin_hash):
+    if not GCE.check_password(admin_password, admin_salt, admin_hash):
         print("Failed! Invalid password")
         sys.exit(1)
 
