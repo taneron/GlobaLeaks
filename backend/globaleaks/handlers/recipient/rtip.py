@@ -610,7 +610,7 @@ def register_rfile_on_db(session, tid, user_id, itip_id, uploaded_file):
                                 models.InternalTip.tid == tid).one()
 
     rtip.last_access = datetime_now()
-    if uploaded_file['visibility'] == 0:
+    if uploaded_file['visibility'].decode() == 'public':
         itip.update_date = rtip.last_access
 
     if itip.crypto_tip_pub_key:
@@ -977,7 +977,7 @@ def create_identityaccessrequest(session, tid, user_id, user_cc, itip_id, reques
 
 
 @transact
-def create_comment(session, tid, user_id, itip_id, content, visibility=0):
+def create_comment(session, tid, user_id, itip_id, content, visibility='public'):
     """
     Transaction for registering a new comment
     :param session: An ORM session
@@ -991,7 +991,7 @@ def create_comment(session, tid, user_id, itip_id, content, visibility=0):
     _, rtip, itip = db_access_rtip(session, tid, user_id, itip_id)
 
     rtip.last_access = datetime_now()
-    if visibility == 0:
+    if visibility == 'public':
         itip.update_date = rtip.last_access
 
     _content = content
