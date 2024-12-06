@@ -1,3 +1,5 @@
+import * as DOMPurify from 'dompurify';
+
 interface Mock {
   path: string;
   selector: string;
@@ -17,16 +19,19 @@ class MockEngine {
   private mocks: Mocks = {};
 
   private applyMock(mock: Mock): void {
+    let value;
     const e = document.querySelector(mock.selector) as HTMLElement | null;
     if (e !== null && !e.classList.contains("Mock")) {
       e.classList.add("Mock");
       if (!mock.value || mock.language !== window.GL.language) {
         mock.language = window.GL.language;
         if (typeof mock.mock === "function") {
-          mock.value = mock.mock(e);
+          value = mock.mock(e);
         } else {
-          mock.value = mock.mock;
+          value = mock.mock;
         }
+
+        mock.value = (DOMPurify as any).default.sanitize(value, {RETURN_TRUSTED_TYPE: true});
       }
 
       if (!mock.value) {
