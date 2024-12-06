@@ -45,7 +45,7 @@
         "@ngx-translate/core": "16.0.3",
         "@ngx-translate/http-loader": "16.0.0",
         "@types/angular": "1.8.9",
-        "@types/dompurify": "3.0.5",
+        "@types/dompurify": "3.2.0",
         "@types/flowjs__flow.js": "2.13.3",
         "@types/lodash-es": "4.17.12",
         "@types/marked": "6.0.0",
@@ -61,7 +61,7 @@
         "ng2-charts": "7.0.0",
         "ngx-clipboard": "16.0.0",
         "ngx-markdown": "18.1.0",
-        "pdfjs-dist": "4.9.124",
+        "pdfjs-dist": "4.9.155",
         "rxjs": "7.8.1",
         "zone.js": "0.15.0"
       },
@@ -73,13 +73,13 @@
         "@angular/cli": "18.2.12",
         "@angular/compiler": "18.2.13",
         "@angular/compiler-cli": "18.2.13",
-        "@cypress/code-coverage": "3.13.7",
+        "@cypress/code-coverage": "3.13.8",
         "@cypress/schematic": "2.5.2",
         "@istanbuljs/nyc-config-typescript": "1.0.2",
         "@jsdevtools/coverage-istanbul-loader": "3.0.5",
         "@lodder/grunt-postcss": "3.1.1",
         "@popperjs/core": "2.11.8",
-        "angular-eslint": "19.0.0",
+        "angular-eslint": "19.0.1",
         "cypress": "13.16.1",
         "eslint": "9.16.0",
         "gettext-parser": "8.0.0",
@@ -628,9 +628,9 @@
       }
     },
     "node_modules/@angular-eslint/builder": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/builder/-/builder-19.0.0.tgz",
-      "integrity": "sha512-vi68ADoEKrg2SB87jwUCaVhOhWPpXyG6X8QJzg8AiYDCQY721x1l6Pdz6WZOPruWALyoIyFGFXqtuysDGqIBhw==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/builder/-/builder-19.0.1.tgz",
+      "integrity": "sha512-+QbnGKkAetNl2/6TJxljzaTUUEjaRJ6LaCbGBeehMby9RVr3R8csRnuGZHxfdUBpsdJ1T/fOgwmImMUmpZSh4w==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
@@ -687,21 +687,21 @@
       }
     },
     "node_modules/@angular-eslint/bundled-angular-compiler": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-19.0.0.tgz",
-      "integrity": "sha512-q6IaiqKYcmBW/gw55tytDucguo5E48szVCLNLHUFdN98YDDsP+KM3MPWYPyZcXpusmFfIjLdr8d41PlKmyMUpg==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-19.0.1.tgz",
+      "integrity": "sha512-ENnRzQdXKKisX0G2b7FmQu1IfhvPCrpZW2I4KMXNTOEp4+eouIoUzzHgM0dsRaXwB/RUfwBblTuAx8HZHW1oxw==",
       "dev": true,
       "license": "MIT"
     },
     "node_modules/@angular-eslint/eslint-plugin": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/eslint-plugin/-/eslint-plugin-19.0.0.tgz",
-      "integrity": "sha512-WkUnH5zmvC/cH6f8BGiRK+KebrKdGbQmhtu3IHLEyzG9U4mBiIV8XkSzhdkY3RCN8bKqhmE5C3oNBLNCtvg4QQ==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/eslint-plugin/-/eslint-plugin-19.0.1.tgz",
+      "integrity": "sha512-pjS/G65ilytiQWhpz1EU7kOyNn11ZyonRZmLgH1MoES6LW2m+a9B5+zLSd+JOQxiRIkdcVeyCzRWmku0LmHBsg==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
-        "@angular-eslint/bundled-angular-compiler": "19.0.0",
-        "@angular-eslint/utils": "19.0.0"
+        "@angular-eslint/bundled-angular-compiler": "19.0.1",
+        "@angular-eslint/utils": "19.0.1"
       },
       "peerDependencies": {
         "@typescript-eslint/utils": "^7.11.0 || ^8.0.0",
@@ -710,14 +710,14 @@
       }
     },
     "node_modules/@angular-eslint/eslint-plugin-template": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-19.0.0.tgz",
-      "integrity": "sha512-d2NzuAyvFo00QGBv6BLno0KZ3Ptd+UNVHpI9vwU0giaZcjVsdKbcMvMfynkvHAAwVIVw5aSLwabIjnm0rc3x3A==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-19.0.1.tgz",
+      "integrity": "sha512-PIsv12/Rom7OUbPuSBvwtwt0hH06/cq8LMy1TQHByT2GL7/PRTn+kIrFG+eYx1IyRJXdtXjKcilLVRW8CDoFpA==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
-        "@angular-eslint/bundled-angular-compiler": "19.0.0",
-        "@angular-eslint/utils": "19.0.0",
+        "@angular-eslint/bundled-angular-compiler": "19.0.1",
+        "@angular-eslint/utils": "19.0.1",
         "aria-query": "5.3.2",
         "axobject-query": "4.1.0"
       },
@@ -729,16 +729,16 @@
       }
     },
     "node_modules/@angular-eslint/schematics": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/schematics/-/schematics-19.0.0.tgz",
-      "integrity": "sha512-fle4SMxjI+91y5eR6hVG7yhzJHAw87LudHw918hGUVn2INIAW1TTuuQNoah8kNg9I6ICIDat26IenD4nOau6Gg==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/schematics/-/schematics-19.0.1.tgz",
+      "integrity": "sha512-vFUSujsmJySYmCsth0HTN+JAE+2GxNLQZFKSaUgcx1+TfUaEwnt8FH4tNgfOdr3oGI8QHypYqPa7vvR/QA2D/w==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
         "@angular-devkit/core": ">= 19.0.0 < 20.0.0",
         "@angular-devkit/schematics": ">= 19.0.0 < 20.0.0",
-        "@angular-eslint/eslint-plugin": "19.0.0",
-        "@angular-eslint/eslint-plugin-template": "19.0.0",
+        "@angular-eslint/eslint-plugin": "19.0.1",
+        "@angular-eslint/eslint-plugin-template": "19.0.1",
         "ignore": "6.0.2",
         "semver": "7.6.3",
         "strip-json-comments": "3.1.1"
@@ -812,13 +812,13 @@
       }
     },
     "node_modules/@angular-eslint/template-parser": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/template-parser/-/template-parser-19.0.0.tgz",
-      "integrity": "sha512-bOLMNBQbrLMujGWSda0SF8ka7snQ9Uzxie1dr5LquI104p2J4Wt90DOoaWzhNaBBwedt3WXmhSHmvvR9720kHA==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/template-parser/-/template-parser-19.0.1.tgz",
+      "integrity": "sha512-h0d9sPHxjJza+KkEBuVhxGdwWS9te65ZpQbltMzC8Lug6iusIu+bGM2UigKWU5SsFoOwfQ1/4mIJJ7H2+Em+pQ==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
-        "@angular-eslint/bundled-angular-compiler": "19.0.0",
+        "@angular-eslint/bundled-angular-compiler": "19.0.1",
         "eslint-scope": "^8.0.2"
       },
       "peerDependencies": {
@@ -827,13 +827,13 @@
       }
     },
     "node_modules/@angular-eslint/utils": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-eslint/utils/-/utils-19.0.0.tgz",
-      "integrity": "sha512-PH40BmIcIr5ldr08XYnqJ8cTzJfScJjBym4SECsilBnz5fhCdTD7UEQiW4d0P78Ie8H5PxvOJx9ZE+L4WBNrTA==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/@angular-eslint/utils/-/utils-19.0.1.tgz",
+      "integrity": "sha512-t0jlld7GhaZnvKmlqwHEhzteJ1hfTNsqhYycDO1GthXXohswtmS2uePMrD2LDUS/YyHFyDdXLjdxtSmDLifK0Q==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
-        "@angular-eslint/bundled-angular-compiler": "19.0.0"
+        "@angular-eslint/bundled-angular-compiler": "19.0.1"
       },
       "peerDependencies": {
         "@typescript-eslint/utils": "^7.11.0 || ^8.0.0",
@@ -3113,9 +3113,9 @@
       }
     },
     "node_modules/@cypress/code-coverage": {
-      "version": "3.13.7",
-      "resolved": "https://registry.npmjs.org/@cypress/code-coverage/-/code-coverage-3.13.7.tgz",
-      "integrity": "sha512-E8oT0D1cA363cot4q7wonaDATAPybj7/DJ3PAE+BCmEBy41aYWn5DaEYWLRYe8eg+h4IlNPkZG1QMVo33pMcfw==",
+      "version": "3.13.8",
+      "resolved": "https://registry.npmjs.org/@cypress/code-coverage/-/code-coverage-3.13.8.tgz",
+      "integrity": "sha512-liUtYL42nbEUkMKtB8H2sudI7gREeKNSTO1VbvFRjiRxj+2hurEkxgbVB8fmjm10iQrDeiX6XGEIL2IefcdC0A==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
@@ -5372,12 +5372,13 @@
       }
     },
     "node_modules/@types/dompurify": {
-      "version": "3.0.5",
-      "resolved": "https://registry.npmjs.org/@types/dompurify/-/dompurify-3.0.5.tgz",
-      "integrity": "sha512-1Wg0g3BtQF7sSb27fJQAKck1HECM6zV1EB66j8JH9i3LCjYabJa0FSdiSgsD5K/RbrsR0SiraKacLB+T8ZVYAg==",
+      "version": "3.2.0",
+      "resolved": "https://registry.npmjs.org/@types/dompurify/-/dompurify-3.2.0.tgz",
+      "integrity": "sha512-Fgg31wv9QbLDA0SpTOXO3MaxySc4DKGLi8sna4/Utjo4r3ZRPdCt4UQee8BWr+Q5z21yifghREPJGYaEOEIACg==",
+      "deprecated": "This is a stub types definition. dompurify provides its own type definitions, so you do not need this installed.",
       "license": "MIT",
       "dependencies": {
-        "@types/trusted-types": "*"
+        "dompurify": "*"
       }
     },
     "node_modules/@types/estree": {
@@ -5585,7 +5586,8 @@
       "version": "2.0.7",
       "resolved": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz",
       "integrity": "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==",
-      "license": "MIT"
+      "license": "MIT",
+      "optional": true
     },
     "node_modules/@types/wrap-ansi": {
       "version": "3.0.0",
@@ -6164,19 +6166,19 @@
       }
     },
     "node_modules/angular-eslint": {
-      "version": "19.0.0",
-      "resolved": "https://registry.npmjs.org/angular-eslint/-/angular-eslint-19.0.0.tgz",
-      "integrity": "sha512-8qYxqVMoRVKlpDKuGiNMG9ZPk7ke7ZOo3IxefFsB7Fpom8iRjOnH9tD9gLeYCHZWY1qYignLdeRqYmF/rRxF1A==",
+      "version": "19.0.1",
+      "resolved": "https://registry.npmjs.org/angular-eslint/-/angular-eslint-19.0.1.tgz",
+      "integrity": "sha512-sBup7/9I8+/xboKJYR2LZ3TU4qFgeYDkPM5cmLSxk/5tjvihG63684sktys2Uofq3+WmBjHFsc9WAd3VSApZ+Q==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
         "@angular-devkit/core": ">= 19.0.0 < 20.0.0",
         "@angular-devkit/schematics": ">= 19.0.0 < 20.0.0",
-        "@angular-eslint/builder": "19.0.0",
-        "@angular-eslint/eslint-plugin": "19.0.0",
-        "@angular-eslint/eslint-plugin-template": "19.0.0",
-        "@angular-eslint/schematics": "19.0.0",
-        "@angular-eslint/template-parser": "19.0.0",
+        "@angular-eslint/builder": "19.0.1",
+        "@angular-eslint/eslint-plugin": "19.0.1",
+        "@angular-eslint/eslint-plugin-template": "19.0.1",
+        "@angular-eslint/schematics": "19.0.1",
+        "@angular-eslint/template-parser": "19.0.1",
         "@typescript-eslint/types": "^8.0.0",
         "@typescript-eslint/utils": "^8.0.0"
       },
@@ -15788,9 +15790,9 @@
       "optional": true
     },
     "node_modules/pdfjs-dist": {
-      "version": "4.9.124",
-      "resolved": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-4.9.124.tgz",
-      "integrity": "sha512-yAoM7C+IYIG23dAZHE2KqtE5exEj067Ef6oblb+AHiqLwTJSQOMB+e8ftBA3pp1+6TyE4xeofoHcu9t7XaOE0g==",
+      "version": "4.9.155",
+      "resolved": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-4.9.155.tgz",
+      "integrity": "sha512-epRZn6DQQKCOEqbmFsxkiMBm1MHaNrnr6T4VBNP0bsDvdJdmrWcZbS5cgJXW68P0d3uJTlFhF6Wms2tlSgPYig==",
       "license": "Apache-2.0",
       "engines": {
         "node": ">=20"
