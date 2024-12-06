@@ -1,3 +1,14 @@
+Changes in version 5.0.33
+    Complete implementation of CSP policy based on Trusted-Types
+    Enforce validation of every admin config or user input by means of DOMPurify
+    Restrict usage of CSS inline scripts (#4345) as previously done on v4
+    Fix bug in gl-admin utility preventing possibility to reset 2fa
+    Correct feature of re-ordering of questions options (#4348)
+    Fix issues #4341, #4344
+    Improve packaging of css libraries and overrides
+    Bump client dependencies to latest versions
+    Update translations
+
 Changes in version 5.0.32
     Revise language changes utilities in relation to issue #4315
     Fixed validation of multistep questionnaires and extend validation to files (#4336)
