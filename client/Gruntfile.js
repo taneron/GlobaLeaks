@@ -50,8 +50,8 @@ module.exports = function(grunt) {
           {dest: "build/js", cwd: "tmp/js", src: ["**"], expand: true},
           {dest: "build/data", cwd: "tmp/assets/data", src: ["**"], expand: true},
           {dest: "build/viewer/", cwd: ".", src: ["app/viewer/*"], expand: true, flatten: true},
-          {dest: "build/viewer/", cwd: "./node_modules/", src: ["pdfjs-dist/build/pdf.min.js"], expand: true, flatten: true },
-          {dest: "build/viewer/", cwd: "./node_modules/", src: ["pdfjs-dist/build/pdf.worker.min.js"], expand: true, flatten: true },
+          {dest: "build/viewer/", cwd: "./node_modules/", src: ["pdfjs-dist/legacy/build/pdf.min.js"], expand: true, flatten: true },
+          {dest: "build/viewer/", cwd: "./node_modules/", src: ["pdfjs-dist/legacy/build/pdf.worker.min.js"], expand: true, flatten: true },
           {dest: "build/index.html", cwd: ".", src: ["tmp/index.html"], expand: false, flatten: true},
           {dest: "build/license.txt", cwd: ".", src: ["../LICENSE"], expand: false, flatten: true},
         ]
