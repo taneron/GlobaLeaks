@@ -24,7 +24,9 @@ class ViewerHandler(StaticFileHandler):
                                    b"img-src blob:;"
                                    b"media-src blob:;"
                                    b"script-src 'self';"
-                                   b"style-src 'self';")
+                                   b"style-src 'self';"
+                                   b"trusted-types;"
+                                   b"require-trusted-types-for 'script';")
 
             self.request.setHeader(b"Cross-Origin-Resource-Policy", "cross-origin")
 

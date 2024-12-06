@@ -40,6 +40,7 @@ class StaticFileHandler(BaseHandler):
                                    b"media-src 'self';"
                                    b"script-src 'self' 'sha256-l4srTx31TC+tE2K4jVVCnC9XfHivkiSs/v+DPWccDDM=';"
                                    b"style-src 'self';"
-                                   b"trusted-types angular angular#bundler dompurify;")
+                                   b"trusted-types angular angular#bundler dompurify;"
+                                   b"require-trusted-types-for 'script';")
 
         return self.write_file(filename, abspath)

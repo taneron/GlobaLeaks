@@ -495,7 +495,9 @@ class APIResourceWrapper(Resource):
                           b"default-src 'none';"
                           b"form-action 'none';"
                           b"frame-ancestors 'none';"
-                          b"sandbox;")
+                          b"sandbox;"
+                          b"trusted-types;"
+                          b"require-trusted-types-for 'script';")
 
         request.setHeader(b"Cross-Origin-Embedder-Policy", "require-corp")
         request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")
