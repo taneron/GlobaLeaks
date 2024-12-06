@@ -73,7 +73,9 @@ class TestAPI(TestGL):
                                         'default-src \'none\';' \
                                         'form-action \'none\';' \
                                         'frame-ancestors \'none\';' \
-                                        'sandbox;'),
+                                        'sandbox;' \
+                                        'trusted-types;' \
+                                        'require-trusted-types-for \'script\';'),
             ('Cross-Origin-Embedder-Policy', 'require-corp'),
             ('Cross-Origin-Opener-Policy', 'same-origin'),
             ('Cross-Origin-Resource-Policy', 'same-origin'),
