@@ -2,6 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, HostListener, OnDestroy, On
 import {AppConfigService} from "@app/services/root/app-config.service";
 import {AppDataService} from "@app/app-data.service";
 import {UtilsService} from "@app/shared/services/utils.service";
+import {TrustedTypesService} from "@app/services/helper/trusted-types.service";
 import {LangChangeEvent, TranslateService, TranslateModule} from "@ngx-translate/core";
 import {NavigationEnd, Router, RouterOutlet} from "@angular/router";
 import {BrowserCheckService} from "@app/shared/services/browser-check.service";
@@ -78,6 +79,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   private keepalive = inject(Keepalive);
   private httpService = inject(HttpService);
   private bodyDomObserver = inject(BodyDomObserverService);
+  private TrustedTypesService = inject(TrustedTypesService);
 
   showSidebar: boolean = true;
   isNavCollapsed: boolean = true;
