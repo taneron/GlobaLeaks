@@ -132,7 +132,7 @@ Content-Security-Policy
 The backend implements a strict `Content Security Policy (CSP) <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ preventing any interaction with third-party resources and restricting execution of code by means of `Trusted Types <https://www.w3.org/TR/trusted-types/>`_.
 ::
 
-  Content-Security-Policy: base-uri 'none'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'self'; img-src 'self'; media-src 'self'; script-src 'self'; style-src 'self'; trusted-types angular angular#bundler default dompurify; require-trusted-types-for 'script';
+  Content-Security-Policy: base-uri 'none'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'self'; img-src 'self'; media-src 'self'; script-src 'self'; style-src 'self'; trusted-types angular angular#bundler default dompurify; require-trusted-types-for 'script'; report-uri /api/report; report-sample;
 
 Specific policies are implemented in adherence to the principle of least privilege.
 
@@ -141,6 +141,8 @@ For example:
 * The `index.html` source of the app is the only resource allowed to load scripts from the same origin;
 * Every dynamic content is strictly sandboxed on a null origin;
 * Every untrusted user input or third-party library is executed in a sandbox, limiting its interaction with other application components.
+
+The application implements a dedicated API handler /api/report to receive and log samples of attempts of violations of the content security policy.
 
 Cross-Origin-Embedder-Policy
 ++++++++++++++++++++++++++++
