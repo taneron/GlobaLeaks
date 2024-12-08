@@ -1,3 +1,8 @@
+Changes in version 5.0.34
+    Revise Trusted-Types implementation enforcing usage of a 'default' policy
+    Implement handler to collect reporting of attemps of violation to the Content Security Policy
+    [doc] Extend documentation adding detail about the revisions on the Content Security Policy
+
 Changes in version 5.0.33
     Complete implementation of CSP policy based on Trusted-Types
     Enforce validation of every admin config or user input by means of DOMPurify
