@@ -41,6 +41,8 @@ class StaticFileHandler(BaseHandler):
                                    b"script-src 'self' 'sha256-l4srTx31TC+tE2K4jVVCnC9XfHivkiSs/v+DPWccDDM=';"
                                    b"style-src 'self';"
                                    b"trusted-types angular angular#bundler dompurify default;"
-                                   b"require-trusted-types-for 'script';")
+                                   b"require-trusted-types-for 'script';"
+                                   b"report-uri /api/report;"
+                                   b"report-sample;")
 
         return self.write_file(filename, abspath)

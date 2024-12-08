@@ -96,6 +96,7 @@ class SettingsClass(object, metaclass=Singleton):
         self.log_path = os.path.abspath(os.path.join(self.working_path, 'log'))
         self.logfile = os.path.abspath(os.path.join(self.log_path, 'globaleaks.log'))
         self.accesslogfile = os.path.abspath(os.path.join(self.log_path, "access.log"))
+        self.csp_report_file = os.path.abspath(os.path.join(self.log_path, "csp-report.log"))
 
         # Client path detection
         client_found=False

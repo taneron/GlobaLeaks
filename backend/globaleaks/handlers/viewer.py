@@ -26,7 +26,9 @@ class ViewerHandler(StaticFileHandler):
                                    b"script-src 'self';"
                                    b"style-src 'self';"
                                    b"trusted-types;"
-                                   b"require-trusted-types-for 'script';")
+                                   b"require-trusted-types-for 'script';"
+                                   b"report-uri /api/report;"
+                                   b"report-sample;")
 
             self.request.setHeader(b"Cross-Origin-Resource-Policy", "cross-origin")
 

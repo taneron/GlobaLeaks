@@ -75,7 +75,9 @@ class TestAPI(TestGL):
                                         'frame-ancestors \'none\';' \
                                         'sandbox;' \
                                         'trusted-types;' \
-                                        'require-trusted-types-for \'script\';'),
+                                        'require-trusted-types-for \'script\';'
+                                        'report-uri /api/report;'
+                                        'report-sample;'),
             ('Cross-Origin-Embedder-Policy', 'require-corp'),
             ('Cross-Origin-Opener-Policy', 'same-origin'),
             ('Cross-Origin-Resource-Policy', 'same-origin'),

@@ -25,6 +25,7 @@ from globaleaks.handlers import admin, \
                                 public, \
                                 recipient, \
                                 redirect, \
+                                report, \
                                 robots, \
                                 security, \
                                 signup, \
@@ -47,6 +48,7 @@ key_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-
 
 api_spec = [
     (r'/api/health', health.HealthStatusHandler),
+    (r'/api/report', report.ReportHandler),
 
     # Public API
     (r'/api/public', public.PublicResource),
@@ -497,7 +499,9 @@ class APIResourceWrapper(Resource):
                           b"frame-ancestors 'none';"
                           b"sandbox;"
                           b"trusted-types;"
-                          b"require-trusted-types-for 'script';")
+                          b"require-trusted-types-for 'script';"
+                          b"report-uri /api/report;"
+                          b"report-sample;")
 
         request.setHeader(b"Cross-Origin-Embedder-Policy", "require-corp")
         request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")
