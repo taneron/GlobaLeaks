@@ -494,14 +494,13 @@ class APIResourceWrapper(Resource):
 
         request.setHeader(b'Content-Security-Policy',
                           b"base-uri 'none';"
-                          b"default-src 'none';"
+                          b"default-src 'none' 'report-sample';"
                           b"form-action 'none';"
                           b"frame-ancestors 'none';"
                           b"sandbox;"
                           b"trusted-types;"
                           b"require-trusted-types-for 'script';"
-                          b"report-uri /api/report;"
-                          b"report-sample;")
+                          b"report-uri /api/report;")
 
         request.setHeader(b"Cross-Origin-Embedder-Policy", "require-corp")
         request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")

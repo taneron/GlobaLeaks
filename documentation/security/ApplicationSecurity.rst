@@ -132,7 +132,7 @@ Content-Security-Policy
 The backend implements a strict `Content Security Policy (CSP) <https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP>`_ preventing any interaction with third-party resources and restricting execution of code by means of `Trusted Types <https://www.w3.org/TR/trusted-types/>`_.
 ::
 
-  Content-Security-Policy: base-uri 'none'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'self'; img-src 'self'; media-src 'self'; script-src 'self'; style-src 'self'; trusted-types angular angular#bundler default dompurify; require-trusted-types-for 'script'; report-uri /api/report; report-sample;
+  Content-Security-Policy: base-uri 'none'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'self'; img-src 'self'; media-src 'self'; script-src 'self' 'report-sample'; style-src 'self' 'report-sample'; trusted-types angular angular#bundler default dompurify; require-trusted-types-for 'script'; report-uri /api/report;
 
 Specific policies are implemented in adherence to the principle of least privilege.
 
