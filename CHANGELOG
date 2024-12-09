@@ -1,3 +1,6 @@
+Changes in version 5.0.36
+    Fix loading of customizations in compatibility with new CSP
+
 Changes in version 5.0.35
     Revise implementation of CSP in relation to 'report-sample' directive
 
