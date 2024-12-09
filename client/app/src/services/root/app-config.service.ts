@@ -9,7 +9,6 @@ import {Router, NavigationEnd, ActivatedRoute} from "@angular/router";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {LanguagesSupported} from "@app/models/app/public-model";
 import {TitleService} from "@app/shared/services/title.service";
-import {CustomFileLoaderServiceService} from "@app/services/helper/custom-file-loader-service.service";
 import {NgZone} from "@angular/core";
 
 @Injectable({
@@ -17,7 +16,6 @@ import {NgZone} from "@angular/core";
 })
 export class AppConfigService {
   private location = inject(Location);
-  private customFileLoaderServiceService = inject(CustomFileLoaderServiceService);
   private titleService = inject(TitleService);
   authenticationService = inject(AuthenticationService);
   private translationService = inject(TranslationService);
@@ -31,7 +29,6 @@ export class AppConfigService {
   private isRunning: boolean = false;
 
   public sidebar: string = "";
-  private firstLoad = true;
 
   constructor() {
     this.init();
@@ -105,11 +102,6 @@ export class AppConfigService {
         this.appDataService.connection = {
           "tor": data.headers.get("X-Check-Tor") === "true" || location.host.match(/\.onion$/),
         };
-
-        if(this.firstLoad){
-          this.firstLoad = false;
-          this.customFileLoaderServiceService.loadCustomFiles();
-        }
 
         this.appDataService.privacy_badge_open = !this.appDataService.connection.tor;
         this.appDataService.languages_enabled = new Map<string, LanguagesSupported>();

@@ -4,7 +4,7 @@
       <div class="form-group">
         <div>
           @for (admin_file of admin_files; track admin_file) {
-            <src-admin-file [adminFile]="admin_file"></src-admin-file>
+          <src-admin-file [adminFile]="admin_file"[present]="files_names.indexOf(admin_file.varname) !== -1"></src-admin-file>
           }
         </div>
         <div class="mb-2">
@@ -23,6 +23,7 @@
           <table class="table table-striped" id="fileList">
             <tbody id="fileListBody">
               @for (file of files | orderBy:'name'; track file) {
+	        @if (files_names.indexOf(file.name) === -1) {
                 <tr>
                   <td id="file_name">{{file.name}}</td>
                   <td>
@@ -36,6 +37,7 @@
                     </button>
                   </td>
                 </tr>
+		}
               }
             </tbody>
           </table>

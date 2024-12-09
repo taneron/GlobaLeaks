@@ -139,11 +139,19 @@ module.exports = function(grunt) {
           replacements: [
             {
               pattern: /<script src="(\w+)\.js" type="module"><\/script>/g,
-              replacement: '<script src="js/$1.js" type="module"></script>'
+              replacement: "<script src=\"js/$1.js\" type=\"module\"></script>"
             },
             {
               pattern: /<link rel="stylesheet" href="/g,
               replacement: "<link rel=\"stylesheet\" href=\"css/"
+            },
+            {
+              pattern: /<\/head>/g,
+              replacement: "<link rel=\"stylesheet\" href=\"s/css\"></head>"
+            },
+            {
+              pattern: /<\/body>/g,
+              replacement: "<script src=\"s/script\" type=\"module\"></script>"
             }
           ]
         }

@@ -18,7 +18,6 @@ import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
 import {TranslateModule} from "@ngx-translate/core";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
-
 @Component({
     selector: "src-tab2",
     templateUrl: "./tab2.component.html",
@@ -37,6 +36,7 @@ export class Tab2Component implements OnInit {
   @ViewChild("uploader") uploaderInput: ElementRef;
 
   files: FlowFile[] = [];
+  files_names: string[] = [];
   flow: FlowDirective;
   preferenceData: preferenceResolverModel;
   authenticationData: AuthenticationService;
@@ -119,6 +119,10 @@ export class Tab2Component implements OnInit {
     this.utilsService.getFiles().subscribe(
       (updatedFiles) => {
         this.files = updatedFiles;
+	this.files_names.splice(0, this.files_names.length);
+	this.files.forEach(file => {
+          this.files_names.push(file.name);
+	});
       }
     );
   }
