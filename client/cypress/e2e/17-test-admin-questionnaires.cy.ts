@@ -127,6 +127,7 @@ describe("admin add, configure and delete questionnaires", () => {
       });
 
     });
+    cy.wait(5000)
     cy.logout();
   });
   it("should add duplicate questionnaire", function () {
