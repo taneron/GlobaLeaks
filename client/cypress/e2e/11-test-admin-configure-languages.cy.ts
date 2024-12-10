@@ -30,7 +30,7 @@ describe("admin configure languages", () => {
 
     cy.waitForUrl("/#/admin/settings");
     cy.get('#LanguagePickerBox').should('be.visible').find('ng-select').last().click().get('ng-dropdown-panel').contains('Italiano').click();
-    cy.get('[name="node.dataModel.header_title_homepage"]').clear().type("TEXT1_IT");
+    cy.get('[name="node.dataModel.header_title_homepage"]').should('be.visible').clear().type("TEXT1_IT");
     cy.get('[name="node.dataModel.presentation"]').clear().type("TEXT2_IT");
     cy.get('button.btn.btn-primary').eq(0).get("#save_settings").click();
 
@@ -60,7 +60,7 @@ describe("admin configure languages", () => {
     cy.visit("/#/admin/settings");
     cy.waitForUrl("/#/admin/settings");
     cy.get('#LanguagePickerBox').should('be.visible', { timeout: 10000 }).find('ng-select').last().click().get('ng-dropdown-panel').contains('Italian').click();
-    cy.get('[name="node.dataModel.header_title_homepage"]').clear();
+    cy.get('[name="node.dataModel.header_title_homepage"]').should('be.visible').clear();
     cy.get('[name="node.dataModel.presentation"]').clear();
     cy.get('button.btn.btn-primary').eq(0).get("#save_settings").click();
 
