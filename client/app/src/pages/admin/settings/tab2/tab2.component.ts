@@ -37,6 +37,7 @@ export class Tab2Component implements OnInit {
 
   files: FlowFile[] = [];
   files_names: string[] = [];
+  special_files_names = ['css', 'favicon', 'logo', 'script'];
   flow: FlowDirective;
   preferenceData: preferenceResolverModel;
   authenticationData: AuthenticationService;
