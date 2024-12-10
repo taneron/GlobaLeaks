@@ -60,10 +60,10 @@ describe("admin configure languages", () => {
 
     cy.visit("/#/admin/settings");
     cy.waitForUrl("/#/admin/settings");
-    cy.get('#LanguagePickerBox').should('be.visible', { timeout: 10000 }).find('ng-select').last().click().get('ng-dropdown-panel').contains('Italian').click();
+    cy.get('#LanguagePickerBox').should('be.visible').find('ng-select').last().click().get('ng-dropdown-panel').contains('Italian').click();
     cy.get('#LanguagePickerBox').should('be.visible')
     cy.get('[name="node.dataModel.header_title_homepage"]').should('be.visible').clear();
-    cy.get('[name="node.dataModel.presentation"]').clear();
+    cy.get('[name="node.dataModel.presentation"]').should('be.visible').clear();
     cy.get('button.btn.btn-primary').eq(0).get("#save_settings").click();
 
     cy.logout();
