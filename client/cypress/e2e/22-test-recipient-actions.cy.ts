@@ -18,7 +18,7 @@ describe("recipient admin tip actions", () => {
     cy.login_receiver();
 
     cy.visit("/#/recipient/reports");
-    cy.get("#tip-action-open-new-tab").click();
+    cy.get("#tip-action-act-as-whistleblower").click();
     cy.visit("/#/recipient/reports");
 
     cy.logout();
