@@ -1,5 +1,5 @@
-.js-disabled-message {
-  display: none;
+#BrowserNotSupported, #JavaScriptDisabled {
+  padding: 10em;
 }
 
 .reveal {
