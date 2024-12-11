@@ -1,3 +1,8 @@
+Changes in version 5.0.37
+    Fix visualization of uploaded configuration files
+    Revise detection and messaging about unsupported browsers
+    Bump client dependencies to latest versions
+
 Changes in version 5.0.36
     Fix loading of customizations in compatibility with new CSP
 
