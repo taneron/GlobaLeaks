@@ -1,3 +1,6 @@
+Changes in version 5.0.38
+    Correct PDF viewer re-including pdfjs v3
+
 Changes in version 5.0.37
     Fix visualization of uploaded configuration files
     Revise detection and messaging about unsupported browsers
