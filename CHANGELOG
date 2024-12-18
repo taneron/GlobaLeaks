@@ -1,3 +1,8 @@
+Changes in version 5.0.39
+    Ensure voice questions could work when defined in question templates
+    Bump pdfjs again to v4 with proper packaging
+    Bump client dependencies to latest version
+
 Changes in version 5.0.38
     Correct PDF viewer re-including pdfjs v3
 
