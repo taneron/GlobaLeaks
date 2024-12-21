@@ -42,8 +42,8 @@
         "@ng-idle/core": "16.0.0",
         "@ng-idle/keepalive": "16.0.0",
         "@ng-select/ng-select": "14.1.0",
-        "@ngx-translate/core": "16.0.3",
-        "@ngx-translate/http-loader": "16.0.0",
+        "@ngx-translate/core": "16.0.4",
+        "@ngx-translate/http-loader": "16.0.1",
         "@types/angular": "1.8.9",
         "@types/dompurify": "3.2.0",
         "@types/flowjs__flow.js": "2.13.3",
@@ -81,7 +81,7 @@
         "@lodder/grunt-postcss": "3.1.1",
         "@popperjs/core": "2.11.8",
         "angular-eslint": "19.0.2",
-        "cypress": "13.16.1",
+        "cypress": "13.17.0",
         "eslint": "9.17.0",
         "gettext-parser": "8.0.0",
         "grunt": "1.6.1",
@@ -93,7 +93,7 @@
         "less": "4.2.1",
         "load-grunt-tasks": "5.1.0",
         "node-gettext": "3.0.0",
-        "npm-check-updates": "17.1.11",
+        "npm-check-updates": "17.1.12",
         "nyc": "17.1.0",
         "postcss": "8.4.49",
         "postcss-rtlcss": "5.6.0",
@@ -4789,9 +4789,9 @@
       }
     },
     "node_modules/@ngx-translate/core": {
-      "version": "16.0.3",
-      "resolved": "https://registry.npmjs.org/@ngx-translate/core/-/core-16.0.3.tgz",
-      "integrity": "sha512-UPse66z9tRUmIpeorYodXBQY6O4foUmj9jy9cCuuja7lqdOwRBWPzCWqc+qYIXv5L2QoqZdxgHtqoUz+Q9weSA==",
+      "version": "16.0.4",
+      "resolved": "https://registry.npmjs.org/@ngx-translate/core/-/core-16.0.4.tgz",
+      "integrity": "sha512-s8llTL2SJvROhqttxvEs7Cg+6qSf4kvZPFYO+cTOY1d8DWTjlutRkWAleZcPPoeX927Dm7ALfL07G7oYDJ7z6w==",
       "license": "MIT",
       "dependencies": {
         "tslib": "^2.3.0"
@@ -4802,9 +4802,9 @@
       }
     },
     "node_modules/@ngx-translate/http-loader": {
-      "version": "16.0.0",
-      "resolved": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-16.0.0.tgz",
-      "integrity": "sha512-l3okOHGVxZ1Bm55OpakSfXvI2yYmVmhYqgwGU4aIQIRUqpkBCrSDZnmrHTcZfsGJzXKB5E2D2rko9i28gBijmA==",
+      "version": "16.0.1",
+      "resolved": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-16.0.1.tgz",
+      "integrity": "sha512-xJEOUpvs6Zfc8G4cmQmegFOEpfYSoplTHHoisPNrATXjRBjpaKsBaPOXlZsuFUW2XV00s16gIyI4+9z1XkO5bw==",
       "license": "MIT",
       "dependencies": {
         "tslib": "^2.3.0"
@@ -8113,9 +8113,9 @@
       }
     },
     "node_modules/cypress": {
-      "version": "13.16.1",
-      "resolved": "https://registry.npmjs.org/cypress/-/cypress-13.16.1.tgz",
-      "integrity": "sha512-17FtCaz0cx7ssWYKXzGB0Vub8xHwpVPr+iPt2fHhLMDhVAPVrplD+rTQsZUsfb19LVBn5iwkEUFjQ1yVVJXsLA==",
+      "version": "13.17.0",
+      "resolved": "https://registry.npmjs.org/cypress/-/cypress-13.17.0.tgz",
+      "integrity": "sha512-5xWkaPurwkIljojFidhw8lFScyxhtiFHl/i/3zov+1Z5CmY4t9tjIdvSXfu82Y3w7wt0uR9KkucbhkVvJZLQSA==",
       "dev": true,
       "hasInstallScript": true,
       "license": "MIT",
@@ -14809,9 +14809,9 @@
       }
     },
     "node_modules/npm-check-updates": {
-      "version": "17.1.11",
-      "resolved": "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-17.1.11.tgz",
-      "integrity": "sha512-TR2RuGIH7P3Qrb0jfdC/nT7JWqXPKjDlxuNQt3kx4oNVf1Pn5SBRB7KLypgYZhruivJthgTtfkkyK4mz342VjA==",
+      "version": "17.1.12",
+      "resolved": "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-17.1.12.tgz",
+      "integrity": "sha512-j1+ln9wXDNLgTSMrEF9ja4KyYq4yBF8FuuU3irFtMSnss4pYjvYfQESz8CV82Rk1daXjbtaAWF9pZZKzujhoBA==",
       "dev": true,
       "license": "Apache-2.0",
       "bin": {
