@@ -374,7 +374,7 @@ export class TipComponent implements OnInit {
       contexts_by_id: this.appDataService.contexts_by_id,
       expiration_date: this.utils.getPostponeDate(this.appDataService.contexts_by_id[this.tip.context_id].tip_timetolive),
       dateOptions: {
-        minDate: new Date(this.tip.expiration_date),
+        minDate: this.utils.isNever(this.tip.expiration_date) ? this.utils.getPostponeDate(this.appDataService.contexts_by_id[this.tip.context_id].tip_reminder) : new Date(this.tip.expiration_date),
         maxDate: this.utils.getPostponeDate(Math.max(365, this.appDataService.contexts_by_id[this.tip.context_id].tip_timetolive * 2))
       },
       opened: false,

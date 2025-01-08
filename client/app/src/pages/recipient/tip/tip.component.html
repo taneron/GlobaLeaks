@@ -50,7 +50,7 @@
           </span>
         }
         @if (!tip || tip.context) {
-          @if (!tip || preferencesService.dataModel.can_postpone_expiration && tip.context.tip_timetolive > 0) {
+          @if (!tip || preferencesService.dataModel.can_postpone_expiration) {
             <span id="tip-action-postpone"
               (click)="tipPostpone()" ngbTooltip="{{'Edit the expiration date' | translate}}"
               class="btn btn-outline-secondary">
