@@ -12,6 +12,47 @@ from globaleaks.state import State
 from globaleaks.tests import helpers
 
 
+class TestAuthTypeHandler(helpers.TestHandlerWithPopulatedDB):
+    _handler = auth.AuthTypeHandler
+
+    # since all logins for roles admin, receiver and custodian happen
+    # in the same way, the following tests are performed on the recipient user.
+
+    @inlineCallbacks
+    def test_whistleblower_request(self):
+        handler = self.request({
+            'username': '',
+        })
+
+        response = yield handler.post()
+        self.assertTrue('type' in response)
+        self.assertEqual(response['type'], 'key')
+        self.assertTrue('salt' in response)
+        self.assertEqual(response['salt'], helpers.VALID_SALT1)
+
+    @inlineCallbacks
+    def test_receiver1_request(self):
+        handler = self.request({
+            'username': 'receiver1',
+        })
+
+        response = yield handler.post()
+        self.assertTrue('type' in response)
+        self.assertEqual(response['type'], 'key')
+        self.assertTrue('salt' in response)
+        self.assertEqual(response['salt'], helpers.VALID_SALT1)
+
+    @inlineCallbacks
+    def test_receiver2_request(self):
+        handler = self.request({
+            'username': 'receiver2',
+        })
+
+        response = yield handler.post()
+        self.assertTrue('type' in response)
+        self.assertEqual(response['type'], 'password')
+
+
 class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
     _handler = auth.AuthenticationHandler
 
@@ -23,7 +64,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': '',
         })
         response = yield handler.post()
@@ -34,7 +75,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         })
 
@@ -52,7 +93,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         })
         State.tenants[1].cache['https_admin'] = True
@@ -64,7 +105,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         })
         State.tenants[1].cache['https_admin'] = False
@@ -101,7 +142,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': '',
         })
 
@@ -110,7 +151,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': '',
         })
 
@@ -124,7 +165,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         auth_handler = self.request({
             'tid': 1,
             'username': 'receiver1',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': '',
         })
 
@@ -140,7 +181,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         auth_handler = self.request({
             'tid': 1,
             'username': 'receiver1',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': '',
         })
 
@@ -166,7 +207,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         }, client_addr=b'192.168.1.1')
         yield self.assertFailure(handler.post(), errors.AccessLocationInvalid)
@@ -179,7 +220,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         }, client_addr=b'192.168.2.1')
         response = yield handler.post()
@@ -192,7 +233,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_invalid_whistleblower_login(self):
         handler = self.request({
-            'receipt': 'INVALIDRECEIPT',
+            'receipt': 'INVALIDRECEIPT'
         })
         yield self.assertFailure(handler.post(), errors.InvalidAuthentication)
 
@@ -200,7 +241,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     def test_successful_whistleblower_login(self):
         yield self.perform_full_submission_actions()
         handler = self.request({
-            'receipt': self.lastReceipt,
+            'receipt': self.dummySubmission['receipt']
         })
         handler.request.client_using_tor = True
         response = yield handler.post()
@@ -209,7 +250,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_accept_whistleblower_login_in_https(self):
         yield self.perform_full_submission_actions()
-        handler = self.request({'receipt': self.lastReceipt})
+        handler = self.request({'receipt': self.dummySubmission['receipt']})
         State.tenants[1].cache['https_whistleblower'] = True
         response = yield handler.post()
         self.assertTrue('id' in response)
@@ -217,7 +258,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_deny_whistleblower_login_in_https(self):
         yield self.perform_full_submission_actions()
-        handler = self.request({'receipt': self.lastReceipt})
+        handler = self.request({'receipt': self.dummySubmission['receipt']})
         State.tenants[1].cache['https_whistleblower'] = False
         yield self.assertFailure(handler.post(), errors.TorNetworkRequired)
 
@@ -230,7 +271,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         yield self.perform_full_submission_actions()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         handler.request.client_using_tor = True
@@ -242,7 +283,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         yield wbtip_handler.get()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         response = yield handler.post()
@@ -257,7 +298,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         valid_session = Sessions.get(second_id)
         self.assertTrue(valid_session is not None)
 
-        self.assertEqual(valid_session.user_role, 'whistleblower')
+        self.assertEqual(valid_session.role, 'whistleblower')
 
         wbtip_handler = self.request(headers={'x-session': second_id},
                                      handler_cls=WBTipInstance)
@@ -269,14 +310,13 @@ class TestSessionHandler(helpers.TestHandlerWithPopulatedDB):
     def test_successful_admin_session_setup_renewal_and_logout(self):
         # since all logins for roles admin, receiver and custodian happen
         # in the same way, the following tests are performed on the admin user.
-
         self._handler = auth.AuthenticationHandler
 
         # Login
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_PASSWORD1,
+            'password': helpers.VALID_KEY1,
             'authcode': ''
         })
 
@@ -289,6 +329,7 @@ class TestSessionHandler(helpers.TestHandlerWithPopulatedDB):
         session_id = response['id']
         session = Sessions.get(session_id)
         session.token.id = helpers.TOKEN
+        session.token.salt = helpers.TOKEN_SALT
 
         # Wrong Session Renewal
         handler = self.request({'token': 'wrong_token:666'}, headers={'x-session': session_id})
@@ -311,7 +352,7 @@ class TestSessionHandler(helpers.TestHandlerWithPopulatedDB):
         yield self.perform_full_submission_actions()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         handler.request.client_using_tor = True

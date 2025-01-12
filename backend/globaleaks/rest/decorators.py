@@ -48,7 +48,7 @@ def decorator_qos(f):
 def decorator_rate_limit(f):
     # Decorator that enforces rate limiting on authenticated whistleblowers' sessions
     def wrapper(self, *args, **kwargs):
-        if self.session and self.session.user_role == 'whistleblower':
+        if self.session and self.session.role == 'whistleblower':
             if self.request.path == b'/api/whistleblower/submission':
                 if 1 in State.tenants:
                     State.RateLimitingTable.check(self.request.path + b'#' + str(self.request.tid).encode(),
@@ -84,7 +84,7 @@ def decorator_rate_limit(f):
 def decorator_require_session_or_token(f):
     # Decorator that ensures a token or a session is included in the request
     def wrapper(self, *args, **kwargs):
-        if not self.request.path in [b"/api/auth/token", b"/api/report"] and not self.token and not self.session:
+        if not self.request.path in [b"/api/auth/token", b"/api/auth/type", b"/api/report"] and not self.token and not self.session:
             raise errors.InternalServerError("Invalid request: No token and no session")
 
         return f(self, *args, **kwargs)
@@ -98,8 +98,8 @@ def decorator_authentication(f, roles):
         if (('any' in roles) or
             ((self.session and self.session.tid == self.request.tid) and
              (('user' in roles and
-               self.session.user_role in ['admin', 'analyst', 'custodian', 'receiver']) or
-              (self.session.user_role in roles)))):
+               self.session.role in ['admin', 'analyst', 'custodian', 'receiver']) or
+              (self.session.role in roles)))):
 
             return f(self, *args, **kwargs)
 

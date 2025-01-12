@@ -30,6 +30,7 @@ from globaleaks.handlers import admin, \
                                 security, \
                                 signup, \
                                 sitemap, \
+                                support, \
                                 staticfile, \
                                 support, \
                                 user, \
@@ -56,6 +57,7 @@ api_spec = [
     # Authentication Handlers
     (r'/api/auth/token', auth.token.TokenHandler),
     (r'/api/auth/authentication', auth.AuthenticationHandler),
+    (r'/api/auth/type', auth.AuthTypeHandler),
     (r'/api/auth/tokenauth', auth.TokenAuthHandler),
     (r'/api/auth/receiptauth', auth.ReceiptAuthHandler),
     (r'/api/auth/session', auth.SessionHandler),

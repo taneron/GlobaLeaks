@@ -16,7 +16,7 @@ from globaleaks.models.config import ConfigFactory
 from globaleaks.orm import db_del, transact
 from globaleaks.rest import requests, errors
 from globaleaks.state import State
-from globaleaks.utils.crypto import generateRandomKey, generateRandomPassword
+from globaleaks.utils.crypto import generateRandomKey, generateRandomPassword, GCE
 
 
 @transact
@@ -125,8 +125,12 @@ def signup_activation(session, token, hostname, language):
 
     signup.activation_token = None
 
-    password_admin = generateRandomPassword(16)
-    password_receiver = generateRandomPassword(16)
+    admin_salt = GCE.generate_salt('admin')
+    admin_password_plaintext = generateRandomPassword(16)
+    admin_password = GCE.derive_key(admin_password_plaintext, admin_salt)
+    receiver_salt = GCE.generate_salt('receiver')
+    receiver_password_plaintext = generateRandomPassword(16)
+    receiver_password = GCE.derive_key(receiver_password_plaintext, receiver_salt)
 
     node_name = signup.organization_name or signup.subdomain
 
@@ -135,12 +139,14 @@ def signup_activation(session, token, hostname, language):
         'node_name': node_name,
         'admin_username': 'admin',
         'admin_name': signup.name + ' ' + signup.surname,
-        'admin_password': password_admin,
+        'admin_password': admin_password,
+        'admin_salt': admin_salt,
         'admin_mail_address': signup.email,
         'admin_escrow': config.get_val('escrow'),
         'receiver_username': 'recipient',
         'receiver_name': signup.name + ' ' + signup.surname,
-        'receiver_password': password_receiver,
+        'receiver_password': receiver_password,
+        'receiver_salt': receiver_salt,
         'receiver_mail_address': signup.email,
         'profile': 'default',
         'skip_admin_account_creation': False,
@@ -155,8 +161,8 @@ def signup_activation(session, token, hostname, language):
         'node': db_admin_serialize_node(session, 1, language),
         'notification': db_get_notification(session, 1, language),
         'signup': serializers.serialize_signup(signup),
-        'password_admin': wizard['admin_password'],
-        'password_recipient': wizard['receiver_password']
+        'password_admin': admin_password_plaintext,
+        'password_recipient': receiver_password_plaintext
     }
 
     State.format_and_send_mail(session, 1, signup.email, template_vars)

@@ -388,7 +388,7 @@ export class TipComponent implements OnInit {
     (
       {
         next: async token => {
-          this.cryptoService.proofOfWork(token.id).subscribe(
+          this.cryptoService.proofOfWork(token).subscribe(
             (result: number) => {
               window.open("api/recipient/rtips/" + tipId + "/export" + "?token=" + token.id + ":" + result);
               this.appDataService.updateShowLoadingPanel(false);

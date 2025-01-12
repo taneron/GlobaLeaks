@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 #
 # Handlers dealing with tip interface for whistleblowers (wbtip)
-import base64
 import json
 import os
+
+from nacl.encoding import Base64Encoder
 from twisted.internet.threads import deferToThread
 from twisted.internet.defer import inlineCallbacks, returnValue
 
@@ -19,7 +20,7 @@ from globaleaks.models import serializers
 from globaleaks.orm import db_get, transact
 from globaleaks.rest import errors, requests
 from globaleaks.state import State
-from globaleaks.utils.crypto import Base64Encoder, GCE
+from globaleaks.utils.crypto import GCE
 from globaleaks.utils.fs import directory_traversal_check
 from globaleaks.utils.log import log
 from globaleaks.utils.templating import Templating
@@ -67,7 +68,7 @@ def db_get_wbtip(session, itip_id, language):
 
     itip.last_access = datetime_now()
 
-    return serializers.serialize_wbtip(session, itip, language), base64.b64decode(itip.crypto_tip_prv_key)
+    return serializers.serialize_wbtip(session, itip, language), Base64Encoder.decode(itip.crypto_tip_prv_key)
 
 
 @transact
@@ -86,7 +87,7 @@ def create_comment(session, tid, user_id, content):
 
     _content = content
     if itip.crypto_tip_pub_key:
-        _content = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content)).decode()
+        _content = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content)).decode()
 
     comment = models.Comment()
     comment.internaltip_id = itip.id
@@ -109,7 +110,7 @@ def update_identity_information(session, tid, user_id, identity_field_id, wbi, l
                    models.InternalTip.tid == tid))
 
     if itip.crypto_tip_pub_key:
-        wbi = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(wbi).encode())).decode()
+        wbi = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(wbi).encode())).decode()
 
     db_set_internaltip_data(session, itip.id, 'whistleblower_identity', wbi)
 
@@ -135,7 +136,7 @@ def store_additional_questionnaire_answers(session, tid, user_id, answers, langu
     questionnaire_hash = db_archive_questionnaire_schema(session, steps)
 
     if itip.crypto_tip_pub_key:
-        answers = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers).encode())).decode()
+        answers = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers).encode())).decode()
 
     db_set_internaltip_answers(session, itip.id, questionnaire_hash, answers)
 
@@ -160,7 +161,7 @@ def change_receipt(session, itip_id, cc, new_receipt, receipt_change_needed):
     if cc is None:
         return
 
-    wb_key = GCE.derive_key(new_receipt.encode(), State.tenants[tid].cache.receipt_salt)
+    wb_key = Base64Encoder.decode(GCE.derive_key(new_receipt.encode(), State.tenants[tid].cache.receipt_salt).encode())
 
     # update private keys
     itip.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(wb_key, cc))
@@ -242,8 +243,8 @@ class WhistleblowerFileDownload(BaseHandler):
         self.check_file_presence(filelocation)
 
         if tip_prv_key:
-            tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, base64.b64decode(tip_prv_key))
-            name = GCE.asymmetric_decrypt(tip_prv_key, base64.b64decode(name.encode())).decode()
+            tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, Base64Encoder.decode(tip_prv_key))
+            name = GCE.asymmetric_decrypt(tip_prv_key, Base64Encoder.decode(name.encode())).decode()
 
             try:
                 # First attempt
@@ -275,7 +276,7 @@ class ReceiverFileDownload(BaseHandler):
         log.debug("Download of file %s by whistleblower %s",
                   rfile.id, self.session.user_id)
 
-        return rfile.name, rfile.id, base64.b64decode(wbtip.crypto_tip_prv_key), ''
+        return rfile.name, rfile.id, Base64Encoder.decode(wbtip.crypto_tip_prv_key), ''
 
     @inlineCallbacks
     def get(self, rfile_id):
@@ -286,7 +287,7 @@ class ReceiverFileDownload(BaseHandler):
 
         if tip_prv_key:
             tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, tip_prv_key)
-            name = GCE.asymmetric_decrypt(tip_prv_key, base64.b64decode(name.encode())).decode()
+            name = GCE.asymmetric_decrypt(tip_prv_key, Base64Encoder.decode(name.encode())).decode()
             filelocation = GCE.streaming_encryption_open('DECRYPT', tip_prv_key, filelocation)
 
         yield self.write_file_as_download(name, filelocation, pgp_key)

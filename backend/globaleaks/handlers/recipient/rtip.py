@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
 # Handlers dealing with tip interface for receivers (rtip)
-import base64
 import copy
 import json
 import os
@@ -10,6 +9,7 @@ import time
 
 from datetime import datetime, timedelta
 
+from nacl.encoding import Base64Encoder
 from twisted.internet.threads import deferToThread
 from twisted.internet.defer import inlineCallbacks, returnValue
 
@@ -90,14 +90,14 @@ def db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, receiver_id)
 
     _tip_key = b''
     if itip.crypto_tip_pub_key:
-        _tip_key = GCE.asymmetric_decrypt(user_cc, base64.b64decode(rtip.crypto_tip_prv_key))
+        _tip_key = GCE.asymmetric_decrypt(user_cc, Base64Encoder.decode(rtip.crypto_tip_prv_key))
         _tip_key = GCE.asymmetric_encrypt(new_receiver.crypto_pub_key, _tip_key)
 
     new_rtip = db_create_receivertip(session, new_receiver, itip, _tip_key)
     new_rtip.new = False
     if itip.deprecated_crypto_files_pub_key:
-        _files_key = GCE.asymmetric_decrypt(user_cc, base64.b64decode(rtip.deprecated_crypto_files_prv_key))
-        new_rtip.deprecated_crypto_files_prv_key = base64.b64encode(
+        _files_key = GCE.asymmetric_decrypt(user_cc, Base64Encoder.decode(rtip.deprecated_crypto_files_prv_key))
+        new_rtip.deprecated_crypto_files_prv_key = Base64Encoder.encode(
             GCE.asymmetric_encrypt(new_receiver.crypto_pub_key, _files_key))
 
     wbfiles = session.query(models.WhistleblowerFile) \
@@ -431,7 +431,7 @@ def db_redact_comment(session, tid, user_id, itip_id, redaction, redaction_data,
     content = redact_content(currentMaskedContent.get('content'), new_permanent_redaction)
 
     comment = session.query(models.Comment).get(redaction_data['reference_id'])
-    comment.content = base64.b64encode(GCE.asymmetric_encrypt(itip_id.crypto_tip_pub_key, content)).decode()
+    comment.content = Base64Encoder.encode(GCE.asymmetric_encrypt(itip_id.crypto_tip_pub_key, content)).decode()
 
 
 def db_redact_answers(answers, redaction):
@@ -484,7 +484,7 @@ def db_redact_answers_recursively(session, tid, user_id, itip_id, redaction, red
     _content = answers
 
     if itip_id.crypto_tip_pub_key:
-        _content = base64.b64encode(
+        _content = Base64Encoder.encode(
             GCE.asymmetric_encrypt(itip_id.crypto_tip_pub_key, json.dumps(_content, cls=JSONEncoder).encode())).decode()
 
     itip_answers = session.query(models.InternalTipAnswers) \
@@ -514,7 +514,7 @@ def db_redact_whistleblower_identity(session, tid, user_id, itip_id, redaction, 
 
     _content = whistleblower_identity
     if itip_id.crypto_tip_pub_key:
-        _content = base64.b64encode(
+        _content = Base64Encoder.encode(
             GCE.asymmetric_encrypt(itip_id.crypto_tip_pub_key, json.dumps(_content, cls=JSONEncoder).encode())).decode()
 
     itip_whistleblower_identity = session.query(models.InternalTipData) \
@@ -617,7 +617,7 @@ def register_rfile_on_db(session, tid, user_id, itip_id, uploaded_file):
         for k in ['name', 'description', 'type', 'size']:
             if k == 'size':
                 uploaded_file[k] = str(uploaded_file[k])
-            uploaded_file[k] = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, uploaded_file[k]))
+            uploaded_file[k] = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, uploaded_file[k]))
 
     new_file = models.ReceiverFile()
     new_file.id = uploaded_file['filename']
@@ -660,7 +660,7 @@ def db_get_rtip(session, tid, user_id, itip_id, language):
 
     db_log(session, tid=tid, type='access_report', user_id=user_id, object_id=itip.id)
 
-    return serializers.serialize_rtip(session, itip, rtip, language), base64.b64decode(rtip.crypto_tip_prv_key)
+    return serializers.serialize_rtip(session, itip, rtip, language), Base64Encoder.decode(rtip.crypto_tip_prv_key)
 
 
 @transact
@@ -876,7 +876,7 @@ def set_internaltip_variable(session, tid, user_id, itip_id, key, value):
     _, _, itip = db_access_rtip(session, tid, user_id, itip_id)
 
     if itip.crypto_tip_pub_key and value and key in ['label']:
-        value = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, value))
+        value = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, value))
 
     setattr(itip, key, value)
 
@@ -947,12 +947,12 @@ def create_identityaccessrequest(session, tid, user_id, user_cc, itip_id, reques
     """
     user, rtip, itip = db_access_rtip(session, tid, user_id, itip_id)
 
-    crypto_tip_prv_key = GCE.asymmetric_decrypt(user_cc, base64.b64decode(rtip.crypto_tip_prv_key))
+    crypto_tip_prv_key = GCE.asymmetric_decrypt(user_cc, Base64Encoder.decode(rtip.crypto_tip_prv_key))
 
     iar = models.IdentityAccessRequest()
     iar.internaltip_id = itip.id
     iar.request_user_id = user.id
-    iar.request_motivation = base64.b64encode(
+    iar.request_motivation = Base64Encoder.encode(
         GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, request['request_motivation']))
     session.add(iar)
     session.flush()
@@ -962,7 +962,7 @@ def create_identityaccessrequest(session, tid, user_id, user_cc, itip_id, reques
         iarc = models.IdentityAccessRequestCustodian()
         iarc.identityaccessrequest_id = iar.id
         iarc.custodian_id = custodian.id
-        iarc.crypto_tip_prv_key = base64.b64encode(GCE.asymmetric_encrypt(custodian.crypto_pub_key, crypto_tip_prv_key))
+        iarc.crypto_tip_prv_key = Base64Encoder.encode(GCE.asymmetric_encrypt(custodian.crypto_pub_key, crypto_tip_prv_key))
         session.add(iarc)
         custodians += 1
 
@@ -996,7 +996,7 @@ def create_comment(session, tid, user_id, itip_id, content, visibility='public')
 
     _content = content
     if itip.crypto_tip_pub_key:
-        _content = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content)).decode()
+        _content = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content)).decode()
 
     comment = models.Comment()
     comment.internaltip_id = itip.id
@@ -1028,7 +1028,7 @@ def create_redaction(session, tid, user_id, data):
         else:
             content_str = data.get('content', str(data))
             content_bytes = content_str.encode()
-            mask_content = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content_bytes)).decode()
+            mask_content = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, content_bytes)).decode()
 
     redaction = models.Redaction()
     redaction.id = data.get('id')
@@ -1257,8 +1257,8 @@ class WhistleblowerFileDownload(BaseHandler):
         self.check_file_presence(filelocation)
 
         if tip_prv_key:
-            tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, base64.b64decode(tip_prv_key))
-            name = GCE.asymmetric_decrypt(tip_prv_key, base64.b64decode(name.encode())).decode()
+            tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, Base64Encoder.decode(tip_prv_key))
+            name = GCE.asymmetric_decrypt(tip_prv_key, Base64Encoder.decode(name.encode())).decode()
 
             try:
                 # First attempt
@@ -1268,7 +1268,7 @@ class WhistleblowerFileDownload(BaseHandler):
                 if not tip_prv_key2:
                     raise
 
-                files_prv_key2 = GCE.asymmetric_decrypt(self.session.cc, base64.b64decode(tip_prv_key2))
+                files_prv_key2 = GCE.asymmetric_decrypt(self.session.cc, Base64Encoder.decode(tip_prv_key2))
                 filelocation = GCE.streaming_encryption_open('DECRYPT', files_prv_key2, filelocation)
 
         yield self.write_file_as_download(name, filelocation, pgp_key)
@@ -1307,7 +1307,7 @@ class ReceiverFileDownload(BaseHandler):
         except:
             raise errors.ResourceNotFound
         else:
-            return rfile.name, rfile.id, base64.b64decode(rtip.crypto_tip_prv_key), pgp_key
+            return rfile.name, rfile.id, Base64Encoder.decode(rtip.crypto_tip_prv_key), pgp_key
 
     @inlineCallbacks
     def get(self, rfile_id):
@@ -1324,7 +1324,7 @@ class ReceiverFileDownload(BaseHandler):
 
         if tip_prv_key:
             tip_prv_key = GCE.asymmetric_decrypt(self.session.cc, tip_prv_key)
-            name = GCE.asymmetric_decrypt(tip_prv_key, base64.b64decode(name.encode())).decode()
+            name = GCE.asymmetric_decrypt(tip_prv_key, Base64Encoder.decode(name.encode())).decode()
             filelocation = GCE.streaming_encryption_open('DECRYPT', tip_prv_key, filelocation)
 
         yield self.write_file_as_download(name, filelocation, pgp_key)

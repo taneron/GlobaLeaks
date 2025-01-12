@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-import base64
 import hashlib
 
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+from nacl.encoding import Base32Encoder, Base64Encoder
 
 def generate_onion_service_v3():
     b = 256
@@ -35,6 +35,6 @@ def generate_onion_service_v3():
 
     # onion_address = base32(pubkey || checksum || version)
     onionAddressBytes = b''.join([public_bytes, checksum, bytes([0x03])])
-    onionAddress = base64.b32encode(onionAddressBytes).lower().decode('utf-8')
+    onionAddress = Base32Encoder.encode(onionAddressBytes).lower().decode('utf-8')
 
-    return onionAddress + '.onion', 'ED25519-V3:' + base64.b64encode(expandSK(private_bytes)).decode('utf-8')
+    return onionAddress + '.onion', 'ED25519-V3:' + Base64Encoder.encode(expandSK(private_bytes)).decode('utf-8')

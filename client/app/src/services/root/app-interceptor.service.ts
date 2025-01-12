@@ -19,8 +19,9 @@ import {timer} from 'rxjs';
 
 const protectedUrls = [
   "api/wizard",
-  "api/auth/tokenauth",
   "api/auth/authentication",
+  "api/auth/type",
+  "api/auth/tokenauth",
   "api/user/reset/password",
   "api/recipient/rtip",
   "api/support"
@@ -49,7 +50,6 @@ export class appInterceptor implements HttpInterceptor {
   }
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     if (httpRequest.url.endsWith("/data/i18n/.json")) {
       return next.handle(httpRequest);
     }
@@ -71,7 +71,7 @@ export class appInterceptor implements HttpInterceptor {
     if (httpRequest.url.includes("api/signup") || httpRequest.url.endsWith("api/auth/receiptauth") && !this.authenticationService.session || protectedUrls.includes(httpRequest.url)) {
       return this.httpClient.post("api/auth/token", {}).pipe(
         switchMap((response) =>
-          from(this.cryptoService.proofOfWork(Object.assign(new TokenResponse(), response).id)).pipe(
+          from(this.cryptoService.proofOfWork(Object.assign(new TokenResponse(), response))).pipe(
             switchMap((ans) => next.handle(httpRequest.clone({
               headers: httpRequest.headers.set("x-token", `${Object.assign(new TokenResponse(), response).id}:${ans}`)
                 .set("Accept-Language", this.getAcceptLanguageHeader() || ""),

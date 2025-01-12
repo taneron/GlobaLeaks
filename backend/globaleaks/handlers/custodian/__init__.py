@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #
 # Handlers dealing with custodian user functionalities
-import base64
+
+from nacl.encoding import Base64Encoder
 
 from globaleaks import models
 from globaleaks.handlers.admin.context import admin_serialize_context
@@ -30,13 +31,13 @@ def get_identityaccessrequest_list(session, tid, user_id, user_key):
         elem = serializers.serialize_identityaccessrequest(session, iar)
 
         if iarc.crypto_tip_prv_key:
-            crypto_tip_prv_key = GCE.asymmetric_decrypt(user_key, base64.b64decode(iarc.crypto_tip_prv_key))
+            crypto_tip_prv_key = GCE.asymmetric_decrypt(user_key, Base64Encoder.decode(iarc.crypto_tip_prv_key))
 
             if elem['request_motivation']:
-                elem['request_motivation'] = GCE.asymmetric_decrypt(crypto_tip_prv_key, base64.b64decode(elem['request_motivation'])).decode()
+                elem['request_motivation'] = GCE.asymmetric_decrypt(crypto_tip_prv_key, Base64Encoder.decode(elem['request_motivation'])).decode()
 
             if elem['reply_motivation']:
-                elem['reply_motivation'] = GCE.asymmetric_decrypt(crypto_tip_prv_key, base64.b64decode(elem['reply_motivation'])).decode()
+                elem['reply_motivation'] = GCE.asymmetric_decrypt(crypto_tip_prv_key, Base64Encoder.decode(elem['reply_motivation'])).decode()
 
         ret.append(elem)
 
@@ -91,7 +92,7 @@ def update_identityaccessrequest(session, tid, user_id, identityaccessrequest_id
                                      models.InternalTip.id == models.IdentityAccessRequest.internaltip_id).one()
 
     if request['reply_motivation'] and itip.crypto_tip_pub_key:
-        request['reply_motivation'] = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, request['reply_motivation']))
+        request['reply_motivation'] = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, request['reply_motivation']))
 
     if iar.reply == 'pending':
         iar.reply_date = datetime_now()

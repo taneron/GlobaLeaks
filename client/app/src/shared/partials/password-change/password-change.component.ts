@@ -13,7 +13,7 @@ import {PasswordMeterComponent} from "../../components/password-meter/password-m
 import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
-
+import {CryptoService} from "@app/shared/services/crypto.service";
 
 @Component({
     selector: "src-password-change",
@@ -30,20 +30,39 @@ export class PasswordChangeComponent implements OnInit {
   authentication = inject(AuthenticationService);
   preferencesService = inject(PreferenceResolver);
   utilsService = inject(UtilsService);
+  cryptoService = inject(CryptoService);
 
   passwordStrengthScore: number = 0;
 
   changePasswordArgs = {
     current: "",
     password: "",
-    confirm: ""
+    confirm: "",
   };
 
-  changePassword() {
-    const data = {
-      "operation": "change_password",
-      "args": this.changePasswordArgs
-    };
+  async changePassword() {
+    let data;
+
+    if (this.preferencesService.dataModel.salt) {
+      this.appDataService.updateShowLoadingPanel(true);
+      data = {
+        "operation": "change_password",
+        "args": {
+          current: await this.cryptoService.hashArgon2(this.changePasswordArgs.current, this.preferencesService.dataModel.salt),
+          password: await this.cryptoService.hashArgon2(this.changePasswordArgs.password, this.preferencesService.dataModel.salt)
+        }
+      }
+      this.appDataService.updateShowLoadingPanel(false);
+    } else {
+      data = {
+        "operation": "change_password",
+        "args": {
+          current: this.changePasswordArgs.current,
+          password: this.changePasswordArgs.password,
+        }
+      }
+    }
+
     const requestObservable = this.httpService.requestOperations(data);
     requestObservable.subscribe(
       {
@@ -67,5 +86,4 @@ export class PasswordChangeComponent implements OnInit {
   onPasswordStrengthChange(score: number) {
     this.passwordStrengthScore = score;
   }
-
 }

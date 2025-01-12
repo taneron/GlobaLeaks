@@ -2,9 +2,11 @@
 import filecmp
 import os
 
+from nacl.encoding import Base64Encoder
+
 from globaleaks.settings import Settings
 from globaleaks.tests import helpers
-from globaleaks.utils.crypto import Base64Encoder, GCE
+from globaleaks.utils.crypto import GCE, sha256
 
 password = b'password'
 message = b'message'
@@ -13,6 +15,22 @@ hash_argon2 = '83xya+Pxc3w4d7Ry2LHUE28qLVP2Sa4DULo8joMrpL8='
 
 
 class TestCryptoUtils(helpers.TestGL):
+    def test_sha256_with_string(self):
+        # Known input and output
+        input_data = "hello world"
+        expected_hash = b'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9'
+        self.assertEqual(sha256(input_data), expected_hash)
+
+    def test_sha256_with_bytes(self):
+        input_data = b"hello world"
+        expected_hash = b'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9'
+        self.assertEqual(sha256(input_data), expected_hash)
+
+    def test_sha256_empty_string(self):
+        input_data = ""
+        expected_hash = b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+        self.assertEqual(sha256(input_data), expected_hash)
+
     def test_generate_key(self):
         GCE.generate_key()
 
@@ -37,9 +55,9 @@ class TestCryptoUtils(helpers.TestGL):
         dec = GCE.asymmetric_decrypt(prv_key, enc)
         self.assertEqual(dec, message)
 
-    def test_check_password(self):
-        self.assertTrue(GCE.check_password(password, salt, hash_argon2))
-        self.assertFalse(GCE.check_password(password, salt, 'nohashnoparty'))
+    def test_check_equality(self):
+        self.assertTrue(GCE.check_equality(password, password))
+        self.assertFalse(GCE.check_equality(password, 'different_data'))
 
     def test_encrypt_and_decrypt_file(self):
         prv_key, pub_key = GCE.generate_keypair()

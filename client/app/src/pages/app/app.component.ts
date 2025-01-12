@@ -144,7 +144,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
     this.keepalive.onPing.subscribe(() => {
       if (this.authenticationService.session) {
         const token = this.authenticationService.session.token;
-        this.cryptoService.proofOfWork(token.id).subscribe((result:any) => {
+        this.cryptoService.proofOfWork(token).subscribe((result:any) => {
 	  const param = {'token': token.id + ":" + result};
           this.httpService.requestRefreshUserSession(param).subscribe(((result:any) => {
             this.authenticationService.session.token = result.token;

@@ -11,57 +11,41 @@ from globaleaks.orm import db_log, transact
 from globaleaks.rest import errors
 from globaleaks.state import State
 from globaleaks.transactions import db_get_user
-from globaleaks.utils.crypto import GCE
+from globaleaks.utils.crypto import GCE, sha256
 from globaleaks.utils.fs import srm
 from globaleaks.utils.utility import datetime_now
 
 
-def check_password_strength(password):
-    return len(password) >= 10 and \
-           any(char.isdigit() for char in password) and \
-           any(char.isupper() for char in password) and \
-           any(char.islower() for char in password) and \
-           any(not char.isalnum() for char in password)
-
-
 @transact
-def change_password(session, tid, user_session, password, old_password):
+def change_password(session, tid, user_session, password):
     user = db_get_user(session, tid, user_session.user_id)
-
-    if not user.password_change_needed:
-        if not GCE.check_password(old_password,
-                                  user.salt,
-                                  user.hash):
-           raise errors.InvalidOldPassword
 
     config = models.config.ConfigFactory(session, tid)
 
-    # Regenerate the password hash only if different from the best choice on the platform
-    if len(user.hash) != 44:
-        user.salt = GCE.generate_salt()
-
-    if not check_password_strength(password):
-        raise errors.InputValidationError("The password is too weak")
+    if len(user.hash) == 64:
+        key = Base64Encoder.decode(password.encode())
+        hash = sha256(key).decode()
+    else:
+        key = Base64Encoder.decode(GCE.argon2id(password.encode(), user.salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
+        hash = GCE.argon2id(password, user.salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
 
     # Check that the new password is different form the current password
-    password_hash = GCE.hash_password(password, user.salt)
-    if user.hash == password_hash:
+    if user.hash == hash:
         raise errors.PasswordReuseError
 
-    user.hash = password_hash
+    user.hash = hash
     user.password_change_date = datetime_now()
     user.password_change_needed = False
 
     cc = user_session.cc
     if config.get_val('encryption'):
-        enc_key = GCE.derive_key(password.encode(), user.salt)
         if not user.crypto_pub_key:
             # The first password change triggers the generation
             # of the user encryption private key and its backup
             user.crypto_pub_key = PrivateKey(user_session.cc, Base64Encoder).public_key.encode(Base64Encoder)
             user.crypto_bkp_key, user.crypto_rec_key = GCE.generate_recovery_key(user_session.cc)
 
-        user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(enc_key, cc))
+        user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, cc))
 
         root_config = models.config.ConfigFactory(session, 1)
         crypto_escrow_pub_key_tenant_1 = root_config.get_val('crypto_escrow_pub_key')
@@ -178,8 +162,7 @@ class UserOperationHandler(OperationHandler):
     def change_password(self, req_args, *args, **kwargs):
         return change_password(self.session.user_tid,
                                self.session,
-                               req_args['password'],
-                               req_args['current'])
+                               req_args['password'])
 
     def get_users_names(self, req_args, *args, **kwargs):
         return get_users_names(self.session.user_tid)

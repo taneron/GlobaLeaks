@@ -21,7 +21,8 @@ class Session(dict):
             'tid': tid,
             'user_id': user_id,
             'user_tid': user_tid,
-            'user_role': user_role,
+            'username': '',
+            'role': user_role,
             'ratelimit_time': datetime_now(),
             'ratelimit_count': 0,
             'files': [],
@@ -66,8 +67,9 @@ class Session(dict):
     def serialize(self):
         return {
             'id': self.id,
-            'role': self.user_role,
             'user_id': self.user_id,
+            'username': self.username,
+            'role': self.role,
             'session_expiration': self.getTime(),
             'properties': self.properties,
             'permissions': self.permissions,

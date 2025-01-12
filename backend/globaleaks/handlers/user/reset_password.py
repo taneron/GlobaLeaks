@@ -128,7 +128,7 @@ def validate_password_reset(session, reset_token, recovery_key, auth_code):
                 pass
 
             if prv_key:
-                enc_key = GCE.derive_key(reset_token, user.salt)
+                enc_key = Base64Encoder.decode(GCE.derive_key(reset_token, user.salt).encode())
                 prv_key = GCE.symmetric_decrypt(enc_key, Base64Encoder.decode(prv_key))
             else:
                 recovery_key = recovery_key.replace('-', '').upper() + '===='

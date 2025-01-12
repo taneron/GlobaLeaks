@@ -1,15 +1,17 @@
 # -*- coding: utf-8
 #
 # Handlers implementing platform wizard
+from nacl.encoding import Base64Encoder
+
 from globaleaks import models
 from globaleaks.handlers.admin.context import db_create_context
 from globaleaks.handlers.admin.node import db_update_enabled_languages
-from globaleaks.handlers.admin.user import db_create_user, db_set_user_password
+from globaleaks.handlers.admin.user import db_create_user
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.models import config, profiles
 from globaleaks.orm import transact
 from globaleaks.rest import requests, errors
-from globaleaks.utils.crypto import Base64Encoder, GCE
+from globaleaks.utils.crypto import GCE
 from globaleaks.utils.log import log
 from globaleaks.utils.sock import isIPAddress
 
@@ -66,12 +68,12 @@ def db_wizard(session, tid, hostname, request):
         admin_desc = models.User().dict(language)
         admin_desc['username'] = request['admin_username']
         admin_desc['name'] = request['admin_name']
+        admin_desc['password'] = request['admin_password']
         admin_desc['mail_address'] = request['admin_mail_address']
         admin_desc['language'] = language
         admin_desc['role'] = 'admin'
         admin_desc['pgp_key_remove'] = False
         admin_user = db_create_user(session, tid, None, admin_desc, language)
-        db_set_user_password(session, tid, admin_user, request['admin_password'])
         admin_user.password_change_needed = (tid != 1)
 
         if encryption and escrow:
@@ -81,13 +83,13 @@ def db_wizard(session, tid, hostname, request):
     if not request['skip_recipient_account_creation']:
         receiver_desc = models.User().dict(language)
         receiver_desc['username'] = request['receiver_username']
+        receiver_desc['password'] = request['receiver_password']
         receiver_desc['name'] = request['receiver_name']
         receiver_desc['mail_address'] = request['receiver_mail_address']
         receiver_desc['language'] = language
         receiver_desc['role'] = 'receiver'
         receiver_desc['pgp_key_remove'] = False
         receiver_user = db_create_user(session, tid, None, receiver_desc, language)
-        db_set_user_password(session, tid, receiver_user, request['receiver_password'])
         receiver_user.password_change_needed = (tid != 1)
 
     context_desc = models.Context().dict(language)

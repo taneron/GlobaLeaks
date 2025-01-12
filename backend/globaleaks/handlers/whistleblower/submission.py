@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 #
 # Handlerse dealing with submission interface
-import base64
 import json
 import re
 
 from nacl.encoding import Base64Encoder
 from nacl.public import PrivateKey
 
+from sqlalchemy import exists, func
+
 from globaleaks import models
 from globaleaks.handlers.admin.questionnaire import db_get_questionnaire
 from globaleaks.handlers.base import BaseHandler
+from globaleaks.models.config import ConfigFactory
 from globaleaks.orm import db_get, db_log, transact
 from globaleaks.rest import errors, requests
 from globaleaks.state import State
@@ -40,17 +42,17 @@ def decrypt_tip(user_key, tip_prv_key, tip):
     tip_key = GCE.asymmetric_decrypt(user_key, tip_prv_key)
 
     if 'label' in tip and tip['label']:
-        tip['label'] = GCE.asymmetric_decrypt(tip_key, base64.b64decode(tip['label'].encode())).decode()
+        tip['label'] = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(tip['label'].encode())).decode()
 
     for questionnaire in tip['questionnaires']:
-        questionnaire['answers'] = json.loads(GCE.asymmetric_decrypt(tip_key, base64.b64decode(questionnaire['answers'].encode())).decode())
+        questionnaire['answers'] = json.loads(GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(questionnaire['answers'].encode())).decode())
 
     for q in tip['questionnaires']:
         index_answers(q['answers'])
 
     for k in ['whistleblower_identity']:
         if k in tip['data'] and tip['data'][k]:
-            tip['data'][k] = json.loads(GCE.asymmetric_decrypt(tip_key, base64.b64decode(tip['data'][k].encode())).decode())
+            tip['data'][k] = json.loads(GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(tip['data'][k].encode())).decode())
 
             if k == 'whistleblower_identity' and isinstance(tip['data'][k], list):
                 # Fix for issue: https://github.com/globaleaks/globaleaks-whistleblowing-software/issues/2612
@@ -60,24 +62,24 @@ def decrypt_tip(user_key, tip_prv_key, tip):
     if 'iar' in tip:
         if tip['iar']['request_motivation']:
             try:
-                tip['iar']['request_motivation'] = GCE.asymmetric_decrypt(tip_key, base64.b64decode(tip['iar']['request_motivation'])).decode()
+                tip['iar']['request_motivation'] = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(tip['iar']['request_motivation'])).decode()
             except:
                 pass
 
         if tip['iar']['reply_motivation']:
             try:
-                tip['iar']['reply_motivation'] = GCE.asymmetric_decrypt(tip_key, base64.b64decode(tip['iar']['reply_motivation'])).decode()
+                tip['iar']['reply_motivation'] = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(tip['iar']['reply_motivation'])).decode()
             except:
                 pass
 
     for x in tip['comments']:
         if x['content']:
-            x['content'] = GCE.asymmetric_decrypt(tip_key, base64.b64decode(x['content'].encode())).decode()
+            x['content'] = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(x['content'].encode())).decode()
 
     for x in tip['wbfiles'] + tip['rfiles']:
         for k in ['name', 'description', 'type', 'size']:
             if k in x and x[k]:
-                x[k] = GCE.asymmetric_decrypt(tip_key, base64.b64decode(x[k].encode())).decode()
+                x[k] = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(x[k].encode())).decode()
                 if k == 'size':
                     x[k] = int(x[k])
 
@@ -158,9 +160,9 @@ def db_create_receivertip(session, receiver, internaltip, tip_key):
 
 
 def db_create_submission(session, tid, request, user_session, client_using_tor, client_using_mobile):
-    encryption = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption'))
+    config = ConfigFactory(session, tid)
 
-    crypto_is_available = encryption.value
+    crypto_is_available = config.get_val('encryption')
 
     context, questionnaire = db_get(session,
                                     (models.Context, models.Questionnaire),
@@ -227,8 +229,17 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
     if whistleblower_identity is not None:
         itip.enable_whistleblower_identity = True
 
-    receipt = GCE.generate_receipt()
-    itip.receipt_hash = GCE.hash_password(receipt, State.tenants[tid].cache.receipt_salt)
+    receipt = request['receipt']
+
+    if not session.query(exists().where(models.InternalTip.tid == tid, func.length(models.InternalTip.receipt_hash) < 64)).scalar():
+        key = Base64Encoder.decode(receipt.encode())
+        hash = sha256(key).decode()
+    else:
+        salt = config.get_val('receipt_salt')
+        key = Base64Encoder.decode(GCE.argon2id(receipt.encode(), salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
+        hash = GCE.argon2id(receipt, salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
+
+    itip.receipt_hash = hash
 
     session.add(itip)
     session.flush()
@@ -238,15 +249,14 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
     # Evaluate if the whistleblower tip should be encrypted
     if crypto_is_available:
         crypto_tip_prv_key, itip.crypto_tip_pub_key = GCE.generate_keypair()
-        wb_key = GCE.derive_key(receipt.encode(), State.tenants[tid].cache.receipt_salt)
         itip.crypto_pub_key = PrivateKey(user_session.cc, Base64Encoder).public_key.encode(Base64Encoder)
-        itip.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(wb_key, user_session.cc))
+        itip.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, user_session.cc))
         itip.crypto_tip_prv_key = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_pub_key, crypto_tip_prv_key))
 
     # Apply special handling to the whistleblower identity question
     if itip.enable_whistleblower_identity and request['identity_provided'] and answers[whistleblower_identity.id]:
         if crypto_is_available:
-            wbi = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers[whistleblower_identity.id][0]).encode())).decode()
+            wbi = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers[whistleblower_identity.id][0]).encode())).decode()
         else:
             wbi = answers[whistleblower_identity.id][0]
 
@@ -255,14 +265,14 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
         db_set_internaltip_data(session, itip.id, 'whistleblower_identity', wbi, itip.creation_date)
 
     if crypto_is_available:
-        answers = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers, cls=JSONEncoder).encode())).decode()
+        answers = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, json.dumps(answers, cls=JSONEncoder).encode())).decode()
 
     db_set_internaltip_answers(session, itip.id, questionnaire_hash, answers, itip.creation_date)
 
     for uploaded_file in user_session.files:
         if crypto_is_available:
             for k in ['name', 'type', 'size']:
-                uploaded_file[k] = base64.b64encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, str(uploaded_file[k])))
+                uploaded_file[k] = Base64Encoder.encode(GCE.asymmetric_encrypt(itip.crypto_tip_pub_key, str(uploaded_file[k])))
 
         new_file = models.InternalFile()
         new_file.tid = tid
@@ -290,8 +300,6 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
         itip.operator_id = operator_id
 
     db_log(session, tid=tid, type='whistleblower_new_report', user_id=operator_id, object_id=itip.id)
-
-    return {'receipt': receipt}
 
 
 @transact

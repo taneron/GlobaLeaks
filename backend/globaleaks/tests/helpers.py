@@ -2,7 +2,6 @@
 """
 Utilities and basic TestCases.
 """
-import base64
 import json
 import os
 import shutil
@@ -44,7 +43,7 @@ from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State, TenantState
 from globaleaks.utils import tempdict, token
-from globaleaks.utils.crypto import generateRandomKey, GCE
+from globaleaks.utils.crypto import GCE, generateRandomKey, sha256
 from globaleaks.utils.securetempfile import SecureTemporaryFile
 from globaleaks.utils.utility import datetime_now, uuid4
 from globaleaks.utils.log import log
@@ -57,13 +56,15 @@ VALID_PASSWORD1 = 'ACollectionOfDiplomaticHistorySince_1966_ToThe_Pr esentDay#'
 VALID_PASSWORD2 = VALID_PASSWORD1
 VALID_SALT1 = GCE.generate_salt()
 VALID_SALT2 = GCE.generate_salt()
-VALID_HASH1 = GCE.hash_password(VALID_PASSWORD1, VALID_SALT1)
-VALID_HASH2 = GCE.hash_password(VALID_PASSWORD2, VALID_SALT2)
+VALID_KEY1 = GCE.derive_key(VALID_PASSWORD1, VALID_SALT1)
+VALID_KEY2 = GCE.derive_key(VALID_PASSWORD2, VALID_SALT2)
+VALID_HASH1 = sha256(Base64Encoder.decode(VALID_KEY1.encode()))
+VALID_HASH2 = VALID_KEY2.encode() # like when hashing was calculated on the server
 VALID_BASE64_IMG = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII='
 INVALID_PASSWORD = 'antani'
 
 KEY = GCE.generate_key()
-USER_KEY = GCE.derive_key(VALID_PASSWORD1, VALID_SALT1)
+USER_KEY = Base64Encoder.decode(GCE.derive_key(VALID_PASSWORD1, VALID_SALT1).encode())
 USER_PRV_KEY, USER_PUB_KEY = GCE.generate_keypair()
 USER_PRV_KEY_ENC = Base64Encoder.encode(GCE.symmetric_encrypt(USER_KEY, USER_PRV_KEY))
 USER_BKP_KEY, USER_REC_KEY = GCE.generate_recovery_key(USER_PRV_KEY)
@@ -72,8 +73,11 @@ USER_REC_KEY_PLAIN = Base32Encoder.encode(USER_REC_KEY_PLAIN).replace(b'=', b'')
 GCE_orig_generate_key = GCE.generate_key
 GCE_orig_generate_keypair = GCE.generate_keypair
 
-TOKEN = b"31b780b6eb6357e324eea7c3a5d2542067c4d537f4f4de77473c93d48dd8a758"
-TOKEN_ANSWER = b"31b780b6eb6357e324eea7c3a5d2542067c4d537f4f4de77473c93d48dd8a758:149619"
+TOKEN = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0"
+TOKEN_SALT = b"eed1d4c5a8e97f4f953d4bddd62957ac5f9e94af6a025c6b95300d72ba41b57e"
+TOKEN_ANSWER = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0:142"
+
+
 def mock_nullfunction(*args, **kwargs):
     return
 
@@ -158,9 +162,16 @@ def init_state():
 
 @transact
 def mock_users_keys(session):
+    session.query(models.Config).filter(models.Config.tid == 1, models.Config.var_name == u'receipt_salt').one().value = VALID_SALT1
+
     for user in session.query(models.User):
-        user.hash = VALID_HASH1
-        user.salt = VALID_SALT1
+        if user.username == 'receiver2':
+            user.salt = VALID_SALT2
+            user.hash = VALID_HASH2
+        else:
+            user.salt = VALID_SALT1
+            user.hash = VALID_HASH1
+
         user.crypto_prv_key = USER_PRV_KEY_ENC
         user.crypto_pub_key = USER_PUB_KEY
         user.crypto_bkp_key = USER_BKP_KEY
@@ -171,6 +182,7 @@ def get_token():
     token = State.tokens.new(1)
     State.tokens.pop(token.id)
     token.id = TOKEN
+    token.salt = TOKEN_SALT
     State.tokens[token.id] = token
     return TOKEN_ANSWER
 
@@ -252,7 +264,7 @@ class MockDict:
         self.dummyUser = {
             'id': '',
             'username': 'maker@iz.cool.yeah',
-            'password': VALID_PASSWORD1,
+            'password': VALID_KEY1,
             'old_password': '',
             'salt': VALID_SALT1,
             'role': 'receiver',
@@ -321,7 +333,7 @@ class MockDict:
             'languages_supported': [],  # ignored
             'languages_enabled': ['it', 'en'],
             'latest_version': __version__,
-            'receipt_salt': '<<the Lannisters send their regards>>',
+            'receipt_salt': VALID_SALT1,
             'maximum_filesize': 30,
             'allow_indexing': False,
             'disable_submissions': False,
@@ -395,12 +407,12 @@ class MockDict:
             'node_name': 'test',
             'admin_username': 'admin',
             'admin_name': 'Giovanni Pellerano',
-            'admin_password': 'P4ssword!@#',
+            'admin_password': VALID_KEY1,
             'admin_mail_address': 'evilaliv3@globaleaks.org',
             'admin_escrow': True,
             'receiver_username': 'receipient',
             'receiver_name': 'Fabio Pietrosanti',
-            'receiver_password': 'P4ssword!@#',
+            'receiver_password': VALID_KEY1,
             'receiver_mail_address': 'naif@globaleaks.org',
             'profile': 'default',
             'skip_admin_account_creation': False,
@@ -430,7 +442,7 @@ def get_dummy_file(content=None):
     content_type = 'application/pdf'
 
     if content is None:
-        content = base64.b64decode(VALID_BASE64_IMG)
+        content = Base64Encoder.decode(VALID_BASE64_IMG)
 
     temporary_file = SecureTemporaryFile(Settings.tmp_path)
 
@@ -647,7 +659,7 @@ class TestGL(unittest.TestCase):
         new_u['username'] = username
         new_u['name'] = new_u['public_name'] = new_u['mail_address'] = "%s@%s.xxx" % (username, username)
         new_u['description'] = ''
-        new_u['password'] = VALID_PASSWORD1
+        new_u['password'] = VALID_KEY1
         new_u['enabled'] = True
         new_u['salt'] = VALID_SALT1
 
@@ -714,7 +726,8 @@ class TestGL(unittest.TestCase):
             'removed_files': [],
             'identity_provided': False,
             'score': 0,
-            'answers': answers
+            'answers': answers,
+            'receipt': GCE.derive_key(GCE.generate_receipt(), VALID_SALT1)
         })
 
     def get_dummy_file(self, content=None):
@@ -868,12 +881,9 @@ class TestGLWithPopulatedDB(TestGL):
         self.dummySubmission['answers'] = yield self.fill_random_answers(self.dummyContext['questionnaire_id'])
         self.dummySubmission['score'] = 0
         self.dummySubmission['removed_files'] = []
+        self.dummySubmission['receipt'] = GCE.derive_key(GCE.generate_receipt(), VALID_SALT1)
 
-        self.lastReceipt = (yield create_submission(1,
-                                                   self.dummySubmission,
-                                                   session,
-                                                   True,
-                                                   False))['receipt']
+        yield create_submission(1, self.dummySubmission, session, True, False)
 
     @inlineCallbacks
     def perform_post_submission_actions(self):

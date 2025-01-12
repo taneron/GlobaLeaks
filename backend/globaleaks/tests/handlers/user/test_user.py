@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*
-import base64
 import time
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.twofactor.totp import TOTP
 from cryptography.hazmat.primitives.hashes import SHA1
+
+from nacl.encoding import Base32Encoder
 
 from twisted.internet.defer import inlineCallbacks
 
@@ -116,7 +117,7 @@ class TestUser2FAEnrollment(helpers.TestHandlerWithPopulatedDB):
         self.assertFailure(handler.put(), errors.InvalidTwoFactorAuthCode)
 
         # Attempt enrolling for 2FA with a valid token
-        totp = TOTP(base64.b32decode(totp_secret), 6, SHA1(), 30, default_backend())
+        totp = TOTP(Base32Encoder.decode(totp_secret), 6, SHA1(), 30, default_backend())
         current_token = totp.generate(time.time()).decode()
 
         data_request = {
@@ -158,30 +159,10 @@ class TestUserOperations(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_user_change_password(self):
-        valid_password = 'validPassword1!'
+        yield self.assertFailure(self._test_operation_handler('change_password', {'password': helpers.VALID_KEY1}),
+                                 errors.PasswordReuseError)
 
-        weak_passwords = [
-            'invalidpassword1!', # no uppercase characters
-            'INVALIDPASSWORD1!', # no lowercase characters
-            'invalidPassword!!', # no number characters
-            'invalidPassword11', # no symbol characters
-            'shortP1!'           # short password below 10 characters
-        ]
-
-        for password in weak_passwords:
-            yield self.assertFailure(self._test_operation_handler('change_password',
-                                                                  {'password': password,
-                                                                   'current': helpers.VALID_PASSWORD1}),
-                                     errors.InputValidationError)
-
-        yield self.assertFailure(self._test_operation_handler('change_password',
-                                                              {'password': valid_password,
-                                                               'current': 'INVALID_OLD_PASSWORD'}),
-                                     errors.InvalidOldPassword)
-
-        yield self._test_operation_handler('change_password',
-                                           {'password': valid_password,
-                                            'current': helpers.VALID_PASSWORD1})
+        yield self._test_operation_handler('change_password', {'password': helpers.VALID_KEY2})
 
     def test_user_get_recovery_key(self):
         return self._test_operation_handler('get_recovery_key')

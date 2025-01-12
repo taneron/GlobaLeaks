@@ -311,6 +311,7 @@ ConfigFilters = {
         'mode',
         'onionservice',
         'pgp',
+        'receipt_salt',
         'rootdomain',
         'show_contexts_in_alphabetical_order',
         'signup_tos1_enable',

@@ -17,7 +17,7 @@ import {PasswordMeterComponent} from "@app/shared/components/password-meter/pass
 import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
-
+import {CryptoService} from "@app/shared/services/crypto.service";
 
 @Component({
     selector: "src-wizard",
@@ -35,13 +35,16 @@ export class WizardComponent implements OnInit {
   protected appDataService = inject(AppDataService);
   protected appConfigService = inject(AppConfigService);
   private utilsService = inject(UtilsService);
+  private cryptoService = inject(CryptoService);
 
   step: number = 1;
   emailRegexp = Constants.emailRegexp;
   password_score = 0;
+  admin_password = "";
   admin_check_password = "";
   recipientDuplicate = false;
-  recipient_check_password = "";
+  receiver_password = "";
+  receiver_check_password = "";
   tosAccept: boolean;
   license = "";
   completed = false;
@@ -83,14 +86,19 @@ export class WizardComponent implements OnInit {
     }
   }
 
-  complete() {
+  async complete() {
     if (this.completed) {
       return;
     }
 
     this.completed = true;
-
     this.wizard.node_language = this.translationService.language;
+    this.appDataService.updateShowLoadingPanel(true);
+    const admin_salt = await this.cryptoService.generateSalt(this.appDataService.public.node.receipt_salt + ":" + this.wizard.admin_username);
+    const receiver_salt = await this.cryptoService.generateSalt(this.appDataService.public.node.receipt_salt + ":" + this.wizard.receiver_username);
+    this.wizard.admin_password = this.admin_password ? await this.cryptoService.hashArgon2(this.admin_password, admin_salt) : "";
+    this.wizard.receiver_password = this.receiver_password ? await this.cryptoService.hashArgon2(this.receiver_password, receiver_salt) : '';
+    this.appDataService.updateShowLoadingPanel(false);
 
     const param = JSON.stringify(this.wizard);
     this.httpService.requestWizard(param).subscribe
@@ -114,7 +122,7 @@ export class WizardComponent implements OnInit {
       this.appConfigService.reinit(false);
       this.appConfigService.loadAdminRoute("/admin/home");
     };
-    this.authenticationService.login(0, this.wizard.admin_username, this.wizard.admin_password, "", "", promise);
+    this.authenticationService.login(0, this.wizard.admin_username, this.admin_password, "", "", promise);
   }
 
   loadLicense() {

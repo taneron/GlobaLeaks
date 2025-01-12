@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #
 # API handling recipient user functionalities
-import base64
 import json
 
 from datetime import datetime
 
+from nacl.encoding import Base64Encoder
 from sqlalchemy.sql.expression import distinct, func, and_, or_
 
 from globaleaks import models
@@ -91,12 +91,12 @@ def get_receivertips(session, tid, receiver_id, user_key, language, args={}):
         label = itip.label
         accessible = rtip.receiver_id == receiver_id
         if itip.crypto_tip_pub_key and accessible:
-            tip_key = GCE.asymmetric_decrypt(user_key, base64.b64decode(rtip.crypto_tip_prv_key))
+            tip_key = GCE.asymmetric_decrypt(user_key, Base64Encoder.decode(rtip.crypto_tip_prv_key))
 
             if label:
-                label = GCE.asymmetric_decrypt(tip_key, base64.b64decode(label.encode())).decode()
+                label = GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(label.encode())).decode()
 
-            answers = json.loads(GCE.asymmetric_decrypt(tip_key, base64.b64decode(answers.encode())).decode())
+            answers = json.loads(GCE.asymmetric_decrypt(tip_key, Base64Encoder.decode(answers.encode())).decode())
         elif itip.crypto_tip_pub_key:
             # remove useless and unusable crypted data
             answers = ""

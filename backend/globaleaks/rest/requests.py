@@ -121,7 +121,8 @@ SubmissionDesc = {
     'receivers': [uuid_regexp],
     'identity_provided': bool,
     'answers': dict,
-    'score': int
+    'score': int,
+    'receipt': str
 }
 
 AdminUserDesc = {

@@ -26,6 +26,9 @@ import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {StripHtmlPipe} from "@app/shared/pipes/strip-html.pipe";
 import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
+import {HttpService} from "@app/shared/services/http.service";
+import {CryptoService} from "@app/shared/services/crypto.service";
+import {firstValueFrom} from "rxjs";
 
 @Component({
     selector: "src-submission",
@@ -45,6 +48,8 @@ export class SubmissionComponent implements OnInit {
   private appDataService = inject(AppDataService);
   private utilsService = inject(UtilsService);
   private fieldUtilitiesService = inject(FieldUtilitiesService);
+  private httpService = inject(HttpService);
+  private cryptoService = inject(CryptoService);
   submissionService = inject(SubmissionService);
 
   @ViewChild("submissionForm") public submissionForm: NgForm;
@@ -290,7 +295,7 @@ export class SubmissionComponent implements OnInit {
     this.utilsService.resumeFileUploads(this.uploads);
     this.done = true;
 
-    const intervalId = setInterval(() => {
+    const intervalId = setInterval(async () => {
       if (this.uploads) {
         for (const key in this.uploads) {
 
@@ -306,10 +311,21 @@ export class SubmissionComponent implements OnInit {
 
       clearInterval(intervalId);
 
+      this.authenticationService.session.receipt = this.cryptoService.generateReceipt();
+
+      const res = await firstValueFrom(this.httpService.requestAuthType(JSON.stringify({'username': "" /* whistleblower */ })));
+
+      if (res.type == 'key') {
+        this.appDataService.updateShowLoadingPanel(true);
+        this.submissionService.submission.receipt = await this.cryptoService.hashArgon2(this.authenticationService.session.receipt, res.salt);
+        this.appDataService.updateShowLoadingPanel(false);
+      } else {
+        this.submissionService.submission.receipt = this.authenticationService.session.receipt;
+      }
+
       this.submissionService.submit().subscribe({
         next: (response) => {
           this.router.navigate(["/"]).then();
-          this.authenticationService.session.receipt = response.receipt;
           this.titleService.setPage("receiptpage");
         }
       });

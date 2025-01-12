@@ -181,7 +181,27 @@ module.exports = function(grunt) {
     },
 
     webpack: {
-      build: {
+      crypto_worker: {
+        entry: {
+          'crypto.worker.js': './app/workers/crypto.worker.ts',
+        },
+        output: {
+          filename: 'crypto.worker.js',
+          path: path.resolve('build/workers/'),
+          libraryTarget: 'umd',
+          globalObject: 'this',
+        },
+        mode: 'production',
+        resolve: {
+          fallback: {
+            fs: false,
+            crypto: false,
+            path: false,
+            stream: false
+          }
+        }
+      },
+      pdfjs: {
         entry: {
           'pdf.min': './node_modules/pdfjs-dist/legacy/build/pdf.min.mjs',
           'pdf.worker.min': './node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs',
