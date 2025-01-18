@@ -41,11 +41,6 @@ def escape_string(s):
             return string
 
 
-class LogFile(txlogfile.LogFile):
-    def write(self, data):
-        return txlogfile.LogFile.write(self, escape_string(data))
-
-
 def openLogFile(logfile, max_file_size, rotated_log_files):
     """
     Open a log file
@@ -58,10 +53,10 @@ def openLogFile(logfile, max_file_size, rotated_log_files):
     name = os.path.basename(logfile)
     directory = os.path.dirname(logfile)
 
-    return LogFile(name,
-                   directory,
-                   rotateLength=max_file_size,
-                   maxRotatedFiles=rotated_log_files)
+    return txlogfile.LogFile(name,
+                             directory,
+                             rotateLength=max_file_size,
+                             maxRotatedFiles=rotated_log_files)
 
 
 def logFormatter(timestamp, request):
