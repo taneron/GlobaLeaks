@@ -23,6 +23,12 @@ describe("Recipient first login", () => {
     cy.get("#confirm").click();
     cy.takeScreenshot("user/recoverykey", ".modal");
     cy.get("#close").click();
+  });
+
+  it("should be able to enable two factor authentication", () => {
+    cy.login_receiver("Recipient", Cypress.env("user_password"), "#/login", true);
+    cy.waitForUrl("/recipient");
+    cy.visit("/#/recipient/preferences");
     cy.get("[name='two_factor']").click();
     cy.takeScreenshot("user/2fa", ".modal");
     cy.get("#close").click();
