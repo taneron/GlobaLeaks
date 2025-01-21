@@ -241,7 +241,7 @@ export class UtilsService {
   }
 
   showWBLoginBox() {
-    return this.router.url.startsWith("/submission");
+    return this.appDataService.page === "submissionpage";
   }
 
   showUserStatusBox(authenticationService: AuthenticationService, appDataService: AppDataService) {
