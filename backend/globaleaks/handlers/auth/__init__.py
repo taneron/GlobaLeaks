@@ -74,8 +74,7 @@ def login_whistleblower(session, tid, receipt, client_using_tor, operator_id=Non
             key = Base64Encoder.decode(receipt.encode())
             hash = sha256(key).decode()
         else:
-            key = Base64Encoder.decode(GCE.argon2id(password.encode(), user.salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
-            hash = GCE.argon2id(password, user.salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
+            key, hash = GCE.calculate_key_and_hash_deprecated(receipt, user.salt)
     except:
         db_login_failure(session, tid, 0)
 
@@ -140,8 +139,7 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
             key = Base64Encoder.decode(password.encode())
             hash = sha256(key).decode()
         else:
-            key = Base64Encoder.decode(GCE.argon2id(password.encode(), user.salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
-            hash = GCE.argon2id(password, user.salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
+            key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
 
             # Force password change to enable client hashing
             user.password_change_needed = True

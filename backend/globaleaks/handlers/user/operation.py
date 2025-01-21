@@ -26,8 +26,7 @@ def change_password(session, tid, user_session, password):
         key = Base64Encoder.decode(password.encode())
         hash = sha256(key).decode()
     else:
-        key = Base64Encoder.decode(GCE.argon2id(password.encode(), user.salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
-        hash = GCE.argon2id(password, user.salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
+        key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
 
     # Check that the new password is different form the current password
     if user.hash == hash:
