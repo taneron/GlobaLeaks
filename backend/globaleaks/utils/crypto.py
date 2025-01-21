@@ -3,7 +3,6 @@ import binascii
 import os
 import pyotp
 import random
-import re
 import secrets
 import string
 import struct

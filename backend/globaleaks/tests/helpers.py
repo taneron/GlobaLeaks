@@ -162,7 +162,7 @@ def init_state():
 
 @transact
 def mock_users_keys(session):
-    session.query(models.Config).filter(models.Config.tid == 1, models.Config.var_name == u'receipt_salt').one().value = VALID_SALT1
+    session.query(models.Config).filter(models.Config.tid == 1, models.Config.var_name == 'receipt_salt').one().value = VALID_SALT1
 
     for user in session.query(models.User):
         if user.username == 'receiver2':

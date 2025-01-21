@@ -8,7 +8,6 @@ from globaleaks.models.config import db_set_config_variable
 from globaleaks.orm import tw
 from globaleaks.rest import errors
 from globaleaks.tests import helpers
-from globaleaks.utils.crypto import GCE
 
 
 class TestSubmission(helpers.TestHandlerWithPopulatedDB):
