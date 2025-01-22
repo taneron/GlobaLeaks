@@ -33,7 +33,6 @@ from globaleaks.handlers import admin, \
                                 staticfile, \
                                 support, \
                                 user, \
-                                viewer, \
                                 wizard, \
                                 whistleblower
 
@@ -161,9 +160,6 @@ api_spec = [
 
     # Path alias
     (r'^(/admin|/login|/submission)$', redirect.SpecialRedirectHandler),
-
-    # File viewer app
-    (r'/(viewer/[a-zA-Z0-9_\-\/\.\@]*)', viewer.ViewerHandler),
 
     # This handler attempts to route all non routed get requests
     (r'/([a-zA-Z0-9_\-\/\.\@]*)', staticfile.StaticFileHandler)
@@ -492,6 +488,11 @@ class APIResourceWrapper(Resource):
             if request.tid in State.tenants and State.tenants[request.tid].cache.onionservice:
                 request.setHeader(b'Onion-Location', b'http://' + State.tenants[request.tid].cache.onionservice.encode() + request.path)
 
+        request.setHeader(b"Cross-Origin-Embedder-Policy", "require-corp")
+        request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")
+        request.setHeader(b"Cross-Origin-Resource-Policy", "same-origin")
+
+        # Default CSP Policy
         request.setHeader(b'Content-Security-Policy',
                           b"base-uri 'none';"
                           b"default-src 'none' 'report-sample';"
@@ -502,9 +503,45 @@ class APIResourceWrapper(Resource):
                           b"require-trusted-types-for 'script';"
                           b"report-uri /api/report;")
 
-        request.setHeader(b"Cross-Origin-Embedder-Policy", "require-corp")
-        request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")
-        request.setHeader(b"Cross-Origin-Resource-Policy", "same-origin")
+        # CSP Policy on the entry point
+        if request.path == b'/' or request.path == b'/index.html':
+            request.setHeader(b'Content-Security-Policy',
+                              b"base-uri 'none';"
+                              b"connect-src 'self';"
+                              b"default-src 'none';"
+                              b"font-src 'self';"
+                              b"form-action 'none';"
+                              b"frame-ancestors 'none';"
+                              b"frame-src 'self';"
+                              b"img-src 'self';"
+                              b"media-src 'self';"
+                              b"script-src 'self' 'report-sample';"
+                              b"style-src 'self' 'report-sample';"
+                              b"trusted-types angular angular#bundler dompurify default;"
+                              b"require-trusted-types-for 'script';"
+                              b"report-uri /api/report;")
+
+        # CSP Policy for the file viewer
+        elif request.path.startswith(b'/viewer'):
+            if request.path == b'/viewer/index.html':
+                request.setHeader(b'Content-Security-Policy',
+                                  b"base-uri 'none';"
+                                  b"default-src 'none';"
+                                  b"connect-src blob:;"
+                                  b"form-action 'none';"
+                                  b"frame-ancestors 'self';"
+                                  b"img-src blob:;"
+                                  b"media-src blob:;"
+                                  b"script-src 'self' 'report-sample';"
+                                  b"style-src 'self' 'report-sample';"
+                                  b"sandbox allow-scripts;"
+                                  b"trusted-types;"
+                                  b"require-trusted-types-for 'script';"
+                                  b"report-uri /api/report;")
+
+                request.setHeader(b"Cross-Origin-Resource-Policy", "cross-origin")
+            else:
+                request.setHeader(b'Access-Control-Allow-Origin', "null")
 
         # Disable features that could be used to deanonymize the user
         microphone = False
