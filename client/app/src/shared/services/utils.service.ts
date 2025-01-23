@@ -38,7 +38,7 @@ import {CryptoService} from "@app/shared/services/crypto.service";
 export class UtilsService {
   private authenticationService = inject(AuthenticationService);
   private activatedRoute = inject(ActivatedRoute);
-  protected appDataService = inject(AppDataService);
+  private appDataService = inject(AppDataService);
   private cryptoService = inject(CryptoService);
   private tokenResource = inject(TokenResource);
   private translateService = inject(TranslateService);
@@ -241,19 +241,19 @@ export class UtilsService {
   }
 
   showWBLoginBox() {
-    return this.router.url.startsWith("/submission");
+    return this.appDataService.page === "submissionpage";
   }
 
-  showUserStatusBox(authenticationService: AuthenticationService, appDataService: AppDataService) {
-    return appDataService.public.node.wizard_done &&
-        appDataService.page !== "homepage" &&
-        appDataService.page !== "submissionpage" &&
-        authenticationService.session;
+  showUserStatusBox() {
+    return this.appDataService.public.node.wizard_done &&
+        this.appDataService.page !== "homepage" &&
+        this.appDataService.page !== "submissionpage" &&
+        this.authenticationService.session;
   }
 
-  isWhistleblowerPage(authenticationService: AuthenticationService, appDataService: AppDataService) {
+  isWhistleblowerPage() {
     const currentUrl = this.router.url;
-    return appDataService.public.node.wizard_done && (!authenticationService.session || (location.hash==="#/" || location.hash.startsWith("#/submission"))) && ((currentUrl === "/" && !appDataService.public.node.enable_signup) || currentUrl === "/submission" || currentUrl === "/blank");
+    return this.appDataService.public.node.wizard_done && (!this.authenticationService.session || (location.hash==="#/" || location.hash.startsWith("#/submission"))) && ((currentUrl === "/" && !this.appDataService.public.node.enable_signup) || currentUrl === "/submission" || currentUrl === "/blank");
   }
 
   stopPropagation(event: Event) {
@@ -276,9 +276,9 @@ export class UtilsService {
     return btoa(result);
   }
 
-  openSupportModal(appDataService: AppDataService) {
-    if (appDataService.public.node.custom_support_url) {
-      window.open(appDataService.public.node.custom_support_url, "_blank");
+  openSupportModal() {
+    if (this.appDataService.public.node.custom_support_url) {
+      window.open(this.appDataService.public.node.custom_support_url, "_blank");
     } else {
       this.modalService.open(RequestSupportComponent,{backdrop: "static",keyboard: false});
     }

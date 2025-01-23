@@ -16,7 +16,6 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
     imports: [FormsModule, NgbTooltipModule, TranslateModule, TranslatorPipe]
 })
 export class PasswordResetResponseComponent implements OnInit {
-  protected appDataService = inject(AppDataService);
   private route = inject(ActivatedRoute);
   private httpService = inject(HttpService);
   private router = inject(Router);

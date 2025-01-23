@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import copy
 from twisted.internet.address import IPv4Address
 from twisted.internet.defer import inlineCallbacks
 
@@ -67,40 +68,110 @@ class TestAPI(TestGL):
             (b'XXX', 501)
         ]
 
-        server_headers = [
-            ('Cache-control', 'no-store'),
-            ('Content-Security-Policy', 'base-uri \'none\';' \
-                                        'default-src \'none\' \'report-sample\';' \
-                                        'form-action \'none\';' \
-                                        'frame-ancestors \'none\';' \
-                                        'sandbox;' \
-                                        'trusted-types;' \
-                                        'require-trusted-types-for \'script\';'
-                                        'report-uri /api/report;'),
-            ('Cross-Origin-Embedder-Policy', 'require-corp'),
-            ('Cross-Origin-Opener-Policy', 'same-origin'),
-            ('Cross-Origin-Resource-Policy', 'same-origin'),
-            ('Permissions-Policy', "camera=(),"
-                                   "document-domain=(),"
-                                   "fullscreen=(),"
-                                   "geolocation=(),"
-                                   "microphone=(),"
-                                   "serial=(),"
-                                   "usb=(),"
-                                   "web-share=()"),
-            ('Referrer-Policy', 'no-referrer'),
-            ('Server', 'GlobaLeaks'),
-            ('X-Content-Type-Options', 'nosniff'),
-            ('X-Check-Tor', 'False'),
-            ('X-Frame-Options', 'deny')
-        ]
+        default_server_headers = {
+            'Cache-control': 'no-store',
+            'Cross-Origin-Embedder-Policy': 'require-corp',
+            'Cross-Origin-Opener-Policy': 'same-origin',
+            'Cross-Origin-Resource-Policy': 'same-origin',
+            'Permissions-Policy': 'camera=(),'
+                                  'document-domain=(),'
+                                  'fullscreen=(),'
+                                  'geolocation=(),'
+                                  'microphone=(),'
+                                  'serial=(),'
+                                  'usb=(),'
+                                  'web-share=()',
+            'Content-Security-Policy': 'base-uri \'none\';'
+                                       'default-src \'none\' \'report-sample\';'
+                                       'form-action \'none\';'
+                                       'frame-ancestors \'none\';'
+                                       'sandbox;'
+                                       'trusted-types;'
+                                       'require-trusted-types-for \'script\';'
+                                       'report-uri /api/report;',
+            'Referrer-Policy': 'no-referrer',
+            'Server': 'GlobaLeaks',
+            'X-Content-Type-Options': 'nosniff',
+            'X-Check-Tor': 'False',
+            'X-Frame-Options': 'deny'
+        }
+
+        server_headers = copy.copy(default_server_headers)
+        server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
+                                                    'connect-src \'self\';' \
+                                                    'default-src \'none\';' \
+                                                    'font-src \'self\';' \
+                                                    'form-action \'none\';' \
+                                                    'frame-ancestors \'none\';' \
+                                                    'frame-src \'self\';' \
+                                                    'img-src \'self\';' \
+                                                    'media-src \'self\';' \
+                                                    'script-src \'self\' \'report-sample\';' \
+                                                    'style-src \'self\' \'report-sample\';' \
+                                                    'trusted-types angular angular#bundler dompurify default;' \
+                                                    'require-trusted-types-for \'script\';' \
+                                                    'report-uri /api/report;'
 
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/", method=method)
             self.api.render(request)
             self.assertEqual(request.responseCode, status_code)
-            for headerName, expectedHeaderValue in server_headers:
-                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[0]
+            for headerName, expectedHeaderValue in server_headers.items():
+                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[-1]
+                self.assertEqual(returnedHeaderValue, expectedHeaderValue)
+
+        server_headers = copy.copy(default_server_headers)
+        server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
+                                                    'default-src \'none\' \'report-sample\';' \
+                                                    'form-action \'none\';' \
+                                                    'frame-ancestors \'none\';' \
+                                                    'sandbox;' \
+                                                    'trusted-types;' \
+                                                    'require-trusted-types-for \'script\';' \
+                                                    'report-uri /api/report;'
+
+        for method, status_code in test_cases:
+            request = forge_request(uri=b"https://www.globaleaks.org/api/public", method=method)
+            self.api.render(request)
+            self.assertEqual(request.responseCode, status_code)
+            for headerName, expectedHeaderValue in server_headers.items():
+                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[-1]
+                self.assertEqual(returnedHeaderValue, expectedHeaderValue)
+
+        server_headers = copy.copy(default_server_headers)
+        server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
+                                                    'default-src \'none\';' \
+                                                    'connect-src blob:;' \
+                                                    'form-action \'none\';' \
+                                                    'frame-ancestors \'self\';' \
+                                                    'img-src blob:;' \
+                                                    'media-src blob:;' \
+                                                    'script-src \'self\' \'report-sample\';' \
+                                                    'style-src \'self\' \'report-sample\';' \
+                                                    'sandbox allow-scripts;' \
+                                                    'trusted-types;' \
+                                                    'require-trusted-types-for \'script\';' \
+                                                    'report-uri /api/report;'
+
+        server_headers['Cross-Origin-Resource-Policy'] = 'cross-origin'
+
+        for method, status_code in test_cases:
+            request = forge_request(uri=b"https://www.globaleaks.org/viewer/index.html", method=method)
+            self.api.render(request)
+            self.assertEqual(request.responseCode, status_code)
+            for headerName, expectedHeaderValue in server_headers.items():
+                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[-1]
+                self.assertEqual(returnedHeaderValue, expectedHeaderValue)
+
+        server_headers = copy.copy(default_server_headers)
+        server_headers['Access-Control-Allow-Origin'] = 'null'
+
+        for method, status_code in test_cases:
+            request = forge_request(uri=b"https://www.globaleaks.org/viewer/script.js", method=method)
+            self.api.render(request)
+            self.assertEqual(request.responseCode, status_code)
+            for headerName, expectedHeaderValue in server_headers.items():
+                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[-1]
                 self.assertEqual(returnedHeaderValue, expectedHeaderValue)
 
     def test_request_state_and_redirects(self):

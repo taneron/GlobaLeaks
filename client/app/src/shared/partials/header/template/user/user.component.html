@@ -11,7 +11,7 @@
       </ng-select>
     </div>
   }
-  @if (utilsService.showUserStatusBox(authentication, appDataService)) {
+  @if (utilsService.showUserStatusBox()) {
     <div id="LoginStatusBox">
       <span id="HomeLinkBox">
         @if (authentication.session.role !== 'whistleblower') {
@@ -33,7 +33,7 @@
       }
       @if (authentication.session && authentication.session.role !== 'whistleblower') {
         <span id="SupportLinkBox">
-          <a id="SupportLink" href="#" (click)="utilsService.openSupportModal(appDataService)" ngbTooltip="{{'Request support' | translate}}">
+          <a id="SupportLink" href="#" (click)="utilsService.openSupportModal()" ngbTooltip="{{'Request support' | translate}}">
             <i class="fa-solid fa-fw fa-life-ring"></i>
           </a>
           <span class="text-separator">|</span>
