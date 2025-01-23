@@ -125,6 +125,24 @@ class TestAPI(TestGL):
                                                     'default-src \'none\' \'report-sample\';' \
                                                     'form-action \'none\';' \
                                                     'frame-ancestors \'none\';' \
+                                                    'script-src \'wasm-unsafe-eval\' \'report-sample\';' \
+                                                    'sandbox;' \
+                                                    'trusted-types;' \
+                                                    'require-trusted-types-for \'script\';' \
+                                                    'report-uri /api/report;'
+        for method, status_code in test_cases:
+            request = forge_request(uri=b"https://www.globaleaks.org/workers/crypto.worker.js", method=method)
+            self.api.render(request)
+            self.assertEqual(request.responseCode, status_code)
+            for headerName, expectedHeaderValue in server_headers.items():
+                returnedHeaderValue = request.responseHeaders.getRawHeaders(headerName)[-1]
+                self.assertEqual(returnedHeaderValue, expectedHeaderValue)
+
+        server_headers = copy.copy(default_server_headers)
+        server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
+                                                    'default-src \'none\' \'report-sample\';' \
+                                                    'form-action \'none\';' \
+                                                    'frame-ancestors \'none\';' \
                                                     'sandbox;' \
                                                     'trusted-types;' \
                                                     'require-trusted-types-for \'script\';' \

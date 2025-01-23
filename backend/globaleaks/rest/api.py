@@ -523,6 +523,19 @@ class APIResourceWrapper(Resource):
                               b"require-trusted-types-for 'script';"
                               b"report-uri /api/report;")
 
+        # CSP Policy for the crypto worker
+        elif request.path == b'/workers/crypto.worker.js':
+            request.setHeader(b'Content-Security-Policy',
+                              b"base-uri 'none';"
+                              b"default-src 'none' 'report-sample';"
+                              b"form-action 'none';"
+                              b"frame-ancestors 'none';"
+                              b"script-src 'wasm-unsafe-eval' 'report-sample';"
+                              b"sandbox;"
+                              b"trusted-types;"
+                              b"require-trusted-types-for 'script';"
+                              b"report-uri /api/report;")
+
         # CSP Policy for the file viewer
         elif request.path.startswith(b'/viewer'):
             if request.path == b'/viewer/index.html':
