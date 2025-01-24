@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import base64
 import binascii
 import os
 import pyotp
@@ -8,6 +7,7 @@ import secrets
 import string
 import struct
 import threading
+import hashlib
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import constant_time, hashes
@@ -86,32 +86,6 @@ def totpVerify(secret: str, token: str) -> None:
     # RFC 6238: step size 30 sec; valid_window = 1; total size of the window: 1.30 sec
     if not pyotp.TOTP(secret).verify(token, valid_window=1):
         raise Error
-
-
-def _kdf_argon2(password: bytes, salt: bytes) -> bytes:
-    lock.acquire()
-
-    try:
-        salt = base64.b64decode(salt)
-        return argon2id.kdf(32, password, salt[0:16],
-                            opslimit=_GCE.options['OPSLIMIT'] + 1,
-                            memlimit=1 << _GCE.options['MEMLIMIT'])
-    finally:
-        lock.release()
-
-
-def _hash_argon2(password: bytes, salt: bytes) -> str:
-    lock.acquire()
-
-    try:
-        salt = base64.b64decode(salt)
-        hash = argon2id.kdf(32, password, salt[0:16],
-                            opslimit=_GCE.options['OPSLIMIT'],
-                            memlimit=1 << _GCE.options['MEMLIMIT'])
-        return base64.b64encode(hash).decode()
-
-    finally:
-        lock.release()
 
 
 class _StreamingEncryptionObject(object):
@@ -197,6 +171,16 @@ class _GCE(object):
     }
 
     @staticmethod
+    def check_equality(user_hash, hash) -> bool:
+        """
+        Perform hash check for match with a provided hash
+        """
+        user_hash = _convert_to_bytes(user_hash)
+        x = _convert_to_bytes(hash)
+
+        return constant_time.bytes_eq(x, user_hash)
+
+    @staticmethod
     def generate_receipt() -> str:
         """
         Return a random receipt of 16 digits
@@ -204,33 +188,14 @@ class _GCE(object):
         return ''.join(random.SystemRandom().choice(string.digits) for _ in range(16))
 
     @staticmethod
-    def generate_salt() -> str:
+    def generate_salt(seed: str = '') -> str:
         """
-        Return a salt with 128 bit of entropy
+        Return a salt with 128 bits of entropy.
         """
-        return base64.b64encode(os.urandom(16)).decode()
+        random_bytes = nacl_random(16)
+        deterministic_bytes = hashlib.sha256(seed.encode()).digest()[:16]
 
-    @staticmethod
-    def hash_password(password: str, salt: str) -> str:
-        """
-        Return the hash a password
-        """
-        password = _convert_to_bytes(password)
-        salt = _convert_to_bytes(salt)
-
-        return _hash_argon2(password, salt)
-
-    @staticmethod
-    def check_password(password: str, salt: str, hash: str) -> bool:
-        """
-        Perform password check for match with a provided hash
-        """
-        password = _convert_to_bytes(password)
-        salt = _convert_to_bytes(salt)
-        hash = _convert_to_bytes(hash)
-        x = _convert_to_bytes(_hash_argon2(password, salt))
-
-        return constant_time.bytes_eq(x, hash)
+        return Base64Encoder.encode(deterministic_bytes if seed else random_bytes).decode()
 
     @staticmethod
     def generate_key() -> bytes:
@@ -240,14 +205,38 @@ class _GCE(object):
         return nacl_random(32)
 
     @staticmethod
-    def derive_key(password: Union[bytes, str], salt: str) -> bytes:
+    def argon2id(password: str, salt: str, opslimit: 16, memlimit: int = 1 << 27) -> bytes:
         """
-        Perform key derivation from a user password
+        Return the hash a password
         """
         password = _convert_to_bytes(password)
         salt = _convert_to_bytes(salt)
 
-        return _kdf_argon2(password, salt)
+        lock.acquire()
+
+        try:
+            salt = Base64Encoder.decode(salt)
+            hash = argon2id.kdf(32, password, salt[0:16],
+                                opslimit=opslimit,
+                                memlimit=memlimit)
+            return Base64Encoder.encode(hash).decode()
+        finally:
+            lock.release()
+
+    @staticmethod
+    def derive_key(password: Union[bytes, str], salt: str) -> bytes:
+        """
+        Perform key derivation from a user password
+        """
+        return _GCE.argon2id(password, salt, _GCE.options['OPSLIMIT'], 1 << _GCE.options['MEMLIMIT'])
+
+    @staticmethod
+    def calculate_key_and_hash_deprecated(password: Union[bytes, str], salt: str) -> Tuple[bytes, bytes]:
+        """
+        Calculate and returns password key derivation and key hashing
+        """
+        return Base64Encoder.decode(_GCE.argon2id(password.encode(), salt, _GCE.options['OPSLIMIT'] + 1, 1 << _GCE.options['MEMLIMIT'])), \
+               _GCE.argon2id(password, salt, _GCE.options['OPSLIMIT'], 1 << _GCE.options['MEMLIMIT'])
 
     @staticmethod
     def generate_keypair() -> Tuple[bytes, bytes]:

@@ -9,15 +9,13 @@ import {Observable, from, switchMap} from "rxjs";
 export class TokenResource {
   private cryptoService = inject(CryptoService);
   private http = inject(HttpClient);
-
-
   private baseUrl = "api/token/:id";
 
   getWithProofOfWork(): Observable<any> {
     return from(this.http.post("api/auth/token", {})).pipe(
       switchMap((response: any) => {
         const token = response;
-        return this.cryptoService.proofOfWork(token.id).pipe(
+        return this.cryptoService.proofOfWork(token).pipe(
           switchMap((answer: any) => {
             token.answer = answer;
             return new Observable<any>((observer) => {

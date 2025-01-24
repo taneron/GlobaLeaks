@@ -17,6 +17,7 @@ import {ImageUploadDirective} from "@app/shared/directive/image-upload.directive
 import {PasswordStrengthValidatorDirective} from "@app/shared/directive/password-strength-validator.directive";
 import {PasswordMeterComponent} from "@app/shared/components/password-meter/password-meter.component";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
+import {CryptoService} from "@app/shared/services/crypto.service";
 
 @Component({
     selector: "src-user-editor",
@@ -31,6 +32,7 @@ export class UserEditorComponent implements OnInit {
   private authenticationService = inject(AuthenticationService);
   private nodeResolver = inject(NodeResolver);
   private utilsService = inject(UtilsService);
+  private cryptoService = inject(CryptoService);
 
   @Input() user: userResolverModel;
   @Input() users: userResolverModel[];
@@ -82,7 +84,11 @@ export class UserEditorComponent implements OnInit {
     this.utilsService.runAdminOperation("disable_2fa", {"value": user.id}, true).subscribe();
   }
 
-  setPassword(setPasswordArgs: { user_id: string, password: string }) {
+  async setPassword(setPasswordArgs: { user_id: string, password: string }) {
+    this.appDataService.updateShowLoadingPanel(true);
+    setPasswordArgs.password = await this.cryptoService.hashArgon2(setPasswordArgs.password, this.user.salt);
+    this.appDataService.updateShowLoadingPanel(false);
+
     this.utilsService.runAdminOperation("set_user_password", setPasswordArgs, false).subscribe();
     this.user.newpassword = false;
     this.setPasswordArgs.password = "";

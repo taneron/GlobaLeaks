@@ -1,6 +1,7 @@
 # -*- coding: UTF-8
-import base64
 import os
+
+from nacl.encoding import Base64Encoder
 
 from globaleaks.db.migrations.update import MigrationBase
 from globaleaks.handlers.admin.file import special_files
@@ -31,7 +32,7 @@ class MigrationScript(MigrationBase):
                 new_obj.id = uuid4()
                 new_obj.name = old_obj.id
 
-                data = base64.b64decode(old_obj.data)
+                data = Base64Encoder.decode(old_obj.data)
 
                 filepath = os.path.join(State.settings.files_path, new_obj.id)
                 with open(filepath, 'wb') as out_file:

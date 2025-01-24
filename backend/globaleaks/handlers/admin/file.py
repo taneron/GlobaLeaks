@@ -112,7 +112,7 @@ class FileInstance(BaseHandler):
                 not self.session.has_permission('can_upload_files'):
             raise errors.InvalidAuthentication
 
-        if self.session.user_role != 'admin' and \
+        if self.session.role != 'admin' and \
                 not self.session.has_permission('can_edit_general_settings'):
             raise errors.InvalidAuthentication
 
@@ -159,7 +159,7 @@ class FileCollection(BaseHandler):
     check_roles = 'user'
 
     def permission_check(self):
-        if self.session.user_role != 'admin' and \
+        if self.session.role != 'admin' and \
                 not self.session.has_permission('can_edit_general_settings'):
             raise errors.InvalidAuthentication
 

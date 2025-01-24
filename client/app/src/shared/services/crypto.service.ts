@@ -1,25 +1,46 @@
 import {Injectable} from "@angular/core";
-import {Observable, from} from "rxjs";
+import {Observable, from, of} from "rxjs";
 import {switchMap} from "rxjs/operators";
+import * as sodium from 'libsodium-wrappers-sumo';
 
 @Injectable({
   providedIn: "root"
 })
 export class CryptoService {
-  data: string;
-  counter: number = 0;
+  private worker: Worker;
+  private pendingRequests: Map<string, { resolve: (result: any) => void, reject: (error: any) => void }> = new Map();
+  private messageId: number = 0;
 
-  calculateHash(hash: any): Observable<number> {
-    hash = new Uint8Array(hash);
-    if (hash[31] === 0) {
-      return new Observable<number>((observer) => {
-        observer.next(this.counter);
-        observer.complete();
-      });
-    } else {
-      this.counter += 1;
-      return this.work();
+  initializeWorker() {
+    if (this.worker) {
+      return;
     }
+
+    this.worker = new Worker('/workers/crypto.worker.js', { type: 'module' });
+
+    this.worker.onmessage = (event: MessageEvent) => {
+      const { id, success, result, error } = event.data;
+
+      const request = this.pendingRequests.get(id);
+
+      if (request) {
+        // Remove the resolved request from the map
+        this.pendingRequests.delete(id);
+
+        if (success) {
+          request.resolve(result);
+        } else {
+          // Reject the promise with the error message
+          request.reject(error);
+        }
+      }
+    };
+  }
+
+  generateReceipt(): string {
+    const array = new Uint8Array(16); // Create a byte array of length 16
+    window.crypto.getRandomValues(array); // Fill it with secure random values
+    return Array.from(array, byte => (byte % 10).toString()).join('');
   }
 
   str2Uint8Array(str: string): Uint8Array {
@@ -30,20 +51,68 @@ export class CryptoService {
     return result;
   }
 
-  work(): Observable<number> {
-    const webCrypto = window.crypto.subtle;
+  arrayToBase64(array: Uint8Array): string {
+    let binary = '';
+    array.forEach((byte) => {
+      binary += String.fromCharCode(byte);
+    });
+    return btoa(binary);
+  }
 
-    const toHash = this.str2Uint8Array(this.data + this.counter);
-    const digestPremise = from(webCrypto.digest({name: "SHA-256"}, toHash));
+  async generateSalt(seed: string = ''): Promise<string> {
+    // Generate 16 random bytes
+    const randomBytes = new Uint8Array(16);
+    window.crypto.getRandomValues(randomBytes);
 
-    return digestPremise.pipe(
-      switchMap((res) => this.calculateHash(res))
+    // Compute the SHA-256 hash of the seed if provided
+    const data = this.str2Uint8Array(seed); // Use str2Uint8Array
+    const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+    const seedHash = new Uint8Array(hashBuffer);
+
+    // Combine bytes (random or deterministic based on the seed)
+    const combinedBytes = new Uint8Array(
+      Array.from({ length: 16 }, (_, i) =>
+        seed ? seedHash[i] : randomBytes[i]
+      )
+    );
+
+    // Return Base64-encoded salt
+    return this.arrayToBase64(combinedBytes);
+  }
+
+  async hashArgon2(text: string, salt: string, iterations: number = 16, memory: number = 1 << 27): Promise<string> {
+    this.initializeWorker();
+
+    const id = (this.messageId++).toString();
+
+    return new Promise((resolve, reject) => {
+      this.pendingRequests.set(id, { resolve, reject });
+
+      // Post data to the worker
+      this.worker.postMessage({
+        id,
+        text,
+        salt,
+        iterations,
+	memory
+      });
+    });
+  }
+
+  work(text: string, salt: string, iterations: number, memory: number, counter: number): Observable<number> {
+    return from(this.hashArgon2(text + String(counter), salt, iterations, memory)).pipe(
+      switchMap((hash) => {
+        if (atob(hash).charCodeAt(31) === 0) {
+          return of(counter);
+        } else {
+          return this.work(text, salt, iterations, memory, counter + 1);
+        }
+      })
     );
   }
 
-  proofOfWork(data: string): Observable<number> {
-    this.data = data;
-    this.counter = 0;
-    return this.work();
+  proofOfWork(token: any): Observable<number> {
+    this.initializeWorker();
+    return this.work(token.id, token.salt, 1, 1 << 20, 0);
   }
 }

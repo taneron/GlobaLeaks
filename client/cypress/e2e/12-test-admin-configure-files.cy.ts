@@ -1,5 +1,5 @@
 describe("Admin configure custom CSS", () => {
-  it("should be able to enable the file upload", () => {
+  it("should be able to configure the file upload", () => {
     cy.login_admin();
 
     cy.visit("#/admin/settings");
@@ -11,23 +11,14 @@ describe("Admin configure custom CSS", () => {
     cy.get(".modal").should("be.visible");
     cy.get(".modal [type='password']").type("wrongpassword");
     cy.get(".modal .btn-primary").click();
-    cy.get(".modal").should("be.visible");
-    cy.get(".modal [type='password']").type("wrongpassword");
+
+    cy.get(".modal [type='password']", { timeout: 5000 })
+      .should('not.have.value') // Check the input is emptied due to the wrong password
+      .and('have.value', '');
+
     cy.get(".modal [type='password']").clear().type(Cypress.env("user_password"));
     cy.get(".modal .btn-primary").click();
     cy.get("[name='authenticationData.session.permissions.can_upload_files']").should("be.checked");
-  });
-
-  it("should be able to configure a custom CSS", () => {
-    cy.login_admin();
-    cy.visit("#/admin/settings");
-    cy.get('[data-cy="files"]').click();
-
-    cy.get("[name='authenticationData.session.permissions.can_upload_files']").should("not.be.checked");
-    cy.get("[name='authenticationData.session.permissions.can_upload_files_switch']").click();
-    cy.get(".modal").should("be.visible");
-    cy.get(".modal [type='password']").type(Cypress.env("user_password"));
-    cy.get(".modal .btn-primary").click();
 
     const customCSSFile = "files/test.css";
     cy.fixture(customCSSFile).then((fileContent) => {

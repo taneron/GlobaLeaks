@@ -7,4 +7,5 @@ export class submissionResourceModel {
   answers: Answers;
   answer: 0;
   score: 0;
+  receipt: string;
 }

@@ -50,7 +50,7 @@ export class WbFilesComponent implements OnInit {
     (
       {
         next: async token => {
-          this.cryptoService.proofOfWork(token.id).subscribe(
+          this.cryptoService.proofOfWork(token).subscribe(
             (ans) => {
               if (this.authenticationService.session.role === "receiver") {
                 window.open("api/recipient/rfiles/" + wbFile.id + "?token=" + token.id + ":" + ans);

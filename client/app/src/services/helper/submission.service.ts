@@ -86,6 +86,7 @@ export class SubmissionService {
       answers: this.submission.answers,
       answer: this.submission.answer,
       score: this.submission.score,
+      receipt: this.submission.receipt
     };
 
     const param = JSON.stringify(_submission_data);

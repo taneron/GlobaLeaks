@@ -749,7 +749,7 @@ export class UtilsService {
     (
       {
         next: async token => {
-          this.cryptoService.proofOfWork(token.id).subscribe(
+          this.cryptoService.proofOfWork(token).subscribe(
               (ans) => {
                const url = this.authenticationService.session.role === "whistleblower"?"api/whistleblower/wbtip/wbfiles/":"api/recipient/wbfiles/";
                 window.open(url + file.id + "?token=" + token.id + ":" + ans);

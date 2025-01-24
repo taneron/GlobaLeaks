@@ -200,7 +200,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     def test_successful_whistleblower_login(self):
         yield self.perform_full_submission_actions()
         handler = self.request({
-            'receipt': self.lastReceipt,
+            'receipt': self.dummySubmission['receipt'],
         })
         handler.request.client_using_tor = True
         response = yield handler.post()
@@ -209,7 +209,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_accept_whistleblower_login_in_https(self):
         yield self.perform_full_submission_actions()
-        handler = self.request({'receipt': self.lastReceipt})
+        handler = self.request({'receipt': self.dummySubmission['receipt']})
         State.tenants[1].cache['https_whistleblower'] = True
         response = yield handler.post()
         self.assertTrue('id' in response)
@@ -217,7 +217,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_deny_whistleblower_login_in_https(self):
         yield self.perform_full_submission_actions()
-        handler = self.request({'receipt': self.lastReceipt})
+        handler = self.request({'receipt': self.dummySubmission['receipt']})
         State.tenants[1].cache['https_whistleblower'] = False
         yield self.assertFailure(handler.post(), errors.TorNetworkRequired)
 
@@ -230,7 +230,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         yield self.perform_full_submission_actions()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         handler.request.client_using_tor = True
@@ -242,7 +242,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         yield wbtip_handler.get()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         response = yield handler.post()
@@ -257,7 +257,7 @@ class TestReceiptAuth(helpers.TestHandlerWithPopulatedDB):
         valid_session = Sessions.get(second_id)
         self.assertTrue(valid_session is not None)
 
-        self.assertEqual(valid_session.user_role, 'whistleblower')
+        self.assertEqual(valid_session.role, 'whistleblower')
 
         wbtip_handler = self.request(headers={'x-session': second_id},
                                      handler_cls=WBTipInstance)
@@ -295,7 +295,7 @@ class TestSessionHandler(helpers.TestHandlerWithPopulatedDB):
         yield self.perform_full_submission_actions()
 
         handler = self.request({
-            'receipt': self.lastReceipt
+            'receipt': self.dummySubmission['receipt']
         })
 
         handler.request.client_using_tor = True

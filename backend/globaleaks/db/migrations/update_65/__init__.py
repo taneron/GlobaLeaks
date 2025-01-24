@@ -1,7 +1,8 @@
 # -*- coding: UTF-8
-import base64
 import os
 import shutil
+
+from nacl.encoding import Base64Encoder
 
 from globaleaks.db.migrations.update import MigrationBase
 from globaleaks.models import Model
@@ -248,7 +249,7 @@ class MigrationScript(MigrationBase):
                     new_obj.deprecated_crypto_files_pub_key = old_obj.crypto_files_pub_key
 
             if new_obj.crypto_tip_pub_key and new_obj.label:
-                new_obj.label = base64.b64encode(GCE.asymmetric_encrypt(new_obj.crypto_tip_pub_key, new_obj.label))
+                new_obj.label = Base64Encoder.encode(GCE.asymmetric_encrypt(new_obj.crypto_tip_pub_key, new_obj.label))
 
             self.session_new.add(new_obj)
 

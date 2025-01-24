@@ -38,13 +38,11 @@ The system implements the following password security measures:
 
 Password storage
 ----------------
-Passwords are never stored in plaintext; instead, the system maintains only a hashed version. This applies to all authentication secrets, including whistleblower receipts.
+Passwords are never stored on the server either in plaintext or in form on hash; instead, the system maintains only the hash of of a key drived from the user password.
 
-The platform stores users’ passwords hashed with a random 128-bit salt, unique for each user.
+Passwords are hashed using `Argon2 <https://en.wikipedia.org/wiki/Argon2>`_ with a configuration of 16 iterations and 128MB of RAM, a per-user salt for each user and a per-system salt for whistleblowers.
 
-Passwords are hashed using `Argon2 <https://en.wikipedia.org/wiki/Argon2>`_, a key derivation function selected as the winner of the `Password Hashing Competition <https://en.wikipedia.org/wiki/Password_Hashing_Competition>`_ in July 2015.
-
-The hash involves a per-user salt for each user and a per-system salt for whistleblowers.
+The hashing algorithm used to compute the key hash is SHA256.
 
 Password complexity
 -------------------
@@ -357,6 +355,8 @@ To mitigate denial of service attacks, GlobaLeaks applies the following measures
 Proof of work on users' sessions
 --------------------------------
 The system implements an automatic `Proof of Work <https://en.wikipedia.org/wiki/Proof_of_work>`__ based on the hashcash algorithm for every user session, requiring clients to request a token and continuously solve a computational problem to acquire and renew the session.
+
+Specifically the algorithm used to perform the hash is Argon2id with requirement of 1 iteration and 1MB of RAM.
 
 Rate limit on users' sessions
 ------------------------------

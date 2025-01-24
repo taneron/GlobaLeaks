@@ -1,21 +1,25 @@
 # -*- coding: utf-8 -*-
 #
 # Handlers dealing with platform authentication
+import json
 from datetime import timedelta
 from random import SystemRandom
-from sqlalchemy import or_
+from sqlalchemy import exists, func, or_
+
+from nacl.encoding import Base64Encoder
 from twisted.internet.defer import inlineCallbacks, returnValue
 
 import globaleaks.handlers.auth.token
 
 from globaleaks.handlers.base import connection_check, BaseHandler
 from globaleaks.models import InternalTip, User
+from globaleaks.models.config import ConfigFactory
 from globaleaks.orm import db_log, transact, tw
 from globaleaks.rest import errors, requests
 from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State
-from globaleaks.utils.crypto import Base64Encoder, GCE
+from globaleaks.utils.crypto import GCE, sha256
 from globaleaks.utils.utility import datetime_now, deferred_sleep, uuid4
 
 
@@ -65,7 +69,14 @@ def login_whistleblower(session, tid, receipt, client_using_tor, operator_id=Non
     :param receipt: A provided receipt
     :return: Returns a user session in case of success
     """
-    hash = GCE.hash_password(receipt, State.tenants[tid].cache.receipt_salt)
+    try:
+        if not session.query(exists().where(InternalTip.tid == tid, func.length(InternalTip.receipt_hash) < 64)).scalar():
+            key = Base64Encoder.decode(receipt.encode())
+            hash = sha256(key).decode()
+        else:
+            key, hash = GCE.calculate_key_and_hash_deprecated(receipt, user.salt)
+    except:
+        db_login_failure(session, tid, 0)
 
     itip = session.query(InternalTip) \
                   .filter(InternalTip.tid == tid,
@@ -79,8 +90,7 @@ def login_whistleblower(session, tid, receipt, client_using_tor, operator_id=Non
 
     crypto_prv_key = ''
     if itip.crypto_pub_key:
-        user_key = GCE.derive_key(receipt.encode(), State.tenants[tid].cache.receipt_salt)
-        crypto_prv_key = GCE.symmetric_decrypt(user_key, Base64Encoder.decode(itip.crypto_prv_key))
+        crypto_prv_key = GCE.symmetric_decrypt(key, Base64Encoder.decode(itip.crypto_prv_key))
 
     itip.access_count += 1
     if operator_id is not None:
@@ -121,7 +131,22 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
                                           User.enabled.is_(True),
                                           User.tid == tid).one_or_none()
 
-    if not user or not GCE.check_password(password, user.salt, user.hash):
+    if not user:
+        db_login_failure(session, tid, 0)
+
+    try:
+        if len(user.hash) == 64:
+            key = Base64Encoder.decode(password.encode())
+            hash = sha256(key).decode()
+        else:
+            key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
+
+            # Force password change to enable client hashing
+            user.password_change_needed = True
+    except:
+        db_login_failure(session, tid, 0)
+
+    if not password or not GCE.check_equality(hash, user.hash):
         db_login_failure(session, tid, 0)
 
     connection_check(tid, user.role, client_ip, client_using_tor)
@@ -133,15 +158,14 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
         State.totp_verify(user.two_factor_secret, authcode)
 
     crypto_prv_key = ''
-    user_key = GCE.derive_key(password.encode(), user.salt)
     if user.crypto_prv_key:
-        crypto_prv_key = GCE.symmetric_decrypt(user_key, Base64Encoder.decode(user.crypto_prv_key))
+        crypto_prv_key = GCE.symmetric_decrypt(key, Base64Encoder.decode(user.crypto_prv_key))
     elif State.tenants[tid].cache.encryption:
-       # Special condition where the user is accessing for the first time via password
-       # on a system with no escrow keys.
+        # Special condition where the user is accessing for the first time via password
+        # on a system with no escrow keys.
         crypto_prv_key, _ = GCE.generate_keypair()
 
-        # Force the password change on which the user key will be created
+        # Force password change on which the user key will be created
         user.password_change_needed = True
 
     # Require password change if password change threshold is exceeded
@@ -159,6 +183,39 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
         session.permissions['can_edit_general_settings'] = True
 
     return session
+
+
+@transact
+def get_auth_type(session, tid, username):
+    salt = ConfigFactory(session, tid).get_val('receipt_salt')
+
+    if not username: # whistleblower
+        if not session.query(exists().where(InternalTip.tid == tid, func.length(InternalTip.receipt_hash) < 64)).scalar():
+            return {'type': 'key', 'salt': salt}
+
+    else:
+        user = session.query(User).filter(or_(User.username == username, User.id == username)).one_or_none()
+
+        # Always calculate the user salt to not disclose if the user exists or not
+        salt = GCE.generate_salt(salt + ":" + username)
+
+        salt = salt if not user else user.salt
+
+        if not user or len(user.hash) == 64:
+            return {'type': 'key', 'salt': salt}
+
+    return {'type': 'password'}
+
+
+class AuthTypeHandler(BaseHandler):
+    """
+    Get auth type for specified user
+    """
+    check_roles = 'any'
+
+    def post(self):
+        username = json.loads(self.request.content.read())['username']
+        return get_auth_type(self.request.tid, username)
 
 
 class AuthenticationHandler(BaseHandler):
@@ -208,7 +265,7 @@ class TokenAuthHandler(BaseHandler):
         if session is None:
             yield tw(db_login_failure, self.request.tid, 0)
 
-        connection_check(self.request.tid, session.user_role,
+        connection_check(self.request.tid, session.role,
                          self.request.client_ip, self.request.client_using_tor)
 
         session = Sessions.regenerate(session)
@@ -279,7 +336,7 @@ class SessionHandler(BaseHandler):
         """
         Logout
         """
-        if self.session.user_role == 'whistleblower':
+        if self.session.role == 'whistleblower':
             yield tw(db_log, tid=self.session.tid,  type='whistleblower_logout',
                      user_id=self.session.properties.get("operator_session"))
         else:
@@ -302,7 +359,7 @@ class TenantAuthSwitchHandler(BaseHandler):
         session = Sessions.new(tid,
                                self.session.user_id,
                                self.session.user_tid,
-                               self.session.user_role,
+                               self.session.role,
                                self.session.cc,
                                self.session.ek)
 

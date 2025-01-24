@@ -62,6 +62,7 @@ def get_engine(db_uri=None, foreign_keys=True, orm_lockdown=True):
                       SQLITE_TRANSACTION,
                       SQLITE_UPDATE] or \
            (action == SQLITE_FUNCTION and column in ['count',
+                                                     'length',
                                                      'lower',
                                                      'min',
                                                      'max']):

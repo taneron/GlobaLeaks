@@ -1,4 +1,5 @@
 # -*- coding: utf-8
+from nacl.encoding import Base64Encoder
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks import models
@@ -10,33 +11,8 @@ from globaleaks.orm import db_del, db_get, db_log, transact, tw
 from globaleaks.rest import errors, requests
 from globaleaks.state import State
 from globaleaks.transactions import db_get_user
-from globaleaks.utils.crypto import GCE, Base64Encoder, generateRandomPassword
+from globaleaks.utils.crypto import GCE, generateRandomPassword, sha256
 from globaleaks.utils.utility import datetime_now, datetime_null, uuid4
-
-
-def db_set_user_password(session, tid, user, password):
-    config = models.config.ConfigFactory(session, tid)
-
-    user.hash = GCE.hash_password(password, user.salt)
-    user.password_change_date = datetime_now()
-
-    if config.get_val('encryption'):
-        root_config = models.config.ConfigFactory(session, 1)
-
-        enc_key = GCE.derive_key(password.encode(), user.salt)
-        cc, user.crypto_pub_key = GCE.generate_keypair()
-        user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(enc_key, cc))
-        user.crypto_bkp_key, user.crypto_rec_key = GCE.generate_recovery_key(cc)
-
-        crypto_escrow_pub_key_tenant_1 = root_config.get_val('crypto_escrow_pub_key')
-        if crypto_escrow_pub_key_tenant_1:
-            user.crypto_escrow_bkp1_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_1, cc))
-
-        if tid != 1:
-            crypto_escrow_pub_key_tenant_n = config.get_val('crypto_escrow_pub_key')
-            if crypto_escrow_pub_key_tenant_n:
-                user.crypto_escrow_bkp2_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_n, cc))
-
 
 
 def db_create_user(session, tid, user_session, request, language):
@@ -66,22 +42,47 @@ def db_create_user(session, tid, user_session, request, language):
     if existing_user:
         raise errors.DuplicateUserError
 
-    user.salt = GCE.generate_salt()
+    salt = models.config.ConfigFactory(session, tid).get_val('receipt_salt')
+    user.salt = GCE.generate_salt(salt + ":" + user.username)
 
     user.language = request['language']
 
     # The various options related in manage PGP keys are used here.
     parse_pgp_options(user, request)
 
-    if user_session and user_session.ek:
-        db_set_user_password(session, tid, user, generateRandomPassword(16))
+    password = request.get('password', '')
+
+    if not password:
+        password = GCE.derive_key(generateRandomPassword(16), user.salt)
+
+    key = Base64Encoder.decode(password.encode())
+    user.hash = sha256(key)
 
     session.add(user)
 
     session.flush()
 
+    # After flush align date to user.creation_date
+    user.password_change_date = user.creation_date
+
     if user_session:
         db_log(session, tid=tid, type='create_user', user_id=user_session.user_id, object_id=user.id)
+
+    crypto_escrow_pub_key_tenant_1 = models.config.ConfigFactory(session, 1).get_val('crypto_escrow_pub_key')
+    crypto_escrow_pub_key_tenant_N = models.config.ConfigFactory(session, tid).get_val('crypto_escrow_pub_key')
+
+    if not crypto_escrow_pub_key_tenant_1 and not crypto_escrow_pub_key_tenant_N:
+        return user
+
+    cc, user.crypto_pub_key = GCE.generate_keypair()
+    user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, cc))
+    user.crypto_bkp_key, user.crypto_rec_key = GCE.generate_recovery_key(cc)
+
+    if crypto_escrow_pub_key_tenant_1:
+        user.crypto_escrow_bkp1_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_1, cc))
+
+    if tid != 1 and crypto_escrow_pub_key_tenant_n:
+        user.crypto_escrow_bkp2_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_n, cc))
 
     return user
 

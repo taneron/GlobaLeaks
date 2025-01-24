@@ -1,7 +1,7 @@
 import {Injectable, inject, SecurityContext} from "@angular/core";
 import {LoginDataRef} from "@app/pages/auth/login/model/login-model";
 import {HttpService} from "@app/shared/services/http.service";
-import {Observable} from "rxjs";
+import {firstValueFrom, of, Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppDataService} from "@app/app-data.service";
 import {ErrorCodes} from "@app/models/app/error-code";
@@ -11,7 +11,8 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {OtkcAccessComponent} from "@app/shared/modals/otkc-access/otkc-access.component";
 import {DomSanitizer} from '@angular/platform-browser';
-
+import {CryptoService} from "@app/shared/services/crypto.service";
+import {TokenResponse} from "@app/models/authentication/token-response";
 
 @Injectable({
   providedIn: "root"
@@ -25,6 +26,7 @@ export class AuthenticationService {
   private appDataService = inject(AppDataService);
   private router = inject(Router);
   private sanitizer = inject(DomSanitizer);
+  private cryptoService = inject(CryptoService);
 
   public session: any = undefined;
   permissions: { can_upload_files: boolean }
@@ -86,117 +88,135 @@ export class AuthenticationService {
     );
   }
 
-  login(tid?: number, username?: string, password?: string | undefined, authcode?: string | null, authtoken?: string | null, callback?: () => void) {
-    if (authcode === undefined) {
-      authcode = "";
-    }
+  async login(tid?: number, username?: string, password?: string | undefined, authcode?: string | undefined, authtoken?: string | null, callback?: () => void) {
+    this.appDataService.updateShowLoadingPanel(true);
 
-    let requestObservable: Observable<Session>;
-    if (authtoken) {
-      requestObservable = this.httpService.requestAuthTokenLogin(JSON.stringify({"authtoken": authtoken}));
-    } else {
-      if (username === "whistleblower") {
-        password = password?.replace(/\D/g, "");
-        const authHeader = this.getHeader();
-        requestObservable = this.httpService.requestWhistleBlowerLogin(JSON.stringify({"receipt": password}), authHeader);
-      } else {
-        requestObservable = this.httpService.requestGeneralLogin(JSON.stringify({
-          "tid": tid,
-          "username": username,
-          "password": password,
-          "authcode": authcode
-        }));
+    try {
+      if (authcode === undefined) {
+        authcode = "";
       }
-    }
 
-    requestObservable.subscribe(
-      {
-        next: (response: Session) => {
-          this.appDataService.updateShowLoadingPanel(false);
-
-          if (response.redirect) {
-            response.redirect = this.sanitizer.sanitize(SecurityContext.URL, response.redirect) || '';
-	    if (response.redirect) {
-              this.router.navigate([response.redirect]).then();
-	    }
-          }
-          this.setSession(response);
-          if (response && response && response.properties && response.properties.new_receipt) {
-            const receipt = response.properties.new_receipt;
-            const formattedReceipt = this.formatReceipt(receipt);
-      
-            const modalRef = this.modalService.open(OtkcAccessComponent,{backdrop: 'static', keyboard: false});
-            modalRef.componentInstance.arg = {
-              receipt: receipt,
-              formatted_receipt: formattedReceipt
-            };
-            modalRef.componentInstance.confirmFunction = () => {
-              this.http.put('api/whistleblower/operations', {
-                operation: 'change_receipt',
-                args: {}
-              }).subscribe(() => {
-                this.titleService.setPage('tippage');
-                modalRef.close();
-              });
-            };
-            return;
-          }
-
-          if (this.session.role === "whistleblower") {
-            if (password) {
-              this.appDataService.receipt = password;
-              this.titleService.setPage("tippage");
-            } else if (this.session.properties.operator_session) {
-              this.router.navigate(['/']);
+      let requestObservable: Observable<Session>;
+      if (authtoken) {
+        requestObservable = this.httpService.requestAuthTokenLogin(JSON.stringify({"authtoken": authtoken}));
+      } else {
+        const authHeader = this.getHeader();
+        if (password) {
+            if (username === "whistleblower") {
+              password = password.replace(/\D/g, "");
             }
-          } else {
-            if (!callback) {
-              this.reset();
 
-              let redirect = this.activatedRoute.snapshot.queryParams['redirect'] || undefined;
-              redirect = this.activatedRoute.snapshot.queryParams['redirect'] || '/';
-              redirect = decodeURIComponent(redirect);
-
-	      if (redirect !== "/") {
-                redirect = this.sanitizer.sanitize(SecurityContext.URL, redirect) || '';
-
-		// Honor only local redirects
-                if (redirect.startsWith("/")) {
-                  this.router.navigate([redirect]);
-		}
-              } else {
-                this.router.navigate([this.session.homepage], {
-                  queryParams: this.activatedRoute.snapshot.queryParams,
-                  queryParamsHandling: "merge"
-                }).then();
-              }
+            const res = await firstValueFrom(this.httpService.requestAuthType(JSON.stringify({'username': username !== "whistleblower" ? username : ""})));
+            if (res.type == 'key') {
+              this.appDataService.updateShowLoadingPanel(true);
+              password = await this.cryptoService.hashArgon2(password, res.salt);
+              this.appDataService.updateShowLoadingPanel(false);
             }
-          }
+        }
 
-          if (callback) {
-            callback();
-          }
-        },
-        error: (error: HttpErrorResponse) => {
-          this.appDataService.updateShowLoadingPanel(false);
-          this.loginInProgress = false;
-          if (error.error && error.error["error_code"]) {
-            if (error.error["error_code"] === 4) {
-              this.requireAuthCode = true;
-            } else if (error.error["error_code"] !== 13) {
-              this.reset();
-            }
-          }
-
-          this.appDataService.errorCodes = new ErrorCodes(error.error["error_message"], error.error["error_code"], error.error.arguments);
-          if (callback) {
-            callback();
-          }
+        if (username === "whistleblower") {
+          requestObservable = this.httpService.requestWhistleBlowerLogin(JSON.stringify({"receipt": password}), authHeader);
+        } else {
+          requestObservable = this.httpService.requestGeneralLogin(JSON.stringify({
+            "tid": tid,
+            "username": username,
+            "password": password,
+            "authcode": authcode
+          }), authHeader);
         }
       }
-    );
 
-    return requestObservable;
+      requestObservable.subscribe(
+        {
+          next: (response: Session) => {
+            this.appDataService.updateShowLoadingPanel(false);
+
+            if (response.redirect) {
+              response.redirect = this.sanitizer.sanitize(SecurityContext.URL, response.redirect) || '';
+              if (response.redirect) {
+                this.router.navigate([response.redirect]).then();
+              }
+            }
+            this.setSession(response);
+            if (response && response && response.properties && response.properties.new_receipt) {
+              const receipt = response.properties.new_receipt;
+              const formattedReceipt = this.formatReceipt(receipt);
+
+              const modalRef = this.modalService.open(OtkcAccessComponent,{backdrop: 'static', keyboard: false});
+              modalRef.componentInstance.arg = {
+                receipt: receipt,
+                formatted_receipt: formattedReceipt
+              };
+              modalRef.componentInstance.confirmFunction = () => {
+                this.http.put('api/whistleblower/operations', {
+                  operation: 'change_receipt',
+                  args: {}
+                  }).subscribe(() => {
+                  this.titleService.setPage('tippage');
+                  modalRef.close();
+                });
+              };
+              return;
+            }
+
+            if (this.session.role === "whistleblower") {
+              if (password) {
+                this.appDataService.receipt = password;
+                this.titleService.setPage("tippage");
+              } else if (this.session.properties.operator_session) {
+                this.router.navigate(['/']);
+              }
+            } else {
+              if (!callback) {
+                this.reset();
+
+                let redirect = this.activatedRoute.snapshot.queryParams['redirect'] || undefined;
+                redirect = this.activatedRoute.snapshot.queryParams['redirect'] || '/';
+                redirect = decodeURIComponent(redirect);
+
+	        if (redirect !== "/") {
+                  redirect = this.sanitizer.sanitize(SecurityContext.URL, redirect) || '';
+
+                  // Honor only local redirects
+                  if (redirect.startsWith("/")) {
+                    this.router.navigate([redirect]);
+                  }
+                } else {
+                this.router.navigate([this.session.homepage], {
+                    queryParams: this.activatedRoute.snapshot.queryParams,
+                    queryParamsHandling: "merge"
+                  }).then();
+                }
+              }
+            }
+
+            if (callback) {
+              callback();
+            }
+          },
+          error: (error: HttpErrorResponse) => {
+            this.loginInProgress = false;
+            if (error.error && error.error["error_code"]) {
+              if (error.error["error_code"] === 4) {
+                this.requireAuthCode = true;
+              } else if (error.error["error_code"] !== 13) {
+                this.reset();
+              }
+            }
+
+            this.appDataService.errorCodes = new ErrorCodes(error.error["error_message"], error.error["error_code"], error.error.arguments);
+            if (callback) {
+              callback();
+            }
+          }
+        }
+      );
+
+      return requestObservable;
+    } catch (error) {
+      this.appDataService.updateShowLoadingPanel(false);
+      return of('Failure');
+    }
   }
 
   formatReceipt(receipt: string): string {

@@ -3,6 +3,7 @@
 # API handling export of submissions
 import os
 from io import BytesIO
+from nacl.encoding import Base64Encoder
 from twisted.internet.defer import inlineCallbacks
 from twisted.internet.threads import deferToThread
 
@@ -19,7 +20,7 @@ from globaleaks.models import serializers
 from globaleaks.orm import transact
 from globaleaks.rest import errors
 from globaleaks.settings import Settings
-from globaleaks.utils.crypto import Base64Encoder, GCE
+from globaleaks.utils.crypto import GCE
 from globaleaks.utils.fs import directory_traversal_check
 from globaleaks.utils.securetempfile import SecureTemporaryFile
 from globaleaks.utils.templating import Templating

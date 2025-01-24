@@ -30,6 +30,7 @@ from globaleaks.handlers import admin, \
                                 security, \
                                 signup, \
                                 sitemap, \
+                                support, \
                                 staticfile, \
                                 support, \
                                 user, \
@@ -55,6 +56,7 @@ api_spec = [
     # Authentication Handlers
     (r'/api/auth/token', auth.token.TokenHandler),
     (r'/api/auth/authentication', auth.AuthenticationHandler),
+    (r'/api/auth/type', auth.AuthTypeHandler),
     (r'/api/auth/tokenauth', auth.TokenAuthHandler),
     (r'/api/auth/receiptauth', auth.ReceiptAuthHandler),
     (r'/api/auth/session', auth.SessionHandler),
@@ -518,6 +520,19 @@ class APIResourceWrapper(Resource):
                               b"script-src 'self' 'report-sample';"
                               b"style-src 'self' 'report-sample';"
                               b"trusted-types angular angular#bundler dompurify default;"
+                              b"require-trusted-types-for 'script';"
+                              b"report-uri /api/report;")
+
+        # CSP Policy for the crypto worker
+        elif request.path == b'/workers/crypto.worker.js':
+            request.setHeader(b'Content-Security-Policy',
+                              b"base-uri 'none';"
+                              b"default-src 'none' 'report-sample';"
+                              b"form-action 'none';"
+                              b"frame-ancestors 'none';"
+                              b"script-src 'wasm-unsafe-eval' 'report-sample';"
+                              b"sandbox;"
+                              b"trusted-types;"
                               b"require-trusted-types-for 'script';"
                               b"report-uri /api/report;")
 

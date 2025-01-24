@@ -74,6 +74,7 @@ def user_serialize_user(session, user, language):
         'tid': user.tid,
         'notification': user.notification,
         'encryption': user.crypto_pub_key != '',
+        'salt': user.salt if len(user.hash) == 64 else '',
         'escrow': user.crypto_escrow_prv_key != '',
         'two_factor': user.two_factor_secret != '',
         'forcefully_selected': user.forcefully_selected,
