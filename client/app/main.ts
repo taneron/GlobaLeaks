@@ -54,8 +54,17 @@ import * as Flow from "@flowjs/flow.js";
 import {provideRouter} from "@angular/router";
 
 
-import { ApplicationRef } from '@angular/core';
+import { ApplicationRef, Injectable } from '@angular/core';
+import { ɵSharedStylesHost } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+@Injectable()
+export class InlineStyleDisablerService extends ɵSharedStylesHost {
+  override addStyles(styles: string[]): void {
+    // Do not call super.addStyles to block adding styles
+  }
+}
+
 
 bootstrapApplication(AppComponent, {
     providers: [
@@ -94,6 +103,7 @@ bootstrapApplication(AppComponent, {
         { provide: HTTP_INTERCEPTORS, useClass: appInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorCatchingInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: CompletedInterceptor, multi: true },
+        { provide: ɵSharedStylesHost, useClass: InlineStyleDisablerService },
         { provide: FlowInjectionToken, useValue: Flow },
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
