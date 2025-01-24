@@ -12,5 +12,4 @@ Designed with high security and usability in mind, the software adheres to:
 
 Currently translated into over 70 languages, it has been widely adopted worldwide since its creation in 2011, with more than 30,000 organizations working in fields such as anti-corruption activism, corporate compliance, human rights violation reporting, and investigative journalism.
 
-The software is recognized by the `Digital Public Good Alliance <https://digitalpublicgoods.net>`_ as a `Digital Public Good <https://app.digitalpublicgoods.net/a/11113>`_.
-
+The software is recognized by the `Digital Public Good Alliance <https://digitalpublicgoods.net>`_ as a `Digital Public Good <https://digitalpublicgoods.net/r/globaleaks>`_.
