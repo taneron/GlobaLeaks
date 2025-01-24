@@ -230,6 +230,7 @@ description:
       - "Full self-contained application"
       - "Easy integration of the platform with existing websites and intranets"
       - "REST API"
+      - "IPv6 Ready"
     screenshots:
       - documentation/images/whistleblower/home.en.png
       - documentation/images/whistleblower/submission.en.png
@@ -331,6 +332,7 @@ description:
       - "Applicazione completamente autoncontenuta"
       - "Facile integrazione della piattaforma con siti web e intranet esistenti"
       - "REST API"
+      - "IPv6 Ready"
     screenshots:
       - documentation/images/whistleblower/home.it.png
       - documentation/images/whistleblower/submission.it.png

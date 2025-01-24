@@ -74,3 +74,4 @@ Technical features
 - Easy integration with existing websites
 - Built and packaged with `reproducibility <https://en.wikipedia.org/wiki/Reproducible_builds>`_ in mind
 - REST API
+- IPv6 Ready
