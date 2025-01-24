@@ -2,17 +2,9 @@
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks import __version__
-from globaleaks import models
 from globaleaks.handlers.admin import node
-from globaleaks.orm import transact
 from globaleaks.rest.errors import InputValidationError
 from globaleaks.tests import helpers
-
-
-@transact
-def get_config_value(session, tid, config_key):
-    config_value = session.query(models.Config).filter_by(var_name=config_key, tid=tid).first()
-    return config_value.value
 
 
 class TestNodeInstance(helpers.TestHandlerWithPopulatedDB):

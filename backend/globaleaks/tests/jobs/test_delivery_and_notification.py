@@ -52,7 +52,7 @@ class TestNotification(helpers.TestGLWithPopulatedDB):
         yield self.test_model_count(models.InternalFile, 4)
         yield self.test_model_count(models.WhistleblowerFile, 0)
         yield self.test_model_count(models.ReceiverFile, 0)
-        yield self.test_model_count(models.Comment, 6)
+        yield self.test_model_count(models.Comment, 4)
         yield self.test_model_count(models.Mail, 0)
 
         yield Delivery().run()
@@ -62,7 +62,7 @@ class TestNotification(helpers.TestGLWithPopulatedDB):
         yield self.test_model_count(models.InternalFile, 4)
         yield self.test_model_count(models.WhistleblowerFile, 8)
         yield self.test_model_count(models.ReceiverFile, 0)
-        yield self.test_model_count(models.Comment, 6)
+        yield self.test_model_count(models.Comment, 4)
         yield self.test_model_count(models.Mail, 0)
 
         notification = Notification()

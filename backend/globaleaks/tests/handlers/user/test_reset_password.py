@@ -28,11 +28,8 @@ class TestPasswordResetInstance(helpers.TestHandlerWithPopulatedDB):
     def test_put(self):
         valid_reset_token = 'valid_reset_token'
 
-        try:
-            with open(os.path.abspath(os.path.join(State.settings.ramdisk_path, valid_reset_token)), "w") as f:
-                f.write(self.dummyReceiver_1['id'])
-        except:
-            pass
+        with open(os.path.abspath(os.path.join(State.settings.ramdisk_path, valid_reset_token)), "w") as f:
+            f.write(self.dummyReceiver_1['id'])
 
         # Wrong token
         handler = self.request({'reset_token': 'wrong_token', 'recovery_key': '', 'auth_code': ''})

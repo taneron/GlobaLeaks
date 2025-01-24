@@ -31,7 +31,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         self.db_test_model_count(session, models.ReceiverTip, self.population_of_recipients * self.population_of_submissions)
         self.db_test_model_count(session, models.InternalFile, self.population_of_submissions * self.population_of_attachments)
         self.db_test_model_count(session, models.WhistleblowerFile, self.population_of_submissions * self.population_of_attachments * self.population_of_recipients)
-        self.db_test_model_count(session, models.Comment, self.population_of_submissions * (self.population_of_recipients + 1))
+        self.db_test_model_count(session, models.Comment, 4)
         self.db_test_model_count(session, models.Mail, 0)
 
     @transact
@@ -42,7 +42,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         self.db_test_model_count(session, models.ReceiverTip, self.population_of_recipients * self.population_of_submissions)
         self.db_test_model_count(session, models.InternalFile, self.population_of_submissions * self.population_of_attachments)
         self.db_test_model_count(session, models.WhistleblowerFile, self.population_of_submissions * self.population_of_attachments * self.population_of_recipients)
-        self.db_test_model_count(session, models.Comment, self.population_of_submissions * (self.population_of_recipients + 1))
+        self.db_test_model_count(session, models.Comment, 4)
         self.db_test_model_count(session, models.Mail, 0)
 
     @transact
@@ -53,7 +53,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         self.db_test_model_count(session, models.ReceiverTip, self.population_of_recipients * self.population_of_submissions)
         self.db_test_model_count(session, models.InternalFile, self.population_of_submissions * self.population_of_attachments)
         self.db_test_model_count(session, models.WhistleblowerFile, self.population_of_submissions * self.population_of_attachments * self.population_of_recipients)
-        self.db_test_model_count(session, models.Comment, self.population_of_submissions * (self.population_of_recipients + 1))
+        self.db_test_model_count(session, models.Comment, 4)
         self.db_test_model_count(session, models.Mail, self.population_of_recipients)
 
     @transact

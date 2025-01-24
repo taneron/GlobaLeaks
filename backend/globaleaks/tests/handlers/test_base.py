@@ -5,14 +5,8 @@ from globaleaks.handlers.base import BaseHandler
 from globaleaks.rest.errors import InputValidationError
 from globaleaks.tests import helpers
 
-FUTURE = 100
-
-
 class BaseHandlerMock(BaseHandler):
     check_roles = 'any'
-
-    def get(self):
-        return
 
 
 class TestBaseHandler(helpers.TestHandlerWithPopulatedDB):

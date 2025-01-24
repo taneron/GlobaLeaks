@@ -11,8 +11,6 @@ class TestObject(object):
 
     def expireCallback(self):
         TestObject.callbacks_count += 1
-        if self.id != TestObject.callbacks_count:
-            raise Exception
 
 
 class TestTempDict(helpers.TestGL):

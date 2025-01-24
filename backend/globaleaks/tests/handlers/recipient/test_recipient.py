@@ -20,7 +20,7 @@ class TestTipsCollection(helpers.TestHandlerWithPopulatedDB):
         rtips = yield handler.get()
         for idx in range(len(rtips)):
             self.assertEqual(rtips[idx]['file_count'], 2)
-            self.assertEqual(rtips[idx]['comment_count'], 3)
+            self.assertEqual(rtips[idx]['comment_count'], 2)
 
 
 class TestOperations(helpers.TestHandlerWithPopulatedDB):

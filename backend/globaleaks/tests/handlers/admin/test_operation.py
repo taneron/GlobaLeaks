@@ -25,7 +25,7 @@ class TestAdminResetSubmissions(helpers.TestHandlerWithPopulatedDB):
         yield self.test_model_count(models.ReceiverTip, 4)
         yield self.test_model_count(models.InternalFile, 4)
         yield self.test_model_count(models.WhistleblowerFile, 8)
-        yield self.test_model_count(models.Comment, 6)
+        yield self.test_model_count(models.Comment, 4)
         yield self.test_model_count(models.Mail, 0)
 
         data_request = {

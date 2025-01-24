@@ -759,6 +759,7 @@ class TestGL(unittest.TestCase):
         ret = []
         for i, r in session.query(models.InternalTip, models.ReceiverTip) \
                          .filter(models.ReceiverTip.internaltip_id == models.InternalTip.id,
+                                 models.ReceiverTip.receiver_id == self.dummyReceiver_1['id'],
                                  models.InternalTip.tid == 1):
             ret.append(serializers.serialize_rtip(session, i, r, 'en'))
 

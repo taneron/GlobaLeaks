@@ -51,16 +51,10 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_grant_and_revoke_access(self):
+        count = yield self.get_model_count(models.ReceiverTip)
+
         rtip_descs = yield self.get_rtips()
-
-        count = len(rtip_descs)
-
-        yield self.test_model_count(models.ReceiverTip, count)
-
         for rtip_desc in rtip_descs:
-            if rtip_desc['receiver_id'] != self.dummyReceiver_1['id']:
-                continue
-
             count -= 1
 
             operation = {
@@ -76,9 +70,6 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
             yield self.test_model_count(models.ReceiverTip, count)
 
         for rtip_desc in rtip_descs:
-            if rtip_desc['receiver_id'] != self.dummyReceiver_1['id']:
-                return
-
             count += 1
 
             operation = {
@@ -98,9 +89,6 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
         rtip_descs = yield self.get_rtips()
 
         for rtip_desc in rtip_descs:
-            if rtip_desc['receiver_id'] != self.dummyReceiver_1['id']:
-                continue
-
             operation = {
               'operation': 'revoke',
               'args': {
@@ -116,9 +104,6 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
         count = len(rtip_descs)
 
         for rtip_desc in rtip_descs:
-            if rtip_desc['receiver_id'] != self.dummyReceiver_1['id']:
-                return
-
             operation = {
               'operation': 'transfer',
               'args': {
@@ -282,7 +267,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_delete(self):
         rtip_descs = yield self.get_rtips()
-        self.assertEqual(len(rtip_descs), self.population_of_submissions * self.population_of_recipients)
+        self.assertEqual(len(rtip_descs) * 2, self.population_of_submissions * self.population_of_recipients)
 
         # we delete the first and then we verify that the second does not exist anymore
         handler = self.request(role='receiver', user_id=rtip_descs[0]['receiver_id'])
@@ -290,7 +275,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
         rtip_descs = yield self.get_rtips()
 
-        self.assertEqual(len(rtip_descs), self.population_of_submissions * self.population_of_recipients - self.population_of_recipients)
+        self.assertEqual(len(rtip_descs) * 2, self.population_of_submissions * self.population_of_recipients - self.population_of_recipients)
 
     @inlineCallbacks
     def test_delete_unexistent_tip_by_existent_and_logged_receiver(self):
