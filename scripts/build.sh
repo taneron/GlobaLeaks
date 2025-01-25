@@ -54,7 +54,7 @@ fi
 # Preliminary Requirements Check
 ERR=0
 echo "Checking preliminary GlobaLeaks Build requirements"
-for REQ in git npm debuild dput
+for REQ in git npm debuild dput brotli
 do
   if which $REQ >/dev/null; then
     echo " + $REQ requirement meet"
@@ -83,7 +83,7 @@ else
   git clone --branch="$TAG" --depth=1 https://github.com/globaleaks/globaleaks-whistleblowing-software.git .
 fi
 
-cd client && npm install -d && ./node_modules/grunt/bin/grunt build
+cd client && npm install -d && ./node_modules/grunt/bin/grunt build_and_compress
 
 cd $ROOTDIR
 

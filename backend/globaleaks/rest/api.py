@@ -286,6 +286,7 @@ class APIResourceWrapper(Resource):
 
         :return: empty `str` or `NOT_DONE_YET`
         """
+        request.compressed = False
         request.hostname = request.getRequestHostname()
         request.port = request.getHost().port
         request.headers = request.getAllHeaders()

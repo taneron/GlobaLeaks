@@ -18,12 +18,12 @@ from globaleaks.db import create_db, initialize_db, update_db, \
 from globaleaks.rest.api import APIResourceWrapper
 from globaleaks.settings import Settings
 from globaleaks.state import State
+from globaleaks.utils.brotli import BrotliEncoderFactory
 from globaleaks.utils.log import log, openLogFile, logFormatter, LogObserver
 from globaleaks.utils.sock import listen_tcp_on_sock, listen_tls_on_sock
 
 
-# Set Gzip Encoder compression level to 1 prioritizing speed over compression
-server.GzipEncoderFactory.compressLevel = 1
+server.GzipEncoderFactory.compressLevel = 5
 
 
 def fail_startup(excep):
@@ -50,7 +50,7 @@ class Service(service.Service):
 
     def __init__(self):
         self.state = State
-        self.arw = resource.EncodingResourceWrapper(APIResourceWrapper(), [server.GzipEncoderFactory()])
+        self.arw = resource.EncodingResourceWrapper(APIResourceWrapper(), [BrotliEncoderFactory(), server.GzipEncoderFactory()])
         self.api_factory = Site(self.arw, logPath=Settings.accesslogfile, logFormatter=logFormatter)
         self.api_factory.displayTracebacks = False
 

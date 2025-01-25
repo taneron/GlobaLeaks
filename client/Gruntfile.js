@@ -223,6 +223,14 @@ module.exports = function(grunt) {
       npx_build_and_instrument: {
         command: "npx ng build --configuration=testing && nyc instrument dist instrument"
       },
+      brotli_compress: {
+        command: 'find . -type f -exec brotli -q 11 {} --output={}.br \\;',
+        options: {
+          execOptions: {
+            cwd: './build'
+          }
+        }
+      },
       serve: {
         command: "ng serve --proxy-config proxy.conf.json"
       }
@@ -839,8 +847,12 @@ module.exports = function(grunt) {
   // Run this task to fetch translations from transifex and create application files
   grunt.registerTask("updateTranslations", ["fetchTranslations", "makeAppData", "verifyAppData"]);
 
-  grunt.registerTask("build", ["clean", "shell:npx_build", "copy:build", "webpack", "string-replace", "postcss", "copy:package", "clean:tmp"]);
+  grunt.registerTask("package", ["copy:build", "webpack", "string-replace", "postcss", "copy:package"]);
+
+  grunt.registerTask("build", ["clean", "shell:npx_build", "package", "clean:tmp"]);
+
+  grunt.registerTask("build_and_compress", ["clean", "build", "shell:brotli_compress", "clean:tmp"]);
  
-  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "copy:build", "webpack", "string-replace", "postcss", "copy:package", "clean:tmp"]);
+  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "package", "clean:tmp"]);
 };
 

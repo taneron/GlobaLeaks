@@ -309,9 +309,18 @@ class BaseHandler(object):
 
         return open(filepath, 'rb')
 
-    def write_file(self, filename, fp):
-        if isinstance(fp, str):
-            fp = self.open_file(fp)
+    def write_file(self, filename, filepath):
+        if isinstance(filepath, str):
+            compressed_path = filepath + '.br'
+
+            accept_encoding = self.request.getHeader('Accept-Encoding')
+            if accept_encoding and 'br' in accept_encoding and os.path.exists(compressed_path):
+                self.request.compressed = True
+                filepath = compressed_path
+
+            fp = self.open_file(filepath)
+        else:
+            fp = filepath
 
         mimetype, _ = mimetypes.guess_type(filename)
 

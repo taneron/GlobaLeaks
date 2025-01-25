@@ -24,6 +24,7 @@ Depends:
   apparmor-utils,
   iptables,
   python3-acme,
+  python3-brotli,
   python3-cryptography,
   python3-h2,
   python3-nacl,
