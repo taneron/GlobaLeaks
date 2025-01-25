@@ -74,7 +74,8 @@ def login_whistleblower(session, tid, receipt, client_using_tor, operator_id=Non
             key = Base64Encoder.decode(receipt.encode())
             hash = sha256(key).decode()
         else:
-            key, hash = GCE.calculate_key_and_hash_deprecated(receipt, user.salt)
+            salt = ConfigFactory(session, tid).get_val('receipt_salt')
+            key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
     except:
         db_login_failure(session, tid, 0)
 
@@ -140,9 +141,6 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
             hash = sha256(key).decode()
         else:
             key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
-
-            # Force password change to enable client hashing
-            user.password_change_needed = True
     except:
         db_login_failure(session, tid, 0)
 
@@ -156,6 +154,9 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
             raise errors.TwoFactorAuthCodeRequired
 
         State.totp_verify(user.two_factor_secret, authcode)
+
+    if len(user.hash) != 64:
+        user.password_change_needed = True
 
     crypto_prv_key = ''
     if user.crypto_prv_key:

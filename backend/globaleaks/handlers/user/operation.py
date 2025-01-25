@@ -22,11 +22,8 @@ def change_password(session, tid, user_session, password):
 
     config = models.config.ConfigFactory(session, tid)
 
-    if len(user.hash) == 64:
-        key = Base64Encoder.decode(password.encode())
-        hash = sha256(key).decode()
-    else:
-        key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
+    key = Base64Encoder.decode(password.encode())
+    hash = sha256(key).decode()
 
     # Check that the new password is different form the current password
     if user.hash == hash:
