@@ -180,11 +180,11 @@ export class TippageComponent implements OnInit {
         {
           next: () => {
             clearInterval(intervalId);
-            this.onReload();
+            this.reload();
           },
           error: () => {
             clearInterval(intervalId);
-            this.onReload();
+            this.reload();
           }
         }
       );
@@ -193,8 +193,8 @@ export class TippageComponent implements OnInit {
 
   }
 
-  onReload() {
-    this.wbTipResolver.onReload(() => {
+  reload() {
+    this.wbTipResolver.reload(() => {
       this.utilsService.reloadCurrentRoute();
     });
   }

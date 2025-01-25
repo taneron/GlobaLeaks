@@ -15,7 +15,7 @@ export class WbTipResolver {
 
   dataModel: WbTipData;
 
-  onReload(callback: () => void) {
+  reload(callback: () => void) {
     this.httpService.whistleBlowerTip().subscribe(
       (response: WbTipData) => {
         this.dataModel = response;

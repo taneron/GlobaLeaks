@@ -199,11 +199,7 @@ export class TipsComponent implements OnInit {
   }
 
   reload() {
-    const reloadCallback = () => {
-      this.RTips.reload();
-    };
-
-    this.appConfigServices.localInitialization(true, reloadCallback);
+    this.RTips.reload();
   }
 
   tipSwitch(id: string): void {

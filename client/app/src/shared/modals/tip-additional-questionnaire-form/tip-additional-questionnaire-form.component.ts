@@ -193,7 +193,7 @@ export class TipAdditionalQuestionnaireFormComponent implements OnInit {
       (
         {
           next: _ => {
-            this.wbTipResolver.onReload(() => {
+            this.wbTipResolver.reload(() => {
               this.utilsService.reloadCurrentRoute();
             });
           }

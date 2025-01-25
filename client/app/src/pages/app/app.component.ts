@@ -130,6 +130,14 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
     });
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'F5') {
+      event.preventDefault();
+      this.utilsService.reloadCurrentRoute();
+    }
+  }
+
   @HostListener("window:beforeunload")
   async ngOnDestroy() {
     this.reset();

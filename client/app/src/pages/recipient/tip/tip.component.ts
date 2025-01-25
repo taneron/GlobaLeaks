@@ -314,11 +314,7 @@ export class TipComponent implements OnInit {
   }
 
   reload(): void {
-    const reloadCallback = () => {
-      this.utils.reloadComponent();
-    };
-
-    this.appConfigServices.localInitialization(true, reloadCallback);
+    this.utils.reloadComponent();
   }
 
   preprocessTipAnswers(tip: RecieverTipData) {
