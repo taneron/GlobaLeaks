@@ -82,13 +82,12 @@ class TestAPI(TestGL):
                                   'usb=(),'
                                   'web-share=()',
             'Content-Security-Policy': 'base-uri \'none\';'
-                                       'default-src \'none\' \'report-sample\';'
+                                       'default-src \'none\';'
                                        'form-action \'none\';'
                                        'frame-ancestors \'none\';'
                                        'sandbox;'
                                        'trusted-types;'
-                                       'require-trusted-types-for \'script\';'
-                                       'report-uri /api/report;',
+                                       'require-trusted-types-for \'script\';',
             'Referrer-Policy': 'no-referrer',
             'Server': 'GlobaLeaks',
             'X-Content-Type-Options': 'nosniff',
@@ -107,7 +106,7 @@ class TestAPI(TestGL):
                                                     'img-src \'self\';' \
                                                     'media-src \'self\';' \
                                                     'script-src \'self\' \'report-sample\';' \
-                                                    'style-src \'self\' \'report-sample\';' \
+                                                    'style-src \'self\';' \
                                                     'trusted-types angular angular#bundler dompurify default;' \
                                                     'require-trusted-types-for \'script\';' \
                                                     'report-uri /api/report;'
@@ -122,7 +121,7 @@ class TestAPI(TestGL):
 
         server_headers = copy.copy(default_server_headers)
         server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
-                                                    'default-src \'none\' \'report-sample\';' \
+                                                    'default-src \'none\';' \
                                                     'form-action \'none\';' \
                                                     'frame-ancestors \'none\';' \
                                                     'script-src \'wasm-unsafe-eval\' \'report-sample\';' \
@@ -139,14 +138,6 @@ class TestAPI(TestGL):
                 self.assertEqual(returnedHeaderValue, expectedHeaderValue)
 
         server_headers = copy.copy(default_server_headers)
-        server_headers['Content-Security-Policy'] = 'base-uri \'none\';' \
-                                                    'default-src \'none\' \'report-sample\';' \
-                                                    'form-action \'none\';' \
-                                                    'frame-ancestors \'none\';' \
-                                                    'sandbox;' \
-                                                    'trusted-types;' \
-                                                    'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
 
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/api/public", method=method)
@@ -165,7 +156,7 @@ class TestAPI(TestGL):
                                                     'img-src blob:;' \
                                                     'media-src blob:;' \
                                                     'script-src \'self\' \'report-sample\';' \
-                                                    'style-src \'self\' \'report-sample\';' \
+                                                    'style-src \'self\';' \
                                                     'sandbox allow-scripts;' \
                                                     'trusted-types;' \
                                                     'require-trusted-types-for \'script\';' \

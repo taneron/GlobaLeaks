@@ -498,13 +498,12 @@ class APIResourceWrapper(Resource):
         # Default CSP Policy
         request.setHeader(b'Content-Security-Policy',
                           b"base-uri 'none';"
-                          b"default-src 'none' 'report-sample';"
+                          b"default-src 'none';"
                           b"form-action 'none';"
                           b"frame-ancestors 'none';"
                           b"sandbox;"
                           b"trusted-types;"
-                          b"require-trusted-types-for 'script';"
-                          b"report-uri /api/report;")
+                          b"require-trusted-types-for 'script';")
 
         # CSP Policy on the entry point
         if request.path == b'/' or request.path == b'/index.html':
@@ -519,7 +518,7 @@ class APIResourceWrapper(Resource):
                               b"img-src 'self';"
                               b"media-src 'self';"
                               b"script-src 'self' 'report-sample';"
-                              b"style-src 'self' 'report-sample';"
+                              b"style-src 'self';"
                               b"trusted-types angular angular#bundler dompurify default;"
                               b"require-trusted-types-for 'script';"
                               b"report-uri /api/report;")
@@ -528,7 +527,7 @@ class APIResourceWrapper(Resource):
         elif request.path == b'/workers/crypto.worker.js':
             request.setHeader(b'Content-Security-Policy',
                               b"base-uri 'none';"
-                              b"default-src 'none' 'report-sample';"
+                              b"default-src 'none';"
                               b"form-action 'none';"
                               b"frame-ancestors 'none';"
                               b"script-src 'wasm-unsafe-eval' 'report-sample';"
@@ -549,7 +548,7 @@ class APIResourceWrapper(Resource):
                                   b"img-src blob:;"
                                   b"media-src blob:;"
                                   b"script-src 'self' 'report-sample';"
-                                  b"style-src 'self' 'report-sample';"
+                                  b"style-src 'self';"
                                   b"sandbox allow-scripts;"
                                   b"trusted-types;"
                                   b"require-trusted-types-for 'script';"
