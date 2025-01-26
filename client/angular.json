@@ -35,6 +35,7 @@
             ],
             "styles": [
                { "bundleName": "styles", "inject": true, "input": "node_modules/ng-multiselect-dropdown/themes/ng-multiselect-dropdown.theme.scss" },
+               { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/scss/ng-select.component.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/themes/default.theme.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-free/css/solid.css" },
@@ -161,6 +162,7 @@
               },
               "styles": [
                { "bundleName": "styles", "inject": true, "input": "node_modules/ng-multiselect-dropdown/themes/ng-multiselect-dropdown.theme.scss" },
+               { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/scss/ng-select.component.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/themes/default.theme.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-free/css/solid.css" },
