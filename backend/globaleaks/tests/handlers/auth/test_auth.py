@@ -15,6 +15,38 @@ from globaleaks.tests import helpers
 class TestAuthTypeHandler(helpers.TestHandlerWithPopulatedDB):
     _handler = auth.AuthTypeHandler
 
+    # since all logins happen in the same way,
+    # the following tests are performed on the recipient user.
+
+    @inlineCallbacks
+    def test_whistleblower_request(self):
+        handler = self.request({
+            'username': '',
+        })
+
+        response = yield handler.post()
+        self.assertTrue('type' in response)
+        self.assertEqual(response['type'], 'key')
+        self.assertTrue('salt' in response)
+        self.assertEqual(response['salt'], helpers.VALID_SALT)
+
+    @inlineCallbacks
+    def test_receiver_request(self):
+        handler = self.request({
+            'username': 'receiver1',
+        })
+
+        response = yield handler.post()
+        self.assertTrue('type' in response)
+        self.assertEqual(response['type'], 'key')
+        self.assertTrue('salt' in response)
+        self.assertEqual(response['salt'], helpers.VALID_SALT)
+
+
+class TestAuthTypeHandlerWithServersideHashing(helpers.TestHandlerWithPopulatedDB):
+    _handler = auth.AuthTypeHandler
+    clientside_hashing = False
+
     # since all logins for roles admin, receiver and custodian happen
     # in the same way, the following tests are performed on the recipient user.
 
@@ -28,24 +60,12 @@ class TestAuthTypeHandler(helpers.TestHandlerWithPopulatedDB):
         self.assertTrue('type' in response)
         self.assertEqual(response['type'], 'key')
         self.assertTrue('salt' in response)
-        self.assertEqual(response['salt'], helpers.VALID_SALT1)
+        self.assertEqual(response['salt'], helpers.VALID_SALT)
 
     @inlineCallbacks
-    def test_receiver1_request(self):
+    def test_receiver_request(self):
         handler = self.request({
             'username': 'receiver1',
-        })
-
-        response = yield handler.post()
-        self.assertTrue('type' in response)
-        self.assertEqual(response['type'], 'key')
-        self.assertTrue('salt' in response)
-        self.assertEqual(response['salt'], helpers.VALID_SALT1)
-
-    @inlineCallbacks
-    def test_receiver2_request(self):
-        handler = self.request({
-            'username': 'receiver2',
         })
 
         response = yield handler.post()
@@ -64,7 +84,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': '',
         })
         response = yield handler.post()
@@ -75,7 +95,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         })
 
@@ -93,7 +113,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         })
         State.tenants[1].cache['https_admin'] = True
@@ -105,7 +125,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         })
         State.tenants[1].cache['https_admin'] = False
@@ -142,7 +162,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': '',
         })
 
@@ -151,7 +171,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': '',
         })
 
@@ -165,7 +185,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         auth_handler = self.request({
             'tid': 1,
             'username': 'receiver1',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': '',
         })
 
@@ -181,7 +201,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         auth_handler = self.request({
             'tid': 1,
             'username': 'receiver1',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': '',
         })
 
@@ -207,7 +227,7 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         }, client_addr=b'192.168.1.1')
         yield self.assertFailure(handler.post(), errors.AccessLocationInvalid)
@@ -220,9 +240,25 @@ class TestAuthentication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         }, client_addr=b'192.168.2.1')
+        response = yield handler.post()
+        self.assertTrue('id' in response)
+
+
+class TestAuthenticationWithServersideHashing(helpers.TestHandlerWithPopulatedDB):
+    _handler = auth.AuthenticationHandler
+    clientside_hashing = False
+
+    @inlineCallbacks
+    def test_successful_login(self):
+        handler = self.request({
+            'tid': 1,
+            'username': 'admin',
+            'password': helpers.VALID_PASSWORD,
+            'authcode': '',
+        })
         response = yield handler.post()
         self.assertTrue('id' in response)
 
@@ -316,7 +352,7 @@ class TestSessionHandler(helpers.TestHandlerWithPopulatedDB):
         handler = self.request({
             'tid': 1,
             'username': 'admin',
-            'password': helpers.VALID_KEY1,
+            'password': helpers.VALID_KEY,
             'authcode': ''
         })
 

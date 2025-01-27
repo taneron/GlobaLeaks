@@ -64,7 +64,7 @@ class TestAdminOperations(helpers.TestHandlerWithPopulatedDB):
     def test_admin_test_set_user_password(self):
         return self._test_operation_handler('set_user_password',
                                            {'user_id': self.dummyReceiver_1['id'],
-                                            'password': helpers.VALID_PASSWORD1})
+                                            'password': helpers.VALID_PASSWORD})
 
     def test_admin_test_send_password_reset_email(self):
         return self._test_operation_handler('send_password_reset_email',

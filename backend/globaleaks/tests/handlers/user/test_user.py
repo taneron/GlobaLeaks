@@ -13,6 +13,7 @@ from globaleaks.handlers import user
 from globaleaks.handlers.user.operation import UserOperationHandler
 from globaleaks.rest import errors
 from globaleaks.tests import helpers
+from globaleaks.utils.crypto import generateRandomPassword, GCE
 from globaleaks.utils.utility import datetime_null
 
 
@@ -159,10 +160,12 @@ class TestUserOperations(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_user_change_password(self):
-        yield self.assertFailure(self._test_operation_handler('change_password', {'password': helpers.VALID_KEY1}),
+        yield self.assertFailure(self._test_operation_handler('change_password', {'password': helpers.VALID_KEY}),
                                  errors.PasswordReuseError)
 
-        yield self._test_operation_handler('change_password', {'password': helpers.VALID_KEY2})
+        NEW_KEY = GCE.derive_key(generateRandomPassword(20), helpers.VALID_SALT)
+
+        yield self._test_operation_handler('change_password', {'password': NEW_KEY})
 
     def test_user_get_recovery_key(self):
         return self._test_operation_handler('get_recovery_key')
