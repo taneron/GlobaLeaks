@@ -195,24 +195,27 @@ def reset_templates(session, tid):
 def db_set_user_password(session, tid, user_session, user_id, key):
     user = db_get_user(session, tid, user_id)
 
-    if not user.crypto_pub_key or user_session.ek:
-        key = Base64Encoder.decode(key.encode())
+    # if encryption is enabled accept password changes only if the admin has access to escrow keys
+    if user.crypto_pub_key and not user_session.ek:
+        return
 
-        if user.crypto_pub_key and user_session.ek:
-            crypto_escrow_prv_key = GCE.asymmetric_decrypt(user_session.cc, Base64Encoder.decode(user_session.ek))
+    key = Base64Encoder.decode(key.encode())
 
-            if user_session.user_tid == 1:
-                user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp1_key))
-            else:
-                user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp2_key))
+    if user.crypto_pub_key and user_session.ek:
+        crypto_escrow_prv_key = GCE.asymmetric_decrypt(user_session.cc, Base64Encoder.decode(user_session.ek))
 
-            user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, user_cc))
+        if user_session.user_tid == 1:
+            user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp1_key))
+        else:
+            user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp2_key))
 
-        user.hash = sha256(key)
-        user.password_change_date = datetime_now()
-        user.password_change_needed = True
+        user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, user_cc))
 
-        db_log(session, tid=tid, type='change_password', user_id=user_session.user_id, object_id=user_id)
+    user.hash = sha256(key)
+    user.password_change_date = datetime_now()
+    user.password_change_needed = True
+
+    db_log(session, tid=tid, type='change_password', user_id=user_session.user_id, object_id=user_id)
 
 
 @transact
