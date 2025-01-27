@@ -236,8 +236,7 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
         hash = sha256(key).decode()
     else:
         salt = config.get_val('receipt_salt')
-        key = Base64Encoder.decode(GCE.argon2id(receipt.encode(), salt, GCE.options['OPSLIMIT'] + 1, 1 << GCE.options['MEMLIMIT']))
-        hash = GCE.argon2id(receipt, salt, GCE.options['OPSLIMIT'], 1 << GCE.options['MEMLIMIT'])
+        key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
 
     itip.receipt_hash = hash
 
