@@ -18,6 +18,7 @@ class BrotliEncoderTests(unittest.TestCase):
             staticResource, [BrotliEncoderFactory()]
         )
         self.channel.site.resource.putChild(b"foo", wrapped)
+        self.channel.site.resource.putChild(b"file.woff2", wrapped)
 
     def test_interfaces(self):
         """
@@ -27,8 +28,10 @@ class BrotliEncoderTests(unittest.TestCase):
         L{iweb._IRequestEncoder}.
         """
         request = server.Request(self.channel, False)
+        request.compressed = False
         request.gotLength(0)
         request.requestHeaders.setRawHeaders(b"Accept-Encoding", [b"br,gzip,deflate"])
+        request.requestReceived(b"GET", b"/foo", b"HTTP/1.0")
         factory = BrotliEncoderFactory()
         self.assertTrue(verifyObject(iweb._IRequestEncoderFactory, factory))
 
@@ -66,7 +69,7 @@ class BrotliEncoderTests(unittest.TestCase):
         body = data[data.find(b"\r\n\r\n") + 4 :]
         self.assertEqual(b"Some data", body)
 
-    def test_passthrough(self):
+    def test_passthrough_already_compressed_contents(self):
         """
         L{server.BrotliEncoderFactory} dont encode the data if the data is already compressed.
         """
@@ -78,5 +81,19 @@ class BrotliEncoderTests(unittest.TestCase):
         data = self.channel.transport.written.getvalue()
         self.assertIn(b"Content-Length", data)
         self.assertIn(b"Content-Encoding: br\r\n", data)
+        body = data[data.find(b"\r\n\r\n") + 4 :]
+        self.assertEqual(b"Some data", body)
+
+    def test_passthrough_woff_and_woff2(self):
+        """
+        L{server.BrotliEncoderFactory} dont encode woff and woff2 files
+        """
+        request = server.Request(self.channel, False)
+        request.gotLength(0)
+        request.requestHeaders.setRawHeaders(b"Accept-Encoding", [b"br,foo,bar"])
+        request.requestReceived(b"GET", b"/file.woff2", b"HTTP/1.0")
+        data = self.channel.transport.written.getvalue()
+        self.assertIn(b"Content-Length", data)
+        self.assertNotIn(b"Content-Encoding: br\r\n", data)
         body = data[data.find(b"\r\n\r\n") + 4 :]
         self.assertEqual(b"Some data", body)
