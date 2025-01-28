@@ -225,7 +225,7 @@ module.exports = function(grunt) {
         command: "npx ng build --configuration=testing && nyc instrument dist instrument"
       },
       brotli_compress: {
-        command: 'find . -type f -exec brotli -q 11 {} --output={}.br \\;',
+        command: 'find . -type f -not -path \'./data/*\' -not -path \'./fonts/*\' -exec brotli -q 11 {} --output={}.br \\;',
         options: {
           execOptions: {
             cwd: './build'
