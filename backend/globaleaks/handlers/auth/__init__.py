@@ -195,7 +195,7 @@ def get_auth_type(session, tid, username):
             return {'type': 'key', 'salt': salt}
 
     else:
-        user = session.query(User).filter(or_(User.username == username, User.id == username)).one_or_none()
+        user = session.query(User).filter(User.tid == tid, or_(User.username == username, User.id == username)).one_or_none()
 
         # Always calculate the user salt to not disclose if the user exists or not
         salt = GCE.generate_salt(salt + ":" + username)
