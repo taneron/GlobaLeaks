@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
-  let fs = require("fs"),
+  let cssnano = require("cssnano"),
+      fs = require("fs"),
       path = require("path"),
       superagent = require("superagent"),
       Gettext = require("node-gettext");
@@ -173,7 +174,8 @@ module.exports = function(grunt) {
       build_css_with_ltr_rtl_combined: {
         options: {
           processors: [
-            require('postcss-rtlcss')()
+            require('postcss-rtlcss')(),
+            cssnano({ preset: 'default' }) // Minify CSS
           ]
         },
         src: 'tmp/css/styles.css',

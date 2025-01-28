@@ -56,6 +56,7 @@
     "angularx-qrcode": "18.0.2",
     "bootstrap": "5.3.3",
     "chart.js": "4.4.7",
+    "cssnano": "7.0.6",
     "dompurify": "3.2.3",
     "grunt-webpack": "7.0.0",
     "libsodium-wrappers-sumo": "0.7.15",
