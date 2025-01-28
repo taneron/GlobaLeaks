@@ -47,6 +47,7 @@ module.exports = function(grunt) {
             flatten: true,
             expand: true
           },
+          {dest: "build/images", cwd: "app/images", src: ["**"], expand: true},
           {dest: "build/js", cwd: "tmp/js", src: ["**"], expand: true},
           {dest: "build/data", cwd: "tmp/assets/data", src: ["**"], expand: true},
           {dest: "build/viewer/", cwd: ".", src: ["app/viewer/*"], expand: true, flatten: true},
