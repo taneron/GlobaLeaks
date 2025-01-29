@@ -595,14 +595,35 @@ class APIResourceWrapper(Resource):
         if request.tid in State.tenants and getattr(State.tenants[request.tid], 'microphone', False):
             microphone = True
 
-        request.setHeader(b'Permissions-Policy', b"camera=(),"
+        # Prevent usage of the unused permissions listed in: https://developer.mozilla.org/en-US/docs/Web/API/Permissions
+        request.setHeader(b'Permissions-Policy', b"accelerometer=(),"
+                                                 b"ambient-light-sensor=(),"
+                                                 b"bluetooth=(),"
+                                                 b"camera=(),"
+                                                 b"clipboard-read=(),"
+                                                 b"clipboard-write=(self),"
                                                  b"document-domain=(),"
+                                                 b"display-capture=(),"
                                                  b"fullscreen=(),"
                                                  b"geolocation=(),"
+                                                 b"gyroscope=(),"
+                                                 b"idle-detection=(self),"
+                                                 b"keyboard-map=(),"
+                                                 b"local-fonts=(),"
+                                                 b"magnetometer=(),"
                                                  b"microphone=(" + (b"self" if microphone else b"") + b"),"
+                                                 b"midi=(),"
+                                                 b"notifications=(),"
+                                                 b"payment=(),"
+                                                 b"payment-request=(),"
+                                                 b"persistent-storage=(),"
+                                                 b"push=(),"
+                                                 b"screen-wake-lock=(),"
                                                  b"serial=(),"
+                                                 b"speaker-selection=(),"
                                                  b"usb=(),"
-                                                 b"web-share=()")
+                                                 b"web-share=(),"
+                                                 b"xr-spatial-tracking=()")
 
         # Prevent old browsers not supporting CSP frame-ancestors directive to includes the platform within an iframe
         request.setHeader(b'X-Frame-Options', b'deny')
