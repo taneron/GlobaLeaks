@@ -87,7 +87,8 @@ class TestAPI(TestGL):
                                        'frame-ancestors \'none\';'
                                        'sandbox;'
                                        'trusted-types;'
-                                       'require-trusted-types-for \'script\';',
+                                       'require-trusted-types-for \'script\';'
+                                       'report-uri /api/report;',
             'Referrer-Policy': 'no-referrer',
             'Server': 'GlobaLeaks',
             'X-Content-Type-Options': 'nosniff',
@@ -105,11 +106,25 @@ class TestAPI(TestGL):
                                                     'frame-src \'self\';' \
                                                     'img-src \'self\';' \
                                                     'media-src \'self\';' \
-                                                    'script-src \'self\' \'report-sample\';' \
+                                                    'script-src \'self\';' \
                                                     'style-src \'self\';' \
                                                     'trusted-types angular angular#bundler dompurify default;' \
-                                                    'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
+                                                    'require-trusted-types-for \'script\';'
+
+        server_headers['Content-Security-Policy-Report-Only'] = 'base-uri \'none\';' \
+                                                                'connect-src \'self\';' \
+                                                                'default-src \'none\';' \
+                                                                'font-src \'self\';' \
+                                                                'form-action \'none\';' \
+                                                                'frame-ancestors \'none\';' \
+                                                                'frame-src \'self\';' \
+                                                                'img-src \'self\';' \
+                                                                'media-src \'self\';' \
+                                                                'script-src \'self\';' \
+                                                                'style-src \'self\' \'unsafe-inline\';' \
+                                                                'trusted-types angular angular#bundler dompurify default;' \
+                                                                'require-trusted-types-for \'script\';' \
+                                                                'report-uri /api/report;'
 
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/", method=method)
@@ -124,11 +139,12 @@ class TestAPI(TestGL):
                                                     'default-src \'none\';' \
                                                     'form-action \'none\';' \
                                                     'frame-ancestors \'none\';' \
-                                                    'script-src \'wasm-unsafe-eval\' \'report-sample\';' \
+                                                    'script-src \'wasm-unsafe-eval\';' \
                                                     'sandbox;' \
                                                     'trusted-types;' \
                                                     'require-trusted-types-for \'script\';' \
                                                     'report-uri /api/report;'
+
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/workers/crypto.worker.js", method=method)
             self.api.render(request)
@@ -155,12 +171,25 @@ class TestAPI(TestGL):
                                                     'frame-ancestors \'self\';' \
                                                     'img-src blob:;' \
                                                     'media-src blob:;' \
-                                                    'script-src \'self\' \'report-sample\';' \
+                                                    'script-src \'self\';' \
                                                     'style-src \'self\';' \
                                                     'sandbox allow-scripts;' \
                                                     'trusted-types;' \
-                                                    'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
+                                                    'require-trusted-types-for \'script\';'
+
+        server_headers['Content-Security-Policy-Report-Only'] = 'base-uri \'none\';' \
+                                                                'default-src \'none\';' \
+                                                                'connect-src blob:;' \
+                                                                'form-action \'none\';' \
+                                                                'frame-ancestors \'self\';' \
+                                                                'img-src blob:;' \
+                                                                'media-src blob:;' \
+                                                                'script-src \'self\';' \
+                                                                'style-src \'self\' \'unsafe-inline\';' \
+                                                                'sandbox allow-scripts;' \
+                                                                'trusted-types;' \
+                                                                'require-trusted-types-for \'script\';' \
+                                                                'report-uri /api/report;'
 
         server_headers['Cross-Origin-Resource-Policy'] = 'cross-origin'
 

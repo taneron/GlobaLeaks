@@ -495,7 +495,7 @@ class APIResourceWrapper(Resource):
         request.setHeader(b"Cross-Origin-Opener-Policy", "same-origin")
         request.setHeader(b"Cross-Origin-Resource-Policy", "same-origin")
 
-        # Default CSP Policy
+        # Default CSP Policy with reporting of any violation
         request.setHeader(b'Content-Security-Policy',
                           b"base-uri 'none';"
                           b"default-src 'none';"
@@ -503,7 +503,8 @@ class APIResourceWrapper(Resource):
                           b"frame-ancestors 'none';"
                           b"sandbox;"
                           b"trusted-types;"
-                          b"require-trusted-types-for 'script';")
+                          b"require-trusted-types-for 'script';"
+                          b"report-uri /api/report;")
 
         # CSP Policy on the entry point
         if request.path == b'/' or request.path == b'/index.html':
@@ -517,20 +518,36 @@ class APIResourceWrapper(Resource):
                               b"frame-src 'self';"
                               b"img-src 'self';"
                               b"media-src 'self';"
-                              b"script-src 'self' 'report-sample';"
+                              b"script-src 'self';"
                               b"style-src 'self';"
+                              b"trusted-types angular angular#bundler dompurify default;"
+                              b"require-trusted-types-for 'script';")
+
+            # Duplicate the above rule to get reports about any violations except for inline styles
+            request.setHeader(b'Content-Security-Policy-Report-Only',
+                              b"base-uri 'none';"
+                              b"connect-src 'self';"
+                              b"default-src 'none';"
+                              b"font-src 'self';"
+                              b"form-action 'none';"
+                              b"frame-ancestors 'none';"
+                              b"frame-src 'self';"
+                              b"img-src 'self';"
+                              b"media-src 'self';"
+                              b"script-src 'self';"
+                              b"style-src 'self' 'unsafe-inline';"
                               b"trusted-types angular angular#bundler dompurify default;"
                               b"require-trusted-types-for 'script';"
                               b"report-uri /api/report;")
 
-        # CSP Policy for the crypto worker
+        # CSP Policy for the crypto worker with reporting of any violation
         elif request.path == b'/workers/crypto.worker.js':
             request.setHeader(b'Content-Security-Policy',
                               b"base-uri 'none';"
                               b"default-src 'none';"
                               b"form-action 'none';"
                               b"frame-ancestors 'none';"
-                              b"script-src 'wasm-unsafe-eval' 'report-sample';"
+                              b"script-src 'wasm-unsafe-eval';"
                               b"sandbox;"
                               b"trusted-types;"
                               b"require-trusted-types-for 'script';"
@@ -547,8 +564,23 @@ class APIResourceWrapper(Resource):
                                   b"frame-ancestors 'self';"
                                   b"img-src blob:;"
                                   b"media-src blob:;"
-                                  b"script-src 'self' 'report-sample';"
+                                  b"script-src 'self';"
                                   b"style-src 'self';"
+                                  b"sandbox allow-scripts;"
+                                  b"trusted-types;"
+                                  b"require-trusted-types-for 'script';")
+
+                # Duplicate the above rule to get reporting of violations except for inline styles
+                request.setHeader(b'Content-Security-Policy-Report-Only',
+                                  b"base-uri 'none';"
+                                  b"default-src 'none';"
+                                  b"connect-src blob:;"
+                                  b"form-action 'none';"
+                                  b"frame-ancestors 'self';"
+                                  b"img-src blob:;"
+                                  b"media-src blob:;"
+                                  b"script-src 'self';"
+                                  b"style-src 'self' 'unsafe-inline';"
                                   b"sandbox allow-scripts;"
                                   b"trusted-types;"
                                   b"require-trusted-types-for 'script';"
