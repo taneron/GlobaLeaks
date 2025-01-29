@@ -2,6 +2,7 @@ import {Injectable, inject, SecurityContext} from "@angular/core";
 import {LoginDataRef} from "@app/pages/auth/login/model/login-model";
 import {HttpService} from "@app/shared/services/http.service";
 import {firstValueFrom, of, Observable} from "rxjs";
+import {finalize} from 'rxjs/operators';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppDataService} from "@app/app-data.service";
 import {ErrorCodes} from "@app/models/app/error-code";
@@ -126,11 +127,8 @@ export class AuthenticationService {
         }
       }
 
-      requestObservable.subscribe(
-        {
+      requestObservable.pipe(finalize(() => this.appDataService.updateShowLoadingPanel(false))).subscribe({
           next: (response: Session) => {
-            this.appDataService.updateShowLoadingPanel(false);
-
             if (response.redirect) {
               response.redirect = this.sanitizer.sanitize(SecurityContext.URL, response.redirect) || '';
               if (response.redirect) {
