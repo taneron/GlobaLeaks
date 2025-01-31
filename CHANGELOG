@@ -1,3 +1,6 @@
+Changes in version 5.0.45
+    Revise mock implementation in relation to multi-lang mocks
+
 Changes in version 5.0.44
     Move password hashing on clientside
     Upgrade proof of work from sha256 to argon2id with 1 step and 1MB of requirement
