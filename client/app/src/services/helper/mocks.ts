@@ -1,10 +1,12 @@
 interface Mock {
   path: string;
   selector: string;
-  mock: ((element: Element) => string) | string;
+  mock: ((element: HTMLElement) => string) | string;
   value: string;
   type: "replace" | "add-before" | "add-after";
   language?: string;
+  element?: HTMLElement;
+  random?: string;
 }
 
 interface Mocks {
@@ -20,32 +22,35 @@ class MockEngine {
     const e = document.querySelector(mock.selector) as HTMLElement | null;
     if (e !== null && !e.classList.contains("Mock")) {
       e.classList.add("Mock");
-      if (!mock.value || mock.language !== window.GL.language) {
-        mock.language = window.GL.language;
-        if (typeof mock.mock === "function") {
-          mock.value = mock.mock(e);
-        } else {
-          mock.value = mock.mock;
-        }
-      }
-
-      if (!mock.value) {
-        return;
-      }
 
       if (mock.type === "replace") {
-        if (e.innerHTML !== mock.value) {
-          e.innerHTML = mock.value;
-        }
+        mock.element = e;
       } else {
-        let custom_elem = document.createElement("div");
-        custom_elem.innerHTML = mock.value;
-
+        mock.element = document.createElement("div");
         if (mock.type === "add-before") {
-          e.insertBefore(custom_elem, e.childNodes[0]);
+          e.insertBefore(mock.element, e.childNodes[0]);
         } else if (mock.type === "add-after") {
-          e.appendChild(custom_elem);
+          e.appendChild(mock.element);
         }
+      }
+    }
+
+    if (mock.element) {
+      let value;
+      mock.language = window.GL.language;
+      if (typeof mock.mock === "function") {
+        value = mock.mock(mock.element);
+      } else {
+        value = mock.mock;
+      }
+
+      if (value && (!mock.value || mock.value != value)) {
+        mock.random = Math.floor(Math.random() * 100000).toString();
+      }
+
+      if (mock.random && mock.element.getAttribute('MockRandomID') != mock.random) {
+        mock.element.setAttribute('MockRandomID', mock.random);
+        mock.element.innerHTML = mock.value = value;
       }
     }
   }
@@ -69,7 +74,7 @@ class MockEngine {
     }
   }
 
-  public addMock(path: string, selector: string, mock: ((element: Element) => string) | string, type?: "replace" | "add-before" | "add-after"): void {
+  public addMock(path: string, selector: string, mock: ((element: HTMLElement) => string) | string, type?: "replace" | "add-before" | "add-after"): void {
     if (!(path in this.mocks)) {
       this.mocks[path] = {};
     }
