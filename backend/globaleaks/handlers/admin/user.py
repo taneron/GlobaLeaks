@@ -69,9 +69,9 @@ def db_create_user(session, tid, user_session, request, language):
         db_log(session, tid=tid, type='create_user', user_id=user_session.user_id, object_id=user.id)
 
     crypto_escrow_pub_key_tenant_1 = models.config.ConfigFactory(session, 1).get_val('crypto_escrow_pub_key')
-    crypto_escrow_pub_key_tenant_N = models.config.ConfigFactory(session, tid).get_val('crypto_escrow_pub_key')
+    crypto_escrow_pub_key_tenant_n = models.config.ConfigFactory(session, tid).get_val('crypto_escrow_pub_key')
 
-    if not crypto_escrow_pub_key_tenant_1 and not crypto_escrow_pub_key_tenant_N:
+    if not crypto_escrow_pub_key_tenant_1 and not crypto_escrow_pub_key_tenant_n:
         return user
 
     cc, user.crypto_pub_key = GCE.generate_keypair()
