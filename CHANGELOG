@@ -1,3 +1,6 @@
+Changes in version 5.0.46
+    Fix issue on creation of users on multitenant systems introduced in 5.0.44
+
 Changes in version 5.0.45
     Revise mock implementation in relation to multi-lang mocks
 
