@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           {
             dest: 'build/fonts',
             cwd: 'node_modules/',
-            src: ['@fontsource/**/files/*400*', '@fontsource/**/files/*700*'],
+            src: ['@fontsource*/**/files/*normal*woff2'],
             flatten: true,
             expand: true
           },
