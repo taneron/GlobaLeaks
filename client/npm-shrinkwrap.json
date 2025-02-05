@@ -18,25 +18,25 @@
         "@angular/router": "18.2.13",
         "@flowjs/flow.js": "2.14.1",
         "@flowjs/ngx-flow": "18.0.1",
-        "@fontsource/inter": "5.1.1",
-        "@fontsource/noto-sans": "5.1.1",
-        "@fontsource/noto-sans-arabic": "5.1.1",
-        "@fontsource/noto-sans-armenian": "5.1.1",
-        "@fontsource/noto-sans-bengali": "5.1.1",
-        "@fontsource/noto-sans-ethiopic": "5.1.1",
-        "@fontsource/noto-sans-georgian": "5.1.1",
-        "@fontsource/noto-sans-hebrew": "5.1.1",
-        "@fontsource/noto-sans-hk": "5.1.1",
-        "@fontsource/noto-sans-jp": "5.1.1",
-        "@fontsource/noto-sans-khmer": "5.1.1",
-        "@fontsource/noto-sans-kr": "5.1.1",
-        "@fontsource/noto-sans-lao": "5.1.1",
+        "@fontsource-variable/inter": "5.1.1",
+        "@fontsource-variable/noto-sans": "5.1.1",
+        "@fontsource-variable/noto-sans-arabic": "5.1.1",
+        "@fontsource-variable/noto-sans-armenian": "5.1.1",
+        "@fontsource-variable/noto-sans-bengali": "5.1.1",
+        "@fontsource-variable/noto-sans-ethiopic": "5.1.1",
+        "@fontsource-variable/noto-sans-georgian": "5.1.1",
+        "@fontsource-variable/noto-sans-hebrew": "5.1.1",
+        "@fontsource-variable/noto-sans-hk": "5.1.1",
+        "@fontsource-variable/noto-sans-jp": "5.1.1",
+        "@fontsource-variable/noto-sans-khmer": "5.1.1",
+        "@fontsource-variable/noto-sans-kr": "5.1.1",
+        "@fontsource-variable/noto-sans-lao": "5.1.1",
+        "@fontsource-variable/noto-sans-sc": "5.1.1",
+        "@fontsource-variable/noto-sans-tamil": "5.1.1",
+        "@fontsource-variable/noto-sans-thaana": "5.1.1",
+        "@fontsource-variable/noto-sans-thai": "5.1.1",
+        "@fontsource-variable/noto-serif-tibetan": "5.1.1",
         "@fontsource/noto-sans-myanmar": "5.1.1",
-        "@fontsource/noto-sans-sc": "5.1.1",
-        "@fontsource/noto-sans-tamil": "5.1.1",
-        "@fontsource/noto-sans-thaana": "5.1.1",
-        "@fontsource/noto-sans-thai": "5.1.1",
-        "@fontsource/noto-serif-tibetan": "5.1.1",
         "@fortawesome/fontawesome-free": "6.7.2",
         "@ng-bootstrap/ng-bootstrap": "17.0.1",
         "@ng-idle/core": "16.0.0",
@@ -70,7 +70,6 @@
         "zone.js": "0.15.0"
       },
       "devDependencies": {
-        "@angular-builders/custom-webpack": "18.0.0",
         "@angular-devkit/architect": "0.1802.12",
         "@angular-devkit/build-angular": "18.2.12",
         "@angular-devkit/core": "18.2.12",
@@ -119,40 +118,6 @@
       },
       "engines": {
         "node": ">=6.0.0"
-      }
-    },
-    "node_modules/@angular-builders/common": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-builders/common/-/common-2.0.0.tgz",
-      "integrity": "sha512-O5YJc++DtJVJhqA/OomRKN2jGYzvU/YXtfrPAqcA9Is3Ob5jvV0L0JHSAjSw/KaLvk/FjBIqoRVcYdLp5LKddA==",
-      "dev": true,
-      "dependencies": {
-        "@angular-devkit/core": "^18.0.0",
-        "ts-node": "^10.0.0",
-        "tsconfig-paths": "^4.1.0"
-      },
-      "engines": {
-        "node": "^14.20.0 || ^16.13.0 || >=18.10.0"
-      }
-    },
-    "node_modules/@angular-builders/custom-webpack": {
-      "version": "18.0.0",
-      "resolved": "https://registry.npmjs.org/@angular-builders/custom-webpack/-/custom-webpack-18.0.0.tgz",
-      "integrity": "sha512-XSynPSXHq5+nrh7J2snfrcbvm6YGwUGQRzr7OuO3wURJ6CHOD9C+xEAmvEUWW8c1YjEslVNG7aLtCGz7LA4ymw==",
-      "dev": true,
-      "dependencies": {
-        "@angular-builders/common": "2.0.0",
-        "@angular-devkit/architect": ">=0.1800.0 < 0.1900.0",
-        "@angular-devkit/build-angular": "^18.0.0",
-        "@angular-devkit/core": "^18.0.0",
-        "lodash": "^4.17.15",
-        "webpack-merge": "^5.7.3"
-      },
-      "engines": {
-        "node": "^14.20.0 || ^16.13.0 || >=18.10.0"
-      },
-      "peerDependencies": {
-        "@angular/compiler-cli": "^18.0.0"
       }
     },
     "node_modules/@angular-devkit/architect": {
@@ -3786,118 +3751,118 @@
         "@flowjs/flow.js": "^2.13.0"
       }
     },
-    "node_modules/@fontsource/inter": {
+    "node_modules/@fontsource-variable/inter": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/inter/-/inter-5.1.1.tgz",
-      "integrity": "sha512-weN3E+rq0Xb3Z93VHJ+Rc7WOQX9ETJPTAJ+gDcaMHtjft67L58sfS65rAjC5tZUXQ2FdZ/V1/sSzCwZ6v05kJw==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/inter/-/inter-5.1.1.tgz",
+      "integrity": "sha512-OpXFTmiH6tHkYijMvQTycFKBLK4X+SRV6tet1m4YOUH7SzIIlMqDja+ocDtiCA72UthBH/vF+3ZtlMr2rN/wIw==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans": {
+    "node_modules/@fontsource-variable/noto-sans": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans/-/noto-sans-5.1.1.tgz",
-      "integrity": "sha512-WesuII3BzvzVr0JqYIgnEeJPwXvpFAo9tNCMH1AqoLSCdStKJugMaIcVJ/sT+Pw9ytIlUO3ccbqbe+BhhsXm9g==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans/-/noto-sans-5.1.1.tgz",
+      "integrity": "sha512-hO0ywqmXLSU2C++B/FQeklo/zBSQZhHJef6ik/lJNaPmagpdHkHgQb1zwMuC9pdTv7UZeuGp38ML19w2AzM0kw==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-arabic": {
+    "node_modules/@fontsource-variable/noto-sans-arabic": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-arabic/-/noto-sans-arabic-5.1.1.tgz",
-      "integrity": "sha512-uTWseOALVqIx+CLHSMC0PwJQRNwDL8qJGZstcJ7jVYxVKBK2JGIe1ylvan/POMdrlT80bGAGHLC+D1C6jgsPxg==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-arabic/-/noto-sans-arabic-5.1.1.tgz",
+      "integrity": "sha512-8GaanWLmQQJ3lNUYL9saqzF0sqBCfxXO9dyZHaOUmLDnGiHaDQJnHvjTabu/XSC3E8x2tKaaWqwBWSGqw3yMhw==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-armenian": {
+    "node_modules/@fontsource-variable/noto-sans-armenian": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-armenian/-/noto-sans-armenian-5.1.1.tgz",
-      "integrity": "sha512-ncudGygWr7vgCtxxyqPHmBgxeRTUrsIdgxZ/Fpb2CC+nBpNo7UoivXVM7eQvrOglr9hR/wkEyhkdpH0o/WZjkw==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-armenian/-/noto-sans-armenian-5.1.1.tgz",
+      "integrity": "sha512-ljG8B/f5ZEKXM4aI2tYkHT4iWEtmovaw0Mn/HD68ZfD47KoY0+RKPSTQ9oHheq02FAJWqRlAakfgWSUHbNVGww==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-bengali": {
+    "node_modules/@fontsource-variable/noto-sans-bengali": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-bengali/-/noto-sans-bengali-5.1.1.tgz",
-      "integrity": "sha512-BvAUhBSWYRwJTUYFJtlGu5YM4DqPuGUq4cyU9vYxMq9tchvAUQxNCib0r4OAoxdSj0/5wMHkNdTClD+YLwwU6A==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-bengali/-/noto-sans-bengali-5.1.1.tgz",
+      "integrity": "sha512-DRTS10aBSVrwaJ2XiCdkpuSdfY4T8sTnJiP3vQMlGF1Pzz1levfrU+6y2UTz/nwdWd+IYvBeWkYCgXKqdY73Ow==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-ethiopic": {
+    "node_modules/@fontsource-variable/noto-sans-ethiopic": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-ethiopic/-/noto-sans-ethiopic-5.1.1.tgz",
-      "integrity": "sha512-AyT4Egq4xHehzpf2Z+NOBUXYlsCzl7Ft++cLMH6XEv6toFqOTlq+CAGbdJSNkSpQ+VyX62Fp5upvwJNynvTAwg==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-ethiopic/-/noto-sans-ethiopic-5.1.1.tgz",
+      "integrity": "sha512-n6RH0aGE1Wysq2HDmuzNwlbH8JQn4ufkKNLyEy8d8CGp7/dPnhUKSmlMzf3DL2aXolyMwwEhYy7EzSwZdndKXQ==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-georgian": {
+    "node_modules/@fontsource-variable/noto-sans-georgian": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-georgian/-/noto-sans-georgian-5.1.1.tgz",
-      "integrity": "sha512-lMRdSzzaa/I7CK2+9re8QmGacJmsvZD2ZBlWPbdHQ6U1nHoZLU+ylPfndWBiUwb82A9rttPuawf13cnFdFkvgw==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-georgian/-/noto-sans-georgian-5.1.1.tgz",
+      "integrity": "sha512-6HTg4Hph44pjQ0nDfUypuU0eqcovAGgAVfymdkPbhpYCcf2mA8ns9oy37Wk/W8gHbBzPg8efEMmKZcIqPb1dJw==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-hebrew": {
+    "node_modules/@fontsource-variable/noto-sans-hebrew": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-hebrew/-/noto-sans-hebrew-5.1.1.tgz",
-      "integrity": "sha512-kPgcG0PnkL30HL3Vp5cnkd+cKu+Dv/cYafQ+dimsKFmyRXpMbZUC9h6XvCzNO3sLsCbEJC6fAftvCG/gD5Bvxw==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-hebrew/-/noto-sans-hebrew-5.1.1.tgz",
+      "integrity": "sha512-oq4DpAx0FQiWaOLSICpH2N9KLQkm2NPrVcH9mwIkx00q5Vwki+XRJZ6xbcfA1ryIhNZHEm3hR56gyz/+HXsPFA==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-hk": {
+    "node_modules/@fontsource-variable/noto-sans-hk": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-hk/-/noto-sans-hk-5.1.1.tgz",
-      "integrity": "sha512-RZaCbu6U5PLl7umS0PQkH6draUPKPRfNJKuwu7LTrec7TRody+8FuaM4YnPn6C4u7qiVvVjSErRk2wToLWcu7A==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-hk/-/noto-sans-hk-5.1.1.tgz",
+      "integrity": "sha512-8x7EulJCllyu1O3GUE9ZGdSpzfA/RZpEdSGm2ZTJbl/9NXxl1lgXJllr/qkXyjhbioEpnn97hx5Fb7D60/+PxA==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-jp": {
+    "node_modules/@fontsource-variable/noto-sans-jp": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-jp/-/noto-sans-jp-5.1.1.tgz",
-      "integrity": "sha512-PXk7mDjiaW99xU85IIxRGekzxLz91h2usk0rfDXSVwds9Nuo4sdlDUEE8PQ1P3VLnV00FsCHfSH54uR217VXpg==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-jp/-/noto-sans-jp-5.1.1.tgz",
+      "integrity": "sha512-fOuEtA3b+3M1nJJycPx8JQyKUTz10nTUOQSusC6gBtq6ff22vl59c3NSg3ZM5/QsO3y5AHhn+KKvhpRcDvgyJg==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-khmer": {
+    "node_modules/@fontsource-variable/noto-sans-khmer": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-khmer/-/noto-sans-khmer-5.1.1.tgz",
-      "integrity": "sha512-zdpODm/alKVAhP0Xxygabe8Kb3fEqRBwXHGBw0E/djD8DdszjmWx9jOufvXJMxOwiSwb4sYgvGb1n/5ikpN9VQ==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-khmer/-/noto-sans-khmer-5.1.1.tgz",
+      "integrity": "sha512-bLm49XukI5AH/PSMIVkx1sYuqdtTAYzsLjPm51BT3chWkGdCdMzuGBTd5yMc9B6K2e2+3QoGXxqO6Ob3/luT7A==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-kr": {
+    "node_modules/@fontsource-variable/noto-sans-kr": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-kr/-/noto-sans-kr-5.1.1.tgz",
-      "integrity": "sha512-YOa3i3+ze8wtlvsN9TMNQVD2NUOTQEShBz9HZQ6j9SqWuQeOREq2ux//32IzDfNnGNZC0ddeH7oNb1F9OsS3UA==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-kr/-/noto-sans-kr-5.1.1.tgz",
+      "integrity": "sha512-+hw9e4B1q35VK8vbWOclmyws/38i+ouVEx5kZsKyyVlSINhpvhanv6N0VGwtnKmsDArc5mbSUnFLclUePMYHsA==",
       "license": "OFL-1.1"
     },
-    "node_modules/@fontsource/noto-sans-lao": {
+    "node_modules/@fontsource-variable/noto-sans-lao": {
       "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-lao/-/noto-sans-lao-5.1.1.tgz",
-      "integrity": "sha512-2/Iv2/7tLXH+pMHkzYNefO+xQcwypuNQXjn1u2tWXzyQz2aNBuX602+myH8RacOq1QZGfgWMa2KkEaGLlPQ03A==",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-lao/-/noto-sans-lao-5.1.1.tgz",
+      "integrity": "sha512-AMxnvXiczthOQB3zJTb7ORlOXJ5dI4qjG5O8lvyZU68WNK58Msb4J3DQJcyLG8kzkDn2NC3wi+BrUWSE+7lPGg==",
+      "license": "OFL-1.1"
+    },
+    "node_modules/@fontsource-variable/noto-sans-sc": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-sc/-/noto-sans-sc-5.1.1.tgz",
+      "integrity": "sha512-kr4mr8vgNC3jrpnbL4kd1bznG53jtL3GKvUCdzzHuoyt3qoKtScS7oBNF5Wqkvw6Pkc8RHwBIUvEOzAbevV3dA==",
+      "license": "OFL-1.1"
+    },
+    "node_modules/@fontsource-variable/noto-sans-tamil": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-tamil/-/noto-sans-tamil-5.1.1.tgz",
+      "integrity": "sha512-GmsWqVqcyN21fU0S4vILdR3Xk1vGjQt0VlcyuAWhsKHuLqnyyJRx0YwQvgCS31cmXwVwh+KfGXb+exEJZ3z2ZA==",
+      "license": "OFL-1.1"
+    },
+    "node_modules/@fontsource-variable/noto-sans-thaana": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-thaana/-/noto-sans-thaana-5.1.1.tgz",
+      "integrity": "sha512-3yUh8bLTe25hu0FPgnIv2PqeFbh1BD15Fn95BOQBzicUOPVwS91WQaZta/+XeLeakN/ZYAAvHfXBux1RfUBXxA==",
+      "license": "OFL-1.1"
+    },
+    "node_modules/@fontsource-variable/noto-sans-thai": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-thai/-/noto-sans-thai-5.1.1.tgz",
+      "integrity": "sha512-f87gPnUISdFLNyeYoiDUP7D6XMknSQ23TfojPgF0Rh1cpnR8GAwbBP1+Q7qr+4OGk7/yXGbA7DvLYawyGuyO4A==",
+      "license": "OFL-1.1"
+    },
+    "node_modules/@fontsource-variable/noto-serif-tibetan": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-serif-tibetan/-/noto-serif-tibetan-5.1.1.tgz",
+      "integrity": "sha512-CUzcYrz7yOWUFM1/gK54zPi5VO1E70B+TuyUkpLdQS3jmuhLZHF/aqaotwWQQiu/mpTP37WsLcdyTzu5Dc7xdA==",
       "license": "OFL-1.1"
     },
     "node_modules/@fontsource/noto-sans-myanmar": {
       "version": "5.1.1",
       "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-myanmar/-/noto-sans-myanmar-5.1.1.tgz",
       "integrity": "sha512-HhihaeQZaTVZIrvp2FdPc8lJEKUJpnYc9Br7+T/MHhfL+eBqNZqRtaA4nlAv4VbYsC5yJlj/2OG46HUUhTXjkQ==",
-      "license": "OFL-1.1"
-    },
-    "node_modules/@fontsource/noto-sans-sc": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-sc/-/noto-sans-sc-5.1.1.tgz",
-      "integrity": "sha512-v20RiW0Hp9qnHjLV5IAIwloL3IIKy2elMyMSeLuMzqyhYTCD2kHuRoe4w0aA+sd19IaWtdo2diHskIFL0Asfgw==",
-      "license": "OFL-1.1"
-    },
-    "node_modules/@fontsource/noto-sans-tamil": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-tamil/-/noto-sans-tamil-5.1.1.tgz",
-      "integrity": "sha512-PDQsMSIUMISW7QD/4aSHuB/t4jMCNo5OqiEIiNQGPbcglciQ7+KV7QpAPAYEza5PZyxOowZ/m1fgkdkmRTlyfw==",
-      "license": "OFL-1.1"
-    },
-    "node_modules/@fontsource/noto-sans-thaana": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-thaana/-/noto-sans-thaana-5.1.1.tgz",
-      "integrity": "sha512-8P6vsFHa6C/BDuGdx6M0NdqjFmU+GIQEncxC6SwkoqBUpcvxf3Uf3abvY2x/RKpXbrOCWlHZfR5JfUzBefIIPQ==",
-      "license": "OFL-1.1"
-    },
-    "node_modules/@fontsource/noto-sans-thai": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-sans-thai/-/noto-sans-thai-5.1.1.tgz",
-      "integrity": "sha512-t19eQG+kfw3tO1CuLWLP/qiaqc/LtzN5APo8rA4+nDzE98t5fQObFp4SA0yVel4mg7SjzJ048LBRqAmseElFRw==",
-      "license": "OFL-1.1"
-    },
-    "node_modules/@fontsource/noto-serif-tibetan": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/@fontsource/noto-serif-tibetan/-/noto-serif-tibetan-5.1.1.tgz",
-      "integrity": "sha512-R4QLyqxVmZNpfUAVxql3Ky72yNu0fiQIDvDqw9nGb2VU0iw6IN8k8KFfMk2ummOOC6I8AGQiFMF4woiQUgNy/w==",
       "license": "OFL-1.1"
     },
     "node_modules/@fortawesome/fontawesome-free": {
@@ -19619,29 +19584,6 @@
         }
       }
     },
-    "node_modules/tsconfig-paths": {
-      "version": "4.2.0",
-      "resolved": "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-4.2.0.tgz",
-      "integrity": "sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==",
-      "dev": true,
-      "dependencies": {
-        "json5": "^2.2.2",
-        "minimist": "^1.2.6",
-        "strip-bom": "^3.0.0"
-      },
-      "engines": {
-        "node": ">=6"
-      }
-    },
-    "node_modules/tsconfig-paths/node_modules/strip-bom": {
-      "version": "3.0.0",
-      "resolved": "https://registry.npmjs.org/strip-bom/-/strip-bom-3.0.0.tgz",
-      "integrity": "sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==",
-      "dev": true,
-      "engines": {
-        "node": ">=4"
-      }
-    },
     "node_modules/tslib": {
       "version": "2.6.3",
       "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.6.3.tgz",
@@ -20494,20 +20436,6 @@
       "funding": {
         "type": "opencollective",
         "url": "https://opencollective.com/webpack"
-      }
-    },
-    "node_modules/webpack-merge": {
-      "version": "5.10.0",
-      "resolved": "https://registry.npmjs.org/webpack-merge/-/webpack-merge-5.10.0.tgz",
-      "integrity": "sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA==",
-      "dev": true,
-      "dependencies": {
-        "clone-deep": "^4.0.1",
-        "flat": "^5.0.2",
-        "wildcard": "^2.0.0"
-      },
-      "engines": {
-        "node": ">=10.0.0"
       }
     },
     "node_modules/webpack-sources": {
