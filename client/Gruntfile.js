@@ -50,6 +50,7 @@ module.exports = function(grunt) {
           },
           {dest: "build/images", cwd: "app/images", src: ["**"], expand: true},
           {dest: "build/js", cwd: "tmp/js", src: ["**"], expand: true},
+          {dest: "build/js/", cwd: "tmp/", src: ["chunk-*.js*"], expand: true},
           {dest: "build/data", cwd: "tmp/assets/data", src: ["**"], expand: true},
           {dest: "build/viewer/", cwd: ".", src: ["app/viewer/*"], expand: true, flatten: true},
           {dest: "build/index.html", cwd: ".", src: ["tmp/index.html"], expand: false, flatten: true},
@@ -80,20 +81,14 @@ module.exports = function(grunt) {
 
     "string-replace": {
       pass1: {
-        src: "./tmp/css/styles.css",
+        src: "./tmp/css/fonts.css",
         dest: "./tmp/css/",
         options: {
           replacements: [
             {
-              pattern: /url\(fa/gi,
+              pattern: /.\/media\//gi,
               replacement: function () {
-                return "url(../fonts/fa";
-              }
-            },
-            {
-              pattern: /url\(inter/gi,
-              replacement: function () {
-                return "url(../fonts/inter";
+                return "../fonts/";
               }
             }
           ]
@@ -101,21 +96,6 @@ module.exports = function(grunt) {
       },
 
       pass2: {
-        src: "./tmp/css/fonts.css",
-        dest: "./tmp/css/",
-        options: {
-          replacements: [
-            {
-              pattern: /url\(noto/gi,
-              replacement: function () {
-                return "url(../fonts/noto";
-              }
-            }
-          ]
-        }
-      },
-
-      pass3: {
         src: "./tmp/js/vendor.js",
         dest: "./tmp/js/",
         options: {
@@ -130,7 +110,7 @@ module.exports = function(grunt) {
         }
       },
 
-      pass4: {
+      pass3: {
         files: {
           "tmp/index.html": "tmp/index.html"
         },
@@ -144,14 +124,6 @@ module.exports = function(grunt) {
             {
               pattern: /<link rel="stylesheet" href="/g,
               replacement: "<link rel=\"stylesheet\" href=\"css/"
-            },
-            {
-              pattern: /<\/head>/g,
-              replacement: "<link rel=\"stylesheet\" href=\"s/css\"></head>"
-            },
-            {
-              pattern: /<\/body>/g,
-              replacement: "<script src=\"s/script\" type=\"module\"></script>"
             }
           ]
         }
@@ -221,10 +193,10 @@ module.exports = function(grunt) {
 
     shell: {
       npx_build: {
-        command: "npx ng build --configuration=production"
+        command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=production"
       },
       npx_build_and_instrument: {
-        command: "npx ng build --configuration=testing && nyc instrument dist instrument"
+        command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=testing && nyc instrument dist --in-place"
       },
       brotli_compress: {
         command: 'find . -type f -not -path \'./data/*\' -not -path \'./fonts/*\' -exec brotli -q 11 {} --output={}.br \\;',
@@ -852,10 +824,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("package", ["copy:build", "webpack", "string-replace", "postcss", "copy:package"]);
 
-  grunt.registerTask("build", ["clean", "shell:npx_build", "package", "clean:tmp"]);
+  grunt.registerTask("build", ["clean", "shell:npx_build", "package"]);
 
-  grunt.registerTask("build_and_compress", ["clean", "build", "shell:brotli_compress", "clean:tmp"]);
+  grunt.registerTask("build_and_compress", ["clean", "build", "shell:brotli_compress"]);
  
-  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "package", "clean:tmp"]);
+  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "package"]);
 };
 

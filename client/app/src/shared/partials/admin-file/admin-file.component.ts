@@ -2,7 +2,7 @@ import {Component, ElementRef, Input, OnInit, ViewChild, inject} from "@angular/
 import {NodeResolver} from "@app/shared/resolvers/node.resolver";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
-import * as Flow from "@flowjs/flow.js";
+import Flow from "@flowjs/flow.js";
 import {AppConfigService} from "@app/services/root/app-config.service";
 import {AppDataService} from "@app/app-data.service";
 import {AdminFile} from "@app/models/component-model/admin-file";

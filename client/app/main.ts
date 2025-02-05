@@ -50,7 +50,7 @@ import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
 import { MarkdownModule, MARKED_OPTIONS } from "ngx-markdown";
 import { AppComponent, createTranslateLoader } from "@app/pages/app/app.component";
 import { importProvidersFrom } from "@angular/core";
-import * as Flow from "@flowjs/flow.js";
+import Flow from "@flowjs/flow.js";
 import {provideRouter} from "@angular/router";
 
 

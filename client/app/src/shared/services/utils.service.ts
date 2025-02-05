@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable, Renderer2, inject} from "@angular/core";
-import * as Flow from "@flowjs/flow.js";
+import Flow from "@flowjs/flow.js";
 import {TranslateService} from "@ngx-translate/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";

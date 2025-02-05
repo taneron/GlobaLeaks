@@ -2,7 +2,7 @@ import {Component, Input, ViewChild, ElementRef, ChangeDetectorRef, EventEmitter
 import {UtilsService} from "@app/shared/services/utils.service";
 import {AppDataService} from "@app/app-data.service";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
-import * as Flow from "@flowjs/flow.js";
+import Flow from "@flowjs/flow.js";
 import {RecieverTipData} from "@app/models/receiver/receiver-tip-data";
 import {FlowFile} from "@flowjs/flow.js";
 import {NgClass} from "@angular/common";

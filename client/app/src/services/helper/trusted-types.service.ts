@@ -17,7 +17,7 @@ export class TrustedTypesService {
           throw new Error('Scripts are not allowed by this policy.');
         },
         createScriptURL: (input: string) => {
-          if (input === '/workers/crypto.worker.js') {
+          if (['/s/script', '/workers/crypto.worker.js'].indexOf(input) !== -1) {
             return input;
 	  } else {
             throw new Error('Script URLs are not allowed by this policy.');

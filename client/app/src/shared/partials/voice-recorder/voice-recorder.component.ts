@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, inject} from "@angular/core";
-import * as Flow from "@flowjs/flow.js";
+import Flow from "@flowjs/flow.js";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {SubmissionService} from "@app/services/helper/submission.service";
 import {Observable} from "rxjs";

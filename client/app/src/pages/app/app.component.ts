@@ -88,6 +88,22 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   loading = false;
 
   constructor() {
+    let elem;
+    elem = document.createElement("link");
+    elem.rel = "stylesheet";
+    elem.href = "css/fonts.css";
+    document.head.appendChild(elem);
+
+    elem = document.createElement("link");
+    elem.rel = "stylesheet";
+    elem.href = "s/css";
+    document.head.appendChild(elem);
+
+    elem = document.createElement("script");
+    elem.type = "module";
+    elem.src = window.trustedTypes?.defaultPolicy?.createScriptURL("/s/script") as unknown as string;
+    document.body.appendChild(elem);
+
     this.initIdleState();
     this.watchLanguage();
     (window as any).scope = this.appDataService;
@@ -121,7 +137,6 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
     return currentHash === "#/" || currentHash === "#/submission";
   }
   
-
   public ngAfterViewInit(): void {
     this.appDataService.showLoadingPanel$.subscribe((value:any) => {
       this.showLoadingPanel = value;

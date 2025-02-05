@@ -138,6 +138,7 @@ export class AppConfigService {
 
         this.titleService.setTitle();
         this.onValidateInitialConfiguration();
+
         if (callback) {
           callback();
         }

@@ -9,8 +9,7 @@
     ]
   },
   "files": [
-    "app/main.ts",
-    "app/polyfills.ts"
+    "app/main.ts"
   ],
   "include": [
     "app/**/*.d.ts"
