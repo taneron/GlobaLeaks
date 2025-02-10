@@ -1,3 +1,6 @@
+Changes in version 5.0.48
+    Revise correction for issue #4394
+
 Changes in version 5.0.47
     Adopt new angular builder: angular-devkit/build-angular:browser-esbuild
       to optimize packaging
