@@ -10,7 +10,7 @@
 
 The software is recognized by the [Digital Public Good Alliance](https://digitalpublicgoods.net) as a [Digital Public Good](https://digitalpublicgoods.net/r/globaleaks).
 
-## Continuous integration and testing
+## Continuous Integration and Testing
 | Metric | [Stable branch](https://github.com/globaleaks/globaleaks-whistleblowing-software/tree/stable) | [Devel branch](https://github.com/globaleaks/globaleaks-whistleblowing-software/tree/devel) |
 | :---- | :---- | :---- |
 | Build Status | [![build workflow](https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml/badge.svg?branch=stable)](https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml?query=branch%3Astable) | [![build workflow](https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml/badge.svg?branch=devel)](https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml?query=branch%3Adevel) |
@@ -19,7 +19,7 @@ The software is recognized by the [Digital Public Good Alliance](https://digital
 | Code Quality | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c09f1ec9607f4546924d19798a98dd7d?branch=stable)](https://app.codacy.com/gh/globaleaks/globaleaks-whistleblowing-software/dashboard) | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c09f1ec9607f4546924d19798a98dd7d?branch=devel)](https://app.codacy.com/gh/globaleaks/globaleaks-whistleblowing-software/dashboard) |
 | Documentation | [![Build Status](https://readthedocs.org/projects/globaleaks/badge/?version=stable&style=flat)](https://docs.globaleaks.org/en/stable/) | [![Build Status](https://readthedocs.org/projects/globaleaks/badge/?version=devel&style=flat)](https://docs.globaleaks.org/en/devel/) |
 
-## Project best practices and scores
+## Project Best Practices and Scores
 | Metric | Score
 | :---- | :---- |
 | [OpenSSF Scorecard](https://scorecard.dev/) | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/globaleaks/globaleaks-whistleblowing-software/badge)](https://scorecard.dev/viewer/?uri=github.com/globaleaks/globaleaks-whistleblowing-software)
