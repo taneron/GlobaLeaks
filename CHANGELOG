@@ -1,3 +1,7 @@
+changes in version 5.0.50
+   Fix admin loading and re-loading of images
+   Bump client dependencies to latest version
+
 Changes in version 5.0.49
    Re-enable email notifications, disabled by mistake during testing of 5.0.48
 
