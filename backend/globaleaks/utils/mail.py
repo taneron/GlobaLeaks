@@ -59,7 +59,6 @@ def sendmail(tid, smtp_host, smtp_port, security, authentication, username, pass
     :param socks_port: A socks port to be used for the mail connection
     :return: A deferred resource resolving at the end of the connection
     """
-    return
     try:
         timeout = 30
 
