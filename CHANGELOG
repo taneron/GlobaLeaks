@@ -1,3 +1,6 @@
+Changes in version 5.0.49
+   Re-enable email notifications, disabled by mistake during testing of 5.0.48
+
 Changes in version 5.0.48
     Revise correction for issue #4394
 
