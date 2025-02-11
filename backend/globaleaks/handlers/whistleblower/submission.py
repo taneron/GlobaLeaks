@@ -160,6 +160,8 @@ def db_create_receivertip(session, receiver, internaltip, tip_key):
 def db_create_submission(session, tid, request, user_session, client_using_tor, client_using_mobile):
     config = ConfigFactory(session, tid)
 
+    encryption = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption'))
+
     crypto_is_available = config.get_val('encryption')
 
     context, questionnaire = db_get(session,
@@ -180,13 +182,6 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
                 # users need to perform their first access before they
                 # could receive reports.
                 receivers.append(r)
-            elif encryption.update_date != datetime_null():
-                # This is the exceptional condition of systems setup when
-                # encryption was implemented via PGP.
-                # For continuity reason of those production systems
-                # encryption could not be enforced.
-                receivers.append(r)
-                crypto_is_available = False
         else:
             receivers.append(r)
 
