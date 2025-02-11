@@ -33,7 +33,7 @@ export class ImageUploadComponent implements AfterViewInit, OnDestroy, OnInit {
   imageUploadObj: { files: [] } = {files: []};
   autoUploadSubscription: Subscription;
   filemodel: any;
-  currentTImestamp = new Date().getTime();
+  currentTimestamp = new Date().getTime();
   flowConfig: FlowOptions;
   @ViewChild('uploader') uploaderInput: ElementRef<HTMLInputElement>;
 
@@ -65,8 +65,10 @@ export class ImageUploadComponent implements AfterViewInit, OnDestroy, OnInit {
 
       flowJsInstance.addFile(modifiedFile);
       flowJsInstance.upload();
-      this.currentTImestamp = new Date().getTime();
       this.filemodel = modifiedFile;
+      flowJsInstance.on('complete', () => {
+        this.currentTimestamp = new Date().getTime();
+      });
     }
   }
 
@@ -94,7 +96,6 @@ export class ImageUploadComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   getCurrentTimestamp(): number {
-    return this.currentTImestamp;
+    return this.currentTimestamp;
   }
-
 }

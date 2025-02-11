@@ -109,7 +109,8 @@ class FileInstance(BaseHandler):
     def permission_check(self, name):
         if self.session.role == 'admin':
             if name not in ['logo'] and \
-                    not self.session.has_permission('can_upload_files'):
+               not re.match(requests.uuid_regexp, name) and \
+               not self.session.has_permission('can_upload_files'):
                 raise errors.InvalidAuthentication
 
         else:
