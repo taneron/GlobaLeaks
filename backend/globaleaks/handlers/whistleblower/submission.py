@@ -160,8 +160,6 @@ def db_create_receivertip(session, receiver, internaltip, tip_key):
 def db_create_submission(session, tid, request, user_session, client_using_tor, client_using_mobile):
     config = ConfigFactory(session, tid)
 
-    encryption = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption'))
-
     crypto_is_available = config.get_val('encryption')
 
     context, questionnaire = db_get(session,
