@@ -286,7 +286,7 @@ class MockDict:
             'additional_questionnaire_id': '',
             'select_all_receivers': True,
             'tip_timetolive': 20,
-            'tip_reminder': 80,
+            'tip_reminder': 0,
             'maximum_selectable_receivers': 0,
             'show_context': True,
             'allow_recipients_selection': False,

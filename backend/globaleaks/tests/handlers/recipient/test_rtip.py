@@ -5,7 +5,7 @@ from globaleaks import models
 from globaleaks.handlers.recipient import rtip
 from globaleaks.jobs.delivery import Delivery
 from globaleaks.tests import helpers
-from globaleaks.utils.utility import datetime_now
+from globaleaks.utils.utility import datetime_never, datetime_now
 
 
 class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
@@ -291,6 +291,47 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
         for rtip_desc in rtip_descs:
             handler = self.request(role='receiver', user_id=rtip_desc['receiver_id'])
             yield self.assertFailure(handler.delete(u"unexistent_tip"), NoResultFound)
+
+    @inlineCallbacks
+    def test_set_reminder_and_reset_upon_close(self):
+        rtip_descs = yield self.get_rtips()
+
+        for rtip_desc in rtip_descs:
+            self.assertEqual(rtip_desc['reminder_date'], datetime_never())
+
+            operation = {
+              'operation': 'set_reminder',
+              'args': {
+                'value': datetime_now().timestamp() + 7 * 22 * 3600 * 1000,
+                'substatus': '',
+                'motivation': ''
+              }
+            }
+
+            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+            yield handler.put(rtip_desc['id'])
+            self.assertEqual(handler.request.code, 200)
+
+        rtip_descs = yield self.get_rtips()
+        for rtip_desc in rtip_descs:
+            self.assertNotEqual(rtip_desc['reminder_date'], datetime_never())
+
+            operation = {
+              'operation': 'update_status',
+              'args': {
+                'status': 'closed',
+                'substatus': '',
+                'motivation': ''
+              }
+            }
+
+            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+            yield handler.put(rtip_desc['id'])
+            self.assertEqual(handler.request.code, 200)
+
+        rtip_descs = yield self.get_rtips()
+        for rtip_desc in rtip_descs:
+            self.assertEqual(rtip_desc['reminder_date'], datetime_never())
 
 
 class TestRTipCommentCollection(helpers.TestHandlerWithPopulatedDB):

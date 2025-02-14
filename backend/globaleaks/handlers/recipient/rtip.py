@@ -236,8 +236,8 @@ def db_update_submission_status(session, tid, user_id, itip, status_id, substatu
     if status_id == 'new':
         return
 
+    report_close_request = itip.status != "closed" and status_id == "closed"
     report_reopen_request = itip.status == "closed" and status_id == "opened"
-    db_recalculate_data_retention(session, itip, report_reopen_request)
 
     itip.status = status_id
     itip.substatus = substatus_id or None
@@ -248,6 +248,11 @@ def db_update_submission_status(session, tid, user_id, itip, status_id, substatu
     }
 
     db_log(session, tid=tid, type='update_report_status', user_id=user_id, object_id=itip.id, data=log_data)
+
+    if report_close_request:
+        itip.reminder_date = datetime_never()
+
+    db_recalculate_data_retention(session, itip, report_reopen_request)
 
 
 def db_update_temporary_redaction(session, tid, user_id, redaction, redaction_data):
