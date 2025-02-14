@@ -1,4 +1,8 @@
-changes in version 5.0.50
+Changes in version 5.0.51
+   Reset reports reminders when reports are put in closed statuses
+   Fix users password generation for users created using signup feature
+
+Changes in version 5.0.50
    Fix admin loading and re-loading of images
    Bump client dependencies to latest version
 
