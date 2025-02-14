@@ -23,6 +23,8 @@ def db_wizard(session, tid, hostname, request):
     :param hostname: The hostname to be configured
     :param request: A user request
     """
+    admin_password = recipient_password = ''
+
     language = request['node_language']
 
     root_tenant_node = config.ConfigFactory(session, 1)
@@ -71,7 +73,7 @@ def db_wizard(session, tid, hostname, request):
         admin_desc['language'] = language
         admin_desc['role'] = 'admin'
         admin_desc['pgp_key_remove'] = False
-        admin_user = db_create_user(session, tid, None, admin_desc, language)
+        admin_user, admin_password = db_create_user(session, tid, None, admin_desc, language)
         admin_user.password_change_needed = (tid != 1)
 
         if encryption and escrow:
@@ -87,7 +89,7 @@ def db_wizard(session, tid, hostname, request):
         receiver_desc['language'] = language
         receiver_desc['role'] = 'receiver'
         receiver_desc['pgp_key_remove'] = False
-        receiver_user = db_create_user(session, tid, None, receiver_desc, language)
+        receiver_user, receiver_password = db_create_user(session, tid, None, receiver_desc, language)
         receiver_user.password_change_needed = (tid != 1)
 
     context_desc = models.Context().dict(language)
@@ -138,6 +140,7 @@ def db_wizard(session, tid, hostname, request):
             # Set the recipient name equal to the node name
             receiver_user.name = receiver_user.public_name = request['node_name']
 
+    return admin_password, recipient_password
 
 @transact
 def wizard(session, tid, hostname, request):
