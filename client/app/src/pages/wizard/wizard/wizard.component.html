@@ -121,7 +121,7 @@
                 </div>
                 <div class="row form-group">
                   <label class="col-md-4" for="admin_password_check">
-                    <span>{{'Password'|translate}}</span> ( <span>{{'Confirm'|translate}}</span>) <span class="text-danger" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
+                    <span>{{'Password'|translate}}</span> (<span>{{'Confirm'|translate}}</span>) <span class="text-danger" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
                   </label>
                   <div class="col-md-8">
                     <input id="admin_password_check" name="admin_password_check" class="form-control" [(ngModel)]="admin_check_password" type="password" placeholder="{{'Password' | translate}}" autocomplete="off" [ngClass]="{'is-invalid': wizardFormStep4.valid && (!password_admin.errors?.['passwordStrengthValidator'] && admin_password && (admin_password !== admin_check_password))}" required />
