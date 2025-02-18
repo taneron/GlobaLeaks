@@ -49,11 +49,10 @@ export class FormComponent implements OnInit {
     } else {
       this.fields = [];
     }
+
     this.stepId = "step-" + this.index;
     this.rows = this.fieldUtilitiesService.splitRows(this.fields);
-    if (this.rows.length === 0) {
-      this.rows = this.step;
-    }
+
     this.status = {
       opened: false,
     };
