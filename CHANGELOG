@@ -1,3 +1,7 @@
+Changes in version 5.0.52
+   Fix bug loading of questionnaires designed with informative steps
+     without questions reintroduced in 5.0.47
+
 Changes in version 5.0.51
    Reset reports reminders when reports are put in closed statuses
    Fix users password generation for users created using signup feature
