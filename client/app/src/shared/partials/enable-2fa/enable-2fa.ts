@@ -3,7 +3,7 @@ import {UtilsService} from "@app/shared/services/utils.service";
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TwoFactorAuthData} from "@app/services/helper/2fa.data.service";
-import {QRCodeModule} from "angularx-qrcode";
+import {QRCodeComponent} from 'angularx-qrcode';
 import {NgClass} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
@@ -13,14 +13,13 @@ import {NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
     selector: "src-enable-2fa",
     templateUrl: "./enable-2fa.html",
     standalone: true,
-    imports: [QRCodeModule, FormsModule, ReactiveFormsModule, NgbTooltipModule, NgClass, TranslateModule, TranslatorPipe]
+    imports: [QRCodeComponent, FormsModule, ReactiveFormsModule, NgbTooltipModule, NgClass, TranslateModule, TranslatorPipe]
 })
 export class Enable2fa implements OnInit{
   protected utils = inject(UtilsService);
   protected preferenceResolver = inject(PreferenceResolver);
   private builder = inject(FormBuilder);
   protected twoFactorAuthData = inject(TwoFactorAuthData);
-
 
   symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
   array = new Uint32Array(32);
