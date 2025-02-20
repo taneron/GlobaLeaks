@@ -46,13 +46,12 @@ export class FormComponent implements OnInit {
   initialize() {
     if (this.step.children) {
       this.fields = this.step.children;
+      this.rows = this.fieldUtilitiesService.splitRows(this.fields);
     } else {
       this.fields = [];
+      this.rows = this.step;
     }
-
     this.stepId = "step-" + this.index;
-    this.rows = this.fieldUtilitiesService.splitRows(this.fields);
-
     this.status = {
       opened: false,
     };
