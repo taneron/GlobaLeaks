@@ -223,12 +223,10 @@
       @if (user.role === 'admin') {
         <div class="row">
           <div class="col-md-12">
-            @if (nodeData.escrow && user.encryption && preferenceData.escrow) {
-              <div class="form-group">
-                <input class="form-check-input" [(ngModel)]="user.escrow" name="user.escrow" type="checkbox" (ngModelChange)="toggleUserEscrow(user)" [disabled]="getUserID() === user.id">
-                <label>{{ 'Give this admin ability to change user passwords' | translate }}</label>
-              </div>
-            }
+            <div class="form-group">
+              <input class="form-check-input" [(ngModel)]="user.escrow" name="user.escrow" type="checkbox" (ngModelChange)="toggleUserEscrow(user)" [disabled]="getUserID() === user.id || !nodeData.escrow && !user.encryption || !preferenceData.escrow">
+              <label>{{ 'Give this admin ability to change user passwords' | translate }}</label>
+            </div>
           </div>
         </div>
       }
