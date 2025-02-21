@@ -622,6 +622,19 @@ p:last-child {
   padding-left: 1em;
 }
 
+#WhistleblowerLoginBox {
+  width: fit-content;
+}
+
+#HeaderBox #WhistleblowerLoginBox {
+  float: right !important;
+}
+
+#ContentBox #WhistleblowerLoginBox {
+  display: flex !important;
+  margin: 0 auto;
+}
+
 #WhistleblowerSubmitBox,
 #WhistleblowerLoginBox {
   text-align: center;
