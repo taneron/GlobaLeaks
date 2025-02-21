@@ -33,6 +33,7 @@ const translationModule = TranslateModule.forRoot({
 
 import { ReceiptValidatorDirective } from "@app/shared/directive/receipt-validator.directive";
 import { mockEngine } from "@app/services/helper/mocks";
+import { MarkdownRendererService } from '@app/services/helper/markdown.service';
 import { TranslatorPipe } from "@app/shared/pipes/translate";
 import { TranslateService, TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient, HttpClient } from "@angular/common/http";
@@ -57,35 +58,18 @@ import {provideRouter} from "@angular/router";
 import { ApplicationRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(appRoutes),
         importProvidersFrom(NgbModule, BrowserModule, translationModule, NgSelectModule, FormsModule, NgbTooltipModule, NgIdleKeepaliveModule.forRoot(), MarkdownModule.forRoot({
             markedOptions: {
                 provide: MARKED_OPTIONS,
-                useValue: {
-                    breaks: true,
-                    renderer: {
-                        link({ href, title, text, tokens }: { href: string; title?: string; text: string; tokens?: any[] }): string {
-                            // Check if the text contains an image tag (Markdown image syntax is wrapped in `![](...)`)
-                            const isImage = text.startsWith('![') && text.includes('](');
-
-                            if (isImage) {
-                              // Extract the image Markdown (e.g., ![Alt](src))
-                              const match = text.match(/!\[(.*?)\]\((.*?)\)/); // Regex to parse image Markdown
-                              if (match) {
-                                const alt = match[1]; // Alt text
-                                const src = match[2]; // Image URL
-                                // Render clickable image
-                                return `<a target="_blank" href="${href}"><img src="${src}" alt="${alt}" /></a>`;
-                              }
-                            }
-
-                            // Fallback to standard link rendering for non-image links
-                            return `<a target="_blank" href="${href}">${text}</a>`;
-                        },
-                    },
-                }
+                useFactory: (rendererService: MarkdownRendererService) => ({
+                  breaks: true,
+                  renderer: rendererService.getCustomRenderer(),
+                }),
+                deps: [MarkdownRendererService]
             }
         }), NgxFlowModule, NgOptimizedImage),
         ReceiptValidatorDirective,
