@@ -1,5 +1,5 @@
 import {RFile, WbFile, WhistleblowerIdentity, Comment} from "@app/models/app/shared-public-model";
-import {Context, Answers, Questionnaire3, Questionnaire} from "@app/models/receiver/receiver-tip-data";
+import {Context, Answers, Questionnaire} from "@app/models/receiver/receiver-tip-data";
 import {RedactionData} from "@app/models/component-model/redaction";
 
 export class WbTipData {
@@ -25,8 +25,8 @@ export class WbTipData {
   wbfiles: WbFile[];
   data: Data;
   context: Context;
-  questionnaire: Questionnaire3;
-  additional_questionnaire: Questionnaire3;
+  questionnaire: Questionnaire;
+  additional_questionnaire: Questionnaire;
   msg_receiver_selected: string | null;
   msg_receivers_selector: MsgReceiversSelector[];
   tip_id: string;

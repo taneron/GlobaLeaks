@@ -10,6 +10,11 @@ import {
 import {IarData} from "@app/models/receiver/iar-data";
 import {RedactionData} from "@app/models/component-model/redaction";
 
+export interface Questionnaire {
+  steps: Step[];
+  answers: Answers;
+}
+
 export class RecieverTipData {
   id: string;
   creation_date: string;
@@ -39,7 +44,7 @@ export class RecieverTipData {
   enable_notifications: boolean;
   iar: IarData;
   context: Context;
-  questionnaire: Questionnaire3;
+  questionnaire: Questionnaire;
   msg_receiver_selected: string | null;
   msg_receivers_selector: MsgReceiversSelector[];
   receivers_by_id: ReceiversById;
@@ -47,11 +52,6 @@ export class RecieverTipData {
   whistleblower_identity_field: Children;
   tip_id: string;
   redactions: RedactionData[];
-}
-
-export interface Questionnaire {
-  steps: Step[];
-  answers: Answers;
 }
 
 export interface Answers {
@@ -92,209 +92,9 @@ export interface Context {
   picture: boolean;
   name: string;
   description: string;
-  questionnaire: Questionnaire2;
+  questionnaire: Questionnaire;
 }
 
-export interface Questionnaire2 {
-  id: string;
-  editable: boolean;
-  name: string;
-  steps: Step2[];
-}
-
-export interface Step2 {
-  id: string;
-  questionnaire_id: string;
-  order: number;
-  triggered_by_score: number;
-  triggered_by_options: TriggeredByOption[];
-  children: Children2[];
-  label: string;
-  description: string;
-}
-
-export interface Children2 {
-  id: string;
-  instance: string;
-  editable: boolean;
-  type: string;
-  template_id: string;
-  template_override_id: string;
-  step_id: string;
-  fieldgroup_id: string;
-  multi_entry: boolean;
-  required: boolean;
-  preview: boolean;
-  attrs: Attrs2;
-  x: number;
-  y: number;
-  width: number;
-  triggered_by_score: number;
-  triggered_by_options: TriggeredByOption2[];
-  options: Option2[];
-  children: Children[];
-  label: string;
-  description: string;
-  hint: string;
-  placeholder: string;
-}
-
-export interface Attrs2 {
-  input_validation?: InputValidation2;
-  max_len?: MaxLen2;
-  min_len?: MinLen2;
-  regexp?: Regexp2;
-  display_alphabetically?: DisplayAlphabetically2;
-}
-
-export interface InputValidation2 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface MaxLen2 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface MinLen2 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface Regexp2 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface DisplayAlphabetically2 {
-  name: string;
-  type: string;
-  value: boolean;
-}
-
-export interface TriggeredByOption2 {
-  field: string;
-  option: string;
-  sufficient: boolean;
-}
-
-export interface Option2 {
-  id: string;
-  order: number;
-  block_submission: boolean;
-  score_points: number;
-  score_type: string;
-  trigger_receiver: string[];
-  hint1: string;
-  hint2: string;
-  label: string;
-}
-
-export interface Questionnaire3 {
-  id: string;
-  editable: boolean;
-  name: string;
-  steps: Step3[];
-}
-
-export interface Step3 {
-  id: string;
-  questionnaire_id: string;
-  order: number;
-  triggered_by_score: number;
-  triggered_by_options: TriggeredByOption[];
-  children: Children3[];
-  label: string;
-  description: string;
-  enabled: boolean;
-}
-
-export interface Children3 {
-  id: string;
-  instance: string;
-  editable: boolean;
-  type: string;
-  template_id: string;
-  template_override_id: string;
-  step_id: string;
-  fieldgroup_id: string;
-  multi_entry: boolean;
-  required: boolean;
-  preview: boolean;
-  attrs: Attrs3;
-  x: number;
-  y: number;
-  width: number;
-  triggered_by_score: number;
-  triggered_by_options: TriggeredByOption3[];
-  options: Option3[];
-  children: Children[];
-  label: string;
-  description: string;
-  hint: string;
-  placeholder: string;
-}
-
-export interface Attrs3 {
-  input_validation?: InputValidation3;
-  max_len?: MaxLen3;
-  min_len?: MinLen3;
-  regexp?: Regexp3;
-  display_alphabetically?: DisplayAlphabetically3;
-}
-
-export interface InputValidation3 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface MaxLen3 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface MinLen3 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface Regexp3 {
-  name: string;
-  type: string;
-  value: string;
-}
-
-export interface DisplayAlphabetically3 {
-  name: string;
-  type: string;
-  value: boolean;
-}
-
-export interface TriggeredByOption3 {
-  field: string;
-  option: string;
-  sufficient: boolean;
-}
-
-export interface Option3 {
-  id: string;
-  order: number;
-  block_submission: boolean;
-  score_points: number;
-  score_type: string;
-  trigger_receiver: string[];
-  hint1: string;
-  hint2: string;
-  label: string;
-}
 
 export interface MsgReceiversSelector {
   key: string;

@@ -6,7 +6,7 @@ import {WbtipService} from "@app/services/helper/wbtip.service";
 import {FieldUtilitiesService} from "@app/shared/services/field-utilities.service";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {HttpService} from "@app/shared/services/http.service";
-import {Answers, Questionnaire3} from "@app/models/receiver/receiver-tip-data";
+import {Answers, Questionnaire} from "@app/models/receiver/receiver-tip-data";
 import {Field} from "@app/models/resolvers/field-template-model";
 import {WhistleblowerSubmissionService} from "@app/pages/whistleblower/whistleblower-submission.service";
 import {NgClass} from "@angular/common";
@@ -38,7 +38,7 @@ export class TipAdditionalQuestionnaireFormComponent implements OnInit {
   _navigation: number = 0;
   validate: boolean[] = [];
   score: number = 0;
-  questionnaire: Questionnaire3;
+  questionnaire: Questionnaire;
   answers: Answers = {};
   done: boolean = false;
   uploads: { [key: string]: any };
