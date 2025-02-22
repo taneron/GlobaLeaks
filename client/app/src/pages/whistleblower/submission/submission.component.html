@@ -20,7 +20,7 @@
       }
       <form #submissionForm="ngForm" id="SubmissionForm" [ngClass]="{'was-validated': displaySubmissionErrors()}" autocomplete="off" novalidate>
         <div class="tabbable tabs-below mb-3">
-          @if (submissionService.context.show_steps_navigation_interface && submissionService.context.questionnaire.steps.length > 1) {
+          @if (submissionService.context.show_steps_navigation_interface && questionnaire.steps.length > 1) {
             <ul id="SubmissionTabsNavigationBox" class="nav nav-tabs" role="tablist">
               @if (submissionService.context.allow_recipients_selection) {
                 <li id="step-recipient-selection-tab" class="nav-item" role="presentation">
@@ -30,9 +30,9 @@
                   </button>
                 </li>
               }
-              @for (step of (submissionService.context.questionnaire.steps | orderBy:'order'); track step; let index = $index) {
+              @for (step of (questionnaire.steps | orderBy:'order'); let index = $index; track step.id) {
                 <li id="context-{{index}}" class="nav-item" role="presentation">
-                  @if (step.enabled) {
+                  @if (step?.enabled) {
                     <button id="step-{{index}}-link" [ngClass]="{active: navigation === index}" class="nav-link nav-link-custom" (click)="goToStep(index)" [attr.aria-selected]="navigation === index" [attr.aria-current]="navigation === index ? 'step' : 'false'" [attr.aria-controls]="'step-' + index" role="tab">
                       <span class="step-index" [ngClass]="{'step-index-selected': navigation === index}">{{index + (submissionService.context.allow_recipients_selection ? 2 : 1)}}</span>
                       <span class="step-label">{{step.label}}</span>
@@ -57,9 +57,9 @@
             }
             @if (navigation !== -1) {
               <div>
-                @for (step of submissionService.context.questionnaire.steps | orderBy:'order'; track step; let index = $index) {
+                @for (step of questionnaire.steps | orderBy:'order'; let index = $index; track $index) {
                   <div>
-                    @if (step && step.enabled && submissionService) {
+                    @if (step?.enabled) {
                       <div id="step-{{index}}"  [class.d-none]="navigation !== index" role="tabpanel">
                         <div ngForm #stepForm="ngForm" ngFormChanges (ngFormChange)="onFormChange()">
                           @if (step.description) {

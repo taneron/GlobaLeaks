@@ -98,10 +98,10 @@ export class SubmissionComponent implements OnInit {
     this.done = false;
     this.answers = {};
     this.uploads = {};
-    this.questionnaire = context.questionnaire;
 
-    this.submissionService.create(context.id);
     this.context = context;
+    this.questionnaire = context.questionnaire;
+    this.submissionService.create(context.id);
     this.fieldUtilitiesService.onAnswersUpdate(this);
     this.utilsService.scrollToTop();
 
@@ -135,7 +135,6 @@ export class SubmissionComponent implements OnInit {
   };
 
   selectContext(context: Context) {
-    this.context = context;
     this.prepareSubmission(context);
   }
 

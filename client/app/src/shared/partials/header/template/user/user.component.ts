@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, inject} from "@angular/core";
+import {ApplicationRef, Component, inject} from "@angular/core";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
 import {AppConfigService} from "@app/services/root/app-config.service";
@@ -27,7 +27,6 @@ export class UserComponent {
   protected activatedRoute = inject(ActivatedRoute);
   protected httpService = inject(HttpService);
   protected appConfigService = inject(AppConfigService);
-  private cdr = inject(ChangeDetectorRef);
   protected authentication = inject(AuthenticationService);
   protected preferences = inject(PreferenceResolver);
   protected utilsService = inject(UtilsService);
@@ -37,7 +36,7 @@ export class UserComponent {
 
   private lastLang: string | null = null;
 
-  constructor() {
+  constructor(private appRef: ApplicationRef) {
     this.onQueryParameterChangeListener();
   }
 
@@ -77,9 +76,9 @@ export class UserComponent {
   }
 
   onChangeLanguage() {
-    this.cdr.detectChanges();
     this.translationService.onChange(this.translationService.language);
-    this.appConfigService.reinit(false);
+    this.appConfigService.reinit(true);
     this.utilsService.reloadCurrentRouteFresh(true);
+    this.appRef.tick();
   }
 }
