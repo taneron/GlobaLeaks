@@ -125,25 +125,42 @@ def signup_activation(session, token, hostname, language):
 
     node_name = signup.organization_name or signup.subdomain
 
+    node = ConfigFactory(session, tenant.id)
+    mode = node.get_val('mode')
+    salt = node.get_val('receipt_salt')
+
+    if mode == 'wbpa':
+        skip_admin_account_creation = True
+        admin_password = admin_key = ''
+    else:
+        skip_admin_account_creation = False
+        admin_password = generateRandomPassword(16)
+        admin_salt = GCE.generate_salt(salt + ":" + 'admin')
+        admin_key = GCE.derive_key(admin_password, admin_salt).encode()
+
+    receiver_password = generateRandomPassword(16)
+    receiver_salt = GCE.generate_salt(salt + ":" + 'recipient')
+    receiver_key = GCE.derive_key(receiver_password, receiver_salt).encode()
+
     wizard = {
         'node_language': signup.language,
         'node_name': node_name,
         'admin_username': 'admin',
         'admin_name': signup.name + ' ' + signup.surname,
-        'admin_password': '',
+        'admin_password': admin_key,
         'admin_mail_address': signup.email,
         'admin_escrow': config.get_val('escrow'),
         'receiver_username': 'recipient',
         'receiver_name': signup.name + ' ' + signup.surname,
-        'receiver_password': '',
+        'receiver_password': receiver_key,
         'receiver_mail_address': signup.email,
         'profile': 'default',
-        'skip_admin_account_creation': False,
+        'skip_admin_account_creation': skip_admin_account_creation,
         'skip_recipient_account_creation': False,
         'enable_developers_exception_notification': True
     }
 
-    admin_password, receiver_password = db_wizard(session, signup.tid, hostname, wizard)
+    db_wizard(session, signup.tid, hostname, wizard)
 
     template_vars = {
         'type': 'activation',

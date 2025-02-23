@@ -73,7 +73,7 @@ def db_wizard(session, tid, hostname, request):
         admin_desc['language'] = language
         admin_desc['role'] = 'admin'
         admin_desc['pgp_key_remove'] = False
-        admin_user, admin_password = db_create_user(session, tid, None, admin_desc, language)
+        admin_user = db_create_user(session, tid, None, admin_desc, language)
         admin_user.password_change_needed = (tid != 1)
 
         if encryption and escrow:
@@ -89,7 +89,7 @@ def db_wizard(session, tid, hostname, request):
         receiver_desc['language'] = language
         receiver_desc['role'] = 'receiver'
         receiver_desc['pgp_key_remove'] = False
-        receiver_user, receiver_password = db_create_user(session, tid, None, receiver_desc, language)
+        receiver_user = db_create_user(session, tid, None, receiver_desc, language)
         receiver_user.password_change_needed = (tid != 1)
 
     context_desc = models.Context().dict(language)
@@ -130,16 +130,11 @@ def db_wizard(session, tid, hostname, request):
         # Set data retention policy to 12 months
         context.tip_timetolive = 365
 
-        # Delete the admin user
-        session.delete(admin_user)
-
         if not request['skip_recipient_account_creation']:
             receiver_user.can_edit_general_settings = True
 
             # Set the recipient name equal to the node name
             receiver_user.name = receiver_user.public_name = request['node_name']
-
-    return admin_password, receiver_password
 
 @transact
 def wizard(session, tid, hostname, request):
