@@ -23,7 +23,7 @@ def db_wizard(session, tid, hostname, request):
     :param hostname: The hostname to be configured
     :param request: A user request
     """
-    admin_password = recipient_password = ''
+    admin_password = receiver_password = ''
 
     language = request['node_language']
 
@@ -131,7 +131,6 @@ def db_wizard(session, tid, hostname, request):
         context.tip_timetolive = 365
 
         # Delete the admin user
-        request['admin_password'] = ''
         session.delete(admin_user)
 
         if not request['skip_recipient_account_creation']:
@@ -140,7 +139,7 @@ def db_wizard(session, tid, hostname, request):
             # Set the recipient name equal to the node name
             receiver_user.name = receiver_user.public_name = request['node_name']
 
-    return admin_password, recipient_password
+    return admin_password, receiver_password
 
 @transact
 def wizard(session, tid, hostname, request):

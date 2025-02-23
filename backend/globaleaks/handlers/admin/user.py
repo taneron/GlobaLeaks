@@ -50,13 +50,10 @@ def db_create_user(session, tid, user_session, request, language):
     parse_pgp_options(user, request)
 
     password = request.get('password', '')
-
-    plaintext_password = ''
     if not password:
-        plaintext_password = generateRandomPassword(16)
-        password = GCE.derive_key(plaintext_password, user.salt)
+        password = generateRandomPassword(16)
 
-    key = Base64Encoder.decode(password.encode())
+    key = Base64Encoder.decode(GCE.derive_key(password, user.salt).encode())
 
     user.hash = sha256(key)
 
@@ -74,7 +71,7 @@ def db_create_user(session, tid, user_session, request, language):
     crypto_escrow_pub_key_tenant_n = models.config.ConfigFactory(session, tid).get_val('crypto_escrow_pub_key')
 
     if not crypto_escrow_pub_key_tenant_1 and not crypto_escrow_pub_key_tenant_n:
-        return user, plaintext_password
+        return user, password
 
     cc, user.crypto_pub_key = GCE.generate_keypair()
     user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, cc))
@@ -86,7 +83,7 @@ def db_create_user(session, tid, user_session, request, language):
     if tid != 1 and crypto_escrow_pub_key_tenant_n:
         user.crypto_escrow_bkp2_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_n, cc))
 
-    return user, plaintext_password
+    return user, password
 
 
 def db_delete_user(session, tid, user_session, user_id):
