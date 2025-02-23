@@ -1,3 +1,6 @@
+Changes in version 5.0.54
+    Revise code related to password initialization in demo and wbpa mode
+
 Changes in version 5.0.53
    Revise fix of bug loading of questionnaires designed with informative steps
      without questions reintroduced in 5.0.47 and short term fixed in 5.0.52
