@@ -8,4 +8,5 @@ export class tenantResolverModel {
   onionservice: string;
   rootdomain: string;
   subdomain: string;
+  signup: any;
 }
