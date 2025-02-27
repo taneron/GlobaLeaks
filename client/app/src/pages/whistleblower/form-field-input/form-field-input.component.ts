@@ -18,13 +18,14 @@ import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {StripHtmlPipe} from "@app/shared/pipes/strip-html.pipe";
 import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
+import {AutoExpandDirective} from "@app/shared/directive/auto-expand.directive";
 
 @Component({
     selector: "src-form-field-input",
     templateUrl: "./form-field-input.component.html",
     viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
     standalone: true,
-    imports: [FormsModule, forwardRef(() => WhistleblowerIdentityFieldComponent), NgbTooltipModule, NgClass, NgSelectComponent, NgOptionComponent, NgbInputDatepicker, MarkdownComponent, VoiceRecorderComponent, RFileUploadButtonComponent, forwardRef(() => FormComponent), TranslateModule, TranslatorPipe, StripHtmlPipe, OrderByPipe]
+    imports: [AutoExpandDirective, FormsModule, forwardRef(() => WhistleblowerIdentityFieldComponent), NgbTooltipModule, NgClass, NgSelectComponent, NgOptionComponent, NgbInputDatepicker, MarkdownComponent, VoiceRecorderComponent, RFileUploadButtonComponent, forwardRef(() => FormComponent), TranslateModule, TranslatorPipe, StripHtmlPipe, OrderByPipe]
 })
 export class FormFieldInputComponent implements OnInit {
   private fieldUtilitiesService = inject(FieldUtilitiesService);

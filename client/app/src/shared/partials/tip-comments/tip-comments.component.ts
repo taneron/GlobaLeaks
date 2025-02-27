@@ -14,12 +14,13 @@ import {TranslateModule} from "@ngx-translate/core";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
 import {FilterPipe} from "@app/shared/pipes/filter.pipe";
+import {AutoExpandDirective} from "@app/shared/directive/auto-expand.directive";
 
 @Component({
     selector: "src-tip-comments",
     templateUrl: "./tip-comments.component.html",
     standalone: true,
-    imports: [FormsModule, NgbPagination, NgbPaginationFirst, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationLast, NgbTooltipModule, SlicePipe, DatePipe, TranslateModule, TranslatorPipe, OrderByPipe, FilterPipe]
+    imports: [AutoExpandDirective, FormsModule, NgbPagination, NgbPaginationFirst, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationLast, NgbTooltipModule, SlicePipe, DatePipe, TranslateModule, TranslatorPipe, OrderByPipe, FilterPipe]
 })
 export class TipCommentsComponent implements OnInit {
   private maskService = inject(MaskService);

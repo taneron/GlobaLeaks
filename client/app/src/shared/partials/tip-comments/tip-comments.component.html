@@ -14,7 +14,7 @@
     <div class="card-body">
       <div id="TipCommentsInputBox" class="row">
         <div class="col-md-12 clearfix">
-          <textarea [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off"></textarea>
+          <textarea [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off" autoExpand></textarea>
           <span class="float-end">{{newCommentContent.length ? newCommentContent.length : '0'}}/4096</span>
         </div>
         <div class="col-md-12 clearfix">
