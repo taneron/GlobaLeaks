@@ -24,11 +24,12 @@ export class SimpleLoginComponent implements OnInit {
   protected authentication = inject(AuthenticationService);
   protected appDataService = inject(AppDataService);
 
-
   @Input() loginData: LoginDataRef;
   @Input() loginValidator: NgForm;
 
-  public ngOnInit(): void {
-
+  ngOnInit() {
+    if (this.appDataService.public.receivers.length === 1) {
+      this.authentication.loginData.loginUsername = this.appDataService.public.receivers[0].id;
+    }
   }
 }
