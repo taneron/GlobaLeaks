@@ -103,24 +103,20 @@
           @if (getUserID() !== user.id) {
             <div class="form-group">
               <label>{{ 'Password' | translate }}</label>
-              <div>
+              <div [ngClass]="{'disabled': user.encryption && !preferenceData.escrow}">
                 <span class="btn btn-outline-secondary" (click)="resetUserPassword(user)">
                   <i class="fa-solid fa-sync"></i>
                   @if (user.last_login === '1970-01-01T00:00:00Z') {
-                    <span>{{ 'Send activation link' |
-                    translate }}</span>
+                    <span>{{ 'Send activation link' | translate }}</span>
                   }
                   @if (user.last_login !== '1970-01-01T00:00:00Z') {
-                    <span>{{ 'Send reset link' |
-                    translate }}</span>
+                    <span>{{ 'Send reset link' | translate }}</span>
                   }
                 </span>
-                @if (!user.encryption || preferenceData.escrow) {
-                  <span class="btn btn-outline-secondary" (click)="user.newpassword = !user.newpassword">
-                    <i class="fa-solid fa-edit"></i>
-                    <span id="set_password">{{ 'Set password' | translate }}</span>
-                  </span>
-                }
+                <span class="btn btn-outline-secondary" (click)="user.newpassword = !user.newpassword">
+                  <i class="fa-solid fa-edit"></i>
+                  <span id="set_password">{{ 'Set password' | translate }}</span>
+                </span>
               </div>
               @if (user.newpassword) {
                 <div class="form-group">
