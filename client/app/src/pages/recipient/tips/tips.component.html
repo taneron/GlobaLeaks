@@ -285,7 +285,7 @@
         </thead>
         <tbody id="tipListTableBody">
           @for (tip of orderbyCast(filteredTips | orderBy:sortKey:sortReverse) | slice:((currentPage - 1) * itemsPerPage):((currentPage - 1) * itemsPerPage + itemsPerPage); let index = $index; track tip) {
-            <tr id="tip-{{index}}" [ngClass]="{'fw-bold': tip.updated, 'selectedTip': isSelected(tip.id),'disabled': !tip.accessible}" class="tip-action-open" (click)="utils.go('/reports/' + tip.id)">
+            <tr id="tip-{{index}}" [ngClass]="[tip.updated ? 'fw-bold' : '', isSelected(tip.id) ? 'selectedTip' : '', !tip.accessible ? 'disabled' : '', 'report-status-' + tip.status, 'report-substatus-' + tip.substatus]" class="tip-action-open" (click)="utils.go('/reports/' + tip.id)">
               <td>
                 @if (isSelected(tip.id)) {
                   <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">

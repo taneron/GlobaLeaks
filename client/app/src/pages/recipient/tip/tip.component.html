@@ -1,5 +1,5 @@
 @if (tip) {
-  <div class="reveal">
+  <div class="reveal" [ngClass]="['report-status-' + tip.status, 'report-substatus-' + tip.substatus]">
     <div id="Toolbar" class="row">
       <div class="col-md-12">
         <a id="link-tiplist" href="#/recipient/reports" ngbTooltip="{{'Reports' | translate}}"
