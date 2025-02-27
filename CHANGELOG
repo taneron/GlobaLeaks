@@ -1,3 +1,12 @@
+Changes in version 5.0.55
+    Re-implement auto-expand of text areas as in version 4
+    Add CSS IDs to enable to customize some of the section of the report
+    Add tip-status-id and tip-substatus-id css classes to enable to customize sections with CSS by report status
+    Revise functionality of simplified login interface broken since initial version 5
+    Disable button send activation link for users that do not have access to escrow keys
+    Re-add signup data visualization for platforms in mode != 'demo'
+    Bump client dependencies to latest version
+
 Changes in version 5.0.54
     Revise code related to password initialization in demo and wbpa mode
 
