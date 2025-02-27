@@ -1,4 +1,4 @@
-<div id="TipCommunicationComments" class="card card-default" [attr.aria-expanded]="collapsed">
+<div id="TipCommentsBox" class="card card-default" [attr.aria-expanded]="collapsed">
   <div class="card-header d-flex justify-content-between" (click)="toggleCollapse(); utilsService.stopPropagation($event);">
     <span>{{'Comments'|translate}}</span>
     <span class="">
@@ -12,9 +12,9 @@
   </div>
   @if (!collapsed) {
     <div class="card-body">
-      <div class="row">
+      <div id="TipCommentsInputBox" class="row">
         <div class="col-md-12 clearfix">
-          <textarea id="TipCommunicationCommentsInput" [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off"></textarea>
+          <textarea [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off"></textarea>
           <span class="float-end">{{newCommentContent.length ? newCommentContent.length : '0'}}/4096</span>
         </div>
         <div class="col-md-12 clearfix">
