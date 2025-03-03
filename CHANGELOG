@@ -1,3 +1,8 @@
+Changes in version 5.0.56
+    Fix bug in change of expiration date introduced in 5.0.51
+    Fix issue #4422
+    Bump client dependencies to latest version
+
 Changes in version 5.0.55
     Re-implement auto-expand of text areas as in version 4
     Add CSS IDs to enable to customize some of the section of the report
