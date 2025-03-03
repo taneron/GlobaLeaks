@@ -115,7 +115,7 @@ export class Tab2Component implements OnInit {
     );
   }
 
-  updateFiles(): void {
+  updateFiles = (): void => {
     this.utilsService.getFiles().subscribe(
       (updatedFiles) => {
         this.files = updatedFiles;
