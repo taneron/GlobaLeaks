@@ -213,13 +213,7 @@ def db_recalculate_data_retention(session, itip, report_reopen_request):
         if ttl > 0:
             itip.expiration_date = get_expiration(ttl)
 
-    if prev_expiration_date != itip.expiration_date:
-        log_data = {
-            'prev_expiration_date': int(datetime.timestamp(prev_expiration_date)),
-            'curr_expiration_date': int(datetime.timestamp(curr_expiration_date))
-        }
-
-        db_log(session, tid=tid, type='update_report_expiration', user_id=user_id, object_id=itip.id, data=log_data)
+    return prev_expiration_date, itip.expiration_date
 
 
 def db_update_submission_status(session, tid, user_id, itip, status_id, substatus_id=None):
@@ -252,7 +246,15 @@ def db_update_submission_status(session, tid, user_id, itip, status_id, substatu
     if report_close_request:
         itip.reminder_date = datetime_never()
 
-    db_recalculate_data_retention(session, itip, report_reopen_request)
+    prev_expiration_date, currect_expiration_date = db_recalculate_data_retention(session, itip, report_reopen_request)
+
+    if prev_expiration_date != itip.expiration_date:
+       log_data = {
+           'prev_expiration_date': int(datetime.timestamp(prev_expiration_date)),
+           'curr_expiration_date': int(datetime.timestamp(itip.expiration_date))
+       }
+
+       db_log(session, tid=tid, type='update_report_expiration', user_id=user_id, object_id=itip.id, data=log_data)
 
 
 def db_update_temporary_redaction(session, tid, user_id, redaction, redaction_data):

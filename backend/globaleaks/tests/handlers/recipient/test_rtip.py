@@ -204,6 +204,8 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
         for rtip_desc in rtip_descs:
             self.assertEqual(rtip_desc['status'], 'closed')
 
+        yield self.test_postpone()
+
         for rtip_desc in rtip_descs:
             operation = {
               'operation': 'update_status',
