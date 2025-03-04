@@ -88,7 +88,7 @@ def file_delivery(session):
 
 def write_plaintext_file(sf, dest_path):
     try:
-        with sf.open('rb') as encrypted_file, open(dest_path, "a+b") as plaintext_file:
+        with sf.open('r') as encrypted_file, open(dest_path, "a+b") as plaintext_file:
             chunk = encrypted_file.read(abstract.FileDescriptor.bufferSize)
             while chunk:
                 plaintext_file.write(chunk)
@@ -100,7 +100,7 @@ def write_plaintext_file(sf, dest_path):
 
 def write_encrypted_file(key, sf, dest_path):
     try:
-        with sf.open('rb') as encrypted_file, \
+        with sf.open('r') as encrypted_file, \
              GCE.streaming_encryption_open('ENCRYPT', key, dest_path) as seo:
             chunk = encrypted_file.read(abstract.FileDescriptor.bufferSize)
             while chunk:

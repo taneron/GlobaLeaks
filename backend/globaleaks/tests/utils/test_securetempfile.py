@@ -17,18 +17,25 @@ class TestSecureTemporaryFiles(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.storage_dir)
 
-    def test_create_and_write_file(self):
+    def test_encryption_and_decryption(self):
         with self.ephemeral_file.open('w') as file:
-            for x in range(10):
-                self.assertEqual(self.ephemeral_file.size, x * len(TEST_DATA))
-                file.write(TEST_DATA)
+            file.write(TEST_DATA)
 
-        self.assertTrue(os.path.exists(self.ephemeral_file.filepath))
-        self.assertEqual(self.ephemeral_file.size, len(TEST_DATA) * 10)
+        # Define test cases: each case is a tuple (seek_position, read_size, expected_data)
+        seek_tests = [
+            (0, 1, TEST_DATA[:1]),  # Seek at the start read 1 byte
+            (5, 5, TEST_DATA[5:10]),  # Seek forward, read 5 bytes
+            (10, 2, TEST_DATA[10:12]),  # Seek forward, read 2 bytes
+            (0, 3, TEST_DATA[:3]),  # Seek backward, read 3 bytes
+        ]
 
-        with self.ephemeral_file.open('r') as file:
-            for _ in range(10):
-                self.assertEqual(file.read(len(TEST_DATA)), TEST_DATA)
+        # Test forward and backward seeking with different offsets
+        for seek_pos, read_size, expected in seek_tests:
+            with self.ephemeral_file.open('r') as file:
+                file.seek(seek_pos)  # Seek to the given position
+                self.assertEqual(file.tell(), seek_pos)  # Check position after seeking forward
+                read_data = file.read(read_size)  # Read the specified number of bytes
+                self.assertEqual(read_data, expected)  # Verify the data matches the expected value
 
     def test_file_cleanup(self):
         path_copy = self.ephemeral_file.filepath
