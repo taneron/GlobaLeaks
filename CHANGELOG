@@ -1,3 +1,6 @@
+Changes in version 5.0.57
+    Fix file upload for files bigger than 1MB resulting in failure since version 5.0.44
+
 Changes in version 5.0.56
     Fix bug in change of expiration date introduced in 5.0.51
     Fix issue #4422
