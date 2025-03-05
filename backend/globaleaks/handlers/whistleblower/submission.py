@@ -10,7 +10,6 @@ from sqlalchemy import exists, func, and_
 from globaleaks import models
 from globaleaks.handlers.admin.questionnaire import db_get_questionnaire
 from globaleaks.handlers.base import BaseHandler
-from globaleaks.models.config import ConfigFactory
 from globaleaks.orm import db_get, db_log, transact
 from globaleaks.rest import errors, requests
 from globaleaks.state import State
@@ -158,9 +157,9 @@ def db_create_receivertip(session, receiver, internaltip, tip_key):
 
 
 def db_create_submission(session, tid, request, user_session, client_using_tor, client_using_mobile):
-    config = ConfigFactory(session, tid)
+    encryption = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption'))
 
-    crypto_is_available = config.get_val('encryption')
+    crypto_is_available = encryption.value
 
     context, questionnaire = db_get(session,
                                     (models.Context, models.Questionnaire),
@@ -180,6 +179,13 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
                 # users need to perform their first access before they
                 # could receive reports.
                 receivers.append(r)
+            elif encryption.update_date != datetime_null():
+                # This is the exceptional condition of systems setup when
+                # encryption was implemented via PGP.
+                # For continuity reason of those production systems
+                # encryption could not be enforced.
+                receivers.append(r)
+                crypto_is_available = False
         else:
             receivers.append(r)
 
@@ -226,7 +232,7 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
         key = Base64Encoder.decode(receipt.encode())
         hash = sha256(key).decode()
     else:
-        salt = config.get_val('receipt_salt')
+        salt = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption')).value
         key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
 
     itip.receipt_hash = hash
