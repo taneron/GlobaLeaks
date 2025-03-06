@@ -2,9 +2,11 @@ from nacl.encoding import Base64Encoder
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks import models
+from globaleaks.handlers.admin.operation import set_tmp_key
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.handlers.user import parse_pgp_options, \
                                      user_serialize_user
+from globaleaks.handlers.user.reset_password import db_generate_password_reset_token
 from globaleaks.models import fill_localized_keys
 from globaleaks.orm import db_del, db_get, db_log, transact, tw
 from globaleaks.rest import errors, requests
@@ -25,6 +27,10 @@ def db_create_user(session, tid, user_session, request, language):
     :param language: The language of the request
     :return: The serialized descriptor of the created object
     """
+    config = models.config.ConfigFactory(session, tid)
+
+    encryption = config.get_val('encryption')
+
     request['tid'] = tid
 
     fill_localized_keys(request, models.User.localized_keys, language)
@@ -41,7 +47,7 @@ def db_create_user(session, tid, user_session, request, language):
     if existing_user:
         raise errors.DuplicateUserError
 
-    salt = models.config.ConfigFactory(session, tid).get_val('receipt_salt')
+    salt = config.get_val('receipt_salt')
     user.salt = GCE.generate_salt(salt + ":" + user.username)
 
     user.language = request['language']
@@ -68,15 +74,24 @@ def db_create_user(session, tid, user_session, request, language):
     if user_session:
         db_log(session, tid=tid, type='create_user', user_id=user_session.user_id, object_id=user.id)
 
+    if request.get('send_activation_link', False):
+        token = db_generate_password_reset_token(session, user)
+    else:
+        token = None
+
     crypto_escrow_pub_key_tenant_1 = models.config.ConfigFactory(session, 1).get_val('crypto_escrow_pub_key')
-    crypto_escrow_pub_key_tenant_n = models.config.ConfigFactory(session, tid).get_val('crypto_escrow_pub_key')
+    crypto_escrow_pub_key_tenant_n = config.get_val('crypto_escrow_pub_key')
+
+    if encryption and crypto_escrow_pub_key_tenant_1 or crypto_escrow_pub_key_tenant_n:
+        cc, user.crypto_pub_key = GCE.generate_keypair()
+        user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, cc))
+        user.crypto_bkp_key, user.crypto_rec_key = GCE.generate_recovery_key(cc)
+
+        if user_session and token:
+            set_tmp_key(user_session, user, token, cc)
 
     if not crypto_escrow_pub_key_tenant_1 and not crypto_escrow_pub_key_tenant_n:
         return user
-
-    cc, user.crypto_pub_key = GCE.generate_keypair()
-    user.crypto_prv_key = Base64Encoder.encode(GCE.symmetric_encrypt(key, cc))
-    user.crypto_bkp_key, user.crypto_rec_key = GCE.generate_recovery_key(cc)
 
     if crypto_escrow_pub_key_tenant_1:
         user.crypto_escrow_bkp1_key = Base64Encoder.encode(GCE.asymmetric_encrypt(crypto_escrow_pub_key_tenant_1, cc))

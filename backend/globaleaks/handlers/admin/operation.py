@@ -214,13 +214,14 @@ def set_user_password(session, tid, user_session, user_id, password):
   return db_set_user_password(session, tid, user_session, user_id, password)
 
 
-def set_tmp_key(user_session, user, token):
-    crypto_escrow_prv_key = GCE.asymmetric_decrypt(user_session.cc, Base64Encoder.decode(user_session.ek))
+def set_tmp_key(user_session, user, token, user_cc=''):
+    if not user_cc:
+        crypto_escrow_prv_key = GCE.asymmetric_decrypt(user_session.cc, Base64Encoder.decode(user_session.ek))
 
-    if user_session.user_tid == 1:
-        user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp1_key))
-    else:
-        user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp2_key))
+        if user_session.user_tid == 1:
+            user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp1_key))
+        else:
+            user_cc = GCE.asymmetric_decrypt(crypto_escrow_prv_key, Base64Encoder.decode(user.crypto_escrow_bkp2_key))
 
     key = Base64Encoder.decode(GCE.derive_key(token, user.salt).encode())
     key = Base64Encoder.encode(GCE.symmetric_encrypt(key, user_cc))
@@ -233,16 +234,20 @@ def set_tmp_key(user_session, user, token):
         pass
 
 
-@transact
-def generate_password_reset_token(session, tid, user_session, user_id):
+def db_admin_generate_password_reset_token(session, tid, user_session, user_id, user_cc=''):
     user = session.query(User).filter(User.tid == tid, User.id == user_id).one_or_none()
     if user is None:
         return
 
     token = db_generate_password_reset_token(session, user)
 
-    if user_session.ek and user.crypto_pub_key:
-        set_tmp_key(user_session, user, token)
+    if user.crypto_pub_key and (user_cc or user_session.ek):
+        set_tmp_key(user_session, user, token, user_cc)
+
+
+@transact
+def send_password_reset_token(session, tid, user_session, user_id, user_cc=''):
+    db_admin_generate_password_reset_token(session, tid, user_session, user_id, user_cc)
 
     db_log(session, tid=tid, type='send_password_reset_email', user_id=user_session.user_id, object_id=user_id)
 
@@ -285,9 +290,9 @@ class AdminOperationHandler(OperationHandler):
         if self.session.user_id == req_args['value']:
             raise errors.ForbiddenOperation
 
-        return generate_password_reset_token(self.request.tid,
-                                             self.session,
-                                             req_args['value'])
+        return send_password_reset_token(self.request.tid,
+                                         self.session,
+                                         req_args['value'])
 
     @inlineCallbacks
     def reset_onion_private_key(self, req_args, *args, **kargs):

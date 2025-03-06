@@ -12,7 +12,8 @@ class TestAdminCollection(helpers.TestCollectionHandler):
             'role': 'admin',
             'name': 'Mario Rossi',
             'mail_address': 'admin@theguardian.com',
-            'language': 'en'
+            'language': 'en',
+            'send_activation_link': True
         }
     }
 
@@ -30,7 +31,8 @@ class TestAdminInstance(helpers.TestInstanceHandler):
         'data': {
             'role': 'admin',
             'mail_address': 'admin@theguardian.com',
-            'language': 'en'
+            'language': 'en',
+            'send_activation_link': True
         }
     }
 
@@ -48,7 +50,8 @@ class TestReceiverCollection(TestAdminCollection):
             'role': 'receiver',
             'name': 'Mario Rossi',
             'mail_address': 'receiver@theguardian.com',
-            'language': 'en'
+            'language': 'en',
+            'send_activation_link': True
         }
     }
 
@@ -62,7 +65,7 @@ class TestReceiverInstance(TestAdminInstance):
             'name': 'Mario Rossi',
             'mail_address': 'receiver@theguardian.com',
             'language': 'en',
-            'forcefully_selected': True
+            'send_activation_link': True
         }
     }
 
@@ -75,7 +78,8 @@ class TestCustodianCollection(TestAdminCollection):
             'role': 'custodian',
             'name': 'Mario Rossi',
             'mail_address': 'custodian@theguardian.com',
-            'language': 'en'
+            'language': 'en',
+            'send_activation_link': True
         }
     }
 

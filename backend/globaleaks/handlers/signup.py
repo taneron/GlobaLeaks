@@ -5,10 +5,9 @@ from globaleaks import models
 from globaleaks.db import sync_refresh_tenant_cache
 from globaleaks.handlers.admin.node import db_admin_serialize_node
 from globaleaks.handlers.admin.notification import db_get_notification
-from globaleaks.handlers.admin.tenant import db_create as db_create_tenant
+from globaleaks.handlers.admin.tenant import db_create as db_create_tenant, db_wizard
 from globaleaks.handlers.admin.user import db_get_users
 from globaleaks.handlers.base import BaseHandler
-from globaleaks.handlers.wizard import db_wizard
 from globaleaks.models import serializers
 from globaleaks.models.config import ConfigFactory
 from globaleaks.orm import db_del, transact

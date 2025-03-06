@@ -666,8 +666,8 @@ class Templating(object):
             # this is currently the only template not used for mail notifications
             pass
         elif data['type'] in supported_template_types:
-            subject_template = data['notification'][data['type'] + '_mail_title']
-            body_template = data['notification'][data['type'] + '_mail_template']
+            subject_template = data['notification'].get(data['type'] + '_mail_title', '')
+            body_template = data['notification'].get(data['type'] + '_mail_template', '')
         else:
             raise NotImplementedError('This data_type (%s) is not supported' % ['data.type'])
 

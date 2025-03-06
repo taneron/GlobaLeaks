@@ -146,7 +146,8 @@ AdminUserDesc = {
     'can_redact_information': bool,
     'can_mask_information': bool,
     'can_transfer_access_to_reports': bool,
-    'forcefully_selected': bool
+    'forcefully_selected': bool,
+    'send_activation_link': bool
 }
 
 UserUserDesc = {

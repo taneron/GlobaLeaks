@@ -31,11 +31,12 @@ export class UsersTab1Component implements OnInit {
   showAddUser = false;
   tenantData: tenantResolverModel;
   usersData: userResolverModel[];
-  new_user: { username: string, role: string, name: string, email: string } = {
+  new_user: { username: string, role: string, name: string, email: string, send_activation_link: boolean } = {
     username: "",
     role: "",
     name: "",
-    email: ""
+    email: "",
+    send_activation_link: true
   };
   editing = false;
   protected readonly Constants = Constants;
@@ -57,9 +58,10 @@ export class UsersTab1Component implements OnInit {
     user.name = this.new_user.name;
     user.mail_address = this.new_user.email;
     user.language = this.nodeResolver.dataModel.default_language;
+    user.send_activation_link = this.new_user.send_activation_link;
     this.utilsService.addAdminUser(user).subscribe(_ => {
       this.getResolver();
-      this.new_user = {username: "", role: "", name: "", email: ""};
+      this.new_user = {username: "", role: "", name: "", email: "", send_activation_link: true};
     });
   }
 

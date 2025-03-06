@@ -31,10 +31,9 @@ from globaleaks.handlers.admin.context import create_context, get_context
 from globaleaks.handlers.admin.field import db_create_field
 from globaleaks.handlers.admin.questionnaire import db_get_questionnaire
 from globaleaks.handlers.admin.step import db_create_step
-from globaleaks.handlers.admin.tenant import create as create_tenant
+from globaleaks.handlers.admin.tenant import create as create_tenant, db_wizard
 from globaleaks.handlers.admin.user import create_user
 from globaleaks.handlers.recipient import rtip
-from globaleaks.handlers.wizard import db_wizard
 from globaleaks.handlers.whistleblower import wbtip
 from globaleaks.handlers.whistleblower.submission import create_submission
 from globaleaks.models import serializers
@@ -266,6 +265,7 @@ class MockDict:
             'pgp_key_remove': False,
             'notification': True,
             'forcefully_selected': True,
+            'send_activation_link': False,
             'can_edit_general_settings': False,
             'can_grant_access_to_reports': True,
             'can_transfer_access_to_reports': True,
@@ -1094,7 +1094,8 @@ class TestCollectionHandler(TestHandler):
             data = yield handler.post()
 
             for k, v in self._test_desc['data'].items():
-                self.assertEqual(data[k], v)
+                if k not in ['send_activation_link']:
+                    self.assertEqual(data[k], v)
 
 
 class TestInstanceHandler(TestHandler):
@@ -1129,6 +1130,7 @@ class TestInstanceHandler(TestHandler):
 
         data = self.get_dummy_request()
 
+        print(data)
         data = yield self._test_desc['create'](1, self.session, data, 'en')
 
         for k, v in self._test_desc['data'].items():
@@ -1140,7 +1142,8 @@ class TestInstanceHandler(TestHandler):
             data = yield handler.put(data['id'])
 
             for k, v in self._test_desc['data'].items():
-                self.assertEqual(data[k], v)
+                if k not in ['send_activation_link']:
+                    self.assertEqual(data[k], v)
 
     @inlineCallbacks
     def test_delete(self):
