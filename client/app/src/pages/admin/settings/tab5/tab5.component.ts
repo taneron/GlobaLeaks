@@ -15,6 +15,7 @@ import {questionnaireResolverModel} from "@app/models/resolvers/questionnaire-mo
 import {NgClass} from "@angular/common";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {TranslateModule} from "@ngx-translate/core";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: "src-tab5",
@@ -33,43 +34,48 @@ export class Tab5Component implements OnInit {
   private questionnairesResolver = inject(QuestionnairesResolver);
 
   @Input() contentForm: NgForm;
-  userData: userResolverModel[];
+  userData: userResolverModel[] = [];
   questionnaireData: questionnaireResolverModel[];
   routeReload = false;
+  private userDataSubscription: Subscription;
 
   protected readonly Constants = Constants;
 
   ngOnInit(): void {
-    this.userData = this.usersResolver.dataModel;
-    this.userData = this.userData.filter((user: { escrow: boolean; }) => user.escrow);
+    this.filterUserData();
+
     this.questionnaireData = this.questionnairesResolver.dataModel;
+  }
+
+  filterUserData(): void {
+    this.userData = this.usersResolver.dataModel.filter((user: { escrow: boolean }) => user.escrow);
+  }
+
+  ngOnDestroy(): void {
+    if (this.userDataSubscription) {
+      this.userDataSubscription.unsubscribe();
+    }
   }
 
   enableEncryption() {
     const node = this.nodeResolver.dataModel;
     node.encryption = false;
-    if (!node.encryption) {
-      const modalRef = this.modalService.open(EnableEncryptionComponent, {backdrop: 'static', keyboard: false});
-      modalRef.result.then(
-        () => {
-          this.utilsService.runAdminOperation("enable_encryption", {}, false).subscribe(
-            () => {
-              this.authenticationService.logout();
-            }
-          );
-        }
-      );
-    }
+    const modalRef = this.modalService.open(EnableEncryptionComponent, { backdrop: 'static', keyboard: false });
+    modalRef.result.then(() => {
+      this.utilsService.runAdminOperation("enable_encryption", {}, false).subscribe(() => {
+        this.authenticationService.logout();
+      });
+    });
   }
 
   toggleEscrow(escrow: { checked: boolean }) {
-    this.nodeResolver.dataModel.escrow = !this.nodeResolver.dataModel.escrow;
-    escrow.checked = this.nodeResolver.dataModel.escrow;
-    this.utilsService.runAdminOperation("toggle_escrow", {}, true).subscribe(
-      () => {
-        this.nodeResolver.dataModel.escrow = !this.nodeResolver.dataModel.escrow;
-      }
-    );
+    escrow.checked = this.nodeResolver.dataModel.escrow = !this.nodeResolver.dataModel.escrow;
+    this.utilsService.runAdminOperation("toggle_escrow", {}, false).subscribe(() => {
+      this.nodeResolver.dataModel.escrow = !this.nodeResolver.dataModel.escrow;
+      this.usersResolver.refresh().subscribe(() => {
+        this.filterUserData();
+      });
+    });
   }
 
   updateNode() {
@@ -91,3 +97,4 @@ export class Tab5Component implements OnInit {
     this.routeReload = true;
   }
 }
+
