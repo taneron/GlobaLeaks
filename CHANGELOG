@@ -1,3 +1,12 @@
+Changes in version 5.0.58
+    Make it possible for an administrator so send activation links to users upon their creation (#4425)
+    Restore possibility to receiver submissions for platforms activated before encryption was implemented
+    Revise interface for enabling and disabling escrow keys
+    [ci] Raise tests code coverage to 90%
+    [ci] Improved testing of REST api, cache and decorators
+    [ci] Add test orm to verify lockdown on queries
+    [doc] Add documentation about Quality Assurance process
+
 Changes in version 5.0.57
     Fix file upload for files bigger than 1MB resulting in failure since version 5.0.44
 
