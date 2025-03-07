@@ -15,7 +15,7 @@ from globaleaks.models import AuditLog
 
 
 _ORM_DEBUG = False
-_ORM_DB_URI = 'sqlite:'
+_ORM_DB_URI = "sqlite:///:memory:"
 _ORM_THREAD_POOL = None
 _ORM_TRANSACTION_RETRIES = 20
 
@@ -39,12 +39,12 @@ def make_db_uri(db_file):
 
 
 def set_db_uri(db_uri):
-    global _DB_URI
-    _DB_URI = db_uri
+    global _ORM_DB_URI
+    _ORM_DB_URI = db_uri
 
 
 def get_db_uri():
-    return _DB_URI
+    return _ORM_DB_URI
 
 
 def get_engine(db_uri=None, foreign_keys=True, orm_lockdown=True):
