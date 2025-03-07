@@ -1,7 +1,9 @@
+from sqlalchemy.exc import DatabaseError
+from twisted.internet.defer import inlineCallbacks
+
 from globaleaks.models import Tenant
 from globaleaks.orm import get_session, transact
 from globaleaks.tests import helpers
-from twisted.internet.defer import inlineCallbacks
 
 
 class TestORM(helpers.TestGL):
@@ -44,3 +46,10 @@ class TestORM(helpers.TestGL):
             self.assertTrue(getattr(session, 'query'))
 
         return transaction()
+
+    @inlineCallbacks
+    def test_authorizer_callback_denied(self):
+        session = get_session()
+
+        # Denied operation, such as DROP TABLE (we expect an exception)
+        yield self.assertRaises(DatabaseError, session.execute, "DROP TABLE Tenant")
