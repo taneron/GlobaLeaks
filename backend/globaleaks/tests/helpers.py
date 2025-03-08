@@ -1130,7 +1130,6 @@ class TestInstanceHandler(TestHandler):
 
         data = self.get_dummy_request()
 
-        print(data)
         data = yield self._test_desc['create'](1, self.session, data, 'en')
 
         for k, v in self._test_desc['data'].items():
