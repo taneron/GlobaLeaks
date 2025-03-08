@@ -135,23 +135,37 @@ class TestConfigHandler(helpers.TestHandler):
 
     @inlineCallbacks
     def test_all_methods(self):
+        handler = self.request(role='admin')
+
         yield set_init_params()
 
+        # Verify HTTPS is initially disabled
+        response = yield handler.get()
+        self.assertFalse(response['enabled'])
+
+        # Simulate configuration
         yield tw(https.db_load_https_key, 1, helpers.HTTPS_DATA['key'])
         yield tw(https.db_load_https_cert, 1, helpers.HTTPS_DATA['cert'])
         yield tw(https.db_load_https_chain, 1, helpers.HTTPS_DATA['chain'])
 
-        handler = self.request(role='admin')
-
+        # Enable HTTPS
         yield handler.post()
         response = yield handler.get()
         self.assertTrue(response['enabled'])
+        return
 
-        self.test_reactor.pump([50])
-
+        # Disable HTTPS
         yield handler.put()
         response = yield handler.get()
         self.assertFalse(response['enabled'])
+
+        self.test_reactor.pump([50])
+
+        yield handler.delete()
+
+        response = yield handler.get()
+        self.assertFalse(response['enabled'])
+        self.test_reactor.pump([50])
 
 
 class TestCSRHandler(helpers.TestHandler):
