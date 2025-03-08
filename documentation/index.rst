@@ -10,3 +10,4 @@ Documentation
   user/index.rst
   developer/index.rst
   roadmap/index.rst
+  qualityassurance/index.rst
