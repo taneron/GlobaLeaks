@@ -67,7 +67,6 @@ class TestAdminOperations(helpers.TestHandlerWithPopulatedDB):
                                                                {'value': 'www.gov.il'}),
                                   errors.InputValidationError),
 
-
     def test_admin_test_set_hostname_invalid_because_onion(self):
         return self.assertFailure(self._test_operation_handler('set_hostname',
                                                                {'value': 'vlltmarak3cn67bu32gq356azn2gkjl5seytdhotpa5uhofejlbeemqd.onion'}),
@@ -93,7 +92,7 @@ class TestAdminOperations(helpers.TestHandlerWithPopulatedDB):
     def test_admin_test_smtp_settings(self):
         return self._test_operation_handler('reset_smtp_settings')
 
-    def test_admin_test_toggle_escrow(self):
+    def test_admin_test_enable_encryption(self):
         return self._test_operation_handler('enable_encryption')
 
     @defer.inlineCallbacks
