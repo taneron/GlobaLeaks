@@ -24,16 +24,14 @@ class TestMigrationRoutines(unittest.TestCase):
         shutil.copyfile(srcpath, dstpath)
 
         # TESTS PRECONDITIONS
-        preconditions = getattr(self, 'preconditions_%d' % version, None)
-        if preconditions is not None:
-            preconditions()
+        # Run preconditions if they exist, otherwise, run a no-op function
+        getattr(self, f'preconditions_{version}', lambda: None)()
 
         ret = update_db()
 
         # TESTS POSTCONDITIONS
-        postconditions = getattr(self, 'postconditions_%d' % version, None)
-        if postconditions is not None:
-            postconditions()
+        # Run postconditions if they exist, otherwise, run a no-op function
+        getattr(self, f'postconditions_{version}', lambda: None)()
 
         self.assertNotEqual(ret, -1)
 

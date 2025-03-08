@@ -38,13 +38,10 @@ class TestWBFileWorkFlow(helpers.TestHandlerWithPopulatedDB):
         deleted_rfiles_ids = []
         for rtip_desc in rtips_desc:
             for rfile_desc in rtip_desc['rfiles']:
-                if rfile_desc['id'] in deleted_rfiles_ids:
-                    continue
-
-                handler = self.request(role='receiver', user_id=rtip_desc['receiver_id'])
-                yield handler.delete(rfile_desc['id'])
-
-                deleted_rfiles_ids.append(rfile_desc['id'])
+                if rfile_desc['id'] not in deleted_rfiles_ids:
+                    handler = self.request(role='receiver', user_id=rtip_desc['receiver_id'])
+                    yield handler.delete(rfile_desc['id'])
+                    deleted_rfiles_ids.append(rfile_desc['id'])
 
         # check that the files are effectively gone from the db
         rtips_desc = yield self.get_rtips()

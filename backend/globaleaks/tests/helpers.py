@@ -465,12 +465,6 @@ def forge_request(uri=b'https://www.globaleaks.org/',
     Creates a twisted.web.Request compliant request that is from an external
     IP address.
     """
-    if headers is None:
-        headers = {}
-
-    if args is None:
-        args = {}
-
     _, host, path, query, frag = urlsplit(uri)
 
     x = host.split(b':')
@@ -482,6 +476,9 @@ def forge_request(uri=b'https://www.globaleaks.org/',
             port = 8080
         else:
             port = 8443
+
+    headers = headers if headers is not None else {}
+    args = args if args is not None else {}
 
     request = DummyRequest([b''])
     request.tid = 1
@@ -503,13 +500,9 @@ def forge_request(uri=b'https://www.globaleaks.org/',
     request.multilang = False
 
     def isSecure():
-        if request.port == 8443:
-            return True
-        else:
-            return False
+        return request.port == 8443
 
     request.isSecure = isSecure
-    request.client_using_tor = False
 
     def getResponseBody():
         # Ugh, hack. Twisted returns this all as bytes, and we want it as str
