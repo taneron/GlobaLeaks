@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks.handlers import sitemap
@@ -21,7 +23,34 @@ class TestSitemapHandlerHandler(helpers.TestHandler):
         handler = self.request()
 
         State.tenants[1].cache.allow_indexing = True
+        State.tenants[1].cache.hostname = 'www.globaleaks.org'
+        State.tenants[1].cache.languages_enabled = ['en', 'ar', 'it']
+        State.tenants[1].cache.default_language = 'en'
 
-        yield handler.get()
+        data = yield handler.get()
 
         self.assertEqual(handler.request.code, 200)
+
+        # Validate that the generated XML is well-formatted
+        ET.fromstring(data)
+
+        # Check that the XML declaration is correct
+        self.assertTrue(data.startswith("<?xml version='1.0' encoding='UTF-8' ?>"))
+
+        # Check that the root <urlset> element is correctly formatted with namespaces
+        self.assertIn("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'", data)
+        self.assertIn("xmlns:xhtml='http://www.w3.org/1999/xhtml'", data)
+
+        # Check that the <url> element contains the expected <loc>, <changefreq>, and <priority>
+        self.assertIn("<url>", data)
+        self.assertIn("<loc>https://www.globaleaks.org/#/</loc>", data)
+        self.assertIn("<changefreq>weekly</changefreq>", data)
+        self.assertIn("<priority>1.00</priority>", data)
+
+        # Check that the alternate language links are present except for the default lang
+        self.assertIn("<xhtml:link rel='alternate' hreflang='ar' href='https://www.globaleaks.org/#/?lang=ar' />", data)
+        self.assertIn("<xhtml:link rel='alternate' hreflang='it' href='https://www.globaleaks.org/#/?lang=it' />", data)
+        self.assertNotIn("<xhtml:link rel='alternate' hreflang='en' href='https://www.globaleaks.org/#/?lang=en' />", data)
+
+        # Ensure the closing </urlset> is present
+        self.assertIn("</urlset>", data)
