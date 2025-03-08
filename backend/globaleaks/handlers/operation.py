@@ -18,7 +18,5 @@ class OperationHandler(BaseHandler):
             self.check_confirmation()
 
         func = self.operation_descriptors().get(request['operation'], None)
-        if func is None:
-            raise errors.InputValidationError('Invalid command')
-
-        return func(self, request['args'], *args, **kwargs)
+        if func:
+            return func(self, request['args'], *args, **kwargs)
