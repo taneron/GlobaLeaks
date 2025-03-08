@@ -255,6 +255,7 @@ def serialize_rtip(session, itip, rtip, language):
     ret = serialize_itip(session, itip, language)
 
     ret['id'] = itip.id
+    ret['rtip_id'] = rtip.id
     ret['progressive'] = itip.progressive
     ret['receiver_id'] = user_id
     ret['custodian'] = State.tenants[itip.tid].cache['custodian']
