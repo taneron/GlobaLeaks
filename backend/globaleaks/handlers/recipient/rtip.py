@@ -102,11 +102,11 @@ def db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, receiver_id)
                      .filter(models.WhistleblowerFile.receivertip_id == rtip.id)
 
     for wbfile in wbfiles:
-        rf = models.WhistleblowerFile()
-        rf.internalfile_id = wbfile.internalfile_id
-        rf.receivertip_id = new_rtip.id
-        rf.new = False
-        session.add(rf)
+        wf = models.WhistleblowerFile()
+        wf.internalfile_id = wbfile.internalfile_id
+        wf.receivertip_id = new_rtip.id
+        wf.new = False
+        session.add(wf)
 
     return new_receiver, new_rtip
 
