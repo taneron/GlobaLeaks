@@ -39,7 +39,7 @@ class TestWizard(helpers.TestHandler):
         yield self.assertFailure(handler.post(), errors.ForbiddenOperation)
 
     @inlineCallbacks
-    def test_post_config2(self):
+    def test_post_config3(self):
         dummyWizardConfig = copy.deepcopy(self.dummyWizard)
         dummyWizardConfig['admin_escrow'] = False
 
