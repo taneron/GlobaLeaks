@@ -614,12 +614,11 @@ class APIResourceWrapper(Resource):
                                                  b"midi=(),"
                                                  b"notifications=(),"
                                                  b"payment=(),"
-                                                 b"payment-request=(),"
-                                                 b"persistent-storage=(),"
                                                  b"push=(),"
                                                  b"screen-wake-lock=(),"
                                                  b"serial=(),"
                                                  b"speaker-selection=(),"
+                                                 b"storage-access=(),"
                                                  b"usb=(),"
                                                  b"web-share=(),"
                                                  b"xr-spatial-tracking=()")

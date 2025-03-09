@@ -91,12 +91,11 @@ class TestAPI(TestGL):
                                   'midi=(),'
                                   'notifications=(),'
                                   'payment=(),'
-                                  'payment-request=(),'
-                                  'persistent-storage=(),'
                                   'push=(),'
                                   'screen-wake-lock=(),'
                                   'serial=(),'
                                   'speaker-selection=(),'
+                                  'storage-access=(),'
                                   'usb=(),'
                                   'web-share=(),'
                                   'xr-spatial-tracking=()',
