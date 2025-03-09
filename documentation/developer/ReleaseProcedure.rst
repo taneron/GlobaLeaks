@@ -24,6 +24,7 @@ Release tagging
 The release is tagged by meand of the following commands
 
 .. code:: sh
+
   export DEBFULLNAME="GlobaLeaks software signing key"
   export DEBEMAIL="info@globaleaks.org"
   git tag -s v0.1 -m 'GlobaLeaks version 0.1'
