@@ -77,7 +77,7 @@ Before you submit your Pull Request consider the following guidelines:
 
 7. Run the full GlobaLeaks test suite and ensure that all tests pass.
 
-8. Ensure overall code quality and test coverage metrics are not reduced by more than 0.5%
+8. Ensure that test coverage remains at or above 90% and that overall code quality is maintained.
 
 9. Commit your changes using a descriptive commit message.
 
