@@ -12,7 +12,7 @@ For more details on this matter, you could check the `CONTRIBUTING <https://gith
 
 **Automated Testing and Code Coverage**
 
-The development methodology includes an extensive suite of automated tests, covering unit tests, integration tests, and end-to-end tests to ensure correctness and prevent regressions. The code coverage consistently exceeds 90%, ensuring that the majority of the codebase is tested. Test execution is automated through Continuous Integration (CI), which ensures that any untested or faulty code is quickly identified, preventing it from being merged into the main codebase.
+The development methodology incorporates a comprehensive suite of automated tests, including unit, integration, and end-to-end tests, to ensure the highest standards of correctness and prevent regressions. A strict requirement of at least 90% code coverage is enforced, ensuring that the vast majority of the codebase is thoroughly tested. Test execution is fully automated through Continuous Integration (CI), promptly identifying any untested or faulty code and preventing it from being merged into the main codebase.
 
 For more details on test coverage, you can view the `Test Coverage on Codacy <https://app.codacy.com/gh/globaleaks/globaleaks-whistleblowing-software/dashboard>`_ and `Test Status on GitHub <https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/tests.yml?query=branch%3Astable>`_.
 
