@@ -114,7 +114,7 @@ Cookies are not used intentionally to minimize XSRF attacks and any possible att
 
 HTTP headers
 ------------
-The system implements a large set of HTTP headers specifically configured to improve software security and achieves a `score A+ by Security Headers <https://securityheaders.com/?q=https%3A%2F%2Ftry.globaleaks.org&followRedirects=on>`_ and a `score A+ by Mozilla Observatory <https://observatory.mozilla.org/analyze/try.globaleaks.org>`_.
+The system implements a large set of HTTP headers specifically configured to improve software security and achieves a `score A+ by Security Headers <https://securityheaders.com/?q=https%3A%2F%2Fdemo.globaleaks.org&followRedirects=on>`_ and a `score A+ by Mozilla Observatory <https://observatory.mozilla.org/analyze/demo.globaleaks.org>`_.
 
 Strict-Transport-Security
 +++++++++++++++++++++++++
@@ -266,7 +266,7 @@ The software also facilitates easy setup of ``HTTPS``, offering both automatic s
 
 TLS certificates are generated using `NIST Curve P-384 <https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf>`__.
 
-The configuration enables only ``TLS1.2+`` and is fine-tuned and hardened to achieve `SSLLabs grade A+ <https://www.ssllabs.com/ssltest/analyze.html?d=try.globaleaks.org>`__.
+The configuration enables only ``TLS1.2+`` and is fine-tuned and hardened to achieve `SSLLabs grade A+ <https://www.ssllabs.com/ssltest/analyze.html?d=demo.globaleaks.org>`__.
 
 In particular, only the following ciphers are enabled:
 ::
