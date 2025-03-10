@@ -359,21 +359,27 @@ class BaseHandler(object):
 
         if file_id not in self.state.TempUploadFiles:
             if self.session and self.session.role == 'whistleblower':
-                State.RateLimitingTable.check(self.request.path + b'#' + self.session.user_id.encode(),
+                rate_limit_path = self.request.path
+                user_id = self.session.user_id.encode()
+                client_ip = self.request.client_ip.encode()
+
+                State.RateLimitingTable.check(rate_limit_path + b'#' + user_id,
                                               State.tenants[1].cache.threshold_attachments_per_hour_per_report)
-                State.RateLimitingTable.check(self.request.path + b'#' + self.request.client_ip.encode(),
+                State.RateLimitingTable.check(rate_limit_path + b'#' + client_ip,
                                               State.tenants[1].cache.threshold_attachments_per_hour_per_ip)
 
             self.state.TempUploadFiles[file_id] = SecureTemporaryFile(Settings.tmp_path)
 
         f = self.state.TempUploadFiles[file_id]
 
+        max_file_size = self.state.tenants[self.request.tid].cache.maximum_filesize
+
         chunk_size = len(self.request.args[b'file'][0])
-        if ((chunk_size // (1024 * 1024)) > self.state.tenants[self.request.tid].cache.maximum_filesize or
-            (total_file_size // (1024 * 1024)) > self.state.tenants[self.request.tid].cache.maximum_filesize or
-            f.size // (1024 * 1024) > self.state.tenants[self.request.tid].cache.maximum_filesize):
+        if (chunk_size // (1024 * 1024) > max_file_size or
+            total_file_size // (1024 * 1024) > max_file_size or
+            f.size // (1024 * 1024) > max_file_size):
             log.err("File upload request rejected: file too big", tid=self.request.tid)
-            raise errors.FileTooBig(self.state.tenants[self.request.tid].cache.maximum_filesize)
+            raise errors.FileTooBig(max_file_size)
 
         with f.open('w') as f:
             f.write(self.request.args[b'file'][0])
@@ -381,12 +387,11 @@ class BaseHandler(object):
             if self.request.args[b'flowChunkNumber'][0] != self.request.args[b'flowTotalChunks'][0]:
                 return None
 
-        mime_type, _ = mimetypes.guess_type(self.request.args[b'flowFilename'][0].decode())
-        if mime_type is None:
-            mime_type = 'application/octet-stream'
-
         filename = os.path.basename(self.request.args[b'flowFilename'][0].decode())
+        mime_type, _ = mimetypes.guess_type(filename)
+        mime_type = mime_type or 'application/octet-stream'  # Default MIME type if None
 
+        # Prepare the uploaded file metadata
         self.uploaded_file = {
             'id': file_id,
             'date': datetime_now(),
