@@ -58,7 +58,6 @@ def serve_file(request, fo):
     return d
 
 
-
 def connection_check(tid, role, client_ip, client_using_tor):
     """
     Accept or refuse a connection in relation to the platform settings
@@ -68,13 +67,18 @@ def connection_check(tid, role, client_ip, client_using_tor):
     :param client_ip: A client IP
     :param client_using_tor: A boolean for signaling Tor use
     """
-    ip_filter_enabled = State.tenants[tid].cache.get('ip_filter_' + role + '_enable')
+    cache = State.tenants[tid].cache
+    ip_filter_enabled_key = f'ip_filter_{role}_enable'
+    ip_filter_key = f'ip_filter_{role}'
+    https_allowed_key = f'https_{role}'
+
+    ip_filter_enabled = cache.get(ip_filter_enabled_key)
     if ip_filter_enabled:
-        ip_filter = State.tenants[tid].cache.get('ip_filter_' + role)
+        ip_filter = cache.get(ip_filter_key)
         if not check_ip(client_ip, ip_filter):
             raise errors.AccessLocationInvalid
 
-    https_allowed = State.tenants[tid].cache['https_' + role]
+    https_allowed = cache.get(https_allowed_key)
     if not https_allowed and not client_using_tor:
         raise errors.TorNetworkRequired
 
