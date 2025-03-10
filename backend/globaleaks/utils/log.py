@@ -17,7 +17,7 @@ def timedelta_to_milliseconds(t):
     :param t: the time delta object to be converted
     :return: the timedelta representation in milliseconds
     """
-    return (t.microseconds + (t.seconds + t.days * 24 * 3600) * 10**6) / 10**3.0
+    return (t.days * 86400000) + (t.seconds * 1000) + (t.microseconds / 1000.0)
 
 
 def escape_string(s):
