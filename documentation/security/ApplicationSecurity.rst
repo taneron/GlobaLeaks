@@ -168,7 +168,7 @@ Permissions-Policy
 The backend implements the following Permissions-Policy header configuration to limit the possible de-anonymization of the user by disabling dangerous browser features:
 ::
 
-  Permissions-Policy: accelerometer=(),ambient-light-sensor=(),bluetooth=(),camera=(),clipboard-read=(),clipboard-write=(),document-domain=(),display-capture=(),fullscreen=(),geolocation=(),gyroscope=(),idle-detection=(),keyboard-map=(),local-fonts=(),magnetometer=(),microphone=(" + (b"self" if microphone else b"") + b"),midi=(),notifications=(),payment=(),push=(),screen-wake-lock=(),serial=(),speaker-selection=(),storage-access=(),usb=(),web-share=(),xr-spatial-tracking=()
+  Permissions-Policy: accelerometer=(),ambient-light-sensor=(),bluetooth=(),camera=(),clipboard-read=(),clipboard-write=(),document-domain=(),display-capture=(),fullscreen=(),geolocation=(),gyroscope=(),idle-detection=(),keyboard-map=(),local-fonts=(),magnetometer=(),microphone=(),midi=(),notifications=(),payment=(),push=(),screen-wake-lock=(),serial=(),speaker-selection=(),storage-access=(),usb=(),web-share=(),xr-spatial-tracking=()
 
 X-Frame-Options
 +++++++++++++++
