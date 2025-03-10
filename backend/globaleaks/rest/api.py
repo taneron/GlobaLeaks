@@ -654,25 +654,40 @@ class APIResourceWrapper(Resource):
 
     def detect_language(self, request):
         locales = []
-        for language in request.headers.get(b'accept-language', b'').decode().split(","):
-            parts = language.strip().split(";")
-            if len(parts) > 1 and parts[1].startswith("q="):
-                try:
-                    score = float(parts[1][2:])
-                except (ValueError, TypeError):
-                    score = 0
+
+        # Retrieve and decode the 'accept-language' header
+        accept_language = request.headers.get(b'accept-language', b'').decode()
+
+        # Get the tenant data once to avoid redundant lookups
+        tenant_cache = State.tenants.get(request.tid)
+
+        # Check if tenant exists and is cached
+        if tenant_cache:
+            enabled_languages = tenant_cache.cache.languages_enabled
+            default_language = tenant_cache.cache.default_language
+
+            for language in accept_language.split(","):
+                parts = language.strip().split(";")
+                score = 1.0  # Default score
+
+                if len(parts) > 1 and parts[1].startswith("q="):
+                    try:
+                        score = float(parts[1][2:])
+                    except (ValueError, TypeError):
+                        score = 0  # Fallback if q-value is invalid
+
+                # Append language with score if it's enabled for the tenant
+                if parts[0] in enabled_languages:
+                    locales.append((parts[0], score))
+
+            if locales:
+               # Use max() to pick the language with the highest score
+               request.language = max(locales, key=lambda pair: pair[1])[0]
             else:
-                score = 1.0
-
-            if request.tid in State.tenants and parts[0] in State.tenants[request.tid].cache.languages_enabled:
-                locales.append((parts[0], score))
-
-        if locales:
-            locales.sort(key=lambda pair: pair[1], reverse=True)
-            request.language = locales[0][0]
-        elif request.tid in State.tenants:
-            request.language = State.tenants[request.tid].cache.default_language
+               # Fallback to default language if no matching locale found
+                request.language = default_language
         else:
+            # Fallback to default 'en' if tenant doesn't exist or no valid languages enabled
             request.language = 'en'
 
         return request.language
