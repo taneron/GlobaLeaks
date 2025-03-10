@@ -63,7 +63,7 @@ html_context = {
 }
 
 latex_elements = {
-  'sphinxsetup': 'TitleColor={HTML}{3679BB}, InnerLinkColor={HTML}{3679BB}, OuterLinkColor={HTML}{3679BB}',
+  'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}',
 }
 
 latex_documents = []
