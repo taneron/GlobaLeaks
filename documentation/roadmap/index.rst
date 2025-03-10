@@ -42,8 +42,6 @@ Users and contributors are encouraged to:
 - Create `tickets <https://github.com/globaleaks/globaleaks-whistleblowing-software/issues>`_ to submit feature requests and bug reports to help refine development priorities.
 - Participate in testing and feedback cycles to ensure releases meet user expectations.
 
----
-
 Testing and Quality Assurance
 -----------------------------
 Each release follows a structured testing process to ensure stability and security:
@@ -51,8 +49,6 @@ Each release follows a structured testing process to ensure stability and securi
 - **Internal Testing:** Comprehensive automated and manual testing before public release.
 - **Community Beta Testing:** Pre-release versions available for community testing and feedback.
 - **Security Audits:** Regular security assessments to proactively identify and mitigate risks.
-
----
 
 Long-Term Vision
 ----------------
