@@ -28,11 +28,9 @@ class _NegotiationData(object):
         self.alpnProtocols = None
 
     def negotiateALPN(self, context):
-        if self.alpnSelectCallback is None or self.alpnProtocols is None:
-            return
-
-        context.set_alpn_select_callback(self.alpnSelectCallback)
-        context.set_alpn_protos(self.alpnProtocols)
+        if self.alpnSelectCallback and self.alpnProtocols:
+            context.set_alpn_select_callback(self.alpnSelectCallback)
+            context.set_alpn_protos(self.alpnProtocols)
 
 
 class _ContextProxy(object):
@@ -94,16 +92,15 @@ class _ConnectionProxy(object):
         return setattr(self._obj, attr, val)
 
     def __delattr__(self, attr):
-        return delattr(self._obj, attr)
+        delattr(self._obj, attr)
 
 
 @implementer(IOpenSSLServerConnectionCreator)
 class SNIMap(object):
-    default_context = None
-    configs_by_tid = {}
-    contexts_by_hostname = {}
-
     def __init__(self):
+        self.default_context = None
+        self.configs_by_tid = {}
+        self.contexts_by_hostname = {}
         self._negotiationDataForContext = collections.defaultdict(_NegotiationData)
         self.set_default_context(new_tls_server_context())
 
@@ -130,8 +127,10 @@ class SNIMap(object):
 
     def unload(self, tid):
         conf = self.configs_by_tid.pop(tid, None)
-        if conf is not None:
-            self.contexts_by_hostname.pop(conf['hostname'], None)
+        if conf:
+            context = self.contexts_by_hostname.pop(conf['hostname'], None)
+            if context:
+                self._negotiationDataForContext.pop(context.getContext(), None)
 
         if tid == 1:
             self.set_default_context(new_tls_server_context())
@@ -142,13 +141,12 @@ class SNIMap(object):
         except:
             common_name = '127.0.0.1'
 
-        if common_name in self.contexts_by_hostname:
-            context = self.contexts_by_hostname[common_name].getContext()
-        else:
-            context = self.default_context
+        context_factory = self.contexts_by_hostname.get(common_name)
+        context = context_factory.getContext() if context_factory else self.default_context
 
-        negotiationData = self._negotiationDataForContext[connection.get_context()]
-        negotiationData.negotiateALPN(context)
+        negotiationData = self._negotiationDataForContext.get(connection.get_context())
+        if negotiationData:
+            negotiationData.negotiateALPN(context)
         connection.set_context(context)
 
     def serverConnectionForTLS(self, protocol):
