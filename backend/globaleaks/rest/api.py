@@ -168,7 +168,6 @@ api_spec = [
 
 
 class APIResourceWrapper(Resource):
-    _registry = None
     isLeaf = True
     method_map = {
       'delete': 200,
@@ -181,15 +180,11 @@ class APIResourceWrapper(Resource):
 
     def __init__(self):
         Resource.__init__(self)
-        self._registry = []
+        self.registry = []
         self.handler = None
 
         for tup in api_spec:
-            args = {}
-            if len(tup) == 2:
-                pattern, handler = tup
-            else:
-                pattern, handler, args = tup
+            pattern, handler = tup
 
             if not pattern.startswith("^"):
                 pattern = "^" + pattern
@@ -204,7 +199,21 @@ class APIResourceWrapper(Resource):
                     if hasattr(handler, m):
                         decorators.decorate_method(handler, m)
 
-            self._registry.append((re.compile(pattern), handler, args))
+            self.registry.append((re.compile(pattern), handler))
+
+    def resolve_handler(self, path):
+        match = None
+
+        for regexp, handler in self.registry:
+            try:
+                match = regexp.match(path)
+            except UnicodeDecodeError:
+                match = None
+            if match:
+                break
+
+        if match:
+            return match, handler
 
     def should_redirect_https(self, request):
         if request.isSecure() or \
@@ -382,14 +391,7 @@ class APIResourceWrapper(Resource):
             request.redirect(State.tenants[request.tid].cache['redirects'][request_path])
             return b''
 
-        match = None
-        for regexp, handler, args in self._registry:
-            try:
-                match = regexp.match(request_path)
-            except UnicodeDecodeError:
-                match = None
-            if match:
-                break
+        match, handler = self.resolve_handler(request_path)
 
         if match is None:
             self.handle_exception(errors.ResourceNotFound, request)
@@ -410,7 +412,7 @@ class APIResourceWrapper(Resource):
         f = getattr(handler, method)
         groups = match.groups()
 
-        self.handler = handler(State, request, **args)
+        self.handler = handler(State, request)
 
         request.setResponseCode(self.method_map[method])
 
