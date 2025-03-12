@@ -928,7 +928,7 @@ class TestGLWithPopulatedDB(TestGL):
         yield self.perform_post_submission_actions()
 
     @transact
-    def force_itip_expiration(self, session, date):
+    def set_itip_expiration(self, session, date):
         session.query(models.InternalTip).update({'expiration_date': date})
 
     @transact

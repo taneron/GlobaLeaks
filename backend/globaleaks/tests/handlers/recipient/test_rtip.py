@@ -1,3 +1,5 @@
+import time
+from datetime import datetime
 from sqlalchemy.orm.exc import NoResultFound
 from twisted.internet.defer import inlineCallbacks
 
@@ -5,7 +7,7 @@ from globaleaks import models
 from globaleaks.handlers.recipient import rtip
 from globaleaks.jobs.delivery import Delivery
 from globaleaks.tests import helpers
-from globaleaks.utils.utility import datetime_never, datetime_now
+from globaleaks.utils.utility import datetime_never, datetime_now, get_expiration
 
 
 class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
@@ -13,6 +15,12 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def setUp(self):
+        self.one_year_from_now_timestamp = time.time() + 365 * 86400
+        self.one_year_from_now_datetime = datetime.fromtimestamp(self.one_year_from_now_timestamp)
+
+        self.two_year_from_now_timestamp = time.time() + 365 * 86400
+        self.two_year_from_now_datetime = datetime.fromtimestamp(self.two_year_from_now_timestamp)
+
         yield helpers.TestHandlerWithPopulatedDB.setUp(self)
         yield self.perform_full_submission_actions()
         yield Delivery().run()
@@ -28,7 +36,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     def test_postpone(self):
         expiration = datetime_now()
 
-        yield self.force_itip_expiration(expiration)
+        yield self.set_itip_expiration(expiration)
 
         rtip_descs = yield self.get_rtips()
 
@@ -36,7 +44,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
             operation = {
               'operation': 'postpone',
               'args': {
-                'value': 9999999999999999
+                'value': self.one_year_from_now_timestamp * 1000
               }
             }
 
@@ -46,7 +54,80 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
         rtip_descs = yield self.get_rtips()
         for rtip_desc in rtip_descs:
-            self.assertTrue(rtip_desc['expiration_date'] >= now)
+            self.assertTrue(rtip_desc['expiration_date'] == self.one_year_from_now_datetime)
+
+    @inlineCallbacks
+    def test_postpone_of_reports_with_no_expiration(self):
+        yield self.set_itip_expiration(datetime_never())
+
+        rtip_descs = yield self.get_rtips()
+
+        for rtip_desc in rtip_descs:
+            operation = {
+              'operation': 'postpone',
+              'args': {
+                'value': self.one_year_from_now_timestamp * 1000
+              }
+            }
+
+            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+            yield handler.put(rtip_desc['id'])
+            self.assertEqual(handler.request.code, 200)
+
+        rtip_descs = yield self.get_rtips()
+        for rtip_desc in rtip_descs:
+            self.assertTrue(rtip_desc['expiration_date'] == self.one_year_from_now_datetime)
+
+    @inlineCallbacks
+    def test_postpone_of_reports_with_date_below_minimum_threshold(self):
+        expiration = datetime_now()
+
+        yield self.set_itip_expiration(expiration)
+
+        rtip_descs = yield self.get_rtips()
+
+        for rtip_desc in rtip_descs:
+            expiration_date = rtip_desc
+            operation = {
+              'operation': 'postpone',
+              'args': {
+                'value': self.one_year_from_now_timestamp * 1000
+              }
+            }
+
+            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+            yield handler.put(rtip_desc['id'])
+            self.assertEqual(handler.request.code, 200)
+
+        rtip_descs = yield self.get_rtips()
+        for rtip_desc in rtip_descs:
+            self.assertTrue(rtip_desc['expiration_date'] > expiration)
+            self.assertTrue(rtip_desc['expiration_date'] < self.two_year_from_now_datetime)
+
+    @inlineCallbacks
+    def test_postpone_of_reports_with_date_over_maximum_threshold(self):
+        expiration = datetime_now()
+
+        yield self.set_itip_expiration(expiration)
+
+        rtip_descs = yield self.get_rtips()
+
+        for rtip_desc in rtip_descs:
+            expiration_date = rtip_desc
+            operation = {
+              'operation': 'postpone',
+              'args': {
+                'value': 0
+              }
+            }
+
+            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+            yield handler.put(rtip_desc['id'])
+            self.assertEqual(handler.request.code, 200)
+
+        rtip_descs = yield self.get_rtips()
+        for rtip_desc in rtip_descs:
+            self.assertTrue(rtip_desc['expiration_date'] == expiration)
 
     @inlineCallbacks
     def test_grant_and_revoke_access(self):

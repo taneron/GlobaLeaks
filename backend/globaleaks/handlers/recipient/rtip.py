@@ -179,7 +179,7 @@ def transfer_tip_access(session, tid, user_id, user_cc, itip_id, receiver_id):
         db_log(session, tid=tid, type='transfer_access', user_id=user_id, object_id=itip.id, data=log_data)
 
 
-def get_ttl(session, orm_object_model, orm_object_id):
+def db_get_ttl(session, orm_object_model, orm_object_id):
     """
     Transaction for retrieving the data retention
 
@@ -203,13 +203,13 @@ def db_recalculate_data_retention(session, itip, report_reopen_request):
     prev_expiration_date = itip.expiration_date
     if report_reopen_request:
         # use the context-defined data retention
-        ttl = get_ttl(session, models.Context, itip.context_id)
+        ttl = db_get_ttl(session, models.Context, itip.context_id)
         if ttl > 0:
             itip.expiration_date = get_expiration(ttl)
         else:
             itip.expiration_date = datetime_never()
     elif itip.status == "closed" and itip.substatus is not None:
-        ttl = get_ttl(session, models.SubmissionSubStatus, itip.substatus)
+        ttl = db_get_ttl(session, models.SubmissionSubStatus, itip.substatus)
         if ttl > 0:
             itip.expiration_date = get_expiration(ttl)
 
@@ -744,21 +744,30 @@ def db_postpone_expiration(session, itip, expiration_date):
     :param itip: A submission model to be postponed
     :param expiration_date: The date timestamp to be set in milliseconds
     """
-    prev_expiration_date = itip.expiration_date
+    policy = db_get_ttl(session, models.Context, itip.context_id)
 
-    max_date = 32503676400
     expiration_date = expiration_date / 1000
-    expiration_date = expiration_date if expiration_date < max_date else max_date
     expiration_date = datetime.fromtimestamp(expiration_date)
 
+    # Enable to anticipate but not before 90 days since current day
     min_date = time.time() + 91 * 86400
     min_date = min_date - min_date % 86400
     min_date = datetime.fromtimestamp(min_date)
     if itip.expiration_date <= min_date:
         min_date = itip.expiration_date
 
-    if expiration_date >= min_date:
-        itip.expiration_date = expiration_date
+    # Enable to postpone but not after max(365, 2 time the policy)
+    max_date = time.time() + (max(365, 2 * policy) + 1) * 86400
+    max_date = max_date - max_date % 86400
+    max_date = datetime.fromtimestamp(max_date)
+
+    if expiration_date <= min_date:
+        expiration_date = min_date
+    elif expiration_date >= max_date:
+        expiration_date = max_date
+
+    prev_expiration_date = itip.expiration_date
+    itip.expiration_date = expiration_date
 
     return prev_expiration_date, expiration_date
 

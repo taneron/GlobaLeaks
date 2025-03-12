@@ -91,7 +91,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         # verify tips survive the scheduler if they are not expired
         yield self.check1()
 
-        yield self.force_itip_expiration(now)
+        yield self.set_itip_expiration(now)
 
         yield cleaning.Cleaning().run()
 
@@ -105,7 +105,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         # verify mail creation and that rtips survive the scheduler
         yield self.check3()
 
-        yield self.force_itip_expiration(now)
+        yield self.set_itip_expiration(now)
 
         yield cleaning.Cleaning().run()
 
