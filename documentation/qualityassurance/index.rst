@@ -4,6 +4,12 @@ GlobaLeaks stands alone among whistleblowing software by maintaining rigorous so
 
 .. include:: badges.rst
 
+**Project Best Practices**
+
+The best practices adopted within the project are publicly documented and peer-reviewed using the methodology defined by the Core Infrastructure Initiative (CII) Best Practices project. On top of this is adopted as well the OpenSSF Scorecard that evaluates various security practices such as vulnerability management, dependency updates, and code quality, ensuring the project meets industry standards.
+
+For more details on the best practices adopted in this project, you can visit the project pages for the `CII Best Practices <https://bestpractices.coreinfrastructure.org/projects/3816>`_ and the `OpenSSF Scorecard <https://scorecard.dev/viewer/?uri=github.com/globaleaks/globaleaks-whistleblowing-software>`_.
+
 **Code Review Process**
 
 To ensure high code quality and maintain the integrity of the project, GlobaLeaks enforces mandatory code reviews for all its contributions. Code reviews play a key role in maintaining consistency, identifying potential issues early, and promoting best practices. Every submitted pull request undergoes peer review by the GlobaLeaks maintainers and community where the code is scrutinized for clarity, adherence to project guidelines, potential security vulnerabilities, and performance optimizations. Reviewers provide feedback and suggestions, and the author of the PR is responsible for addressing any concerns raised. Once feedback is incorporated, the code is re-reviewed by the maintainers, and upon approval, the PR is merged into the main codebase. This collaborative process helps catch issues before they are deployed, ensuring that only high-quality, well-tested code is integrated into the project.
@@ -33,9 +39,3 @@ You can view the `Build Status on GitHub <https://github.com/globaleaks/globalea
 The project undergoes load and stress testing to simulate real-world usage scenarios and ensure it can handle high traffic. Security best practices are enforced through regular security audits and penetration testing, identifying vulnerabilities before they can be exploited. This ensures the system is both performant and secure.
 
 For further information, check the evaluations by `Probely Security Header <https://securityheaders.com/?q=https%3A%2F%2Fdemo.globaleaks.org%2F>`_, `MDN HTTP Observatory <https://developer.mozilla.org/en-US/observatory/analyze?host=demo.globaleaks.org>`_ and `Qualys SSL Labs <https://www.ssllabs.com/ssltest/analyze.html?d=demo.globaleaks.org>`_.
-
-**Project Best Practices**
-
-The project adopts a set of best practices applied both during development and deployment. Those are documented using the methodology defined by the Core Infrastructure Initiative (CII) Best Practices. On top of this is adopted as well the OpenSSF Scorecard that evaluates various security practices such as vulnerability management, dependency updates, and code quality, ensuring the project meets industry standards.
-
-For more details on the best practices adopted in this project, you can visit the project pages for the `CII Best Practices <https://bestpractices.coreinfrastructure.org/projects/3816>`_ and the `OpenSSF Scorecard <https://scorecard.dev/viewer/?uri=github.com/globaleaks/globaleaks-whistleblowing-software>`_.

@@ -3,6 +3,10 @@
    +---------------------------+-------------------------------------------------------------+
    | **Metric**                | **Score**                                                   |
    +---------------------------+-------------------------------------------------------------+
+   | OpenSSF Best Practices    | |ossf-best-practices|                                       |
+   +---------------------------+-------------------------------------------------------------+
+   | OpenSSF Scorecard         | |ossf-scorecard|                                            |
+   +---------------------------+-------------------------------------------------------------+
    | Build Status              | |build-stable|                                              |
    +---------------------------+-------------------------------------------------------------+
    | Tests Status              | |tests-stable|                                              |
@@ -19,10 +23,12 @@
    +---------------------------+-------------------------------------------------------------+
    | SSLLabs                   | |ssllabs-status|                                            |
    +---------------------------+-------------------------------------------------------------+
-   | OpenSSF Scorecard         | |ossf-scorecard|                                            |
-   +---------------------------+-------------------------------------------------------------+
-   | OpenSSF Best Practices    | |ossf-best-practices|                                       |
-   +---------------------------+-------------------------------------------------------------+
+
+.. |ossf-best-practices| image:: https://bestpractices.coreinfrastructure.org/projects/3816/badge
+   :target: https://bestpractices.coreinfrastructure.org/projects/3816
+
+.. |ossf-scorecard| image:: https://api.scorecard.dev/projects/github.com/globaleaks/globaleaks-whistleblowing-software/badge
+   :target: https://scorecard.dev/viewer/?uri=github.com/globaleaks/globaleaks-whistleblowing-software
 
 .. |build-stable| image:: https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml/badge.svg?branch=stable
    :target: https://github.com/globaleaks/globaleaks-whistleblowing-software/actions/workflows/build.yml?query=branch%3Astable
@@ -47,9 +53,3 @@
 
 .. |ssllabs-status| image:: https://img.shields.io/static/v1?label=SSLLabs&message=A%2B&color=%3CCOLOR%3E
    :target: https://www.ssllabs.com/ssltest/analyze.html?d=demo.globaleaks.org&latest
-
-.. |ossf-scorecard| image:: https://api.scorecard.dev/projects/github.com/globaleaks/globaleaks-whistleblowing-software/badge
-   :target: https://scorecard.dev/viewer/?uri=github.com/globaleaks/globaleaks-whistleblowing-software
-
-.. |ossf-best-practices| image:: https://bestpractices.coreinfrastructure.org/projects/3816/badge
-   :target: https://bestpractices.coreinfrastructure.org/projects/3816
