@@ -97,6 +97,11 @@ vertical li.current > a {
   list-style: disc;
 }
 
+.centered-content {
+  display: table;
+  margin: 1em auto;
+}
+
 .donation-banner {
   background-color: #fff;
   padding: 10px;
