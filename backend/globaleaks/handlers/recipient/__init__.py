@@ -200,9 +200,6 @@ class Operations(BaseHandler):
     def put(self):
         request = self.validate_request(self.request.content.read(), requests.OpsDesc)
 
-        if request['operation'] not in ['grant', 'revoke']:
-            raise errors.ForbiddenOperation
-
         return perform_tips_operation(self.request.tid,
                                       self.session.user_id,
                                       self.session.cc,
