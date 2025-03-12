@@ -12,20 +12,20 @@ Objectives
 ----------
 The roadmap is designed to minimize unnecessary disruptions while ensuring users receive timely and meaningful updates. This approach provides several key benefits:
 
-- **Enhanced Stability:** A structured release cycle minimizes disruptions and allows for thorough testing;
-- **Security and Reliability:** Security patches are prioritized and released promptly when necessary;
-- **Community-Driven Development:** Users can engage with the development process through GitHub `Issues <https://github.com/globaleaks/globaleaks-whistleblowing-software/issues>`_ and `Milestones <https://github.com/globaleaks/globaleaks-whistleblowing-software/milestones>`_, contributing to feature prioritization;
-- **Predictability and Planning:** Organizations relying on GlobaLeaks have a clear upgrade path and better preparation for new releases.
+- Enhanced Stability: A structured release cycle minimizes disruptions and allows for thorough testing;
+- Security and Reliability: Security patches are prioritized and released promptly when necessary;
+- Community-Driven Development: Users can engage with the development process through GitHub `Issues <https://github.com/globaleaks/globaleaks-whistleblowing-software/issues>`_ and `Milestones <https://github.com/globaleaks/globaleaks-whistleblowing-software/milestones>`_, contributing to feature prioritization;
+- Predictability and Planning: Organizations relying on GlobaLeaks have a clear upgrade path and better preparation for new releases.
 
 Release Types
 -------------
-**1. Major Releases**
+1. Major Releases:
 
 - Introduction of new features and significant improvements;
 - Possible breaking changes, with clear migration guidelines;
 - Detailed release notes and upgrade instructions provided.
 
-**2. Minor Updates**
+2. Minor Updates:
 
 - Security patches;
 - Small improvements and bug fixes;
@@ -34,7 +34,7 @@ Release Types
 
 Feature Prioritization
 ----------------------
-Development priorities and major release research are published on **GitHub using the “Milestones” feature**.
+Development priorities and major release research are published on GitHub using the “Milestones” feature.
 
 Users and contributors are encouraged to:
 
@@ -46,9 +46,9 @@ Testing and Quality Assurance
 -----------------------------
 Each release follows a structured testing process to ensure stability and security:
 
-- **Internal Testing:** Comprehensive automated and manual testing before public release.
-- **Community Beta Testing:** Pre-release versions available for community testing and feedback.
-- **Security Audits:** Regular security assessments to proactively identify and mitigate risks.
+- Internal Testing: Comprehensive automated and manual testing before public release.
+- Community Beta Testing: Pre-release versions available for community testing and feedback.
+- Security Audits: Regular security assessments to proactively identify and mitigate risks.
 
 Long-Term Vision
 ----------------
