@@ -232,7 +232,7 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
         key = Base64Encoder.decode(receipt.encode())
         hash = sha256(key).decode()
     else:
-        salt = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption')).value
+        salt = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'salt')).value
         key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
 
     itip.receipt_hash = hash
