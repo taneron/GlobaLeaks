@@ -1,3 +1,8 @@
+Changes in version 5.0.59
+    Fix interface indicating the minimum valid date for report expiration date change broken since version 5
+    Fix icons on datepicker selector in releation to #4345
+    Fix regression introduced in 5.0.58 preventing submission of new reports
+
 Changes in version 5.0.58
     Make it possible for an administrator so send activation links to users upon their creation (#4425)
     Restore possibility to receiver submissions for platforms activated before encryption was implemented
