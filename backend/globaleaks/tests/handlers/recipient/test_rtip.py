@@ -133,36 +133,44 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     def test_grant_and_revoke_access(self):
         count = yield self.get_model_count(models.ReceiverTip)
 
-        rtip_descs = yield self.get_rtips()
-        for rtip_desc in rtip_descs:
-            count -= 1
+        # Perform two cycles of revoke ensuring the second cycle results in a nop
+        for cycle in range(0, 1):
+            rtip_descs = yield self.get_rtips()
+            for rtip_desc in rtip_descs:
+                # Decrement should happen only during the first cycle
+                if cycle == 0:
+                    count -= 1
 
-            operation = {
-              'operation': 'revoke',
-              'args': {
-                'receiver':  self.dummyReceiver_2['id']
-              }
-            }
+                operation = {
+                    'operation': 'revoke',
+                    'args': {
+                        'receiver':  self.dummyReceiver_2['id']
+                    }
+                }
 
-            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
-            yield handler.put(rtip_desc['id'])
-            self.assertEqual(handler.request.code, 200)
-            yield self.test_model_count(models.ReceiverTip, count)
+                handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+                yield handler.put(rtip_desc['id'])
+                self.assertEqual(handler.request.code, 200)
+                yield self.test_model_count(models.ReceiverTip, count)
 
-        for rtip_desc in rtip_descs:
-            count += 1
+        # Perform two cycles of grant ensuring the second cycle results in a nop
+        for cycle in range(0, 1):
+            for rtip_desc in rtip_descs:
+                # Increment should happen only during the first cycle
+                if cycle == 0:
+                    count += 1
 
-            operation = {
-              'operation': 'grant',
-              'args': {
-                'receiver':  self.dummyReceiver_2['id']
-              }
-            }
+                operation = {
+                    'operation': 'grant',
+                    'args': {
+                        'receiver':  self.dummyReceiver_2['id']
+                    }
+                }
 
-            handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
-            yield handler.put(rtip_desc['id'])
-            self.assertEqual(handler.request.code, 200)
-            yield self.test_model_count(models.ReceiverTip, count)
+                handler = self.request(operation, role='receiver', user_id=rtip_desc['receiver_id'])
+                yield handler.put(rtip_desc['id'])
+                self.assertEqual(handler.request.code, 200)
+                yield self.test_model_count(models.ReceiverTip, count)
 
     @inlineCallbacks
     def test_transfer(self):
