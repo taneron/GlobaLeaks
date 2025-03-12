@@ -42,129 +42,178 @@ from globaleaks.utils.json import JSONEncoder
 from globaleaks.utils.sock import isIPAddress
 
 tid_regexp = r'([0-9]+)'
-uuid_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})'
+uuid_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|closed)'
+uuid_regexp_or_closed = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})'
 key_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-z_]{0,100})'
 
 api_spec = [
-    (r'/api/health', health.HealthStatusHandler),
-    (r'/api/report', report.ReportHandler),
-
-    # Public API
-    (r'/api/public', public.PublicResource),
+    ('/api/health', health.HealthStatusHandler),
+    ('/api/public', public.PublicResource),
+    ('/api/report', report.ReportHandler),
+    ('/api/support', support.SupportHandler),
+    ('/api/wizard', wizard.Wizard),
 
     # Authentication Handlers
-    (r'/api/auth/token', auth.token.TokenHandler),
-    (r'/api/auth/authentication', auth.AuthenticationHandler),
-    (r'/api/auth/type', auth.AuthTypeHandler),
-    (r'/api/auth/tokenauth', auth.TokenAuthHandler),
-    (r'/api/auth/receiptauth', auth.ReceiptAuthHandler),
-    (r'/api/auth/session', auth.SessionHandler),
-    (r'/api/auth/tenantauthswitch/' + tid_regexp, auth.TenantAuthSwitchHandler),
-    (r'/api/auth/operatorauthswitch', auth.OperatorAuthSwitchHandler),
+    ('/api/auth/token', auth.token.TokenHandler),
+    ('/api/auth/authentication', auth.AuthenticationHandler),
+    ('/api/auth/type', auth.AuthTypeHandler),
+    ('/api/auth/tokenauth', auth.TokenAuthHandler),
+    ('/api/auth/receiptauth', auth.ReceiptAuthHandler),
+    ('/api/auth/session', auth.SessionHandler),
+    ('/api/auth/tenantauthswitch/', auth.TenantAuthSwitchHandler, r'/api/auth/tenantauthswitch/' + tid_regexp),
+    ('/api/auth/operatorauthswitch', auth.OperatorAuthSwitchHandler),
 
     # User Preferences Handler
-    (r'/api/user/preferences', user.UserInstance),
-    (r'/api/user/operations', user.operation.UserOperationHandler),
-    (r'/api/user/reset/password', user.reset_password.PasswordResetHandler),
-    (r'/api/user/reset/password/(.+)', user.reset_password.PasswordResetHandler),
-    (r'/api/user/validate/email/(.+)', user.validate_email.EmailValidation),
+    ('/api/user/preferences', user.UserInstance),
+    ('/api/user/operations', user.operation.UserOperationHandler),
+    ('/api/user/reset/password', user.reset_password.PasswordResetHandler),
+    ('/api/user/reset/password', user.reset_password.PasswordResetHandler, r'/api/user/reset/password/(.+)'),
+    ('/api/user/validate/email', user.validate_email.EmailValidation, r'/api/user/validate/email/(.+)'),
 
     # Receiver Handlers
-    (r'/api/recipient/operations', recipient.Operations),
-    (r'/api/recipient/rtips', recipient.TipsCollection),
-    (r'/api/recipient/rtips/' + uuid_regexp, recipient.rtip.RTipInstance),
-    (r'/api/recipient/rtips/' + uuid_regexp + r'/comments', recipient.rtip.RTipCommentCollection),
-    (r'/api/recipient/rtips/' + uuid_regexp + r'/iars', recipient.rtip.IdentityAccessRequestsCollection),
-    (r'/api/recipient/rtips/' + uuid_regexp + r'/export', recipient.export.ExportHandler),
-    (r'/api/recipient/rtips/' + uuid_regexp + r'/rfiles', recipient.rtip.ReceiverFileUpload),
-    (r'/api/recipient/redactions', recipient.rtip.RTipRedactionCollection),
-    (r'/api/recipient/redactions/' + uuid_regexp, recipient.rtip.RTipRedactionCollection),
-    (r'/api/recipient/rfiles/' + uuid_regexp, recipient.rtip.ReceiverFileDownload),
-    (r'/api/recipient/wbfiles/' + uuid_regexp, recipient.rtip.WhistleblowerFileDownload),
+    ('/api/recipient/operations', recipient.Operations),
+    ('/api/recipient/rtips', recipient.TipsCollection),
+    ('/api/recipient/rtips', recipient.rtip.RTipInstance, r'/api/recipient/rtips/' + uuid_regexp),
+    ('/api/recipient/rtips', recipient.rtip.RTipCommentCollection, r'/api/recipient/rtips/' + uuid_regexp + r'/comments'),
+    ('/api/recipient/rtips', recipient.rtip.IdentityAccessRequestsCollection, r'/api/recipient/rtips/' + uuid_regexp + r'/iars'),
+    ('/api/recipient/rtips', recipient.export.ExportHandler, r'/api/recipient/rtips/' + uuid_regexp + r'/export'),
+    ('/api/recipient/rtips', recipient.rtip.ReceiverFileUpload, r'/api/recipient/rtips/' + uuid_regexp + r'/rfiles'),
+    ('/api/recipient/redactions', recipient.rtip.RTipRedactionCollection),
+    ('/api/recipient/redactions', recipient.rtip.RTipRedactionCollection, r'/api/recipient/redactions/' + uuid_regexp),
+    ('/api/recipient/rfiles', recipient.rtip.ReceiverFileDownload, r'/api/recipient/rfiles/' + uuid_regexp),
+    ('/api/recipient/wbfiles', recipient.rtip.WhistleblowerFileDownload, r'/api/recipient/wbfiles/' + uuid_regexp),
 
     # Whistleblower Handlers
-    (r'/api/whistleblower/operations', whistleblower.wbtip.Operations),
-    (r'/api/whistleblower/submission', whistleblower.submission.SubmissionInstance),
-    (r'/api/whistleblower/submission/attachment', whistleblower.attachment.SubmissionAttachment),
-    (r'/api/whistleblower/wbtip', whistleblower.wbtip.WBTipInstance),
-    (r'/api/whistleblower/wbtip/comments', whistleblower.wbtip.WBTipCommentCollection),
-    (r'/api/whistleblower/wbtip/rfiles/' + uuid_regexp, whistleblower.wbtip.ReceiverFileDownload),
-    (r'/api/whistleblower/wbtip/wbfiles', whistleblower.attachment.PostSubmissionAttachment),
-    (r'/api/whistleblower/wbtip/wbfiles/' + uuid_regexp, whistleblower.wbtip.WhistleblowerFileDownload),
-    (r'/api/whistleblower/wbtip/identity', whistleblower.wbtip.WBTipIdentityHandler),
-    (r'/api/whistleblower/wbtip/fillform', whistleblower.wbtip.WBTipAdditionalQuestionnaire),
+    ('/api/whistleblower/operations', whistleblower.wbtip.Operations),
+    ('/api/whistleblower/submission', whistleblower.submission.SubmissionInstance),
+    ('/api/whistleblower/submission/attachment', whistleblower.attachment.SubmissionAttachment),
+    ('/api/whistleblower/wbtip', whistleblower.wbtip.WBTipInstance),
+    ('/api/whistleblower/wbtip/comments', whistleblower.wbtip.WBTipCommentCollection),
+    ('/api/whistleblower/wbtip/rfiles', whistleblower.wbtip.ReceiverFileDownload, r'/api/whistleblower/wbtip/rfiles/' + uuid_regexp),
+    ('/api/whistleblower/wbtip/wbfiles',  whistleblower.attachment.PostSubmissionAttachment),
+    ('/api/whistleblower/wbtip/wbfiles', whistleblower.wbtip.WhistleblowerFileDownload, r'/api/whistleblower/wbtip/wbfiles/' + uuid_regexp),
+    ('/api/whistleblower/wbtip/identity', whistleblower.wbtip.WBTipIdentityHandler),
+    ('/api/whistleblower/wbtip/fillform', whistleblower.wbtip.WBTipAdditionalQuestionnaire),
 
     # Custodian Handlers
-    (r'/api/custodian/iars', custodian.IdentityAccessRequestsCollection),
-    (r'/api/custodian/iars/' + uuid_regexp, custodian.IdentityAccessRequestInstance),
+    ('/api/custodian/iars', custodian.IdentityAccessRequestsCollection),
+    ('/api/custodian/iars', custodian.IdentityAccessRequestInstance, r'/api/custodian/iars/' + uuid_regexp),
 
     # Analyst Handlers
-    (r'/api/analyst/stats', analyst.Statistics),
+    ('/api/analyst/stats', analyst.Statistics),
 
     # Admin Handlers
-    (r'/api/admin/node', admin.node.NodeInstance),
-    (r'/api/admin/network', admin.network.NetworkInstance),
-    (r'/api/admin/users', admin.user.UsersCollection),
-    (r'/api/admin/users/' + uuid_regexp, admin.user.UserInstance),
-    (r'/api/admin/contexts', admin.context.ContextsCollection),
-    (r'/api/admin/contexts/' + uuid_regexp, admin.context.ContextInstance),
-    (r'/api/admin/questionnaires', admin.questionnaire.QuestionnairesCollection),
-    (r'/api/admin/questionnaires/duplicate', admin.questionnaire.QuestionnareDuplication),
-    (r'/api/admin/questionnaires/' + key_regexp, admin.questionnaire.QuestionnaireInstance),
-    (r'/api/admin/notification', admin.notification.NotificationInstance),
-    (r'/api/admin/fields', admin.field.FieldsCollection),
-    (r'/api/admin/fields/' + key_regexp, admin.field.FieldInstance),
-    (r'/api/admin/steps', admin.step.StepCollection),
-    (r'/api/admin/steps/' + uuid_regexp, admin.step.StepInstance),
-    (r'/api/admin/fieldtemplates', admin.field.FieldTemplatesCollection),
-    (r'/api/admin/fieldtemplates/' + key_regexp, admin.field.FieldTemplateInstance),
-    (r'/api/admin/redirects', admin.redirect.RedirectCollection),
-    (r'/api/admin/redirects/' + uuid_regexp, admin.redirect.RedirectInstance),
-    (r'/api/admin/auditlog', admin.auditlog.AuditLog),
-    (r'/api/admin/auditlog/access', admin.auditlog.AccessLog),
-    (r'/api/admin/auditlog/debug', admin.auditlog.DebugLog),
-    (r'/api/admin/auditlog/jobs', admin.auditlog.JobsTiming),
-    (r'/api/admin/auditlog/tips', admin.auditlog.TipsCollection),
-    (r'/api/admin/l10n/(' + '|'.join(LANGUAGES_SUPPORTED_CODES) + ')', admin.l10n.AdminL10NHandler),
-    (r'/api/admin/config', admin.operation.AdminOperationHandler),
-    (r'/api/admin/config/csr/gen', admin.https.CSRHandler),
-    (r'/api/admin/config/acme/run', admin.https.AcmeHandler),
-    (r'/api/admin/config/tls', admin.https.ConfigHandler),
-    (r'/api/admin/config/tls/files/(cert|chain|key)', admin.https.FileHandler),
-    (r'/api/admin/files', admin.file.FileCollection),
-    (r'/api/admin/files/(.+)', admin.file.FileInstance),
-    (r'/api/admin/tenants', admin.tenant.TenantCollection),
-    (r'/api/admin/tenants/' + '([0-9]{1,20})', admin.tenant.TenantInstance),
-    (r'/api/admin/statuses', admin.submission_statuses.SubmissionStatusCollection),
-    (r'/api/admin/statuses/' + r'(closed)' + r'/substatuses', admin.submission_statuses.SubmissionSubStatusCollection),
-    (r'/api/admin/statuses/' + uuid_regexp, admin.submission_statuses.SubmissionStatusInstance),
-    (r'/api/admin/statuses/' + r'(closed)', admin.submission_statuses.SubmissionStatusInstance),
-    (r'/api/admin/statuses/' + uuid_regexp + r'/substatuses', admin.submission_statuses.SubmissionSubStatusCollection),
-    (r'/api/admin/statuses/' + r'(closed)' + r'/substatuses/' + uuid_regexp, admin.submission_statuses.SubmissionSubStatusInstance),
-    (r'/api/admin/statuses/' + uuid_regexp + r'/substatuses/' + uuid_regexp, admin.submission_statuses.SubmissionSubStatusInstance),
+    ('/api/admin/node', admin.node.NodeInstance),
+    ('/api/admin/network', admin.network.NetworkInstance),
+    ('/api/admin/users', admin.user.UsersCollection),
+    ('/api/admin/users', admin.user.UserInstance, r'/api/admin/users/' + uuid_regexp),
+    ('/api/admin/contexts', admin.context.ContextsCollection),
+    ('/api/admin/contexts', admin.context.ContextInstance, r'/api/admin/contexts/' + uuid_regexp),
+    ('/api/admin/questionnaires', admin.questionnaire.QuestionnairesCollection),
+    ('/api/admin/questionnaires', admin.questionnaire.QuestionnaireInstance, r'/api/admin/questionnaires/' + key_regexp),
+    ('/api/admin/questionnaires/duplicate', admin.questionnaire.QuestionnareDuplication),
+    ('/api/admin/notification', admin.notification.NotificationInstance),
+    ('/api/admin/fields', admin.field.FieldsCollection),
+    ('/api/admin/fields', admin.field.FieldInstance, r'/api/admin/fields/' + key_regexp),
+    ('/api/admin/steps', admin.step.StepCollection),
+    ('/api/admin/steps', admin.step.StepInstance, r'/api/admin/steps/' + uuid_regexp),
+    ('/api/admin/fieldtemplates', admin.field.FieldTemplatesCollection),
+    ('/api/admin/fieldtemplates', admin.field.FieldTemplateInstance, r'/api/admin/fieldtemplates/' + key_regexp),
+    ('/api/admin/redirects', admin.redirect.RedirectCollection, r'/api/admin/redirects'),
+    ('/api/admin/redirects', admin.redirect.RedirectInstance, r'/api/admin/redirects/' + uuid_regexp),
+    ('/api/admin/auditlog', admin.auditlog.AuditLog),
+    ('/api/admin/auditlog/access', admin.auditlog.AccessLog),
+    ('/api/admin/auditlog/debug', admin.auditlog.DebugLog),
+    ('/api/admin/auditlog/jobs', admin.auditlog.JobsTiming),
+    ('/api/admin/auditlog/tips', admin.auditlog.TipsCollection),
+    ('/api/admin/l10n/', admin.l10n.AdminL10NHandler, r'/api/admin/l10n/(' + '|'.join(LANGUAGES_SUPPORTED_CODES) + ')'),
+    ('/api/admin/config', admin.operation.AdminOperationHandler),
+    ('/api/admin/config/csr/gen', admin.https.CSRHandler),
+    ('/api/admin/config/acme/run', admin.https.AcmeHandler),
+    ('/api/admin/config/tls', admin.https.ConfigHandler),
+    ('/api/admin/config/tls/files/', admin.https.FileHandler, r'/api/admin/config/tls/files/(cert|chain|key)'),
+    ('/api/admin/files', admin.file.FileCollection),
+    ('/api/admin/files', admin.file.FileInstance, r'/api/admin/files/(.+)'),
+    ('/api/admin/tenants', admin.tenant.TenantCollection),
+    ('/api/admin/tenants', admin.tenant.TenantInstance, r'/api/admin/tenants/' + '([0-9]{1,20})'),
+    ('/api/admin/statuses', admin.submission_statuses.SubmissionStatusCollection),
+    ('/api/admin/statuses', admin.submission_statuses.SubmissionStatusInstance, r'/api/admin/statuses/' + uuid_regexp_or_closed),
+    ('/api/admin/statuses', admin.submission_statuses.SubmissionSubStatusCollection, r'/api/admin/statuses/' + uuid_regexp_or_closed + r'/substatuses'),
+    ('/api/admin/statuses', admin.submission_statuses.SubmissionSubStatusInstance, r'/api/admin/statuses/' + uuid_regexp_or_closed + r'/substatuses/' + uuid_regexp),
 
-    # Services
-    (r'/api/support', support.SupportHandler),
-    (r'/api/signup', signup.Signup),
-    (r'/api/signup/([a-zA-Z0-9_\-]{64})', signup.SignupActivation),
-    (r'/api/wizard', wizard.Wizard),
+    # Signup
+    ('/api/signup', signup.Signup),
+    ('/api/signup', signup.SignupActivation, r'/api/signup/([a-zA-Z0-9_\-]{64})'),
 
     # Well known path
-    (r'/.well-known/acme-challenge/([a-zA-Z0-9_\-]{42,44})', admin.https.AcmeChallengeHandler),
-    (r'/.well-known/security.txt', security.SecuritytxtHandler),
+    ('/.well-known/acme-challenge', admin.https.AcmeChallengeHandler, r'/\.well-known/acme-challenge/([a-zA-Z0-9_\-]{42,44})'),
+    ('/.well-known/security.txt', security.SecuritytxtHandler),
 
     # Special Files Handlers
-    (r'/robots.txt', robots.RobotstxtHandler),
-    (r'/sitemap.xml', sitemap.SitemapHandler),
-    (r'/s/(.+)', file.FileHandler),
-    (r'/l10n/(' + '|'.join(LANGUAGES_SUPPORTED_CODES) + ')', l10n.L10NHandler),
+    ('/robots.txt', robots.RobotstxtHandler),
+    ('/sitemap.xml', sitemap.SitemapHandler),
+    ('/s/', file.FileHandler, r'/s/(.+)'),
+    ('/l10n/', l10n.L10NHandler, r'/l10n/(' + '|'.join(LANGUAGES_SUPPORTED_CODES) + ')'),
 
     # Path alias
-    (r'^(/admin|/login|/submission)$', redirect.SpecialRedirectHandler),
-
-    # This handler attempts to route all non routed get requests
-    (r'/([a-zA-Z0-9_\-\/\.\@]*)', staticfile.StaticFileHandler)
+    ('/admin', redirect.SpecialRedirectHandler),
+    ('/login', redirect.SpecialRedirectHandler),
+    ('/submission', redirect.SpecialRedirectHandler),
 ]
+
+# Extend the tuples in the API spec that have 2 elements with None
+api_spec = [t if len(t) == 3 else (*t, re.escape(t[0])) for t in api_spec]
+
+
+default_api = staticfile.StaticFileHandler
+default_regexp = re.compile(r'/([a-zA-Z0-9_\-\/\.\@]*)')
+
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.descriptors = []  # List of tuples (regexp, handler)
+
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, prefix, regexp, handler):
+        """
+        Insert a route prefix into the Trie.
+        """
+        node = self.root
+        parts = prefix.strip('/').split('/')
+
+        for part in parts:
+            if part not in node.children:
+                node.children[part] = TrieNode()
+            node = node.children[part]
+
+        # Attach the full regexp and handler at the leaf node
+        node.descriptors.append((re.compile(regexp), handler))
+
+    def search(self, path):
+        """
+        Search for a matching handler based on the path.
+        """
+        match = None
+        node = self.root
+        parts = path.strip('/').split('/')
+
+        for part in parts:
+            if part in node.children:
+                node = node.children[part]
+            else:
+                break
+
+        for regexp, handler in node.descriptors:
+            match = regexp.match(path)
+            if match:
+                return match, handler
+
+        return default_regexp.match(path), default_api
 
 
 class APIResourceWrapper(Resource):
@@ -180,17 +229,15 @@ class APIResourceWrapper(Resource):
 
     def __init__(self):
         Resource.__init__(self)
-        self.registry = []
+        self.registry = Trie()
         self.handler = None
 
-        for tup in api_spec:
-            pattern, handler = tup
+        for prefix, handler, regexp in api_spec:
+            if not regexp.startswith("^"):
+                regexp = "^" + regexp
 
-            if not pattern.startswith("^"):
-                pattern = "^" + pattern
-
-            if not pattern.endswith("$"):
-                pattern += "$"
+            if not regexp.endswith("$"):
+                regexp += "$"
 
             if not hasattr(handler, '_decorated'):
                 handler._decorated = True
@@ -199,21 +246,10 @@ class APIResourceWrapper(Resource):
                     if hasattr(handler, m):
                         decorators.decorate_method(handler, m)
 
-            self.registry.append((re.compile(pattern), handler))
+            self.registry.insert(prefix, re.compile(regexp), handler)
 
     def resolve_handler(self, path):
-        match = None
-
-        for regexp, handler in self.registry:
-            try:
-                match = regexp.match(path)
-            except UnicodeDecodeError:
-                match = None
-            if match:
-                break
-
-        if match:
-            return match, handler
+        return self.registry.search(path)
 
     def should_redirect_https(self, request):
         if request.isSecure() or \
@@ -326,7 +362,7 @@ class APIResourceWrapper(Resource):
           (State.tenants[1].cache.hostname == '' and isIPAddress(request.hostname)):
             request.tid = 1
         else:
-            request.tid = State.tenant_hostname_id_map.get(request.hostname, None)
+            request.tid = State.tenant_hostname_id_map.get(request.hostname)
 
         if request.tid == 1:
             try:
@@ -392,7 +428,6 @@ class APIResourceWrapper(Resource):
             return b''
 
         match, handler = self.resolve_handler(request_path)
-
         if match is None:
             self.handle_exception(errors.ResourceNotFound, request)
             return b''
