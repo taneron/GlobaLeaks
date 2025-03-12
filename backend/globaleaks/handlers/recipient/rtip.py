@@ -83,7 +83,7 @@ def db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, receiver_id)
                           models.User.id == receiver_id)
 
     if itip.crypto_tip_pub_key and not new_receiver.crypto_pub_key:
-        # Access to encrypted submissions could be granted only if the recipient has performed first login
+        # Access to encrypted submissions could be granted only if the recipient is fully activated with encryption keys
         return
 
     _tip_key = b''
