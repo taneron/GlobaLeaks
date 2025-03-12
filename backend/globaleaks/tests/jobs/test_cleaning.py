@@ -7,6 +7,7 @@ from globaleaks.jobs import cleaning, delivery
 from globaleaks.orm import transact
 from globaleaks.settings import Settings
 from globaleaks.tests import helpers
+from globaleaks.utils.utility import datetime_now
 
 
 class TestCleaning(helpers.TestGLWithPopulatedDB):
@@ -68,6 +69,8 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
 
     @inlineCallbacks
     def test_job(self):
+        now = datetime_now()
+
         # verify that the system starts clean
         yield self.check0()
 
@@ -88,7 +91,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         # verify tips survive the scheduler if they are not expired
         yield self.check1()
 
-        yield self.force_wbtip_expiration()
+        yield self.force_itip_expiration(now)
 
         yield cleaning.Cleaning().run()
 
@@ -102,7 +105,7 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
         # verify mail creation and that rtips survive the scheduler
         yield self.check3()
 
-        yield self.force_itip_expiration()
+        yield self.force_itip_expiration(now)
 
         yield cleaning.Cleaning().run()
 

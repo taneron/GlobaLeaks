@@ -26,9 +26,9 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_postpone(self):
-        now = datetime_now()
+        expiration = datetime_now()
 
-        yield self.force_itip_expiration()
+        yield self.force_itip_expiration(expiration)
 
         rtip_descs = yield self.get_rtips()
 
