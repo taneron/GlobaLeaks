@@ -461,6 +461,13 @@ export class UtilsService {
     );
   }
 
+  getMinPostponeDate(currentExpirationDate: string) {
+    const currDate = new Date(currentExpirationDate);
+    var minDate = new Date();
+    minDate.setDate(minDate.getDate() + 91);
+    return currDate > minDate ? minDate : currDate;
+  }
+
   getPostponeDate(ttl: number): Date {
     const date = new Date();
     date.setDate(date.getDate() + ttl + 1);
