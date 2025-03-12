@@ -19,6 +19,18 @@ class TestAPI(TestGL):
         yield tw(db_update_enabled_languages, 1, ['en', 'ar', 'it'], 'en')
         yield refresh_tenant_cache()
 
+    def test_resolve_handler(self):
+        testcases = [
+            ('/api/public', api.public.PublicResource),
+            ('/index.html', api.staticfile.StaticFileHandler),
+            ('/l10n/en', api.l10n.L10NHandler),
+            ('/api/signup/cHa6qFmw89vyzOsY8JZjcKaBzXYWuZNMbiDwlYcCVYmIfLTBi0re_rzttIwcunEt', api.signup.SignupActivation)
+        ]
+
+        for testcase in testcases:
+            match, handler = self.api.resolve_handler(testcase[0])
+            self.assertEqual(handler, testcase[1])
+
     def test_api_spec(self):
         for spec in api.api_spec:
             check_roles = getattr(spec[1], 'check_roles')
