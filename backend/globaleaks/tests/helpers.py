@@ -695,6 +695,11 @@ class TestGL(unittest.TestCase):
         context = yield get_context(1, context_id, 'en')
         answers = yield self.fill_random_answers(context['questionnaire_id'])
 
+        if self.clientside_hashing:
+            receipt = GCE.derive_key(GCE.generate_receipt(), VALID_SALT)
+        else:
+            receipt = GCE.generate_receipt()
+
         returnValue({
             'context_id': context_id,
             'receivers': context['receivers'],
@@ -702,7 +707,7 @@ class TestGL(unittest.TestCase):
             'identity_provided': False,
             'score': 0,
             'answers': answers,
-            'receipt': GCE.derive_key(GCE.generate_receipt(), VALID_SALT)
+            'receipt': receipt
         })
 
     def get_dummy_attachment(self, name=None, content=None):
@@ -794,7 +799,7 @@ class TestGLWithPopulatedDB(TestGL):
 
     @transact
     def mock_users_keys(self, session):
-        OLD_USER_KEY, OLD_USER_KEY_HASH = GCE.calculate_key_and_hash_deprecated(VALID_PASSWORD, VALID_SALT)
+        OLD_USER_KEY, OLD_USER_KEY_HASH = GCE.calculate_key_and_hash(VALID_PASSWORD, VALID_SALT)
         OLD_USER_PRV_KEY_ENC = Base64Encoder.encode(GCE.symmetric_encrypt(OLD_USER_KEY, USER_PRV_KEY))
 
         session.query(models.Config).filter(models.Config.tid == 1, models.Config.var_name == 'receipt_salt').one().value = VALID_SALT
@@ -877,6 +882,8 @@ class TestGLWithPopulatedDB(TestGL):
     @inlineCallbacks
     def perform_submission_actions(self, session_id):
         receipt = GCE.generate_receipt()
+        if self.clientside_hashing:
+            receipt = GCE.derive_key(receipt, VALID_SALT)
 
         session = Sessions.get(session_id)
 
@@ -886,13 +893,9 @@ class TestGLWithPopulatedDB(TestGL):
         self.dummySubmission['answers'] = yield self.fill_random_answers(self.dummyContext['questionnaire_id'])
         self.dummySubmission['score'] = 0
         self.dummySubmission['removed_files'] = []
-        self.dummySubmission['receipt'] = GCE.derive_key(receipt, VALID_SALT)
+        self.dummySubmission['receipt'] = receipt
 
         itip_id = yield create_submission(1, self.dummySubmission, session, True, False)
-
-        if not self.clientside_hashing:
-            self.dummySubmission['receipt'] = yield self.mock_first_receipt_with_old_receipt(itip_id, receipt)
-
 
     @inlineCallbacks
     def perform_post_submission_actions(self):
@@ -961,7 +964,7 @@ class TestHandler(TestGLWithPopulatedDB):
         return TestGL.setUp(self)
 
     def request(self, body='', uri=b'https://www.globaleaks.org/',
-                user_id=None, role=None, multilang=False, headers=None, token=False, permissions=None,
+                user_id=None, role=None, multilang=False, headers=None, token=False, permissions=None, properties=None,
                 client_addr=b'127.0.0.1',
                 handler_cls=None, attachment=None,
                 args=None, kwargs=None):
@@ -998,6 +1001,9 @@ class TestHandler(TestGLWithPopulatedDB):
 
             if permissions:
                 session.permissions = permissions
+
+            if properties:
+                session.properties.update(properties)
 
             headers[b'x-session'] = session.id
 

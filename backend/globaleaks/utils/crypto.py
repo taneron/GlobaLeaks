@@ -230,7 +230,7 @@ class _GCE(object):
         return _GCE.argon2id(password, salt, _GCE.options['OPSLIMIT'], 1 << _GCE.options['MEMLIMIT'])
 
     @staticmethod
-    def calculate_key_and_hash_deprecated(password: Union[bytes, str], salt: str) -> Tuple[bytes, bytes]:
+    def calculate_key_and_hash(password: Union[bytes, str], salt: str) -> Tuple[bytes, bytes]:
         """
         Calculate and returns password key derivation and key hashing
         """

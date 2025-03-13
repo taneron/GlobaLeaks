@@ -1,7 +1,9 @@
 from twisted.internet.defer import inlineCallbacks
 
+from globaleaks.handlers import auth
 from globaleaks.handlers.whistleblower import wbtip
 from globaleaks.jobs.delivery import Delivery
+from globaleaks.rest import errors
 from globaleaks.tests import helpers
 
 
@@ -88,3 +90,55 @@ class WBTipIdentityHandler(helpers.TestHandlerWithPopulatedDB):
             handler = self.request(body, role='whistleblower', user_id=wbtip_desc['id'])
 
             yield handler.post()
+
+
+class TestOperationChangeReceipt(helpers.TestHandlerWithPopulatedDB):
+    @inlineCallbacks
+    def setUp(self):
+        yield helpers.TestHandlerWithPopulatedDB.setUp(self)
+        yield self.perform_full_submission_actions()
+
+    @inlineCallbacks
+    def test_put(self):
+        old_receipt = self.dummySubmission['receipt']
+        print(self.dummySubmission['receipt'])
+        new_receipt = '1234123412341234'
+
+        # 1. Verify the old receipt works
+        self._handler = auth.ReceiptAuthHandler
+
+        handler = self.request({
+            'receipt': old_receipt
+        })
+
+        response = yield handler.post()
+        self.assertTrue('id' in response)
+
+        # 2. Change the receipt
+        self._handler = wbtip.Operations
+
+        session_properties = {
+            'new_receipt': new_receipt
+        }
+
+        body = {
+          'operation': 'change_receipt',
+          'args': {}
+        }
+
+        wbtip_desc = (yield self.get_wbtips())[0]
+        handler = self.request(body, role='whistleblower', user_id=wbtip_desc['id'], properties=session_properties)
+        yield handler.put()
+
+        # 3. Verify the new receipt works
+        self._handler = auth.ReceiptAuthHandler
+        handler = self.request({
+            'receipt': new_receipt
+        })
+
+        response = yield handler.post()
+        self.assertTrue('id' in response)
+
+
+class TestOperationChangeReceiptServersideHashing(TestOperationChangeReceipt):
+    clientside_hashing = False

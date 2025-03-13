@@ -159,7 +159,7 @@ def db_create_receivertip(session, receiver, internaltip, tip_key):
 def db_create_submission(session, tid, request, user_session, client_using_tor, client_using_mobile):
     encryption = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'encryption'))
 
-    crypto_is_available = encryption.value
+    crypto_is_available = State.tenants[tid].cache.encryption
 
     context, questionnaire = db_get(session,
                                     (models.Context, models.Questionnaire),
@@ -228,14 +228,11 @@ def db_create_submission(session, tid, request, user_session, client_using_tor, 
 
     receipt = request['receipt']
 
-    if not session.query(exists().where(and_(models.InternalTip.tid == tid, func.length(models.InternalTip.receipt_hash) < 64))).scalar():
+    if len(receipt) == 44:
         key = Base64Encoder.decode(receipt.encode())
-        hash = sha256(key).decode()
+        itip.receipt_hash = sha256(key).decode()
     else:
-        salt = db_get(session, models.Config, (models.Config.tid == tid, models.Config.var_name == 'salt')).value
-        key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
-
-    itip.receipt_hash = hash
+        key, itip.receipt_hash = GCE.calculate_key_and_hash(receipt, State.tenants[tid].cache.receipt_salt)
 
     session.add(itip)
     session.flush()

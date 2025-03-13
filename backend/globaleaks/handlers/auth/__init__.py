@@ -73,7 +73,7 @@ def login_whistleblower(session, tid, receipt, client_using_tor, operator_id=Non
             hash = sha256(key).decode()
         else:
             salt = ConfigFactory(session, tid).get_val('receipt_salt')
-            key, hash = GCE.calculate_key_and_hash_deprecated(receipt, salt)
+            key, hash = GCE.calculate_key_and_hash(receipt, salt)
     except:
         db_login_failure(session, tid, 0)
 
@@ -138,7 +138,7 @@ def login(session, tid, username, password, authcode, client_using_tor, client_i
             key = Base64Encoder.decode(password.encode())
             hash = sha256(key).decode()
         else:
-            key, hash = GCE.calculate_key_and_hash_deprecated(password, user.salt)
+            key, hash = GCE.calculate_key_and_hash(password, user.salt)
     except:
         db_login_failure(session, tid, 0)
 
