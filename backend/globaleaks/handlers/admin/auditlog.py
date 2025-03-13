@@ -60,7 +60,7 @@ def get_tips(session, tid):
                                  .group_by(models.ReceiverTip.internaltip_id):
         receiver_count_by_itip[itip_id] = count
 
-    for itip in session.query(models.InternalTip).filter(models.InternalTip.tid == tid):
+    for itip in session.query(models.InternalTip).filter(models.InternalTip.tid == tid).order_by(models.InternalTip.progressive.desc()):
         tips.append({
             'id': itip.id,
             'progressive': itip.progressive,
