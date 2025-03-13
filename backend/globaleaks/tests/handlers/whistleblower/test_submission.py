@@ -60,3 +60,7 @@ class TestSubmission(helpers.TestHandlerWithPopulatedDB):
         wbtip_desc, _ = yield wbtip.get_wbtip(session.user_id, 'en')
 
         self.assertTrue('data' in wbtip_desc)
+
+
+class TestSubmissionServersideHashing(TestSubmission):
+    clientside_hashing = False
