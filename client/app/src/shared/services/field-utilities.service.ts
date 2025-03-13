@@ -209,7 +209,7 @@ export class FieldUtilitiesService {
               }
 
               if (scope.submissionService && option.trigger_receiver.length) {
-                scope.submissionService.override_receivers = scope.submissionService.override_receivers.concat(option.trigger_receiver);
+                scope.submissionService.override_receivers = option.trigger_receiver;
               }
             }
           }
