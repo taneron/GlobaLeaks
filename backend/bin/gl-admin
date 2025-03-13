@@ -145,8 +145,7 @@ def reset_password(args):
 
     password = generateRandomPassword(16)
     user_salt = GCE.generate_salt()
-    user_hash = GCE.hash_password(password, user_salt)
-    user_enc_key = GCE.derive_key(password.encode(), user_salt)
+    user_enc_key, user_hash = GCE.calculate_key_and_hash(password, user_salt)
 
     QUERY = "SELECT id, salt, hash, crypto_prv_key, crypto_escrow_prv_key FROM user WHERE tid=? AND username=?"
     c.execute(QUERY, (args.tid, admin_username))
@@ -158,7 +157,8 @@ def reset_password(args):
 
     admin_id, admin_salt, admin_hash, admin_crypto_prv_key, admin_crypto_escrow_prv_key = admin_user[0], admin_user[1], admin_user[2], admin_user[3], admin_user[4]
 
-    if not GCE.check_password(admin_password, admin_salt, admin_hash):
+    _, check_hash = GCE.calculate_key_and_hash(admin_password, admin_salt)
+    if not GCE.check_equality(admin_hash, check_hash):
         print("Failed! Invalid password")
         sys.exit(1)
 
@@ -226,7 +226,8 @@ def disable_2fa(args):
 
     admin_id, admin_salt, admin_hash = admin_user[0], admin_user[1], admin_user[2]
 
-    if not GCE.check_password(admin_password, admin_salt, admin_hash):
+    _, check_hash = GCE.calculate_key_and_hash(admin_password, admin_salt)
+    if not GCE.check_equality(admin_hash, check_hash):
         print("Failed! Invalid password")
         sys.exit(1)
 
