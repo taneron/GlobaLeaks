@@ -40,7 +40,7 @@
 # onlurking <diogo2fex@gmail.com>, 2015
 # Rodrigo Tudeschini <tudsystem@yahoo.com.br>, 2014
 # Rodrigo Tudeschini <tudsystem@yahoo.com.br>, 2014
-# Tulio Simoes Martins Padilha <tuliouel@gmail.com>, 2014-2015
+# Tulio Simoes Martins Padilha <appsdotulio@gmx.com>, 2014-2015
 # Welington Silva <welington.manoels@gmail.com>, 2015
 msgid ""
 msgstr ""

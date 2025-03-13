@@ -9,7 +9,7 @@
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2018-2022,2024
 # b33a4006134bb6ee62b30fc0fac5cec6, 2016
 # Joan Bitlloch <joanbit@gmail.com>, 2017
-# José Javier Alamá Izquierdo, 2022-2024
+# José Javier Alamá Izquierdo, 2022-2025
 # Josep Anton Rius <j.rius.cat@gmail.com>, 2016
 # Maddish Falzoni <maddish@xnet-x.net>, 2016
 # Manuel D. Serrat <manuel.serrat@antifraucv.es>, 2018-2019
@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: José Javier Alamá Izquierdo, 2022-2024\n"
+"Last-Translator: José Javier Alamá Izquierdo, 2022-2025\n"
 "Language-Team: Catalan (Valencian) (http://app.transifex.com/otf/globaleaks/language/ca@valencia/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -542,7 +542,7 @@ msgid "Force password change"
 msgstr "Força un canvi de contrasenya"
 
 msgid "Forcefully selected"
-msgstr "Obligatòriament seleccionats"
+msgstr "Seleccionat automàticament"
 
 msgid "Forgot password?"
 msgstr "Ha oblidat la contrasenya?"
