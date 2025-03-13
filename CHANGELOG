@@ -1,3 +1,7 @@
+Changes in version 5.0.60
+    Correct fix included in 5.0.9 correcting regression introduced in 5.0.58 preventing submission of new reports
+    Fix receipt change handler for recipient assisted submissions
+
 Changes in version 5.0.59
     Fix interface indicating the minimum valid date for report expiration date change broken since version 5
     Fix icons on datepicker selector in releation to #4345
