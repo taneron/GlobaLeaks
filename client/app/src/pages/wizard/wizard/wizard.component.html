@@ -168,7 +168,7 @@
                         </label>
                         <div class="col-md-8">
                           <input id="receiver_username" name="receiver_username" class="form-control" [(ngModel)]="wizard.receiver_username" autocomplete="off" type="text" placeholder="{{'Username' | translate}}" [ngClass]="{'is-invalid': recipientDuplicate}" required>
-                          @if (recipientDuplicate && wizard.receiver_username === wizard.admin_username) {
+                          @if (wizard.receiver_username === wizard.admin_username) {
                             <div class="text-danger">
                               <span>{{'Please choose a different username.'|translate}}</span>
                             </div>
@@ -244,7 +244,7 @@
                     <i class="fa-solid fa-arrow-circle-left"></i>
                     <span>{{'Previous'|translate}}</span>
                   </button>
-                  <button class="ButtonNext btn btn-primary" (click)="(validation.step5 = true) && validation.step4 && (receiver_password === receiver_check_password) && (wizard.skip_recipient_account_creation || !(wizardFormStep5.invalid || (validateDuplicateRecipient()))) && (step = 6)">
+                  <button class="ButtonNext btn btn-primary" (click)="(validation.step5 = true) && (wizard.skip_recipient_account_creation || (!wizardFormStep5.invalid && wizard.receiver_username !== wizard.admin_username && receiver_password === receiver_check_password)) && (step = 6)">
                     <span>{{'Next'|translate}}</span>
                     <i class="fa-solid fa-arrow-circle-right"></i>
                   </button>

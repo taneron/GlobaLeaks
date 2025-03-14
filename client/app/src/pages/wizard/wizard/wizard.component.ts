@@ -111,11 +111,6 @@ export class WizardComponent implements OnInit {
     );
   }
 
-  validateDuplicateRecipient() {
-    this.recipientDuplicate = this.wizard.receiver_username === this.wizard.admin_username;
-    return this.recipientDuplicate;
-  }
-
   goToAdminInterface() {
     const promise = () => {
       this.translationService.onChange(this.translationService.language);
