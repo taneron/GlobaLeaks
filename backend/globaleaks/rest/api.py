@@ -156,9 +156,9 @@ api_spec = [
     ('/l10n/', l10n.L10NHandler, r'/l10n/(' + '|'.join(LANGUAGES_SUPPORTED_CODES) + ')'),
 
     # Path alias
-    ('/admin', redirect.SpecialRedirectHandler),
-    ('/login', redirect.SpecialRedirectHandler),
-    ('/submission', redirect.SpecialRedirectHandler),
+    ('/admin', redirect.SpecialRedirectHandler, r'(/admin)'),
+    ('/login', redirect.SpecialRedirectHandler, r'(/login)'),
+    ('/submission', redirect.SpecialRedirectHandler, r'(/submission)'),
 ]
 
 # Extend the tuples in the API spec that have 2 elements with None
