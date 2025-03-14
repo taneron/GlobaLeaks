@@ -1,3 +1,9 @@
+Changes in version 5.0.62
+    Correct validation of wizard form causing failures in relation to input processing of firefox
+    Rewrite code in rest/api.py for better understanding
+    Correct implementation of redirect handlers for /admin /login and /submission
+    Bump client dependencies to latests version
+
 Changes in version 5.0.61
     Correct gl-admin script in relation to password and 2fa resets
 
