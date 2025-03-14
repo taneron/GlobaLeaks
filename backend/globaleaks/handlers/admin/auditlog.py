@@ -90,21 +90,6 @@ class TipsCollection(BaseHandler):
         return get_tips(self.request.tid)
 
 
-class RecentEventsCollection(BaseHandler):
-    """
-    This handler is refreshed constantly by an admin page
-    and provide real time update about the GlobaLeaks status
-    """
-    check_roles = 'admin'
-
-    def get(self):
-        templist = [e.serialize() for e in State.tenants[self.request.tid].EventQ]
-
-        templist.sort(key=operator.itemgetter('creation_date'))
-
-        return templist
-
-
 class JobsTiming(BaseHandler):
     """
     This handler return the timing for the latest scheduler execution
