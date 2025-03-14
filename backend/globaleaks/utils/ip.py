@@ -7,6 +7,10 @@ def parse_csv_ip_ranges_to_ip_networks(ip_str):
     :param ip_str: the string of comma separated IP
     :return: the list of parsed IPs
     """
+    # Handle empty input
+    if not ip_str:
+        return []
+
     # strip all white spaces
     ip_str = "".join(ip_str.split())
 

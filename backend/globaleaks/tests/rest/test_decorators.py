@@ -38,8 +38,7 @@ class TestDecorators(unittest.TestCase):
     @defer.inlineCallbacks
     def test_decorator_rate_limit(self, mock_sleep):
         @decorator_rate_limit
-        def test_func(self):
-            return defer.succeed("Allowed")
+        def test_func(self): return defer.succeed("Allowed")
 
         self.session.role = "whistleblower"
 
@@ -59,8 +58,7 @@ class TestDecorators(unittest.TestCase):
 
     def test_decorator_require_session_or_token(self):
         @decorator_require_session_or_token
-        def test_func(self):
-            return "Authenticated"
+        def test_func(self): return "Authenticated"
 
         self.session = None
         self.request.token = None

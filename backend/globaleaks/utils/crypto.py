@@ -64,9 +64,6 @@ def generateRandomPassword(N: int) -> str:
        Contains at least an uppercase ascii letter
        Contains at least a symbol in a selction of 10 common and accessible symbols
     """
-    if N < 10:
-        N = 10
-
     accessible_special_symbols = "!?@#+-/*="
     accessible_symbols_set = string.ascii_letters + string.digits + accessible_special_symbols
 

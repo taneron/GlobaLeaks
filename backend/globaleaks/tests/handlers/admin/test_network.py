@@ -1,3 +1,5 @@
+import copy
+
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks.handlers.admin import network
@@ -6,6 +8,7 @@ from globaleaks.tests import helpers
 
 class TestNetworkInstance(helpers.TestHandlerWithPopulatedDB):
     _handler = network.NetworkInstance
+
 
     @inlineCallbacks
     def test_get(self):
@@ -18,9 +21,12 @@ class TestNetworkInstance(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_put(self):
-        self.dummyNetwork['anonymize_outgoing_connection'] = True
+        config = copy.deepcopy(self.dummyNetwork)
+        config['ip_filter_custodian_enable'] = True
+        config['ip_filter_custodian'] = '10.0.0.0/24'
+        config['anonymize_outgoing_connection'] = True
 
-        handler = self.request(self.dummyNetwork, role='admin')
+        handler = self.request(config, role='admin')
         response = yield handler.put()
 
         self.assertTrue(isinstance(response, dict))

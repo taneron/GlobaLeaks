@@ -459,7 +459,7 @@ def check_confirmation(self):
 BaseHandler.check_confirmation = check_confirmation
 
 
-def forge_request(uri=b'https://www.globaleaks.org/',
+def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
                   headers=None, body='', args=None, client_addr=b'127.0.0.1', method=b'GET'):
     """
     Creates a twisted.web.Request compliant request that is from an external
@@ -481,7 +481,7 @@ def forge_request(uri=b'https://www.globaleaks.org/',
     args = args if args is not None else {}
 
     request = DummyRequest([b''])
-    request.tid = 1
+    request.tid = tid
     request.method = method
     request.uri = uri
     request.path = path
@@ -505,11 +505,7 @@ def forge_request(uri=b'https://www.globaleaks.org/',
     request.isSecure = isSecure
 
     def getResponseBody():
-        # Ugh, hack. Twisted returns this all as bytes, and we want it as str
-        if isinstance(request.written[0], bytes):
-            return b''.join(request.written)
-        else:
-            return ''.join(request.written)
+        return b''.join(request.written) if isinstance(request.written[0], bytes) else ''.join(request.written)
 
     request.getResponseBody = getResponseBody
 
@@ -715,8 +711,8 @@ class TestGL(unittest.TestCase):
 
     def get_dummy_redirect(self, x=''):
         return {
-            'path1': '/path1-' + x,
-            'path2': '/path2-' + x
+            'path1': '/old' + x,
+            'path2': '/new' + x
         }
 
     def emulate_file_upload(self, session, n):
@@ -939,10 +935,6 @@ class TestGLWithPopulatedDB(TestGL):
         date = datetime_now() + timedelta(hours=self.state.tenants[1].cache.notification.tip_expiration_threshold - 1)
         session.query(models.InternalTip).update({'expiration_date': date})
 
-    @transact
-    def set_contexts_timetolive(self, session, ttl):
-        session.query(models.Context).update({'tip_timetolive': ttl})
-
 
 class TestHandler(TestGLWithPopulatedDB):
     """
@@ -963,7 +955,7 @@ class TestHandler(TestGLWithPopulatedDB):
     def setUp(self):
         return TestGL.setUp(self)
 
-    def request(self, body='', uri=b'https://www.globaleaks.org/',
+    def request(self, body='', uri=b'https://www.globaleaks.org/', tid=1,
                 user_id=None, role=None, multilang=False, headers=None, token=False, permissions=None, properties=None,
                 client_addr=b'127.0.0.1',
                 handler_cls=None, attachment=None,
@@ -997,7 +989,7 @@ class TestHandler(TestGLWithPopulatedDB):
             if role == 'whistlebower':
                 session = initialize_submission_session(1)
             else:
-                session = Sessions.new(1, user_id, 1, role, USER_PRV_KEY, USER_ESCROW_PRV_KEY if role == 'admin' else '')
+                session = Sessions.new(tid, user_id, 1, role, USER_PRV_KEY, USER_ESCROW_PRV_KEY if role == 'admin' else '')
 
             if permissions:
                 session.permissions = permissions
@@ -1018,7 +1010,8 @@ class TestHandler(TestGLWithPopulatedDB):
                                 args=args,
                                 body=body,
                                 client_addr=client_addr,
-                                method=b'GET')
+                                method=b'GET',
+                                tid=tid)
 
         x = api.APIResourceWrapper()
 
@@ -1037,12 +1030,6 @@ class TestHandler(TestGLWithPopulatedDB):
             handler.uploaded_file = attachment if attachment else self.get_dummy_attachment()
 
         return handler
-
-    def ss_serial_desc(self, safe_set, request_desc):
-        """
-        Constructs a request_dec parser of a handler that uses a safe_set in its serialization
-        """
-        return {k: v for k, v in request_desc.items() if k in safe_set}
 
     def get_dummy_request(self):
         return self._test_desc['model']().dict(u'en')

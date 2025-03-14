@@ -5,13 +5,6 @@ from globaleaks.models import Redirect
 from globaleaks.orm import tw
 from globaleaks.tests import helpers
 
-def get_dummy_redirect_desc():
-    return {
-        'path1': '/old',
-        'path2': '/new'
-    }
-
-
 class TestRedirectCollection(helpers.TestHandlerWithPopulatedDB):
     _handler = RedirectCollection
 
@@ -29,7 +22,7 @@ class TestRedirectCollection(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_post(self):
-        handler = self.request(get_dummy_redirect_desc(), role='admin')
+        handler = self.request(self.get_dummy_redirect(), role='admin')
         redirect = yield handler.post()
 
         self.assertEqual(redirect['path1'], '/old')
@@ -37,7 +30,7 @@ class TestRedirectCollection(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def _create_redirect(self):
-        handler = self.request(get_dummy_redirect_desc(), role='admin')
+        handler = self.request(self.get_dummy_redirect(), role='admin')
         return (yield handler.post())
 
 
