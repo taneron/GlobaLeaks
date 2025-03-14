@@ -233,18 +233,18 @@ class APIResourceWrapper(Resource):
         self.handler = None
 
         for prefix, handler, regexp in api_spec:
+            if not hasattr(handler, '_decorated'):
+                handler._decorated = True
+                for m in ['delete', 'get', 'put', 'post']:
+                    # head and options method are intentionally not considered here
+                    if hasattr(handler, m):
+                        decorators.decorate_method(handler, m)
+
             if not regexp.startswith("^"):
                 regexp = "^" + regexp
 
             if not regexp.endswith("$"):
                 regexp += "$"
-
-            if not hasattr(handler, '_decorated'):
-                handler._decorated = True
-                for m in ['delete', 'get', 'put', 'post']:
-                    # head and options method is intentionally not considered here
-                    if hasattr(handler, m):
-                        decorators.decorate_method(handler, m)
 
             self.registry.insert(prefix, re.compile(regexp), handler)
 
