@@ -19,8 +19,8 @@
         "@flowjs/flow.js": "2.14.1",
         "@flowjs/ngx-flow": "19.0.0",
         "@fontsource-variable/inter": "5.2.5",
-        "@fontsource-variable/noto-sans": "5.2.5",
-        "@fontsource-variable/noto-sans-arabic": "5.2.5",
+        "@fontsource-variable/noto-sans": "5.2.6",
+        "@fontsource-variable/noto-sans-arabic": "5.2.6",
         "@fontsource-variable/noto-sans-armenian": "5.2.5",
         "@fontsource-variable/noto-sans-bengali": "5.2.5",
         "@fontsource-variable/noto-sans-ethiopic": "5.2.5",
@@ -41,7 +41,7 @@
         "@ng-bootstrap/ng-bootstrap": "18.0.0",
         "@ng-idle/core": "16.0.0",
         "@ng-idle/keepalive": "16.0.0",
-        "@ng-select/ng-select": "14.2.3",
+        "@ng-select/ng-select": "14.2.4",
         "@ngx-translate/core": "16.0.4",
         "@ngx-translate/http-loader": "16.0.1",
         "@types/angular": "1.8.9",
@@ -3841,18 +3841,18 @@
       }
     },
     "node_modules/@fontsource-variable/noto-sans": {
-      "version": "5.2.5",
-      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans/-/noto-sans-5.2.5.tgz",
-      "integrity": "sha512-eH6AxZEtLAq7AaqDK642UnIu/dsfNPkgUdDxX8aGGFOhw4h+J1MpWxk03sehzQvxgXw2lCprmoz0AFfvSpYNYQ==",
+      "version": "5.2.6",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans/-/noto-sans-5.2.6.tgz",
+      "integrity": "sha512-50Fqbqxctchje/HIbzNMy3h8RATVyQY3BkjPeUNvKIq2vKTOR5KxF728kpDT9CZInEyPtfAGy80ex/omLAxz1A==",
       "license": "OFL-1.1",
       "funding": {
         "url": "https://github.com/sponsors/ayuhito"
       }
     },
     "node_modules/@fontsource-variable/noto-sans-arabic": {
-      "version": "5.2.5",
-      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-arabic/-/noto-sans-arabic-5.2.5.tgz",
-      "integrity": "sha512-MI7SUMSfuMtmD4MwlDEMycKeYxMIpif0RzmA+zLeCpNNPNoxUj5iYuCf+gercfLfyYLzK69q9iEoLPb8AZDxQQ==",
+      "version": "5.2.6",
+      "resolved": "https://registry.npmjs.org/@fontsource-variable/noto-sans-arabic/-/noto-sans-arabic-5.2.6.tgz",
+      "integrity": "sha512-QiIdYa4LRch56hL9S44wFnsKd8otNblWUmSQ/inc8iPzpXKchR24e5TklgmbOj6pcfE5GUavtTilbDJJfIIO6Q==",
       "license": "OFL-1.1",
       "funding": {
         "url": "https://github.com/sponsors/ayuhito"
@@ -5488,9 +5488,9 @@
       }
     },
     "node_modules/@ng-select/ng-select": {
-      "version": "14.2.3",
-      "resolved": "https://registry.npmjs.org/@ng-select/ng-select/-/ng-select-14.2.3.tgz",
-      "integrity": "sha512-z/YbMfxJfMn1uAGbahaANb/0TlVRxuuvOJm9o0n9kTPv3gpF09Z4NrK0K/KC1yljsiYip6iUH5LlLIqD66L/tg==",
+      "version": "14.2.4",
+      "resolved": "https://registry.npmjs.org/@ng-select/ng-select/-/ng-select-14.2.4.tgz",
+      "integrity": "sha512-JU/mO+mBtbb6SGNMGSNbxyTt156ew7QXtluYqv+1Kf1WUXAdn19ZX5gIKXqkELXvyR+H956u82JVfSMuy+gkhQ==",
       "license": "MIT",
       "dependencies": {
         "tslib": "^2.3.1"
