@@ -1,3 +1,8 @@
+Changes in version 5.0.63
+    Revise markdown sanitization functions fixinng processin for images and addition of target blank attribute
+    Fix issue #4435
+    Bump client dependencies to latest version
+
 Changes in version 5.0.62
     Correct validation of wizard form causing failures in relation to input processing of firefox
     Rewrite code in rest/api.py for better understanding
