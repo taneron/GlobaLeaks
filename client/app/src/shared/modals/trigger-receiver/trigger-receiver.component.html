@@ -25,7 +25,7 @@
                 <i class="fa-solid fa-times"></i>
               </span>
             </span>
-            <span>{{ admin_receivers_by_id[user]?.name || "-" }}</span>
+            <span>{{ (admin_receivers_by_id[user] || {}).name || "-" }}</span>
           </li>
         }
       </ol>
