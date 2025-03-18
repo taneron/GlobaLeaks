@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 @Pipe({
     name: "stripHtml",
@@ -7,8 +7,7 @@ import * as DOMPurify from 'dompurify';
 })
 export class StripHtmlPipe implements PipeTransform {
 
-  transform(value: string): string {
-    // Use DOMPurify to sanitize input
-    return (DOMPurify as any).default.sanitize(value, {ALLOWED_TAGS: [], ALLOWED_ATTR: []});
+  transform(input: string): string {
+    return (DOMPurify.sanitize(input, {ALLOWED_TAGS: [], ALLOWED_ATTR: []}) as unknown) as string;
   }
 }

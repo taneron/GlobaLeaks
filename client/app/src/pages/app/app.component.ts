@@ -30,6 +30,8 @@ import {CryptoService} from "@app/shared/services/crypto.service";
 import {HttpService} from "@app/shared/services/http.service";
 import {BodyDomObserverService} from "@app/shared/services/body-dom-observer.service";
 import {Keepalive} from "@ng-idle/keepalive";
+import DOMPurify from 'dompurify';
+
 registerLocales();
 
 export function createTranslateLoader(http: HttpClient) {
@@ -135,6 +137,16 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   }
 
   ngOnInit() {
+    DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+      const href = node.getAttribute('href') || '';
+      const url = new URL(href, window.location.origin);
+
+      // Ensure only external links are modified
+      if (url.origin !== window.location.origin) {
+        node.setAttribute('target', '_blank');
+      }
+    });
+
     this.appConfig.routeChangeListener();
     this.checkToShowSidebar();
   }
