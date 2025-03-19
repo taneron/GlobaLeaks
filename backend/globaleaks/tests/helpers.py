@@ -28,8 +28,8 @@ from globaleaks.db.appdata import load_appdata
 from globaleaks.orm import transact, tw
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.handlers.admin.context import create_context, get_context
-from globaleaks.handlers.admin.field import db_create_field
-from globaleaks.handlers.admin.questionnaire import db_get_questionnaire
+from globaleaks.handlers.admin.field import create_field, db_create_field
+from globaleaks.handlers.admin.questionnaire import db_get_questionnaire, create_questionnaire
 from globaleaks.handlers.admin.step import db_create_step
 from globaleaks.handlers.admin.tenant import create as create_tenant, db_wizard
 from globaleaks.handlers.admin.user import create_user
@@ -184,7 +184,7 @@ def get_dummy_step():
     }
 
 
-def get_dummy_field():
+def get_dummy_field(type='checkbox'):
     return {
         'id': '',
         'instance': 'template',
@@ -194,7 +194,7 @@ def get_dummy_field():
         'fieldgroup_id': '',
         'label': 'antani',
         'placeholder': '',
-        'type': 'checkbox',
+        'type': type,
         'description': 'field description',
         'hint': 'field hint',
         'multi_entry': False,
@@ -276,13 +276,18 @@ class MockDict:
             'contexts': []
         }
 
+        self.dummyQuestionnaire = {
+            'id': 'test',
+            'name': 'test'
+        }
+
         self.dummyContext = {
             'id': '',
             'name': 'Already localized name',
             'description': 'Already localized desc',
             'order': 0,
             'receivers': [],
-            'questionnaire_id': 'default',
+            'questionnaire_id': 'test',
             'additional_questionnaire_id': '',
             'select_all_receivers': True,
             'tip_timetolive': 20,
@@ -601,6 +606,7 @@ class TestGL(unittest.TestCase):
         self.dummyWizard = dummyStuff.dummyWizard
         self.dummySignup = dummyStuff.dummySignup
         self.dummyNetwork = dummyStuff.dummyNetwork
+        self.dummyQuestionnaire = dummyStuff.dummyQuestionnaire
         self.dummyContext = dummyStuff.dummyContext
         self.dummySubmission = dummyStuff.dummySubmission
         self.dummyAdmin = self.get_dummy_user('admin', 'admin')
@@ -643,18 +649,23 @@ class TestGL(unittest.TestCase):
         return {**new_r, **new_u}
 
     def fill_random_field_recursively(self, answers, field):
-        field_type = field['type']
+        value = {'value': ''}
 
+        field_type = field['type']
         if field_type == 'checkbox':
             value = {}
             for option in field['options']:
                 value[option['id']] = 'True'
-        elif field_type == 'selectbox':
+        elif field_type == 'selectbox' or field_type == 'multichoice':
             value = {'value': field['options'][0]['id']}
         elif field_type == 'date':
             value = {'value': datetime_now()}
+        elif field_type == 'daterange':
+            value = {'value': '1741734000000:1742425200000'}
         elif field_type == 'tos':
             value = {'value': 'True'}
+        elif field_type == 'fileupload' or field_type == 'voice':
+            pass
         elif field_type == 'fieldgroup':
             value = {}
             for child in field['children']:
@@ -781,7 +792,6 @@ class TestGL(unittest.TestCase):
 
 
 class TestGLWithPopulatedDB(TestGL):
-    complex_field_population = False
     population_of_recipients = 2
     population_of_submissions = 2
     population_of_attachments = 2
@@ -837,21 +847,38 @@ class TestGLWithPopulatedDB(TestGL):
 
         yield self.mock_users_keys()
 
+        # fill_data/create 'test' questionnaire'
+        self.dummyQuestionnaire = yield create_questionnaire(1, None, self.dummyQuestionnaire, 'en')
+
+        # create a first step including every type of question
+        step = get_dummy_step()
+        step['questionnaire_id'] = self.dummyQuestionnaire['id']
+        step = yield tw(db_create_step, 1, step, 'en')
+        fieldgroup_id = ''
+        for t in models.field_types:
+            field = get_dummy_field(t)
+            field['step_id'] = step['id']
+            field = yield create_field(1, field, 'en')
+            if t == 'fieldgroup':
+                fieldgroup_id = field['id']
+
+        # create children fields for the fieldgroup created
+        for t in models.field_types:
+            field = get_dummy_field(t)
+            field['fieldgroup_id'] = fieldgroup_id
+            field = yield create_field(1, field, 'en')
+
+        # create a second step including the whistleblower identity question
+        step = get_dummy_step()
+        step['questionnaire_id'] = self.dummyQuestionnaire['id']
+        step = yield tw(db_create_step, 1, step, 'en')
+        yield self.add_whistleblower_identity_field_to_step(step['id'])
+
         # fill_data/create_context
         self.dummyContext['receivers'] = [self.dummyReceiver_1['id'], self.dummyReceiver_2['id']]
         self.dummyContext = yield create_context(1, None, self.dummyContext, 'en')
 
-        self.dummyQuestionnaire = yield tw(db_get_questionnaire, 1, self.dummyContext['questionnaire_id'], 'en')
-
-        self.dummyQuestionnaire['steps'].append(get_dummy_step())
-        self.dummyQuestionnaire['steps'][1]['questionnaire_id'] = self.dummyContext['questionnaire_id']
-        self.dummyQuestionnaire['steps'][1]['label'] = 'Whistleblower identity'
-        self.dummyQuestionnaire['steps'][1]['order'] = 1
-        self.dummyQuestionnaire['steps'][1] = yield tw(db_create_step, 1, self.dummyQuestionnaire['steps'][1], 'en')
-
-        if self.complex_field_population:
-            yield self.add_whistleblower_identity_field_to_step(self.dummyQuestionnaire['steps'][1]['id'])
-
+        # fill_data create_tenant
         for i in range(1, self.population_of_tenants):
             name = 'tenant-' + str(i+1)
             t = yield create_tenant({'mode': 'default', 'name': name, 'active': True, 'subdomain': name})

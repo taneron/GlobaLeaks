@@ -11,6 +11,21 @@ from globaleaks.models.properties import *
 from globaleaks.utils.utility import datetime_now, datetime_never, datetime_null
 
 
+field_types = [
+  'inputbox',
+  'textarea',
+  'selectbox',
+  'multichoice',
+  'checkbox',
+  'fileupload',
+  'tos',
+  'date',
+  'daterange',
+  'voice',
+  'fieldgroup'
+]
+
+
 class LocalizationEngine(object):
     """
     This Class can manage all the localized strings inside one ORM object

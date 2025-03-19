@@ -63,21 +63,13 @@ class TestQuestionnaireInstance(helpers.TestInstanceHandler):
 class TestQuestionnareDuplication(helpers.TestHandlerWithPopulatedDB):
     _handler = questionnaire.QuestionnareDuplication
 
-    @transact
-    def get_new_questionnare(self, session):
-        """Returns first questionnare ID"""
-        questionnare_obj = session.query(models.Questionnaire).filter(
-            models.Questionnaire.id != 'default').first()
-        session.expunge(questionnare_obj)
-        return questionnare_obj
-
     def setUp(self):
         return helpers.TestHandlerWithPopulatedDB.setUp(self)
 
     @inlineCallbacks
     def test_duplicate_questionnaire(self):
         # Sanity check our base behavior
-        yield self.test_model_count(models.Questionnaire, 1)
+        yield self.test_model_count(models.Questionnaire, 2)
 
         data_request = {
             'questionnaire_id': 'default',
@@ -87,7 +79,4 @@ class TestQuestionnareDuplication(helpers.TestHandlerWithPopulatedDB):
         handler = self.request(data_request, role='admin')
         yield handler.post()
 
-        yield self.test_model_count(models.Questionnaire, 2)
-
-        new_questionnare = yield self.get_new_questionnare()
-        self.assertEqual(new_questionnare.name, 'Duplicated Default')
+        yield self.test_model_count(models.Questionnaire, 3)

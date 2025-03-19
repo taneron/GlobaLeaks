@@ -6,7 +6,6 @@ from twisted.internet.defer import inlineCallbacks
 
 
 class TestExportHandler(helpers.TestHandlerWithPopulatedDB):
-    complex_field_population = True
     _handler = export.ExportHandler
 
     # All of the setup here is used by the templating that goes into the data.txt file.

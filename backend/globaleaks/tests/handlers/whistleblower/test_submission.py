@@ -12,8 +12,6 @@ from globaleaks.tests import helpers
 class TestSubmission(helpers.TestHandlerWithPopulatedDB):
     _handler = submission.SubmissionInstance
 
-    complex_field_population = True
-
     files_created = 6
 
     @inlineCallbacks

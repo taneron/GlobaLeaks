@@ -2,7 +2,6 @@ import copy
 
 from globaleaks import models
 from globaleaks.handlers import admin
-from globaleaks.handlers.admin.context import create_context
 from globaleaks.handlers.admin.field import create_field
 from globaleaks.orm import transact
 from globaleaks.rest import errors
@@ -25,8 +24,7 @@ class TestFieldCreate(helpers.TestHandler):
         """
         values = helpers.get_dummy_field()
         values['instance'] = 'instance'
-        context = yield create_context(1, None, self.dummyContext, 'en')
-        values['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        values['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
         handler = self.request(values, role='admin')
         response = yield handler.post()
         self.assertIn('id', response)
@@ -41,12 +39,10 @@ class TestFieldCreate(helpers.TestHandler):
         values['instance'] = 'template'
         field_template = yield create_field(1, values, 'en')
 
-        context = yield create_context(1, None, copy.deepcopy(self.dummyContext), 'en')
-
         values = helpers.get_dummy_field()
         values['instance'] = 'reference'
         values['template_id'] = field_template['id']
-        values['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        values['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
 
         handler = self.request(values, role='admin')
         response = yield handler.post()
@@ -64,14 +60,12 @@ class TestFieldInstance(helpers.TestHandler):
         """
         values = helpers.get_dummy_field()
         values['instance'] = 'instance'
-        context = yield create_context(1, None, copy.deepcopy(self.dummyContext), 'en')
-        values['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        values['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
         field = yield create_field(1, values, 'en')
 
         updated_sample_field = helpers.get_dummy_field()
         updated_sample_field['instance'] = 'instance'
-        context = yield create_context(1, None, copy.deepcopy(self.dummyContext), 'en')
-        updated_sample_field['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        updated_sample_field['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
         updated_sample_field.update(type=u'inputbox', options=[], x=3, y=3)
 
         handler = self.request(updated_sample_field, role='admin')
@@ -83,7 +77,7 @@ class TestFieldInstance(helpers.TestHandler):
 
         wrong_sample_field = helpers.get_dummy_field()
         values['instance'] = 'instance'
-        values['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        values['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
         wrong_sample_field.update(type='nonexistingfieldtype')
         handler = self.request(wrong_sample_field, role='admin')
 
@@ -96,8 +90,7 @@ class TestFieldInstance(helpers.TestHandler):
         """
         values = helpers.get_dummy_field()
         values['instance'] = 'instance'
-        context = yield create_context(1, None, copy.deepcopy(self.dummyContext), 'en')
-        values['step_id'] = yield get_id_of_first_step_of_questionnaire(context['questionnaire_id'])
+        values['step_id'] = yield get_id_of_first_step_of_questionnaire('default')
         field = yield create_field(1, values, 'en')
 
         handler = self.request(role='admin')
