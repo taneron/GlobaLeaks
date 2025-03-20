@@ -14,4 +14,5 @@ Todo
 	- [x] Allow html in footer for linking to custom pages
   - [x] Restyle
 
-| [main](https://github.com/globaleaks/GlobaLeaks/tree/main) | [![Build Status](https://travis-ci.com/globaleaks/GlobaLeaks.svg?branch=main)](https://app.travis-ci.com/github/globaleaks/GlobaLeaks) | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c09f1ec9607f4546924d19798a98dd7d)](https://www.codacy.com/gh/globaleaks/GlobaLeaks/dashboard) | [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c09f1ec9607f4546924d19798a98dd7d)](https://www.codacy.com/gh/globaleaks/GlobaLeaks/dashboard) | [![Build Status](https://readthedocs.org/projects/globaleaks/badge/?version=main&style=flat)](https://docs.globaleaks.org/en/main/)
+## Backup
+When making updates first backup the site [backup guide](https://docs.globaleaks.org/en/stable/user/admin/BackupAndRestore.html) and then run `sudo zip -r ~/backup.zip /var/globaleaks` and then copy that file to your local machine with `scp -i  ~/.ssh/id_rsa_vg admin@3.65.210.230:~/backup.zip  ~/Desktop/globaleaksbackup.zip`
