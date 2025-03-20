@@ -2,7 +2,7 @@ import copy
 
 from globaleaks import models
 from globaleaks.handlers import admin
-from globaleaks.handlers.admin.field import create_field
+from globaleaks.handlers.admin.field import create_field, delete_field
 from globaleaks.orm import transact
 from globaleaks.rest import errors
 from globaleaks.tests import helpers
@@ -48,6 +48,9 @@ class TestFieldCreate(helpers.TestHandler):
         response = yield handler.post()
         self.assertIn('id', response)
         self.assertNotEqual(response.get('options'), None)
+
+        # Ensure it is not possible to delete a template that is in use
+        yield self.assertFailure(delete_field(1, field_template['id']), errors.InputValidationError)
 
 
 class TestFieldInstance(helpers.TestHandler):
