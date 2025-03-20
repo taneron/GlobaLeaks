@@ -13,8 +13,6 @@ let pageCount = 0;
 
 
 function receiveMessage(evt) {
-  const pdfViewer = document.getElementById('pdf-viewer');
-  const mediaViewer = document.getElementById('media-viewer');
   const url = URL.createObjectURL(evt.data.blob);
 
   if (evt.data.tag === "pdf") {
