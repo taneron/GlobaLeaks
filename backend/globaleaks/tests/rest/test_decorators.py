@@ -85,8 +85,7 @@ class TestDecorators(unittest.TestCase):
         Cache.set(1, b"/test", "en", b"application/json", "cached_response")
 
         @decorator_cache_get
-        def test_func(self):
-            return defer.succeed({"message": "fresh_response"})
+        def test_func(self): return defer.succeed({"message": "fresh_response"})
 
         result = yield test_func(self)
         self.assertEqual(result, "cached_response")

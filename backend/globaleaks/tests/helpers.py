@@ -543,9 +543,6 @@ def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
 
             return ret
 
-        def close(self):
-            pass
-
     request.content = fakeBody()
 
     return request
@@ -1072,9 +1069,6 @@ class TestCollectionHandler(TestHandler):
 
     @inlineCallbacks
     def test_get(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1086,9 +1080,6 @@ class TestCollectionHandler(TestHandler):
 
     @inlineCallbacks
     def test_post(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         for k, v in self._test_desc['data'].items():
@@ -1117,9 +1108,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_get(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1131,9 +1119,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_put(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1152,9 +1137,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_delete(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')
