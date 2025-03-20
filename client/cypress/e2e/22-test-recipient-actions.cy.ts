@@ -107,6 +107,15 @@ describe("recipient admin tip actions", () => {
     cy.logout();
   });
 
+  it("should export the selected reports", function () {
+    cy.login_receiver();
+
+    cy.visit("/#/recipient/reports");
+    cy.get('#tip-action-select-all').click();
+    cy.get('#tip-action-reload').click();
+    cy.logout();
+  });
+
   it("should check multiple filter of report", function () {
     cy.login_receiver();
 
