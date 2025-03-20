@@ -35,7 +35,7 @@
       <div class="col-md-12">
         <div id="field-{{index}}" class="fieldBox">
           <form #editField="ngForm">
-            <src-fields (dataToParent)="listenToFields()" [editField]="editField" [field]="field" [parsedFields]="parsedFields" [fields]="step.children" [step]="step" [type]="'step'"></src-fields>
+            <src-fields (dataToParent)="listenToFields()" [editField]="editField" [type]="'step'" [step]="step" [field]="field" [fields]="step.children" [parsedFields]="parsedFields"></src-fields>
           </form>
         </div>
       </div>
