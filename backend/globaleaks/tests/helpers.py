@@ -302,7 +302,6 @@ class MockDict:
             'context_id': '',
             'answers': {},
             'receivers': [],
-            'removed_files': [],
             'mobile': False
         }
 
@@ -710,7 +709,6 @@ class TestGL(unittest.TestCase):
         returnValue({
             'context_id': context_id,
             'receivers': context['receivers'],
-            'removed_files': [],
             'identity_provided': False,
             'score': 0,
             'answers': answers,
@@ -915,7 +913,6 @@ class TestGLWithPopulatedDB(TestGL):
         self.dummySubmission['identity_provided'] = False
         self.dummySubmission['answers'] = yield self.fill_random_answers(self.dummyContext['questionnaire_id'])
         self.dummySubmission['score'] = 0
-        self.dummySubmission['removed_files'] = []
         self.dummySubmission['receipt'] = receipt
 
         itip_id = yield create_submission(1, self.dummySubmission, session, True, False)
