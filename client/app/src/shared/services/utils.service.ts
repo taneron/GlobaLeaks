@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {RequestSupportComponent} from "@app/shared/modals/request-support/request-support.component";
 import {HttpService} from "@app/shared/services/http.service";
-import {TokenResource} from "@app/shared/services/token-resource.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, from, map, switchMap} from "rxjs";
 import {ConfirmationWithPasswordComponent} from "@app/shared/modals/confirmation-with-password/confirmation-with-password.component";
@@ -40,7 +39,6 @@ export class UtilsService {
   private activatedRoute = inject(ActivatedRoute);
   private appDataService = inject(AppDataService);
   private cryptoService = inject(CryptoService);
-  private tokenResource = inject(TokenResource);
   private translateService = inject(TranslateService);
   private clipboardService = inject(ClipboardService);
   private http = inject(HttpClient);
@@ -86,17 +84,6 @@ export class UtilsService {
     return ret;
   }
 
-  download(url: string): Observable<void> {
-    return from(this.tokenResource.getWithProofOfWork()).pipe(
-      switchMap((token: any) => {
-        window.open(`${url}?token=${token.id}:${token.answer}`);
-        return new Observable<void>((observer) => {
-          observer.complete();
-        });
-      })
-    );
-  }
-
   isUploading(uploads?: any) {
     if (uploads) {
       for (const key in uploads) {
@@ -107,14 +94,6 @@ export class UtilsService {
     }
     return false;
   }
-
-  removeStyles(renderer: Renderer2, document:Document, link:string){
-    const defaultBootstrapLink = document.head.querySelector(`link[href="${link}"]`);
-    if (defaultBootstrapLink) {
-      renderer.removeChild(document.head, defaultBootstrapLink);
-    }
-  }
-
 
   resumeFileUploads(uploads: any) {
     if (uploads) {
@@ -252,8 +231,8 @@ export class UtilsService {
   }
 
   isWhistleblowerPage() {
-    const currentUrl = this.router.url;
-    return this.appDataService.public.node.wizard_done && (!this.authenticationService.session || (location.hash==="#/" || location.hash.startsWith("#/submission"))) && ((currentUrl === "/" && !this.appDataService.public.node.enable_signup) || currentUrl === "/submission" || currentUrl === "/blank");
+    const currentHash = location.hash;
+    return currentHash === "#/" || currentHash === "#/submission";
   }
 
   stopPropagation(event: Event) {
