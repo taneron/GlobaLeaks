@@ -19,9 +19,9 @@ export class TrustedTypesService {
         createScriptURL: (input: string) => {
           if (['/s/script', '/workers/crypto.worker.js'].indexOf(input) !== -1) {
             return input;
-	  } else {
+          } else {
             throw new Error('Script URLs are not allowed by this policy.');
-	  }
+          }
         }
       });
     }
