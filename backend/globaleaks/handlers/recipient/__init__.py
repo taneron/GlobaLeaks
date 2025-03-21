@@ -171,7 +171,6 @@ def perform_tips_operation(session, tid, user_id, user_cc, operation, args):
             if db_revoke_tip_access(session, tid, user_id, itip, args['receiver']):
                 db_log(session, tid=tid, type='revoke_access', user_id=user_id, object_id=itip.id)
 
-
     else:
         raise errors.ForbiddenOperation
 

@@ -11,7 +11,6 @@ def get_tor_agent(socks_port=9999):
 
     It is implicitly understood that the socks_port points to the locally
     configured tor daemon
-    :param socks_host: the sock host
     :param socks_port: the sock port
     :return: an initialized agent using the specificed sock config
     """

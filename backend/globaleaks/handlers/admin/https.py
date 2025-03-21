@@ -20,6 +20,7 @@ def db_load_tls_config(session, tid, test=False):
 
     :param session: An ORM session
     :param tid: A tenant ID
+    :param test: A boolean to indicate if we are performing a test on the actual config
     :return: The serialized TLS configuration for the specified tenant
     """
     node = ConfigFactory(session, tid)
