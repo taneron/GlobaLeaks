@@ -1,5 +1,9 @@
+Changes in version 5.0.64
+    Fix possibility of enabling field triggers inside fieldgroups broken since release 5.0.0
+    Bump client dependencies to latest version
+
 Changes in version 5.0.63
-    Revise markdown sanitization functions fixinng processin for images and addition of target blank attribute
+    Revise markdown sanitization functions fixing processing for images and addition of target blank attribute
     Fix issue #4435
     Bump client dependencies to latest version
 
