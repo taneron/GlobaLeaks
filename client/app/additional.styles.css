@@ -1,0 +1,61 @@
+/* to upload on site for additional css */
+/* Pilgermair */
+#PrivacyBadge,
+#WhistleblowerLoginBox,
+#LogoutLinkBox {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+#TitleBox .TitleSeparator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+#TitleBox #PageTitle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+.public #AttributionClause {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+.col-md-12 .card.card-secondary {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+#LogoBox img {
+  height: 40px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+[data-ng-class='*public*true*'] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+#Presentation,
+.description,
+#ReceiptText {
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+#WhistleblowerSubmitBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.lowtext,
+.lowtext a {
+  color: #ffffff00;
+}
+
+[dir] .tooltip-inner,
+.tooltip-inner {
+  text-align: left !important;
+  background-color: #2866a2 !important;
+}

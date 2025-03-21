@@ -30,6 +30,26 @@ export const appRoutes: Routes = [
     }
   },
   {
+    path: "datenschutz",
+    canActivate: [Pageguard],
+    loadComponent: () => import('@app/pages/pilgermair/datenschutz/home.component').then(m => m.HomeComponent),
+    data: {pageTitle: "Datenschutz"},
+    pathMatch: "full",
+    resolve: {
+      // WbTipResolver, WhistleblowerLoginResolver
+    }
+  },
+  {
+    path: "impressum",
+    canActivate: [Pageguard],
+    loadComponent: () => import('@app/pages/pilgermair/impressum/home.component').then(m => m.HomeComponent),
+    data: {pageTitle: "Impressum"},
+    pathMatch: "full",
+    resolve: {
+      // WbTipResolver, WhistleblowerLoginResolver
+    }
+  },
+  {
     path: "submission",
     canActivate: [Pageguard],
     loadComponent: () => import('@app/pages/whistleblower/submission/submission.component').then(m => m.SubmissionComponent),

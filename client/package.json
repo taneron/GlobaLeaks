@@ -4,7 +4,8 @@
   "scripts": {
     "test": "npx cypress run --browser=chromium",
     "eslint": "ng lint",
-    "stylelint": "npx stylelint 'app/css/**/*.css'"
+    "stylelint": "npx stylelint 'app/css/**/*.css'",
+    "build": "grunt build"
   },
   "private": true,
   "dependencies": {
