@@ -12,9 +12,7 @@ export class Pageguard {
   private router = inject(Router);
   private appDataService = inject(AppDataService);
 
-
   canActivate(_: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
     if (state.url === "/login") {
       if (this.authenticationService.session && this.authenticationService.session.role !=="whistleblower" && this.authenticationService.session.homepage) {
         this.router.navigate([this.authenticationService.session.homepage]).then();
