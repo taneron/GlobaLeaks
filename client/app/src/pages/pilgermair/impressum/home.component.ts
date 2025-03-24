@@ -4,16 +4,21 @@ import {preferenceResolverModel} from "@app/models/resolvers/preference-resolver
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
 import {UtilsService} from "@app/shared/services/utils.service";
 
+import {MarkdownComponent} from "ngx-markdown";
+import {StripHtmlPipe} from "@app/shared/pipes/strip-html.pipe";
+
+
 @Component({
     selector: "src-recipient-home",
     templateUrl: "./home.component.html",
     standalone: true,
-    imports: []
+    imports: [MarkdownComponent, StripHtmlPipe]
 })
 export class HomeComponent implements OnInit {
-  private appDataService = inject(AppDataService);
+  protected appDataService = inject(AppDataService);
   private utilsService = inject(UtilsService);
   private preference = inject(PreferenceResolver);
+  currentYear = new Date().getFullYear();
 
   preferenceData: preferenceResolverModel;
 

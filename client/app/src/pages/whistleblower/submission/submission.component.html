@@ -63,7 +63,7 @@
                       <div id="step-{{index}}"  [class.d-none]="navigation !== index" role="tabpanel">
                         <div ngForm #stepForm="ngForm" ngFormChanges (ngFormChange)="onFormChange()">
                           @if (step.description) {
-                            <markdown class="description" [data]="step.description | stripHtml"></markdown>
+                            <markdown class="description" [data]="step.description"></markdown>
                           }
                           <src-form (notifyFileUpload)="notifyFileUpload($event)" [fileUploadUrl]="'api/whistleblower/submission/attachment'" [identity_provided]=identity_provided [uploads]="uploads" [displayErrors]="displayErrors()" [answers]="answers" [submission]="submissionService" [step]="step" [index]="index"></src-form>
                         </div>

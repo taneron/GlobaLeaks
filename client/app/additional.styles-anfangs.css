@@ -1,9 +1,15 @@
 /* to upload on site for additional css */
+/* Pilgermair */
 #PrivacyBadge {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
 }
+/* #LogoutLinkBox {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+} */
 #WhistleblowerLoginBox {
   display: flex !important;
   flex-direction: column !important;
@@ -24,15 +30,19 @@
   visibility: hidden !important;
   opacity: 0 !important;
 }
-[data-ng-class="*public*true*"] {
+#LogoBox img {
+  height: 40px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+[data-ng-class='*public*true*'] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
 }
 #Presentation,
 .description,
-#ReceiptText,
-#Presentation > * {
+#ReceiptText {
   max-width: 600px;
   text-align: left;
   margin-bottom: 30px;
@@ -59,30 +69,10 @@
 
 #HeaderBox1 {
   display: flex !important;
-  gap: 1rem;
+  
   align-items: center !important;
-  height: 50px;
 }
-
-#HeaderBox1 #LogoBox {
-  margin-bottom: 0px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#HeaderBox1 #LogoBox img {
-  height: 40px;
-  -o-object-fit: contain;
-  object-fit: contain;
-}
-
-markdown.description > *:first-child,
-markdown.description > *:last-child {
-  margin-top: 1rem;
-}
-
-/* nur bei Voki */
-#language-picker-select {
-  display: none !important;
+/* first in #headerbox1 */
+#HeaderBox1 > #LogoBox {
+  margin-right: 10px !important;
 }
