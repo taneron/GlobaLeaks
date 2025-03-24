@@ -1,3 +1,7 @@
+> Important check out 'pilger' branch for the latest Globaleaks version
+>
+> This branch is deprecated
+
 # How to build and deploy changed client
 
 Client consists of *index.html* and *scripts.min.js* which is located at `/usr/share/globaleaks/client` and `/usr/share/globaleaks/client/js`
