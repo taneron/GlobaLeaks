@@ -143,7 +143,7 @@ def db_load_defaults(session):
 
     :param session: An ORM session
     """
-    db_load_default_questionnaires(session)
-    db_load_default_fields(session)
     db_fix_fields_attrs(session)
     db_fix_orphans_models(session)
+    db_load_default_questionnaires(session)
+    db_load_default_fields(session)
