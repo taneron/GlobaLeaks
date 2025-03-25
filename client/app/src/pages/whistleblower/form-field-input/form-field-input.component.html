@@ -147,8 +147,7 @@
             }
             @case ('fieldgroup') {
               <div>
-                <div>
-                  @switch (field.attrs.multimedia_type.value) {
+                  @switch (field.attrs.multimedia_type?.value) {
                     @case ('image') {
                       <div>
                         <img alt="media" [src]="field.attrs.multimedia_url.value" />
@@ -169,7 +168,6 @@
                       </div>
                     }
                   }
-                </div>
                 <src-form (notifyFileUpload)="notifyFileUpload.emit()" [identity_provided]="identity_provided" [fileUploadUrl] = fileUploadUrl [fieldEntry]="fieldEntry" [displayErrors]="displayErrors" [entry]="entry" [answers]="answers" [step]="rows" [submission]="submission" [index]="index" [uploads]="uploads"></src-form>
               </div>
             }
