@@ -62,11 +62,16 @@ def get_receivertips(session, tid, receiver_id, user_key, language, args={}):
                                  .group_by(models.ReceiverTip.internaltip_id):
         receiver_count_by_itip[itip_id] = count
 
-    # Retrieve all the contexts associated with the current receiver
-    receiver_contexts = set()
-    for context_id in session.query(models.ReceiverContext.context_id) \
-                             .filter(models.ReceiverContext.receiver_id == receiver_id):
-        receiver_contexts.add(context_id[0])
+    # Retrieve all channels that include this recipient, but only if
+    # the recipients of those channels are not selectable.
+    receiver_contexts = [
+        context_id[0] for context_id in session.query(models.Context.id)
+                                               .join(models.ReceiverContext,
+                                                     models.Context.id == models.ReceiverContext.context_id)
+                                               .filter(models.Context.allow_recipients_selection == False,
+                                                       models.ReceiverContext.receiver_id == receiver_id
+                                                      ).all()
+    ]
 
     dict_ret = dict()
     # Fetch rtip, internaltip and associated questionnaire schema
@@ -79,7 +84,7 @@ def get_receivertips(session, tid, receiver_id, user_key, language, args={}):
                                                        models.InternalTipData.key == 'whistleblower_identity'),
                                                   isouter=True) \
                                             .filter(or_(models.InternalTip.context_id.in_(receiver_contexts),
-                                                    models.ReceiverTip.receiver_id == receiver_id),
+                                                        models.ReceiverTip.receiver_id == receiver_id),
                                                     models.InternalTip.update_date >= updated_after,
                                                     models.InternalTip.update_date <= updated_before,
                                                     models.InternalTip.id == models.ReceiverTip.internaltip_id,
