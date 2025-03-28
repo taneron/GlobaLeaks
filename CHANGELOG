@@ -1,3 +1,11 @@
+Changes in version 5.0.65
+    List every report present only to the channel to recipients only if recipients selection is not enabled
+    Show the receipt interface only when users visit /#/submission
+    Fix visualization of questions in case of missing field attribute multimedia_type
+    Bump client dependencies to latest versions
+    Update translations
+    [doc] Update documentation about Secure File Viewer since it is now a default component always enabled
+
 Changes in version 5.0.64
     Fix possibility of enabling field triggers inside fieldgroups broken since release 5.0.0
     Bump client dependencies to latest version
