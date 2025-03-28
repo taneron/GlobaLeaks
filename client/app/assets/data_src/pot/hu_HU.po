@@ -4,6 +4,7 @@
 # benewfy <benewfy@gmail.com>, 2015
 # benewfy <benewfy@gmail.com>, 2015-2016
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2014,2017-2018,2020-2023
+# Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
@@ -24,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: zala krisztina <zalakri@gmail.com>, 2013,2019-2020,2024\n"
+"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/otf/globaleaks/language/hu_HU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -750,7 +751,7 @@ msgid "Mask"
 msgstr ""
 
 msgid "Max"
-msgstr "Max"
+msgstr ""
 
 msgid "Maximum file size is:"
 msgstr "A maximum fájlméret:"
@@ -768,7 +769,7 @@ msgid "Medium"
 msgstr "Közepes"
 
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 msgid "Minimum number of input characters"
 msgstr "Bemeneti karakterek minimális száma"
@@ -1262,7 +1263,7 @@ msgid "Subscribed"
 msgstr "Feliratkozva"
 
 msgid "Subscription date"
-msgstr ""
+msgstr "]"
 
 msgid "Substatuses"
 msgstr "Alstátuszok"
@@ -1649,10 +1650,10 @@ msgid "When did the facts happen?"
 msgstr ""
 
 msgid "I'm a victim"
-msgstr "I'm a victim"
+msgstr ""
 
 msgid "I'm involved in the facts"
-msgstr "I'm involved in the facts"
+msgstr ""
 
 msgid "I witnessed the facts in person"
 msgstr ""
