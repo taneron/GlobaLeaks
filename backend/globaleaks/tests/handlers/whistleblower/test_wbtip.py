@@ -101,7 +101,6 @@ class TestOperationChangeReceipt(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_put(self):
         old_receipt = self.dummySubmission['receipt']
-        print(self.dummySubmission['receipt'])
         new_receipt = '1234123412341234'
 
         # 1. Verify the old receipt works
