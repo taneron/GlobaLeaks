@@ -57,6 +57,7 @@ def db_notify_recipients_of_tip_update(session, itip_id):
     for user, rtip, itip in session.query(models.User, models.ReceiverTip, models.InternalTip) \
                                    .filter(models.User.id == models.ReceiverTip.receiver_id,
                                            models.ReceiverTip.internaltip_id == models.InternalTip.id,
+                                           models.ReceiverTip.last_notification < models.ReceiverTip.last_access,
                                            models.InternalTip.id == itip_id):
         db_notify_report_update(session, user, rtip, itip)
 

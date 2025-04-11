@@ -547,7 +547,8 @@ def update_tip_submission_status(session, tid, user_id, rtip_id, status_id, subs
     for user in session.query(models.User) \
                        .filter(models.User.id == models.ReceiverTip.receiver_id,
                                models.ReceiverTip.internaltip_id == itip.id,
-                               models.ReceiverTip.receiver_id != user_id):
+                               models.ReceiverTip.receiver_id != user_id,
+                               models.ReceiverTip.last_notification < models.ReceiverTip.last_access):
         db_notify_report_update(session, user, rtip, itip)
 
     db_update_submission_status(session, tid, user_id, itip, status_id, substatus_id)
