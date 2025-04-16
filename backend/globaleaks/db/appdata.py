@@ -121,22 +121,6 @@ def db_fix_fields_attrs(session):
         db_update_fieldattrs(session, field.id, attrs, None)
 
 
-def db_fix_orphans_models(session):
-    """
-    Transaction for deleting orpans models related to old migrations run with disabled foreign keys checks
-
-    :param session: An ORM session
-    """
-    steps_ids = session.query(models.Step.id)
-    fields_ids = session.query(models.Field.id)
-    session.query(models.Field).filter(models.Field.instance == 0, models.Field.step_id != None, not_(models.Field.step_id.in_(steps_ids))).delete(synchronize_session=False)
-    session.query(models.Field).filter(models.Field.fieldgroup_id != None, not_(models.Field.fieldgroup_id.in_(fields_ids))).delete(synchronize_session=False)
-    session.query(models.FieldOption).filter(not_(models.FieldOption.field_id.in_(fields_ids))).delete(synchronize_session=False)
-    session.query(models.FieldAttr).filter(not_(models.FieldAttr.field_id.in_(fields_ids))).delete(synchronize_session=False)
-    session.query(models.FieldOptionTriggerField).filter(not_(models.FieldOptionTriggerField.object_id.in_(fields_ids))).delete(synchronize_session=False)
-    session.query(models.FieldOptionTriggerStep).filter(not_(models.FieldOptionTriggerStep.object_id.in_(steps_ids))).delete(synchronize_session=False)
-
-
 def db_load_defaults(session):
     """
     Transaction for updating application defaults
@@ -144,6 +128,5 @@ def db_load_defaults(session):
     :param session: An ORM session
     """
     db_fix_fields_attrs(session)
-    db_fix_orphans_models(session)
     db_load_default_questionnaires(session)
     db_load_default_fields(session)
