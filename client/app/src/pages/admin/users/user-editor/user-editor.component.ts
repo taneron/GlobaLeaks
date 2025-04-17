@@ -81,7 +81,9 @@ export class UserEditorComponent implements OnInit {
   }
 
   disable2FA(user: userResolverModel) {
-    this.utilsService.runAdminOperation("disable_2fa", {"value": user.id}, true).subscribe();
+    this.utilsService.runAdminOperation("disable_2fa", {"value": user.id}, false).subscribe(_ => {
+      user.two_factor = false;
+    });
   }
 
   async setPassword(setPasswordArgs: { user_id: string, password: string }) {
