@@ -467,7 +467,7 @@ def serialize_questionnaire(session, tid, questionnaire, language, serialize_tem
     :param serialize_templates: A boolean to require template serialization
     :return: The serialized resource
     """
-    steps = session.query(models.Step).filter(models.Step.questionnaire_id == questionnaire.id,
+    steps = session.query(models.Step).filter(models.Step.questionnaire_id == models.Questionnaire.id,
                                               models.Questionnaire.id == questionnaire.id) \
                                       .order_by(models.Step.order)
 

@@ -67,8 +67,8 @@ def serialize_archived_questionnaire_schema(questionnaire_schema, language):
 
 def serialize_identityaccessrequest(session, identityaccessrequest):
     itip, request_user = session.query(models.InternalTip, models.User) \
-                                .filter(models.InternalTip.id == identityaccessrequest.internaltip_id,
-                                        models.User.id == identityaccessrequest.request_user_id).one()
+       .join(models.InternalTip, models.InternalTip.id == identityaccessrequest.internaltip_id) \
+       .filter(models.User.id == identityaccessrequest.request_user_id).one()
 
     reply_user = session.query(models.User) \
                         .filter(models.User.id == identityaccessrequest.reply_user_id).one_or_none()

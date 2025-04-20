@@ -90,7 +90,7 @@ def db_update_submission_substatus(session, tid, status_id, substatus_id, reques
                        models.SubmissionSubStatus,
                        (models.SubmissionStatus.id == status_id,
                         models.SubmissionStatus.tid == tid,
-                        models.SubmissionSubStatus.submissionstatus_id == status_id,
+                        models.SubmissionSubStatus.submissionstatus_id == models.SubmissionStatus.id,
                         models.SubmissionSubStatus.id == substatus_id))
 
     db_update_substatus_model_from_request(substatus, request, language)
