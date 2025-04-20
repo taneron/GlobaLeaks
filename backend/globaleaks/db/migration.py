@@ -82,7 +82,6 @@ migration_mapping = OrderedDict([
     ('Tenant', [Tenant_v_52, models._Tenant, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
     ('User', [User_v_52, User_v_54, 0, User_v_56, 0, User_v_61, 0, 0, 0, 0, User_v_64, 0, 0, User_v_66, 0, models._User, 0]),
     ('WhistleblowerFile', [WhistleblowerFile_v_57, 0, 0, 0, 0, 0, WhistleblowerFile_v_64, 0, 0, 0, 0, 0, 0, WhistleblowerFile_v_66, 0, models._WhistleblowerFile, 0]),
-
     ('WhistleblowerTip', [WhistleblowerTip_v_59, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1])
 ])
 
