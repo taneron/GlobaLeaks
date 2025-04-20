@@ -38,7 +38,6 @@ class LocalizationEngine(object):
         self._localized_strings = {key: getattr(obj, key) for key in self._localized_keys}
 
     def acquire_multilang_dict(self, obj):
-        self._localized_strings = {}
         self._localized_strings = {key: obj.get(key, '') for key in self._localized_keys}
 
     def singlelang_to_multilang_dict(self, obj, language):
