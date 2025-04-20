@@ -1,3 +1,5 @@
+from sqlalchemy import select
+
 from globaleaks import models
 from globaleaks.handlers.admin.field import db_create_field, db_update_field, db_create_option_trigger, db_reset_option_triggers
 from globaleaks.handlers.base import BaseHandler
@@ -66,7 +68,7 @@ def db_update_step(session, tid, step_id, request, language):
 
 
 def db_delete_step(session, tid, step_id):
-    subquery = session.query(models.Questionnaire.id).filter(models.Questionnaire.tid == tid).subquery()
+    subquery = select(models.Questionnaire.id).filter(models.Questionnaire.tid == tid)
 
     db_del(session,
            models.Step,
