@@ -282,9 +282,8 @@ for i in range(DATABASE_VERSION - FIRST_DATABASE_VERSION_SUPPORTED + 1):
         x = get_right_model(migration_mapping, k,
                             FIRST_DATABASE_VERSION_SUPPORTED + i)
         if x is not None:
-            class y(x, Bases[i]):
-                pass
-
+            class_name = f"MigrationModel_{k}_v{FIRST_DATABASE_VERSION_SUPPORTED + i}"
+            y = type(class_name, (x, Bases[i]), {})
             mp[k].append(y)
         else:
             mp[k].append(None)
