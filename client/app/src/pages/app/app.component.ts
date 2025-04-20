@@ -104,8 +104,8 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
     elem = document.createElement("script");
     elem.type = "module";
     let scriptURL = "/s/script";
-    if (window.trustedTypes?.defaultPolicy) {
-        const safeURL = window.trustedTypes.defaultPolicy.createScriptURL(scriptURL);
+    if ((window as any).trustedTypes?.defaultPolicy) {
+        const safeURL = (window as any).trustedTypes.defaultPolicy.createScriptURL(scriptURL);
         if (typeof safeURL === "string") {
             scriptURL = safeURL;
         }
