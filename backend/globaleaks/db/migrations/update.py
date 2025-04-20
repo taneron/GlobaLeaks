@@ -54,19 +54,19 @@ class MigrationBase(object):
         pass
 
     def generic_migration_function(self, model_name):
-        for old_obj in self.session_old.query(self.model_from[model_name]):
-            new_obj = self.model_to[model_name]()
+        model_from_cls = self.model_from[model_name]
+        model_to_cls = self.model_to[model_name]
+        renamed = self.renamed_attrs.get(model_name, {})
+        column_keys = [c.key for c in model_to_cls.__table__.columns]
 
-            for key in [c.key for c in self.model_to[model_name].__table__.columns]:
-                old_key = key
+        # Build migration mapping efficiently
+        mappings = []
 
-                if model_name in self.renamed_attrs and key in self.renamed_attrs[model_name]:
-                    old_key = self.renamed_attrs[model_name][key]
+        for old_obj in self.session_old.query(model_from_cls).yield_per(1000):
+            mappings.append({key: getattr(old_obj, renamed.get(key, key), None) for key in column_keys if hasattr(old_obj, renamed.get(key, key))})
 
-                if hasattr(old_obj, old_key):
-                    setattr(new_obj, key, getattr(old_obj, old_key))
-
-            self.session_new.add(new_obj)
+        if mappings:
+            self.session_new.bulk_insert_mappings(model_to_cls, mappings)
 
     def migrate_model(self, model_name):
         if self.entries_count[model_name] <= 0 or self.skip_model_migration.get(model_name, False):
