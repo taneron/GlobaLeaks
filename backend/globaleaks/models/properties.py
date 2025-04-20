@@ -16,6 +16,7 @@ from globaleaks.utils.utility import uuid4
 
 class JSON(types.TypeDecorator):
     """Stores and retrieves JSON as TEXT."""
+    cache_ok = True
     impl = types.UnicodeText
 
     def process_bind_param(self, value, dialect):
@@ -33,6 +34,7 @@ class JSON(types.TypeDecorator):
 
 class Enum(types.TypeDecorator):
     """Stores and retrieves ENUM as INTEGER."""
+    cache_ok = True
     impl = types.Integer
 
     def __init__(self, enumtype, *args, **kwargs):
