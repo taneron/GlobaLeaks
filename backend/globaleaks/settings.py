@@ -73,8 +73,6 @@ class SettingsClass(object, metaclass=Singleton):
 
         self.exceptions_email_minutely_limit = 1
 
-        self.enable_input_length_checks = True
-
         self.mail_timeout = 15  # seconds
         self.mail_attempts_limit = 3  # per mail limit
 

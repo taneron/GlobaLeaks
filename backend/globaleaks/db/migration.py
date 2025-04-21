@@ -176,8 +176,6 @@ def perform_migration(version):
     new_db_file = os.path.abspath(os.path.join(tmpdir, 'new.db'))
     session_new = None
 
-    Settings.enable_input_length_checks = False
-
     try:
         while version < DATABASE_VERSION:
             log.info("Updating DB from version %d to version %d" %
