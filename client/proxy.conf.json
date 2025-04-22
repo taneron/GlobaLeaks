@@ -1,6 +1,8 @@
 {
-  "*": {
+  "/": {
     "target": "https://127.0.0.1:8443",
-    "secure": false
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
