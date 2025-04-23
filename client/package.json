@@ -4,7 +4,6 @@
   "scripts": {
     "test": "npx cypress run --browser=chromium",
     "eslint": "ng lint",
-    "serve": "ng serve --proxy-config proxy.conf.json",
     "stylelint": "npx stylelint 'app/css/**/*.css'"
   },
   "private": true,
