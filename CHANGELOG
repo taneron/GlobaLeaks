@@ -1,3 +1,10 @@
+Changes in version 5.0.66
+    Add audit log record when an admin send the activation link during user creation (#4465)
+    Silence reports updates for users that have not accessed since the last notification
+    Improve speed of migration process
+    Ensure to show disabled 2fa after disabling action
+    Bump client dependencies to latest versions
+
 Changes in version 5.0.65
     List every report present only to the channel to recipients only if recipients selection is not enabled
     Show the receipt interface only when users visit /#/submission
