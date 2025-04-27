@@ -137,7 +137,7 @@ msgid "Anomaly detection thresholds"
 msgstr "Anomália érzékelés határértékek"
 
 msgid "Anonymity"
-msgstr ""
+msgstr "Anonymity"
 
 msgid "Anonymize outgoing connections"
 msgstr "Kimenő kapcsolatok anonimizálása"
@@ -751,7 +751,7 @@ msgid "Mask"
 msgstr ""
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Maximum file size is:"
 msgstr "A maximum fájlméret:"
@@ -769,7 +769,7 @@ msgid "Medium"
 msgstr "Közepes"
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Minimum number of input characters"
 msgstr "Bemeneti karakterek minimális száma"

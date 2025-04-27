@@ -1823,7 +1823,7 @@ msgid "Registration data:"
 msgstr "Données d’enregistrement :"
 
 msgid "Site: {Url}"
-msgstr ""
+msgstr "Site : {Url}"
 
 msgid "Name: {Name}"
 msgstr "Nom : {Name}"
@@ -1863,7 +1863,7 @@ msgid "Email change request"
 msgstr "Demande de changement d’adresse courriel"
 
 msgid "From: {Author}"
-msgstr ""
+msgstr "De : {Author}"
 
 msgid "Date: {EventTime}"
 msgstr "Date : {EventTime}"

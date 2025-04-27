@@ -1809,7 +1809,7 @@ msgid "Registration data:"
 msgstr "பதிவுத் தரவு:"
 
 msgid "Site: {Url}"
-msgstr ""
+msgstr "தள: {Url}"
 
 msgid "Name: {Name}"
 msgstr "பெயர்: {Name}"
@@ -1849,7 +1849,7 @@ msgid "Email change request"
 msgstr "மின்னஞ்சல் மாற்ற கோரிக்கை"
 
 msgid "From: {Author}"
-msgstr ""
+msgstr "இருந்து: {Author}"
 
 msgid "Date: {EventTime}"
 msgstr "தேதி: {EventTime}"

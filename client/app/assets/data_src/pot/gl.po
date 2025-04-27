@@ -1811,7 +1811,7 @@ msgid "Registration data:"
 msgstr "Datos de rexistro:"
 
 msgid "Site: {Url}"
-msgstr ""
+msgstr "Sitio: {Url}"
 
 msgid "Name: {Name}"
 msgstr "Nome: {Name}"
@@ -1851,7 +1851,7 @@ msgid "Email change request"
 msgstr "Solicitude de cambio de enderezo electrónico "
 
 msgid "From: {Author}"
-msgstr ""
+msgstr "De: {Author}"
 
 msgid "Date: {EventTime}"
 msgstr "Data: {EventTime}"
