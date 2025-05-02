@@ -591,8 +591,7 @@ def db_access_rfile(session, tid, user_id, rfile_id):
     return db_get(session,
                   models.ReceiverFile,
                   (models.ReceiverFile.id == rfile_id,
-                   models.ReceiverFile.internaltip_id.in_(itips_ids),
-                   models.InternalTip.tid == tid))
+                   models.ReceiverFile.internaltip_id.in_(itips_ids)))
 
 
 @transact

@@ -1,4 +1,3 @@
-from sqlalchemy import select
 from sqlalchemy.sql.expression import not_
 
 from globaleaks import models
@@ -101,13 +100,14 @@ def db_update_fieldoptions(session, field_id, options, language):
     if not options_ids:
         return
 
-    subquery = select(models.FieldOption.id) \
-                  .filter(models.FieldOption.field_id == field_id,
-                          not_(models.FieldOption.id.in_(options_ids)))
+    ids = [id for (id,) in session.query(models.FieldOption.id).filter(
+        models.FieldOption.field_id == field_id,
+        not_(models.FieldOption.id.in_(options_ids))
+    ).all()]
 
     db_del(session,
            models.FieldOption,
-           models.FieldOption.id.in_(subquery))
+           models.FieldOption.id.in_(ids))
 
 
 def db_update_fieldattr(session, field_id, attr_name, attr_dict, language):
@@ -232,15 +232,14 @@ def db_create_field(session, tid, request, language):
             if request.get('step_id', '') == '':
                 raise errors.InputValidationError("Cannot associate whistleblower identity field to a fieldgroup")
 
-            q_id = select(models.Questionnaire.id).filter(
-                models.Questionnaire.id == models.Step.questionnaire_id,
+            q_id = session.query(models.Questionnaire.id).join(models.Step).filter(
                 models.Step.id == request['step_id']
-            )
+            ).scalar()
 
             field = session.query(models.Field) \
                            .filter(models.Field.template_id == 'whistleblower_identity',
                                    models.Field.step_id == models.Step.id,
-                                   models.Step.questionnaire_id.in_(q_id)).one_or_none()
+                                   models.Step.questionnaire_id == q_id).one_or_none()
 
             if field is not None:
                 raise errors.InputValidationError("Whistleblower identity field already present")
