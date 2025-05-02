@@ -1,3 +1,9 @@
+Changes in version 5.0.67
+    Fix incompatibility with old versions of sqlalchemy introduced in 5.0.66
+    Optimize securetempfile increasing performances of file uploads
+    Bump client dependencies to latest versions
+    [doc] Update documentation about manual backups
+
 Changes in version 5.0.66
     Add audit log record when an admin send the activation link during user creation (#4465)
     Silence reports updates for users that have not accessed since the last notification
