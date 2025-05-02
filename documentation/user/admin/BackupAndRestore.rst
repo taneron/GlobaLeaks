@@ -1,5 +1,6 @@
 Backup and restore
 ==================
+The data of the application is contained in the directory `/var/globaleaks`.
 
 To perform a manual backup, you can use the following bash script:
 
@@ -19,8 +20,6 @@ To perform a manual backup, you can use the following bash script:
    fi
 
 After running the script, you will find a `tar.gz` archive in `/var/globaleaks/backups`. The file will be named in the format: `globaleaks-$version-$timestamp.tar.gz`.
-
-GlobaLeaks automatically performs a backup during each platform update. These backups are retained under a data retention policy and are deleted 15 days after the update.
 
 To restore an existing backup:
 
