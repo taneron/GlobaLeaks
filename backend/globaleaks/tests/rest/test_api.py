@@ -107,7 +107,6 @@ class TestAPI(TestGL):
                                   'screen-wake-lock=(),'
                                   'serial=(),'
                                   'speaker-selection=(),'
-                                  'storage-access=(),'
                                   'usb=(),'
                                   'web-share=(),'
                                   'xr-spatial-tracking=()',

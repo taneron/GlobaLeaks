@@ -655,7 +655,6 @@ class APIResourceWrapper(Resource):
                                                  b"screen-wake-lock=(),"
                                                  b"serial=(),"
                                                  b"speaker-selection=(),"
-                                                 b"storage-access=(),"
                                                  b"usb=(),"
                                                  b"web-share=(),"
                                                  b"xr-spatial-tracking=()")
