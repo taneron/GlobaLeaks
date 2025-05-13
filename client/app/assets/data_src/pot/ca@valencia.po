@@ -525,7 +525,7 @@ msgstr "Codi postal"
 msgid "Footer"
 msgstr "Peu de pàgina"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Per raons de seguretat el codi s'ha de canviar"
 
 msgid ""

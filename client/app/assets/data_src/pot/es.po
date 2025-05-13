@@ -551,7 +551,7 @@ msgstr "Código fiscal"
 msgid "Footer"
 msgstr "Pie de página"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Por razones de seguridad es necesario cambiar el código."
 
 msgid ""
