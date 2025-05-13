@@ -769,6 +769,8 @@ def db_postpone_expiration(session, itip, expiration_date):
     prev_expiration_date = itip.expiration_date
     itip.expiration_date = expiration_date
 
+    itip.update_date = datetime_now()
+
     return prev_expiration_date, expiration_date
 
 
