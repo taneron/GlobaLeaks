@@ -10,6 +10,7 @@ from globaleaks.models.config import ConfigFactory, ConfigL10NFactory
 from globaleaks.orm import db_get, db_query, transact
 from globaleaks.state import State
 
+
 default_questionnaires = ['default']
 default_questions = ['whistleblower_identity']
 
@@ -392,6 +393,9 @@ def serialize_field(session, tid, field, language, data=None, serialize_template
     else:
         for attr in data['attrs'].get(field.template_id, {}):
             attrs[attr.name] = serialize_field_attr(attr, language)
+
+    # correct the attributes based on the actual descriptor
+    attrs = {k: attrs.get(k, v) for k, v in State.field_attrs.get(field.type, {}).items()}
 
     children = []
     if field.instance != 'reference' or serialize_templates:
