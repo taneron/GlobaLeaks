@@ -1,3 +1,8 @@
+Changes in version 5.0.68
+    Implement automatic fix of questionnaire coming from old setups and failing to load
+    Bump client dependencies to latest version
+    Update translations
+
 Changes in version 5.0.67
     Fix incompatibility with old versions of sqlalchemy introduced in 5.0.66
     Optimize securetempfile increasing performances of file uploads
