@@ -4,7 +4,7 @@ This document outlines the roadmap for GlobaLeaks, defining its release cycle, u
 
 Release Cycle
 -------------
-GlobaLeaks follows a biannual major release cycle, with planned releases occurring in June and December. This structured approach ensures the delivery of high-quality updates aligned with user needs.
+GlobaLeaks aims to follow a biannual major release cycle, targeting releases in June and December. This structured approach is intended to support the delivery of high-quality updates aligned with user needs.
 
 In addition to major releases, minor updates and security patches are provided as needed. Critical security fixes are addressed immediately and released outside the scheduled cycle to maintain platform security and reliability.
 
@@ -19,18 +19,33 @@ The roadmap is designed to minimize unnecessary disruptions while ensuring users
 
 Release Types
 -------------
-1. Major Releases:
+1. Minor updates:
+
+- Security patches;
+- Small improvements and bug fixes;
+- Performance enhancements;
+- Addition or revision of translations;
+- Minor feature additions that do not introduce breaking changes.
+
+2. Major releases:
 
 - Introduction of new features and significant improvements;
 - Possible breaking changes, with clear migration guidelines;
 - Detailed release notes and upgrade instructions provided.
 
-2. Minor Updates:
+Release Workflow
+----------------
+Project development is organized primarily around two main branches: stable and devel.
 
-- Security patches;
-- Small improvements and bug fixes;
-- Performance enhancements;
-- Minor feature additions that do not introduce breaking changes.
+These two branches are always aligned at the time a release is issued on the stable branch, which is marked using a Git tag.
+
+Every development is then organized in auxiliary dedicated branches:
+
+- Minor update branches are typically created from the stable branch. These are short-lived branches intended to be merged directly back into stable;
+- Major feature branches are always created from the devel branch and are merged back into devel after integration and testing.
+
+.. image:: ../images/roadmap/release-workflow.svg
+
 
 Feature Prioritization
 ----------------------
