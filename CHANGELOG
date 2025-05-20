@@ -1,3 +1,9 @@
+Changes in version 5.0.69
+    Fix possibiliy of mock for homepage components supporting markdown
+    Implement automatic fix of attributes inherited from template questions]
+    Change report update date when the expiration date is changed
+    Fix issue #4497
+
 Changes in version 5.0.68
     Implement automatic fix of questionnaire coming from old setups and failing to load
     Bump client dependencies to latest version
