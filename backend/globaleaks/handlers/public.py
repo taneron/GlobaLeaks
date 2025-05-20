@@ -397,6 +397,10 @@ def serialize_field(session, tid, field, language, data=None, serialize_template
     # correct the attributes based on the actual descriptor
     attrs = {k: attrs.get(k, v) for k, v in State.field_attrs.get(field.type, {}).items()}
 
+    # correct attributes for questions using default templates
+    if field.template_id and field.template_id in ['whistleblower_identity']:
+        attrs = {k: attrs.get(k, v) for k, v in State.field_attrs.get(field.template_id, {}).items()}
+
     children = []
     if field.instance != 'reference' or serialize_templates:
         children = [serialize_field(session, tid, f, language, data, serialize_templates=serialize_templates) for f in data['fields'].get(f_to_serialize.id, [])]
