@@ -1,3 +1,4 @@
+import copy
 from sqlalchemy.sql.expression import not_
 
 from globaleaks import models
@@ -215,7 +216,7 @@ def db_create_field(session, tid, request, language):
 
         attrs = request.get('attrs')
         if not attrs:
-            attrs = State.field_attrs.get(field.type, {})
+            attrs = copy.deepcopy(State.field_attrs.get(field.type, {}))
 
         options = request.get('options')
 
@@ -252,7 +253,7 @@ def db_create_field(session, tid, request, language):
 
         attrs = request.get('attrs')
         if not attrs:
-            attrs = State.field_attrs.get(field.template_id, {})
+            attrs = copy.deepcopy(State.field_attrs.get(field.template_id, {}))
 
         db_update_fieldattrs(session, field.id, attrs, None)
 
