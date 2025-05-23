@@ -50,30 +50,24 @@ gitGraph
     commit id: "Work on Feature XYZ - part 1"
     checkout patch/1.0.1
     commit id: "[FIX] Fix typo in config"
-    checkout patch/1.0.1
     commit id: "[CI] Add test for config fix"
     branch review/patch/1.0.1 order: 1
-    commit id: "Review: patch/1.0.1" type: HIGHLIGHT
-    checkout patch/1.0.1
+    commit id: "Review: patch/1.0.1"
+    checkout stable
     merge review/patch/1.0.1
     checkout feature/XYZ
     commit id: "Work on Feature XYZ - part 2"
     checkout devel
     checkout feature/XYZ
     branch review/feature/XYZ order: 2
-    commit id: "Review: feature/XYZ" type: HIGHLIGHT
-    checkout feature/XYZ
+    commit id: "Review: feature/XYZ"
+    checkout devel
     merge review/feature/XYZ
-    checkout stable
-    merge patch/1.0.1
     commit id: "v1.0.1" tag: "Release 1.0.1 (minor)"
     checkout devel
-    merge feature/XYZ
     merge stable
     branch review/release/2.0.0 order: 2
-    commit id: "Review: release 1.0.0"  type: HIGHLIGHT
-    checkout devel
-    merge review/release/2.0.0 
+    commit id: "Review: release 1.0.0"
     checkout stable
-    merge devel
+    merge review/release/2.0.0
     commit id: "v2.0.0" tag: "Release 2.0.0"
