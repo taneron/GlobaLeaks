@@ -1,3 +1,9 @@
+Changes in version 5.0.70
+    Correct issue preventing recipient to load files on reports in closed status
+    Revise fix and initialization of field attributes
+    Bump client dependencies to latest versions
+    [doc] Update documentation about release workflow and branching
+
 Changes in version 5.0.69
     Fix possibiliy of mock for homepage components supporting markdown
     Implement automatic fix of attributes inherited from template questions]
