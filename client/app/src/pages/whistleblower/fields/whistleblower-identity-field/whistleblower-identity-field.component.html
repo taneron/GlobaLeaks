@@ -8,9 +8,7 @@
     </div>
   }
   @if (!identity_provided && field.attrs.text_shown_upon_negative_answer.value) {
-    <div class="alert alert-secondary">
-      <div>{{field.attrs.text_shown_upon_negative_answer.value|translate}}</div>
-    </div>
+    <div>{{field.attrs.text_shown_upon_negative_answer.value|translate}}</div>
   }
   @if (identity_provided) {
     <div>
