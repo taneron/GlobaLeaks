@@ -11,7 +11,6 @@ export class Root {
 export class Node {
   viewer: boolean;
   acme: boolean;
-  timezone: number;
   allow_indexing: boolean;
   adminonly: boolean;
   pgp: boolean;

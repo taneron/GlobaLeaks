@@ -34,7 +34,6 @@ export class nodeResolverModel {
   threshold_free_disk_megabytes_low: number;
   threshold_free_disk_percentage_high: number;
   threshold_free_disk_percentage_low: number;
-  timezone: number;
   tor: boolean;
   two_factor: boolean;
   unread_reminder_time: number;

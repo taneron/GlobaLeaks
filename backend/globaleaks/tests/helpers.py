@@ -327,7 +327,6 @@ class MockDict:
             'allow_indexing': False,
             'disable_submissions': False,
             'disable_privacy_badge': False,
-            'timezone': 0,
             'default_language': 'en',
             'default_questionnaire': 'default',
             'admin_language': 'en',

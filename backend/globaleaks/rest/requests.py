@@ -204,7 +204,6 @@ AdminNodeDesc = {
     'whistleblowing_button': str,
     'languages_enabled': [str],
     'languages_supported': list,
-    'timezone': int,
     'default_language': str,
     'default_questionnaire': str,
     'maximum_filesize': int,

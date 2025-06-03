@@ -108,7 +108,6 @@ ConfigDescriptor = {
     'threshold_reports_per_hour_per_ip': Int(default=5),
     'threshold_attachments_per_hour_per_ip': Int(default=120),
     'threshold_attachments_per_hour_per_report': Int(default=30),
-    'timezone': Int(default=0),
     'timestamp_daily_notifications': Int(default=0),
     'tip_expiration_threshold': Int(default=72),  # Hours
     'tor_onion_key': Unicode(),
@@ -185,7 +184,6 @@ ConfigFilters = {
         'threshold_attachments_per_hour_per_ip',
         'threshold_attachments_per_hour_per_report',
         'timestamp_daily_notifications',
-        'timezone',
         'two_factor',
         'unread_reminder_time',
         'version',
@@ -236,7 +234,6 @@ ConfigFilters = {
         'threshold_reports_per_hour_per_ip',
         'threshold_attachments_per_hour_per_ip',
         'threshold_attachments_per_hour_per_report',
-        'timezone',
         'tor',
         'two_factor',
         'version',
