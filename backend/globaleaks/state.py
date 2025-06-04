@@ -81,16 +81,6 @@ class TenantState(object):
         # An ACME challenge will have 5 minutes to resolve
         self.acme_tmp_chall_dict = TempDict(300)
 
-        self.reset_events()
-
-    def reset_events(self):
-        from globaleaks.anomaly import Alarm
-
-        self.RecentEventQ = []
-        self.EventQ = []
-        self.AnomaliesQ = []
-        self.Alarm = Alarm()
-
 
 class StateClass(ObjectDict, metaclass=Singleton):
     def __init__(self):
@@ -112,7 +102,6 @@ class StateClass(ObjectDict, metaclass=Singleton):
 
         self.exceptions = {}
         self.exceptions_email_count = 0
-        self.stats_collection_start_time = datetime_now()
 
         self.accept_submissions = True
 
@@ -226,12 +215,6 @@ class StateClass(ObjectDict, metaclass=Singleton):
     def reset_minutely(self):
         self.exceptions.clear()
         self.exceptions_email_count = 0
-
-    def reset_hourly(self):
-        for tid in self.tenants:
-            self.tenants[tid].reset_events()
-
-        self.stats_collection_start_time = datetime_now()
 
     def sendmail(self, tid, to_address, subject, body):
         if self.settings.disable_notifications:

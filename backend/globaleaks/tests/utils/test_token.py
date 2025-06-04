@@ -11,10 +11,6 @@ class TestToken(helpers.TestGL):
 
         self.state.tokens.clear()
 
-        self.pollute_events()
-
-        yield anomalies.Anomalies().run()
-
     def test_tokens_garbage_collected(self):
         self.assertTrue(len(self.state.tokens) == 0)
 

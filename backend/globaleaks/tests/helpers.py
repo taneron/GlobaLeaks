@@ -23,7 +23,7 @@ from twisted.web.test.requesthelper import DummyRequest
 
 from . import TEST_DIR
 
-from globaleaks import db, models, orm, event, jobs, __version__, DATABASE_VERSION
+from globaleaks import db, models, orm, jobs, __version__, DATABASE_VERSION
 from globaleaks.db.appdata import load_appdata
 from globaleaks.orm import transact, tw
 from globaleaks.handlers.base import BaseHandler
@@ -578,9 +578,6 @@ class TestGL(unittest.TestCase):
 
         yield db.refresh_tenant_cache()
 
-        self.state.reset_minutely()
-        self.state.reset_hourly()
-
         self.internationalized_text = load_appdata()['node']['whistleblowing_button']
 
     @transact
@@ -726,14 +723,6 @@ class TestGL(unittest.TestCase):
         """
         for _ in range(n):
             session.files.append(self.get_dummy_attachment())
-
-    def pollute_events(self, number_of_times=10):
-        for _ in range(number_of_times):
-            for event_obj in event.events_monitored:
-                for x in range(2):
-                    e = event.Event(event_obj, timedelta(seconds=1.0 * x))
-                    self.state.tenants[1].RecentEventQ.append(e)
-                    self.state.tenants[1].EventQ.append(e)
 
     @transact
     def get_rtips(self, session):

@@ -11,7 +11,6 @@ from nacl.encoding import Base64Encoder
 from twisted.internet import abstract
 from twisted.protocols.basic import FileSender
 
-from globaleaks.event import track_handler
 from globaleaks.orm import transact_sync
 from globaleaks.rest import errors
 from globaleaks.sessions import Sessions
@@ -435,5 +434,3 @@ class BaseHandler(object):
             err_tup = ("Handler [%s] exceeded execution threshold (of %d secs) with an execution time of %.2f seconds",
                        self.name, self.handler_exec_time_threshold, self.request.execution_time.seconds)
             log.err(tid=self.request.tid, *err_tup)
-
-        track_handler(self)
