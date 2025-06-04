@@ -79,7 +79,6 @@ TOKEN = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0"
 TOKEN_SALT = b"eed1d4c5a8e97f4f953d4bddd62957ac5f9e94af6a025c6b95300d72ba41b57e"
 TOKEN_ANSWER = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0:142"
 
-
 def mock_nullfunction(*args, **kwargs):
     return
 
@@ -153,6 +152,8 @@ def init_state():
     orm.set_thread_pool(FakeThreadPool())
 
     State.settings.enable_api_cache = False
+    State.settings.enable_rate_limiting = False
+
     State.tenants[1] = TenantState()
     State.tenants[1].cache.hostname = 'www.globaleaks.org'
     State.tenants[1].cache.encryption = True
@@ -494,7 +495,7 @@ def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
     request.code = 200
     request.hostname = b''
     request.headers = None
-    request.client_ip = client_addr
+    request.client_ip = client_addr.decode()
     request.client_ua = b''
     request.client_using_mobile = False
     request.client_using_tor = False
@@ -995,7 +996,7 @@ class TestHandler(TestGLWithPopulatedDB):
                 user_id = self.dummyCustodian['id']
 
         if role is not None:
-            if role == 'whistlebower':
+            if role == 'whistleblower' and user_id == None:
                 session = initialize_submission_session(1)
             else:
                 session = Sessions.new(tid, user_id, 1, role, USER_PRV_KEY, USER_ESCROW_PRV_KEY if role == 'admin' else '')

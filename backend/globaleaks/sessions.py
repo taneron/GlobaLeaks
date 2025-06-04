@@ -22,8 +22,6 @@ class Session(dict):
             'user_tid': user_tid,
             'username': '',
             'role': user_role,
-            'ratelimit_time': datetime_now(),
-            'ratelimit_count': 0,
             'files': [],
             'token': State.tokens.new(tid),
             'properties': {},

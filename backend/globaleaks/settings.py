@@ -79,6 +79,7 @@ class SettingsClass(object, metaclass=Singleton):
         self.acme_directory_url = 'https://acme-v02.api.letsencrypt.org/directory'
 
         self.enable_api_cache = True
+        self.enable_rate_limiting = True
 
     def eval_paths(self):
         self.pidfile_path = os.path.join(self.ramdisk_path, 'globaleaks.pid')
