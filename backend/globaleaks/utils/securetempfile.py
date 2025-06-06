@@ -20,6 +20,7 @@ class SecureTemporaryFile:
         :param filename: Optional filename. If not provided, a UUID4 is used.
         """
         filename = filename or str(uuid.uuid4())
+        self.mode = None
         self.filepath = os.path.join(filesdir, filename)
         self.cipher = Cipher(ChaCha20(os.urandom(32), os.urandom(16)), mode=None, backend=default_backend())
 
@@ -42,14 +43,17 @@ class SecureTemporaryFile:
         """
         if not self.fd:
             self.fd = os.open(self.filepath, os.O_RDWR | os.O_CREAT | os.O_APPEND)
+            os.lseek(self.fd, self.position, os.SEEK_SET)
 
-        self.enc = self.cipher.encryptor()
-        self.dec = self.cipher.decryptor()
+        if (not self.enc and not self.dec) or self.mode != mode:
+            self.mode = mode
+            self.enc = self.cipher.encryptor()
+            self.dec = self.cipher.decryptor()
 
-        if mode == 'r':
-            self.seek(0)
-        else:
-            self.seek(self.size)
+            if mode == 'r':
+                self.seek(0)
+            else:
+                self.seek(self.size)
 
         return self
 
@@ -127,9 +131,7 @@ class SecureTemporaryFile:
         """
         if self.fd:
             os.close(self.fd)
-            del self.enc
-            del self.dec
-            self.fd = self.enc = self.dec = None
+            self.fd = None
 
     def __enter__(self):
         """
