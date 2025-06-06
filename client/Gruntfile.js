@@ -96,21 +96,6 @@ module.exports = function(grunt) {
       },
 
       pass2: {
-        src: "./tmp/js/main.js",
-        dest: "./tmp/js/",
-        options: {
-          replacements: [
-            {
-              pattern: /"ngb-dp-navigation-chevron"/ig,
-              replacement: function () {
-                return "\"fa-solid fa-chevron-right\"";
-              }
-            },
-          ]
-        }
-      },
-
-      pass3: {
         files: {
           "tmp/index.html": "tmp/index.html"
         },
