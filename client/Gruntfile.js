@@ -118,8 +118,8 @@ module.exports = function(grunt) {
         options: {
           replacements: [
             {
-              pattern: /<script src="(\w+)\.js" type="module"><\/script>/g,
-              replacement: "<script src=\"js/$1.js\" type=\"module\"></script>"
+              pattern: /<script src="/g,
+              replacement: "<script src=\"js/"
             },
             {
               pattern: /<link rel="stylesheet" href="/g,
@@ -199,7 +199,7 @@ module.exports = function(grunt) {
         command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=testing && nyc instrument dist --in-place"
       },
       brotli_compress: {
-        command: 'find . -type f -not -path \'./data/*\' -not -path \'./fonts/*\' -exec brotli -q 11 {} --output={}.br \\;',
+        command: 'find . -type f -not -name \'index.html\' -not -path \'./data/*\' -not -path \'./fonts/*\' -exec brotli -q 11 {} --output={}.br \\;',
         options: {
           execOptions: {
             cwd: './build'

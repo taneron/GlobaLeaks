@@ -19,10 +19,11 @@ class StaticFileHandler(BaseHandler):
         self.root = "%s%s" % (os.path.abspath(state.settings.client_path), "/")
 
     def get(self, filename):
-        if not filename:
-            filename = 'index.html'
-
         abspath = os.path.abspath(os.path.join(self.root, filename))
         directory_traversal_check(self.root, abspath)
+
+        if filename == 'index.html':
+            with open(abspath, 'rb') as f:
+                return f.read().replace(b'randomCspNonce', self.request.nonce)
 
         return self.write_file(filename, abspath)

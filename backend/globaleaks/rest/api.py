@@ -2,9 +2,11 @@
 #   ***
 #
 #   This file defines the URI mapping for the GlobaLeaks API and its factory
+import base64
 import inspect
 import json
 import re
+import secrets
 
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -341,6 +343,7 @@ class APIResourceWrapper(Resource):
         request.language = 'en'
         request.multilang = False
         request.finished = False
+        request.nonce = base64.b64encode(secrets.token_bytes(16))
 
         request.client_ip = request.getClientIP()
         if isinstance(request.client_ip, bytes):
@@ -379,6 +382,9 @@ class APIResourceWrapper(Resource):
                     request.tid, request.path = tid, groups[1]
             except:
                 pass
+
+        if request.path == b'/':
+            request.path = b'/index.html'
 
         if request.tid is None:
             # Tentative domain correction in relation to presence / absence of 'www.' prefix
@@ -543,7 +549,7 @@ class APIResourceWrapper(Resource):
                           b"report-uri /api/report;")
 
         # CSP Policy on the entry point
-        if request.path == b'/' or request.path == b'/index.html':
+        if request.path == b'/index.html':
             request.setHeader(b'Content-Security-Policy',
                               b"base-uri 'none';"
                               b"connect-src 'self';"
@@ -552,10 +558,10 @@ class APIResourceWrapper(Resource):
                               b"form-action 'none';"
                               b"frame-ancestors 'none';"
                               b"frame-src 'self';"
-                              b"img-src 'self';"
+                              b"img-src 'self' data:;"
                               b"media-src 'self';"
                               b"script-src 'self';"
-                              b"style-src 'self';"
+                              b"style-src 'self' 'nonce-" + request.nonce + b"';"
                               b"trusted-types angular angular#bundler dompurify default;"
                               b"require-trusted-types-for 'script';")
 
