@@ -24,6 +24,7 @@ class StaticFileHandler(BaseHandler):
 
         if filename == 'index.html':
             with open(abspath, 'rb') as f:
-                return f.read().replace(b'randomCspNonce', self.request.nonce)
+                self.request.write(f.read().replace(b'randomCspNonce', self.request.nonce))
+                return
 
         return self.write_file(filename, abspath)

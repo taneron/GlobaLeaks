@@ -563,22 +563,6 @@ class APIResourceWrapper(Resource):
                               b"script-src 'self';"
                               b"style-src 'self' 'nonce-" + request.nonce + b"';"
                               b"trusted-types angular angular#bundler dompurify default;"
-                              b"require-trusted-types-for 'script';")
-
-            # Duplicate the above rule to get reports about any violations except for inline styles
-            request.setHeader(b'Content-Security-Policy-Report-Only',
-                              b"base-uri 'none';"
-                              b"connect-src 'self';"
-                              b"default-src 'none';"
-                              b"font-src 'self';"
-                              b"form-action 'none';"
-                              b"frame-ancestors 'none';"
-                              b"frame-src 'self';"
-                              b"img-src 'self';"
-                              b"media-src 'self';"
-                              b"script-src 'self';"
-                              b"style-src 'self' 'unsafe-inline';"
-                              b"trusted-types angular angular#bundler dompurify default;"
                               b"require-trusted-types-for 'script';"
                               b"report-uri /api/report;")
 
@@ -608,21 +592,6 @@ class APIResourceWrapper(Resource):
                                   b"media-src blob:;"
                                   b"script-src 'self';"
                                   b"style-src 'self';"
-                                  b"sandbox allow-scripts;"
-                                  b"trusted-types;"
-                                  b"require-trusted-types-for 'script';")
-
-                # Duplicate the above rule to get reporting of violations except for inline styles
-                request.setHeader(b'Content-Security-Policy-Report-Only',
-                                  b"base-uri 'none';"
-                                  b"default-src 'none';"
-                                  b"connect-src blob:;"
-                                  b"form-action 'none';"
-                                  b"frame-ancestors 'self';"
-                                  b"img-src blob:;"
-                                  b"media-src blob:;"
-                                  b"script-src 'self';"
-                                  b"style-src 'self' 'unsafe-inline';"
                                   b"sandbox allow-scripts;"
                                   b"trusted-types;"
                                   b"require-trusted-types-for 'script';"

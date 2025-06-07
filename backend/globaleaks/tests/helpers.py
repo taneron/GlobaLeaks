@@ -1,9 +1,11 @@
 """
 Utilities and basic TestCases.
 """
+import base64
 import json
 import mimetypes
 import os
+import secrets
 import shutil
 
 from datetime import timedelta
@@ -490,6 +492,7 @@ def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
     request.uri = uri
     request.path = path
     request.args = args
+    request.nonce = base64.b64encode(secrets.token_bytes(16))
     request._serverName = host
 
     request.code = 200
