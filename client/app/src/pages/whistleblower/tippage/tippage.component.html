@@ -1,5 +1,5 @@
 @if (wbTipService.tip) {
-  <div class="reveal" [ngClass]="['report-status-' + tip.status, 'report-substatus-' + tip.substatus]">
+  <div class="reveal" [ngClass]="['report-status-' + wbTipService.tip.status, 'report-substatus-' + wbTipService.tip.substatus]">
     <div id="Toolbar" class="row">
       <div class="col-md-12">
         <span id="link-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
