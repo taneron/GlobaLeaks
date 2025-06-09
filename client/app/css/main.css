@@ -1155,10 +1155,6 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
   background-color: rgba(2, 117, 216, 50%);
 }
 
-.ngb-dp-arrow-prev .fa-chevron-right {
-  transform: scaleX(-1);
-}
-
 .form-select {
   padding: 0.3em !important;
 }
