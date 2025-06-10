@@ -1,3 +1,16 @@
+Changes in version 5.0.71
+    Fix failure on upload of files bigger 1MB introduced in 5.0.40
+    Implement tests to verify correct encryption and decryption of files in multiple conditions
+    Implement CSP policy based on nonces
+    Limit usage of setAttribute on 'stlyle'
+    Reimplement rate limiting using TockenBuket implementation
+    Refactor code related to anomaly checking
+    Correct calendar implementation since apparently days have 1 off
+    Correct regexp based validation of HTML inputs
+    Bump client dependencies to latest
+    Update translation sources
+    [doc] Update application security spec in relation to latest development
+
 Changes in version 5.0.70
     Correct issue preventing recipient to load files on reports in closed status
     Revise fix and initialization of field attributes
