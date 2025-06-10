@@ -362,24 +362,33 @@ Rate limit on users' sessions
 ------------------------------
 The system implements rate limiting on user sessions, preventing more than 5 requests per second and applying increasing delays on requests that exceed this threshold.
 
-Rate limit on whistleblowers' reports and attachments
------------------------------------------------------
-The system applies rate limiting on whistleblower reports and attachments, preventing new submissions and file uploads if thresholds are exceeded.
+Rate limit on logins, whistleblowers' reports and attachments and operations
+----------------------------------------------------------------------------
+The system applies rate limiting on whistleblower reports and attachments and any other operation blocking or delaying the request if thresholds are exceeded.
 
 Implemented thresholds are:
 
 .. csv-table::
-   :header: "Threshold Variable", "Goal", "Default Threshold Setting"
+   :header: "Threshold Variable", "Goal", "Default Threshold Setting", "Effect"
 
-   "threshold_reports_per_hour", "Limit the number of reports that can be filed per hour", "20"
-   "threshold_reports_per_hour_per_ip", "Limit the number of reports that can be filed per hour by the same IP address", "5"
-   "threshold_attachments_per_hour_per_ip", "Limit the number of attachments that can be uploaded per hour by the same IP address", "120"
-   "threshold_attachments_per_hour_per_report", "Limit the number of attachments that can be uploaded per hour on a report", "30"
+   "threshold_logins_per_hour_per_system", "Limit the number of user logins per minute per system", "1000", "DELAY"
+   "threshold_logins_per_hour_per_tenant", "Limit the number of user logins per minute per tenant", "10", "DELAY"
+   "threshold_logins_per_hour_per_ip", "Limit the number of user logins per minute by the same IP address", "10", "DELAY"
+   "threshold_logins_per_hour_per_tenant_per_ip", "Limit the number of user logins per minute per tenant by the same IP address", "5", "DELAY"
+   "threshold_reports_per_hour_per_system", "Limit the number of reports that can be filed per hour per system", "1000", "BLOCK"
+   "threshold_reports_per_hour_per_tenant", "Limit the number of reports that can be filed per hour per tenant", "10", "BLOCK"
+   "threshold_reports_per_hour_per_ip", "Limit the number of reports that can be filed per hour by the same IP address", "10", "BLOCK"
+   "threshold_reports_per_hour_per_tenant_per_ip", "Limit the number of reports that can be filed per hour per tenant by the same IP address", "5", "BLOCK"
+   "threshold_attachments_per_hour_per_report", "Limit the number of attachments that can be uploaded per hour on a report", "30", "DELAY"
+   "threshold_operations_per_hour_per_report", "Limit the number of oprations that can be performed per hour on a report", "30", "DELAY"
+   "threshold_operations_per_minute_per_report", "Limit the number of oprations that can be performed per minute on a report", "20", "DELAY"
+   "threshold_operations_per_second_per_report", "Limit the number of oprations that can be performed per second on a report", "1", "DELAY"
+
 
 In case of necessity, threshold configurations can be adjusted using the `gl-admin` command as follows:
 ::
 
-  gl-admin setvar threshold_reports_per_hour 1
+  gl-admin setvar threshold_reports_per_hour_per_system 1
 
 Other measures
 ==============
