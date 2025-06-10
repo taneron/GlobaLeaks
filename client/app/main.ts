@@ -1,6 +1,17 @@
-// https://github.com/globaleaks/GlobaLeaks/issues/3277
-// Create a proxy to override localStorage methods with sessionStorage methods
 (function() {
+  // Limit usage of setAttribute on 'stlyle'
+  // This is intended to limit our own libraries to scatter CSP policies violations,
+  // it is not intended as a block for an attacker that is already limited by the CSP.
+  const originalSetAttribute = Element.prototype.setAttribute;
+
+  Element.prototype.setAttribute = function(name, value) {
+    if (name.toLowerCase() !== 'style') {
+      originalSetAttribute.call(this, name, value);
+    }
+  };
+
+  // https://github.com/globaleaks/GlobaLeaks/issues/3277
+  // Create a proxy to override localStorage methods with sessionStorage methods
   const localStorageProxy = {
     getItem: (key: string) => sessionStorage.getItem(key),
     setItem: (key: string, value: string) => sessionStorage.setItem(key, value),
