@@ -1,8 +1,8 @@
 contact_links:
-  - name: Ask the GlobaLeaks community on the Community Forum
+  - name: Need help?
     url: https://github.com/globaleaks/globaleaks/discussions/new
     about: Ask and discuss questions with other community members on the Community Forum.
 
-  - name: Chat with the GlobaLeaks community on the Community Chat
+  - name: Chat directly with the GlobaLeaks maintainers and community
     url: https://community.globaleaks.org
     about: Chat with the other community members on the Community Chat.
