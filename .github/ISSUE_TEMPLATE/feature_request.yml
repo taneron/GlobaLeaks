@@ -1,7 +1,6 @@
 name: Feature request
 description: Suggest a new feature.
 title: "Suggest a new feature"
-labels: ["Triage", "T: Feature"]
 body:
   - type: textarea
     id: proposal
