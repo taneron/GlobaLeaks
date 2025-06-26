@@ -52,7 +52,7 @@
       <legend class="title">{{field.label|translate}}</legend>
     }
     @if (field.hint) {
-      <i class="fa-solid fa-question-circle"></i>
+      <i [ngbTooltip]="field.hint" class="fa-solid fa-question-circle"></i>
     }
     @if (field.required) {
       <span class="text-danger sup" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
