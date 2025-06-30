@@ -10,7 +10,7 @@ from globaleaks.orm import transact, tw
 from globaleaks.rest import errors, requests
 from globaleaks.state import State
 from globaleaks.utils.fs import directory_traversal_check
-from globaleaks.utils.utility import uuid4
+from globaleaks.utils.utility import uuid4, is_uuid4
 
 
 special_files = ['css', 'favicon', 'logo', 'script']
@@ -28,10 +28,13 @@ def get_files(session, tid):
     ret = []
 
     for sf in session.query(models.File).filter(models.File.tid == tid):
-        ret.append({
-            'id': sf.id,
-            'name': sf.name
-        })
+        if not is_uuid4(sf.name):
+            # Do not include files named with a uuid4 that a used to
+            # associate files to other models like Context and User
+            ret.append({
+                'id': sf.id,
+                'name': sf.name
+            })
 
     return ret
 
