@@ -37,7 +37,6 @@ export class AuditLogTab1Component implements OnInit {
     }
   }
 
-
   getPaginatedData(): auditlogResolverModel[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
@@ -45,6 +44,6 @@ export class AuditLogTab1Component implements OnInit {
   }
 
   exportAuditLog() {
-    this.utilsService.generateCSV(JSON.stringify(this.auditLog), 'auditlog', ["Date", "Type", "User", "Object", "data"]);
+    this.utilsService.generateCSV('auditlog', this.auditLog, ['date', 'type', 'user_id', 'object_id', 'data']);
   }
 }

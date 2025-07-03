@@ -696,17 +696,35 @@ export class UtilsService {
       };
     });
   }
-  generateCSV(dataString: string, fileName: string, headerx: string[]): void {
-    const data = JSON.parse(dataString);
 
+  generateCSV(fileName: string, data: Record<string, any>[], headerx?: string[]): void {
     if (!Array.isArray(data)) {
       console.error('Invalid data format');
       return;
     }
 
-    const headers = Object.keys(data[0] || {});
-    const newHeader = headerx.join(',');
-    const csvContent = `${newHeader ? `${newHeader}\n` : ""}${data.map(row => headers.map(header => row[header]).join(',')).join('\n')}`;
+    const headers = headerx ?? Object.keys(data[0] || {});
+    const headerLine = headers.join(',');
+
+    const csvRows = data.map(row =>
+      headers.map(header => {
+        let cell = row[header];
+
+        // If it's an object or array, stringify it
+        if (typeof cell === 'object' && cell !== null) {
+          cell = JSON.stringify(cell);
+        }
+
+        // Escape commas, quotes, and newlines
+        if (typeof cell === 'string' && (cell.includes(',') || cell.includes('"') || cell.includes('\n'))) {
+          return `"${cell.replace(/"/g, '""')}"`;
+        }
+
+        return cell ?? ''; // Fallback to empty string
+      }).join(',')
+    );
+
+    const csvContent = `${headerLine}\n${csvRows.join('\n')}`;
 
     if (!csvContent.trim()) {
       console.warn('No data to export');

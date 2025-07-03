@@ -400,7 +400,7 @@ export class TipsComponent implements OnInit {
   }
 
   exportToCsv(): void {
-    this.utils.generateCSV(JSON.stringify(this.getDataCsv()), 'reports',this.getDataCsvHeaders());
+    this.utils.generateCSV('reports', this.getDataCsv(), this.getDataCsvHeaders());
   }
 
   getDataCsv(): any[] {
