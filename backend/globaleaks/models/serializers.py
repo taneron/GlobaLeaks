@@ -270,13 +270,11 @@ def serialize_rtip(session, itip, rtip, language):
     if iar:
         ret['iar'] = serialize_identityaccessrequest(session, iar)
 
-    for receiver in session.query(models.User) \
-                           .filter(models.User.id == models.ReceiverTip.receiver_id,
-                                   models.ReceiverTip.internaltip_id == itip.id):
-        ret['receivers'].append({
-          'id': receiver.id,
-          'name': receiver.name
-        })
+    active_receiver_ids = session.query(models.ReceiverTip.receiver_id) \
+        .filter(models.ReceiverTip.internaltip_id == itip.id) \
+        .distinct()
+    active_receiver_ids = set(rid for (rid,) in active_receiver_ids)
+    other_receiver_ids = set()
 
     denied_identity_files = ['1']
     if 'whistleblower_identity' in ret['data']:
@@ -299,12 +297,24 @@ def serialize_rtip(session, itip, rtip, language):
                                  or_(models.ReceiverFile.visibility != 2,
                                      models.ReceiverFile.author_id == user_id)):
         ret['rfiles'].append(serialize_rfile(session, rfile))
+        if rfile.author_id:
+            other_receiver_ids.add(rfile.author_id)
 
     for comment in session.query(models.Comment) \
                           .filter(models.Comment.internaltip_id == itip.id,
                                   or_(models.Comment.visibility != 2,
                                       models.Comment.author_id == user_id)):
         ret['comments'].append(serialize_comment(session, comment))
+        if comment.author_id:
+            other_receiver_ids.add(comment.author_id)
+
+    users = session.query(models.User).filter(models.User.id.in_(active_receiver_ids | other_receiver_ids)).all()
+    for user in users:
+        ret['receivers'].append({
+            'id': user.id,
+            'name': user.public_name,
+            'active': user.id in active_receiver_ids
+        })
 
     return ret
 
@@ -312,13 +322,11 @@ def serialize_rtip(session, itip, rtip, language):
 def serialize_wbtip(session, itip, language):
     ret = serialize_itip(session, itip, language)
 
-    for receiver in session.query(models.User) \
-                           .filter(models.User.id == models.ReceiverTip.receiver_id,
-                                   models.ReceiverTip.internaltip_id == itip.id):
-        ret['receivers'].append({
-          'id': receiver.id,
-          'name': receiver.public_name
-        })
+    active_receiver_ids = session.query(models.ReceiverTip.receiver_id) \
+        .filter(models.ReceiverTip.internaltip_id == itip.id) \
+        .distinct()
+    active_receiver_ids = set(rid for (rid,) in active_receiver_ids)
+    other_receiver_ids = set()
 
     for ifile in session.query(models.InternalFile) \
                         .filter(models.InternalFile.internaltip_id == itip.id):
@@ -328,11 +336,23 @@ def serialize_wbtip(session, itip, language):
                          .filter(models.ReceiverFile.internaltip_id == itip.id,
                                  models.ReceiverFile.visibility == 0):
         ret['rfiles'].append(serialize_rfile(session, rfile))
+        if rfile.author_id:
+            other_receiver_ids.add(rfile.author_id)
 
     for comment in session.query(models.Comment) \
                           .filter(models.Comment.internaltip_id == itip.id,
                                   models.Comment.visibility == 0):
         ret['comments'].append(serialize_comment(session, comment))
+        if comment.author_id:
+            other_receiver_ids.add(comment.author_id)
+
+    users = session.query(models.User).filter(models.User.id.in_(active_receiver_ids | other_receiver_ids)).all()
+    for user in users:
+        ret['receivers'].append({
+            'id': user.id,
+            'name': user.public_name,
+            'active': user.id in active_receiver_ids
+        })
 
     return ret
 
