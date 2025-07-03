@@ -96,7 +96,7 @@
         <span class="text-danger" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
       </label>
       <div class="input-group">
-        <input name="subdomain" class="form-control" [(ngModel)]="signup.subdomain" type="text" subdomainvalidators required>
+        <input name="subdomain" class="form-control" [(ngModel)]="signup.subdomain" type="text" maxlength="40" subdomainvalidators required>
         <span class="input-group-append">
           <span class="input-group-text">.{{appDataService.public.node.rootdomain}}</span>
         </span>
