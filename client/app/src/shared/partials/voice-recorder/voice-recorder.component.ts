@@ -62,9 +62,9 @@ export class VoiceRecorderComponent implements OnInit {
   }
 
   triggerRecording(fileId: string): void {
-    this.activeButton = "record";
-
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      this.activeButton = "record";
+
       navigator.mediaDevices.getUserMedia({audio: true})
         .then((stream) => {
           this.startRecording(fileId, stream).then();
