@@ -145,5 +145,6 @@ export interface MsgReceiversSelector {
 export interface ReceiversById {
   [key: string]: {
     name: string;
+    active: boolean;
   };
 }
