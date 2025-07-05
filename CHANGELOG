@@ -1,3 +1,9 @@
+Changes in version 5.0.72
+    Improve audit log adding information about reports export
+    Fixes ##4531, #4540, #4566, #4567, #4570
+    Bump client dependencies to latest version
+    Update translations
+
 Changes in version 5.0.71
     Fix failure on upload of files bigger 1MB introduced in 5.0.40
     Implement tests to verify correct encryption and decryption of files in multiple conditions
@@ -7,7 +13,7 @@ Changes in version 5.0.71
     Refactor code related to anomaly checking
     Correct calendar implementation since apparently days have 1 off
     Correct regexp based validation of HTML inputs
-    Bump client dependencies to latest
+    Bump client dependencies to latest version
     Update translation sources
     [doc] Update application security spec in relation to latest development
 
