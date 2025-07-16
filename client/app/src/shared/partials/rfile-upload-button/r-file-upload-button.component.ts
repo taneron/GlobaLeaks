@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, inject} from "@angular/core";
-import {FlowDirective, Transfer, NgxFlowModule} from "@flowjs/ngx-flow";
+import {FlowConfig, Transfer, NgxFlowModule} from "@flowjs/ngx-flow";
 import {AppDataService} from "@app/app-data.service";
 import {ControlContainer, FormsModule, NgForm} from "@angular/forms";
 import {Subscription} from "rxjs";
@@ -34,7 +34,7 @@ export class RFileUploadButtonComponent implements AfterViewInit, OnInit, OnDest
   @Input() file_id: string;
   @Input() entry: any;
   @Output() notifyFileUpload: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild("flow") flow: FlowDirective;
+  @ViewChild("flow") flow: FlowConfig;
 
   autoUploadSubscription: Subscription;
   fileInput: string;

@@ -2,7 +2,7 @@ import {Component, ElementRef, Input, OnInit, ViewChild, inject} from "@angular/
 import {NgForm} from "@angular/forms";
 import Flow from "@flowjs/flow.js";
 import type {FlowFile} from "@flowjs/flow.js";
-import {FlowDirective} from "@flowjs/ngx-flow";
+import {FlowConfig} from "@flowjs/ngx-flow";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {NodeResolver} from "@app/shared/resolvers/node.resolver";
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
@@ -32,13 +32,13 @@ export class Tab2Component implements OnInit {
   private authenticationService = inject(AuthenticationService);
 
   @Input() contentForm: NgForm;
-  @ViewChild("flowAdvanced", {static: true}) flowAdvanced: FlowDirective;
+  @ViewChild("flowAdvanced", {static: true}) flowAdvanced: FlowConfig;
   @ViewChild("uploader") uploaderInput: ElementRef;
 
   files: FlowFile[] = [];
   files_names: string[] = [];
   special_files_names = ['css', 'favicon', 'logo', 'script'];
-  flow: FlowDirective;
+  flow: FlowConfig;
   preferenceData: preferenceResolverModel;
   authenticationData: AuthenticationService;
   permissionStatus = false;
