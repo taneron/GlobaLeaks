@@ -5,7 +5,7 @@
         <span class="title">{{field.label|translate}}</span>
       }
       @if (field.hint) {
-        <i [ngbTooltip]="field.hint" class="fa-solid fa-question-circle"></i>
+        <i [ngbTooltip]="field.hint" class="fa-solid fa-circle-question"></i>
       }
       @if (field.required) {
         <span class="text-danger sup" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
@@ -27,7 +27,7 @@
                 </span>
                 <span class="float-end">
                   <span class="text-danger" ngbTooltip="{{'Remove' | translate}}" [attr.aria-label]="'Remove' | translate" (click)="utilsService.deleteFromList(entries, entry)">
-                    <i class="fa-solid fa-times"></i>
+                    <i class="fa-solid fa-xmark"></i>
                   </span>
                 </span>
               </div>
@@ -52,7 +52,7 @@
       <legend class="title">{{field.label|translate}}</legend>
     }
     @if (field.hint) {
-      <i [ngbTooltip]="field.hint" class="fa-solid fa-question-circle"></i>
+      <i [ngbTooltip]="field.hint" class="fa-solid fa-circle-question"></i>
     }
     @if (field.required) {
       <span class="text-danger sup" ngbTooltip="{{'This field is mandatory' | translate}}">*</span>
@@ -73,7 +73,7 @@
                 </span>
                 <span class="float-end">
                   <span class="text-danger" ngbTooltip="{{'Remove' | translate}}" [attr.aria-label]="'Remove' | translate" (click)="utilsService.deleteFromList(entries, entry)">
-                    <i class="fa-solid fa-times"></i>
+                    <i class="fa-solid fa-xmark"></i>
                   </span>
                 </span>
               </div>

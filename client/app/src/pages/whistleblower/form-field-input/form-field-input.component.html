@@ -51,7 +51,7 @@
                     </ng-select>
                     @if (entry['value']) {
                       <span class="input-append" (click)="entry['value']='';" disabled="!entry['value']">
-                        <i class="input-group-text cross-padding fa-solid fa-times-circle"></i>
+                        <i class="input-group-text cross-padding fa-solid fa-circle-xmark"></i>
                       </span>
                     }
                   </div>
@@ -115,7 +115,7 @@
                 @if (input_start_date) {
                   <span class="form-group ms-2">
                     <button type="button" class="btn btn-outline-secondary" (click)="clearDateRange()">
-                      <i class="fa-solid fa-times-circle"></i>
+                      <i class="fa-solid fa-circle-xmark"></i>
                     </button>
                   </span>
                 }
@@ -226,7 +226,7 @@
         <div>
           @if (option.set && option.hint1) {
             <div>
-              <i class="fa-solid fa-info-circle"></i> <markdown [data]="option.hint1 | stripHtml"></markdown>
+              <i class="fa-solid fa-circle-info"></i> <markdown [data]="option.hint1 | stripHtml"></markdown>
             </div>
           }
         </div>
@@ -237,7 +237,7 @@
     <div>
       @if (option.set && option.hint2) {
         <div [ngClass]="{'text-danger': option.block_submission}">
-          <i class="fa-solid fa-info-circle"></i> <markdown [data]="option.hint2 | stripHtml"></markdown>
+          <i class="fa-solid fa-circle-info"></i> <markdown [data]="option.hint2 | stripHtml"></markdown>
         </div>
       }
     </div>

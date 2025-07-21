@@ -18,14 +18,14 @@
           <span id="tip-action-notify" (click)="tipNotify(true)"
             ngbTooltip="{{'Turn on email notifications' | translate}}"
             class="btn btn-outline-secondary active">
-            <i class="fa-solid fa-volume-mute"></i>
+            <i class="fa-solid fa-volume-xmark"></i>
           </span>
         }
         @if (!tip || tip.enable_notifications) {
           <span id="tip-action-silence" (click)="tipNotify(false)"
             ngbTooltip="{{'Silence email notifications' | translate}}"
             class="btn btn-outline-secondary">
-            <i class="fa-solid fa-volume-down"></i>
+            <i class="fa-solid fa-volume-low"></i>
           </span>
         }
         @if (preferencesService.dataModel.can_grant_access_to_reports) {
@@ -75,13 +75,13 @@
         @if (tip.status !== 'closed') {
           <span id="tip-action-change-status" (click)="openModalChangeState()"
             ngbTooltip="{{'Change status' | translate}}" class="btn btn-outline-secondary">
-            <i class="fa-solid fa-dot-circle"></i>
+            <i class="fa-solid fa-circle-dot"></i>
           </span>
         }
         @if (tip.status === 'closed') {
           <span id="tip-action-reopen-status" (click)="openModalReopen()"
             ngbTooltip="{{'Reopen' | translate}}" class="btn btn-outline-secondary">
-            <i class="fa-solid fa-dot-circle"></i>
+            <i class="fa-solid fa-circle-dot"></i>
           </span>
         }
         <span id="tip-action-print" (click)="utils.print()" ngbTooltip="{{'Print' | translate}}"
@@ -94,7 +94,7 @@
         </span>
         <span id="link-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}"
           class="btn btn-outline-secondary">
-          <i class="fa-solid fa-sync"></i>
+          <i class="fa-solid fa-arrows-rotate"></i>
         </span>
       </div>
     </div>

@@ -11,7 +11,7 @@
       }
       @if (selectedTips.length === RTips.dataModel.length) {
         <span id="tip-action-select-all" (click)="deselectAll()" ngbTooltip="{{'Deselect all' | translate}}" class="btn btn-outline-secondary">
-          <i class="fa-solid fa-check-square"></i>
+          <i class="fa-solid fa-square-check"></i>
         </span>
       }
       @if (selectedTips.length) {
@@ -36,14 +36,14 @@
         <i class="fa-solid fa-handshake-angle"></i>
       </span>
       <span id="tip-action-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
-        <i class="fa-solid fa-sync"></i>
+        <i class="fa-solid fa-arrows-rotate"></i>
       </span>
       <span id="SearchFilter" class="w-auto d-inline-block">
         <span class="input-group ">
           <input type="text" class="form-control" placeholder="{{'Search' | translate}}" [(ngModel)]="search" (ngModelChange)="onSearchChange($event)">
           <div class="input-group-append">
             <button class="input-group-text h-100 rounded-start-0">
-              <i class="fa-solid fa-search"></i>
+              <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
         </span>
@@ -139,7 +139,7 @@
             </th>
             <th class="TipInfoStatus">
               <span (click)="sortKey = 'submissionStatusStr'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-dot-circle"></i>
+                <i class="fa-solid fa-circle-dot"></i>
                 <span>{{'Status' | translate}}</span>
                 @if (sortKey === 'submissionStatusStr') {
                   <span>
@@ -258,7 +258,7 @@
             @if (appDataService.public.node.enable_scoring_system) {
               <th class="TipInfoScore">
                 <span (click)="sortKey = 'score'; sortReverse = !sortReverse">
-                  <i class="fa-solid fa-flash"></i>
+                  <i class="fa-solid fa-ranking-star"></i>
                   <span>{{'Score' | translate}}</span>
                   @if (sortKey === 'score') {
                     <span>
@@ -289,7 +289,7 @@
               <td>
                 @if (isSelected(tip.id)) {
                   <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
-                    <i class="fa-solid fa-check-square"></i>
+                    <i class="fa-solid fa-square-check"></i>
                   </span>
                 }
                 @if (!isSelected(tip.id)) {
@@ -328,8 +328,7 @@
                     <i class="fa-solid fa-check" ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"></i>
                   }
                   @if (tip.last_access < tip.update_date) {
-                    <i class="fa-solid fa-times" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}">
-                    </i>
+                    <i class="fa-solid fa-xmark" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"></i>
                   }
                 </td>
                 <td class="TipInfoComments">{{tip.comment_count}}</td>
@@ -337,7 +336,7 @@
                 <td class="TipInfoIdentity">
                   @switch (tip.subscription) {
                     @case (0) {
-                      <i class="fa-solid fa-times"></i>
+                      <i class="fa-solid fa-xmark"></i>
                     }
                     @case (1) {
                       <i class="fa-solid fa-check"></i>

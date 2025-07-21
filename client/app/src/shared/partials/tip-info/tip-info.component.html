@@ -66,12 +66,12 @@
             </th>
           }
           <th class="TipInfoSubmissionStatus">
-            <i class="fa-solid fa-dot-circle"></i>
+            <i class="fa-solid fa-circle-dot"></i>
             <span>{{'Status'|translate}}</span>
           </th>
           @if (authenticationService.session?.role === 'receiver' && appDataService.public.node.enable_scoring_system) {
             <th class="TipInfoScore">
-              <i class="fa-solid fa-flash"></i>
+              <i class="fa-solid fa-ranking-star"></i>
               <span>{{'Score'|translate}}</span>
             </th>
           }
@@ -126,7 +126,7 @@
                   <i class="fa-solid fa-check" ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tipService.tip.last_access | date:'dd-MM-yyyy HH:mm'}})"></i>
                 }
                 @if (tipService.tip.last_access < tipService.tip.update_date) {
-                  <i class="fa-solid fa-times" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}">
+                  <i class="fa-solid fa-xmark" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}">
                   </i>
                 }
               </td>
@@ -137,7 +137,7 @@
                   <i class="fa-solid fa-check"></i>
                 }
                 @if (!tipService.tip.tor) {
-                  <i class="fa-solid fa-times"></i>
+                  <i class="fa-solid fa-xmark"></i>
                 }
               </td>
             }

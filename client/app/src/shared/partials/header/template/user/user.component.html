@@ -17,7 +17,7 @@
         @if (authentication.session.role !== 'whistleblower') {
           <span>
             <a id="HomepageLink" [href]="'#'+authentication.session.homepage" ngbTooltip="{{'Home' | translate }}">
-              <i class="fa-solid fa-fw fa-home"></i>
+              <i class="fa-solid fa-fw fa-house"></i>
             </a>
             <span class="text-separator">|</span>
           </span>
@@ -44,7 +44,7 @@
       </span>
       <span id="LogoutLinkBox">
         <a id="LogoutLink" href="" (click)="onLogout($event)" ngbTooltip="{{'Logout' | translate}}">
-          <i class="pointer fa-solid fa-fw fa-sign-out-alt"></i>
+          <i class="pointer fa-solid fa-fw fa-right-from-bracket"></i>
           @if (authentication.session.role === 'whistleblower') {
             <span>
               <span></span>
