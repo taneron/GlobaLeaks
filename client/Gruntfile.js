@@ -41,13 +41,6 @@ module.exports = function(grunt) {
             flatten: true,
             expand: true
           },
-          {
-            dest: 'build/fonts',
-            cwd: 'node_modules/',
-            src: ['@fortawesome/fontawesome-free/webfonts/*solid*'],
-            flatten: true,
-            expand: true
-          },
           {dest: "build/images", cwd: "app/images", src: ["**"], expand: true},
           {dest: "build/js", cwd: "tmp/js", src: ["**"], expand: true},
           {dest: "build/js/", cwd: "tmp/", src: ["chunk-*.js*"], expand: true},
