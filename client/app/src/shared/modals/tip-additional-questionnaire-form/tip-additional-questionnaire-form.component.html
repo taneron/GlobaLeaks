@@ -1,7 +1,7 @@
 <div class="modal-header">
   <div class="modal-title">{{'Additional questionnaire'|translate}}</div>
   <button type="submit" class="close btn" [attr.aria-hidden]="true" (click)="activeModal.dismiss()" [attr.aria-label]="'Close' | translate">
-    <i class="fa-solid fa-xmark"></i>
+    <i class="fas fa-xmark"></i>
   </button>
 </div>
 <div class="modal-body">
@@ -49,19 +49,19 @@
     <br>
       @if (hasPreviousStep()) {
         <button id="PreviousStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.decrementStep(this)">
-          <i class="fa-solid fa-circle-arrow-left"></i>
+          <i class="fas fa-circle-arrow-left"></i>
           <span>{{'Previous'|translate}}</span>
         </button>
       }
       @if (hasNextStep()) {
         <button id="NextStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.incrementStep(this)">
           <span>{{'Next'|translate}}</span>
-          <i class="fa-solid fa-circle-arrow-right"></i>
+          <i class="fas fa-circle-arrow-right"></i>
         </button>
       }
       @if (!hasNextStep()) {
         <button id="SubmitButton" class="btn btn-primary" [disabled]="done" (click)="completeSubmission()" type="submit">
-          <i id="SubmitIconOK" class="fa-solid fa-check"></i>
+          <i id="SubmitIconOK" class="fas fa-check"></i>
           <span>{{'Submit'|translate}}</span>
         </button>
       }

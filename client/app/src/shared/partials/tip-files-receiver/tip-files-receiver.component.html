@@ -4,10 +4,10 @@
       <span>{{ 'Attachments' | translate }}</span>
       <span class="float-end">
         @if (!collapsed) {
-          <i class="fa-solid fa-chevron-up" [ngbTooltip]="'Collapse' | translate"></i>
+          <i class="fas fa-chevron-up" [ngbTooltip]="'Collapse' | translate"></i>
         }
         @if (collapsed) {
-          <i class="fa-solid fa-chevron-down" [ngbTooltip]="'Expand' | translate"></i>
+          <i class="fas fa-chevron-down" [ngbTooltip]="'Expand' | translate"></i>
         }
       </span>
     </div>
@@ -34,12 +34,12 @@
                       <td>
                         <button class="btn btn-sm btn-primary tip-action-views-file"  [ngClass]="{'btn-secondary': !utilsService.supportedViewTypes.includes(file.type)}"
                           [disabled]="!utilsService.supportedViewTypes.includes(file.type)" [ngbTooltip]="'View' | translate" (click)="utilsService.viewRFile(file)">
-                          <i class="fa-solid fa-eye"></i>
+                          <i class="fas fa-eye"></i>
                         </button>
                       </td>
                       <td>
                         <button class="btn btn-sm btn-primary tip-action-download-file" [ngbTooltip]="'Download' | translate" (click)="utilsService.downloadRFile(file)">
-                          <i class="fa-solid fa-download"></i>
+                          <i class="fas fa-download"></i>
                         </button>
                         @if (redactMode) {
                           <span>
@@ -48,7 +48,7 @@
                                 <button class="btn btn-sm btn-outline-secondary"
  [ngbTooltip]="'Mask' | translate"
                                   (click)="redactFileOperation('full-mask', 'file', file)">
-                                  <i class="fa-solid fa-eraser"></i>
+                                  <i class="fas fa-eraser"></i>
                                 </button>
                               </span>
                             }
@@ -60,7 +60,7 @@
  [ngbTooltip]="'Mask' | translate"
                                     [attr.disabled]="!redactMode ? true : null"
                                     (click)="redactFileOperation('full-unmask', 'file', file)">
-                                    <i class="fa-solid fa-eraser"></i>
+                                    <i class="fas fa-eraser"></i>
                                   </button>
                                 }
                                 @if (preferenceResolver.dataModel.can_redact_information) {
@@ -68,7 +68,7 @@
  [ngbTooltip]="'Redact' | translate"
                                     [attr.disabled]="!redactMode ? true : null"
                                     (click)="redactFileOperation('redact', 'file', file)">
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fas fa-trash"></i>
                                   </button>
                                 }
                               </span>

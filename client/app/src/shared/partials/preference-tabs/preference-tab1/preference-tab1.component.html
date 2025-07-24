@@ -139,7 +139,7 @@
                         <div>
                           <input #uploader id="customFile" type="file" [style.display]="'none'" class="custom-file-input" (change)="loadPublicKeyFile(uploader.files)" />
                           <label class="btn btn-sm btn-outline-secondary" for="customFile">
-                            <i class="fa-solid fa-upload"></i>
+                            <i class="fas fa-upload"></i>
                             <span>{{ 'Upload' | translate }}</span>
                           </label>
                         </div>
@@ -148,7 +148,7 @@
                   }
                   <br />
                   <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="preferenceForm.invalid || pgpkeyForm.invalid">
-                    <i class="fa-solid fa-check"></i>
+                    <i class="fas fa-check"></i>
                     <span>{{'Save'|translate}}</span>
                   </button>
                   @if (preferenceResolver.dataModel.encryption) {
@@ -158,7 +158,7 @@
               }
               @if (!appDataService.public.node.pgp) {
                 <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="preferenceForm.invalid">
-                  <i class="fa-solid fa-check"></i>
+                  <i class="fas fa-check"></i>
                   <span>{{'Save'|translate}}</span>
                 </button>
               }

@@ -84,7 +84,7 @@ describe("recipient admin tip actions", () => {
     cy.visit("/#/recipient/reports");
     cy.get("#tip-0").first().click();
     cy.get('#upload_description').type("description");
-    cy.get('i.fa-solid.fa-upload').click();
+    cy.get('i.fas.fa-upload').click();
     cy.fixture("files/test.txt").then(fileContent => {
       cy.get('input[type="file"]').then(input => {
         const blob = new Blob([fileContent], { type: "text/plain" });
@@ -126,7 +126,7 @@ describe("recipient admin tip actions", () => {
 
     cy.get('th.TipInfoID').click();
 
-    cy.get('th.TipInfoContext i.fa-solid.fa-filter').click();
+    cy.get('th.TipInfoContext i.fas.fa-filter').click();
     cy.get('.multiselect-item-checkbox').eq(1).click();
     cy.get('.multiselect-item-checkbox').eq(0).click();
 

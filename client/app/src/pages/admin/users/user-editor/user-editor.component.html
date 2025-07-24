@@ -23,7 +23,7 @@
       }
       @if (nodeData.encryption && !user.encryption) {
         <span class="badge bg-default text-dark" ngbTooltip="{{'This user has not performed the first login yet.' | translate}}">
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="fas fa-circle-exclamation"></i>
         </span>
       }
     </span>
@@ -105,7 +105,7 @@
               <label>{{ 'Password' | translate }}</label>
               <div [ngClass]="{'disabled': user.encryption && !preferenceData.escrow}">
                 <span class="btn btn-outline-secondary" (click)="resetUserPassword(user)">
-                  <i class="fa-solid fa-arrows-rotate"></i>
+                  <i class="fas fa-arrows-rotate"></i>
                   @if (user.last_login === '1970-01-01T00:00:00Z') {
                     <span>{{ 'Send activation link' | translate }}</span>
                   }
@@ -114,7 +114,7 @@
                   }
                 </span>
                 <span class="btn btn-outline-secondary" (click)="user.newpassword = !user.newpassword">
-                  <i class="fa-solid fa-pen-to-square"></i>
+                  <i class="fas fa-pen-to-square"></i>
                   <span id="set_password">{{ 'Set password' | translate }}</span>
                 </span>
               </div>
@@ -125,7 +125,7 @@
                     <input name="password" class="form-control" [(ngModel)]="setPasswordArgs.password" #password="ngModel" type="password" (passwordStrengthChange)="onPasswordStrengthChange($event)" [ngClass]="{'is-invalid': setPasswordArgs.password && (!password?.errors?.['passwordStrengthValidator'] && !password?.valid)}" autocomplete="off" passwordStrengthValidator />
                     <span class="input-group-append">
                       <button id="setPasswordButton" class="btn btn-primary rounded-start-0 m-0" (click)="setPassword(setPasswordArgs)">
-                        <i class="fa-solid fa-tag"></i>
+                        <i class="fas fa-tag"></i>
                         <span id="set_password">{{ 'Set password' | translate }}</span>
                       </button>
                     </span>
@@ -157,7 +157,7 @@
           @if (user.two_factor) {
             <div class="form-group">
               <span class="btn btn-danger" (click)="disable2FA(user)">
-                <i class="fa-solid fa-ban"></i>
+                <i class="fas fa-ban"></i>
                 <span>{{ 'Disable two factor authentication' | translate }}</span>
               </span>
             </div>
@@ -206,7 +206,7 @@
                   <div>
                     <input #uploader id="customFile" type="file" [style.display]="'none'" class="custom-file-input" (change)="loadPublicKeyFile(uploader.files,user)" />
                     <label class="btn btn-sm btn-outline-secondary" for="customFile">
-                      <i class="fa-solid fa-upload"></i>
+                      <i class="fas fa-upload"></i>
                       <span>{{ 'Upload' | translate }}</span>
                     </label>
                   </div>

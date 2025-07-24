@@ -1,7 +1,7 @@
 <div class="modal-header">
     <div class="modal-title">{{ 'Attention' | translate }}</div>
     <button type="button" class="close btn" (click)="cancel()" [attr.aria-label]="'Close' | translate">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fas fa-xmark"></i>
     </button>
 </div>
 <div class="modal-body">
@@ -17,7 +17,7 @@
                         <span class="input-group-append">
                             <button id="ReceiptButton" (click)="utils.copyToClipboard(arg.receipt)" class="btn btn-primary rounded-start-0"
                                 type="button" [attr.aria-label]="'Copy to clipboard' | translate">
-                                <i class="fa-solid fa-copy"></i>
+                                <i class="fas fa-copy"></i>
                             </button>
                         </span>
                     </div>
@@ -31,7 +31,7 @@
         <span>{{ 'Confirm' | translate }}</span>
     </button>
     <a id="modal-action-cancel" class="btn btn-outline-secondary" (click)="cancel()">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fas fa-xmark"></i>
         <span>{{ 'Close' | translate }}</span>
     </a>
 </div>

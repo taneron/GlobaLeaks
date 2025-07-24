@@ -2,48 +2,48 @@
   <div id="Toolbar" class="row">
     <div class="col-md-12">
       <a id="link-home" routerLink="/recipient/home" ngbTooltip="{{'Home' | translate}}" class="btn btn-outline-secondary">
-        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fas fa-arrow-left"></i>
       </a>
       @if (selectedTips.length !== RTips.dataModel.length ) {
         <span id="tip-action-select-all" (click)="selectAll()" ngbTooltip="{{'Select all' | translate}}" class="btn btn-outline-secondary">
-          <i class="fa-solid fa-square"></i>
+          <i class="fas fa-square"></i>
         </span>
       }
       @if (selectedTips.length === RTips.dataModel.length) {
         <span id="tip-action-select-all" (click)="deselectAll()" ngbTooltip="{{'Deselect all' | translate}}" class="btn btn-outline-secondary">
-          <i class="fa-solid fa-square-check"></i>
+          <i class="fas fa-square-check"></i>
         </span>
       }
       @if (selectedTips.length) {
         <span>
           @if (preference.dataModel.can_grant_access_to_reports) {
             <span id="tip-action-grant-access-selected" (click)="openGrantAccessModal()" ngbTooltip="{{'Grant access' | translate}}" class="btn btn-outline-secondary">
-              <i class="fa-solid fa-user-plus"></i>
+              <i class="fas fa-user-plus"></i>
             </span>
           }
           @if (preference.dataModel.can_grant_access_to_reports) {
             <span id="tip-action-revoke-access-selected" (click)="openRevokeAccessModal()" ngbTooltip="{{'Revoke access' | translate}}" class="btn btn-outline-secondary">
-              <i class="fa-solid fa-user-minus"></i>
+              <i class="fas fa-user-minus"></i>
             </span>
           }
           <span id="tip-action-export-selected" (click)="exportTips()" ngbTooltip="{{'Export' | translate}}" class="btn btn-outline-secondary">
-            <i class="fa-solid fa-download"></i>
+            <i class="fas fa-download"></i>
           </span>
         </span>
       }
       <span id="tip-action-act-as-whistleblower" (click)="actAsWhistleblower()" ngbTooltip="{{'Act on behalf of a whistleblower' | translate}}"
         class="btn btn-outline-secondary">
-        <i class="fa-solid fa-handshake-angle"></i>
+        <i class="fas fa-handshake-angle"></i>
       </span>
       <span id="tip-action-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
-        <i class="fa-solid fa-arrows-rotate"></i>
+        <i class="fas fa-arrows-rotate"></i>
       </span>
       <span id="SearchFilter" class="w-auto d-inline-block">
         <span class="input-group ">
           <input type="text" class="form-control" placeholder="{{'Search' | translate}}" [(ngModel)]="search" (ngModelChange)="onSearchChange($event)">
           <div class="input-group-append">
             <button class="input-group-text h-100 rounded-start-0">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fas fa-magnifying-glass"></i>
             </button>
           </div>
         </span>
@@ -57,40 +57,40 @@
           <tr>
             <th></th>
             <th (click)="sortKey = 'important'; sortReverse = !sortReverse">
-              <i class="fa-solid fa-star"></i>
+              <i class="fas fa-star"></i>
               @if (sortKey === 'important') {
                 <span>
                   @if (!sortReverse) {
-                    <span class="fa-solid fa-caret-down"></span>
+                    <span class="fas fa-caret-down"></span>
                   }
                   @if (sortReverse) {
-                    <span class="fa-solid fa-caret-up"></span>
+                    <span class="fas fa-caret-up"></span>
                   }
                 </span>
               }
             </th>
             <th (click)="sortKey = 'reminder_date'; sortReverse = !sortReverse">
-              <i class="fa-solid fa-bell"></i>
+              <i class="fas fa-bell"></i>
               @if (sortKey === 'reminder_date') {
                 <span>
                   @if (!sortReverse) {
-                    <span class="fa-solid fa-caret-down"></span>
+                    <span class="fas fa-caret-down"></span>
                   }
                   @if (sortReverse) {
-                    <span class="fa-solid fa-caret-up"></span>
+                    <span class="fas fa-caret-up"></span>
                   }
                 </span>
               }
             </th>
             <th class="TipInfoID" (click)="sortKey = 'progressive'; sortReverse = !sortReverse">
-              <i class="fa-solid fa-hashtag"></i>
+              <i class="fas fa-hashtag"></i>
               @if (sortKey === 'progressive') {
                 <span>
                   @if (!sortReverse) {
-                    <span class="fa-solid fa-caret-down"></span>
+                    <span class="fas fa-caret-down"></span>
                   }
                   @if (sortReverse) {
-                    <span class="fa-solid fa-caret-up"></span>
+                    <span class="fas fa-caret-up"></span>
                   }
                 </span>
               }
@@ -98,22 +98,22 @@
             @if (appDataService.public.contexts.length > 1) {
               <th class="TipInfoContext">
                 <span (click)="sortKey = 'context_name'; sortReverse = !sortReverse">
-                  <i class="fa-solid fa-inbox"></i>
+                  <i class="fas fa-inbox"></i>
                   <span>{{'Channel' | translate}}</span>
                   @if (sortKey === 'context_name') {
                     <span>
                       @if (!sortReverse) {
-                        <span class="fa-solid fa-caret-down"></span>
+                        <span class="fas fa-caret-down"></span>
                       }
                       @if (sortReverse) {
-                        <span class="fa-solid fa-caret-up"></span>
+                        <span class="fas fa-caret-up"></span>
                       }
                     </span>
                   }
                 </span>
                 @if (RTips.dataModel.length > 0) {
                   <span class="dropdown-multi-select-container">
-                    <i class="fa-solid fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownContextModel) }" (click)="toggleChannelDropdown()"></i>
+                    <i class="fas fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownContextModel) }" (click)="toggleChannelDropdown()"></i>
                     <span [class.d-none]="!channelDropdownVisible">
                       <ng-multiselect-dropdown [class.dropdown-visible]="channelDropdownVisible" [settings]="dropdownSettings" [data]="dropdownContextData" [(ngModel)]="dropdownContextModel" (ngModelChange)="onChanged(dropdownContextModel,'Channel')"></ng-multiselect-dropdown>
                     </span>
@@ -123,15 +123,15 @@
             }
             <th class="TipInfoLabel">
               <span (click)="sortKey = 'label'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-tag"></i>
+                <i class="fas fa-tag"></i>
                 <span>{{'Label' | translate}}</span>
                 @if (sortKey === 'label') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
@@ -139,22 +139,22 @@
             </th>
             <th class="TipInfoStatus">
               <span (click)="sortKey = 'submissionStatusStr'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-circle-dot"></i>
+                <i class="fas fa-circle-dot"></i>
                 <span>{{'Status' | translate}}</span>
                 @if (sortKey === 'submissionStatusStr') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
               </span>
               @if (RTips.dataModel.length > 0) {
                 <span class="dropdown-multi-select-container">
-                  <i class="fa-solid fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownStatusModel) }" (click)="toggleStatusDropdown()"></i>
+                  <i class="fas fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownStatusModel) }" (click)="toggleStatusDropdown()"></i>
                   <span [class.d-none]="!statusDropdownVisible">
                     <ng-multiselect-dropdown [class.dropdown-visible]="statusDropdownVisible" [settings]="dropdownSettings" [data]="dropdownStatusData" [(ngModel)]="dropdownStatusModel" (ngModelChange)="onChanged(dropdownStatusModel,'Status')"></ng-multiselect-dropdown>
                   </span>
@@ -163,15 +163,15 @@
             </th>
             <th class="TipInfoSubmissionDate">
               <span (click)="sortKey = 'creation_date'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-clock"></i>
+                <i class="fas fa-clock"></i>
                 <span>{{'Report date' | translate}}</span>
                 @if (sortKey === 'creation_date') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
@@ -185,15 +185,15 @@
             </th>
             <th class="TipInfoUpdateDate">
               <span (click)="sortKey = 'update_date'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-clock"></i>
+                <i class="fas fa-clock"></i>
                 <span>{{'Last update' | translate}}</span>
                 @if (sortKey === 'update_date') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
@@ -207,15 +207,15 @@
             </th>
             <th class="TipInfoExpirationDate">
               <span (click)="sortKey = 'expiration_date'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-hourglass"></i>
+                <i class="fas fa-hourglass"></i>
                 <span>{{'Expiration date' | translate}}</span>
                 @if (sortKey === 'expiration_date') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
@@ -228,28 +228,28 @@
               </span>
             </th>
             <th class="TipInfoReadReceipt">
-              <i class="fa-solid fa-envelope-circle-check"></i>
+              <i class="fas fa-envelope-circle-check"></i>
             </th>
             <th class="TipInfoComments">
-              <i class="fa-solid fa-comment"></i>
+              <i class="fas fa-comment"></i>
             </th>
             <th class="TipInfoFiles">
-              <i class="fa-solid fa-file"></i>
+              <i class="fas fa-file"></i>
             </th>
             <th class="TipInfoIdentity">
-              <i class="fa-solid fa-user"></i>
+              <i class="fas fa-user"></i>
             </th>
             <th class="TipInfoRecipientCount">
               <span (click)="sortKey = 'receiver_count'; sortReverse = !sortReverse">
-                <i class="fa-solid fa-users"></i>
+                <i class="fas fa-users"></i>
                 <span></span>
                 @if (sortKey === 'receiver_count') {
                   <span>
                     @if (!sortReverse) {
-                      <span class="fa-solid fa-caret-down"></span>
+                      <span class="fas fa-caret-down"></span>
                     }
                     @if (sortReverse) {
-                      <span class="fa-solid fa-caret-up"></span>
+                      <span class="fas fa-caret-up"></span>
                     }
                   </span>
                 }
@@ -258,22 +258,22 @@
             @if (appDataService.public.node.enable_scoring_system) {
               <th class="TipInfoScore">
                 <span (click)="sortKey = 'score'; sortReverse = !sortReverse">
-                  <i class="fa-solid fa-ranking-star"></i>
+                  <i class="fas fa-ranking-star"></i>
                   <span>{{'Score' | translate}}</span>
                   @if (sortKey === 'score') {
                     <span>
                       @if (!sortReverse) {
-                        <span class="fa-solid fa-caret-down"></span>
+                        <span class="fas fa-caret-down"></span>
                       }
                       @if (sortReverse) {
-                        <span class="fa-solid fa-caret-up"></span>
+                        <span class="fas fa-caret-up"></span>
                       }
                     </span>
                   }
                 </span>
                 @if (RTips.dataModel.length > 0) {
                   <span class="dropdown-multi-select-container">
-                    <i class="fa-solid fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownScoreModel) }" (click)="toggleScoreDropdown()"></i>
+                    <i class="fas fa-filter" [ngClass]="{ filterSelected: checkFilter(dropdownScoreModel) }" (click)="toggleScoreDropdown()"></i>
                     <span [class.d-none]="!scoreDropdownVisible">
                       <ng-multiselect-dropdown [class.dropdown-visible]="scoreDropdownVisible" [settings]="dropdownSettings" [data]="dropdownScoreData" [(ngModel)]="dropdownScoreModel" (ngModelChange)="onChanged(dropdownScoreModel,'Score')"></ng-multiselect-dropdown>
                     </span>
@@ -289,22 +289,22 @@
               <td>
                 @if (isSelected(tip.id)) {
                   <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
-                    <i class="fa-solid fa-square-check"></i>
+                    <i class="fas fa-square-check"></i>
                   </span>
                 }
                 @if (!isSelected(tip.id)) {
                   <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
-                    <i class="fa-solid fa-square"></i>
+                    <i class="fas fa-square"></i>
                   </span>
                 }
               </td>
               <td>
                 @if (tip.important) {
-                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
                 }
                 <td>
                   @if (!utils.isNever(tip.reminder_date)) {
-                    <i class="fa-solid fa-bell" [ngClass]="{'text-warning': utils.isDatePassed(tip.reminder_date)}"></i>
+                    <i class="fas fa-bell" [ngClass]="{'text-warning': utils.isDatePassed(tip.reminder_date)}"></i>
                   }
                 </td>
                 <td class="TipInfoID">{{tip.progressive}}</td>
@@ -325,10 +325,10 @@
                 </td>
                 <td class="TipInfoLastAccess">
                   @if (tip.last_access >= tip.update_date) {
-                    <i class="fa-solid fa-check" ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"></i>
+                    <i class="fas fa-check" ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"></i>
                   }
                   @if (tip.last_access < tip.update_date) {
-                    <i class="fa-solid fa-xmark" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"></i>
+                    <i class="fas fa-xmark" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"></i>
                   }
                 </td>
                 <td class="TipInfoComments">{{tip.comment_count}}</td>
@@ -336,17 +336,17 @@
                 <td class="TipInfoIdentity">
                   @switch (tip.subscription) {
                     @case (0) {
-                      <i class="fa-solid fa-xmark"></i>
+                      <i class="fas fa-xmark"></i>
                     }
                     @case (1) {
-                      <i class="fa-solid fa-check"></i>
+                      <i class="fas fa-check"></i>
                     }
                     @case (2) {
                       @if (tip.data) {
-                        <i class="fa-solid fa-check underline"  ngbTooltip="{{'Subscription date: ' + (tip.data.whistleblower_identity_date | date:'dd-MM-yyyy HH:mm')}}"></i>
+                        <i class="fas fa-check underline"  ngbTooltip="{{'Subscription date: ' + (tip.data.whistleblower_identity_date | date:'dd-MM-yyyy HH:mm')}}"></i>
                       }
                       @if (!tip.data) {
-                        <i class="fa-solid fa-check underline"></i>
+                        <i class="fas fa-check underline"></i>
                       }
                     }
                   }
@@ -377,14 +377,14 @@
         @if (filteredTips.length > itemsPerPage) {
           <div class="text-center">
               <ngb-pagination dir="ltr" class="d-flex justify-content-center" [collectionSize]="filteredTips.length" [(page)]="currentPage" [pageSize]="itemsPerPage">
-                  <ng-template ngbPaginationFirst><i class="fa-solid fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationPrevious><i class="fa-solid fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationNext><i class="fa-solid fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationLast><i class="fa-solid fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationFirst><i class="fa-solid fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationPrevious><i class="fa-solid fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationNext><i class="fa-solid fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-                  <ng-template ngbPaginationLast><i class="fa-solid fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationFirst><i class="fas fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationPrevious><i class="fas fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationNext><i class="fas fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationLast><i class="fas fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationFirst><i class="fas fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationPrevious><i class="fas fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationNext><i class="fas fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
+                  <ng-template ngbPaginationLast><i class="fas fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
               </ngb-pagination>
           </div>
         }
@@ -392,7 +392,7 @@
           @if (filteredTips.length > 0) {
             <a class="btn btn-sm btn-link" type="button"
               (click)="exportToCsv()">
-              <i class="fa-solid fa-download"></i>
+              <i class="fas fa-download"></i>
               <span>{{ 'Export' | translate }}</span>
             </a>
           }

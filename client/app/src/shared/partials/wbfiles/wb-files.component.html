@@ -11,11 +11,11 @@
         <span class="float-end">
           <span>
             <span class="download-button btn btn-sm btn-primary" (click)="downloadWBFile(wbFile)">
-              <i class="fa-solid fa-download"></i>
+              <i class="fas fa-download"></i>
             </span>
             @if (authenticationService.session?.role === 'receiver') {
               <button class="btn btn-sm btn-danger" (click)="deleteWBFile(wbFile)">
-                <i class="fa-solid fa-trash"></i>
+                <i class="fas fa-trash"></i>
               </button>
             }
           </span>
