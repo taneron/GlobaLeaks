@@ -173,7 +173,7 @@ module.exports = function(grunt) {
       npx_build: {
         command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=production"
       },
-      npx_build_for_testing: {
+      npx_build_and_instrument: {
         command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=testing && nyc instrument dist --in-place"
       },
       brotli_compress: {
@@ -801,6 +801,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask("build", ["clean", "shell:npx_build", "package", "shell:brotli_compress", "clean:tmp"]);
  
-  grunt.registerTask("build_for_testing", ["clean", "shell:npx_build_for_testing", "package", "shell:brotli_compress", "clean:tmp"]);
+  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "package", "shell:brotli_compress", "clean:tmp"]);
 };
 

@@ -13,7 +13,7 @@ pip3 install -r requirements/requirements-$(lsb_release -cs).txt
 
 cd $GITHUB_WORKSPACE/client  # to install frontend dependencies
 npm install -d
-./node_modules/grunt/bin/grunt build_for_testing
+./node_modules/grunt/bin/grunt build_and_instrument
 
 cd $GITHUB_WORKSPACE/backend && coverage run -m twisted.trial globaleaks.tests
 cd $GITHUB_WORKSPACE/backend && coverage lcov -o $GITHUB_WORKSPACE/backend/lcov.info
