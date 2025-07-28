@@ -226,7 +226,7 @@
         <div>
           @if (option.set && option.hint1) {
             <div>
-              <i class="fas fa-circle-info"></i> <markdown [data]="option.hint1 | stripHtml"></markdown>
+              <i class="fas fa-circle-info"></i><markdown [data]="option.hint1 | stripHtml"></markdown>
             </div>
           }
         </div>
@@ -237,7 +237,7 @@
     <div>
       @if (option.set && option.hint2) {
         <div [ngClass]="{'text-danger': option.block_submission}">
-          <i class="fas fa-circle-info"></i> <markdown [data]="option.hint2 | stripHtml"></markdown>
+          <i class="fas fa-circle-info"></i><markdown [data]="option.hint2 | stripHtml"></markdown>
         </div>
       }
     </div>

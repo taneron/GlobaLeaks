@@ -22,10 +22,10 @@
         </span>
         <span class="float-end">
           @if (!collapsed) {
-            <i class="fas fa-chevron-up" ngbTooltip="{{'Collapse' | translate}}"></i>
+            <span ngbTooltip="{{'Collapse' | translate}}"><i class="fas fa-chevron-up"></i></span>
           }
           @if (collapsed) {
-            <i class="fas fa-chevron-down" ngbTooltip="{{'Expand' | translate}}"></i>
+            <span ngbTooltip="{{'Expand' | translate}}"><i class="fas fa-chevron-down"></i></span>
           }
         </span>
       </span>
@@ -52,7 +52,7 @@
             <div id="SubmitBox">
               @if (identity_provided) {
                 <button id="SubmitButton" class="btn btn-primary float-end" (click)="provideIdentityInformation.emit({ param1: field.id, param2: answers })" [disabled]="wbform.invalid" type="submit">
-                  <i id="SubmitIconOK" class="fas fa-check"></i>
+                  <span id="SubmitIconOK"><i class="fas fa-check"></i></span>
                   <span>{{'Submit'|translate}}</span>
                 </button>
               }

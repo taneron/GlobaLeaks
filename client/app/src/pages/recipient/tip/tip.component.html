@@ -8,11 +8,17 @@
         </a>
         <span id="tip-action-star" (click)="tipToggleStar()"
           ngbTooltip="{{'Mark as important' | translate}}" class="btn btn-outline-secondary">
-          <i class="fas fa-star" [ngClass]="{'text-warning': tip && tip.important}"></i>
+          <span [ngClass]="{'text-warning': tip && tip.important}"><i class="fas fa-star"></i></span>
         </span>
         <span id="tip-action-reminder" (click)="setReminder()"
+          [ngClass]="{'text-warning': tip && utils.isDatePassed(tip.reminder_date)}"
           ngbTooltip="{{'Set a reminder' | translate}}" class="btn btn-outline-secondary">
-          <i class="fas" [ngClass]="{'fa-bell': !utils.isNever(tip.reminder_date), 'fa-bell-slash': tip && utils.isNever(tip.reminder_date), 'text-warning': tip && utils.isDatePassed(tip.reminder_date)}"></i>
+          @if (!utils.isNever(tip.reminder_date)) {
+            <i class="fas fa-bell"></i>
+          }
+          @if (utils.isNever(tip.reminder_date)) {
+            <i class="fas fa-bell-slash"></i>
+          }
         </span>
         @if (tip && !tip.enable_notifications) {
           <span id="tip-action-notify" (click)="tipNotify(true)"

@@ -57,14 +57,14 @@
           @if ((tenants | filter:'name':search).length > 10) {
             <div class="text-center">
               <ngb-pagination dir="ltr" class="d-flex justify-content-center" [(page)]="currentPage" [pageSize]="itemsPerPage" [collectionSize]="(tenants | filter:'name':search).length">
-                <ng-template ngbPaginationFirst><i class="fas fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationPrevious><i class="fas fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationNext><i class="fas fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationLast><i class="fas fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationFirst><i class="fas fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationPrevious><i class="fas fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationNext><i class="fas fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-                <ng-template ngbPaginationLast><i class="fas fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
+                <ng-template ngbPaginationFirst><span ngbTooltip="{{'First' | translate}}"><i class="fas fa-backward-fast"></i></span></ng-template>
+                <ng-template ngbPaginationPrevious><span ngbTooltip="{{'Previous' | translate}}"><i class="fas fa-backward-step"></i></span></ng-template>
+                <ng-template ngbPaginationNext><span ngbTooltip="{{'Next' | translate}}"><i class="fas fa-forward-step"></i></span></ng-template>
+                <ng-template ngbPaginationLast><span ngbTooltip="{{'Last' | translate}}"><i class="fas fa-forward-fast"></i></span></ng-template>
+                <ng-template ngbPaginationFirst><span ngbTooltip="{{'First' | translate}}"><i class="fas fa-backward-fast"></i></span></ng-template>
+                <ng-template ngbPaginationPrevious><span ngbTooltip="{{'Previous' | translate}}"><i class="fas fa-backward-step"></i></span></ng-template>
+                <ng-template ngbPaginationNext><span ngbTooltip="{{'Next' | translate}}"><i class="fas fa-forward-step"></i></span></ng-template>
+                <ng-template ngbPaginationLast><span ngbTooltip="{{'Last' | translate}}"><i class="fas fa-forward-fast"></i></span></ng-template>
               </ngb-pagination>
             </div>
           }

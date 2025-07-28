@@ -37,10 +37,10 @@
     <div class="float-end">
       <button id="toggle-button" (click)="toggleVisibility()" class="btn">
         @if (forced_visible) {
-          <i class="fas fa-eye" id="eye-icon-open"></i>
+          <span id="eye-icon-open"><i class="fas fa-eye"></i></span>
         }
         @if (!forced_visible) {
-          <i class="fas fa-eye-slash" id="eye-icon-closed"></i>
+          <span id="eye-icon-closed"><i class="fas fa-eye-slash"></i></span>
         }
       </button>
 

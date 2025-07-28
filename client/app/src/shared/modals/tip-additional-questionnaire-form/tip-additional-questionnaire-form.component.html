@@ -61,7 +61,7 @@
       }
       @if (!hasNextStep()) {
         <button id="SubmitButton" class="btn btn-primary" [disabled]="done" (click)="completeSubmission()" type="submit">
-          <i id="SubmitIconOK" class="fas fa-check"></i>
+          <span id="SubmitIconOK"><i class="fas fa-check"></i></span>
           <span>{{'Submit'|translate}}</span>
         </button>
       }

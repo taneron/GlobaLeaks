@@ -3,10 +3,10 @@
     <span>{{'Comments'|translate}}</span>
     <span class="">
       @if (!collapsed) {
-        <i class="fas fa-chevron-up" ngbTooltip="{{'Collapse' | translate}}"></i>
+        <span ngbTooltip="{{'Collapse' | translate}}"><i class="fas fa-chevron-up"></i></span>
       }
       @if (collapsed) {
-        <i class="fas fa-chevron-down" ngbTooltip="{{'Expand' | translate}}"></i>
+        <span ngbTooltip="{{'Expand' | translate}}"><i class="fas fa-chevron-down"></i></span>
       }
     </span>
   </div>
@@ -69,10 +69,10 @@
       @if (tipService.tip.comments && ((comments | orderBy:'creation_date': true) | filter : 'visibility' : key ).length > itemsPerPage) {
         <div class="mt-2 text-center">
           <ngb-pagination class="pagination-sm" [collectionSize]="((comments | orderBy:'creation_date': true) | filter : 'visibility' : key ).length" [(page)]="currentCommentsPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [ellipses]="true" [boundaryLinks]="true">
-            <ng-template ngbPaginationFirst><i class="fas fa-backward-fast" [ngbTooltip]="'First' | translate"></i></ng-template>
-            <ng-template ngbPaginationPrevious><i class="fas fa-backward" [ngbTooltip]="'Previous' | translate"></i></ng-template>
-            <ng-template ngbPaginationNext><i class="fas fa-forward" [ngbTooltip]="'Next' | translate"></i></ng-template>
-            <ng-template ngbPaginationLast><i class="fas fa-forward-fast" [ngbTooltip]="'Last' | translate"></i></ng-template>
+            <ng-template ngbPaginationFirst><span [ngbTooltip]="'First' | translate"><i class="fas fa-backward-fast"></i></span></ng-template>
+            <ng-template ngbPaginationPrevious><span [ngbTooltip]="'Previous' | translate"><i class="fas fa-backward"></i></span></ng-template>
+            <ng-template ngbPaginationNext><span [ngbTooltip]="'Next' | translate"><i class="fas fa-forward"></i></span></ng-template>
+            <ng-template ngbPaginationLast><span [ngbTooltip]="'Last' | translate"><i class="fas fa-forward-fast"></i></span></ng-template>
           </ngb-pagination>
         </div>
       }
