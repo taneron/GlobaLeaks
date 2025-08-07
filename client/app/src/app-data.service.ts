@@ -7,7 +7,7 @@ import {BehaviorSubject, Observable} from "rxjs";
   providedIn: "root"
 })
 export class AppDataService {
-  private showLoadingPanelSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private showLoadingPanelSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   showLoadingPanel$: Observable<boolean> = this.showLoadingPanelSubject.asObservable();
   language:string = "en"
 

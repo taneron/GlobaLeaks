@@ -80,36 +80,11 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
 
   showSidebar: boolean = true;
   isNavCollapsed: boolean = true;
-  showLoadingPanel = false;
+  showLoadingPanel = true;
   supportedBrowser = true;
   loading = false;
 
   constructor() {
-    let elem;
-    elem = document.createElement("link");
-    elem.rel = "stylesheet";
-    elem.href = "css/fonts.css";
-    document.head.appendChild(elem);
-
-    elem = document.createElement("link");
-    elem.rel = "stylesheet";
-    elem.href = "s/css";
-    document.head.appendChild(elem);
-
-    elem = document.createElement("script");
-    elem.type = "module";
-    let scriptURL = "/s/script";
-    if ((window as any).trustedTypes?.defaultPolicy) {
-        const safeURL = (window as any).trustedTypes.defaultPolicy.createScriptURL(scriptURL);
-        if (typeof safeURL === "string") {
-            scriptURL = safeURL;
-        }
-    }
-    elem.src = scriptURL;
-    document.body.appendChild(elem);
-
-    this.initIdleState();
-    this.watchLanguage();
     (window as any).scope = this.appDataService;
   }
 
@@ -147,10 +122,38 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   }
 
   public ngAfterViewInit(): void {
+    this.initIdleState();
+    this.watchLanguage();
+
     this.appDataService.showLoadingPanel$.subscribe((value:any) => {
       this.showLoadingPanel = value;
       this.supportedBrowser = this.browserCheckService.checkBrowserSupport();
       this.changeDetectorRef.detectChanges();
+    });
+
+    requestIdleCallback(() => {
+      let elem;
+      elem = document.createElement("link");
+      elem.rel = "stylesheet";
+      elem.href = "css/fonts.css";
+      document.head.appendChild(elem);
+
+      elem = document.createElement("link");
+      elem.rel = "stylesheet";
+      elem.href = "s/css";
+      document.head.appendChild(elem);
+
+      elem = document.createElement("script");
+      elem.type = "module";
+      let scriptURL = "/s/script";
+      if ((window as any).trustedTypes?.defaultPolicy) {
+          const safeURL = (window as any).trustedTypes.defaultPolicy.createScriptURL(scriptURL);
+          if (typeof safeURL === "string") {
+              scriptURL = safeURL;
+          }
+      }
+      elem.src = scriptURL;
+      document.body.appendChild(elem);
     });
   }
 
