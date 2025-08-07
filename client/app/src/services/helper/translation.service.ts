@@ -31,7 +31,7 @@ export class TranslationService {
     sessionStorage.setItem("language", changedLanguage);
     this.language = changedLanguage;
     this.changeLocale(this.language);
-    this.translate.setDefaultLang(this.language);
+    this.translate.setFallbackLang(this.language);
     this.translate.use(this.language).subscribe(() => {
       this.appDataService.language = this.language
       window.GL.language = this.language

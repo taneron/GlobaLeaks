@@ -24,7 +24,6 @@ import {ReceiptSidebarComponent} from "../recipient/sidebar/sidebar.component";
 import {HttpClient} from "@angular/common/http";
 import {registerLocales} from "@app/services/helper/locale-provider";
 import {mockEngine} from "@app/services/helper/mocks";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {DEFAULT_INTERRUPTSOURCES, Idle} from "@ng-idle/core";
 import {CryptoService} from "@app/shared/services/crypto.service";
 import {HttpService} from "@app/shared/services/http.service";
@@ -33,10 +32,6 @@ import {Keepalive} from "@ng-idle/keepalive";
 import DOMPurify from 'dompurify';
 
 registerLocales();
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, "l10n/", "");
-}
 
 declare global {
   interface Window {

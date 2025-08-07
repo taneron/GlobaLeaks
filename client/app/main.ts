@@ -50,10 +50,11 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { FormsModule } from "@angular/forms";
 import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
 import { MarkdownModule, MARKED_OPTIONS } from "ngx-markdown";
-import { AppComponent, createTranslateLoader } from "@app/pages/app/app.component";
+import { AppComponent } from "@app/pages/app/app.component";
 import { provideRouter } from "@angular/router";
 import { ApplicationRef, importProvidersFrom } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import Flow from "@flowjs/flow.js";
 
 bootstrapApplication(AppComponent, {
@@ -78,11 +79,7 @@ bootstrapApplication(AppComponent, {
                               }
                             }),
                             TranslateModule.forRoot({
-                              loader: {
-                                provide: TranslateLoader,
-                                useFactory: createTranslateLoader,
-                                deps: [HttpClient],
-                              },
+                              loader: provideTranslateHttpLoader({prefix:"l10n/", suffix:""}),
                             })),
         { provide: APP_BASE_HREF, useValue: "/" },
         { provide: HTTP_INTERCEPTORS, useClass: appInterceptor, multi: true },
