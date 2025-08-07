@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
     "string-replace": {
       pass1: {
-        src: "./tmp/css/fonts.css",
+        src: "./tmp/css/styles.css",
         dest: "./tmp/css/",
         options: {
           replacements: [
@@ -89,6 +89,21 @@ module.exports = function(grunt) {
       },
 
       pass2: {
+        src: "./tmp/css/fonts.css",
+        dest: "./tmp/css/",
+        options: {
+          replacements: [
+            {
+              pattern: /.\/media\//gi,
+              replacement: function () {
+                return "../fonts/";
+              }
+            }
+          ]
+        }
+      },
+
+      pass3: {
         files: {
           "tmp/index.html": "tmp/index.html"
         },

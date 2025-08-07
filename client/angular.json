@@ -22,8 +22,7 @@
               "styles": {
                 "minify": true,
                 "inlineCritical": false
-              },
-              "fonts": true
+              }
             },
             "outputPath": "dist",
             "index": { "input": "app/index.html", "preloadInitial": false },
@@ -37,8 +36,9 @@
               "app/assets"
             ],
             "styles": [
+               { "bundleName": "styles", "inject": true, "input": "node_modules/@fontsource-variable/inter/index.css" },
+               { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-svg-core/styles.css" },
                { "bundleName": "styles", "inject": true, "input": "app/css/components/libs/bootstrap/bootstrap.scss" },
-               { "bundleName": "fonts", "inject": false, "input": "node_modules/@fortawesome/fontawesome-svg-core/styles.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/ng-multiselect-dropdown/themes/ng-multiselect-dropdown.theme.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/scss/ng-select.component.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/themes/default.theme.css" },
@@ -49,7 +49,6 @@
                { "bundleName": "styles", "inject": true, "input": "app/css/components/switch.css" },
                { "bundleName": "styles", "inject": true, "input": "app/css/components/select.css" },
                { "bundleName": "styles", "inject": true, "input": "app/css/main.css" },
-               { "bundleName": "fonts", "inject": false, "input": "node_modules/@fontsource-variable/inter/index.css" },
                { "bundleName": "fonts", "inject": false, "input": "node_modules/@fontsource-variable/noto-sans-arabic/index.css" },
                { "bundleName": "fonts", "inject": false, "input": "node_modules/@fontsource-variable/noto-sans-armenian/index.css" },
                { "bundleName": "fonts", "inject": false, "input": "node_modules/@fontsource-variable/noto-sans-bengali/index.css" },
@@ -73,7 +72,7 @@
           "configurations": {
             "production": {
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "optimization": {
                 "scripts": true,
                 "styles": {
@@ -98,8 +97,8 @@
                 }
               },
               "styles": [
+               { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-svg-core/styles.css" },
                { "bundleName": "styles", "inject": true, "input": "app/css/components/libs/bootstrap/bootstrap.scss" },
-               { "bundleName": "fonts", "inject": false, "input": "node_modules/@fortawesome/fontawesome-svg-core/styles.css" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/ng-multiselect-dropdown/themes/ng-multiselect-dropdown.theme.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/scss/ng-select.component.scss" },
                { "bundleName": "styles", "inject": true, "input": "node_modules/@ng-select/ng-select/themes/default.theme.css" },
