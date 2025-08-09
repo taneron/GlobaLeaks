@@ -5,7 +5,7 @@
         <span class="badge bg-secondary">{{tenant.id}}</span>
         <span>{{tenant.name}}</span>
       </div>
-      @if (tenant.active && (tenant.onionservice || tenant.hostname || (tenant.subdomain || nodeResolver.dataModel.rootdomain))) {
+      @if (tenant.active && (tenant.onionservice || tenant.hostname || tenant.subdomain)) {
         <div class="tenant-badge">
           @if (tenant.hostname) {
             <a class="badge bg-primary" [href]="'https://' + tenant.hostname" target="_blank">{{tenant.hostname}}</a>
@@ -14,8 +14,8 @@
             <a class="badge bg-primary" [href]="'http://' + tenant.onionservice" target="_blank">{{tenant.onionservice}}</a>
           }
           @if (tenant.subdomain) {
-            @if (nodeResolver.dataModel.onionservice) {
-              <a class="badge bg-primary" [href]="'https://' + tenant.subdomain + '.' + nodeResolver.dataModel.rootdomain" target="_blank">{{tenant.subdomain}}.{{nodeResolver.dataModel.onionservice}}</a>
+            @if (nodeResolver.dataModel.rootdomain) {
+              <a class="badge bg-primary" [href]="'https://' + tenant.subdomain + '.' + nodeResolver.dataModel.rootdomain" target="_blank">{{tenant.subdomain}}.{{nodeResolver.dataModel.rootdomain}}</a>
             }
             @if (nodeResolver.dataModel.onionservice) {
               <a class="badge bg-primary" [href]="'http://' + tenant.subdomain + '.' + nodeResolver.dataModel.onionservice" target="_blank">{{tenant.subdomain}}.{{nodeResolver.dataModel.onionservice}}</a>

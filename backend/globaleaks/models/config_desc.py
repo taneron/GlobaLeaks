@@ -232,7 +232,7 @@ ConfigFilters = {
         'maximum_filesize',
         'mode',
         'name',
-        'onionsite',
+        'onionservice',
         'password_change_period',
         'pgp',
         'receipt_salt',
