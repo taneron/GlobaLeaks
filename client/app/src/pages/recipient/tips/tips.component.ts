@@ -48,7 +48,7 @@ export class TipsComponent implements OnInit {
   selectedTips: string[] = [];
   filteredTips: rtipResolverModel[];
   currentPage: number = 1;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 20;
   reportDateFilter: [number, number] | null = null;
   updateDateFilter: [number, number] | null = null;
   expiryDateFilter: [number, number] | null = null;
