@@ -5,7 +5,7 @@ import sqlite3
 import threading
 
 from sqlalchemy import create_engine, event
-from sqlalchemy.exc import OperationalError, SAWarning
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import sessionmaker
 
 from twisted.internet import reactor
