@@ -1,3 +1,7 @@
+Changes in version 5.0.74
+    Fix defect of visualization of reports list introduced in 5.0.73
+    Bump client dependencies to latest versions
+
 Changes in version 5.0.73
     Optimize client app
     Fix listing of addresses of platforms using subdomain
