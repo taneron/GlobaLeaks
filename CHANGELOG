@@ -1,6 +1,17 @@
+Changes in version 5.0.73
+    Optimize client app
+    Fix listing of addresses of platforms using subdomain
+    Optimize fontawesome icons loading by using SVG format and including only needed icons (#4591)
+    Add automated lighthouse audit
+    Fixes #4581
+    Bump fontawesome library from 6 to 7
+    Bump client dependencies to latest versions
+    Update translations
+    [doc] Update documentation images in English
+
 Changes in version 5.0.72
     Improve audit log adding information about reports export
-    Fixes ##4531, #4540, #4566, #4567, #4570
+    Fixes #4531, #4540, #4566, #4567, #4570
     Bump client dependencies to latest version
     Update translations
 
