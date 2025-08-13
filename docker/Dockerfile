@@ -4,54 +4,40 @@
 # Build Arguments:
 #   BASE_IMAGE:     The base image for the OS (e.g., debian:trixie-slim@sha256:...)
 #   DISTRIBUTION:   The target distribution codename (e.g., trixie)
-#   INSTALL_FROM:   Installation mode. 'remote' (default) or 'local'.
 
 ARG BASE_IMAGE=debian:trixie-slim@sha256:f2306da7a8fb6440535937baed0ce0018736742d6dc5beec9d6a31355b259726
 ARG DISTRIBUTION=trixie
-ARG INSTALL_FROM=remote
 
 FROM ${BASE_IMAGE}
 
 # Redeclare build arguments to make them available after FROM
 ARG DISTRIBUTION=trixie
-ARG INSTALL_FROM=remote
-
-# Install basic dependencies common to all builds
-RUN apt-get update -q && \
-    apt-get dist-upgrade -y && \
-    apt-get install -y apt-utils wget lsb-release curl gnupg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Create temporary directory for install scripts
-RUN mkdir -p /tmp/install
-
-# Copy the unified install script from the repository (build context is project root)  
-COPY scripts/install.sh /tmp/install.sh
-
-# Create directory for potential local packages
-RUN mkdir -p /globaleaks/deb
-
-# For local installation builds, copy deb packages if they exist
-# Note: In CI, deb packages are built and placed in docker/deb/${DISTRIBUTION}/
-# For local development, this directory exists but may be empty, which is handled in the install logic
-COPY docker/deb/ /globaleaks/deb/
 
 # Set environment for non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install basic dependencies common to all builds
+RUN apt-get update -q && \
+    apt-get dist-upgrade -y && \
+    apt-get install -y wget lsb-release gnupg && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy setup files
+RUN mkdir /tmp/globaleaks-setup-files
+COPY files/* /tmp/globaleaks-setup-files
+
+# Download install script if missing
+RUN if [ ! -f /tmp/globaleaks-setup-files/install.sh ]; then \
+    cd /tmp/globaleaks-setup-files && \
+    wget https://deb.globaleaks.org/install.sh; \
+    fi
+
 # Run the unified installation script
 # The script automatically detects Docker environment and adapts its behavior
-RUN echo "DEBUG: INSTALL_FROM=${INSTALL_FROM}, DISTRIBUTION=${DISTRIBUTION}" && \
-    chmod +x /tmp/install.sh && \
-    /tmp/install.sh && \
-    # Cleanup installation files
-    rm -rf /tmp/install.sh /globaleaks/deb
-
-# Configure Docker-specific settings to disable sandboxing features (after installation)
-RUN echo "NETWORK_SANDBOXING=0" >> /etc/default/globaleaks && \
-    echo "APPARMOR_SANDBOXING=0" >> /etc/default/globaleaks && \
-    echo "REACHABLE_VIA_WEB=0" >> /etc/default/globaleaks
+RUN chmod +x /tmp/globaleaks-setup-files/install.sh && \
+    /tmp/globaleaks-setup-files/install.sh && \
+    rm -rf /tmp/globaleaks-setup-files
 
 EXPOSE 8080 8443
 

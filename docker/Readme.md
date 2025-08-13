@@ -2,5 +2,5 @@
 
 To run GlobaLeaks using docker
 - install [Docker](https://www.docker.com),
-- copy `Dockerfile` and `docker-compose.yaml`,
+- copy `Dockerfile` and `docker-compose.yml`,
 - run `docker-compose up -d` in that directory.
