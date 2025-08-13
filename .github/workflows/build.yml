@@ -304,7 +304,7 @@ jobs:
             echo "🧪 Running Cypress tests for $dist on port $port..."
             
             # Run Cypress tests and capture exit code
-            if npx cypress run --browser chrome; then
+            if npx cypress run --browser chrome --config baseUrl="https://127.0.0.1:$port"; then
               echo "✅ Cypress tests passed for $dist"
               test_results+=("$dist:CYPRESS_PASS")
             else
