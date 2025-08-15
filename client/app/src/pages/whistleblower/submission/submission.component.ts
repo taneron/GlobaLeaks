@@ -45,7 +45,7 @@ export class SubmissionComponent implements OnInit {
   private appConfigService = inject(AppConfigService);
   private whistleblowerLoginResolver = inject(WhistleblowerLoginResolver);
   protected authenticationService = inject(AuthenticationService);
-  private appDataService = inject(AppDataService);
+  protected appDataService = inject(AppDataService);
   private utilsService = inject(UtilsService);
   private fieldUtilitiesService = inject(FieldUtilitiesService);
   private httpService = inject(HttpService);
@@ -58,7 +58,6 @@ export class SubmissionComponent implements OnInit {
   _navigation = -1;
   answers: Answers = {};
   identity_provided = false;
-  context_id = "";
   context: Context | undefined = undefined;
   receiversOrderPredicate: string;
   validate: boolean[] = [];
