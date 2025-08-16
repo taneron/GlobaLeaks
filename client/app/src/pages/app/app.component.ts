@@ -108,13 +108,9 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
 
   ngOnInit() {
     DOMPurify.addHook('afterSanitizeAttributes', function (node) {
-      const href = node.getAttribute('href') || '';
-      const url = new URL(href, window.location.origin);
-
-      // Ensure only external links are modified
-      if (url.origin !== window.location.origin) {
-        node.setAttribute('target', '_blank');
-      }
+      // ensure any link always contain target _blank and rel noopener
+      node.setAttribute('target', '_blank');
+      node.setAttribute('rel', 'noopener');
     });
 
     this.appConfig.routeChangeListener();
