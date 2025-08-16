@@ -15,9 +15,9 @@ To install GlobaLeaks, run the following commands:
 
 .. code:: sh
 
-  wget https://deb.globaleaks.org/install-globaleaks.sh
-  chmod +x install-globaleaks.sh
-  ./install-globaleaks.sh
+  wget https://deb.globaleaks.org/install.sh
+  chmod +x install.sh
+  ./install.sh
 
 You may also install GlobaLeaks using Docker. Check out the `docker` directory in our GitHub repository for instructions.
 
