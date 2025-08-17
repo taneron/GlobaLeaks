@@ -47,8 +47,8 @@ export class TipsComponent implements OnInit {
   search: string | undefined;
   selectedTips: string[] = [];
   filteredTips: rtipResolverModel[];
-  currentPage: number = 1;
-  itemsPerPage: number = 20;
+  currentPage = 1;
+  itemsPerPage = 20;
   reportDateFilter: [number, number] | null = null;
   updateDateFilter: [number, number] | null = null;
   expiryDateFilter: [number, number] | null = null;
@@ -61,16 +61,16 @@ export class TipsComponent implements OnInit {
   dropdownContextData: { id: number; label: string; }[] = [];
   dropdownScoreModel: { id: number; label: string; }[] = [];
   dropdownScoreData: { id: number; label: string; }[] = [];
-  sortKey: string = "creation_date";
-  sortReverse: boolean = true;
-  channelDropdownVisible: boolean = false;
-  statusDropdownVisible: boolean = false;
-  scoreDropdownVisible: boolean = false;
+  sortKey = "creation_date";
+  sortReverse = true;
+  channelDropdownVisible = false;
+  statusDropdownVisible = false;
+  scoreDropdownVisible = false;
   index: number;
   date: { year: number; month: number };
-  reportDatePicker: boolean = false;
-  lastUpdatePicker: boolean = false;
-  expirationDatePicker: boolean = false;
+  reportDatePicker = false;
+  lastUpdatePicker = false;
+  expirationDatePicker = false;
   dropdownSettings: IDropdownSettings = {
     idField: "id",
     textField: "label",

@@ -40,7 +40,7 @@ export class TippageComponent implements OnInit {
 
   fileUploadUrl: string;
   answers = {};
-  uploads: { [key: string]: any } = {};
+  uploads: Record<string, any> = {};
   score = 0;
   ctx: string;
   rows: Children[];

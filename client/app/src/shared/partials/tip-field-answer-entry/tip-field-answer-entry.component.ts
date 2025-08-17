@@ -46,7 +46,7 @@ export class TipFieldAnswerEntryComponent implements OnInit {
 
   format = "dd/MM/yyyy";
   locale = "en-US";
-  audioFiles: { [reference_id: string]: Blob } = {};
+  audioFiles: Record<string, Blob> = {};
   iframeUrl: SafeResourceUrl;
   @ViewChild("viewer") viewerFrame: ElementRef;
   tipService:WbtipService|ReceiverTipService;

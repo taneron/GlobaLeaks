@@ -28,16 +28,16 @@ export class RedactInformationComponent implements OnInit{
   @ViewChild('redact', { static: false }) redactTextArea: ElementRef;
   @Input() arg:any;
   redaction: any = null;
-  forced_visible: boolean = false;
+  forced_visible = false;
   vars = {
     redaction_switch: true,
   };
   ranges_selected: any
   temporary_redaction: any[] = [];
   permanent_redaction: any[] = [];
-  unmaskedContent: string = "";
-  content: string = "";
-  originalContent: string = "";
+  unmaskedContent = "";
+  content = "";
+  originalContent = "";
 
   cancel() {
     this.modalService.dismissAll();

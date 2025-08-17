@@ -34,7 +34,7 @@ export class WhistleblowerIdentityComponent {
 
   collapsed = false;
   protected readonly JSON = JSON;
-  identity_provided: boolean = true;
+  identity_provided = true;
 
   constructor() {
     this.collapsed = this.wbTipService.tip.data.whistleblower_identity_provided;

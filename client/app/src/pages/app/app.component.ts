@@ -78,8 +78,8 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy{
   private bodyDomObserver = inject(BodyDomObserverService);
   private TrustedTypesService = inject(TrustedTypesService);
 
-  showSidebar: boolean = true;
-  isNavCollapsed: boolean = true;
+  showSidebar = true;
+  isNavCollapsed = true;
   showLoadingPanel = true;
   supportedBrowser = true;
   loading = false;

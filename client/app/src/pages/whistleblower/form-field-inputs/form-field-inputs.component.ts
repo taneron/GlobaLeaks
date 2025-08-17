@@ -43,14 +43,14 @@ export class FormFieldInputsComponent implements OnInit {
   @Input() index: number;
   @Input() displayErrors: boolean;
   @Input() fields: any;
-  @Input() uploads: { [key: string]: any };
+  @Input() uploads: Record<string, any>;
   @Input() identity_provided: boolean;
   @Input() fileUploadUrl: string;
   @Input() fieldEntry: string;
   @Output() notifyFileUpload: EventEmitter<any> = new EventEmitter<any>();
 
   fieldId: string;
-  entries: { [key: string]: Field }[] = [];
+  entries: Record<string, Field>[] = [];
 
   ngOnInit(): void {
     if(!this.fieldEntry){

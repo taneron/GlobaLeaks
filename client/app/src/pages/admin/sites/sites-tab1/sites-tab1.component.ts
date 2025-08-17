@@ -28,9 +28,9 @@ export class SitesTab1Component implements OnInit {
     subdomain: ""
   };
   tenants: tenantResolverModel[];
-  showAddTenant: boolean = false;
-  itemsPerPage: number = 10;
-  currentPage: number = 1;
+  showAddTenant = false;
+  itemsPerPage = 10;
+  currentPage = 1;
 
   ngOnInit(): void {
     this.httpService.fetchTenant().subscribe(

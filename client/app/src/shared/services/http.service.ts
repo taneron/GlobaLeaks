@@ -92,20 +92,20 @@ export class HttpService {
     return this.httpClient.delete<RFile>("api/recipient/rfiles/" + id);
   }
 
-  requestOperations(data: { operation: string, args: { [key: string]: string } }, header?: HttpHeaders): Observable<{
+  requestOperations(data: { operation: string, args: Record<string, string> }, header?: HttpHeaders): Observable<{
     operation: string,
-    args: { [key: string]: string }
+    args: Record<string, string>
   }> {
     const options = {headers: header};
     return this.httpClient.put<{
       operation: string,
-      args: { [key: string]: string }
+      args: Record<string, string>
     }>("api/user/operations", data, options);
   }
 
   requestOperationsRecovery(data: {
     operation: string,
-    args: { [key: string]: string }
+    args: Record<string, string>
   }, confirmation: string): Observable<any> {
     const headers = {"X-Confirmation": confirmation};
     return this.httpClient.put<any>("api/user/operations", data, {headers});
@@ -281,16 +281,16 @@ export class HttpService {
     return this.httpClient.put<nodeResolverModel>("api/admin/node", data);
   }
 
-  requestAdminL10NResource(lang: string): Observable<{ [key: string]: string }> {
-    return this.httpClient.get<{ [key: string]: string }>("api/admin/l10n/" + lang);
+  requestAdminL10NResource(lang: string): Observable<Record<string, string>> {
+    return this.httpClient.get<Record<string, string>>("api/admin/l10n/" + lang);
   }
 
-  requestUpdateAdminL10NResource(data: { [key: string]: string }, lang: string): Observable<{ [key: string]: string }> {
-    return this.httpClient.put<{ [key: string]: string }>("api/admin/l10n/" + lang, data);
+  requestUpdateAdminL10NResource(data: Record<string, string>, lang: string): Observable<Record<string, string>> {
+    return this.httpClient.put<Record<string, string>>("api/admin/l10n/" + lang, data);
   }
 
-  requestDefaultL10NResource(lang: string): Observable<{ [key: string]: string }> {
-    return this.httpClient.get<{ [key: string]: string }>("/data/l10n/" + lang + ".json");
+  requestDefaultL10NResource(lang: string): Observable<Record<string, string>> {
+    return this.httpClient.get<Record<string, string>>("/data/l10n/" + lang + ".json");
   }
 
   requestAdminAuditLogResource(): Observable<auditlogResolverModel> {

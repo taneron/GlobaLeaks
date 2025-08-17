@@ -95,7 +95,7 @@ export class TipComponent implements OnInit {
   showEditLabelInput: boolean;
   active: string;
   loading = true;
-  redactMode:boolean = false;
+  redactMode = false;
   redactOperationTitle: string;
   tabs: Tab[];
 
@@ -116,7 +116,7 @@ export class TipComponent implements OnInit {
           this.loading = false;
           this.RTipService.initialize(response);
           this.tip = this.RTipService.tip;
-          this.activatedRoute.queryParams.subscribe((params: { [x: string]: string; }) => {
+          this.activatedRoute.queryParams.subscribe((params: Record<string, string>) => {
             this.tip.tip_id = params["tip_id"];
           });
 

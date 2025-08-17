@@ -43,7 +43,7 @@ export class UserEditorComponent implements OnInit {
   editing = false;
   setPasswordArgs: { user_id: string, password: string };
   changePasswordArgs: { password_change_needed: string };
-  passwordStrengthScore: number = 0;
+  passwordStrengthScore = 0;
   nodeData: nodeResolverModel;
   preferenceData: preferenceResolverModel;
   authenticationData: AuthenticationService;

@@ -54,12 +54,10 @@ export class RecieverTipData {
   redactions: RedactionData[];
 }
 
-export interface Answers {
-  [key: string]: {
+export type Answers = Record<string, {
     required_status: boolean;
     value: string;
-  }[];
-}
+  }[]>;
 
 export interface Receiver {
   id: string;
@@ -101,9 +99,7 @@ export interface MsgReceiversSelector {
   value: string;
 }
 
-export interface ReceiversById {
-  [key: string]: {
+export type ReceiversById = Record<string, {
     name: string;
     active: boolean;
-  };
-}
+  }>;

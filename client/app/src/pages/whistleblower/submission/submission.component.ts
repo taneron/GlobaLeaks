@@ -63,7 +63,7 @@ export class SubmissionComponent implements OnInit {
   validate: boolean[] = [];
   score = 0;
   done: boolean;
-  uploads: { [key: string]: any } = {};
+  uploads: Record<string, any> = {};
   questionnaire: Questionnaire;
   contextsOrderPredicate: string = this.appDataService.public.node.show_contexts_in_alphabetical_order ? "name" : "order";
   selectable_contexts: Context[];

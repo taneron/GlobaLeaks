@@ -27,7 +27,7 @@ export class WhistleBlowerIdentityReceiverComponent {
 
   @Input() redactOperationTitle: string;
   @Input() redactMode: boolean;
-  collapsed: boolean = true;
+  collapsed = true;
 
   public toggleCollapse() {
     this.collapsed = !this.collapsed;

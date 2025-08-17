@@ -324,7 +324,7 @@ export class UtilsService {
     return date.getTime() >= 32503680000000;
   }
 
-  deleteFromList(list:  { [key: string]: Field}[], elem: { [key: string]: Field}) {
+  deleteFromList(list:  Record<string, Field>[], elem: Record<string, Field>) {
     const idx = list.indexOf(elem);
     if (idx !== -1) {
       list.splice(idx, 1);
@@ -442,7 +442,7 @@ export class UtilsService {
 
   getMinPostponeDate(currentExpirationDate: string) {
     const currDate = new Date(currentExpirationDate);
-    var minDate = new Date();
+    const minDate = new Date();
     minDate.setDate(minDate.getDate() + 91);
     return currDate > minDate ? minDate : currDate;
   }
@@ -462,7 +462,7 @@ export class UtilsService {
     return this.httpService.requestAdminL10NResource(lang);
   }
 
-  updateAdminL10NResource(data: {[key: string]: string}, lang: string) {
+  updateAdminL10NResource(data: Record<string, string>, lang: string) {
     return this.httpService.requestUpdateAdminL10NResource(data, lang);
   }
 

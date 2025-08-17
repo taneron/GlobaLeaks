@@ -25,7 +25,7 @@ export class FormComponent implements OnInit {
   @Input() step: Step;
   @Input() index: number;
   @Input() answers: Answers;
-  @Input() uploads: { [key: string]: any };
+  @Input() uploads: Record<string, any>;
   @Input() submission: SubmissionService;
   @Input() displayErrors: boolean;
   @Input() entry: string;

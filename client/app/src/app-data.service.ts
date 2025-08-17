@@ -9,13 +9,13 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class AppDataService {
   private showLoadingPanelSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   showLoadingPanel$: Observable<boolean> = this.showLoadingPanelSubject.asObservable();
-  language:string = "en"
+  language = "en"
 
   updateShowLoadingPanel(newValue: boolean) {
     this.showLoadingPanelSubject.next(newValue);
   }
 
-  public = <Root>{};
+  public = {} as Root;
   errorCodes = new ErrorCodes();
   pageTitle = "Globaleaks";
   projectTitle = "";
