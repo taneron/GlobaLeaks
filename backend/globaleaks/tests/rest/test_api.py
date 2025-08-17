@@ -1,5 +1,4 @@
 import copy
-from twisted.internet.address import IPv4Address
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks.db import refresh_tenant_cache

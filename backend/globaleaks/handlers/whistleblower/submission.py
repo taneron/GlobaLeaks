@@ -5,7 +5,6 @@ import re
 from nacl.encoding import Base64Encoder
 from nacl.public import PrivateKey
 
-from sqlalchemy import exists, func, and_
 
 from globaleaks import models
 from globaleaks.handlers.admin.questionnaire import db_get_questionnaire

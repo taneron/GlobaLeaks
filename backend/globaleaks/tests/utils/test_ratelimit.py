@@ -1,6 +1,4 @@
 import time
-import struct
-import tracemalloc
 
 from twisted.trial import unittest
 

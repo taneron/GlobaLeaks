@@ -4,7 +4,7 @@ from globaleaks.settings import Settings
 from globaleaks.state import State
 from globaleaks.utils.crypto import sha256, GCE
 from globaleaks.utils.tempdict import TempDict
-from globaleaks.utils.utility import datetime_now, uuid4
+from globaleaks.utils.utility import uuid4
 
 
 class Session(dict):

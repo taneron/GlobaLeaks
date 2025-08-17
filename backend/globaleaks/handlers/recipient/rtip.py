@@ -5,7 +5,7 @@ import os
 import re
 import time
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from nacl.encoding import Base64Encoder
 from twisted.internet.threads import deferToThread

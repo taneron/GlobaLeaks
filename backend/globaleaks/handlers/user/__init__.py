@@ -2,8 +2,8 @@
 from globaleaks import models
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.models import get_localized_values
-from globaleaks.orm import db_get, db_log, transact
-from globaleaks.rest import errors, requests
+from globaleaks.orm import db_get, transact
+from globaleaks.rest import requests
 from globaleaks.state import State
 from globaleaks.transactions import db_get_user
 from globaleaks.utils.crypto import generateRandomKey

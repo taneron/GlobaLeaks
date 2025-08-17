@@ -34,7 +34,7 @@ from globaleaks.utils.tempdict import TempDict
 from globaleaks.utils.templating import Templating
 from globaleaks.utils.token import TokenList
 from globaleaks.utils.tor_exit_set import TorExitSet
-from globaleaks.utils.utility import datetime_now, datetime_null, uuid4
+from globaleaks.utils.utility import datetime_now
 
 
 silenced_exceptions = (

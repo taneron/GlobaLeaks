@@ -6,7 +6,7 @@ from globaleaks.state import State
 from globaleaks.rest.cache import Cache
 from globaleaks.rest.decorators import (decorator_rate_limit, decorator_require_session_or_token,
                                         decorator_authentication, decorator_cache_get, decorator_cache_invalidate)
-from globaleaks.utils.utility import deferred_sleep, uuid4
+from globaleaks.utils.utility import uuid4
 
 
 class FakeRequest:

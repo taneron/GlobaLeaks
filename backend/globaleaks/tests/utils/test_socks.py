@@ -3,7 +3,7 @@ from twisted.internet.protocol import Factory, Protocol
 from twisted.test.proto_helpers import StringTransportWithDisconnection
 from twisted.trial import unittest
 
-from globaleaks.utils.socks import SOCKS5ClientProtocol, SOCKS5ClientFactory
+from globaleaks.utils.socks import SOCKS5ClientProtocol
 
 class DummyFactory(Factory):
     def __init__(self):

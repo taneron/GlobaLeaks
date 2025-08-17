@@ -7,7 +7,6 @@ from globaleaks.handlers.public import db_get_languages
 from globaleaks.models.config import ConfigFactory, ConfigL10NFactory
 from globaleaks.orm import db_del, tw
 from globaleaks.rest import errors, requests
-from globaleaks.utils.crypto import GCE
 from globaleaks.utils.fs import read_file
 from globaleaks.utils.log import log
 

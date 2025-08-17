@@ -7,7 +7,7 @@ from globaleaks import models
 from globaleaks.handlers.recipient import rtip
 from globaleaks.jobs.delivery import Delivery
 from globaleaks.tests import helpers
-from globaleaks.utils.utility import datetime_never, datetime_now, get_expiration
+from globaleaks.utils.utility import datetime_never, datetime_now
 
 
 class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):

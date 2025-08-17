@@ -1,5 +1,4 @@
 # Handlers implementing platform signup
-from sqlalchemy import not_
 from twisted.internet.threads import deferToThread
 from globaleaks import models
 from globaleaks.db import sync_refresh_tenant_cache

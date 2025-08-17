@@ -14,7 +14,6 @@ from nacl.encoding import Base32Encoder, Base64Encoder
 
 from urllib.parse import urlsplit  # pylint: disable=import-error
 
-from sqlalchemy import exists, func
 
 from twisted.internet.address import IPv4Address
 from twisted.internet.defer import inlineCallbacks, returnValue, Deferred
@@ -45,10 +44,10 @@ from globaleaks.rest.api import JSONEncoder
 from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State, TenantState
-from globaleaks.utils import tempdict, token
+from globaleaks.utils import tempdict
 from globaleaks.utils.crypto import GCE, generateRandomKey, sha256
 from globaleaks.utils.securetempfile import SecureTemporaryFile
-from globaleaks.utils.utility import datetime_now, datetime_never, uuid4
+from globaleaks.utils.utility import datetime_now, uuid4
 from globaleaks.utils.log import log
 
 GCE.options['OPSLIMIT'] = 1

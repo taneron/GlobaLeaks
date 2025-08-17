@@ -3,7 +3,6 @@ from twisted.internet.defer import inlineCallbacks
 from globaleaks.handlers import auth
 from globaleaks.handlers.whistleblower import wbtip
 from globaleaks.jobs.delivery import Delivery
-from globaleaks.rest import errors
 from globaleaks.tests import helpers
 
 

@@ -2,7 +2,6 @@ import os
 import sys
 import traceback
 import sqlalchemy
-import warnings
 
 from globaleaks import models, DATABASE_VERSION
 from globaleaks.handlers.admin.https import db_load_tls_configs

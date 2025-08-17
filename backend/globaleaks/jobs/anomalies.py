@@ -12,7 +12,6 @@ from globaleaks.transactions import db_schedule_email
 from globaleaks.utils.fs import get_disk_space
 from globaleaks.utils.log import log
 from globaleaks.utils.templating import Templating
-from globaleaks.utils.utility import datetime_now, datetime_null, is_expired
 
 
 @transact

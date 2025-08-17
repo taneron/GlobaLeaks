@@ -1,6 +1,5 @@
 from twisted.internet.defer import inlineCallbacks
 
-from globaleaks.jobs import anomalies
 from globaleaks.tests import helpers
 
 

@@ -77,7 +77,6 @@ try:
 
 except ImportError:
     REPORTPDF = None
-    pass
 
 
 def serialize_rtip_export(session, user, itip, rtip, context, language):

@@ -1,4 +1,3 @@
-from twisted.internet.address import IPv4Address
 from twisted.internet.defer import inlineCallbacks
 
 from globaleaks.handlers import auth
@@ -6,7 +5,6 @@ from globaleaks.handlers.user import UserInstance
 from globaleaks.handlers.whistleblower.wbtip import WBTipInstance
 from globaleaks.rest import errors
 from globaleaks.sessions import Sessions
-from globaleaks.settings import Settings
 from globaleaks.state import State
 from globaleaks.tests import helpers
 

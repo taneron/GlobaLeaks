@@ -1,7 +1,6 @@
 # Handlers dealing with platform authentication
 import json
 from datetime import timedelta
-from random import SystemRandom
 from sqlalchemy import exists, func, or_, and_
 
 from nacl.encoding import Base64Encoder
@@ -18,7 +17,7 @@ from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State
 from globaleaks.utils.crypto import GCE, sha256
-from globaleaks.utils.utility import datetime_now, deferred_sleep, uuid4
+from globaleaks.utils.utility import datetime_now, uuid4
 
 
 def db_login_failure(session, tid, whistleblower=False):

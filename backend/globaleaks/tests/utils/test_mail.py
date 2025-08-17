@@ -1,15 +1,11 @@
 from email import message_from_bytes
-from io import BytesIO
 from twisted.internet.defer import Deferred, fail, succeed
 from twisted.test.proto_helpers import MemoryReactorClock
 from twisted.trial import unittest
 from twisted.mail.smtp import ESMTPSenderFactory
-from twisted.internet.endpoints import TCP4ClientEndpoint
-from twisted.protocols import tls
 from unittest.mock import patch
 
 from globaleaks.utils.mail import MIME_mail_build, sendmail
-from globaleaks.utils.socks import SOCKS5ClientEndpoint
 
 
 class TestMailUtils(unittest.TestCase):

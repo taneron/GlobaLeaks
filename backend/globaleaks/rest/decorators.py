@@ -1,5 +1,4 @@
 import json
-from datetime import timedelta
 from twisted.internet import defer
 from twisted.internet.threads import deferToThread
 
@@ -9,7 +8,7 @@ from globaleaks.rest.cache import Cache
 from globaleaks.state import State
 from globaleaks.utils.ip import get_ip_identity
 from globaleaks.utils.json import JSONEncoder
-from globaleaks.utils.utility import datetime_now, deferred_sleep
+from globaleaks.utils.utility import deferred_sleep
 
 
 USERS_ROLES = {'any', 'admin', 'analyst', 'custodian', 'receiver'}

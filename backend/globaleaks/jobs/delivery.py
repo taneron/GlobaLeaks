@@ -9,7 +9,6 @@ from globaleaks.orm import transact
 from globaleaks.settings import Settings
 from globaleaks.utils.crypto import GCE
 from globaleaks.utils.log import log
-from globaleaks.utils.pgp import PGPContext
 
 
 __all__ = ['Delivery']
