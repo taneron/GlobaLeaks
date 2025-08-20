@@ -240,7 +240,6 @@ description:
       - documentation/images/recipient/reports.en.png
       - documentation/images/recipient/report.en.png
   it:
-    genericName: Whistleblowing Software
     shortDescription: >-
       GlobaLeaks è software di whistleblowing libero e open-source che permette a tutti di creare
       e mantenere una piattaforma di segnalazione sicura
