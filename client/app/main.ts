@@ -47,7 +47,7 @@ import { appRoutes } from "@app/app.routes";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { FormsModule } from "@angular/forms";
-import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
+import { provideNgIdleKeepalive } from "@ng-idle/keepalive";
 import { MarkdownModule, MARKED_OPTIONS } from "ngx-markdown";
 import { AppComponent } from "@app/pages/app/app.component";
 import { provideRouter } from "@angular/router";
@@ -60,13 +60,13 @@ enableProdMode();
 bootstrapApplication(AppComponent, {
     providers: [
         provideRouter(appRoutes),
+        provideNgIdleKeepalive(),
         importProvidersFrom(NgbModule,
                             BrowserModule,
                             NgSelectModule,
                             NgxFlowModule,
                             FormsModule,
                             NgbTooltipModule,
-                            NgIdleKeepaliveModule.forRoot(),
                             MarkdownModule.forRoot({
                               markedOptions: {
                                 provide: MARKED_OPTIONS,
