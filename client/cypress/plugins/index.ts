@@ -3,7 +3,7 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
-import * as registerCodeCoverageTasks from "@cypress/code-coverage/task";
+import registerCodeCoverageTasks from "@cypress/code-coverage/task";
 
 export default (on, config) => {
   on('before:browser:launch', (browser: Cypress.Browser, launchOptions: Cypress.BrowserLaunchOptions) => {
