@@ -74,36 +74,6 @@ module.exports = function(grunt) {
 
     "string-replace": {
       pass1: {
-        src: "./tmp/css/styles.css",
-        dest: "./tmp/css/",
-        options: {
-          replacements: [
-            {
-              pattern: /.\/media\//gi,
-              replacement: function () {
-                return "../fonts/";
-              }
-            }
-          ]
-        }
-      },
-
-      pass2: {
-        src: "./tmp/css/fonts.css",
-        dest: "./tmp/css/",
-        options: {
-          replacements: [
-            {
-              pattern: /.\/media\//gi,
-              replacement: function () {
-                return "../fonts/";
-              }
-            }
-          ]
-        }
-      },
-
-      pass3: {
         files: {
           "tmp/index.html": "tmp/index.html"
         },
@@ -117,6 +87,29 @@ module.exports = function(grunt) {
             {
               pattern: /<link rel="stylesheet" href="/g,
               replacement: "<link rel=\"stylesheet\" href=\"css/"
+            },
+            {
+              pattern: /.\/media\//gi,
+              replacement: function () {
+                return "../fonts/";
+              }
+            }
+          ]
+        }
+      },
+      pass2: {
+        files: {
+          "tmp/css/styles.css": "tmp/css/styles.css",
+          "tmp/css/fonts.css": "tmp/css/fonts.css"
+        },
+
+        options: {
+          replacements: [
+            {
+              pattern: /.\/media\//gi,
+              replacement: function () {
+                return "../fonts/";
+              }
             }
           ]
         }
