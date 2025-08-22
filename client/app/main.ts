@@ -39,7 +39,7 @@ import { TranslatorPipe } from "@app/shared/pipes/translate";
 import { TranslateService, TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient, HttpClient } from "@angular/common/http";
 import { appInterceptor, ErrorCatchingInterceptor, CompletedInterceptor } from "@app/services/root/app-interceptor.service";
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy, NgOptimizedImage } from "@angular/common";
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { FlowInjectionToken, NgxFlowModule } from "@flowjs/ngx-flow";
 import { NgbDatepickerI18n, NgbModule, NgbPaginationConfig, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { CustomDatepickerI18n } from "@app/shared/services/custom-datepicker-i18n";
@@ -66,7 +66,6 @@ bootstrapApplication(AppComponent, {
                             BrowserModule,
                             NgSelectModule,
                             NgxFlowModule,
-                            NgOptimizedImage,
                             FormsModule,
                             NgbTooltipModule,
                             NgIdleKeepaliveModule.forRoot(),
