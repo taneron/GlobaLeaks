@@ -6,7 +6,6 @@ import {TrustedTypesService} from "@app/services/helper/trusted-types.service";
 import {LangChangeEvent, TranslateService, TranslateModule} from "@ngx-translate/core";
 import {NavigationEnd, Router, RouterOutlet} from "@angular/router";
 import {BrowserCheckService} from "@app/shared/services/browser-check.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
 import {DOCUMENT, NgClass} from "@angular/common";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {HeaderComponent} from "@app/shared/partials/header/header.component";
@@ -49,14 +48,6 @@ window.GL = {
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    animations: [
-        trigger('fadeInOut', [
-            state('void', style({
-                opacity: 0
-            })),
-            transition(':enter, :leave', animate(150)),
-        ])
-    ],
     standalone: true,
     imports: [NgClass, HeaderComponent, PrivacyBadgeComponent, AdminSidebarComponent, AnalystSidebarComponent, MessageConsoleComponent, DemoComponent, OperationComponent, CustodianSidebarComponent, ReceiptSidebarComponent, FooterComponent, NgbCollapse, RouterOutlet, TranslateModule, TranslatorPipe]
 })

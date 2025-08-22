@@ -45,7 +45,6 @@ import { NgbDatepickerI18n, NgbModule, NgbPaginationConfig, NgbTooltipModule} fr
 import { CustomDatepickerI18n } from "@app/shared/services/custom-datepicker-i18n";
 import { appRoutes } from "@app/app.routes";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
-import { provideAnimations } from "@angular/platform-browser/animations";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { FormsModule } from "@angular/forms";
 import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
@@ -53,7 +52,6 @@ import { MarkdownModule, MARKED_OPTIONS } from "ngx-markdown";
 import { AppComponent } from "@app/pages/app/app.component";
 import { provideRouter } from "@angular/router";
 import { ApplicationRef, enableProdMode, importProvidersFrom } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import Flow from "@flowjs/flow.js";
 
@@ -107,8 +105,7 @@ bootstrapApplication(AppComponent, {
         ReceiptValidatorDirective,
         TranslatorPipe,
         TranslateService,
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations()
+        provideHttpClient(withInterceptorsFromDi())
     ]
 }).then(moduleRef => {
     // Expose Angular stability status to Cypress
