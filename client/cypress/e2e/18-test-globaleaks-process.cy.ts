@@ -148,7 +148,8 @@ describe("globaleaks process", function () {
     cy.get("select").first().select(1);
     cy.get("#SubmitButton").should("be.visible");
     cy.get("#SubmitButton").click();
-    cy.get('.mt-md-3.clearfix.ng-star-inserted').find('#ReceiptButton').click();
+    cy.get("#ViewReportButton").should("be.visible");
+    cy.get("#ViewReportButton").click();
     cy.get("#open_additional_questionnaire").click();
     cy.get("input[type='text']").eq(1).should("be.visible").type("single line text input");
     cy.get("#SubmitButton").click();
