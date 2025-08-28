@@ -9,7 +9,7 @@ cd $GITHUB_WORKSPACE/backend  # to install backend dependencies
 python3 -mvenv env
 source env/bin/activate
 pip3 install coverage
-pip3 install -r requirements/requirements-$(lsb_release -cs).txt
+pip3 install -r requirements/requirements.txt.$(lsb_release -cs)
 
 cd $GITHUB_WORKSPACE/client  # to install frontend dependencies
 npm install -d

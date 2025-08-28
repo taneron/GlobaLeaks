@@ -107,7 +107,7 @@ for TARGET in $TARGETS; do
   fi
 
   cp debian/controlX/control.$TARGET  debian/control
-  cp backend/requirements/requirements-$TARGET.txt backend/requirements.txt
+  cp backend/requirements/requirements.txt.$TARGET backend/requirements.txt
 
   sed -i "s/stable; urgency=/$TARGET; urgency=/g" debian/changelog
 
