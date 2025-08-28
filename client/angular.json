@@ -65,8 +65,9 @@
           },
           "configurations": {
             "production": { },
-	    "development": { },
+	    "development": { "sourceMap": true },
 	    "testing": {
+              "sourceMap": true,
               "styles": [
                 { "bundleName": "styles", "inject": true, "input": "node_modules/@fontsource-variable/inter/index.css" },
                 { "bundleName": "styles", "inject": true, "input": "node_modules/@fortawesome/fontawesome-svg-core/styles.css" },
