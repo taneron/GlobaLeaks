@@ -1,14 +1,12 @@
-Platform wizard
-===============
-After installing GlobaLeaks, you can proceed with the platform wizard.
+Initialization
+==============
+To initialize the platform, open a browser at port 443 or port 8443 on your remote or local IP, respectively.
 
-Open a browser at port 443 or port 8443 on your remote or local IP, respectively.
-
-We recommend performing the wizard either using the Tor address provided at the end of the setup or on localhost via a VPN.
+We recommend accessing using either the Tor address provided at the end of the installation or on localhost via a VPN.
 
 Choose the primary language for your site
 -----------------------------------------
-On the first page of the wizard, you will be prompted to select the language for your site. The default choice is English, but many other languages are available, with more expected in the future.
+In the first section of the wizard, you will be prompted to select the language for your site. The default choice is English, but many other languages are available, with more expected in the future.
 
 .. image:: ../images/wizard/1.png
 

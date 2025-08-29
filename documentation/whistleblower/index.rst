@@ -1,5 +1,5 @@
-For whistleblowers
-==================
+WHISTLEBLOWER DOCUMENTATION
+===========================
 
 File a new report
 -----------------

@@ -6,8 +6,6 @@ Documentation
 .. toctree::
   getting-started/index.rst
   setup/index.rst
-  security/index.rst
+  whistleblower/index.rst
   user/index.rst
-  developer/index.rst
-  roadmap/index.rst
-  quality-assurance/index.rst
+  technical/index.rst

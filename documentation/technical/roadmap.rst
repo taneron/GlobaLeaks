@@ -1,6 +1,6 @@
-Project roadmap
-===============
-This document outlines the roadmap for GlobaLeaks, defining its release cycle, update types, and development priorities to ensure a secure, stable, and efficient platform.
+Roadmap
+=======
+This document outlines the development roadmap for GlobaLeaks, defining its release cycle, update types, and development priorities to ensure a secure, stable, and efficient platform.
 
 Release Cycle
 -------------
