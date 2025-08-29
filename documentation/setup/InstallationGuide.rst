@@ -9,6 +9,8 @@ Before starting the installation, ensure that your system meets the :doc:`Requir
   Additionally, the software can be configured to protect the identity of the platform administrator and the server's location, but this requires advanced setup procedures not covered in this simplified installation guide.
   By executing the commands below, your IP address and system location could be tracked by network providers, and our systems will receive the same information to facilitate software provisioning.
 
+Before starting the installation, ensure that your system meets the :doc:`Requirements </technical/Requirements>`.
+
 **Install GlobaLeaks**
 
 To install GlobaLeaks, run the following commands:

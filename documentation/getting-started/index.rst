@@ -6,7 +6,8 @@ Getting started
     :maxdepth: 4
 
     Introduction.rst
+    Design-Principles.rst
     Glossary.rst
     Features.rst
     Requirements.rst
-    SupportedBrowsers.rst
+    Supported-Browsers.rst
