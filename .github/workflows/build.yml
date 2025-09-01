@@ -57,7 +57,8 @@ jobs:
         run: |
           echo "Building packages"
           # Run the build script with local environment flag
-          ./scripts/build.sh -d $TARGET_DISTRIBUTION -n -l
+          COMMIT_HASH=$(git rev-parse HEAD)
+          ./scripts/build.sh -d $TARGET_DISTRIBUTION -t $COMMIT_HASH -n -l
 
       - name: Build and start Docker container
         run: |
