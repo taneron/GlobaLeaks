@@ -2,28 +2,17 @@ Backup and restore
 ==================
 The data of the application is contained in the directory `/var/globaleaks`.
 
-To perform a manual backup, you can use the following bash script:
+To perform a backup, run the following command:
 
-.. code::
+.. code:: sh
 
-   #!/bin/sh
-   set -e
+  gl-admin backup
 
-   if [ -d "/var/globaleaks" ]; then
-     timestamp=$(date +%s)
-     version=$(dpkg -s globaleaks | grep '^Version:' | cut -d ' ' -f2)
-     filepath="/var/globaleaks/backups/globaleaks-$version-$timestamp.tar.gz"
-     echo "Creating backup of /var/globaleaks in $filepath"
-     mkdir -p /var/globaleaks/backups
-     chown globaleaks:globaleaks /var/globaleaks/backups
-     tar --exclude='/var/globaleaks/backups' -zcvf "$filepath" /var/globaleaks
-   fi
+After running the command, you will find a `tar.gz` archive in `/tmp`. The file will be named in the format: `globaleaks-$version-$timestamp.tar.gz`.
 
-After running the script, you will find a `tar.gz` archive in `/var/globaleaks/backups`. The file will be named in the format: `globaleaks-$version-$timestamp.tar.gz`.
 
-To restore an existing backup:
+To perform a restore from an existing backup, run the following command:
 
-- Ensure that GlobaLeaks is not running; you can stop it using: `service globaleaks stop`.
-- Identify the version of GlobaLeaks required for the restoration, which is indicated in the backup filename.
-- Extract the contents of the archive to `/var/globaleaks` using: `tar -zxvf backup.tar.gz`.
-- Install the required version of GlobaLeaks with: `apt-get install globaleaks=<version>` (e.g., `globaleaks=3`).
+.. code:: sh
+
+  gl-admin restore backup-file.tar.gz
