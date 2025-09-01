@@ -10,7 +10,11 @@ Architecture
 The software comprises two main components: a `Backend` and a `Client`:
 
 * The Backend is a Python-based server that runs on a physical server and exposes a `REST API <https://en.wikipedia.org/wiki/Representational_state_transfer>`_.
-* The Client is a JavaScript client-side web application that interacts with the Backend only through `XHR <https://en.wikipedia.org/wiki/XMLHttpRequest>`_.
+* The Client is a TypeScript client-side web application that interacts with the Backend only through `XHR <https://en.wikipedia.org/wiki/XMLHttpRequest>`_.
+
+Following the `Zero Trust paradigm <https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf>`_ and aiming at implementing a fully auditable technlogy both the Backend and the Client are implemented using only open-source libraries.
+
+Here could be found the Software Bills of Materials: `SBOM <https://github.com/globaleaks/globaleaks-whistleblowing-software/dependency-graph/sbom>`_.
 
 Anonymity
 =========
