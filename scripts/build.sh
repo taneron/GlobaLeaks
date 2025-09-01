@@ -77,11 +77,16 @@ BUILDSRC="$BUILDDIR/src"
 
 mkdir -p $BUILDSRC && cd $BUILDSRC
 
+# Clone shallowly
 if [ $LOCAL_ENV -eq 1 ]; then
-  git clone --branch="$TAG" --depth=1 file://$(pwd)/../../../globaleaks-whistleblowing-software .
+  git clone --depth=1 file://$(pwd)/../../../globaleaks-whistleblowing-software .
 else
-  git clone --branch="$TAG" --depth=1 https://github.com/globaleaks/globaleaks-whistleblowing-software.git .
+  git clone --depth=1 https://github.com/globaleaks/globaleaks-whistleblowing-software.git .
 fi
+
+# Fetch and checkout the ref (branch or tag)
+git fetch --depth=1 origin "$TAG"
+git checkout "$TAG" 2>/dev/null || git checkout "tags/$TAG"
 
 cd client && npm install -d && ./node_modules/grunt/bin/grunt build
 
