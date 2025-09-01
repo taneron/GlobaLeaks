@@ -141,8 +141,6 @@ if echo "$DISTRO_CODENAME" | grep -vqE "^(bionic|bookworm|bullseye|buster|focal|
   DISTRO_CODENAME="trixie"
 fi
 
-ls -al /tmp/globaleaks-setup-files/
-
 if [ -f /tmp/globaleaks-setup-files/globaleaks.deb ]; then
   dpkg -i /tmp/globaleaks-setup-files/globaleaks.deb || apt --fix-broken install -y
 else
