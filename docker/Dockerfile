@@ -39,6 +39,8 @@ RUN chmod +x /tmp/globaleaks-setup-files/install.sh && \
     /tmp/globaleaks-setup-files/install.sh && \
     rm -rf /tmp/globaleaks-setup-files
 
+RUN mkdir -p /run/globaleaks && chown -R globaleaks:globaleaks /run/globaleaks
+
 EXPOSE 8080 8443
 
 USER globaleaks
