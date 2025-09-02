@@ -55,7 +55,7 @@
     "ng-multiselect-dropdown": "1.0.0",
     "ng2-charts": "8.0.0",
     "ngx-clipboard": "16.0.0",
-    "ngx-markdown": "20.0.0",
+    "ngx-markdown": "20.1.0",
     "pdfjs-dist": "5.4.149",
     "rxjs": "7.8.2",
     "zone.js": "0.15.1"
@@ -77,8 +77,8 @@
     "@types/libsodium-wrappers-sumo": "0.7.8",
     "@types/lodash-es": "4.17.12",
     "@types/qrcode": "1.5.5",
-    "@typescript-eslint/types": "8.41.0",
-    "@typescript-eslint/utils": "8.41.0",
+    "@typescript-eslint/types": "8.42.0",
+    "@typescript-eslint/utils": "8.42.0",
     "angular-eslint": "20.2.0",
     "cssnano": "7.1.1",
     "cypress": "15.0.0",
@@ -103,6 +103,6 @@
     "superagent": "10.2.3",
     "ts-node": "10.9.2",
     "typescript": "5.9.2",
-    "typescript-eslint": "8.41.0"
+    "typescript-eslint": "8.42.0"
   }
 }
