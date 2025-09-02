@@ -14,7 +14,7 @@ RemainAfterExit=yes
 ExecStart=/etc/init.d/globaleaks start
 ExecStop=/etc/init.d/globaleaks stop
 ExecReload=/etc/init.d/globaleaks reload
-PIDFile=/dev/shm/globaleaks/globaleaks.pid
+PIDFile=/run/globaleaks/globaleaks.pid
 
 [Install]
 WantedBy=multi-user.target
