@@ -85,6 +85,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 config.autoAddCss = false;
+config.autoReplaceSvg = 'nest';
 
 library.add(
   faArrowLeft,
