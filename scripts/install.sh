@@ -34,9 +34,8 @@ function DO () {
 }
 
 HAS_SYSTEMD() {
-  command -v systemctl >/dev/null 2>&1 && [ "$(ps -p 1 -o comm=)" = "systemd" ]
+  [ "$(cat /proc/1/comm 2>/dev/null)" = "systemd" ]
 }
-
 
 LOGFILE="./install.log"
 ASSUMEYES=0
