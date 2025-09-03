@@ -29,5 +29,8 @@ Glossary
    Report
        The set of information submitted by reporting persons.
 
+   Reporting person
+       A person who submits a report.
+
    Whistleblower
        A reporting person who may be entitled to protection under the laws applicable in their country. Regardless of the legal framework, whistleblowers typically operate under significant stress and at personal risk.
