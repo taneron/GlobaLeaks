@@ -42,7 +42,7 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y git curl wget ca-certificates gnupg lsb-release
+          sudo apt-get install -y git curl wget ca-certificates gnupg lsb-release jq
           sudo apt-get install -y build-essential debhelper devscripts
           sudo apt-get install -y brotli dh-apparmor
           sudo apt-get install -y dh-python pybuild-plugin-pyproject python3-all python3-setuptools python3-sphinx
@@ -222,6 +222,105 @@ jobs:
           else
             echo ""
             echo "✅ All tests and audits passed!"
+          fi
+
+      - name: Upload Lighthouse results to repository
+        if: github.ref == 'refs/heads/stable'
+        env:
+          LIGHTHOUSE_REPO_PAT: ${{ secrets.LIGHTHOUSE_REPO_PAT }}
+        run: |
+          cd client
+          # Calculate average scores
+          total_perf=0; total_a11y=0; total_bp=0; total_seo=0; count=0
+          for page in "home" "submission" "login"; do
+            file="./lighthouse-results/lighthouse-report-${page}.report.json"
+            if [ -f "$file" ]; then
+              perf=$(jq -r '.categories.performance.score * 100 | floor' "$file")
+              a11y=$(jq -r '.categories.accessibility.score * 100 | floor' "$file")
+              bp=$(jq -r '.categories["best-practices"].score * 100 | floor' "$file")
+              seo=$(jq -r '.categories.seo.score * 100 | floor' "$file")
+              total_perf=$((total_perf + perf)); total_a11y=$((total_a11y + a11y))
+              total_bp=$((total_bp + bp)); total_seo=$((total_seo + seo)); count=$((count + 1))
+            fi
+          done
+          if [ $count -gt 0 ]; then
+            avg_perf=$((total_perf / count)); avg_a11y=$((total_a11y / count))
+            avg_bp=$((total_bp / count)); avg_seo=$((total_seo / count))
+            # Function to get badge color
+            get_color() {
+              if [ $1 -ge 90 ]; then echo "brightgreen"
+              elif [ $1 -ge 70 ]; then echo "yellow"
+              elif [ $1 -ge 50 ]; then echo "orange"
+              else echo "red"; fi
+            }
+            # Create badge JSON files using jq
+            echo "{\"schemaVersion\":1,\"label\":\"Performance\",\"message\":\"${avg_perf}%\",\"color\":\"$(get_color $avg_perf)\"}" > perf.json
+            echo "{\"schemaVersion\":1,\"label\":\"Accessibility\",\"message\":\"${avg_a11y}%\",\"color\":\"$(get_color $avg_a11y)\"}" > a11y.json
+            echo "{\"schemaVersion\":1,\"label\":\"Best Practices\",\"message\":\"${avg_bp}%\",\"color\":\"$(get_color $avg_bp)\"}" > bp.json
+            echo "{\"schemaVersion\":1,\"label\":\"SEO\",\"message\":\"${avg_seo}%\",\"color\":\"$(get_color $avg_seo)\"}" > seo.json
+
+            # Set up Git configuration for the action
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+            # Clone the lighthouse audit repository
+            REPO="https://github.com/globaleaks/globaleaks-lighthouse-audit.git"
+            BRANCH="main"
+            TMP_DIR=$(mktemp -d)
+
+            echo "Cloning repository..."
+            # Clone repository, create main branch if it doesn't exist
+            if ! git clone --branch "$BRANCH" "https://$LIGHTHOUSE_REPO_PAT@github.com/globaleaks/globaleaks-lighthouse-audit.git" "$TMP_DIR" 2>/dev/null; then
+              echo "Main branch doesn't exist, cloning and creating it..."
+              git clone "https://$LIGHTHOUSE_REPO_PAT@github.com/globaleaks/globaleaks-lighthouse-audit.git" "$TMP_DIR"
+              cd "$TMP_DIR"
+              git checkout -b "$BRANCH"
+              cd -
+            fi
+
+            # Copy HTML report to root if available
+            if [ -f "./lighthouse-results/lighthouse-report-home.report.html" ]; then
+              cp "./lighthouse-results/lighthouse-report-home.report.html" "$TMP_DIR/report.html"
+            fi
+
+            # Copy JSON badge files to badges directory
+            mkdir -p "$TMP_DIR/badges"
+            for badge_file in perf.json a11y.json bp.json seo.json; do
+              if [ -f "$badge_file" ]; then
+                cp "$badge_file" "$TMP_DIR/badges/"
+              else
+                echo "⚠️  Warning: $badge_file not found, skipping..."
+              fi
+            done
+
+            # Navigate to repository and commit changes
+            cd "$TMP_DIR"
+
+            # Check if there are any changes to commit
+            if [ -n "$(git status --porcelain)" ]; then
+              git add .
+              if git commit -m "Update Lighthouse badges and report - $(date -u '+%Y-%m-%d %H:%M:%S') UTC"; then
+                if git push origin "$BRANCH"; then
+                  echo "✅ Updated badges: Performance:${avg_perf}% Accessibility:${avg_a11y}% Best-Practices:${avg_bp}% SEO:${avg_seo}%"
+                  echo "✅ All badges and report updated in repository"
+                else
+                  echo "❌ Error: Failed to push to repository"
+                  exit 1
+                fi
+              else
+                echo "❌ Error: Failed to commit changes"
+                exit 1
+              fi
+            else
+              echo "ℹ️  No changes detected, skipping commit"
+            fi
+
+            # Clean up
+            cd /
+            rm -rf "$TMP_DIR"
+
+            # Clean up local files
+            rm -f perf.json a11y.json bp.json seo.json
           fi
 
       - name: Cleanup Docker containers
