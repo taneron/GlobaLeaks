@@ -30,7 +30,7 @@ After clicking the button users are requested to type their own username or emai
 
 .. image:: ../images/user/password_reset_2.png
 
-Enable two-factor-authentication (2fa)
+Enable two-factor-authentication (2FA)
 --------------------------------------
 Users could enable Two-Factor-Authentication by clicking the ``Enable two factor authentication`` option inside the ``Preferences`` page.
 
