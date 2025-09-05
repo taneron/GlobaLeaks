@@ -23,6 +23,14 @@
    +---------------------------+-------------------------------------------------------------+
    | SSLLabs                   | |ssllabs-status|                                            |
    +---------------------------+-------------------------------------------------------------+
+   | Lighthouse Performance    | |lighthouse-performance|                                    |
+   +---------------------------+-------------------------------------------------------------+
+   | Lighthouse Accessibility  | |lighthouse-accessibility|                                  |
+   +---------------------------+-------------------------------------------------------------+
+   | Lighthouse Best Practices | |lighthouse-bestpractices|                                  |
+   +---------------------------+-------------------------------------------------------------+
+   | Lighthouse Seo            | |lighthouse-seo|                                            |
+   +---------------------------+-------------------------------------------------------------+
 
 .. |ossf-best-practices| image:: https://bestpractices.coreinfrastructure.org/projects/3816/badge
    :target: https://bestpractices.coreinfrastructure.org/projects/3816
@@ -53,3 +61,15 @@
 
 .. |ssllabs-status| image:: https://img.shields.io/static/v1?label=SSLLabs&message=A%2B&color=%3CCOLOR%3E
    :target: https://www.ssllabs.com/ssltest/analyze.html?d=demo.globaleaks.org&latest
+
+.. |lighthouse-performance| image:: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fglobaleaks%2Fglobaleaks-lighthouse-audit%2Fmain%2Fbadges%2Fperf.json&logo=lighthouse&label=Performance&labelColor=333333&cacheSeconds=300
+   :target: https://htmlpreview.github.io/?https://raw.githubusercontent.com/globaleaks/globaleaks-lighthouse-audit/main/report.html
+
+.. |lighthouse-accessibility| image:: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fglobaleaks%2Fglobaleaks-lighthouse-audit%2Fmain%2Fbadges%2Fa11y.json&logo=lighthouse&label=Accessibility&labelColor=333333&cacheSeconds=300
+   :target: https://htmlpreview.github.io/?https://raw.githubusercontent.com/globaleaks/globaleaks-lighthouse-audit/main/report.html
+
+.. |lighthouse-bestpractices| image:: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fglobaleaks%2Fglobaleaks-lighthouse-audit%2Fmain%2Fbadges%2Fbp.json&logo=lighthouse&label=Best%20Practices&labelColor=333333&cacheSeconds=300
+   :target: https://htmlpreview.github.io/?https://raw.githubusercontent.com/globaleaks/globaleaks-lighthouse-audit/main/report.html
+
+.. |lighthouse-seo| image:: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fglobaleaks%2Fglobaleaks-lighthouse-audit%2Fmain%2Fbadges%2Fseo.json&logo=lighthouse&label=SEO&labelColor=333333&cacheSeconds=300
+   :target: https://htmlpreview.github.io/?https://raw.githubusercontent.com/globaleaks/globaleaks-lighthouse-audit/main/report.html
