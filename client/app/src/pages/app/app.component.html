@@ -16,7 +16,7 @@
     }
 
     @if (appDataService.public.node) {
-      <div [dir]="utilsService.getDirection(translate.currentLang)" class="reveal flex-shrink-0" [ngClass]="{'public': utilsService.isWhistleblowerPage(), 'block-user-input': showLoadingPanel}">
+      <div class="reveal flex-shrink-0" [ngClass]="{'public': utilsService.isWhistleblowerPage(), 'block-user-input': showLoadingPanel}">
         @if (authenticationService.session?.properties?.operator_session) {
           <div>
             <src-operation></src-operation>

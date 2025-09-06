@@ -27,9 +27,10 @@ export class TranslationService {
     this.currentDirection = this.utilsService.getDirection(this.translate.currentLang);
   }
 
-  onChange(changedLanguage: string, callback?: () => void) {
-    sessionStorage.setItem("language", changedLanguage);
-    this.language = changedLanguage;
+  onChange(language: string, callback?: () => void) {
+    this.language = language;
+    document.body.dir = this.utilsService.getDirection(this.language);
+    sessionStorage.setItem("language", this.language);
     this.changeLocale(this.language);
     this.translate.setFallbackLang(this.language);
     this.translate.use(this.language).subscribe(() => {
