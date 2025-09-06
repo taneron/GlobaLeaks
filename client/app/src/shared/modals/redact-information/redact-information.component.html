@@ -1,9 +1,9 @@
 <div class="modal-header">
   @if (vars.redaction_switch) {
-    <div class="modal-title">{{ 'Mask' | translate }}</div>
+    <h5 class="modal-title">{{ 'Mask' | translate }}</h5>
   }
   @if (!vars.redaction_switch) {
-    <div class="modal-title">{{ 'Redact' | translate }}</div>
+    <h5 class="modal-title">{{ 'Redact' | translate }}</h5>
   }
   <button type="button" class="close btn" id="close-redact-modal" (click)="cancel()" [attr.aria-label]="'Close' | translate">
     <i class="fas fa-xmark"></i>
