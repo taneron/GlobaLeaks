@@ -17,7 +17,7 @@ class DummyFactory(Factory):
 class DummyProtocol(Protocol):
     def __init__(self):
         self.data = b""
-    
+
     def dataReceived(self, data):
         self.data += data
 
@@ -41,7 +41,7 @@ class TestSOCKS5ClientProtocol(unittest.TestCase):
         """Test that the protocol correctly handles a SOCKS5 response."""
         self.protocol.dataReceived(b"\x05\x00")
         self.assertEqual(self.protocol.state, 2)
-        
+
         self.protocol.dataReceived(b"\x05\x00")
         self.assertEqual(self.protocol.state, 3)
 

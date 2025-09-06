@@ -143,7 +143,7 @@ class TestMailUtils(unittest.TestCase):
                      subject="Test Subject",
                      body="Test Body",
                      anonymize=False)
-        
+
         def callback(result):
             self.assertFalse(result)
 

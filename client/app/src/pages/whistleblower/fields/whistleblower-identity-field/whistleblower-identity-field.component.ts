@@ -33,7 +33,7 @@ export class WhistleblowerIdentityFieldComponent implements OnInit {
   @Input() identity_provided = false;
   @Input() uploads: Record<string, any>;
   @Input() fileUploadUrl: string;
-  
+
   ngOnInit(): void {
     this.identity_provided = true;
     this.stateChanged.emit(true);

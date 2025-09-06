@@ -142,7 +142,7 @@ export class TipFieldAnswerEntryComponent implements OnInit {
   filterWbFilesByReferenceId(wbfiles: WbFile[]): WbFile[] {
     return wbfiles.filter((wbfile: WbFile) => wbfile.reference_id === this.field.id);
   }
-  
+
   selectedFile(file: WbFile) {
     this.wbfile = file;
   }

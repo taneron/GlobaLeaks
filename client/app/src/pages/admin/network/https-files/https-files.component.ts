@@ -96,7 +96,7 @@ export class HttpsFilesComponent implements OnInit {
       this.iCertificateInput.nativeElement.value = "";
     }
   }
-  
+
   downloadCSR() {
     this.httpService.downloadCSRFile().subscribe(
       (response: Blob) => {
