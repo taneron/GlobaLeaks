@@ -1,3 +1,9 @@
+Changes in version 5.0.80
+    Fix handling of LRT/RTL on modals
+    Improve accessibility on screenreaders using h5 for titles
+    Reduce footprint of docker image using python3-munkres in place of python3-scipy
+    Update client dependencies to latest stable versions
+
 Changes in version 5.0.79
     Fix incompatibilities with latest versions of systemd and debian trixie
       by moving pid file to /var/globaleaks/globaleaks.pid
