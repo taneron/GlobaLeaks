@@ -136,7 +136,7 @@ fi
 if echo "$DISTRO_CODENAME" | grep -vqE "^(bionic|bookworm|bullseye|buster|focal|jammy|noble|trixie)$"; then
   # In case of unsupported platforms we fallback on trixie
   echo "No packages available for the current distribution; the install script will use the trixie repository."
-  DISTRO="Debian"
+  DISTRO="debian"
   DISTRO_CODENAME="trixie"
 fi
 
