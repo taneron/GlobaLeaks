@@ -16,28 +16,22 @@ ARG DISTRIBUTION=trixie
 # Set environment for non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install basic dependencies common to all builds
-RUN apt-get update -q && \
-    apt-get dist-upgrade -y && \
-    apt-get install -y wget lsb-release gnupg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # Copy setup files
 RUN mkdir /tmp/globaleaks-setup-files
 COPY files/* /tmp/globaleaks-setup-files
 
-# Download install script if missing
-RUN if [ ! -f /tmp/globaleaks-setup-files/install.sh ]; then \
-    cd /tmp/globaleaks-setup-files && \
-    wget https://deb.globaleaks.org/install.sh; \
-    fi
-
-# Run the unified installation script
-# The script automatically detects Docker environment and adapts its behavior
-RUN chmod +x /tmp/globaleaks-setup-files/install.sh && \
+RUN apt-get update -q && \
+    apt-get dist-upgrade -y && \
+    apt-get install -y --no-install-recommends lsb-release gnupg python3-munkres && \
+    mkdir -p /tmp/globaleaks-setup-files && \
+    if [ ! -f /tmp/globaleaks-setup-files/install.sh ]; then \
+        cd /tmp/globaleaks-setup-files && \
+        wget https://deb.globaleaks.org/install.sh; \
+    fi && \
+    chmod +x /tmp/globaleaks-setup-files/install.sh && \
     /tmp/globaleaks-setup-files/install.sh && \
-    rm -rf /tmp/globaleaks-setup-files
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/*
 
 RUN mkdir -p /run/globaleaks && chown -R globaleaks:globaleaks /run/globaleaks
 
