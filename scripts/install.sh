@@ -140,8 +140,8 @@ if echo "$DISTRO_CODENAME" | grep -vqE "^(bionic|bookworm|bullseye|buster|focal|
   DISTRO_CODENAME="trixie"
 fi
 
-if [ -f /tmp/globaleaks-setup-files/globaleaks.deb ]; then
-  dpkg -i /tmp/globaleaks-setup-files/globaleaks.deb || apt --fix-broken install -y
+if [ -f /tmp/globaleaks.deb ]; then
+  dpkg -i /tmp/globaleaks.deb || apt --fix-broken install -y
 else
   echo "Adding GlobaLeaks PGP key to trusted APT keys"
   curl -sS https://deb.globaleaks.org/globaleaks.asc | gpg --dearmor -o /etc/apt/trusted.gpg.d/globaleaks.gpg

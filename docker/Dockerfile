@@ -10,26 +10,21 @@ ARG DISTRIBUTION=trixie
 
 FROM ${BASE_IMAGE}
 
+ADD https://deb.globaleaks.org/install.sh /tmp/install.sh
+
 # Redeclare build arguments to make them available after FROM
 ARG DISTRIBUTION=trixie
 
 # Set environment for non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Copy setup files
-RUN mkdir /tmp/globaleaks-setup-files
-COPY files/* /tmp/globaleaks-setup-files
+COPY files/* /tmp/
 
 RUN apt-get update -q && \
     apt-get dist-upgrade -y && \
-    apt-get install -y --no-install-recommends lsb-release gnupg python3-munkres && \
-    mkdir -p /tmp/globaleaks-setup-files && \
-    if [ ! -f /tmp/globaleaks-setup-files/install.sh ]; then \
-        cd /tmp/globaleaks-setup-files && \
-        wget https://deb.globaleaks.org/install.sh; \
-    fi && \
-    chmod +x /tmp/globaleaks-setup-files/install.sh && \
-    /tmp/globaleaks-setup-files/install.sh && \
+    apt-get install -y --no-install-recommends lsb-release && \
+    chmod +x /tmp/install.sh && \
+    /tmp/install.sh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
