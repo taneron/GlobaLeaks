@@ -34,7 +34,7 @@ function DO () {
 }
 
 HAS_SYSTEMD() {
-  [ "$(cat /proc/1/comm 2>/dev/null)" = "systemd" ]
+  [ -d /run/systemd/system ]
 }
 
 LOGFILE="./install.log"
