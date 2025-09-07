@@ -152,9 +152,9 @@ else
   DO "apt-get update -y"
 
   if [[ $VERSION ]]; then
-    DO "apt-get install -y --no-install-recommends globaleaks=$VERSION"
+    DO "apt-get install -y --no-install-recommends python3-munkres globaleaks=$VERSION"
   else
-    DO "apt-get install -y --no-install-recommends globaleaks"
+    DO "apt-get install -y --no-install-recommends python3-munkres globaleaks"
   fi
 fi
 
