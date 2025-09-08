@@ -19,6 +19,27 @@ declare global {
   }
 }
 
+// Define at the top of the spec file or just import it
+function terminalLog(violations) {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
+    } ${violations.length === 1 ? 'was' : 'were'} detected`
+  )
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length
+    })
+  )
+
+  cy.task('table', violationData)
+}
+
 Cypress.Commands.add("login_admin", (username, password, url, firstlogin) => {
   username = username === undefined ? "admin" : username;
   password = password === undefined ? Cypress.env("user_password") : password;
@@ -213,6 +234,9 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
     cy.wait(500);
 
     cy.waitForPageIdle();
+
+    cy.injectAxe()
+    cy.checkA11y(null, null, terminalLog, true);
 
     if (locator && locator !== ".modal") {
       return cy.get(locator).screenshot("../" + filename, {overwrite: true, scale: true});
