@@ -400,7 +400,7 @@ export class TipsComponent implements OnInit {
   }
 
   exportToCsv(): void {
-    this.utils.generateCSV('reports', this.getDataCsv(), this.getDataCsvHeaders());
+    this.utils.generateCSV('reports', this.getDataCsv());
   }
 
   getDataCsv(): any[] {
@@ -409,7 +409,6 @@ export class TipsComponent implements OnInit {
       id: tip.id,
       progressive: tip.progressive,
       important: tip.important,
-      reportStatus: this.utils.isDatePassed(tip.reminder_date),
       context_name: tip.context_name,
       label: tip.label,
       status: tip.submissionStatusStr,
@@ -419,7 +418,7 @@ export class TipsComponent implements OnInit {
       last_access: formatDate(tip.last_access, 'dd-MM-yyyy HH:mm', 'en-US'),
       comment_count: tip.comment_count,
       file_count: tip.file_count,
-      subscription: tip.subscription === 0 ? 'Non sottoscritta' : tip.subscription === 1 ? 'Sottoscritta' : 'Sottoscritta successivamente',
+      subscription: tip.subscription === 0 ? 'Not subscribed' : tip.subscription === 1 ? 'Subscribed' : 'Sottoscritta successivamente',
       receiver_count: tip.receiver_count
     }));
   }
