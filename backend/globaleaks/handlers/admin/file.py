@@ -104,6 +104,7 @@ class FileInstance(BaseHandler):
         'image/gif',
         'image/jpeg',
         'image/png',
+        'image/webp',
         'image/x-icon',
         'text/plain',
         'video/mp4'
@@ -130,7 +131,7 @@ class FileInstance(BaseHandler):
         elif name == 'favicon':
             self.allowed_mimetypes = ['image/vnd.microsoft.icon']
         elif name == 'logo' or re.match(requests.uuid_regexp, name):
-            self.allowed_mimetypes = ['image/gif', 'image/jpeg', 'image/png']
+            self.allowed_mimetypes = ['image/gif', 'image/jpeg', 'image/png', 'image/webp']
         elif name == 'script':
             self.allowed_mimetypes = ['text/javascript']
 
