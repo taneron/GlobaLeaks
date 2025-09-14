@@ -118,10 +118,10 @@ export class FormFieldInputsComponent implements OnInit {
 
   addAnswerEntry(entries: any) {
     if (!Array.isArray(entries)) return;
-  
+
     let newEntry = cloneDeep(entries[0]);
     newEntry = this.resetEntries(newEntry);
-  
+
     entries.push(newEntry);
     entries.forEach((entry, i) => {
       entry.index = `${i}`;

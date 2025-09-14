@@ -138,10 +138,10 @@ export class TipFieldAnswerEntryComponent implements OnInit {
    return this.maskService.maskingContent(id,index,value,this.tipService.tip)
   }
 
-  filterWbFilesByReferenceId(wbfiles: WbFile[],index:any): WbFile[] {
+  filterWbFilesByReferenceId(wbfiles: WbFile[], index:any): WbFile[] {
    return wbfiles.filter((wbfile: WbFile) => wbfile.reference_id === `${this.field.id}-${index}`);
   }
-  
+
   selectedFile(file: WbFile) {
     this.wbfile = file;
   }
