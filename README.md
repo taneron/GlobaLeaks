@@ -1,5 +1,5 @@
 <div align="center">
- <a href="https://www.globaleaks.org"><img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/globaleaks-logo-color.png" width="400"></a>
+ <a href="https://www.globaleaks.org"><img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/webp/globaleaks-logo-color.webp" width="400"></a>
 </div>
 
 <div align="center">
@@ -46,7 +46,7 @@ Join our [Community Chat](https://community.globaleaks.org) to get in touch with
 
 In case you need to file a security report please check our [Security Policy](https://github.com/globaleaks/globaleaks-whistleblowing-software/blob/stable/SECURITY.md).
 
-## Contributions and Donations <img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/heart.svg" alt="heart icon" width="24" />
+## Contributions and Donations <img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/svg/heart.svg" alt="heart icon" width="24" />
 Thank you! If you would like to to contribute to the project please check the [Contributors Guidelines](https://github.com/globaleaks/globaleaks-whistleblowing-software/blob/stable/CONTRIBUTING.md).
 
 As a pure community-driven project without major corporate backing, we also welcome [donations](https://github.com/sponsors/globaleaks).

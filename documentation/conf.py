@@ -44,7 +44,7 @@ show_authors = False
 pygments_style = 'sphinx'
 
 html_theme = 'sphinx_rtd_theme'
-html_logo = 'logo-html.png'
+html_logo = 'logo-html.webp'
 html_baseurl = 'https://docs.globaleaks.org/'
 html_favicon = '../client/app/images/favicon.ico'
 html_show_copyright = False

@@ -4,7 +4,7 @@
 
       <div class="centered-content">
           <a href="https://www.globaleaks.org">
-              <img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/globaleaks-logo-color.png" width="400">
+              <img src="https://raw.githubusercontent.com/globaleaks/globaleaks-whistleblowing-software/stable/brand/assets/webp/globaleaks-logo-color.webp" width="400">
           </a>
       </div>
 
