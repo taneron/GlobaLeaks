@@ -54,7 +54,7 @@ fi
 # Preliminary Requirements Check
 ERR=0
 echo "Checking preliminary GlobaLeaks Build requirements"
-for REQ in git npm debuild dput brotli
+for REQ in git npm debuild brotli
 do
   if which $REQ >/dev/null; then
     echo " + $REQ requirement meet"
