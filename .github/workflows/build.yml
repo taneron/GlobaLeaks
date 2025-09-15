@@ -41,17 +41,17 @@ jobs:
 
       - name: Install build dependencies
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y git curl wget ca-certificates gnupg lsb-release jq
-          sudo apt-get install -y build-essential debhelper devscripts
-          sudo apt-get install -y brotli dh-apparmor
-          sudo apt-get install -y dh-python pybuild-plugin-pyproject python3-all python3-setuptools python3-sphinx
-          sudo apt-get install -y docker-compose
+          sudo apt update -q
+          sudo apt install -y git curl wget ca-certificates gnupg lsb-release jq
+          sudo apt install -y build-essential debhelper devscripts
+          sudo apt install -y brotli dh-apparmor
+          sudo apt install -y dh-python pybuild-plugin-pyproject python3-all python3-setuptools python3-sphinx
+          sudo apt install -y docker-compose
           # Install Chrome for Cypress
           curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google.gpg
           echo "deb [signed-by=/usr/share/keyrings/google.gpg arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update -q
-          sudo apt-get install -y google-chrome-stable
+          sudo apt update -q
+          sudo apt install -y google-chrome-stable
 
       - name: Build packages for target distribution
         run: |

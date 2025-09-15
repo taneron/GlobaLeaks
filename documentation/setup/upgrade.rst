@@ -10,7 +10,7 @@ In order to update GlobaLeaks perform the following commands:
 
 .. code::
 
-   apt-get update && apt-get install globaleaks
+   apt update && apt install globaleaks
 
 Distribution upgrade
 --------------------

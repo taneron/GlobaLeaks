@@ -112,19 +112,19 @@ if echo "$DISTRO_CODENAME" | grep -vqE "^(trixie)|(noble)$" ; then
   prompt_for_continuation
 fi
 
-# align apt-get cache to up-to-date state on configured repositories
-DO "apt-get -y update"
+# align apt cache to up-to-date state on configured repositories
+DO "apt -y update"
 
 if [ ! -f /etc/timezone ]; then
   echo "Etc/UTC" > /etc/timezone
 fi
 
-DO "apt-get install -y tzdata"
+DO "apt install -y tzdata"
 DO "dpkg-reconfigure -f noninteractive tzdata"
-DO "apt-get -y install gnupg net-tools curl"
+DO "apt -y install gnupg net-tools curl"
 
 if [[ "$DISTRO_CODENAME" != "trixie" ]]; then
-  DO "apt-get -y install software-properties-common"
+  DO "apt -y install software-properties-common"
 fi
 
 # The supported platforms are experimentally more than only Ubuntu as
@@ -149,12 +149,12 @@ else
   echo "Updating GlobaLeaks apt source.list in /etc/apt/sources.list.d/globaleaks.list ..."
   echo "deb [signed-by=/etc/apt/trusted.gpg.d/globaleaks.gpg] http://deb.globaleaks.org $DISTRO_CODENAME/" > /etc/apt/sources.list.d/globaleaks.list
 
-  DO "apt-get update -y"
+  DO "apt update -y"
 
   if [[ $VERSION ]]; then
-    DO "apt-get install -y --no-install-recommends python3-munkres globaleaks=$VERSION"
+    DO "apt install -y --no-install-recommends python3-munkres globaleaks=$VERSION"
   else
-    DO "apt-get install -y --no-install-recommends python3-munkres globaleaks"
+    DO "apt install -y --no-install-recommends python3-munkres globaleaks"
   fi
 fi
 

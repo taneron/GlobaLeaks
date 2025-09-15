@@ -2,8 +2,8 @@
 set -e
 
 echo "Running setup"
-sudo apt-get update
-sudo apt-get install -y tor
+sudo apt update
+sudo apt install -y tor
 
 cd $GITHUB_WORKSPACE/backend  # to install backend dependencies
 python3 -mvenv env
