@@ -1,3 +1,11 @@
+Changes in version 5.0.81
+    Fix compatibility with Safari ensuring CSS is correctly loaded
+    Make it possible to load images in optimized webp format
+    Fix file uploader in relation to questions that accept multiple entries (#3172)
+    Integrate automated testing of Accessibility ARIA requirements using cypress and axe-core (#1333)
+    Bump client dependencies to latest versions
+    fix file upload
+
 Changes in version 5.0.80
     Fix handling of LRT/RTL on modals
     Improve accessibility on screenreaders using h5 for titles
