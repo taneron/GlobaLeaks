@@ -61,12 +61,14 @@
               @if (sortKey === 'important') {
                 <span>
                   @if (!sortReverse) {
-                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-sort-down"></i>
                   }
                   @if (sortReverse) {
-                    <i class="fas fa-caret-up"></i>
+                    <i class="fas fa-sort-up"></i>
                   }
                 </span>
+              } @else {
+                <span class="text-muted"><i class="fas fa-sort"></i></span>
               }
             </th>
             <th (click)="sortKey = 'reminder_date'; sortReverse = !sortReverse">
@@ -74,12 +76,14 @@
               @if (sortKey === 'reminder_date') {
                 <span>
                   @if (!sortReverse) {
-                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-sort-down"></i>
                   }
                   @if (sortReverse) {
-                    <i class="fas fa-caret-up"></i>
+                    <i class="fas fa-sort-up"></i>
                   }
                 </span>
+              } @else {
+                <span class="text-muted"><i class="fas fa-sort"></i></span>
               }
             </th>
             <th class="TipInfoID" (click)="sortKey = 'progressive'; sortReverse = !sortReverse">
@@ -87,12 +91,14 @@
               @if (sortKey === 'progressive') {
                 <span>
                   @if (!sortReverse) {
-                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-sort-down"></i>
                   }
                   @if (sortReverse) {
-                    <i class="fas fa-caret-up"></i>
+                    <i class="fas fa-sort-up"></i>
                   }
                 </span>
+              } @else {
+                <span class="text-muted"><i class="fas fa-sort"></i></span>
               }
             </th>
             @if (appDataService.public.contexts.length > 1) {
@@ -103,12 +109,14 @@
                   @if (sortKey === 'context_name') {
                     <span>
                       @if (!sortReverse) {
-                        <i class="fas fa-caret-down"></i>
+                        <i class="fas fa-sort-down"></i>
                       }
                       @if (sortReverse) {
-                        <i class="fas fa-caret-up"></i>
+                        <i class="fas fa-sort-up"></i>
                       }
                     </span>
+                  } @else {
+                    <span class="text-muted"><i class="fas fa-sort"></i></span>
                   }
                 </span>
                 @if (RTips.dataModel.length > 0) {
@@ -128,12 +136,14 @@
                 @if (sortKey === 'label') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
             </th>
@@ -144,12 +154,14 @@
                 @if (sortKey === 'submissionStatusStr') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
               @if (RTips.dataModel.length > 0) {
@@ -168,12 +180,14 @@
                 @if (sortKey === 'creation_date') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
               <span class="ngb-datepicker-container ms-1">
@@ -190,12 +204,14 @@
                 @if (sortKey === 'update_date') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
               <span class="ngb-datepicker-container ms-1">
@@ -212,12 +228,14 @@
                 @if (sortKey === 'expiration_date') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
               <span class="ngb-datepicker-container ms-1">
@@ -242,16 +260,17 @@
             <th class="TipInfoRecipientCount">
               <span (click)="sortKey = 'receiver_count'; sortReverse = !sortReverse">
                 <i class="fas fa-users"></i>
-                <span></span>
                 @if (sortKey === 'receiver_count') {
                   <span>
                     @if (!sortReverse) {
-                      <i class="fas fa-caret-down"></i>
+                      <i class="fas fa-sort-down"></i>
                     }
                     @if (sortReverse) {
-                      <i class="fas fa-caret-up"></i>
+                      <i class="fas fa-sort-up"></i>
                     }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
               </span>
             </th>
@@ -263,12 +282,14 @@
                   @if (sortKey === 'score') {
                     <span>
                       @if (!sortReverse) {
-                        <i class="fas fa-caret-down"></i>
+                        <i class="fas fa-sort-down"></i>
                       }
                       @if (sortReverse) {
-                        <i class="fas fa-caret-up"></i>
+                        <i class="fas fa-sort-up"></i>
                       }
                     </span>
+                  } @else {
+                    <span class="text-muted"><i class="fas fa-sort"></i></span>
                   }
                 </span>
                 @if (RTips.dataModel.length > 0) {
