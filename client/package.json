@@ -58,6 +58,7 @@
     "ngx-clipboard": "16.0.0",
     "ngx-markdown": "20.1.0",
     "pdfjs-dist": "5.4.149",
+    "requestidlecallback-polyfill": "1.0.2",
     "rxjs": "7.8.2",
     "zone.js": "0.15.1"
   },
