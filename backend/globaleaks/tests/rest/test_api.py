@@ -116,7 +116,8 @@ class TestAPI(TestGL):
                                        'sandbox;'
                                        'trusted-types;'
                                        'require-trusted-types-for \'script\';'
-                                       'report-uri /api/report;',
+                                       'report-to csp-endpoint',
+            'Reporting-Endpoints': 'csp-endpoint="/api/report"',
             'Referrer-Policy': 'no-referrer',
             'Server': 'GlobaLeaks',
             'X-Content-Type-Options': 'nosniff',
@@ -138,7 +139,7 @@ class TestAPI(TestGL):
                                                     'style-src \'self\' \'random-nonce\';' \
                                                     'trusted-types angular angular#bundler dompurify default;' \
                                                     'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
+                                                    'report-to csp-endpoint'
 
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/", method=method)
@@ -160,7 +161,7 @@ class TestAPI(TestGL):
                                                     'sandbox;' \
                                                     'trusted-types;' \
                                                     'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
+                                                    'report-to csp-endpoint'
 
         for method, status_code in test_cases:
             request = forge_request(uri=b"https://www.globaleaks.org/workers/crypto.worker.js", method=method)
@@ -193,7 +194,7 @@ class TestAPI(TestGL):
                                                     'sandbox allow-scripts;' \
                                                     'trusted-types;' \
                                                     'require-trusted-types-for \'script\';' \
-                                                    'report-uri /api/report;'
+                                                    'report-to csp-endpoint'
 
         server_headers['Cross-Origin-Resource-Policy'] = 'cross-origin'
 
