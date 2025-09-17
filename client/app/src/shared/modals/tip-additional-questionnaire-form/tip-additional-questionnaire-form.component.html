@@ -1,8 +1,6 @@
 <div class="modal-header">
   <h5 class="modal-title">{{'Additional questionnaire'|translate}}</h5>
-  <button type="submit" class="close btn" [attr.aria-hidden]="true" (click)="activeModal.dismiss()" [attr.aria-label]="'Close' | translate">
-    <i class="fas fa-xmark"></i>
-  </button>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()" [attr.aria-label]="'Close' | translate"></button>
 </div>
 <div class="modal-body">
   <form #submissionForm="ngForm" id="SubmissionForm" autocomplete="off" novalidate>
@@ -46,24 +44,23 @@
 </div>
 <div class="modal-footer">
   <div id="SubmissionButtons">
-    <br>
-      @if (hasPreviousStep()) {
-        <button id="PreviousStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.decrementStep(this)">
-          <i class="fas fa-circle-arrow-left"></i>
-          <span>{{'Previous'|translate}}</span>
-        </button>
-      }
-      @if (hasNextStep()) {
-        <button id="NextStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.incrementStep(this)">
-          <span>{{'Next'|translate}}</span>
-          <i class="fas fa-circle-arrow-right"></i>
-        </button>
-      }
-      @if (!hasNextStep()) {
-        <button id="SubmitButton" class="btn btn-primary" [disabled]="done" (click)="completeSubmission()" type="submit">
-          <span id="SubmitIconOK"><i class="fas fa-check"></i></span>
-          <span>{{'Submit'|translate}}</span>
-        </button>
-      }
-    </div>
+    @if (hasPreviousStep()) {
+      <button id="PreviousStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.decrementStep(this)">
+        <i class="fas fa-circle-arrow-left"></i>
+        <span>{{'Previous'|translate}}</span>
+      </button>
+    }
+    @if (hasNextStep()) {
+      <button id="NextStepButton" class="btn btn-outline-secondary" (click)="whistleblowerSubmissionService.incrementStep(this)">
+        <span>{{'Next'|translate}}</span>
+        <i class="fas fa-circle-arrow-right"></i>
+      </button>
+    }
+    @if (!hasNextStep()) {
+      <button id="SubmitButton" class="btn btn-primary" [disabled]="done" (click)="completeSubmission()" type="submit">
+        <span id="SubmitIconOK"><i class="fas fa-check"></i></span>
+        <span>{{'Submit'|translate}}</span>
+      </button>
+    }
   </div>
+</div>

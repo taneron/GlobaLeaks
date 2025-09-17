@@ -1,22 +1,15 @@
 <div class="modal-header">
   <h5 class="modal-title">{{ 'Recipients' | translate }}</h5>
-  <button type="button" class="close btn" (click)="cancel()" [attr.aria-label]="'Close' | translate">
-    <i class="fas fa-xmark"></i>
-  </button>
+  <button type="button" class="btn-close" (click)="cancel()" [attr.aria-label]="'Close' | translate"></button>
 </div>
 <div class="modal-body">
   <div>{{ 'Recipients' | translate }}</div>
   <ng-select [items]="userData | filter: 'role': 'receiver'" [attr.data-cy]="'receiver_selection'" [(ngModel)]="selected.value" [virtualScroll]="true" [placeholder]="'Search' | translate" bindValue="name" (change)="addReceiver($event)">
-    <ng-template ng-label-tmp let-item="item">
-      {{ item.name }}
-    </ng-template>
-    <ng-template ng-option-tmp let-item="item">
-      <span>{{item.name}}</span>
-    </ng-template>
+    <ng-template ng-label-tmp let-item="item">{{ item.name }}</ng-template>
+    <ng-template ng-option-tmp let-item="item">{{item.name}}</ng-template>
   </ng-select>
   @if (arg.trigger_receiver) {
     <div>
-      <br />
       <ol class="selection-list">
         @for (user of arg.trigger_receiver; track user; let i = $index) {
           <li>
