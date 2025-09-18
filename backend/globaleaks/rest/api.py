@@ -636,9 +636,6 @@ class APIResourceWrapper(Resource):
                                                  b"web-share=(),"
                                                  b"xr-spatial-tracking=()")
 
-        # Prevent old browsers not supporting CSP frame-ancestors directive to includes the platform within an iframe
-        request.setHeader(b'X-Frame-Options', b'deny')
-
         # Prevent the browsers to implement automatic mime type detection and execution.
         request.setHeader(b'X-Content-Type-Options', b'nosniff')
 
