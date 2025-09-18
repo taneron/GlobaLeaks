@@ -1,3 +1,16 @@
+Changes in version 5.0.82
+    Downgrade Angular and its modules to LTS version 19 (#4634)
+      choice made ensuring release 5.0.83 could be one of the
+      last of the series and to reduce in general new releases
+      using stable packages in long term support period.
+    Revise modals fixing alignment of closing button and uniforming code
+    Update CSP policy using report-to and Reporting-Endpoints
+    Update cypress configuration deprecating plugins/index.ts and using up-to-date recommendations
+    Revise reports list using correct sort icons
+    Revise code used to include icons removing named imports
+    [ci] Remove configurations of cypress that are currently unused
+    [doc] Update documentation about content security policy
+
 Changes in version 5.0.81
     Fix compatibility with Safari ensuring CSS is correctly loaded
     Make it possible to load images in optimized webp format
