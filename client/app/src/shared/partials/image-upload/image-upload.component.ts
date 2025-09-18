@@ -1,6 +1,6 @@
 import {HttpClient} from "@angular/common/http";
 import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, inject} from "@angular/core";
-import {FlowConfig, NgxFlowModule} from "@flowjs/ngx-flow";
+import {FlowDirective, NgxFlowModule} from "@flowjs/ngx-flow";
 import {Subscription} from "rxjs";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {FlowOptions} from "@flowjs/flow.js";
@@ -23,7 +23,7 @@ export class ImageUploadComponent implements AfterViewInit, OnDestroy, OnInit {
   private utilsService = inject(UtilsService);
 
   @ViewChild("flowAdvanced")
-  flow: FlowConfig;
+  flow: FlowDirective;
   @ViewChild("uploader") uploaderElementRef!: ElementRef<HTMLInputElement>;
 
   @Input() imageUploadModel: Record<string, any>;
