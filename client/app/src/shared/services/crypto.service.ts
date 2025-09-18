@@ -65,7 +65,7 @@ export class CryptoService {
     window.crypto.getRandomValues(randomBytes);
 
     // Compute the SHA-256 hash of the seed if provided
-    const data = this.str2Uint8Array(seed) as BufferSource; // Use str2Uint8Array
+    const data = this.str2Uint8Array(seed); // Use str2Uint8Array
     const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
     const seedHash = new Uint8Array(hashBuffer);
 

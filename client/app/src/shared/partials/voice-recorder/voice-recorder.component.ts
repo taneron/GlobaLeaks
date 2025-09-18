@@ -292,7 +292,7 @@ export class VoiceRecorderComponent implements OnInit {
       modulatorBandFilter.frequency.value = vocoderBands[i].freq;
       modulatorBandFilter.Q.value = vocoderBands[i].Q;
       const rectifier: WaveShaperNode = audioContext.createWaveShaper();
-      rectifier.curve = this.generateRectifierCurve() as Float32Array<ArrayBuffer>;
+      rectifier.curve = this.generateRectifierCurve();
       const postRectifierBandFilter: BiquadFilterNode = audioContext.createBiquadFilter();
       postRectifierBandFilter.type = 'lowpass';
       postRectifierBandFilter.frequency.value = 20;
