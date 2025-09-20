@@ -1,3 +1,12 @@
+Changes in version 5.0.83
+    Define and enforce same UID and GID 1000 in all next docker releases (#4637)
+      If you run on docker ensure to perform chown 1000:1000 /var/globaleaks -R
+    Configure explicit USER UID/GID in compatibility with k8s securityContexts (#4637)
+    Implement 'Clear-Site-Data' header on logout handlers (#4636)
+    Bump client dependencies to latest stable versions
+    [doc] Add documentation about usage of 'Clear-Site-Data' header
+    [ci] Add tests for 'Clear-Site-Data' header (#4636)
+
 Changes in version 5.0.82
     Downgrade Angular and its modules to LTS version 19 (#4634)
       choice made ensuring release 5.0.83 could be one of the
