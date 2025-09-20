@@ -20,6 +20,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 COPY files/* /tmp/
 
+RUN groupadd -r globaleaks --gid=1000 && useradd -r -d /var/globaleaks -g globaleaks --uid=1000 globaleaks
+
 RUN apt-get update -q && \
     apt-get dist-upgrade -y && \
     apt-get install -y --no-install-recommends lsb-release && \
