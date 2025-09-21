@@ -1,6 +1,8 @@
 # GlobaLeaks Docker setup
 
-To run GlobaLeaks using docker
-- install [Docker](https://www.docker.com),
-- copy `Dockerfile` and `docker-compose.yml`,
-- run `docker-compose up -d` in that directory.
+To run GlobaLeaks using Docker
+```bash
+ docker run -d --name globaleaks \
+  -p 80:80 -p 443:443 \
+  -v globaleaks-data:/var/globaleaks \
+  globaleaks/globaleaks:latest
