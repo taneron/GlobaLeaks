@@ -5,5 +5,6 @@ USER DOCUMENTATION
   :maxdepth: 4
 
   common.rst
-  primary/index.rst
-  secondary/index.rst
+  admin.rst
+  recipient.rst
+  additional-roles/index.rst

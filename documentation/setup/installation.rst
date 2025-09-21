@@ -23,4 +23,4 @@ To install using Docker, run the following commands:
     -v globaleaks-data:/var/globaleaks \
     globaleaks/globaleaks:latest
 
-After installation, follow the instructions provided to guide you through accessing the :doc:`Platform wizard </setup/initialization>`.
+After installation, follow the on-screen instructions to access and configure your platform.

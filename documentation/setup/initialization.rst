@@ -1,6 +1,8 @@
 Initialization
 ==============
-To initialize the platform, open a browser at port 443 or port 8443 on your remote or local IP, respectively.
+After installing GlobaLeaks, you can proceed with the platform wizard.
+
+Open a browser at port 443 on your remote or local IP, respectively.
 
 We recommend accessing using either the Tor address provided at the end of the installation or on localhost via a VPN.
 

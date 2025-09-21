@@ -1,5 +1,5 @@
-Secondary roles
-===============
+Additional users
+================
 .. toctree::
   :name: user
   :maxdepth: 4
