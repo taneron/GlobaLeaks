@@ -2,7 +2,7 @@ User interface
 ==============
 This section offers you a summary of the user interface offered to Admin users.
 
-.. image:: ../../../images/admin/home.png
+.. image:: ../../images/admin/home.png
 
 Through the menu you could access the following administrative sections:
 
@@ -44,13 +44,13 @@ Settings
 ........
 In this section is configurable the logo and all the texts of the main user interfaces.
 
-.. image:: ../../../images/admin/site_settings_main_configuration.png
+.. image:: ../../images/admin/site_settings_main_configuration.png
 
 Files
 .....
 In this section could be loaded CSS and Javascript and other files necessary to customize the interface.
 
-.. image:: ../../../images/admin/site_settings_files.png
+.. image:: ../../images/admin/site_settings_files.png
 
 Languages
 .........
@@ -59,19 +59,19 @@ In this section you could enable all the languages required by your project and 
 .. note::
    Thanks to the `Localization Lab <https://www.localizationlab.org/>`_ and our great volunteer community, the software is already available and continuously made available in a lot of languages. This aspect of internationalization is crucial in many projects. In case you are starting a project and the required languages are not available we strongly invite you to register on our `web translation platform <https://www.transifex.com/otf/globaleaks/>`_ offered by `Transifex <https://www.transifex.com/otf/globaleaks/>`_ and support yourself the translation. Internationalization and Localization is in fact are crucial for the success of a whistleblowing project. Thank you!
 
-.. image:: ../../../images/admin/site_settings_languages.png
+.. image:: ../../images/admin/site_settings_languages.png
 
 Text customization
 ..................
 Here could be configured overrides for any of the texts of the platform and of their translation.
 
-.. image:: ../../../images/admin/site_settings_text_customization.png
+.. image:: ../../images/admin/site_settings_text_customization.png
 
 Advanced settings
 .................
 In this section could be configured a set of advanced settings.
 
-.. image:: ../../../images/admin/advanced_settings.png
+.. image:: ../../images/admin/advanced_settings.png
 
 Users
 -----
@@ -80,7 +80,7 @@ The system with the basic configuration completed with the initial Platform wiza
 
 Depending on your project needs here you could create users with different roles and manage their respective privileges.
 
-.. image:: ../../../images/admin/users.png
+.. image:: ../../images/admin/users.png
 
 User roles
 ..........
@@ -93,7 +93,7 @@ The software offers the possibility to create users with the following roles:
 User options
 ............
 
-.. image:: ../../../images/admin/users_options.png
+.. image:: ../../images/admin/users_options.png
 
 Questionnaires
 --------------
@@ -103,11 +103,11 @@ As every organization has different needs, risks and goals globaleaks has been d
 
 The following sections present the questionnaire builder and its capabilities.
 
-.. image:: ../../../images/admin/questionnaires.png
+.. image:: ../../images/admin/questionnaires.png
 
 Depending on your project needs you may evaluate defining some questions once as Question Templates and reuse the same question in multiple questionnaires.
 
-.. image:: ../../../images/admin/question_templates.png
+.. image:: ../../images/admin/question_templates.png
 
 Steps
 .....
@@ -171,7 +171,7 @@ The system with the basic configuration completed with the initial platform wiza
 
 Depending on your project needs here you could create additional Channels and configure their respective properties.
 
-.. image:: ../../../images/admin/channels.png
+.. image:: ../../images/admin/channels.png
 
 Data retention policy
 .....................
@@ -195,7 +195,7 @@ By default the system includes the following report statuses:
 
 Within this section you may add additional Statuses between the State Open and Closed and you can furtherly define Sub-statuses for the Closed status (e.g. Archived / Spam)
 
-.. image:: ../../../images/admin/report_statuses.png
+.. image:: ../../images/admin/report_statuses.png
 
 Notification
 ------------
@@ -213,7 +213,7 @@ Here are configured the technical details about SMTP.
 .. note::
    By default GlobaLeaks comes with a working configuration that is based on systems offered by the GlobaLeaks developers to the community of users and testers; even though this configuration is designed by their owners with special care in relation to security and privacy you are invited to consider using alternative systems for your production environment.
 
-.. image:: ../../../images/admin/notification_settings.png
+.. image:: ../../images/admin/notification_settings.png
 
 Notification templates
 ......................
@@ -222,7 +222,7 @@ In this section are configured the notification templates.
 By default globaleaks includes text and translations for each of the templates that are provided to be fully functional and studied with particular care in relation to security and privacy.
 Depending on your project needs you may override the default text with your customized texts.
 
-.. image:: ../../../images/admin/notification_templates.png
+.. image:: ../../images/admin/notification_templates.png
 
 Network
 -------
@@ -241,7 +241,7 @@ HTTPS
 .....
 Here you can configure all the aspects related to the access of the platform via the HTTPS Protocol.
 
-.. image:: ../../../images/admin/https.png
+.. image:: ../../images/admin/https.png
 
 In particular here are configured:
 
@@ -255,13 +255,13 @@ Tor
 ...
 Here you can configure all the aspects related to the access of the platform via the Tor Protocol.
 
-.. image:: ../../../images/admin/tor.png
+.. image:: ../../images/admin/tor.png
 
 IP access control
 .................
 Here you can configure IP based Access Control.
 
-.. image:: ../../../images/admin/access_control.png
+.. image:: ../../images/admin/access_control.png
 
 Suggested configurations are:
 
@@ -273,7 +273,7 @@ URL redirects
 .............
 Here you can configure URL Redirects.
 
-.. image:: ../../../images/admin/url_redirects.png
+.. image:: ../../images/admin/url_redirects.png
 
 Sites
 -----
@@ -285,7 +285,7 @@ Secondary whistleblowing platforms with independent configurations can be manual
 
 Organizations have typically need for creating a secondary site when dealing with subsidiaries or third party clients.
 
-.. image:: ../../../images/admin/sites_management_sites.png
+.. image:: ../../images/admin/sites_management_sites.png
 
 After creating a secondary site an administrators of the main site could simply enter on that system by clicking a "Configure" button.
 
@@ -299,20 +299,20 @@ Organizations have typically need for a signup module when offering the platform
 
 The signup feature can be anabled in the Options tab of the Sites section.
 
-.. image:: ../../../images/admin/signup_configuration.png
+.. image:: ../../images/admin/signup_configuration.png
 
 When the signup module is enabled the submission module of the main site is automatically disabled and the home page will be featuring the following signup form:
 
-.. image:: ../../../images/admin/signup_form.png
+.. image:: ../../images/admin/signup_form.png
 
 Audit log
 ---------
 The software features a privacy precerving audit log enabling administrators of the system to supervise on projects operations.
 
-.. image:: ../../../images/admin/audit_log.png
+.. image:: ../../images/admin/audit_log.png
 
-.. image:: ../../../images/admin/audit_log_users.png
+.. image:: ../../images/admin/audit_log_users.png
 
-.. image:: ../../../images/admin/audit_log_reports.png
+.. image:: ../../images/admin/audit_log_reports.png
 
-.. image:: ../../../images/admin/audit_log_scheduled_jobs.png
+.. image:: ../../images/admin/audit_log_scheduled_jobs.png
