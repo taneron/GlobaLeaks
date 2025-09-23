@@ -29,7 +29,7 @@ export class TranslationService {
 
   onChange(language: string, callback?: () => void) {
     this.language = language;
-    document.body.dir = this.utilsService.getDirection(this.language);
+    document.documentElement.dir = this.utilsService.getDirection(this.language);
     sessionStorage.setItem("language", this.language);
     this.changeLocale(this.language);
     this.translate.setFallbackLang(this.language);
