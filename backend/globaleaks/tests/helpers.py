@@ -939,12 +939,17 @@ class TestGLWithPopulatedDB(TestGL):
         yield self.perform_post_submission_actions()
 
     @transact
-    def set_itip_expiration(self, session, date):
+    def set_itips_expiration(self, session, date):
         session.query(models.InternalTip).update({'expiration_date': date})
 
     @transact
-    def set_itips_near_to_expire(self, session):
+    def set_itips_expiration_as_near_to_expire(self, session):
         date = datetime_now() + timedelta(hours=self.state.tenants[1].cache.notification.tip_expiration_threshold - 1)
+        session.query(models.InternalTip).update({'expiration_date': date})
+
+    @transact
+    def set_itips_expiration_as_expired(self, session):
+        date = datetime_now()
         session.query(models.InternalTip).update({'expiration_date': date})
 
 
