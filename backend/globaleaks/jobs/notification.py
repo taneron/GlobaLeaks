@@ -119,6 +119,8 @@ class MailGenerator(object):
 
     def db_generate_email_for_unread_reports(self, session, now, silent_tids):
         reminder_time = self.state.tenants[1].cache.unread_reminder_time
+        if reminder_time <= 0:
+            return
 
         for user in session.query(models.User).filter(models.User.id == models.ReceiverTip.receiver_id,
                                                       not_(models.User.id.in_(silent_tids)),

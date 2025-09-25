@@ -78,7 +78,16 @@ class TestNotification(helpers.TestGLWithPopulatedDB):
 
         yield simulate_unread_tips()
 
+        # Disable the unread reminder and ensure no unread reminders are sent
         tw(db_set_config_variable, 1, 'timestamp_daily_notifications', 0)
+        save_var = self.state.tenants[1].cache.unread_reminder_time
+        self.state.tenants[1].cache.unread_reminder_time = 0
+        yield notification.generate_emails()
+        yield self.test_model_count(models.Mail, 0)
+
+        # Re-enable the unread reminder and ensure unread reminders are sent
+        tw(db_set_config_variable, 1, 'timestamp_daily_notifications', 0)
+        self.state.tenants[1].cache.unread_reminder_time = save_var
         yield notification.generate_emails()
         yield self.test_model_count(models.Mail, 2)
 
