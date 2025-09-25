@@ -104,8 +104,18 @@ class TestNotification(helpers.TestGLWithPopulatedDB):
         yield notification.generate_emails()
         yield self.test_model_count(models.Mail, 0)
 
-        tw(db_set_config_variable, 1, 'timestamp_daily_notifications', 0)
         yield self.set_itips_expiration_as_near_to_expire()
+
+        # Disable the expiration reminders and ensure expiration reminders are not sent
+        tw(db_set_config_variable, 1, 'timestamp_daily_notifications', 0)
+        save_var = self.state.tenants[1].cache.notification.tip_expiration_threshold
+        self.state.tenants[1].cache.notification.tip_expiration_threshold = 0
+        yield notification.generate_emails()
+        yield self.test_model_count(models.Mail, 0)
+
+        # Re-enable the expiration reminders and ensure expiration reminders are sent
+        tw(db_set_config_variable, 1, 'timestamp_daily_notifications', 0)
+        self.state.tenants[1].cache.notification.tip_expiration_threshold = save_var
         yield notification.generate_emails()
         yield self.test_model_count(models.Mail, 2)
 

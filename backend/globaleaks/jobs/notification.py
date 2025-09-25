@@ -69,6 +69,8 @@ class MailGenerator(object):
 
     def db_generate_emails_for_expiring_reports(self, session, tid):
         tip_expiration_threshold = self.state.tenants[tid].cache.notification.tip_expiration_threshold
+        if tip_expiration_threshold <= 0:
+            return
 
         threshold = datetime_now() + timedelta(hours=tip_expiration_threshold)
 
