@@ -178,11 +178,14 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      npx_build: {
+      build: {
         command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=production"
       },
-      npx_build_and_instrument: {
-        command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=testing && nyc instrument dist --in-place"
+      build_for_testing: {
+        command: "NG_BUILD_OPTIMIZE_CHUNKS=1 npx ng build --configuration=testing"
+      },
+      instrument: {
+        command: "nyc instrument dist --in-place"
       },
       brotli_compress: {
         command: 'find . -type f -not -name \'index.html\' -not -path \'./data/*\' -not -path \'./fonts/*\' -exec brotli -q 11 {} --output={}.br \\;',
@@ -807,8 +810,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("package", ["copy:build", "webpack", "string-replace", "postcss", "copy:package"]);
 
-  grunt.registerTask("build", ["clean", "shell:npx_build", "package", "shell:brotli_compress", "clean:tmp"]);
+  grunt.registerTask("build", ["clean", "shell:build", "package", "shell:brotli_compress", "clean:tmp"]);
+
+  grunt.registerTask("build_for_testing", ["clean", "shell:build_for_testing", "package", "shell:brotli_compress", "clean:tmp"]);
  
-  grunt.registerTask("build_and_instrument", ["clean", "shell:npx_build_and_instrument", "package", "shell:brotli_compress", "clean:tmp"]);
+  grunt.registerTask("build_for_testing_and_instrument", ["clean", "shell:build_for_testing", "shell:instrument", "package", "shell:brotli_compress", "clean:tmp"]);
 };
 
