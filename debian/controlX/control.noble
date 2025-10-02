@@ -34,6 +34,7 @@ Depends:
   python3-nacl,
   python3-openssl,
   python3-gnupg,
+  python3-packaging,
   python3-priority,
   python3-pyotp,
   python3-six,
