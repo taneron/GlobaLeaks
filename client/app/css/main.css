@@ -146,6 +146,10 @@ th .fa-solid,
   font-weight: normal;
 }
 
+table {
+  font-size: 0.875rem;
+}
+
 table tr {
   height: 50px;
 }
