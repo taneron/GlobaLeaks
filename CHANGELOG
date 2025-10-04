@@ -1,3 +1,11 @@
+Changes in version 5.0.84
+    Make it possible to disable expiration notification configuring 0 as expiration threshold (#4643)
+    Make it possible to disable unread reminders configuring 0 as reminder time (#4642)
+    Revise CSS aiming at WCAG 2.1 AAA
+    Fix issue #4612
+    Bump client dependencies to latest stable versions
+    [ci] Make it possible to speed up tests without tracking code coverage
+
 Changes in version 5.0.83
     Define and enforce same UID and GID 1000 in all next docker releases (#4637)
       If you run on docker ensure to perform chown 1000:1000 /var/globaleaks -R
