@@ -198,16 +198,10 @@ export class VoiceRecorderComponent implements OnInit {
         }, { once: true });
 
         this.audioPlayer = true;
+        (this.flow as any).field = this.field;
         this.uploads[this.fileInput] = this.flow;
         this.submissionService.setSharedData(this.flow);
         this.notifyFileUpload.emit(this.uploads);
-
-        if (this.entry) {
-          if (!this.entry.files) {
-            this.entry.files = [];
-          }
-          this.entry.files.push(this.recording_blob.uniqueIdentifier);
-        }
       }
 
       this.cd.detectChanges();
@@ -232,9 +226,6 @@ export class VoiceRecorderComponent implements OnInit {
     this.initAudioContext()
     this.submissionService.setSharedData(null);
     delete this.uploads[this.fileInput];
-    if (this.entry && this.entry.files) {
-      delete this.entry.files;
-    }
   }
 
   enableNoiseSuppression(stream: MediaStream): Observable<void> {

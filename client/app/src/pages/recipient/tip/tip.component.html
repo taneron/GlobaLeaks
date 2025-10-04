@@ -119,11 +119,11 @@
       }
     }
     <div class="row">
-      <div [ngClass]="{'col-md-12': !(tip && tip.enable_whistleblower_identity),'col-md-6': (tip && tip.enable_whistleblower_identity)}">
+      <div [ngClass]="{'col-md-12': !(tip && tip.identity_provided),'col-md-6': (tip && tip.identity_provided)}">
         <src-tip-questionnaire-answers [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle"
         [redactMode]="redactMode"></src-tip-questionnaire-answers>
       </div>
-      @if (tip && tip.enable_whistleblower_identity) {
+      @if (tip && tip.identity_provided) {
         <div class="col-md-6">
           <src-whistleblower-identity-receiver [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode"></src-whistleblower-identity-receiver>
         </div>

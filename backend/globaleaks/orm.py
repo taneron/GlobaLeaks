@@ -57,7 +57,8 @@ def get_engine(db_uri=None, foreign_keys=True, orm_lockdown=True):
                                                      'length',
                                                      'lower',
                                                      'min',
-                                                     'max']):
+                                                     'max',
+                                                     'substr']):
             return sqlite3.SQLITE_OK
         else:
             return sqlite3.SQLITE_DENY

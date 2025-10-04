@@ -3,7 +3,7 @@
     @switch (field.template_id) {
       @case ('whistleblower_identity') {
         <div>
-          <src-whistleblower-identity-field (notifyFileUpload)="notifyFileUpload.emit()" [fileUploadUrl]="fileUploadUrl" [uploads]="uploads" [identity_provided]="identity_provided" [index]="index" [step]="rows" [entry]="entry" [fields]="fields" [answers]="answers" [displayErrors]="displayErrors" [submission]="submission" [field]="field"></src-whistleblower-identity-field>
+          <src-whistleblower-identity-field (notifyFileUpload)="notifyFileUpload.emit()" [fileUploadUrl]="fileUploadUrl" [uploads]="uploads" [index]="index" [step]="rows" [entry]="entry" [fields]="fields" [answers]="answers" [displayErrors]="displayErrors" [submission]="submission" [field]="field"></src-whistleblower-identity-field>
         </div>
       }
       @default {
@@ -168,7 +168,7 @@
                       </div>
                     }
                   }
-                <src-form (notifyFileUpload)="notifyFileUpload.emit()" [identity_provided]="identity_provided" [fileUploadUrl] = fileUploadUrl [fieldEntry]="fieldEntry" [displayErrors]="displayErrors" [entry]="entry" [answers]="answers" [step]="rows" [submission]="submission" [index]="index" [uploads]="uploads"></src-form>
+                <src-form (notifyFileUpload)="notifyFileUpload.emit()" [fileUploadUrl] = fileUploadUrl [fieldEntry]="fieldEntry" [displayErrors]="displayErrors" [entry]="entry" [answers]="answers" [step]="rows" [submission]="submission" [index]="index" [uploads]="uploads"></src-form>
               </div>
             }
             @default {

@@ -29,7 +29,6 @@ export class FormComponent implements OnInit {
   @Input() submission: SubmissionService;
   @Input() displayErrors: boolean;
   @Input() entry: string;
-  @Input() identity_provided: any;
   @Input() fileUploadUrl: string;
   @Output() notifyFileUpload: EventEmitter<any> = new EventEmitter<any>();
   @Input() fieldEntry: string;

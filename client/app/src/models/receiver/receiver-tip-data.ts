@@ -26,7 +26,7 @@ export class RecieverTipData {
   tor: boolean;
   mobile: boolean;
   reminder_date: string;
-  enable_whistleblower_identity: boolean;
+  identity_provided: boolean;
   last_access: string;
   score: number;
   status: string;

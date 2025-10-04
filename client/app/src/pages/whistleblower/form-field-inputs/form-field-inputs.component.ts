@@ -44,7 +44,6 @@ export class FormFieldInputsComponent implements OnInit {
   @Input() displayErrors: boolean;
   @Input() fields: any;
   @Input() uploads: Record<string, any>;
-  @Input() identity_provided: boolean;
   @Input() fileUploadUrl: string;
   @Input() fieldEntry: string;
   @Output() notifyFileUpload: EventEmitter<any> = new EventEmitter<any>();

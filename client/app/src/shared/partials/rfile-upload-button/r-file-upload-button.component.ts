@@ -76,6 +76,7 @@ export class RFileUploadButtonComponent implements AfterViewInit, OnInit, OnDest
       });
 
       if (this.uploads) {
+        (this.flow as any).field = this.field;
         this.uploads[this.fileInput] = this.flow;
         this.notifyFileUpload.emit(this.uploads);
       }

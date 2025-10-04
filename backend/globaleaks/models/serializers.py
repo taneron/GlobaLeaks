@@ -2,7 +2,7 @@ import copy
 import os
 
 
-from sqlalchemy import or_, not_
+from sqlalchemy import func, or_, not_
 from sqlalchemy.orm import aliased
 
 from globaleaks import models
@@ -218,7 +218,7 @@ def serialize_itip(session, internaltip, language):
         'tor': internaltip.tor,
         'mobile': internaltip.mobile,
         'reminder_date' : internaltip.reminder_date,
-        'enable_whistleblower_identity': internaltip.enable_whistleblower_identity,
+        'identity_provided': internaltip.enable_whistleblower_identity,
         'enable_whistleblower_download': not internaltip.deprecated_crypto_files_pub_key,
         'last_access': internaltip.last_access,
         'score': internaltip.score,
@@ -293,7 +293,7 @@ def serialize_rtip(session, itip, rtip, language):
 
     for ifile, wbfile in session.query(models.InternalFile, models.WhistleblowerFile) \
                                .filter(models.InternalFile.id == models.WhistleblowerFile.internalfile_id,
-                                       not_(models.InternalFile.reference_id.in_(denied_identity_files)),
+                                       not_(func.substr(models.InternalFile.reference_id, 1, 36).in_(denied_identity_files)),
                                        models.WhistleblowerFile.receivertip_id == rtip.id):
         ret['wbfiles'].append(serialize_wbfile(session, ifile, wbfile))
 

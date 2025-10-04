@@ -136,11 +136,11 @@ describe("globaleaks process", function () {
     cy.get("#step-0").should("be.visible");
     cy.get("#step-0-field-0-0-input-0")
     cy.get("#start_recording").click();
-    cy.wait(6000);
+    cy.wait(10000);
     cy.get("#stop_recording").click();
     cy.get("#delete_recording").click();
     cy.get("#start_recording").click();
-    cy.wait(6000);
+    cy.wait(10000);
     cy.get("#stop_recording").click();
     cy.get("#NextStepButton").click();
     cy.get("input[type='text']").eq(2).should("be.visible").type("abc");
@@ -150,6 +150,7 @@ describe("globaleaks process", function () {
     cy.get("#SubmitButton").click();
     cy.get("#ViewReportButton").should("be.visible");
     cy.get("#ViewReportButton").click();
+    cy.wait(10000);
     cy.get("#open_additional_questionnaire").click();
     cy.get("input[type='text']").eq(1).should("be.visible").type("single line text input");
     cy.get("#SubmitButton").click();
@@ -160,7 +161,6 @@ describe("globaleaks process", function () {
     cy.login_receiver();
     cy.visit("/#/recipient/reports");
     cy.get("#tip-0").first().click();
-    cy.get('[data-cy="identity_toggle"]').click();
     cy.get("#identity_access_request").click();
     cy.get('textarea[name="request_motivation"]').type("This is the motivation text.");
     cy.get('#modal-action-ok').click();
@@ -180,7 +180,6 @@ describe("globaleaks process", function () {
     cy.login_receiver();
     cy.visit("/#/recipient/reports");
     cy.get("#tip-0").first().click();
-    cy.get('[data-cy="identity_toggle"]').click();
     cy.get("#identity_access_request").click();
     cy.get('textarea[name="request_motivation"]').type("This is the motivation text.");
     cy.get('#modal-action-ok').click();
