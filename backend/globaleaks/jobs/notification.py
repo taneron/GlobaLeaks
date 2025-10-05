@@ -110,7 +110,6 @@ class MailGenerator(object):
 
             subject, body = Templating().get_mail_subject_and_body(data)
 
-            print(subject)
             session.add(models.Mail({
                 'tid': tid,
                 'address': user_desc['mail_address'],
