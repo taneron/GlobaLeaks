@@ -9,4 +9,4 @@ SETUP & MAINTENANCE
   initialization.rst
   upgrade.rst
   backup-and-restore.rst
-  trouble-shooting.rst
+  troubleshooting.rst

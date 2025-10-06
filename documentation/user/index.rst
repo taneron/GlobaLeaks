@@ -7,4 +7,4 @@ USER DOCUMENTATION
   common.rst
   admin.rst
   recipient.rst
-  additional-roles/index.rst
+  additional-users/index.rst

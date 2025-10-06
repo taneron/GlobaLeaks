@@ -1,5 +1,5 @@
-WHISTLEBLOWER DOCUMENTATION
-===========================
+REPORTING DOCUMENTATION
+=======================
 .. toctree::
   :name: user
   :maxdepth: 4

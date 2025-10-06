@@ -6,6 +6,6 @@ Documentation
 .. toctree::
   getting-started/index.rst
   setup/index.rst
-  whistleblower/index.rst
+  reporting/index.rst
   user/index.rst
   technical/index.rst
