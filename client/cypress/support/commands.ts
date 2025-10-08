@@ -238,11 +238,9 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
     cy.injectAxe()
     cy.checkA11y(null, null, terminalLog, true);
 
-    if (locator && locator !== ".modal") {
-      return cy.get(locator).screenshot("../" + filename, {overwrite: true, scale: true});
+    if (locator) {
+      return cy.get(locator).screenshot("../" + filename, {overwrite: true});
     }
-
-    cy.get('#FooterBox').scrollIntoView();
 
     return cy.screenshot("../" + filename, {
       capture: "fullPage",
