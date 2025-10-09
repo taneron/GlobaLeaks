@@ -1244,6 +1244,9 @@ msgstr "አስገባ "
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1746,22 +1749,6 @@ msgstr "የመሳርያ ስርኣቱ በ---- በራሱ ይተጠፋል"
 msgid "Access instructions"
 msgstr "የመዳረሻ መመርያዎች"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "በቅርብ የታዩ እንቅስቃሴዎች ቁጥር ከተለመደው ይበልጣል፡፡"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "ይህ የጥቃት ምልክት (ለምሳሌ የሆኑ ሰዎች አገልጋያችሁን በውሸት መረጃ ሲያጨናንቁት)\n\nወይም ፕሮጀክታችሁ ተመልካቹ ሲበዛ\n\nየተፈጠረ የአጠቃቀም ከፍታ ሊሆን ይችላል፡፡"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "ጉዳዩ ሕጋዊ መሆን አለመሆኑን መርምሩ፡፡"
-
-msgid "The activities with unusual stats are:"
-msgstr "ያልተለመደ ስታቲስቲክስ ያሳዩት እንቅስቃሴዎች እነዚህ ናቸው"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "የግሎባልሊክስ ቴክኖሎጂ የእርሰዎን ትኩረት የሚፈልግ ጉዳይ ቢኖር የሚያነቃዎት\n\nየአገልጋይ ሁኔታ ማመልከቻ ምንዝር አለው፡፡"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "\"ለተጨማሪ መረጃ ወደ አስተዳደር በይነገጽ ግቡና \"\n\n\\\"ስርኣት ስታቲስትክስ\\\" and \\\"አፈንጋጮች\\\" የሚለውን ክፍል ተመልከቱ"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "በ{NodeName} አፈንጋጭ ተገኝቷል "
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

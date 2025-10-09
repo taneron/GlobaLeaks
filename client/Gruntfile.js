@@ -3,7 +3,68 @@ module.exports = function(grunt) {
       fs = require("fs"),
       path = require("path"),
       superagent = require("superagent"),
-      Gettext = require("node-gettext");
+      gettextParser = require('gettext-parser');
+
+  class SimpleGettext {
+    constructor() {
+      this.catalogs = {};   // { lang: { domain: { msgid: msgstr } } }
+      this.locale = 'en';
+      this.domain = 'messages'; // default gettext domain
+    }
+
+    /**
+     * Add PO data for a language and domain.
+     * @param {string} lang - language code (e.g. 'en')
+     * @param {string} domain - domain name (e.g. 'stable')
+     * @param {object|string} poData - parsed object or raw PO text
+     */
+    addTranslations(lang, domain = 'messages', poData) {
+      if (typeof poData === 'string') {
+        poData = gettextParser.po.parse(poData);
+      }
+
+      if (!this.catalogs[lang]) this.catalogs[lang] = {};
+      if (!this.catalogs[lang][domain]) this.catalogs[lang][domain] = {};
+
+      const entries = poData.translations || {};
+      for (const ctx of Object.keys(entries)) {
+        for (const msgid of Object.keys(entries[ctx])) {
+          if (!msgid) continue; // skip header
+          const entry = entries[ctx][msgid];
+          const msgstr = entry.msgstr && entry.msgstr[0];
+          if (msgstr && msgstr.trim()) {
+            this.catalogs[lang][domain][msgid] = msgstr;
+          }
+        }
+      }
+    }
+
+    /**
+     * Set the current active language.
+     */
+    setLocale(lang) {
+      this.locale = lang;
+    }
+
+    /**
+     * Set the active text domain (for compatibility).
+     */
+    setTextDomain(domain) {
+      this.domain = domain;
+    }
+
+    /**
+     * Translate a message ID.
+     * Returns the original if no translation is found.
+     */
+    gettext(msgid) {
+      const langCat = this.catalogs[this.locale];
+      if (!langCat) return msgid;
+      const domainCat = langCat[this.domain];
+      if (!domainCat) return msgid;
+      return domainCat[msgid] || msgid;
+    }
+  }
 
   require('load-grunt-tasks')(grunt);
 
@@ -455,7 +516,7 @@ module.exports = function(grunt) {
       }
     };
 
-    let gt = new Gettext(),
+    let gt = new SimpleGettext(),
         translationStringRegexpJSON = /"en":\s?"(.+)"/gi;
 
     gt.setTextDomain("stable");
@@ -539,7 +600,7 @@ module.exports = function(grunt) {
     const done = this.async();  // Declare the async task
     (async () => {
       const gettextParser = await loadGettextParser();
-      let gt = new Gettext(),
+      let gt = new SimpleGettext(),
           lang_code;
 
       gt.setTextDomain("stable");
@@ -582,7 +643,7 @@ module.exports = function(grunt) {
     const done = this.async();
     (async () => {
       const gettextParser = await loadGettextParser();
-      let gt = new Gettext(),
+      let gt = new SimpleGettext(),
           supported_languages = [];
 
       gt.setTextDomain("stable");

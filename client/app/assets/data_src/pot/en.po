@@ -1250,6 +1250,9 @@ msgstr "Submit"
 msgid "Subscribed"
 msgstr "Subscribed"
 
+msgid "Subscribed later"
+msgstr "Subscribed later"
+
 msgid "Subscription date"
 msgstr "Subscription date"
 
@@ -1796,24 +1799,6 @@ msgstr "The platform will be automatically deleted on:"
 msgid "Access instructions"
 msgstr "Access instructions"
 
-msgid "The number of activities recently detected appears to be higher than usual."
-msgstr "The number of activities recently detected appears to be higher than usual."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your "
-"server with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr ""
-"This could be a sign of an attack (for example, someone flooding your "
-"server with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examine the issue to determine whether it is legitimate or not."
-
-msgid "The activities with unusual stats are:"
-msgstr "The activities with unusual stats are:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Available disk space: {FreeMemory}/{TotalMemory}"
 
@@ -1837,16 +1822,6 @@ msgid ""
 msgstr ""
 "GlobaLeaks technology includes a server status checking component which "
 "will alert you in case something requires your attention."
-
-msgid ""
-"For more information, log in to the Administration interface and look at "
-"the \"System Stats\" and \"Anomalies\" sections."
-msgstr ""
-"For more information, log in to the Administration interface and look at "
-"the \"System Stats\" and \"Anomalies\" sections."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomaly detected in {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
