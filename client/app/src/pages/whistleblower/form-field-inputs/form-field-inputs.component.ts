@@ -5,7 +5,6 @@ import {SubmissionService} from "@app/services/helper/submission.service";
 import {Answers} from "@app/models/receiver/receiver-tip-data";
 import {Step} from "@app/models/whistleblower/wb-tip-data";
 import {Field} from "@app/models/resolvers/field-template-model";
-import {cloneDeep} from "lodash-es";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgClass} from "@angular/common";
 import {MarkdownComponent} from "ngx-markdown";
@@ -118,7 +117,7 @@ export class FormFieldInputsComponent implements OnInit {
   addAnswerEntry(entries: any) {
     if (!Array.isArray(entries)) return;
 
-    let newEntry = cloneDeep(entries[0]);
+    let newEntry = structuredClone(entries[0]);
     newEntry = this.resetEntries(newEntry);
 
     entries.push(newEntry);

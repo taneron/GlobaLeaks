@@ -9,7 +9,6 @@ import {RTipsResolver} from "@app/shared/resolvers/r-tips-resolver.service";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {TranslateService} from "@ngx-translate/core";
 import {IDropdownSettings, NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
-import {filter, orderBy} from "lodash-es";
 import {TokenResource} from "@app/shared/services/token-resource.service";
 import {Router, RouterLink} from "@angular/router";
 import {rtipResolverModel} from "@app/models/resolvers/rtips-resolver-model";
@@ -321,9 +320,9 @@ export class TipsComponent implements OnInit {
       this.filteredTips = this.RTips.dataModel;
       this.processTips();
 
-      this.filteredTips = orderBy(filter(this.filteredTips, (tip) => {
-        return this.utils.searchInObject(tip, search);
-      }), "update_date");
+      this.filteredTips = this.filteredTips
+          .filter((tip: any) => this.utils.searchInObject(tip, search))
+          .sort((a, b) => new Date(a.update_date).getTime() - new Date(b.update_date).getTime());
     }
   }
 
