@@ -42,7 +42,6 @@ input:disabled + .slider::before {
   left: 3px;
   bottom: 1px;
   background-color: white;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
 }

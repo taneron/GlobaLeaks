@@ -1138,12 +1138,14 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 }
 
 .visually-hidden:not(:focus):not(:active) {
-  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
   width: 1px;
+  clip-path: inset(1px);
+  border: 0;
+  overflow: hidden;
 }
 
 .custom-date-selector {
