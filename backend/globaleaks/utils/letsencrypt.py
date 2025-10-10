@@ -82,6 +82,11 @@ def request_new_certificate(hostname, accnt_key, key, tmp_chall_dict, directory_
         existing_reg = client.query_registration(existing_reg)
         client.update_registration(existing_reg)
 
+    # Handle compatibility with up to date python-acme/python-cryptography
+    # included since debian trixie
+    if isinstance(key, str):
+        key = key.encode('utf-8')
+
     csr = crypto_util.make_csr(key, [hostname], False)
     order = client.new_order(csr)
 
