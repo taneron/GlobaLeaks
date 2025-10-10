@@ -76,7 +76,8 @@ class Service(service.Service):
             ret = update_db()
 
             if ret == -1 or self.state.settings.migrate_only:
-                reactor.stop()
+                if reactor.running:
+                    reactor.stop()
                 return
 
             if ret == 0:
