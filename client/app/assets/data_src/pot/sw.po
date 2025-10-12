@@ -1243,6 +1243,9 @@ msgstr "Wasilisha"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "Jukwaa litafutwa otomatiki kwenye:"
 msgid "Access instructions"
 msgstr "maelekezo ya kufikia"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Idadi ya shughuli katika mtandao zilizogunduliwa hivi karibuni zinaonekana kuwa kubwa kuliko kawaida."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Hii inaweza kuwa ishara ya shambulio (kwa mfano, mtu Fulani anafurisha seva yako\n\nna taarifa zisizo na maana) au kuzidi matumizi kwa sababu ya kuongezeka kwa\n\nmwonekano wa mradi wako."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Chunguza suala ili kubaini ikiwa ni halali au la."
-
-msgid "The activities with unusual stats are:"
-msgstr "Shughuli zilizo na takwimu zisizo za kawaida ni: "
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Teknolojia ya GlobaLeaks inajumuisha sehemu ya kuangalia hali ya seva ambayo\n\nitakutahadharisha ikiwa jambo fulani litahitaji umakini wako"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr " Kwa habari zaid, Ingia kwenye sehemu ya Utawala na uangalie\n\n \\\"Takwimu za mfumo\\\" na \\\"Isiyo ya kawaida\\\" sehemu."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Kitu kisicho cha kawaida kimegunduliwa {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

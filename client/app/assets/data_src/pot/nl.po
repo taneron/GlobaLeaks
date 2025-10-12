@@ -1288,6 +1288,9 @@ msgstr "Verstuur"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1790,22 +1793,6 @@ msgstr "Het platvorm wordt automatisch gewist op:"
 msgid "Access instructions"
 msgstr "Toegangsinstructies"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Het aantal recente activiteiten blijkt hoger dan gebruikelijk te zijn."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Dit zou een een teken van een aanval kunnen zijn, bijvoorbeeld iemand die je server bestookt met onjuiste informatie, of een piek in het gebruik door verhoogde zichtbaarheid van uw project"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Bekijk het probleem om vast te stellen of het legitiem is of niet."
-
-msgid "The activities with unusual stats are:"
-msgstr "De gebeurtenissen met ongebruikelijke statistieken zijn:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1823,14 +1810,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "De GlobaLeaks-technologie bevat een serverstatus-controlerend component dat je alarmeert in het geval er iets je aandacht vereist."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Voor meer informatie, log in op de Administratie-interface en controleer de delen “Systeemstatistieken” en “Anomalieën”."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Onregelmatigheid vastgesteld in {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

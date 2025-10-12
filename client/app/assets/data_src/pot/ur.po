@@ -1255,6 +1255,9 @@ msgstr "جمع کرائیں"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1757,22 +1760,6 @@ msgstr "پلیٹ فارم مندرجہ ذیل پر خود بخود حذف ہو �
 msgid "Access instructions"
 msgstr "رسائی کی ہدایات "
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "سرگرمیوں حال ہی پتہ چلنے کی تعداد معمول سے زیادہ ہو جائے کرنے کے لئے ظاہر."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "یہ یا صرف ایک کے استعمال کی بڑھتی ہوئی وارداتوں کی وجہ سے اپنے منصوبے کی ایک بڑھتی ہوئی نمائش کرنے کے لئے ایک حملے (کسی بوگس معلومات کے ساتھ آپ کے سرور سیلاب مثال کے طور پر) کی ایک علامت ہو سکتی ہے."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "مسئلہ کا جائزہ لیں کہ آیا یہ جائز ہے یا نہیں۔ "
-
-msgid "The activities with unusual stats are:"
-msgstr "غیر معمولی اعدادوشمار کے ساتھ سرگرمیوں ہیں:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1790,14 +1777,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks ٹیکنالوجی ایک سرور کی حیثیت کی جانچ پڑتال جزو جس صورت میں کسی چیز آپ کی توجہ کی ضرورت ہوتی ہے اگر آپ کو آگاہ کرے گا بھی شامل ہے."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "مزید معلومات کے لیے، ایڈمن انٹرفیس میں لاگ ان کریں اور \"سسٹم کے اعدادوشمار\" اور \"انامالیز\" سیکشنز کو دیکھیں۔ "
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "اسنگتی {NodeName} میں پتہ چلا"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

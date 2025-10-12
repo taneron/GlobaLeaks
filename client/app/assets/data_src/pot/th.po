@@ -1253,6 +1253,9 @@ msgstr "ส่ง"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "วันที่สมัคร"
 
@@ -1755,22 +1758,6 @@ msgstr "แพลตฟอร์มจะถูกลบโดยอัตโน
 msgid "Access instructions"
 msgstr "ขั้นตอนเข้าถึง"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "จำนวนของกิจกรรมที่ตรวจพบเร็ว ๆ นี้ดูเหมือนจะสูงกว่าปกติ"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "นี่อาจเป็นสัญญาณของการโจมตี (ตัวอย่างเช่น มีใครบางคนกำลังส่งข้อมูลปลอมจำนวนมากมายังเซิร์ฟเวอร์ของคุณ) หรือเป็นเพียงการใช้งานเพิ่มสูงเนื่องจากมีผู้รับรู้โครงการของคุณมากขึ้น"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "พิจารณาประเด็นเพื่อตัดสินใจว่าเป็นเรื่องจริงหรือไม่"
-
-msgid "The activities with unusual stats are:"
-msgstr "กิจกรรมที่มีสถิติผิดปกติคือ:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "พื้นที่ดิสก์ที่ใช้ได้: {FreeMemory}/{TotalMemory}"
 
@@ -1788,14 +1775,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "เทคโนโลยีของ GlobaLeaks มีส่วนประกอบที่ตรวจสอบสถานะของเซิร์ฟเวอร์ ซึ่งจะแจ้งเตือนคุณในกรณีที่มีบางสิ่งที่ต้องการความสนใจจากคุณ"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "สำหรับข้อมูลเพิ่มเติม ลงชื่อเข้าใช้และไปที่หน้าจอสำหรับผู้ดูแลระบบ ดูที่ส่วน \"สถิติระบบ\" และ \"ความผิดปกติ\""
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "ตรวจพบความผิดปกติใน {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

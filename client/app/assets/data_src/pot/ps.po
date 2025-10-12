@@ -1243,6 +1243,9 @@ msgstr "تسلیمول"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "دغه پلټفارم به په اتومات ډول په دې نېټه �
 msgid "Access instructions"
 msgstr "د لاسرسي لارښوونې"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "د هغو فعالیتونو شمېر چې په دې وروستیو کې تر سترګو شوی داسې ښکاري چې تر معمول کچې ډېر لوړ دی."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "دا کېدای شي د یوه برید نښه وي (د بېلګې په توګه، یو کس چې ستاسې سرور یې په جعلی اطلاعاتو سره غرق کړی وي) یا هم ستاسې د پروژې د زیات لید له کبله د زیاتې کارونې له کبله وي. "
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "دا موضوع وازمویئ تر څو په ډاګه شي چې ایا قانوني ده که نه."
-
-msgid "The activities with unusual stats are:"
-msgstr "له غیرمعمول وضعیت سره مل فعالیتونه عبارت دې له:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "د GlobaLeaks ټکنالوژۍ کې د سرور د وضعیت د کتلو برخه هم شامله ده چې که کله کوم شي ستاسې پاملرنې ته اړتیا درلوده نو تاسې به خبر کړي."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "د لا زیاتو معلوماتو لپاره، اداري رابط ته دننه شئ او د \"سیستم وضعیت\" او \"ګډې وډې\" برخې وګورئ."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "په {NodeName} کې ګډوډ شی تشخیص شو "
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1244,6 +1244,9 @@ msgstr "Карап чыгууга жиберүү"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1746,22 +1749,6 @@ msgstr "Платформа төмөнкү менен автоматтык түр
 msgid "Access instructions"
 msgstr "Кирүү үчүн инструкциялар"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Жакында аныкталган иш-аракеттердин саны адаттагыдан көбүрөөк көрүнөт."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Бул кол салуунун белгиси болушу мүмкүн ( мисалы, кимди бирөө сиздин серверди жалган маалымат менен толтуруп каптап салуусу) же сиздин проекттин көрсөтүлүшү жогорулап, анын колдонуунун өсүүсү мүмкүн."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Көйгөйдү карап көрүңүз, ал мыйзамдуубу же жокпу."
-
-msgid "The activities with unusual stats are:"
-msgstr "Адаттан тышкаркы статустагы иш-чаралар:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологиясы сервердин статусун текшерүү компонентин камтыйт, жана көңүлүңүздү буруу керек болгон жерде сизге маалымат берет."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Көбүрөөк маалымат алуу үчүн, администрация интерфейсине кириңиз жана \"Системалык статистика\" жана \"Нормадан четке чыгуулар\" бөлүмдөрүн караңыз."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} ичинде нормадан четке чыгуу аныкталды"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

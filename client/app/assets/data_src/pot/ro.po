@@ -1259,6 +1259,9 @@ msgstr "Trimite"
 msgid "Subscribed"
 msgstr "subscrisă"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1761,22 +1764,6 @@ msgstr "Platforma va fi ștearsă în mod automat la data de: "
 msgid "Access instructions"
 msgstr "Instrucțiuni pentru acces"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Numărul de activități detectate recent pare să fie mai mare decât de obicei."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Aceasta s-ar putea datora unui atac (de exemplu, cineva inundă serverul cu informații false), sau pur și simplu unui vârf de utilizare, datorită vizibilității sporite a proiectului."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Verifică situația pentru a decide dacă este legitimă sau nu."
-
-msgid "The activities with unusual stats are:"
-msgstr "Activitățile care înregistrează statistici neobișnuite sunt:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1794,14 +1781,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Tehnologia GlobaLeaks include și o componentă de verificare a statusului serverului pentru a te alerta în cazul în care ceva necesită atenție."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Pentru mai multe informații, conectează-te la interfața de administrare și uită-te la secțiunile \"Statistici sistem\" și \"Anomalii\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalie detectată la {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

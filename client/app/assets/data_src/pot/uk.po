@@ -1264,6 +1264,9 @@ msgstr "Надіслати"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1766,22 +1769,6 @@ msgstr "Платформа буде автоматично видалена:"
 msgid "Access instructions"
 msgstr "Інструкції щодо доступу"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Показник нещодавно виявленої активності вище, ніж зазвичай."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Це може бути ознакою атаки (наприклад, хтось флудить ваш сервер фіктивною інформацією) або просто сплеском використання через підвищену видимість вашого проекту."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Перевірте в чому справа, щоб визначити чи це нормальна активність, чи ні."
-
-msgid "The activities with unusual stats are:"
-msgstr "Активність з незвичайною статистикою:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1799,14 +1786,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Технологія GlobaLeaks включає в себе компонент перевірки стану сервера, який попередить вас, якщо щось вимагає вашої уваги."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Для отримання додаткової інформації увійдіть в інтерфейс Адміністрування та перегляньте розділи \"Статистика системи\" та \"Аномалії\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Аномалія виявлена в {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

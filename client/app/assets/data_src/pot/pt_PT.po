@@ -1269,6 +1269,9 @@ msgstr "Submeter"
 msgid "Subscribed"
 msgstr "Subscrito"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Data de subscrição"
 
@@ -1771,22 +1774,6 @@ msgstr "A plataforma será eliminada automaticamente em:"
 msgid "Access instructions"
 msgstr "Instruções de acesso"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "O número de atividades detetadas recentemente parece mais elevado do que o habitual."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Isto pode ser sinal de um ataque (por exemplo, alguém a inundar o seu servidor com informação falsa) ou apenas um pico de utilizadores devido a um aumento da visibilidade do seu projeto."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examine o problema para determinar se é ou não legítimo."
-
-msgid "The activities with unusual stats are:"
-msgstr "As atividades com estatísticas pouco habituais são:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Espaço de disco disponível: {FreeMemory}/{TotalMemory}"
 
@@ -1804,14 +1791,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "A tecnologia GlobaLeaks inlcui uma componente de verificação do estado do servidor, que o alertará caso haja alguma coisa que requeira a sua atenção."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Para mais informação, inicie a sessão na interface de administração e verifique as secções \"Estatísticas do Sistema\" e \"Anomalias\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalia detetada em {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

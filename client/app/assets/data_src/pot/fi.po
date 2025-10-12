@@ -1254,6 +1254,9 @@ msgstr "Lähetä"
 msgid "Subscribed"
 msgstr "Tilattu"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Tilauspäivämäärä"
 
@@ -1756,22 +1759,6 @@ msgstr "Päivämäärä, jolloin palvelu tuhotaan automaattisesti: "
 msgid "Access instructions"
 msgstr "Pääsyohjeet"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Viimeaikainen toiminnan määrä näyttää olevan tavallista suurempi."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Tämä voi olla merkki hyökkäyksestä (esim. joku lataa palvelimellesi tekaistua materiaalia) tai vain käyttöpiikki johtuen palvelusi kasvaneesta huomiosta."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Tutki asiaa selvittääksesi, onko se laillinen vai ei."
-
-msgid "The activities with unusual stats are:"
-msgstr "Epätavallisia tietoja sisältävät toiminnot ovat:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Levytilaa vapaana {FreeMemory}/{TotalMemory}"
 
@@ -1789,14 +1776,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks-tekniikka sisältää palvelimen tilan tarkistuskomponentin, joka hälyttää, jos jokin vaatii huomiotasi."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Lisätietoja löydät palvelun ylläpitäjän näkymästä välilehdiltä ”Tilastot” ja ”Poikkeamat”."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Poikkema havaittu verkon solmukohdassa {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

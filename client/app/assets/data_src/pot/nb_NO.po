@@ -1245,6 +1245,9 @@ msgstr "Send inn"
 msgid "Subscribed"
 msgstr "Abonnert"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Abonnementsdato"
 
@@ -1747,22 +1750,6 @@ msgstr "Plattformen vil bli slettet automatisk den:"
 msgid "Access instructions"
 msgstr "Tilgangsinstruksjoner"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Antallet nylige aktiviteter later til å være høyere enn normalt."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Dette kan indikere angrep (eksempelvis at noen oversvømmer tjeneren med ugyldig informasjon) eller bare en brå økning i aktivitetsnivået på grunn av  økt synlighet til ditt prosjekt)."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Undersøk problemet for å bestemme hvorvidt det er legitimt eller skadelig."
-
-msgid "The activities with unusual stats are:"
-msgstr "Hendelsesforløpet med uvanlige attributter er:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Tilgjengelig lagringsplass: {FreeMemory}/{TotalMemory}"
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Globaleaks-teknologi inneholder en komponent som sjekker statusen til tjeneren, denne vil holde deg underrettet om noe skulle behøve din oppmerksomhet."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Ytterligere informasjon tilgjengelig ved innlogging på administrasjonspanelet under seksjonene \\«Systemstatistikk\\» og \\«Unormalheter\\»."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Unormalhet oppdaget i {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

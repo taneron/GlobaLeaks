@@ -1270,6 +1270,9 @@ msgstr "ارسال"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1772,22 +1775,6 @@ msgstr "پلتفرم به صورت خودکار در این تاریخ حذف خ
 msgid "Access instructions"
 msgstr "دستورالعمل‌های دسترسی"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "تعداد فعالیت‌های اخیر شناسایی شده بیشتر از حد معمول است."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "این می‌تواند نشانی از یک حمله (برای مثال، شخصی سعی دارد تا سرور شما را با اطلاعات جعلی غرق کند) یا تنها ازدیاد استفاده به علت افزایش دیدرسی پروژهٔ شما باشد."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "اشکال را برای مشخص کردن مشروع بودن یا نبودن آن ارزیابی کنید."
-
-msgid "The activities with unusual stats are:"
-msgstr "فعالیت‌ها با آمار غیرعادی:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1805,14 +1792,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "فناوری GlobaLeaks شامل یک مؤلفهٔ بررسی‌کنندهٔ وضعیت سرور است که در صورتی که چیزی نیاز به توجه شما داشته باشد به شما هشدار می‌دهد."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "برای اطلاعات بیشتر، وارد رابط مدیریت شوید و به بخش‌های \"آمارهای سامانه\" و \"ناهنجاری‌ها\" نگاه کنید."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "ناهنجاری در {NodeName} شناسایی شد"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

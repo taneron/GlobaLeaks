@@ -1243,6 +1243,9 @@ msgstr "Йолла"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "Супа бу вақитта аптоматик өчүрүлгүси:"
 msgid "Access instructions"
 msgstr "Зийарәт көрсәтмилири"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Йеқиндин буйан паъалийәтләрниң сани нормал вақиттикидин көпийип кәткәндәк қилиду."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Бу бәлким бир һуҗум (мәсилән бәзиләр сахта учур билән системиңизни толдуриватқан) ниң аламити болиши йаки түриңизниң нами чиқишиға әгишип келип чиққан бир дәмлик ишлитиш пәллиси болишиму мүмкин."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Буниң бир нормал ишму әмәслигини айриш үчүн, мәсилини тәкшүрүң."
-
-msgid "The activities with unusual stats are:"
-msgstr "Бинормал паъалийәтләрниң истатистикиси булар:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "‏ГлобаЛәакс техникиси мулазиметир һалитини тәкшүрүш запчаслирини өз ичигә алиду. Улар диққитиңизгә әрзигүдәк бирәр әһвал болғанда сизни агаһландуриду."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Техиму көп учур үчүн, башқурғучи ара йүзигә кирип «система һаләтлири» вә «бинормаллиқлар» бөлимигә қараң."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "‏{NodeName} ниң ичидә бинормаллиқ байқалди"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -15,7 +15,7 @@
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # uskumru, 2013
-# Kaya Zeren <kayazeren@gmail.com>, 2020-2024
+# Kaya Zeren <kayazeren@gmail.com>, 2020-2025
 # msare <mervesareakin@gmail.com>, 2014
 # On the Line Turkiye <onthelineturkiye@gmail.com>, 2016
 # Ozgur Yasin <yasinaydin@korsanparti.org>, 2014
@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2020-2024\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2020-2025\n"
 "Language-Team: Turkish (http://app.transifex.com/otf/globaleaks/language/tr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1270,6 +1270,9 @@ msgstr "Gönder"
 msgid "Subscribed"
 msgstr "Abone olundu"
 
+msgid "Subscribed later"
+msgstr "Daha sonra abone olan"
+
 msgid "Subscription date"
 msgstr "Gönderilme tarihi"
 
@@ -1772,22 +1775,6 @@ msgstr "Platform şu tarihte otomatik olarak silinecek:"
 msgid "Access instructions"
 msgstr "Erişme yönergeleri"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Son zamanlardaki etkinlik sayısı önceye göre artış gösteriyor gibi görünüyor."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Bu durum, bir saldırıyı (birinin sunucunuzu sahte bilgilerle doldurması gibi) ya da projenizin bilinirliğinin artması nedeniyle ani bir kullanım artışını gösteriyor olabilir."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Bu durumun normal olup olmadığını anlamak için nedenini araştırın."
-
-msgid "The activities with unusual stats are:"
-msgstr "Sıradışı istatistiklere yol açan etkinlikler:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Kullanılabilecek disk alanı: {FreeMemory}/{TotalMemory}"
 
@@ -1805,14 +1792,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks teknolojisinde, dikkat etmeniz gereken bir durumları size bildiren sunucu durum denetimi bileşenleri bulunur."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Ayrıntılı bilgi almak için Yönetici olarak oturum açtıktan sonra \"Sistem istatistikleri\" ve \"Anormallikler\" bölümüne gidin."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} üzerinde anormallik görüldü"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

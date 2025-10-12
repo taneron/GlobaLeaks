@@ -1259,6 +1259,9 @@ msgstr "Alefaso"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1761,22 +1764,6 @@ msgstr "La plateforme sera supprimée automatiquement le :"
 msgid "Access instructions"
 msgstr "Instructions d’accès"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Le nombre d’activités détectées récemment semble supérieur à l’habitude."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Cela pourrait être le signe d’une attaque (par exemple quelqu’un inondant votre serveur de pseudo-informations) ou simplement d’un pic d’utilisation causé par la visibilité accrue de votre projet."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examiner le problème afin de déterminer s’il est valide ou non."
-
-msgid "The activities with unusual stats are:"
-msgstr "Voici les activités présentant des statistiques inhabituelles :"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1794,14 +1781,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "La technologie GlobaLeaks inclut un composant de vérification de l’état du serveur qui vous alertera au cas où quelque chose exige votre attention."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Pour davantage d’informations, connectez-vous à l’interface d’administration et consultez les sections « Statistiques du système » et « Anomalies »."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Une anomalie a été détectée sur {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1245,6 +1245,9 @@ msgstr "يوللا"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1747,22 +1750,6 @@ msgstr "سۇپا بۇ ۋاقىتتا ئاپتوماتىك ئۆچۈرۈلگۈسى
 msgid "Access instructions"
 msgstr "زىيارەت كۆرسەتمىلىرى"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "يېقىندىن بۇيان پائالىيەتلەرنىڭ سانى نورمال ۋاقىتتىكىدىن كۆپىيىپ كەتكەندەك قىلىدۇ. "
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "بۇ بەلكىم بىر ھۇجۇم (مەسىلەن بەزىلەر ساختا ئۇچۇر بىلەن سىستېمىڭىزنى تولدۇرىۋاتقان) نىڭ ئالامىتى بولىشى ياكى تۈرىڭىزنىڭ نامى چىقىشىغا ئەگىشىپ كېلىپ چىققان بىر دەملىك ئىشلىتىش پەللىسى بولىشىمۇ مۈمكىن."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "بۇنىڭ بىر نورمال ئىشمۇ ئەمەسلىگىنى ئايرىش ئۈچۈن، مەسىلىنى تەكشۈرۈڭ."
-
-msgid "The activities with unusual stats are:"
-msgstr "بىنورمال پائالىيەتلەرنىڭ ئىستاتىستىكىسى بۇلار:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "‏GlobaLeaks تېخنىكىسى مۇلازىمېتىر ھالىتىنى تەكشۈرۈش زاپچاسلىرىنى ئۆز ئىچىگە ئالىدۇ. ئۇلار دىققىتىڭىزگە ئەرزىگۈدەك بىرەر ئەھۋال بولغاندا سىزنى ئاگاھلاندۇرىدۇ."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "تېخىمۇ كۆپ ئۇچۇر ئۈچۈن، باشقۇرغۇچى ئارا يۈزىگە كىرىپ «سىستېما ھالەتلىرى» ۋە «بىنورماللىقلار» بۆلىمىگە قاراڭ."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "‏{NodeName} نىڭ ئىچىدە بىنورماللىق بايقالدى"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

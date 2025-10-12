@@ -1249,6 +1249,9 @@ msgstr "Pоšаlјi"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1751,22 +1754,6 @@ msgstr "Ova platforma će biti automatski izbrisana na dan:"
 msgid "Access instructions"
 msgstr "Uputstva za pristup"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Odskora je primećen veći broj aktivnosti od uobičajenog."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "To može biti znak napada (na primer, neko na vaš server šalje mnogo lažnih informacija) ili je samo došlo do skoka u upotrebi zbog veće vidljivosti vašeg projekta."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Ispitajte situaciju da utvrdite da li je u pitanju legitiman problem ili ne."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktivnosti sa neuobičajenim odlikama su:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1784,14 +1771,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Tehnologija GlobaLeaks sadrži komponentu za proveru statusa servera koja će vas obavestiti ako nešto bude zahtevalo vašu pažnju."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Za više informacija, prijavite se u administratorski interfejs i pogledajte odeljke „Stanje sistema” i „Nepravilnosti”."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Nepravilnost je otkrivena u: {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1248,6 +1248,9 @@ msgstr "Iesniegt"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1750,22 +1753,6 @@ msgstr "Platforma tiks automātiski dzēsta:"
 msgid "Access instructions"
 msgstr "Piekļuves instrukcija"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Nesen atklāto darbību skaits ir lielāks nekā parasti."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Tas var liecināt par uzbrukumu (piemēram, kāds ir pārpludināts jūsu serveri ar viltus informāciju) vai tikai par lietojuma pieaugumu, ko izraisa palielināta jūsu projekta redzamība."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Izpētiet problēmu, lai noteiktu, vai tā ir likumīga."
-
-msgid "The activities with unusual stats are:"
-msgstr "Darbības ar neparastu statistiku ir:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1783,14 +1770,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks tehnoloģija ietver servera statusa pārbaudes komponentu, kas brīdinās, ja kaut kas prasa jūsu uzmanību."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Lai iegūtu papildinformāciju, ieejier Administrēšanas saskarnē un skatiet sadaļas \"Sistēmas statistika\" un \"Anomālijas\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomālija konstatēta {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

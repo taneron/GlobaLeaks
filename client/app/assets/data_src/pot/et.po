@@ -1244,6 +1244,9 @@ msgstr "Esita"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1746,22 +1749,6 @@ msgstr "Platvorm kustutatakse automaatselt järgmisel kuupäeval:"
 msgid "Access instructions"
 msgstr "Ligipääsujuhised"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Hiljuti tuvastatud tegevuste arv näib olevat tavapärasest suurem."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "See võib osutada ründele (näiteks keegi tulvab süsteemi üle võltsteabega) või lihtsalt intensiivsemale kasutusele, mis on tingitud teie projekti suuremast nähtavusest."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Uurige asja, et teha kindlaks, kas see on seletatav või mitte."
-
-msgid "The activities with unusual stats are:"
-msgstr "Ebatavaliste statistiliste näitajatega tegevused on järgmised:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaksi tehnoloogia sisaldab serveri staatuse kontrollimise komponenti, mis annab teada, kui miski vajab teie tähelepanu."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Lisateabe saamiseks logige sisse administraatori liidesesse ja vaadake jaotisi \"System Stats\" ja \"Anomalies\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Sõlmes {NodeName} tuvastati anomaalia"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

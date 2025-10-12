@@ -1261,6 +1261,9 @@ msgstr "Entregatu"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1763,22 +1766,6 @@ msgstr "Plataforma automatikoki ezabatuko da:"
 msgid "Access instructions"
 msgstr "Sartzeko jarraibideak"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Azken aldian detektatutako jardueren kopurua ohikoa baino handiagoa dela dirudi."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Eraso baten adierazlea izan daiteke (esaterako, zure zerbitzarian flood eraso baten ondorioz) edo zure proiektuaren gehiegizko erabileraren ondorioz."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Aztertu gaia legitimoa den ala ez jakiteko."
-
-msgid "The activities with unusual stats are:"
-msgstr "Ezohiko estatistikak dituzten jarduerak hauek dira:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1796,14 +1783,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks teknologiak zerbaitek zure arreta behar duenean abisua bidaliko dizu zerbitzariaren egoera egiaztatuko duen osagaiaren bitartez."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Gehiago jakiteko, hasi saioa Administrazioaren interfazean eta irakurri “Sistemaren estatistikak” eta “Anomaliak” atalak."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalia hauteman da {NodeName} atalean"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

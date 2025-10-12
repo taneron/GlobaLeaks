@@ -1292,6 +1292,9 @@ msgstr "إرسال"
 msgid "Subscribed"
 msgstr "مشترك"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "تاريخ الاشتراك"
 
@@ -1794,22 +1797,6 @@ msgstr "سيتم حذف المنصة تلقائيا في:"
 msgid "Access instructions"
 msgstr "تعليمات الدخول"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "عدد الأنشطة التي تم الكشف عنها مؤخرا يبدو أعلى من امعتاد."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "هذا يمكن أن يكون علامة على وجود هجوم (على سبيل المثال، شخص ما يرسل بكثافة معلومات وهمية الى المشغل الخاص بك) أو مجرد ارتفاع الاستخدام نظرا لزيادة رؤية مشروعك."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "الرجاء دراسة المسألة لتحديد ما إذا كانت مشروعة أم لا."
-
-msgid "The activities with unusual stats are:"
-msgstr "الأنشطة ذات الاحصائيات غير عادية هي:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "المساحة المتاحة على القرص: {FreeMemory}/{TotalMemory}"
 
@@ -1827,14 +1814,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "وتشمل تكنولوجيا GlobaLeaks عنصر فحص لحالة السيرفر الذي سوف ينبهك في حالة حدوث أمر يتطلب انتباهكم."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "لمزيد من المعلومات، قم بتسجيل الدخول على واجهة الإدارة وإلقاء نظرة على قسمي \"إحصائيات النظام\" و \"العيوب\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "تم الكشف على خلل في {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

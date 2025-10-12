@@ -1263,6 +1263,9 @@ msgstr "Wyślij"
 msgid "Subscribed"
 msgstr "Zaabonowany"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Data subskrypcji"
 
@@ -1765,22 +1768,6 @@ msgstr "Platforma zostanie automatycznie usunięta:"
 msgid "Access instructions"
 msgstr "Instrukcje dostępu"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Liczba wykrytych ostatnio usuniętych działań wydaje się być wyższa niż dotąd."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Może to być oznaka ataku (na przykład zalewania przez kogoś Twojego serwera fałszywymi informacjami) lub po prostu wzrost wykorzystania spowodowany zwiększoną widocznością Twojego projektu."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Zbadaj tę kwestię, by stwierdzić, czy wzrost jest spodziewany, czy niepokojący."
-
-msgid "The activities with unusual stats are:"
-msgstr "Oto działania z odbiegającymi od normy statystykami:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Wolne miejsce na dysku: {FreeMemory}/{TotalMemory}"
 
@@ -1798,14 +1785,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Technologia Global Leaks obejmuje komponent sprawdzania statusu serwera, który powiadomi Cię, jeśli coś będzie wymagało Twojej uwagi."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Aby otrzymać więcej informacji na ten temat, zaloguj się do interfejsu administracyjnego i przyjrzyj się sekcjom Statystyki systemu i Anomalie."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Wykryto anomalię w {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

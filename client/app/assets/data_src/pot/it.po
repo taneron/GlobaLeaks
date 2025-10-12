@@ -4,6 +4,7 @@
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # marco calamari <marcoc@marcoc.it>, 2013
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2013-2024
+# Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013-2016
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
@@ -28,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2013-2024\n"
+"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/otf/globaleaks/language/it/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1265,6 +1266,9 @@ msgstr "Invia"
 msgid "Subscribed"
 msgstr "Sottoscritte"
 
+msgid "Subscribed later"
+msgstr "Sottoscritta in un secondo momento"
+
 msgid "Subscription date"
 msgstr "Data di sottoscrizione"
 
@@ -1767,22 +1771,6 @@ msgstr "La piattaforma verrà automaticamente cancellata il:"
 msgid "Access instructions"
 msgstr "Istruzioni per l'accesso"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Il numero di attività rilevate nell'ultimo periodo risultano essere maggiori del solito."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Questo potrebbe essere traccia di un attacco (per esempio  qualcuno potrebbe stare cercando di sovraccaricare il sistema con informazioni casuali) o potrebbe evidenziare un aumento di utilizzo dovuto ad una maggiore visibilità del progetto."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Esamina la situazione per determinare se sia o meno legittima."
-
-msgid "The activities with unusual stats are:"
-msgstr "Le attività che presentano statistiche inusuali sono:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Spazio disco disponibile: {FreeMemory}/{TotalMemory}"
 
@@ -1800,14 +1788,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "La piattaforma GlobaLeaks include alcune componenti di verifica dello stato del server che ti notificheranno nel caso qualcosa necessiti della tua attenzione."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Per maggiori informazioni, accedi alla interfaccia di Amministrazione e visita le sezioni \"Statistiche di Sistema\" e \"Anomalie\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Rilevata anomalia su {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

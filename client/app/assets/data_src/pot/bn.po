@@ -1250,6 +1250,9 @@ msgstr "দাখিল করা"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1752,22 +1755,6 @@ msgstr "প্ল্যাটফর্মটি স্বয়ংক্রি�
 msgid "Access instructions"
 msgstr "প্রবেশের নির্দেশাবলী"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "সনাক্ত করা সাম্প্রতিক ক্রিয়াকলাপগুলির সংখ্যা স্বাভাবিকের চেয়ে বেশি। "
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "এটি কোনও আক্রমণের চিহ্ন হতে পারে (উদাহরণস্বরূপ, কেউ আপনার সার্ভারকে আবোল তাবোল তথ্য দিয়ে প্লাবিত করছে) বা আপনার প্রকল্পের বর্ধিত দৃশ্যমানতার কারণে ব্যবহারের উত্থান।"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "বিষয়টি সঠিক কিনা তা নিশ্চিত হবার জন্য পরীক্ষা করুন।"
-
-msgid "The activities with unusual stats are:"
-msgstr "অস্বাভাবিক পরিসংখ্যান সহ ক্রিয়াকলাপগুলি হ'লঃ"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1785,14 +1772,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks প্রযুক্তিতে একটি সার্ভারের অবস্থা পরীক্ষার উপাদান রয়েছে যা কোনও বিষয়ে আপনার দৃষ্টি আকর্ষণ করার প্রয়োজন হলে আপনাকে সতর্ক করবে।"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "আরও তথ্যের জন্য, প্রশাসনিক ইন্টারফেসে লগ ইন করুন এবং \"সিস্টেমের পরিসংখ্যান\" এবং \"অসঙ্গতি\" বিভাগটি দেখুন।"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} -এ অসঙ্গতি সনাক্ত করা হয়েছে"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1245,6 +1245,9 @@ msgstr "提交"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1747,22 +1750,6 @@ msgstr "平台將於此日期自動刪除："
 msgid "Access instructions"
 msgstr "存取指示"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "偵測到高於正常的最近活動。"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "這可能是平台遭到攻擊的跡象（例如某人試圖以偽造資訊來充斥您的伺服器），或者只是出於網站能見度提升而導致的正常使用量增長。"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "查驗此事故，以確定其性質。"
-
-msgid "The activities with unusual stats are:"
-msgstr "數據不尋常的活動如下："
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks 軟件包含了伺服器狀態檢查程序，它會在必要時警告你提高警惕。"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "如欲了解更多，請登入管理員介面並查看「系統數據」及「異常狀況」部份。"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "在 {NodeName} 偵測到異常狀況"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

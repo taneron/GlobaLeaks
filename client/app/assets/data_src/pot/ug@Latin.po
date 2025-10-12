@@ -1243,6 +1243,9 @@ msgstr "Yolla"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "Supa bu waqitta aptomatik öchürülgüsi:"
 msgid "Access instructions"
 msgstr "Ziyaret körsetmiliri"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Yéqindin buyan pa’aliyetlerning sani normal waqittikidin köpiyip ketkendek qilidu. "
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Bu belkim bir hujum (mesilen beziler saxta uchur bilen sistémingizni tolduriwatqan) ning alamiti bolishi yaki türingizning nami chiqishigha egiship kélip chiqqan bir demlik ishlitish pellisi bolishimu mümkin."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Buning bir normal ishmu emesligini ayrish üchün, mesilini tekshürüng."
-
-msgid "The activities with unusual stats are:"
-msgstr "Binormal pa’aliyetlerning istatistikisi bular:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "‏GlobaLeaks téxnikisi mulazimétir halitini tekshürüsh zapchaslirini öz ichige alidu. ular diqqitingizge erzigüdek birer ehwal bolghanda sizni agahlanduridu."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Téximu köp uchur üchün, bashqurghuchi ara yüzige kirip «sistéma haletliri» we «binormalliqlar» bölimige qarang."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "‏{NodeName} ning ichide binormalliq bayqaldi"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

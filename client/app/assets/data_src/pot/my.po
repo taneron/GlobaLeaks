@@ -1244,6 +1244,9 @@ msgstr "တင်သွင်းမည်"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1746,22 +1749,6 @@ msgstr "ပလက်ဖောင်းကို အလိုအလျောက�
 msgid "Access instructions"
 msgstr "အသုံးပြုမှု လမ်းညွှန်ချက်များ"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "မကြာမီက ရှာဖွေတွေ့ရှိခဲ့သော အသုံးပြုမှု အရေအတွက်သည် ပုံမှန်ထက် ပိုများပုံရသည်။"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "၎င်းသည် တိုက်ခိုက်မှု၏ လက္ခဏာတစ်ခု ဖြစ်နိုင်သည် (ဥပမာ - တစ်စုံတစ်ယောက်က သင့်ဆာဗာကို အတုအယောင် အချက်အလက်များဖြင့် ဖြည့်နေသည်) သို့မဟုတ် သင့်စီမံကိန်း ပိုမိုမြင်သာလာသောကြောင့် အသုံးပြုမှု တိုးလာခြင်း ဖြစ်နိုင်သည်။"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "တရားဝင် ဟုတ်မဟုတ် ဆုံးဖြတ်ရန် ကိစ္စရပ်ကို စစ်ဆေးပါ။"
-
-msgid "The activities with unusual stats are:"
-msgstr "ပုံမှန်မဟုတ်သော စာရင်းအင်းများနှင့် အသုံးပြုမှုများ -"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks နည်းပညာတွင် ဆာဗာအခြေအနေ စစ်ဆေးခြင်း အစိတ်အပိုင်း ပါဝင်ပြီး ၎င်းသည် သင်အာရုံစိုက်ရန် လိုအပ်ပါက သင့်အား သတိပေးပါမည်။"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "ပိုမိုသိရှိလိုပါက အုပ်ချုပ်မှု မျက်နှာပြင်သို့ လော့အင်ဝင်၍ \"စနစ် စာရင်းအင်း\" နှင့် \"မူမမှန်မှုများ\" အပိုင်းကို ကြည့်ပါ။"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} တွင် မူမမှန်မှု တွေ့ရှိရသည်"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

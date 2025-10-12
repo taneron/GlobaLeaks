@@ -1278,10 +1278,13 @@ msgid "Submissions disabled"
 msgstr "Recepción de denuncias deshabilitada"
 
 msgid "Submit"
-msgstr "Entregar"
+msgstr "Enviar información"
 
 msgid "Subscribed"
 msgstr "Suscrito"
+
+msgid "Subscribed later"
+msgstr ""
 
 msgid "Subscription date"
 msgstr "Fecha de suscripción"
@@ -1785,22 +1788,6 @@ msgstr "La plataforma sera automáticamente eliminada en:"
 msgid "Access instructions"
 msgstr "Instrucciones de acceso"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "El número de actividades detectadas recientemente parece ser más alto del habitual."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Esto podría ser un signo de un ataque ( por ejemplo, debido a un ataque de flood en tu servidor) o simplemente debido a una sobrecarga de de uso de tu proyecto."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examine el asunto para determinar si es legítimo o no."
-
-msgid "The activities with unusual stats are:"
-msgstr "Las actividades con estadísticas inusuales son:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Espacio disponible en disco: {FreeMemory}/{TotalMemory}"
 
@@ -1818,14 +1805,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "La tecnología de GlobaLeaks incluye un componente de comprobación del estado del servidor que le alertará en caso de que algo requiera tu atención."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Para más información, inicie sesión en la interfaz de Administración y mire en las secciones de \"Estadísticas del sistema\" y \"Anomalías\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalía detectada en {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

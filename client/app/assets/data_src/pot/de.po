@@ -1292,6 +1292,9 @@ msgstr "Einreichen"
 msgid "Subscribed"
 msgstr "Abonniert"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Datum der Anmeldung"
 
@@ -1794,22 +1797,6 @@ msgstr "Die Plattform wird automatisch gelöscht am:"
 msgid "Access instructions"
 msgstr "Zugangsanweisungen"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Die Anzahl der vor kurzem festgestellten Aktivitäten scheint höher als üblich zu sein."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Das könnte der Hinweis auf einen Angriff sein (z.B. jemand, der Ihren Server mit nutzlosen Daten flutet) oder einfach nur eine hohe Nutzung aufgrund der erhöhten Sichtbarkeit Ihres Projekts."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Prüfen Sie die Angelegenheit, um festzustellen, ob sie gerechtfertigt ist oder nicht."
-
-msgid "The activities with unusual stats are:"
-msgstr "Die Aktivitäten mit ungewöhnlichen Statistiken sind:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Verfügbarer Speicherplatz:{FreeMemory}/{TotalMemory}"
 
@@ -1827,14 +1814,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Die GlobaLeaks-Technologie enthält eine Serverstatus-Prüfkomponente, die Sie benachrichtigt, falls etwas Ihre Aufmerksamkeit erfordert."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Weitere Informationen erhalten Sie, wenn Sie sich bei der Administrationsoberfläche anmelden und die Abschnitte „Systemstatistiken“ und „Anomalien“ aufrufen."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalie in {NodeName} entdeckt"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1251,6 +1251,9 @@ msgstr "Ирсол кардан"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1753,22 +1756,6 @@ msgstr "Барнома ба таври худкор дар ин сана пок 
 msgid "Access instructions"
 msgstr "Дастурҳо вобаста ба дастрасӣ"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Шумораи амалҳои ба наздикӣ ошкоршуда нисбат ба ҳолатҳои маъмулӣ зиёдтар ба назар мерасад."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Ин метавонад як аломати ҳамла бошад (масалан, касе сервери шуморо бо маълумоти бардурӯғ пур кунад) ё танҳо афзоиши суръати истифода бинобар зиёд намоён будани лоиҳаи шумо бошад."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Масъаларо омӯзед, то муайян кунед, ки он қонунӣ аст ё не."
-
-msgid "The activities with unusual stats are:"
-msgstr "Фаъолиятҳо бо омори ғайриоддӣ инҳоянд:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1786,14 +1773,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Технологияи GlobaLeaks ҷузъи санҷиши вазъи серверро дар бар мегирад, ки дар сурати лозим шуморо огоҳ мекунад."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Барои маълумоти иловагӣ, ба интерфейси Маъмурият ворид шавед ва ба бахшҳои \"Омори система\" ва \"Аномалияҳо\" нигаред."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Дар {NodeName} аномалия ошкор шуд"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1243,6 +1243,9 @@ msgstr "Еткизмек "
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "Платформа автоматик шекильде ёкъ этиле
 msgid "Access instructions"
 msgstr "Иришим талиматлары"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Якъын вакъытта кешиф этильген активлик косьтергичи нормальден даа юксек эди."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Бу атака алямети ола билир (меселя, бириси серверинъизге сахте малюмат юклей) я да лейханъыз популяр олып, максималь къулланмасынен багълы."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Бу нормаль активлик я да ёкъ, яни меселе неде олгъаныны тешкеринъиз."
-
-msgid "The activities with unusual stats are:"
-msgstr "Типик олмагъан статистикалы активлик:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологиялары озюнде сервер вазиетининъ тешкерме компонентини къаплап ала. Эгер бир де бир шей дикъкъатынъызны талап этсе, бу компонент бильдиреджек."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Малюмат алмакъ ичюн идареджи панелине «Системанынъ статистикасы» ве «Аномалиялар» болюклерине киринъиз."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Аномалия белли этильди {NodeName} "
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

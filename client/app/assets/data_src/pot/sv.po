@@ -1266,6 +1266,9 @@ msgstr "Skicka"
 msgid "Subscribed"
 msgstr "Prenumererat"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Prenumerationsdatum"
 
@@ -1768,22 +1771,6 @@ msgstr "Plattformen kommer att raderas automatiskt den:"
 msgid "Access instructions"
 msgstr "Anvisningar för åtkomst"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Antalet aktiviteter som registrerats under den senaste tiden verkar vara större än vanligt."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Det kan vara ett tecken på en attack eller bara en användningstopp på grund av att ditt initiativ och projekt har fått ökad uppmärksamhet."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Undersök problemet för att fastställa om det är tillåtet eller inte."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktiviteterna med ovanligt hög frekvens i statistiken är följande:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1801,14 +1788,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks teknik inbegriper en komponent som kontrollerar serverns status och som varnar dig om du behöver åtgärda något."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "För att få mer information, logga in på gränssnittet som Administratör och titta på flikarna ”\\Systemstatistik\\” och ”\\Avvikelser\\”"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Avvikelse har upptäckts på {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

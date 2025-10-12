@@ -1245,6 +1245,9 @@ msgstr "சமர்ப்பி"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1747,22 +1750,6 @@ msgstr "தளம் தானாகவே நீக்கப்படும்:
 msgid "Access instructions"
 msgstr "அணுகல் வழிமுறைகள்"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "சமீபத்தில் கண்டுபிடிக்கப்பட்ட நடவடிக்கைகள் எண்ணிக்கை வழக்கத்தை விட அதிக அளவில் காணப்படுகின்றது."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "இது உங்கள் திட்டத்தின் ஒரு தன்மை அதிகரித்ததால் அல்லது ஒரு பயன்பாடு ஸ்பைக் தாக்குதல் (போலி தகவல்களை உங்கள் சர்வரை யாரோ உதாரணமாக,) ஒரு அடையாளம் இருக்க முடியும்."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "அது சட்டபூர்வமானதா இல்லையா என்பதை தீர்மானிக்க இதனைப் படியுங்கள்."
-
-msgid "The activities with unusual stats are:"
-msgstr "அசாதாரண புள்ளிவிவரங்கள் நடவடிக்கைகள் உள்ளன:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks தொழில்நுட்பம் வழக்கில் ஏதாவது உங்கள் கவனம் தேவை நீங்கள் எச்சரிக்கும் ஒரு சர்வர் சோதிக்கும்போது கூறு அடங்கும்."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "மேலும் தகவலுக்கு, நிர்வாக இடைமுகத்தில் உள்நுழைந்து, \"கணினி புள்ளிவிவரங்கள்\" மற்றும் \"முரண்பாடுகள்\" பிரிவுகளைப் பார்க்கவும்."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} இல் முரண்பாடு கண்டறியப்பட்டது"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

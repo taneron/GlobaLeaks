@@ -2,7 +2,7 @@
 # Translators:
 # Anja Xhakani <anja@ura.design>, 2021
 # Besnik Bleta <besnik@programeshqip.org, 2021
-# Besnik Bleta <besnik@programeshqip.org>, 2021-2024
+# Besnik Bleta <besnik@programeshqip.org>, 2021-2025
 # Bujar Tafili, 2015
 # Bujar Tafili, 2015
 # Florent <fspahija@kdi-kosova.org>, 2021-2022
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2021-2024\n"
+"Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2021-2025\n"
 "Language-Team: Albanian (http://app.transifex.com/otf/globaleaks/language/sq/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1252,6 +1252,9 @@ msgstr "Parashtrojeni"
 msgid "Subscribed"
 msgstr "I pajtuar"
 
+msgid "Subscribed later"
+msgstr "Pajtuar më vonë"
+
 msgid "Subscription date"
 msgstr "Datë pajtimi"
 
@@ -1754,22 +1757,6 @@ msgstr "Platforma do të fshihet automatikisht më:"
 msgid "Access instructions"
 msgstr "Udhëzime hyrjeje"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Numri i veprimtarive të pikasura së fundi duket më i madh se sa zakonisht."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Kjo mund të jetë shenjë e një sulmi (për shembull, dikush është duke përmbytur shërbyesin tuaj me informacione kot), ose thjesht një kulmim përdorimi për shkak të shtimit të dukshmërisë së projektit tuaj."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Shqyrtojeni çështjen, për të përcaktuar se është e ligjshme apo jo."
-
-msgid "The activities with unusual stats are:"
-msgstr "Veprimtaritë me statistika të pazakonta janë:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Hapësirë disku e lirë: {FreeMemory}/{TotalMemory}"
 
@@ -1787,14 +1774,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Platforma GlobaLeaks përmban një përbërës kontrollimi gjendjeje shërbyesi, i cili do t’ju sinjalizojë, në rast se diçka lyp vëmendjen tuaj."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Për më tepër hollësi, bëni hyrjen te ndërfaqja e Përgjegjësit dhe shihni te ndarjet “Statistika Sistemi” dhe “Anomali”."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "U pikas anomali te {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

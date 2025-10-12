@@ -1253,6 +1253,9 @@ msgstr "Indsend"
 msgid "Subscribed"
 msgstr "Abonnerer "
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Tilmeld-dato"
 
@@ -1755,22 +1758,6 @@ msgstr "Platformen vil blive automatisk slettet den:"
 msgid "Access instructions"
 msgstr "Adgangsvejledning"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Antallet af aktiviteter, der senest er registreret forekommer højere end normalt."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Det kan være tegn på et angreb (for eksempel at nogen forsøger at overbelaste din server med falske oplysninger) eller blot forhøjet trafik som følge af større synlighed omkring dit projekt."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Undersøg forholdene og afklar om de er legitime eller ej."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktiviteterne med usædvanlig statistik er:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Tilgængelig diskplads: {FreeMemory}/{TotalMemory}"
 
@@ -1788,14 +1775,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Globaleaks-programmet indeholder et komponent, der kontrollerer serverens status, og som vil advare dig, hvis noget kræver opmærksomhed."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "For yderligere oplysninger, log ind på administrationssiden og kontroller sektionerne med \"Systemstatistik\" og \"afvigelser\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Afvigelse sporet i {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

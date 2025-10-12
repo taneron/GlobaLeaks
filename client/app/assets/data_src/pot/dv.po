@@ -1248,6 +1248,9 @@ msgstr "ސަބްމިޓް ކުރައްވާ"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1750,22 +1753,6 @@ msgstr "ޕްލެޓްފޯމު އޮޓޮމެޓިކުން  ޑިލީޓްވާނީ"
 msgid "Access instructions"
 msgstr "އިރުޝާދުތަކަށް އެކްސެސްވުމަށް"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "އާންމު މިންވަރަށް ވުރެ އެކްޓިވިޓީސްގެ އަދަދު ކުއްލިގޮތަކަށް ވަރަށް ގިނަވެފައިވާކަން ފާހަގަކުރެވިއްޖެ"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "މިއީ ސިސްޓަމްއަށް ލިބޭ ހަމަލާއެއްގެ ނިޝާނެއް (މިސާލަކަށް ކޮންމެވެސް ފަރާތަކުން ސާރވާއަށް ނުރަނގަޅު ބައިވަރު މައުލޫމާތު އަޕްލޯޑްކުރަމުން ދިއުން) ނުވަތަ ތިޔަ ފަރާތުގެ ޕްރޮޖެކްޓުގެ ވިސިބިލިޓީ އިތުރުވުމުގެ ސަބަބުން އައި ޔޫސޭޖް ސްޕައިކްއެއް"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "މިއީ ޞައްޙަ މައްސަލައެއްކަން ކަށަވަރު ކުރެއްވުމަށް އިތުރަށް ބައްލަވާ"
-
-msgid "The activities with unusual stats are:"
-msgstr "އެކްޓިވިޓީތަކުގެ ތެރޭގައި އާދަޔާ ހިލާފުކަމަށް ފާހަގަ ކުރެވޭ ތަފާސް ހިސާބު ހިމެނެނީ"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1783,14 +1770,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "ގްލޯބަލް ލީކްސް ޓެކްނޮލޮޖީ ތެރޭގައި ތިޔަ ފަރާތުގެ ސަމާލުކަމަށް ގެނައުމަށް މި ސަރވާގައި ސްޓޭޓަސް ޗެކް ކުރާނެ ކޮމްފޯނެންޓެއް ހިމެނޭ"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "އިތުރު މައުލޫމާތު ބޭނުންނަމަ 'އެޑްމިނިސްޓްރޭޝަން އިންޓަފޭސް' އަށް ލޮގް އިން ކުރައްވާފައި 'ސިސްޓަމް ސްޓެޓްސް' އަދި 'އެނޮމަލީސް' ސެކްޝަން ބައްލަވާ"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr " އެނޯމަލީ ޑިޓެކްޓެޑް އިން {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

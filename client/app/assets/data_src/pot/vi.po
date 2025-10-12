@@ -1258,6 +1258,9 @@ msgstr "Đệ nạp"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Ngày đăng ký"
 
@@ -1760,22 +1763,6 @@ msgstr "Hệ thống sẽ được xóa tự động vào lúc:"
 msgid "Access instructions"
 msgstr "Hướng dẫn truy cập"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Số lượng các hoạt động được phát hiện gần đây dường như là cao hơn bình thường."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Đây có thể là dấu hiệu của một cuộc tấn công từ chối dịch vụ (ví dụ: ai đó làm ngập máy chủ của bạn với thông tin rác) hoặc chỉ vì có nhiều người dùng biết đến dự án của bạn."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Xem xét lại sự việc để xác định việc gia tăng này chính đáng hay không."
-
-msgid "The activities with unusual stats are:"
-msgstr "Các hoạt động với chỉ số bất bình thường là:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Chỗ chứa của đĩa còn: {FreeMemory}/{TotalMemory}"
 
@@ -1793,14 +1780,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Công nghệ GlobaLeaks bao gồm một cơ phận kiểm tra tình trạng máy chủ để giúp cảnh báo bạn những điều phải lưu tâm."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Để biết thêm thông tin, đăng nhập vào giao diện Quản trị và xem phần \"Thống kê hệ thống\" và phần \"Bất thường\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Phát hiện bất thường trong {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

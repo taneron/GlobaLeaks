@@ -1244,6 +1244,9 @@ msgstr "제출"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1746,22 +1749,6 @@ msgstr "플랫폼은 다음에서 자동으로 삭제됩니다."
 msgid "Access instructions"
 msgstr "액세스 지침"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "최근에 감지된 활동 수가 통상보다 높게 나타납니다."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "공격의 징후(사용자에 대한 가짜 정보를 서버에 배포하는 등의 행위)이거나 단순한 프로젝트의 증가 가시성으로 인한 사용량 증가로 인한 것일 수 있습니다."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "문제를 조사하여 합법적인지 확인하십시오."
-
-msgid "The activities with unusual stats are:"
-msgstr "특이한 통계와 활동은 다음과 같습니다."
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks 기술에는 사용자의 관심을 끌어야 하는 경우에 사용자에게 경고할 서버 상태 확인 구성 요소가 포함되어 있습니다."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "자세한 내용은 관리 인터페이스에 로그인하여 \"시스템 통계\" 및 \"이상\" 섹션을 참조하십시오."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName}에서 이상이 감지됨"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1244,6 +1244,9 @@ msgstr "Pateikti"
 msgid "Subscribed"
 msgstr "Prenumeruota"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Prenumeratos data"
 
@@ -1746,22 +1749,6 @@ msgstr "Platforma bus automatiškai ištrinta:"
 msgid "Access instructions"
 msgstr "Nurodymai dėl prieigos"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Neseniai aptiktų veiksmų skaičius yra didesnis nei įprastai."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Tai gali būti atakos ženklas (pvz., kažkas užplūdo jūsų serverį fiktyvia informacija) arba tiesiog naudojimo šuolis dėl padidėjusio jūsų projekto matomumo."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Išnagrinėkite klausimą, kad nustatytumėte, ar jis teisėtas, ar ne."
-
-msgid "The activities with unusual stats are:"
-msgstr "Veiksmai su neįprasta statistika yra:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Laisva vieta diske: {FreeMemory}/{TotalMemory}"
 
@@ -1779,14 +1766,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "„GlobaLeaks“ technologijoje yra serverio būsenos tikrinimo komponentas, kuris jus perspės, jei į ką nors reikės atkreipti dėmesį."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Norėdami gauti daugiau informacijos, prisijunkite prie administravimo sąsajos ir peržiūrėkite skyrius „Sistemos statistika“ ir „Neatitikimai“."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Neatitikimas aptiktas {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1273,6 +1273,9 @@ msgstr "Передать"
 msgid "Subscribed"
 msgstr "Подписан"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1775,22 +1778,6 @@ msgstr "Платформа будет автоматически удалена:
 msgid "Access instructions"
 msgstr "Инструкции по доступу"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Показатель недавно обнаруженной активности оказался выше, чем обычно."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Это может быть признаком атаки (например, кто-то загружает ваш сервер ложной информацией) или просто пиком использования, связанным с увеличением популярности вашего проекта."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Проверьте, в чем дело, чтобы установить, идет ли речь о нормальной активности или нет."
-
-msgid "The activities with unusual stats are:"
-msgstr "Активность с нетипичной статистикой:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1808,14 +1795,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Технологии GlobaLeaks включают в себя компонент проверки состояния сервера, который будет извещать вас в случае, если что-то потребует вашего внимания."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Для получения информации войдите в панель администратора и перейдите к разделам \"Статистика системы\" и \"Аномалии\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Обнаружена аномалия в {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

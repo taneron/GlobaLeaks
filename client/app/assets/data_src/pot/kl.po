@@ -1245,6 +1245,9 @@ msgstr "Nassiutiguk"
 msgid "Subscribed"
 msgstr "Pisartagaqalerpoq"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Pisartakkap ullua"
 
@@ -1747,22 +1750,6 @@ msgstr "Paasissutissanik siammarserivik peerneqassaaq ulloq:"
 msgid "Access instructions"
 msgstr "Atornissaanut ilitsersuut"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Pisut amerlassusaat kingullertigut naliginnaasunit amerlanerusutut nalunaarsorneqarsimasut."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Una innimiiserfigitinnermut ersiutaasinnaavoq (assersuutigalugu arlaata serverit paasissutissanik eqqunngitsunik immersoraa) imaluunniit suliniutivit ersarinneratigut atorneqarnera annertusisoq."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Ajornartorsiut inatsisitigut unioqqutitsinerunersoq misissoruk."
-
-msgid "The activities with unusual stats are:"
-msgstr "Pisut naatsorsueqqissaarnernik naliginnaanngitsortallit:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Disk inissaqartoq: {FreeMemory}/{TotalMemory}"
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks-teknologi serverip killiffianik aqutsisinnaasumik atortoqarportaaq, taannalu arlaannik eqqumaffigisassaqarpat aarlerisaarissaaq."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Paasissutissat sukumiinerusut piumallugit allaffissornikkut aaqqissuiffik iserfigiuk immikkoortorlu \"Systemimik naatsorsueqqissaarnerit\" aamma \"Pissusissamisuunngitsut\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Pissusissamisuunngitsunik nanissaasoqarpoq uani  {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

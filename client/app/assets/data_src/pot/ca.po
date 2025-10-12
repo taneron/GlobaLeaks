@@ -241,7 +241,7 @@ msgid "Channel"
 msgstr "Context"
 
 msgid "Channels"
-msgstr "Contextos"
+msgstr "Canals"
 
 msgid "Check your inbox to activate it."
 msgstr "Comproveu la vostra safata d'entrada per activar-la."
@@ -1262,6 +1262,9 @@ msgstr "Remet"
 msgid "Subscribed"
 msgstr "Subscrit"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Data de subscripció"
 
@@ -1764,22 +1767,6 @@ msgstr "La plataforma s'eliminarà automàticament el:"
 msgid "Access instructions"
 msgstr "Instruccions d'accés"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Sembla que el nombre d'activitats que s'ha detectat fa poc és més elevat de l'habitual."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Això podria ser un senyal d'un atac (per exemple, algú que intenta inundar el servidor amb informació falsa) o només un repunt d'ús a causa d'una major visibilitat del projecte."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examineu el problema per determinar si és legítim o no."
-
-msgid "The activities with unusual stats are:"
-msgstr "Les activitats amb estadístiques inusuals són les següents:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Espai disponible en disc: {FreeMemory}/{TotalMemory}"
 
@@ -1797,14 +1784,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "La tecnologia de GlobaLeaks inclou un component de comprovació de l'estat del servidor que t'avisarà en cas que hi hagi res que demani la teva atenció."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Per a més informació, entra a la interfície d'administració i comprova els apartats de \"Estadístiques del sistema\" i \"Anomalies\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "S'ha detectat una anomalia a {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

@@ -1262,6 +1262,9 @@ msgstr "Küldés"
 msgid "Subscribed"
 msgstr "Feliratkozva"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "]"
 
@@ -1764,22 +1767,6 @@ msgstr "A platform automatikusan törlésre kerül ekkor:"
 msgid "Access instructions"
 msgstr "Hozzáférési információk"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "A jelenleg észlelt tevékenységek magasabbnak tűnnek szokásosnál."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Ez lehet egy támadás jele (például: valaki elárasztja a kiszolgálót hamis információval), vagy csak egy használati kiugrás a projektje megnövekedett látogatottsága miatt."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Vizsgálja meg a kérdést, hogy eldöntse legitim vagy sem."
-
-msgid "The activities with unusual stats are:"
-msgstr "A tevékenységek szokatlan statisztikával:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1797,14 +1784,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "A GlobaLeaks technológia tartalmaz egy szerver állapot ellenőrző összetevőt, ami riasztja, amennyiben valami a figyelmét igényli."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "További információért jelentkezzen be az Adminisztrációs felületbe és nézze meg a \"Rendszer statisztikák\" és a \"Rendellenességek\" részeket."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Rendellenesség észlelve ebben: {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

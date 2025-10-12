@@ -1245,6 +1245,9 @@ msgstr "Чулуо"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1747,22 +1750,6 @@ msgstr "Платформа шашах дlайоккхур ю:"
 msgid "Access instructions"
 msgstr "Тlекхочийлин хьокъехь долу куьйгалла"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "ТIаьххьарчу хенахь тусаделлачу жигараллийн терахь хlинццалц хуьлучул а лакхара долчух тера ду."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Хlара тlелатаран билгало хила тарло (масала, цхьамма хьан сервер харцхаамех юзуш ю) я хьан проектах пайда оьцуш болу нах алссамбовлуш хила а там бу."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "ГIуллакх зиэ, и бакъонца ду я дац хьажа."
-
-msgid "The activities with unusual stats are:"
-msgstr "Башха статистика йолу жигараллаш:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологино чулоцу серверан статус зуьйш компонент; цо хаам бийр бу, ахь тидам бан безаш хlума хилахь."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Алсамо информаци эшахь, урхаллин интрефейс чу а валий, хьажа \"Системин статистика\" а, \"Аномалеш\" а секцешка."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Аномали тусаелла кхузахь {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

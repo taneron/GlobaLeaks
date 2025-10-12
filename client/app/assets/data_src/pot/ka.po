@@ -1243,6 +1243,9 @@ msgstr "წარდგენა"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "პლატფორმა ავტომატურად წაი�
 msgid "Access instructions"
 msgstr "წვდომის ინსტრუქციები"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "აღმოჩენილი ბოლო აქტივობების რიცხვი, ჩანს ჩვეულზე მეტია."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "ეს შეიძლება იყოს თავდასხმის ნიშანი (მაგალითად, ვინმე თქვენი სერვერზე ყალბი ინფორმაციით წვდომას ცდილობს), ან უბრალოდ თქვენს პროექტზე მომატებულია ხილვადობა."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "შეისწავლეთ საკითხი მისი კანონიერების დასადგენად."
-
-msgid "The activities with unusual stats are:"
-msgstr "უჩვეულო აქტივობები სტატისტიკურად შემდეგია:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks ტექნოლოგია მოიცავს სერვერის სტატუსის შემოწმების კომპონენტს, რომელიც იქნება გაფრთხილება იმ შემთხვევაში თუ რამე მოითხოვს თქვენს ყურადღებას."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "დამატებითი ინფორმაციის მისაღებად შედით ადმინისტრირების ინტერფეისში და გადახედეთ განყოფილებებს \"სისტემის სტატისტიკა\" და \"ანომალიები\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "ანომალია გამოვლინდა {NodeName}-ში"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

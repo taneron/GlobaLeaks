@@ -1260,6 +1260,9 @@ msgstr "הגש"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1762,22 +1765,6 @@ msgstr ""
 msgid "Access instructions"
 msgstr ""
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "מספר פעילויות לאחרונה זוהו שנראה גבוה מרגיל."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "זה יכול להיות סימן של תקיפה (למשל, מישהו מציף את שרת עם מידע מזויף) או סתם ספייק שימוש עקב חשיפה מוגברת של הפרויקט שלך."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr ""
-
-msgid "The activities with unusual stats are:"
-msgstr "הפעילות עם נתונים סטטיסטיים לא רגילים הן:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1795,14 +1782,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "טכנולוגית GlobaLeaks כוללת רכיב בדיקת מעמד שרת אשר יתריע למקרה שמשהו דורש את תשומת לבך."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr ""
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomaly זוהה {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

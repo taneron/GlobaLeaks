@@ -1248,6 +1248,9 @@ msgstr "Iber"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1750,22 +1753,6 @@ msgstr "Platforma awtomatiki usulda öçüriler:"
 msgid "Access instructions"
 msgstr "Giriş görkezmeleri"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Ýakynda ýüze çykarylan çäreleriň sany adatydan has köp bolup görünýär."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Bu hüjümiň alamaty bolup biler (mysal üçin, kimdir biri serweriňizi galp maglumatlar bilen doldurýar) ýa-da taslamaňyzyň göze görnüp duranlygy sebäpli ulanyş derejesiň artmagy."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Kanuny ýa-da bikanun däldigini kesgitlemek üçin meseläni gözden geçiriň."
-
-msgid "The activities with unusual stats are:"
-msgstr "Adaty bolmadyk statistika bilen baglanyşykly işler:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1783,14 +1770,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "“GlobaLeaks” tehnologiýasy serweriň ýagdaýyny barlaýan komponenti öz içine alýar, bir zat ünsüňizi talap eden halatynda size duýduryş berer."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Has giňişleýin maglumat üçin Dolandyryş interfeýsine giriň we \"Ulgam statistikasy\" we \"Anomaliýa\" bölümlerine serediň."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomaliýa tapyldy {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

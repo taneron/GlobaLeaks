@@ -1283,6 +1283,9 @@ msgstr "Submeter"
 msgid "Subscribed"
 msgstr "Subscrito"
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr "Data de subscrição"
 
@@ -1785,22 +1788,6 @@ msgstr "A plataforma será automaticamente excluída em:"
 msgid "Access instructions"
 msgstr "Instruções de acesso"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "A quantidade de atividades recentemente detectadas parece ser maior do que a habitual."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Este poderia ser um sinal de um ataque (por exemplo, alguém inundando o servidor com informações falsas) ou apenas um pico de utilização, devido a um aumento da visibilidade do seu projeto."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Examine o problema para determinar se é legítimo ou não."
-
-msgid "The activities with unusual stats are:"
-msgstr "As atividades com estatísticas incomuns são:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Espaço de disco disponível: {FreeMemory}/{TotalMemory}"
 
@@ -1818,14 +1805,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "A tecnologia GlobaLeaks inclui um componente de verificação de status do servidor que irá alertá-lo em caso de algo que requeira sua atenção."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Para obter mais informações, conecte na página de Administração e consulte as 'Estatísticas do Sistema' e as seções 'Anomalias'."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalia detectada em {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

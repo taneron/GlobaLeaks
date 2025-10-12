@@ -1243,6 +1243,9 @@ msgstr "Hantar"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "Platform akan dipadam secara automatik pada:"
 msgid "Access instructions"
 msgstr "Arahan akses"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Jumlah aktiviti yang dikesan baru-baru ini kelihatan lebih tinggi daripada biasa."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Ini mungkin merupakan tanda serangan (contohnya, seseorang membanjiri pelayan anda dengan maklumat palsu) atau hanya lonjakan penggunaan kerana peningkatan kebolehlihatan projek anda."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Teliti isu untuk menentukan sama ada ia sah atau tidak."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktiviti dengan statistik luar biasa adalah:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Teknologi GlobaLeaks merangkumi komponen pemeriksaan status pelayan yang akan memberi amaran kepada anda sekiranya sesuatu memerlukan perhatian anda."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Untuk maklumat lanjut, log masuk ke antara muka Pentadbiran dan lihat pada bahagian \"System Stats\" dan \"Anomalies\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomali dikesan dalam {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

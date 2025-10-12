@@ -1253,6 +1253,9 @@ msgstr "Odoslať"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1755,22 +1758,6 @@ msgstr "Platforma bude automaticky zmazaná:"
 msgid "Access instructions"
 msgstr "Prístupové pokyny"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Bol zaznamenaný vyšší počet aktivít ako je obvyklé."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Toto môže byť prejavom prebiehajúceho útoku (napríklad niekto zaplavuje Váš server falošnými informáciami) alebo môže ísť o obyčajný nárast popularity Vášho webu."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Preskúmať problém a zistiť, či je oprávnený alebo nie."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktivity s neobvyklými štatistikami sú:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1788,14 +1775,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Technológia GlobaLeaks zabezpečuje serverovú kontrolu stavu jednotlivých komponentov a upozorní Vás na prípadné situácie, ktoré vyžadujú Vašu zvýšenú pozornosť."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Pre viacej informácií sa prihláste do administrátorského rozhrania a pozrite si sekcie \"Systémové štatistiky\" a \"Anomálie\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Zistená anomália na uzle {NodeName}."
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

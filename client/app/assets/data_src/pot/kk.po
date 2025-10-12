@@ -1245,6 +1245,9 @@ msgstr "Жіберу"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1747,22 +1750,6 @@ msgstr "Платформа автоматты түрде жойылады:"
 msgid "Access instructions"
 msgstr "Қатынасу нұсқаулары"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Жақында анықталған әрекеттер саны әдеттегіден жоғары болып шықты."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Бұл шабуылдың белгісі болуы (мысалы, біреу сіздің серверіңізді жалған ақпаратпен толтыруда) немесе сіздің жобаңыздың көрінуінің жоғарылауына байланысты, қолданудың күрт өсуі мүмкін."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Заңды немесе заңсыз екенін анықтау үшін, мәселені қарап шығыңыз."
-
-msgid "The activities with unusual stats are:"
-msgstr "Ерекше статистикалық әрекеттер:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1767,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологиясы сізге назар аудару қажет болған жағдайда, сізді ескертетін сервердің күйін тексеретін компонентті қамтиды."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Қосымша ақпарат алу үшін, басқару интерфейсіне кіріп, «Жүйелік статистика» және «Ауытқулар» бөлімдерін қарап шығыңыз."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} ішінде ауытқушылық анықталды"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "

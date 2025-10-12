@@ -1243,6 +1243,9 @@ msgstr "ສົ່ງ"
 msgid "Subscribed"
 msgstr ""
 
+msgid "Subscribed later"
+msgstr ""
+
 msgid "Subscription date"
 msgstr ""
 
@@ -1745,22 +1748,6 @@ msgstr "ລະບົບຈະຖືກລຶບຖິ້ມໂດຍອັດຕ
 msgid "Access instructions"
 msgstr "ຄຳແນະນຳໃນການເຂົ້າເຖິງ"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "ປາກົດວ່າຈຳນວນການເຄື່ອນໄຫວໃນມໍ່ໆມານີ້ທີ່ກວດພົບ ແມ່ນສູງກວ່າປົກກະຕິ."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "ນີ້ອາດຈະເປັນສັນຍານບົ່ງບອກເຖິງການໂຈມຕີ (ຕົວຢ່າງ: ມີຄົນກະຈາຍຂໍ້ມູນປອມໄປທົ່ວເຊີບເວີຂອງ) ຫຼື ພຽງແຕ່ມີການໃຊ້ງານເພີ່ມຂຶ້ນຍ້ອນການມອງເຫັນໂອກາດຂອງໂຄງການຂອງທ່ານເພີ່ມຂຶ້ນ."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "ກວດກາເບິ່ງບັນຫາດັ່ງກ່າວເພື່ອກຳນົດວ່າມັນຖືກຕ້ອງຕາມກົດໝາຍ ຫຼື ບໍ່."
-
-msgid "The activities with unusual stats are:"
-msgstr "ການເຄື່ອນໄຫວຕ່າງໆທີ່ມີສະຖິຕິຜິດປົກກະຕິໄດ້ແກ່:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1765,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "ເຕັກໂນໂລຢີຂອງ GlobaLeaks ປະກອບມີສ່ວນປະກອບໃນການກວດກາສະຖານະຂອງເຊີບເວີ ຊຶ່ງຈະແຈ້ງເຕືອນທ່ານໃນກໍລະນີມີບາງສິ່ງທີ່ຕ້ອງການຄວາມເອົາໃຈໃສ່ຈາກທ່ານ."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "ສຳລັບຂໍ້ມູນເພີ່ມຕື່ມ, ລົງຊື່ເຂົ້າສູ່ຈໍປະສານການດູແລລະບົບ ແລະ ເບິ່ງສ່ວນ \"ສະຖິຕິລະບົບ\" ແລະ \"ຄວາມຜິດປົກກະຕິ\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "ມີການກວດພົບຄວາມຜິດປົກກະຕິໃນ {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
