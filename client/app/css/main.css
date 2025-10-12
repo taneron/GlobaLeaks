@@ -72,7 +72,6 @@ textarea:focus {
 }
 
 * {
-  word-wrap: break-word;
   overflow-wrap: break-word;
   box-shadow: none;
 }
@@ -90,7 +89,7 @@ body {
 }
 
 body {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #1d1f2a;
   font-family: "Inter Variable", "Noto Sans Armenian Variable", "Noto Sans Arabic Variable", "Noto Sans Bengali Variable", "Noto Sans Hebrew Variable", "Noto Sans HK Variable", "Noto Sans JP Variable", "Noto Sans Georgian Variable", "Noto Sans Khmer Variable", "Noto Sans KR Variable", "Noto Sans Myanmar Variable", "Noto Sans Sc Variable", "Noto Sans Tamil Variable", "Noto Sans Thaana Variable", "Noto Sans Thai Variable", "Noto Serif Tibetan", sans-serif;
   font-size: 16px;
@@ -181,7 +180,7 @@ table tr td {
 }
 
 .form-control:hover {
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .h1,
@@ -323,7 +322,7 @@ h6 {
 
 #PrivacyBadge {
   background-color: #1d1f24;
-  color: #fff;
+  color: #ffffff;
 }
 
 .tab-content {
@@ -421,7 +420,7 @@ h6 {
   font-size: 23px;
   font-weight: bold;
   color: #737373;
-  background: #0000;
+  background: #00000000;
   border: none;
   position: absolute;
   right: 10px;
@@ -429,7 +428,7 @@ h6 {
 }
 
 .alert-danger-console{
-  color: black;
+  color: #1D1F24;
   border: 1px solid #c8d1e0;
 }
 
@@ -571,7 +570,7 @@ textarea.form-control {
   font-size: smaller;
 }
 
-@media screen and (min-width >= 768px) {
+@media screen and (width >= 768px) {
   .modal-lg .modal-dialog {
     width: 600px;
   }
@@ -588,7 +587,7 @@ textarea.form-control {
 }
 
 .drag-drop:hover {
-  background-color: #fff;
+  background-color: #ffffff;
   border-style: dashed;
 }
 
@@ -653,7 +652,7 @@ p:last-child {
   cursor: pointer;
   margin-bottom: 1em;
   padding: 1em;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #c8d1e0;
   border-radius: 5px;
   text-align: left;
@@ -716,9 +715,9 @@ p:last-child {
 }
 
 .step-index-selected {
-  color: #fff;
+  color: #ffffff;
   background-color: #3679BB;
-  border-color: #3679BB;
+  border-color: #FFFFFF;
 }
 
 #SubmissionErrors {
@@ -802,7 +801,7 @@ p:last-child {
 #LoginStatusBox,
 #WhistleblowerLoginBox {
   color: #1d1f2a;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 5px;
 }
 
@@ -939,7 +938,7 @@ input[type="email"] {
   border-radius: 0.3rem;
 }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .jumbotron {
     padding: 4rem 2rem;
   }
@@ -1059,7 +1058,7 @@ i.fa-solid.fa-chevron-right {
 }
 
 .mask-btn:first-child:active, :not(.btn-check)+.btn:active {
-  border-color: white;
+  border-color: #FFFFFF;
 }
 
 #Skip {
@@ -1114,14 +1113,14 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 .ngb-datepicker-container-inner {
   box-shadow: 0 0 10px #b3b3b3;
   border-radius: 6px !important;
-  background: white;
+  background: #FFFFFF;
   padding: 5px 5px 53px;
 }
 
 .tenant-badge a.badge.bg-primary:hover,
 .tenant-badge a.badge.bg-primary:active,
 .tenant-badge a.badge.bg-primary:focus {
-  color: #fff !important;
+  color: #ffffff !important;
   background: #3679BB !important;
 }
 
@@ -1163,11 +1162,11 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 .custom-date-selector.range,
 .custom-date-selector:hover {
   background-color: #205282;
-  color: white;
+  color: #FFFFFF;
 }
 
 .custom-date-selector.faded {
-  background-color: rgba(2, 117, 216, 50%);
+  background-color: rgb(2 117 216 / 50%);
 }
 
 .form-select {
