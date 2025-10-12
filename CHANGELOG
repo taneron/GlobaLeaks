@@ -1,3 +1,8 @@
+Changes in version 5.0.85
+    Fix letsencrypt process on trixie relese (#4657)
+    Bump client dependencies to latests stable
+    Update translations
+
 Changes in version 5.0.84
     Make it possible to disable expiration notification configuring 0 as expiration threshold (#4643)
     Make it possible to disable unread reminders configuring 0 as reminder time (#4642)
