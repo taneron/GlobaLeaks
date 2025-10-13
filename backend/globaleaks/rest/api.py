@@ -31,7 +31,6 @@ from globaleaks.handlers import admin, \
                                 security, \
                                 signup, \
                                 sitemap, \
-                                support, \
                                 staticfile, \
                                 support, \
                                 user, \

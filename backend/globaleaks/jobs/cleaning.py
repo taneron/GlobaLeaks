@@ -8,14 +8,9 @@ from twisted.internet.defer import inlineCallbacks
 
 from globaleaks import models
 from globaleaks.db import compact_db, db_get_tracked_attachments, db_get_tracked_files, db_refresh_tenant_cache
-from globaleaks.handlers.admin.node import db_admin_serialize_node
-from globaleaks.handlers.admin.notification import db_get_notification
-from globaleaks.handlers.user import user_serialize_user
 from globaleaks.jobs.job import DailyJob
 from globaleaks.orm import db_del, db_log, transact, tw
 from globaleaks.utils.fs import srm
-from globaleaks.utils.log import log
-from globaleaks.utils.templating import Templating
 from globaleaks.utils.utility import datetime_never, datetime_now, is_expired
 
 

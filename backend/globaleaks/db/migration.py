@@ -36,7 +36,6 @@ from globaleaks.db.migrations.update_67 import \
         InternalTip_v_66, ReceiverFile_v_66, Redaction_v_66, User_v_66, WhistleblowerFile_v_66
 from globaleaks.db.migrations.update_68 import Subscriber_v_67
 
-
 from globaleaks.orm import get_engine, get_session, make_db_uri
 from globaleaks.models import config, Base
 from globaleaks.settings import Settings

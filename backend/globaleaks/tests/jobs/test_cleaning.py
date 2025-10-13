@@ -36,17 +36,6 @@ class TestCleaning(helpers.TestGLWithPopulatedDB):
 
     @transact
     def check2(self, session):
-        self.assertEqual(len(os.listdir(Settings.attachments_path)), self.population_of_submissions * self.population_of_attachments)
-
-        self.db_test_model_count(session, models.InternalTip, self.population_of_submissions)
-        self.db_test_model_count(session, models.ReceiverTip, self.population_of_recipients * self.population_of_submissions)
-        self.db_test_model_count(session, models.InternalFile, self.population_of_submissions * self.population_of_attachments)
-        self.db_test_model_count(session, models.WhistleblowerFile, self.population_of_submissions * self.population_of_attachments * self.population_of_recipients)
-        self.db_test_model_count(session, models.Comment, 4)
-        self.db_test_model_count(session, models.Mail, self.population_of_recipients)
-
-    @transact
-    def check2(self, session):
         self.assertEqual(len(os.listdir(Settings.attachments_path)), 0)
 
         self.db_test_model_count(session, models.InternalTip, 0)

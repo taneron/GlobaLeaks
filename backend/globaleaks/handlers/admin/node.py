@@ -4,6 +4,7 @@ from globaleaks import models, LANGUAGES_SUPPORTED_CODES, LANGUAGES_SUPPORTED
 from globaleaks.db.appdata import load_appdata
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.handlers.public import db_get_languages
+from globaleaks.models import EnabledLanguage
 from globaleaks.models.config import ConfigFactory, ConfigL10NFactory
 from globaleaks.orm import db_del, tw
 from globaleaks.rest import errors, requests
