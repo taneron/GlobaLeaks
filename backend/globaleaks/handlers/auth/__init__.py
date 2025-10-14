@@ -306,7 +306,8 @@ class SessionHandler(BaseHandler):
         else:
             yield tw(db_log, tid=self.session.tid,  type='logout', user_id=self.session.user_id)
 
-        self.request.setHeader(b'Clear-Site-Data', b'"*"')
+        if not self.session.properties.get('management_session', False):
+            self.request.setHeader(b'Clear-Site-Data', b'"*"')
 
         del Sessions[self.session.id]
 
