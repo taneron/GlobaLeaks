@@ -61,7 +61,6 @@ def sendmail(tid, smtp_host, smtp_port, security, authentication, username, pass
     """
     try:
         timeout = 30
-
         message = MIME_mail_build(from_name,
                                   from_address,
                                   to_address,
@@ -70,14 +69,9 @@ def sendmail(tid, smtp_host, smtp_port, security, authentication, username, pass
                                   body)
 
         log.debug('Sending email to %s using SMTP server [%s:%d] [%s]',
-                  to_address,
-                  smtp_host,
-                  smtp_port,
-                  security,
-                  tid=tid)
+                  to_address, smtp_host, smtp_port, security, tid=tid)
 
         context_factory = TLSClientContextFactory()
-
         smtp_deferred = defer.Deferred()
 
         factory = ESMTPSenderFactory(
@@ -104,7 +98,17 @@ def sendmail(tid, smtp_host, smtp_port, security, authentication, username, pass
 
         conn_deferred = endpoint.connect(factory)
 
+        # Ensure smtp_deferred always fires if connection fails
+        conn_deferred.addErrback(lambda f: smtp_deferred.errback(f) if not smtp_deferred.called else None)
+
         final = defer.DeferredList([conn_deferred, smtp_deferred], fireOnOneErrback=True, consumeErrors=True)
+
+        # --- Timeout safeguard ---
+        def timeout_cb():
+            if not smtp_deferred.called:
+                log.err("SMTP deferred timeout reached, forcing errback for %s", to_address, tid=tid)
+                smtp_deferred.errback(Exception("SMTP deferred timeout"))
+        reactor.callLater(timeout + 30, timeout_cb)  # 30s extra buffer
 
         def failure_cb(failure):
             """
