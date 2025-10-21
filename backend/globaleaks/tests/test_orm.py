@@ -58,24 +58,21 @@ class TestORM(helpers.TestGL):
         yield self.assertRaises(sqlalchemy.exc.DatabaseError, session.execute, sqlalchemy.text("DROP TABLE Tenant"))
 
     def test_do_connect_pragmas_values(self):
-        # Create an engine with foreign_keys=True and orm_lockdown=False
+        # Test that verifies that the PRAGMA configurations are efeectively applied
         dstpath = os.path.join(Settings.working_path, 'globaleaks.db')
         engine = get_engine(db_uri="sqlite:////" + dstpath, foreign_keys=True, orm_lockdown=False)
 
         # Connect to the database
         with engine.connect() as conn:
-            # Check that PRAGMA settings are applied with correct values
             result = conn.execute(text("PRAGMA temp_store")).fetchone()
             self.assertEqual(result[0], 2)  # MEMORY = 2
 
             result = conn.execute(text("PRAGMA trusted_schema")).fetchone()
             self.assertEqual(result[0], 0)  # OFF = 0
 
-            # Check that foreign_keys is enabled
             result = conn.execute(text("PRAGMA foreign_keys")).fetchone()
             self.assertEqual(result[0], 1)  # ON = 1
 
-            # Check that PRAGMA settings are applied with correct values
             result = conn.execute(text("PRAGMA journal_mode")).fetchone()
             self.assertEqual(result[0].upper(), "WAL")
 
@@ -83,4 +80,4 @@ class TestORM(helpers.TestGL):
             self.assertEqual(result[0], 2)  # FULL = 2
 
             result = conn.execute(text("PRAGMA cache_size")).fetchone()
-            self.assertEqual(result[0], -32000)
+            self.assertEqual(result[0], -32000) # 32MB
