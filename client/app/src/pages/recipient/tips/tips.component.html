@@ -38,22 +38,12 @@
       <span id="tip-action-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
         <i class="fas fa-arrows-rotate"></i>
       </span>
-      <span id="SearchFilter" class="w-auto d-inline-block">
-        <span class="input-group ">
-          <input type="text" class="form-control" placeholder="{{'Search' | translate}}" [(ngModel)]="search" (ngModelChange)="onSearchChange($event)">
-          <div class="input-group-append">
-            <button class="input-group-text h-100 rounded-start-0">
-              <i class="fas fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </span>
-      </span>
     </div>
   </div>
   <div id="TipList" class="row mt-2">
     <div class="col-md-12 table-responsive">
-      <table class="table table-striped" id="tipList">
-        <thead>
+      <app-paginated-interface [mode]="'table'" [items]="filteredTips" orderBy="creation_date" [orderDesc]="true">
+        <ng-template #header let-tip="item" let-index="index">
           <tr>
             <th></th>
             <th (click)="sortKey = 'important'; sortReverse = !sortReverse">
@@ -102,32 +92,32 @@
               }
             </th>
             @if (appDataService.public.contexts.length > 1) {
-              <th class="TipInfoContext">
-                <span (click)="sortKey = 'context_name'; sortReverse = !sortReverse">
-                  <i class="fas fa-inbox"></i>
-                  <span>{{'Channel' | translate}}</span>
-                  @if (sortKey === 'context_name') {
-                    <span>
-                      @if (!sortReverse) {
-                        <i class="fas fa-sort-down"></i>
-                      }
-                      @if (sortReverse) {
-                        <i class="fas fa-sort-up"></i>
-                      }
-                    </span>
-                  } @else {
-                    <span class="text-muted"><i class="fas fa-sort"></i></span>
-                  }
-                </span>
-                @if (RTips.dataModel.length > 0) {
-                  <span class="dropdown-multi-select-container">
-                    <span id="tip-action-filter-channel" [ngClass]="{ filterSelected: checkFilter(dropdownContextModel) }" (click)="toggleChannelDropdown()"><i class="fas fa-filter"></i></span>
-                    <span [class.d-none]="!channelDropdownVisible">
-                      <ng-multiselect-dropdown [class.dropdown-visible]="channelDropdownVisible" [settings]="dropdownSettings" [data]="dropdownContextData" [(ngModel)]="dropdownContextModel" (ngModelChange)="onChanged(dropdownContextModel,'Channel')"></ng-multiselect-dropdown>
-                    </span>
+            <th class="TipInfoContext">
+              <span (click)="sortKey = 'context_name'; sortReverse = !sortReverse">
+                <i class="fas fa-inbox"></i>
+                <span>{{'Channel' | translate}}</span>
+                @if (sortKey === 'context_name') {
+                  <span>
+                    @if (!sortReverse) {
+                      <i class="fas fa-sort-down"></i>
+                    }
+                    @if (sortReverse) {
+                      <i class="fas fa-sort-up"></i>
+                    }
                   </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
                 }
-              </th>
+              </span>
+              @if (RTips.dataModel.length > 0) {
+                <span class="dropdown-multi-select-container">
+                  <span id="tip-action-filter-channel" [ngClass]="{ filterSelected: checkFilter(dropdownContextModel) }" (click)="toggleChannelDropdown()"><i class="fas fa-filter"></i></span>
+                  <span [class.d-none]="!channelDropdownVisible">
+                    <ng-multiselect-dropdown [class.dropdown-visible]="channelDropdownVisible" [settings]="dropdownSettings" [data]="dropdownContextData" [(ngModel)]="dropdownContextModel" (ngModelChange)="onChanged(dropdownContextModel,'Channel')"></ng-multiselect-dropdown>
+                  </span>
+                </span>
+              }
+            </th>
             }
             <th class="TipInfoLabel">
               <span (click)="sortKey = 'label'; sortReverse = !sortReverse">
@@ -275,149 +265,133 @@
               </span>
             </th>
             @if (appDataService.public.node.enable_scoring_system) {
-              <th class="TipInfoScore">
-                <span (click)="sortKey = 'score'; sortReverse = !sortReverse">
-                  <i class="fas fa-ranking-star"></i>
-                  <span>{{'Score' | translate}}</span>
-                  @if (sortKey === 'score') {
-                    <span>
-                      @if (!sortReverse) {
-                        <i class="fas fa-sort-down"></i>
-                      }
-                      @if (sortReverse) {
-                        <i class="fas fa-sort-up"></i>
-                      }
-                    </span>
-                  } @else {
-                    <span class="text-muted"><i class="fas fa-sort"></i></span>
-                  }
+            <th class="TipInfoScore">
+              <span (click)="sortKey = 'score'; sortReverse = !sortReverse">
+                <i class="fas fa-ranking-star"></i>
+                <span>{{'Score' | translate}}</span>
+                @if (sortKey === 'score') {
+                  <span>
+                    @if (!sortReverse) {
+                      <i class="fas fa-sort-down"></i>
+                    }
+                    @if (sortReverse) {
+                      <i class="fas fa-sort-up"></i>
+                    }
+                  </span>
+                } @else {
+                  <span class="text-muted"><i class="fas fa-sort"></i></span>
+                }
+              </span>
+              @if (RTips.dataModel.length > 0) {
+                <span class="dropdown-multi-select-container">
+                  <span [ngClass]="{ filterSelected: checkFilter(dropdownScoreModel) }" (click)="toggleScoreDropdown()"><i class="fas fa-filter"></i></span>
+                  <span [class.d-none]="!scoreDropdownVisible">
+                    <ng-multiselect-dropdown [class.dropdown-visible]="scoreDropdownVisible" [settings]="dropdownSettings" [data]="dropdownScoreData" [(ngModel)]="dropdownScoreModel" (ngModelChange)="onChanged(dropdownScoreModel,'Score')"></ng-multiselect-dropdown>
+                  </span>
                 </span>
-                @if (RTips.dataModel.length > 0) {
-                  <span class="dropdown-multi-select-container">
-                    <span [ngClass]="{ filterSelected: checkFilter(dropdownScoreModel) }" (click)="toggleScoreDropdown()"><i class="fas fa-filter"></i></span>
-                    <span [class.d-none]="!scoreDropdownVisible">
-                      <ng-multiselect-dropdown [class.dropdown-visible]="scoreDropdownVisible" [settings]="dropdownSettings" [data]="dropdownScoreData" [(ngModel)]="dropdownScoreModel" (ngModelChange)="onChanged(dropdownScoreModel,'Score')"></ng-multiselect-dropdown>
-                    </span>
-                  </span>
-                }
-              </th>
-            }
+              }
+            </th>
+          }
           </tr>
-        </thead>
-        <tbody id="tipListTableBody">
-          @for (tip of orderbyCast(filteredTips | orderBy:sortKey:sortReverse) | slice:((currentPage - 1) * itemsPerPage):((currentPage - 1) * itemsPerPage + itemsPerPage); let index = $index; track tip) {
-            <tr id="tip-{{index}}" [ngClass]="[tip.updated ? 'fw-bold' : '', isSelected(tip.id) ? 'selectedTip' : '', !tip.accessible ? 'disabled' : '', 'report-status-' + tip.status, 'report-substatus-' + tip.substatus]" class="tip-action-open" (click)="utils.go('/reports/' + tip.id)">
+        </ng-template>
+        <ng-template #content let-tip="item" let-index="index">
+          <tr id="tip-{{index}}" [ngClass]="[tip.updated ? 'fw-bold' : '', isSelected(tip.id) ? 'selectedTip' : '', !tip.accessible ? 'disabled' : '', 'report-status-' + tip.status, 'report-substatus-' + tip.substatus]" class="tip-action-open" (click)="utils.go('/reports/' + tip.id)">
+            <td>
+              @if (isSelected(tip.id)) {
+                <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
+                  <i class="fas fa-square-check"></i>
+                </span>
+              }
+              @if (!isSelected(tip.id)) {
+                <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
+                  <i class="fas fa-square"></i>
+                </span>
+              }
+            </td>
+            <td>
+              @if (tip.important) {
+                <i class="fas fa-star text-warning"></i>
+              }
               <td>
-                @if (isSelected(tip.id)) {
-                  <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
-                    <i class="fas fa-square-check"></i>
-                  </span>
-                }
-                @if (!isSelected(tip.id)) {
-                  <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
-                    <i class="fas fa-square"></i>
-                  </span>
+                @if (!utils.isNever(tip.reminder_date)) {
+                  <span [ngClass]="{'text-warning': utils.isDatePassed(tip.reminder_date)}"><i class="fas fa-bell"></i></span>
                 }
               </td>
-              <td>
-                @if (tip.important) {
-                  <i class="fas fa-star text-warning"></i>
+              <td class="TipInfoID">{{tip.progressive}}</td>
+              @if (appDataService.public.contexts.length > 1) {
+                <td class="TipInfoContext">{{tip.context_name}}</td>
+              }
+              <td class="TipInfoLabel">{{tip.label}}</td>
+              <td class="TipInfoStatus">{{tip.submissionStatusStr}}</td>
+              <td class="TipInfoSubmissionDate">{{tip.creation_date | date:'dd-MM-yyyy HH:mm'}}</td>
+              <td class="TipInfoUpdateDate">{{tip.update_date | date:'dd-MM-yyyy HH:mm'}}</td>
+              <td class="TipInfoExpirationDate">
+                @if (!utils.isNever(tip.expiration_date)) {
+                  <span>{{tip.expiration_date | date:'dd-MM-yyyy HH:mm'}}</span>
                 }
-                <td>
-                  @if (!utils.isNever(tip.reminder_date)) {
-                    <span [ngClass]="{'text-warning': utils.isDatePassed(tip.reminder_date)}"><i class="fas fa-bell"></i></span>
-                  }
-                </td>
-                <td class="TipInfoID">{{tip.progressive}}</td>
-                @if (appDataService.public.contexts.length > 1) {
-                  <td class="TipInfoContext">{{tip.context_name}}</td>
+                @if (utils.isNever(tip.expiration_date)) {
+                  <span>-</span>
                 }
-                <td class="TipInfoLabel">{{tip.label}}</td>
-                <td class="TipInfoStatus">{{tip.submissionStatusStr}}</td>
-                <td class="TipInfoSubmissionDate">{{tip.creation_date | date:'dd-MM-yyyy HH:mm'}}</td>
-                <td class="TipInfoUpdateDate">{{tip.update_date | date:'dd-MM-yyyy HH:mm'}}</td>
-                <td class="TipInfoExpirationDate">
-                  @if (!utils.isNever(tip.expiration_date)) {
-                    <span>{{tip.expiration_date | date:'dd-MM-yyyy HH:mm'}}</span>
+              </td>
+              <td class="TipInfoLastAccess">
+                @if (tip.last_access >= tip.update_date) {
+                  <span ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
+                }
+                @if (tip.last_access < tip.update_date) {
+                  <span ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"><i class="fas fa-xmark"></i></span>
+                }
+              </td>
+              <td class="TipInfoComments">{{tip.comment_count}}</td>
+              <td class="TipInfoFiles">{{tip.file_count}}</td>
+              <td class="TipInfoIdentity">
+                @switch (tip.subscription) {
+                  @case (0) {
+                    <i class="fas fa-xmark"></i>
                   }
-                  @if (utils.isNever(tip.expiration_date)) {
+                  @case (1) {
+                    <i class="fas fa-check"></i>
+                  }
+                  @case (2) {
+                    @if (tip.data) {
+                      <span ngbTooltip="{{'Subscription date: ' + (tip.data.whistleblower_identity_date | date:'dd-MM-yyyy HH:mm')}}"><i class="fas fa-check underline"></i></span>
+                    }
+                    @if (!tip.data) {
+                      <i class="fas fa-check underline"></i>
+                    }
+                  }
+                }
+              </td>
+              <td class="TipInfoRecipientCount">{{tip.receiver_count}}</td>
+              @if (appDataService.public.node.enable_scoring_system) {
+              <td class="TipInfoScore">
+                @switch (tip.score) {
+                  @case (0) {
                     <span>-</span>
                   }
-                </td>
-                <td class="TipInfoLastAccess">
-                  @if (tip.last_access >= tip.update_date) {
-                    <span ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
+                  @case (1) {
+                    <span class="badge bg-primary">{{ 'Low' | translate }}</span>
                   }
-                  @if (tip.last_access < tip.update_date) {
-                    <span ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"><i class="fas fa-xmark"></i></span>
+                  @case (2) {
+                    <span class="badge bg-primary">{{ 'Medium' | translate }}</span>
                   }
-                </td>
-                <td class="TipInfoComments">{{tip.comment_count}}</td>
-                <td class="TipInfoFiles">{{tip.file_count}}</td>
-                <td class="TipInfoIdentity">
-                  @switch (tip.subscription) {
-                    @case (0) {
-                      <i class="fas fa-xmark"></i>
-                    }
-                    @case (1) {
-                      <i class="fas fa-check"></i>
-                    }
-                    @case (2) {
-                      @if (tip.data) {
-                        <span ngbTooltip="{{'Subscription date: ' + (tip.data.whistleblower_identity_date | date:'dd-MM-yyyy HH:mm')}}"><i class="fas fa-check underline"></i></span>
-                      }
-                      @if (!tip.data) {
-                        <i class="fas fa-check underline"></i>
-                      }
-                    }
+                  @case (3) {
+                    <span class="badge bg-primary">{{ 'High' | translate }}</span>
                   }
-                </td>
-                <td class="TipInfoRecipientCount">{{tip.receiver_count}}</td>
-                @if (appDataService.public.node.enable_scoring_system) {
-                  <td class="TipInfoScore">
-                    @switch (tip.score) {
-                      @case (0) {
-                        <span>-</span>
-                      }
-                      @case (1) {
-                        <span class="badge bg-primary">{{ 'Low' | translate }}</span>
-                      }
-                      @case (2) {
-                        <span class="badge bg-primary">{{ 'Medium' | translate }}</span>
-                      }
-                      @case (3) {
-                        <span class="badge bg-primary">{{ 'High' | translate }}</span>
-                      }
-                    }
-                  </td>
                 }
-              </tr>
-            }
-          </tbody>
-        </table>
-        @if (filteredTips.length > itemsPerPage) {
-          <div class="text-center">
-              <ngb-pagination dir="ltr" class="d-flex justify-content-center" [collectionSize]="filteredTips.length" [(page)]="currentPage" [pageSize]="itemsPerPage">
-                  <ng-template ngbPaginationFirst><span ngbTooltip="{{'First' | translate}}"><i class="fas fa-backward-fast"></i></span></ng-template>
-                  <ng-template ngbPaginationPrevious><span ngbTooltip="{{'Previous' | translate}}"><i class="fas fa-backward-step"></i></span></ng-template>
-                  <ng-template ngbPaginationNext><span ngbTooltip="{{'Next' | translate}}"><i class="fas fa-forward-step"></i></span></ng-template>
-                  <ng-template ngbPaginationLast><span ngbTooltip="{{'Last' | translate}}"><i class="fas fa-forward-fast"></i></span></ng-template>
-                  <ng-template ngbPaginationFirst><span ngbTooltip="{{'First' | translate}}"><i class="fas fa-backward-fast"></i></span></ng-template>
-                  <ng-template ngbPaginationPrevious><span ngbTooltip="{{'Previous' | translate}}"><i class="fas fa-backward-step"></i></span></ng-template>
-                  <ng-template ngbPaginationNext><span ngbTooltip="{{'Next' | translate}}"><i class="fas fa-forward-step"></i></span></ng-template>
-                  <ng-template ngbPaginationLast><span ngbTooltip="{{'Last' | translate}}"><i class="fas fa-forward-fast"></i></span></ng-template>
-              </ngb-pagination>
-          </div>
+              </td>
+              }
+          </tr>
+        </ng-template>
+      </app-paginated-interface>
+      <div class="float-end">
+        @if (filteredTips.length > 0) {
+          <a class="btn btn-sm btn-link" type="button"
+            (click)="exportToCsv()">
+            <i class="fas fa-download"></i>
+            <span>{{ 'Export' | translate }}</span>
+          </a>
         }
-        <div class="float-end">
-          @if (filteredTips.length > 0) {
-            <a class="btn btn-sm btn-link" type="button"
-              (click)="exportToCsv()">
-              <i class="fas fa-download"></i>
-              <span>{{ 'Export' | translate }}</span>
-            </a>
-          }
-        </div>
       </div>
     </div>
-  }
+  </div>
+}

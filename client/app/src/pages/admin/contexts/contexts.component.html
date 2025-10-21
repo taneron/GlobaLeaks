@@ -27,13 +27,11 @@
       </div>
     </div>
   }
-  @if (contextsData.length > 0) {
-    @for (context of contextsData; track context; let index = $index) {
-      <div>
-        <form id="context-{{index}}" name="editContext" #editContext="ngForm" novalidate>
-          <src-context-editor [contextResolver]="context" [editContext]="editContext" [contextsData]="contextsData" [index]="index"></src-context-editor>
-        </form>
-      </div>
-    }
-  }
+  <app-paginated-interface [items]="contextsData" [filterField]="'name'">
+    <ng-template #content let-item="item" let-index="index">
+      <form id="context-{{index}}" name="editContext" #editContext="ngForm" novalidate>
+        <src-context-editor [contextResolver]="item" [editContext]="editContext" [contextsData]="contextsData" [index]="index"></src-context-editor>
+      </form>
+    </ng-template>
+  </app-paginated-interface>
 </div>

@@ -135,6 +135,7 @@ export class UserEditorComponent implements OnInit {
         observer.complete()
         return this.utilsService.deleteAdminUser(arg.id).subscribe(_ => {
           this.utilsService.deleteResource(this.users, arg);
+          this.sendDataToParent();
         });
       };
     });

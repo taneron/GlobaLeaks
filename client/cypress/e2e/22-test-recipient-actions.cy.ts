@@ -121,8 +121,8 @@ describe("recipient admin tip actions", () => {
 
     cy.visit("/#/recipient/reports");
 
-    cy.get('span#SearchFilter input[type="text"]').type("your search term");
-    cy.get('span#SearchFilter input[type="text"]').clear();
+    cy.get('.search-input input[type="text"]').type("your search term");
+    cy.get('.search-input input[type="text"]').clear();
 
     cy.get('th.TipInfoID').click();
 

@@ -34,14 +34,13 @@
         </form>
       </div>
     }
-    @if (questionnairesData.length > 0) {
-      @for (questionnaire of questionnairesData | orderBy:'name'; track trackByFn(index, questionnaire); let index = $index) {
-        <div>
-          <form id="questionnaire-{{index}}" class="config-item" #editQuestionnaire="ngForm" novalidate>
-            <src-questionnaires-list [questionnaire]="questionnaire" [editQuestionnaire]="editQuestionnaire" [questionnaires]="questionnairesData"></src-questionnaires-list>
-          </form>
-        </div>
-      }
-    }
+
+    <app-paginated-interface [items]="questionnairesData" [filterField]="'name'" [orderBy]="'name'">
+      <ng-template #content let-item="item" let-index="index">
+        <form id="questionnaire-{{index}}" class="config-item" #editQuestionnaire="ngForm" novalidate>
+          <src-questionnaires-list [questionnaire]="item" [editQuestionnaire]="editQuestionnaire" [questionnaires]="questionnairesData"></src-questionnaires-list>
+        </form>
+      </ng-template>
+    </app-paginated-interface>
   </div>
 </div>

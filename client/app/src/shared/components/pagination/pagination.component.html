@@ -1,0 +1,34 @@
+<div *ngIf="items.length > itemsPerPage" class="text-center">
+  <ngb-pagination
+    dir="ltr"
+    class="d-flex justify-content-center"
+    [(page)]="currentPage"
+    (pageChange)="onPageChange($event)"
+    [pageSize]="itemsPerPage"
+    [collectionSize]="items.length">
+
+    <ng-template ngbPaginationFirst>
+      <span ngbTooltip="{{ 'First' | translate }}">
+        <i class="fas fa-backward-fast"></i>
+      </span>
+    </ng-template>
+
+    <ng-template ngbPaginationPrevious>
+      <span ngbTooltip="{{ 'Previous' | translate }}">
+        <i class="fas fa-backward-step"></i>
+      </span>
+    </ng-template>
+
+    <ng-template ngbPaginationNext>
+      <span ngbTooltip="{{ 'Next' | translate }}">
+        <i class="fas fa-forward-step"></i>
+      </span>
+    </ng-template>
+
+    <ng-template ngbPaginationLast>
+      <span ngbTooltip="{{ 'Last' | translate }}">
+        <i class="fas fa-forward-fast"></i>
+      </span>
+    </ng-template>
+  </ngb-pagination>
+</div>

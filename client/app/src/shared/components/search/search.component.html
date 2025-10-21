@@ -1,0 +1,12 @@
+<div id="SearchFilter" class="input-group input-group-sm w-auto">
+  <input
+    type="text"
+    class="form-control"
+    [placeholder]="'Search' | translate"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
+  >
+  <span class="input-group-text">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
