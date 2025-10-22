@@ -1,5 +1,5 @@
 <div class="modal-header justify-content-end">
-  <button type="button" class="btn-close" (click)="cancel()" [attr.aria-label]="'Close' | translate"></button>
+  <button type="button" class="btn-close" (click)="cancel()" [attr.aria-label]="'Close' | translate"><i class="fa-solid fa-circle-xmark"></i></button>
 </div>
 <div class="modal-body">
   <markdown class="disclaimer-text" [data]="appDataService.public.node.disclaimer_text | stripHtml"></markdown>
