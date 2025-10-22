@@ -557,7 +557,7 @@ class APIResourceWrapper(Resource):
                               b"form-action 'none';"
                               b"frame-ancestors 'none';"
                               b"frame-src 'self';"
-                              b"img-src 'self' data:;"
+                              b"img-src 'self';"
                               b"media-src 'self';"
                               b"script-src 'self';"
                               b"style-src 'self' 'nonce-" + request.nonce + b"';"
