@@ -44,7 +44,7 @@ Every development is then organized in auxiliary dedicated branches:
 - Minor update branches are typically created from the stable branch. These are short-lived branches intended to be merged directly back into stable;
 - Major feature branches are always created from the devel branch and are merged back into devel after integration and testing.
 
-.. image:: ../images/roadmap/release-workflow.svg
+.. image:: ../images/roadmap/release-workflow.pdf
 
 
 Feature Prioritization
