@@ -1,6 +1,9 @@
 # Makefile for Sphinx documentation
 #
 
+export TEXINPUTS := $(PWD)/texmf//:
+export TEXMFHOME := $(PWD)/texmf//:
+
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build

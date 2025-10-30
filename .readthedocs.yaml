@@ -2,15 +2,21 @@
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
 build:
-  os: ubuntu-lts-latest
+  os: ubuntu-24.04
   tools:
     python: latest
+  commands:
+    - pip install -r documentation/requirements.txt
+    - cd documentation && make html
+    - cd documentation && make latexpdf
+    - mkdir -p "$READTHEDOCS_OUTPUT/pdf"
+    - cp -r documentation/_build/html "$READTHEDOCS_OUTPUT/"
+    - cp documentation/_build/latex/GlobaLeaks.pdf "$READTHEDOCS_OUTPUT/pdf/"
 
 sphinx:
   configuration: documentation/conf.py
 
 formats:
-  - epub
   - pdf
 
 python:

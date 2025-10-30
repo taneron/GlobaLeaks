@@ -4,12 +4,21 @@
 # sphinx-quickstart on Thu Jul  6 16:34:48 2017.
 #
 import gettext
+import glob
 import os
+import pathlib
+import shutil
 import sys
 
+from docutils import nodes
+from docutils.parsers.rst import roles
+
+sys.path.append(os.path.abspath('./_ext'))
 sys.path.insert(0, os.path.abspath('../backend'))
 
 from globaleaks import __author__,  __copyright__, __version__
+
+base_dir = os.path.dirname(__file__)
 
 autodoc_member_order = 'bysource'
 autodoc_default_flags = ['members', 'show-inheritance', 'undoc-members']
@@ -17,7 +26,8 @@ autodoc_default_flags = ['members', 'show-inheritance', 'undoc-members']
 extensions = [
   'sphinx_rtd_theme',
   'sphinx_copybutton',
-  'sphinx_sitemap'
+  'sphinx_sitemap',
+  'sphinx.ext.imgconverter'
 ]
 
 templates_path = ['_templates']
@@ -63,7 +73,8 @@ html_context = {
 }
 
 latex_elements = {
-  'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}',
+  'preamble': r'\pdfmapfile{+"../../texmf/fonts/map/dvips/fontawesome7/fontawesome7.map"}',
+  'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}, iconpackage=fontawesome7',
 }
 
 latex_documents = []
@@ -85,10 +96,36 @@ html_theme_options = {
   'style_nav_header_background': '#3679BB',
 }
 
+
+def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    """
+    Role :fa:`regular address-book` → \faIcon[regular]{address-book}
+    Role :fa:`solid circle-info`   → \faIcon[solid]{circle-info}
+    Role :fa:`address-book`        → \faIcon{address-book}
+    """
+    parts = text.strip().split()
+    if len(parts) == 2:
+        style, icon = parts
+        latex_code = f"\\faIcon[{style}]{{{icon}}}"
+        html_code = f'<i class="fa-{style} fa-{icon}"></i>'
+    else:
+        # default to solid style
+        icon = parts[0] if parts else "question"
+        latex_code = f"\\faIcon{{{icon}}}"
+        html_code = f'<i class="fa-solid fa-{icon}"></i>'
+
+    node = nodes.raw('', latex_code, format='latex')
+    html_node = nodes.raw('', html_code, format='html')
+    return [node, html_node], []
+
+
 def setup(app):
+    # register our local :fa: role
+    roles.register_local_role('fa', fa_role)
     translation = gettext.translation('sphinx', localedir=locale_dir, languages=[app.config.language], fallback=True)
     document_title = translation.gettext('Documentation')
     app.config.latex_documents = [(master_doc, 'GlobaLeaks.tex', document_title, '', 'manual'),]
 
     app.add_css_file("custom.css")
+    app.add_css_file("fa7/css/all.min.css")
     app.add_js_file("custom.js")
