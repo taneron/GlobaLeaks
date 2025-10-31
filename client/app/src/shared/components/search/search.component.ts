@@ -8,15 +8,18 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
   imports: [FormsModule, TranslatorPipe],
   template: `
     <div class="search-input input-group input-group-sm w-auto">
+      <label for="search-input-field" class="visually-hidden">{{ placeholder | translate }}</label>
       <input
-        type="text"
+        id="search-input-field"
+        type="search"
         class="form-control"
         [placeholder]="placeholder | translate"
+        [attr.aria-label]="placeholder | translate"
         [(ngModel)]="value"
         (ngModelChange)="valueChange.emit($event)"
       >
       <span class="input-group-text">
-        <i class="fas fa-search"></i>
+        <i class="fas fa-search" aria-hidden="true"></i>
       </span>
     </div>
   `

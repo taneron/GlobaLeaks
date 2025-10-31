@@ -1,12 +1,15 @@
 <div id="SearchFilter" class="input-group input-group-sm w-auto">
+  <label for="search-filter-input" class="visually-hidden">{{ 'Search' | translate }}</label>
   <input
-    type="text"
+    id="search-filter-input"
+    type="search"
     class="form-control"
     [placeholder]="'Search' | translate"
+    [attr.aria-label]="'Search' | translate"
     [(ngModel)]="value"
     (ngModelChange)="valueChange.emit($event)"
   >
   <span class="input-group-text">
-    <i class="fas fa-search"></i>
+    <i class="fas fa-search" aria-hidden="true"></i>
   </span>
 </div>
