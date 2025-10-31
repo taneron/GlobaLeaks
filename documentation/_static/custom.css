@@ -88,6 +88,10 @@ a:hover {
   color: #5794d5;
 }
 
+.wy-breadcrumbs .fa.fa-github {
+  all: initial;
+}
+
 vertical li.current > a {
   color: #1d1f2a;
 }
