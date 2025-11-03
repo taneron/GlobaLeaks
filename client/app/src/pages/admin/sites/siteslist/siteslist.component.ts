@@ -25,7 +25,6 @@ export class SiteslistComponent {
   private httpService = inject(HttpService);
   private utilsService = inject(UtilsService);
 
-  @Input() editTenant: NgForm;
   @Input() tenant: tenantResolverModel;
   @Input() tenants: tenantResolverModel[];
   @Input() index: number;

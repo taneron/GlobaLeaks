@@ -63,12 +63,10 @@
     </div>
   }
 </div>
-@if (usersData.length > 0) {
-  @for (user of usersData | orderBy:'name'; track user; let index = $index) {
-    <div class="userList">
-      <form id="user-{{index}}" name="editUser" #editUser="ngForm" novalidate>
-        <src-user-editor [user]="user" [editUser]="editUser" [index]="index" [users]="usersData"></src-user-editor>
-      </form>
-    </div>
-  }
-}
+<app-paginated-interface [items]="usersData" [filterField]="'name'" [orderBy]="'name'">
+  <ng-template #content let-item="item" let-index="index">
+    <form id="user-{{index}}" class="userList" name="editUser" #editUser="ngForm" novalidate>
+      <src-user-editor [user]="item" [editUser]="editUser" [index]="index" [users]="usersData"></src-user-editor>
+    </form>
+  </ng-template>
+</app-paginated-interface>
