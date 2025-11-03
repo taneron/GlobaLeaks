@@ -97,6 +97,7 @@ describe("globaleaks process", function () {
       cy.visit("/#/recipient/reports");
 
       cy.get("#tip-0").first().click();
+      cy.get('#actionsDropdown').click();
       cy.get('#tip-action-export').invoke('click');
       cy.get(".TipInfoID").first().invoke("text").then(t => {
         expect(t.trim()).to.be.a("string");
@@ -216,6 +217,7 @@ describe("globaleaks process", function () {
       cy.get("#select_content").click();
     });
     cy.get("#save_masking").click();
+    cy.get('#actionsDropdown').click();
     cy.get('[id="tip-action-mask"]').should('be.visible').click();
     cy.get("#edit-question").should('be.visible').first().click();
     cy.get('textarea[name="controlElement"]').should('be.visible').then((textarea: any) => {
