@@ -1172,3 +1172,17 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 .form-select {
   padding: 0.3em !important;
 }
+
+.modal-btn-close {
+  all: unset;
+  margin-left: auto;
+}
+
+.ngb-dp-navigation-select .form-select {
+  --bs-form-select-bg-img: none;
+
+  background:
+    linear-gradient(45deg, transparent 50%, #1d1f2a 50%) right 0.9em center / 8px 8px no-repeat,
+    linear-gradient(-45deg, transparent 50%, #1d1f2a 50%) right 0.4em center / 8px 8px no-repeat;
+  background-color: white;
+}
