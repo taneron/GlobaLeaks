@@ -229,7 +229,7 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
   }
 
   return cy.document().then((doc) => {
-    cy.viewport(1920, doc.body.scrollHeight);
+    cy.viewport(1280, doc.body.scrollHeight);
 
     cy.wait(500);
 
