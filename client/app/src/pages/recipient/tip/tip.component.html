@@ -108,10 +108,10 @@
                 <i class="fas fa-download"></i>
               </button>
               <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="exportDropdown">
-                <button class="dropdown-item" (click)="exportTip(tip.id)">
+                <button id="tip-action-export" class="dropdown-item" (click)="exportTip(tip.id)">
                   <i class="fas fa-download me-2"></i>{{'Download' | translate}}
                 </button>
-                <button class="dropdown-item" (click)="utils.print()">
+                <button id="tip-action-print" class="dropdown-item" (click)="utils.print()">
                   <i class="fas fa-print me-2"></i>{{'Print' | translate}}
                 </button>
               </div>

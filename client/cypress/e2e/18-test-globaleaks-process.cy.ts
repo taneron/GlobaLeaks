@@ -97,7 +97,7 @@ describe("globaleaks process", function () {
       cy.visit("/#/recipient/reports");
 
       cy.get("#tip-0").first().click();
-      cy.get('#actionsDropdown').click();
+      cy.get('#exportDropdown').click();
       cy.get('#tip-action-export').invoke('click');
       cy.get(".TipInfoID").first().invoke("text").then(t => {
         expect(t.trim()).to.be.a("string");

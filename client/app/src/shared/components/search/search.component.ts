@@ -8,9 +8,9 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
   imports: [FormsModule, TranslatorPipe],
   template: `
     <div class="search-input input-group input-group-sm w-auto">
-      <label for="search-input-field" class="visually-hidden">{{ placeholder | translate }}</label>
+      <label for="search-filter-input" class="visually-hidden">{{ placeholder | translate }}</label>
       <input
-        id="search-input-field"
+        id="search-filter-input"
         type="search"
         class="form-control"
         [placeholder]="placeholder | translate"
