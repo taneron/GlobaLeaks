@@ -4,6 +4,8 @@ import {AppDataService} from "@app/app-data.service";
 import {RecieverTipData} from "@app/models/receiver/receiver-tip-data";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {RedactionData} from "@app/models/component-model/redaction";
+import {switchMap, tap} from 'rxjs/operators';
+import {of} from 'rxjs';
 
 @Injectable({
   providedIn: "root"
@@ -37,20 +39,36 @@ export class ReceiverTipService {
     return this.httpService.rTipsRequestNewComment(param, this.tip.id);
   }
 
-  newRedaction(content:RedactionData) {
-    this.httpService.requestCreateRedaction(content).subscribe(
-      () => {
+  newRedaction(content: RedactionData, tip_id?: string) {
+    return this.httpService.requestCreateRedaction(content).pipe(
+      switchMap(() => {
+        if (tip_id) {
+          return this.httpService.receiverTip(tip_id).pipe(
+            tap((res: any) => {
+              this.tip = {...this.tip, wbfiles: [...res.wbfiles], redactions: [...res.redactions]};
+            })
+          );
+        }
         this.utils.reloadComponent();
-      },
-    );
+        return of(null);
+      })
+    ).subscribe();;
   }
-
-  updateRedaction(content: RedactionData) {
-    this.httpService.requestUpdateRedaction(content).subscribe(
-      () => {
+  
+  updateRedaction(content: RedactionData, tip_id?: string) {
+    return this.httpService.requestUpdateRedaction(content).pipe(
+      switchMap(() => {
+        if (tip_id) {
+          return this.httpService.receiverTip(tip_id).pipe(
+            tap((res: any) => {
+                this.tip = {...this.tip, wbfiles: [...res.wbfiles], redactions: [...res.redactions]};
+            })
+          );
+        }
         this.utils.reloadComponent();
-      },
-    );
+        return of(null);
+      })
+    ).subscribe();;
   }
 
   private getMsgReceiversSelector() {

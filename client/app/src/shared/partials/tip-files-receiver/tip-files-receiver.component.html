@@ -47,7 +47,7 @@
                               <span>
                                 <button class="btn btn-sm btn-outline-secondary"
  [ngbTooltip]="'Mask' | translate"
-                                  (click)="redactFileOperation('full-mask', 'file', file)" type="button" [attr.aria-label]="'Mask' | translate">
+                                  (click)="redactFileOperation('full-mask', 'file', file, tipService.tip.id)" type="button" [attr.aria-label]="'Mask' | translate">
                                   <i class="fas fa-eraser"></i>
                                 </button>
                               </span>
@@ -59,7 +59,7 @@
                                     [ngClass]="{ 'active': redactMode }"
  [ngbTooltip]="'Mask' | translate"
                                     [attr.disabled]="!redactMode ? true : null"
-                                    (click)="redactFileOperation('full-unmask', 'file', file)" type="button" [attr.aria-label]="'Mask' | translate">
+                                    (click)="redactFileOperation('full-unmask', 'file', file, tipService.tip.id)" type="button" [attr.aria-label]="'Mask' | translate">
                                     <i class="fas fa-eraser"></i>
                                   </button>
                                 }
@@ -67,7 +67,7 @@
                                   <button class="btn btn-sm btn-danger tip-action-delete-file"
  [ngbTooltip]="'Redact' | translate"
                                     [attr.disabled]="!redactMode ? true : null"
-                                    (click)="redactFileOperation('redact', 'file', file)" type="button" [attr.aria-label]="'Redact' | translate">
+                                    (click)="redactFileOperation('redact', 'file', file, tipService.tip.id)" type="button" [attr.aria-label]="'Redact' | translate">
                                     <i class="fas fa-trash"></i>
                                   </button>
                                 }

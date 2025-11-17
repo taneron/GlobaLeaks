@@ -45,7 +45,7 @@ export class TipFilesReceiverComponent implements OnInit {
     return data;
   }
 
-  redactFileOperation(operation: string, content_type: string, file: any) {
+  redactFileOperation(operation: string, content_type: string, file: any, tip_id: string) {
     const redactionData:RedactionData= {
       reference_id: file.ifile_id,
       internaltip_id: this.tipService.tip.id,
@@ -64,9 +64,9 @@ export class TipFilesReceiverComponent implements OnInit {
 
     if (redaction) {
       redactionData.id = redaction.id;
-      this.tipService.updateRedaction(redactionData);
+      this.tipService.updateRedaction(redactionData, tip_id);
     } else {
-      this.tipService.newRedaction(redactionData);
+      this.tipService.newRedaction(redactionData, tip_id);
     }
   }
 }
