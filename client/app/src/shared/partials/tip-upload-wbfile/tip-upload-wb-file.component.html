@@ -42,7 +42,7 @@
                   <div>
                     <span>{{'File size not accepted.'|translate}}</span> {{errorFile?.name}} {{'Maximum file size is:' | translate}} {{appDataService.public.node.maximum_filesize}} MB
                   </div>
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissError();errorFile?.cancel(); showError=false"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissError();errorFile?.cancel(); showError=false"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></button>
                 </div>
               </div>
             }

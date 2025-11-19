@@ -76,7 +76,7 @@ def db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, receiver_id)
                                                         models.ReceiverTip.internaltip_id == itip.id).one_or_none()
 
     if existing:
-        return
+        return None, None
 
     new_receiver = db_get(session,
                           models.User,

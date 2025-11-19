@@ -18,6 +18,9 @@ describe("Admin configure files", () => {
 
     cy.get(".modal [type='password']").clear().type(Cypress.env("user_password"));
     cy.get(".modal .btn-primary").click();
+
+    cy.takeScreenshot("admin/site_settings_files");
+
     cy.get("[name='authenticationData.session.permissions.can_upload_files']").should("be.checked");
 
     const customCSSFile = "files/test.css";

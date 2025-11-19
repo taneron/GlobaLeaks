@@ -242,6 +242,9 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
       return cy.get(locator).screenshot("../" + filename, {overwrite: true});
     }
 
+    // Ensure the screenshot does not include signs of mouse position/clicks
+    cy.get('body').click(0, 0);
+
     return cy.screenshot("../" + filename, {
       capture: "fullPage",
       overwrite: true,

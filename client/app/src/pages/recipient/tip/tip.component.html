@@ -35,12 +35,12 @@
 
             <!-- Access Management Dropdown -->
             @if (preferencesService.dataModel.can_grant_access_to_reports || preferencesService.dataModel.can_transfer_access_to_reports) {
-              <div class="btn-group" ngbDropdown placement="bottom-left">
-                <button class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
-                  ngbTooltip="{{'Users' | translate}}" id="usersDropdown">
+              <div id="usersDropdown" class="btn-group" ngbDropdown placement="bottom-left">
+                <button id="usersDropdownButton" class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
+                  ngbTooltip="{{'Users' | translate}}">
                   <i class="fas fa-users"></i>
                 </button>
-                <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="usersDropdown">
+                <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="usersDropdownButton">
                   @if (preferencesService.dataModel.can_grant_access_to_reports) {
                     <button id="tip-action-grant-access" class="dropdown-item" (click)="openGrantTipAccessModal()">
                       <i class="fas fa-user-plus me-2"></i>{{'Grant access' | translate}}
@@ -58,13 +58,11 @@
               </div>
             }
 
-            <!-- Actions Dropdown -->
-            <div class="btn-group" ngbDropdown placement="bottom-left">
-              <button class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
-                ngbTooltip="{{'Options' | translate}}" id="actionsDropdown">
-                <i class="fas fa-cog"></i>
+            <div id="actionsDropdown" class="btn-group" ngbDropdown placement="bottom-left">
+              <button id="actionsDropdownButton" class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
+                ngbTooltip="{{'Options' | translate}}">
               </button>
-              <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="actionsDropdown">
+              <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="actionsDropdownButton">
                 @if (!tip || tip.context) {
                   @if (!tip || preferencesService.dataModel.can_postpone_expiration) {
                     <button id="tip-action-postpone" class="dropdown-item" (click)="tipPostpone()">
@@ -77,7 +75,6 @@
                     <i class="fas fa-eraser me-2"></i>{{'Mask' | translate}}
                   </button>
                 }
-                <div class="dropdown-divider"></div>
                 @if (tip.status !== 'closed') {
                   <button id="tip-action-change-status" class="dropdown-item" (click)="openModalChangeState()">
                     <i class="fas fa-dot-circle me-2"></i>{{'Change status' | translate}}
@@ -89,8 +86,7 @@
                   </button>
                 }
                 @if (preferencesService.dataModel.can_delete_submission) {
-                  <div class="dropdown-divider"></div>
-                  <button class="dropdown-item text-danger" (click)="tipDelete()">
+                  <button id="tip-action-delete-report" class="dropdown-item text-danger" (click)="tipDelete()">
                     <i class="fas fa-trash me-2"></i>{{'Delete' | translate}}
                   </button>
                 }
@@ -102,12 +98,12 @@
           <div class="d-flex align-items-center gap-1">
 
             <!-- Export Dropdown -->
-            <div class="btn-group" ngbDropdown placement="bottom-right">
-              <button class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
-                ngbTooltip="{{'Export' | translate}}" id="exportDropdown">
+            <div id="exportDropdown" class="btn-group" ngbDropdown placement="bottom-right">
+              <button id="exportDropdownButton" class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle
+                ngbTooltip="{{'Export' | translate}}">
                 <i class="fas fa-download"></i>
               </button>
-              <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="exportDropdown">
+              <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="exportDropdownButton">
                 <button id="tip-action-export" class="dropdown-item" (click)="exportTip(tip.id)">
                   <i class="fas fa-download me-2"></i>{{'Download' | translate}}
                 </button>
@@ -120,7 +116,7 @@
             <!-- Refresh Button -->
             <span id="link-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}"
               class="btn btn-outline-secondary">
-              <i class="fas fa-sync"></i>
+              <i class="fas fa-rotate"></i>
             </span>
           </div>
         </div>
@@ -142,18 +138,18 @@
     }
     <div class="row">
       <div [ngClass]="{'col-md-12': !(tip && tip.identity_provided),'col-md-6': (tip && tip.identity_provided)}">
-        <src-tip-questionnaire-answers [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle"
+        <src-tip-questionnaire-answers id="ReportAnswers" [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle"
         [redactMode]="redactMode"></src-tip-questionnaire-answers>
       </div>
       @if (tip && tip.identity_provided) {
         <div class="col-md-6">
-          <src-whistleblower-identity-receiver [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode"></src-whistleblower-identity-receiver>
+          <src-whistleblower-identity-receiver id="Identity" [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode"></src-whistleblower-identity-receiver>
         </div>
       }
     </div>
     <div class="row">
       <div class="col-md-12">
-        <src-tip-files-receiver [redactMode]="redactMode"></src-tip-files-receiver>
+        <src-tip-files-receiver id="ReportAttachments" [redactMode]="redactMode"></src-tip-files-receiver>
       </div>
     </div>
     <ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="active">

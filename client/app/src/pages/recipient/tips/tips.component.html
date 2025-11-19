@@ -1,43 +1,31 @@
 @if (RTips.dataModel && RTips.dataModel && filteredTips) {
   <div id="Toolbar" class="row">
     <div class="col-md-12">
-      <a id="link-home" routerLink="/recipient/home" ngbTooltip="{{'Home' | translate}}" class="btn btn-outline-secondary">
-        <i class="fas fa-arrow-left"></i>
-      </a>
-      @if (selectedTips.length !== RTips.dataModel.length ) {
-        <span id="tip-action-select-all" (click)="selectAll()" ngbTooltip="{{'Select all' | translate}}" class="btn btn-outline-secondary">
-          <i class="fas fa-square"></i>
-        </span>
-      }
-      @if (selectedTips.length === RTips.dataModel.length) {
-        <span id="tip-action-select-all" (click)="deselectAll()" ngbTooltip="{{'Deselect all' | translate}}" class="btn btn-outline-secondary">
-          <i class="fas fa-square-check"></i>
-        </span>
-      }
-      @if (selectedTips.length) {
-        <span>
-          @if (preference.dataModel.can_grant_access_to_reports) {
-            <span id="tip-action-grant-access-selected" (click)="openGrantAccessModal()" ngbTooltip="{{'Grant access' | translate}}" class="btn btn-outline-secondary">
-              <i class="fas fa-user-plus"></i>
-            </span>
-          }
-          @if (preference.dataModel.can_grant_access_to_reports) {
-            <span id="tip-action-revoke-access-selected" (click)="openRevokeAccessModal()" ngbTooltip="{{'Revoke access' | translate}}" class="btn btn-outline-secondary">
-              <i class="fas fa-user-minus"></i>
-            </span>
-          }
-          <span id="tip-action-export-selected" (click)="exportTips()" ngbTooltip="{{'Export' | translate}}" class="btn btn-outline-secondary">
-            <i class="fas fa-download"></i>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-1">
+          <a id="link-home" routerLink="/recipient/home" ngbTooltip="{{'Home' | translate}}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i>
+          </a>
+
+          <span id="tip-action-act-as-whistleblower" (click)="actAsWhistleblower()" ngbTooltip="{{'Act on behalf of a whistleblower' | translate}}"
+            class="btn btn-outline-secondary">
+            <i class="fas fa-handshake-angle"></i>
           </span>
-        </span>
-      }
-      <span id="tip-action-act-as-whistleblower" (click)="actAsWhistleblower()" ngbTooltip="{{'Act on behalf of a whistleblower' | translate}}"
-        class="btn btn-outline-secondary">
-        <i class="fas fa-handshake-angle"></i>
-      </span>
-      <span id="tip-action-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
-        <i class="fas fa-arrows-rotate"></i>
-      </span>
+        </div>
+
+        <div class="d-flex align-items-center gap-1">
+          @if (selectedTips.length) {
+            <span id="tip-action-export" (click)="exportTips()" ngbTooltip="{{'Export' | translate}}" class="btn btn-outline-secondary">
+              <i class="fas fa-download"></i>
+            </span>
+          }
+
+          <span id="link-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}"
+            class="btn btn-outline-secondary">
+            <i class="fas fa-arrows-rotate"></i>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
   <div id="TipList" class="row mt-2">
@@ -45,7 +33,18 @@
       <app-paginated-interface [mode]="'table'" [items]="filteredTips" orderBy="creation_date" [orderDesc]="true">
         <ng-template #header let-tip="item" let-index="index">
           <tr>
-            <th></th>
+            <th>
+              @if (selectedTips.length !== RTips.dataModel.length ) {
+                <span id="tip-action-select-all" (click)="selectAll()" ngbTooltip="{{'Select all' | translate}}">
+                  <i class="fas fa-square"></i>
+                </span>
+              }
+              @if (selectedTips.length === RTips.dataModel.length) {
+                <span id="tip-action-select-all" (click)="deselectAll()" ngbTooltip="{{'Deselect all' | translate}}">
+                  <i class="fas fa-square-check"></i>
+                </span>
+             }
+            </th>
             <th (click)="sortKey = 'important'; sortReverse = !sortReverse">
               <i class="fas fa-star"></i>
               @if (sortKey === 'important') {
@@ -298,12 +297,12 @@
           <tr id="tip-{{index}}" [ngClass]="[tip.updated ? 'fw-bold' : '', isSelected(tip.id) ? 'selectedTip' : '', !tip.accessible ? 'disabled' : '', 'report-status-' + tip.status, 'report-substatus-' + tip.substatus]" class="tip-action-open" (click)="utils.go('/reports/' + tip.id)">
             <td>
               @if (isSelected(tip.id)) {
-                <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
+                <span (click)="tipSwitch(tip.id); $event.stopPropagation();">
                   <i class="fas fa-square-check"></i>
                 </span>
               }
               @if (!isSelected(tip.id)) {
-                <span class="btn btn-sm btn-outline-secondary" (click)="tipSwitch(tip.id); $event.stopPropagation();">
+                <span (click)="tipSwitch(tip.id); $event.stopPropagation();">
                   <i class="fas fa-square"></i>
                 </span>
               }

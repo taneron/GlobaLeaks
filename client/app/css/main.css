@@ -1173,7 +1173,7 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
   padding: 0.3em !important;
 }
 
-.modal-btn-close {
+.btn-close {
   all: unset;
   margin-left: auto;
 }
