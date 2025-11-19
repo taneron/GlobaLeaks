@@ -420,7 +420,7 @@ h6 {
   font-size: 23px;
   font-weight: bold;
   color: #737373;
-  background: #00000000;
+  background: #000000;
   border: none;
   position: absolute;
   right: 10px;
@@ -1138,14 +1138,13 @@ body .dropdown-visible > div.multiselect-dropdown > div > span.dropdown-btn {
 }
 
 .visually-hidden:not(:focus):not(:active) {
-  height: 1px;
-  overflow: hidden;
   position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  clip-path: inset(1px);
-  border: 0;
   overflow: hidden;
+  height: 1px;
+  width: 1px;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(1px);
 }
 
 .custom-date-selector {
