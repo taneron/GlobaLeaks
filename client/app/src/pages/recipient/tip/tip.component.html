@@ -61,6 +61,7 @@
             <div id="actionsDropdown" class="btn-group" ngbDropdown placement="bottom-left">
               <button id="actionsDropdownButton" class="btn btn-outline-secondary dropdown-toggle" type="button" ngbDropdownToggle
                 ngbTooltip="{{'Options' | translate}}">
+                <i class="fas fa-gear"></i>
               </button>
               <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="actionsDropdownButton">
                 @if (!tip || tip.context) {
@@ -116,7 +117,7 @@
             <!-- Refresh Button -->
             <button id="link-reload" type="button" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}"
               class="btn btn-outline-secondary" [attr.aria-label]="'Refresh' | translate">
-              <i class="fas fa-rotate"></i>
+              <i class="fas fa-arrows-rotate"></i>
             </button>
           </div>
         </div>
