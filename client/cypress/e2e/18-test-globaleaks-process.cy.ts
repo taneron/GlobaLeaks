@@ -159,8 +159,6 @@ describe("globaleaks process", function () {
       cy.takeScreenshot("recipient/modal_mask_2", ".modal-dialog");
     });
     cy.get("#save_masking").click();
-    cy.get('#actionsDropdown').click();
-    cy.get('[id="tip-action-mask"]').should('be.visible').click();
     cy.get("#edit-question").should('be.visible').first().click();
     cy.get('textarea[name="controlElement"]').should('be.visible').then((textarea: any) => {
       const val = textarea.val();
