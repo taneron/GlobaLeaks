@@ -7,7 +7,7 @@
             <i class="fas fa-arrow-left"></i>
           </a>
 
-          <button id="tip-action-act-as-whistleblower" type="button" (click)="actAsWhistleblower()" ngbTooltip="{{'File a report' | translate}}" [attr.aria-label]="'File a report' | translate"
+          <button id="tip-action-act-as-whistleblower" type="button" (click)="actAsWhistleblower()" ngbTooltip="{{'Enter a report' | translate}}" [attr.aria-label]="'Enter a report' | translate"
             class="btn btn-outline-secondary">
             <i class="fas fa-file-pen"></i>
           </button>
@@ -344,10 +344,10 @@
               </td>
               <td class="TipInfoLastAccess">
                 @if (tip.last_access >= tip.update_date) {
-                  <span ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
+                  <span ngbTooltip="{{'The reporting person has already read the last update' | translate}} ({{tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
                 }
                 @if (tip.last_access < tip.update_date) {
-                  <span ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}"><i class="fas fa-xmark"></i></span>
+                  <span ngbTooltip="{{'The reporting person has not read the last update yet' | translate}}"><i class="fas fa-xmark"></i></span>
                 }
               </td>
               <td class="TipInfoComments">{{tip.comment_count}}</td>

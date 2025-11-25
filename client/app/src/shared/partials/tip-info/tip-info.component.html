@@ -107,10 +107,10 @@
             @if (authenticationService.session?.role === 'receiver') {
               <td class="TipInfoLastAccess">
                 @if (tipService.tip.last_access >= tipService.tip.update_date) {
-                  <span ngbTooltip="{{'The whistleblower has already read the last update' | translate}} ({{tipService.tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
+                  <span ngbTooltip="{{'The reporting person has already read the last update' | translate}} ({{tipService.tip.last_access | date:'dd-MM-yyyy HH:mm'}})"><i class="fas fa-check"></i></span>
                 }
                 @if (tipService.tip.last_access < tipService.tip.update_date) {
-                  <i class="fas fa-xmark" ngbTooltip="{{'The whistleblower has not read the last update yet' | translate}}">
+                  <i class="fas fa-xmark" ngbTooltip="{{'The reporting person has not read the last update yet' | translate}}">
                   </i>
                 }
               </td>

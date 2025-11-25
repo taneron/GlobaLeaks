@@ -362,7 +362,7 @@ class ExportMessageKeyword(TipKeyword):
     data_keys = TipKeyword.data_keys + ['comment']
 
     def Author(self):
-        return 'Recipient' if self.data['comment']['author_id'] else 'Whistleblower'
+        return 'Recipient' if self.data['comment']['author_id'] else 'Reporting person'
 
     def Content(self):
         return self.data['comment']['content']

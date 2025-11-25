@@ -161,10 +161,15 @@ This section is where whistleblowing channels could be created and managed.
 A whistleblowing channel is typically defined by the following main characteristics
 
     Name: the name of the channel
+
     Image: an image to identify the channel
+
     Description: a description of the channel
+
     Recipients: the set of recipients that will receive reports sent to this channel
+
     Questionnaire: the questionnaire that will be proposed to whistleblowers selecting this channel
+
     Submission expiration: the data retention policy for the channel
 
 The system with the basic configuration completed with the initial platform wizard is configured with a single Channel called Default, on which is associated a recipient and the default questionnaire.
@@ -202,6 +207,7 @@ Notification
 This is the section where are configured all the aspects related to the mail notifications sent by the software.
 
 The section is furtherly divided in:
+
    1. Notification Settings
 
    2. Notification Templates
@@ -229,6 +235,7 @@ Network
 In this section are configured the network settings.
 
 The section is furtherly divided in:
+
    1. HTTPS
 
    2. Tor

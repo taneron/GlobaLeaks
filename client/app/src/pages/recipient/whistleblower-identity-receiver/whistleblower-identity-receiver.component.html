@@ -15,7 +15,7 @@
       @if (tipService.tip.iar && tipService.tip.iar.reply !== 'authorized') {
         <div>
           <div>
-            <label>{{"Access to the whistleblower's identity has been requested to the custodian." | translate}}</label>
+            <label>{{"Access to the reporting person's identity has been requested to the custodian." | translate}}</label>
           </div>
           <div>
             <label>{{'Date of the request' | translate}}</label>
@@ -61,7 +61,7 @@
           @if (!tipService.tip.iar || tipService.tip.iar.reply === 'denied') {
             <div>
               @if (tipService.tip.custodian) {
-                <button class="btn btn-sm btn-primary" id="identity_access_request" (click)="fileIdentityAccessRequest()">{{"Request access to the whistleblower's identity" | translate}}</button>
+                <button class="btn btn-sm btn-primary" id="identity_access_request" (click)="fileIdentityAccessRequest()">{{"Request access to the reporting person's identity" | translate}}</button>
               }
               @if (!tipService.tip.custodian) {
                 <button class="btn btn-sm btn-primary" (click)="accessIdentity()">{{'Show' | translate}}</button>

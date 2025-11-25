@@ -28,7 +28,7 @@
     </div>
     @if (authenticationService.session?.role === 'admin') {
       <div class="form-group">
-        <label for="node-whistleblowing-question">{{ 'Question to solicit possible whistleblowers' | translate }}</label>
+        <label for="node-whistleblowing-question">{{ 'Question to solicit possible reporting persons' | translate }}</label>
         <div>
           <textarea id="node-whistleblowing-question" name="node.dataModel.whistleblowing_question" class="form-control" [(ngModel)]="nodeResolver.dataModel.whistleblowing_question"></textarea>
         </div>

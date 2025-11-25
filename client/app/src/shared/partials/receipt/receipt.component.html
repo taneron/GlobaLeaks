@@ -1,7 +1,7 @@
 <form id="WhistleblowerLoginForm" autocomplete="off" novalidate>
   <div>
     <label id="WhistleblowerLoginQuestion" for="receipt-input">
-      {{'Have you already filed a report? Enter your receipt.'|translate}}
+      {{'Have you already submitted a report? Enter your access code.'|translate}}
     </label>
   </div>
   <div class="form-group d-block mx-auto">
@@ -18,6 +18,6 @@
 </form>
 @if (appDataService.errorCodes.code === 9) {
   <div class="login-error-box-homepage text-danger">
-    {{'The receipt is either invalid or the report has expired.'|translate}}
+    {{'The access code is either invalid or the report has expired.'|translate}}
   </div>
 }
