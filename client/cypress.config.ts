@@ -37,7 +37,7 @@ export default defineConfig({
 
       on("before:browser:launch", (browser, launchOptions) => {
         if (browser.family === "chromium") {
-          launchOptions.args.push("--window-size=1280,720");
+          launchOptions.args.push("--window-size=1920,1080");
           launchOptions.args.push("--force-device-scale-factor=1");
           launchOptions.args.push("--force-color-profile=srgb");
           launchOptions.args.push("--disable-low-res-tiling");

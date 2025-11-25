@@ -12,18 +12,14 @@
   </div>
   @if (!collapsed) {
     <div class="card-body">
-      <div id="TipCommentsInputBox" class="row">
-        <div class="col-md-12 clearfix">
-          <label for="new-comment-content" class="visually-hidden">{{ 'Comment' | translate }}</label>
-          <textarea id="new-comment-content" [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off" autoExpand></textarea>
-          <span class="float-end">{{newCommentContent.length ? newCommentContent.length : '0'}}/4096</span>
-        </div>
-        <div class="col-md-12 clearfix">
-          <button id="comment-action-send" class="btn btn-primary" (click)="newComment()" [disabled]="!newCommentContent">
-            <i class="fas fa-comment"></i>
-            <span>{{'Send'|translate}}</span>
-          </button>
-        </div>
+      <div id="TipCommentsInputBox">
+        <label for="new-comment-content" class="visually-hidden">{{ 'Comment' | translate }}</label>
+        <textarea id="new-comment-content" [(ngModel)]="newCommentContent" name="newCommentContent" maxlength="4096" class="form-control" autocomplete="off" autoExpand></textarea>
+        <span class="float-end">{{newCommentContent.length ? newCommentContent.length : '0'}}/4096</span>
+        <button id="comment-action-send" class="btn btn-primary mt-2" (click)="newComment()" [disabled]="!newCommentContent">
+          <i class="fas fa-comment"></i>
+          <span>{{'Send'|translate}}</span>
+        </button>
       </div>
       @if (tipService.tip.comments && tipService.tip.comments.length) {
         <app-paginated-interface data-cy="SubmissionComments" id="SubmissionComments" [items]="tipService.tip.comments" [filterField]="'content'" [itemsPerPage]="10"   [filter]="{ visibility: key }" orderBy="creation_date" [orderDesc]="true">

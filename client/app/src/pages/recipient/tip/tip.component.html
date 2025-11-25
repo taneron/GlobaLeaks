@@ -181,7 +181,7 @@
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
         <div class="row">
           <ng-template #tab1>
-            <div class="col-md-12">
+            <div class="col-md-6 col-sm-12">
               <src-tip-upload-wbfile id="TipUploadBox" [tip]="tip" (dataToParent)="listenToFields()" [key]="'public'"></src-tip-upload-wbfile>
               @if (tip && tip.context) {
                 <src-tip-comments id="TipCommentsBox" [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode" [key]="'public'"></src-tip-comments>
@@ -189,7 +189,7 @@
             </div>
           </ng-template>
           <ng-template #tab2>
-            <div class="col-md-12">
+            <div class="col-md-6 col-md-12">
               <src-tip-upload-wbfile id="TipUploadBox" [tip]="tip" (dataToParent)="listenToFields()" [key]="'internal'"></src-tip-upload-wbfile>
               @if (tip && tip.context) {
                 <src-tip-comments id="TipCommentsBox" [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode" [key]="'internal'"></src-tip-comments>
@@ -197,7 +197,7 @@
             </div>
           </ng-template>
           <ng-template #tab3>
-            <div class="col-md-12">
+            <div class="col-md-6 col-md-12">
               <src-tip-upload-wbfile id="TipUploadBox" [tip]="tip" (dataToParent)="listenToFields()" [key]="'personal'"></src-tip-upload-wbfile>
               @if (tip && tip.context) {
                 <src-tip-comments id="TipCommentsBox" [tipService]="RTipService" [redactOperationTitle]="redactOperationTitle" [redactMode]="redactMode" [key]="'personal'"></src-tip-comments>

@@ -1,7 +1,7 @@
 describe("Recipient first login", () => {
   it("should require password change upon successful authentication", () => {
     cy.login_receiver("Recipient", Cypress.env("init_password"), "#/login", true);
-    cy.get('input[name="changePasswordArgs.password"]').should('be.visible')
+    cy.get('input[name="changePasswordArgs.password"]').should('be.visible');
     cy.takeScreenshot("user/password_change_on_first_login");
     cy.get('input[name="changePasswordArgs.password"]').should('be.visible').clear().type(Cypress.env("user_password"));
     cy.get('input[name="changePasswordArgs.confirm"]').type(Cypress.env("user_password"));
@@ -12,7 +12,12 @@ describe("Recipient first login", () => {
     cy.takeScreenshot("user/preferences");
 
     cy.get('#tab2').click();
-    cy.takeScreenshot("user/password");
+    cy.takeScreenshot("user/password_change");
+
+    cy.get("#SupportLink").click();
+    cy.get("#support-request-email").clear();
+    cy.takeScreenshot("user/modal_support", ".modal-dialog");
+    cy.get(".modal #modal-action-cancel").click();
 
     cy.logout();
   });
@@ -29,6 +34,7 @@ describe("Recipient first login", () => {
     cy.get( "#account_recovery_key").click();
     cy.get("[name='secret']").type(Cypress.env("user_password"));
     cy.get("#confirm").click();
+    cy.get('#AccountRecoveryKey').should('be.visible');
     cy.takeScreenshot("user/recoverykey", ".modal-dialog");
     cy.get("#close").click();
   });
@@ -38,6 +44,7 @@ describe("Recipient first login", () => {
     cy.waitForUrl("/recipient");
     cy.visit("/#/recipient/preferences");
     cy.get("[name='two_factor']").click();
+    cy.wait(1000);
     cy.takeScreenshot("user/2fa", ".modal-dialog");
     cy.get("#close").click();
   });

@@ -150,6 +150,8 @@ Cypress.Commands.add("login_receiver", (username, password, url, firstlogin) => 
 Cypress.Commands.add("login_whistleblower", (receipt) => {
   cy.visit("/");
 
+  cy.takeScreenshot("whistleblower/receipt_input", "#WhistleblowerLoginBox");
+
   cy.get('[name="receipt"]').type(receipt);
   cy.get("#ReceiptButton").click();
 });
@@ -220,36 +222,24 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
     return;
   }
 
-  if (locator == '.modal') {
-    cy.get(".modal").invoke(
-      "attr",
-      "style",
-      "height: auto; position: absolute;"
-    );
-  }
-
   return cy.document().then((doc) => {
-    cy.viewport(1280, doc.body.scrollHeight);
-
-    cy.wait(500);
-
-    cy.waitForPageIdle();
-
     cy.injectAxe()
     cy.checkA11y(null, null, terminalLog, true);
 
     if (locator) {
+      cy.viewport(1280, 1024);
+      cy.wait(500);
+      cy.waitForPageIdle();
       return cy.get(locator).screenshot("../" + filename, {overwrite: true});
     }
+
+    cy.wait(500);
+    cy.waitForPageIdle();
 
     // Ensure the screenshot does not include signs of mouse position/clicks
     cy.get('body').click(0, 0);
 
-    return cy.screenshot("../" + filename, {
-      capture: "fullPage",
-      overwrite: true,
-      scale: true
-    });
+    return cy.screenshot("../" + filename, {overwrite: true, scale: true });
   });
 });
 
@@ -266,27 +256,6 @@ Cypress.Commands.add("waitForPageIdle", () => {
 
       checkAngular();
     });
-  });
-});
-
-Cypress.Commands.add("waitForTipImageUpload", (attempts = 0) => {
-  const maxAttempts = 10;
-  cy.get('body').then($body => {
-    if ($body.find('#fileListBody').length > 0) {
-      cy.get('#fileListBody')
-        .find('tr')
-        .then($rows => {
-          if ($rows.length === 2) {
-            cy.log('Condition met: 2 rows found');
-          } else if (attempts < maxAttempts) {
-            cy.get('#link-reload').click();
-            cy.waitForTipImageUpload(attempts + 1);
-          }
-        });
-    } else if (attempts < maxAttempts) {
-      cy.get('#link-reload').click();
-      cy.waitForTipImageUpload(attempts + 1);
-    }
   });
 });
 

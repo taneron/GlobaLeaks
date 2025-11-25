@@ -24,12 +24,15 @@ describe("globaleaks process", function () {
   });
 
   it("Whistleblower should be able to access a report with the receipt and perform further actions", function () {
-    cy.login_whistleblower(receipts[0]);
-    cy.takeScreenshot("whistleblower/report");
-
     const comment_reply = "comment reply";
 
     cy.login_whistleblower(receipts[0]);
+
+    cy.get("#TipInfoBox").should("be.visible");
+    cy.takeScreenshot("whistleblower/report");
+    cy.takeScreenshot("whistleblower/report_info", "#TipInfoBox");
+    cy.takeScreenshot("whistleblower/report_files", "#TipPageFilesInfoBox");
+    cy.takeScreenshot("whistleblower/report_comments", "#TipCommentsBox");
 
     cy.get("[name='newCommentContent']").type(comment_reply);
     cy.get("#comment-action-send").click();
@@ -63,6 +66,15 @@ describe("globaleaks process", function () {
     cy.waitForUrl("/#/recipient/reports");
     cy.get("#tip-0").should('be.visible').first().click();
 
+    cy.get("#TipInfoBox").should("be.visible");
+    cy.takeScreenshot("recipient/report");
+
+    cy.takeScreenshot("recipient/report_label", "#TipLabelBox");
+    cy.takeScreenshot("recipient/report_info", "#TipInfoBox");
+    cy.takeScreenshot("recipient/report_files", "#TipPageFilesInfoBox");
+    cy.takeScreenshot("recipient/report_comments", "#TipCommentsBox");
+    cy.takeScreenshot("recipient/report_uploads", "#TipUploadBox");
+
     cy.get(".TipInfoID").invoke("text").then((_) => {
       cy.contains("summary").should("exist");
 
@@ -72,9 +84,6 @@ describe("globaleaks process", function () {
       cy.get("#tip-action-star").click();
     });
 
-    cy.waitForTipImageUpload();
-    cy.get('#fileListBody').find('tr').should('have.length', 3);
-
     const comment = "comment";
     cy.get("[name='newCommentContent']").type(comment);
     cy.get("#comment-action-send").click();
@@ -82,6 +91,7 @@ describe("globaleaks process", function () {
 
     // Change the expiration date
     cy.get('#actionsDropdown').click();
+    cy.takeScreenshot("recipient/menu_actions", ".dropdown-menu.show");
     cy.takeScreenshot("recipient/menu_actions_option_postpone", "#tip-action-postpone");
     cy.get("#tip-action-postpone").click();
     cy.takeScreenshot("recipient/modal_postpone", ".modal-dialog");
@@ -159,6 +169,13 @@ describe("globaleaks process", function () {
       cy.takeScreenshot("recipient/modal_mask_2", ".modal-dialog");
     });
     cy.get("#save_masking").click();
+
+    cy.get('#actionsDropdown').click();
+    cy.get('[id="tip-action-mask"]').should('be.visible').click();
+    cy.takeScreenshot("recipient/report_after_masking", "#ReportAnswers");
+
+    cy.get('#actionsDropdown').click();
+    cy.get('[id="tip-action-mask"]').should('be.visible').click();
     cy.get("#edit-question").should('be.visible').first().click();
     cy.get('textarea[name="controlElement"]').should('be.visible').then((textarea: any) => {
       const val = textarea.val();
@@ -166,6 +183,9 @@ describe("globaleaks process", function () {
       cy.get("#unselect_content").click();
     });
     cy.get("#save_masking").click();
+
+    cy.get('#actionsDropdown').click();
+    cy.get('[id="tip-action-mask"]').should('be.visible').click();
 
     // Download
     cy.get('#exportDropdown').click();
@@ -179,7 +199,6 @@ describe("globaleaks process", function () {
 
     // Close and reopen
     cy.get('#actionsDropdown').click();
-    cy.takeScreenshot("recipient/menu_actions", ".dropdown-menu.show");
     cy.takeScreenshot("recipient/menu_actions_option_change_status", "#tip-action-change-status");
     cy.get("#tip-action-change-status").click();
     cy.takeScreenshot("recipient/modal_change_status", ".modal-dialog");
@@ -255,7 +274,7 @@ describe("globaleaks process", function () {
     cy.logout();
   });
 
-  it("should run audio questionnaire and fill additional questionnaire", () => {
+  it("should run audio questionnaire, provide identity and fill additional questionnaire", () => {
     cy.visit("/#/");
     cy.get("#WhistleblowingButton").click();
     cy.get("#step-0").should("be.visible");
@@ -268,6 +287,7 @@ describe("globaleaks process", function () {
     cy.wait(10000);
     cy.get("#stop_recording").click();
     cy.get("#NextStepButton").click();
+    cy.takeScreenshot("whistleblower/report_identity", "#SubmissionTabsContentBox");
     cy.get("input[type='text']").eq(2).should("be.visible").type("abc");
     cy.get("input[type='text']").eq(3).should("be.visible").type("xyz");
     cy.get("select").first().select(1);

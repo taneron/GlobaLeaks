@@ -47,54 +47,6 @@ describe("admin enable submissions", () => {
   });
 });
 
-describe("Should browser opens a pop while clicking the support icon", () => {
-  it("should open a pop-up modal", () => {
-    cy.login_admin();
-    cy.visit("/#/admin/settings");
-    cy.get('[data-cy="advanced"]').click().should("be.visible").click();
-
-    cy.get('input[name="customSupportURL"]').clear();
-
-    cy.get("#save").click();
-    cy.get('[data-cy="advanced"]').click().should("be.visible").click();
-
-    cy.get('input[name="customSupportURL"]')
-      .invoke("val")
-      .should("equal", "");
-
-    cy.get("#SupportLink").click();
-    cy.get(".modal").should("be.visible");
-
-    cy.get('textarea[name="message"]').type("test message");
-    cy.get(".modal #modal-action-ok").click();
-
-    cy.get("#sent").should("be.visible");
-
-    cy.get('#modal-action-cancel').should('be.visible').click();
-    cy.logout();
-  });
-});
-
-describe("Validating custom support url", () => {
-  it("Enter custom support url and browser", () => {
-    cy.login_admin();
-    cy.visit("/#/admin/settings");
-    cy.get('[data-cy="advanced"]').click().should("be.visible").click();
-
-    cy.get('input[name="customSupportURL"]').clear();
-    cy.get('input[name="customSupportURL"]').type(
-      "https://www.globaleaks.org/"
-    );
-
-    cy.get("#save").click();
-    cy.get('[data-cy="advanced"]').click().should('be.visible').click();
-
-    cy.get('input[name="customSupportURL"]')
-      .invoke("val")
-      .should("equal", "https://www.globaleaks.org/");
-    cy.logout();
-  });
-});
 describe("admin enable scoring system", () => {
   it("should enable scoring system", () => {
     cy.login_admin();

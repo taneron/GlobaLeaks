@@ -1,10 +1,10 @@
 * {
+  animation: none !important;
   transition: none !important;
 }
 
 .reveal {
   opacity: 1;
-  animation: fadeIn 0s forwards;
 }
 
 #PageOverlay,
