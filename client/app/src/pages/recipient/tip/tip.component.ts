@@ -1,4 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild, inject} from "@angular/core";
+import {FormsModule} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppConfigService} from "@app/services/root/app-config.service";
 import {TipService} from "@app/shared/services/tip-service";
@@ -46,29 +47,30 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
     templateUrl: "./tip.component.html",
     standalone: true,
     imports: [
-    NgClass,
-    TipInfoComponent,
-    TipReceiverListComponent,
-    TipQuestionnaireAnswersComponent,
-    WhistleBlowerIdentityReceiverComponent,
-    TipFilesReceiverComponent,
-    NgbNav,
-    NgbNavItem,
-    NgbNavItemRole,
-    NgbNavLinkButton,
-    NgbNavLinkBase,
-    NgbNavContent,
-    NgTemplateOutlet,
-    NgbNavOutlet,
-    NgbTooltipModule,
-    NgbDropdown,
-    NgbDropdownToggle,
-    NgbDropdownMenu,
-    TipUploadWbFileComponent_1,
-    TipCommentsComponent_1,
-    TranslateModule,
-    TranslatorPipe
-],
+      FormsModule,
+      NgClass,
+      TipInfoComponent,
+      TipReceiverListComponent,
+      TipQuestionnaireAnswersComponent,
+      WhistleBlowerIdentityReceiverComponent,
+      TipFilesReceiverComponent,
+      NgbNav,
+      NgbNavItem,
+      NgbNavItemRole,
+      NgbNavLinkButton,
+      NgbNavLinkBase,
+      NgbNavContent,
+      NgTemplateOutlet,
+      NgbNavOutlet,
+      NgbTooltipModule,
+      NgbDropdown,
+      NgbDropdownToggle,
+      NgbDropdownMenu,
+      TipUploadWbFileComponent_1,
+      TipCommentsComponent_1,
+      TranslateModule,
+      TranslatorPipe
+    ],
 })
 export class TipComponent implements OnInit {
   private translateService = inject(TranslateService);
@@ -104,11 +106,11 @@ export class TipComponent implements OnInit {
   submission: any;
 
   ngOnInit() {
-    this.loadTipDate();
+    this.loadTipData();
     this.cdr.detectChanges();
   }
 
-  loadTipDate() {
+  loadTipData() {
     this.tip_id = this.activatedRoute.snapshot.paramMap.get("tip_id");
     this.redactOperationTitle = this.translateService.instant('Mask') + ' / ' + this.translateService.instant('Redact');
     const requestObservable: Observable<any> = this.httpService.receiverTip(this.tip_id);
@@ -157,6 +159,11 @@ export class TipComponent implements OnInit {
           component: this.tab3
         },
       ];
+    });
+  }
+
+  updateLabel(label: string) {
+    this.httpService.tipOperation("set", {"key": "label", "value": label}, this.RTipService.tip.id).subscribe(() => {
     });
   }
 
@@ -406,7 +413,7 @@ export class TipComponent implements OnInit {
   }
 
   listenToFields() {
-    this.loadTipDate();
+    this.loadTipData();
   }
 
   protected readonly JSON = JSON;

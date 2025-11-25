@@ -7,7 +7,6 @@ Access date
 Access requested
 Access to the whistleblower's identity has been requested to the custodian.
 Account recovery key
-Act on behalf of a whistleblower
 Activities
 Add
 Add custom text
@@ -151,6 +150,7 @@ Example:
 Expand
 Expiration date
 Export
+File a report
 File size
 File size not accepted.
 Filename
@@ -401,6 +401,7 @@ Strong
 Subdomain
 Submissions disabled
 Submit
+Submit a report
 Subscribed
 Subscribed later
 Subscription date

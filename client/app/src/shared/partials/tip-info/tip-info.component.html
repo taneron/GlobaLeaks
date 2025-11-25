@@ -1,22 +1,4 @@
 <div id="TipInfoBox" class="card card-default">
-  @if (authenticationService.session?.role === 'receiver') {
-    <div class="card-header">
-      <div class="row justify-content-between">
-        <div class="col-md-12 p-0">
-          <div class="float-start">
-            <span class="input-group ms-1">
-              <input id="assignLabelInput" type="text" class="form-control m-0" placeholder="{{'Label' | translate}}" [(ngModel)]="tipService.tip.label" />
-              <span class="input-group-append" ngbTooltip="{{'Label the report' | translate}} ">
-                <button id="assignLabelButton" class="btn btn-primary rounded-start-0 m-0" name="tip.label" (click)="updateLabel(tipService.tip.label)" [attr.aria-label]="'Label the report' | translate">
-                  <i class="fas fa-tag" aria-hidden="true"></i>
-                </button>
-              </span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  }
   <div class="card-body">
     <div class="text-center mb-2">
       <span class="fw-bold">ID:</span>

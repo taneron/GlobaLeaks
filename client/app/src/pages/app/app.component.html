@@ -27,7 +27,7 @@
             <src-demo></src-demo>
           </div>
         }
-        @if (utilsService.isWhistleblowerPage() && location.hash!=='#/admin/' && !appDataService.public.node.disable_privacy_badge) {
+        @if (!appDataService.public.node.disable_privacy_badge && utilsService.isWhistleblowerPage() && this.appDataService.page === "homepage") {
           <div>
             <src-privacybadge></src-privacybadge>
           </div>

@@ -805,6 +805,10 @@ p:last-child {
   border-radius: 5px;
 }
 
+#WhistleblowerLoginBox {
+  padding: 1em;
+}
+
 #MessagesConsoleBox {
   position: fixed;
   width: 30rem;
