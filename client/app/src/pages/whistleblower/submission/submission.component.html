@@ -6,7 +6,7 @@
   }
   @if (submission.context) {
     <div>
-      @if (appDataService.context_id || selectable_contexts.length) {
+      @if (appDataService.context_id || selectable_contexts.length > 1) {
         <div>
           <div class="title">{{submission.context.name}}</div>
           <div class="row">
