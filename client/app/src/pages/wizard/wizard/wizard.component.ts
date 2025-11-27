@@ -113,7 +113,7 @@ export class WizardComponent implements OnInit {
 
   goToAdminInterface() {
     const promise = () => {
-      this.translationService.onChange(this.translationService.language);
+      this.translationService.setLanguage(this.translationService.language);
       this.appConfigService.reinit(false);
       this.appConfigService.loadAdminRoute("/admin/home");
     };

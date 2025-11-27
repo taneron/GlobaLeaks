@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, inject} from "@angular/core";
+import {Component, ElementRef, OnInit, ViewChild, inject} from "@angular/core";
 import {AppConfigService} from "@app/services/root/app-config.service";
 import {Constants} from "@app/shared/constants/constants";
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
@@ -29,9 +29,7 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
     imports: [FormsModule, NgClass, DatePipe, TranslateModule, TranslatorPipe]
 })
 export class PreferenceTab1Component implements OnInit {
-  private translationService = inject(TranslationService);
   protected appConfigService = inject(AppConfigService);
-  private cdr = inject(ChangeDetectorRef);
   private translateService = inject(TranslateService);
   private httpService = inject(HttpService);
   private twoFactorAuthData = inject(TwoFactorAuthData);
@@ -171,13 +169,7 @@ export class PreferenceTab1Component implements OnInit {
     const requestObservable = this.httpService.updatePreferenceResource(JSON.stringify(this.preferenceResolver.dataModel));
     requestObservable.subscribe(
       {
-        next: _ => {
-          this.translationService.onChange(this.preferenceResolver.dataModel.language);
-          this.cdr.detectChanges();
-          this.translationService.onChange(this.languageModel);
-          this.appConfigService.reinit(false);
-          this.utilsService.reloadCurrentRouteFresh(true);
-        },
+        next: _ => {},
         error: _ =>{
           if (this.uploaderInput) {
             this.uploaderInput.nativeElement.value = "";

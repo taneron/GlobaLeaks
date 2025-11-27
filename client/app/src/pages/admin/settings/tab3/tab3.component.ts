@@ -20,9 +20,8 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
     imports: [FormsModule, NgSelectComponent, NgOptionTemplateDirective, NgbTooltipModule, TranslatorPipe, FilterPipe, TranslateModule]
 })
 export class Tab3Component implements OnInit {
-  private appDataService = inject(AppDataService);
-  private translationService = inject(TranslationService);
   private appConfigService = inject(AppConfigService);
+  private appDataService = inject(AppDataService);
   private utilsService = inject(UtilsService);
   protected nodeResolver = inject(NodeResolver);
 
@@ -71,11 +70,8 @@ export class Tab3Component implements OnInit {
   updateNode() {
     this.utilsService.update(this.nodeResolver.dataModel).subscribe(res => {
       this.appDataService.public.node.languages_enabled = res["languages_enabled"];
-      const reloadComponent = () => {
-        this.utilsService.reloadCurrentRoute();
-      };
-      this.translationService.onChange(res["default_language"], reloadComponent);
       this.appConfigService.reinit(false);
+      this.utilsService.reloadCurrentRoute();
     });
   }
 }

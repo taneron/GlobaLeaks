@@ -27,7 +27,7 @@
             <src-demo></src-demo>
           </div>
         }
-        @if (!appDataService.public.node.disable_privacy_badge && utilsService.isWhistleblowerPage() && this.appDataService.page === "homepage") {
+        @if (!appDataService.public.node.disable_privacy_badge && utilsService.isWhistleblowerPage()) {
           <div>
             <src-privacybadge></src-privacybadge>
           </div>

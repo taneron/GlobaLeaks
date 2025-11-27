@@ -27,18 +27,14 @@ export class TranslationService {
     this.currentDirection = this.utilsService.getDirection(this.translate.currentLang);
   }
 
-  onChange(language: string, callback?: () => void) {
-    this.language = language;
-    document.documentElement.dir = this.utilsService.getDirection(this.language);
-    sessionStorage.setItem("language", this.language);
-    this.changeLocale(this.language);
-    this.translate.setFallbackLang(this.language);
-    this.translate.use(this.language).subscribe(() => {
-      this.appDataService.language = this.language
-      window.GL.language = this.language
-      if (callback) {
-        callback();
-      }
-    });
+  setLanguage(language: string) {
+    if (!this.language || this.language != language) {
+      this.language = language;
+      window.GL.language = this.language;
+      sessionStorage.setItem("language", this.language);
+      document.documentElement.dir = this.utilsService.getDirection(this.language);
+      this.changeLocale(this.language);
+      this.translate.use(this.language);
+    };
   }
 }

@@ -208,7 +208,6 @@ export class UtilsService {
   }
 
   reloadCurrentRouteFresh(removeQueryParam = false) {
-
     let currentUrl = this.router.url;
     if (removeQueryParam) {
       currentUrl = this.router.url.split("?")[0];
