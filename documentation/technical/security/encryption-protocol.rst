@@ -31,6 +31,7 @@ Algorithms
 
    "Asymmetric encryption", "`Libsodium SealedBoxes <https://pynacl.readthedocs.io/en/latest/public/#nacl.public.SealedBox>`_, which combines Curve25519, XSalsa20, and Poly1305 algorithms."
    "Symmetric encryption", "`Libsodium SecretBoxes <https://pynacl.readthedocs.io/en/latest/secret/#nacl.secret.SecretBox>`_, which combines XSalsa20 and Poly1305."
+   "Files encryption", "`Libsodium SecretStream <https://pynacl.readthedocs.io/en/latest/secret/#nacl.secret.SecretStream>`_, used for encrypting files with authenticated streaming encryption. Random padding (~5%) is applied to obscure the exact file size."
 
 Users’ credentials
 ------------------
