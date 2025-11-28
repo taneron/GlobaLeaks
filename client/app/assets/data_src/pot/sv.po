@@ -59,14 +59,12 @@ msgid "Access requested"
 msgstr "Åtkomst begärd"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Åtkomst till visselblåsarens identitet har begärts av systemförvaltaren."
 
 msgid "Account recovery key"
 msgstr "Kod för kontoåterställning"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Agera å visselblåsarens vägnar"
 
 msgid "Activities"
 msgstr "Aktiviteter"
@@ -113,16 +111,16 @@ msgstr "Tillåt mottagaren att ändra rapportens utgångsdatum"
 msgid "Allow the recipient to delete reports"
 msgstr "Tillåt mottagaren att ta bort tips"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Tillåt att visselblåsaren lägger till bilagor till rapporten"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Tillåt att visselblåsaren skriver kommentarer"
 
 msgid "Allow users to sign up"
 msgstr "Tillåt användarna att registrera sig"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Tillåt att visselblåsarna får välja mottagare"
 
 msgid "Allowed IP addresses"
@@ -182,7 +180,7 @@ msgstr "Godkännande"
 msgid "Authorize"
 msgstr "Godkänn"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Tillåt åtkomst till visselblåsarens identitet"
 
 msgid "Authorized"
@@ -345,7 +343,7 @@ msgstr "Nekad"
 msgid "Deny"
 msgstr "Neka"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Neka åtkomst till visselblåsarens identitet"
 
 msgid "Description"
@@ -468,6 +466,9 @@ msgstr "Aktiverad"
 msgid "Enter a name for the copy"
 msgstr "Skriv in ett namn för denna kopia"
 
+msgid "Enter a report"
+msgstr "Agera å visselblåsarens vägnar"
+
 msgid "Enter the two factor authentication code"
 msgstr "Ange koden för tvåfaktorsautentisering"
 
@@ -589,7 +590,7 @@ msgstr "Ge åtkomst"
 msgid "Group of questions"
 msgstr "Grupp av frågor"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Har du redan lämnat en rapport? Ange din kod."
 
 msgid "Hidden"
@@ -867,6 +868,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "En eller flera mottagare har inte ännu gjort sin första inloggning. Detta innebär att de inte kommer att få rapporter."
 
+msgid "Open"
+msgstr "Öppna"
+
 msgid "Opened"
 msgstr "Öppnad"
 
@@ -963,7 +967,7 @@ msgstr "Frågegrupp"
 msgid "Question templates"
 msgstr "Formulärsmallar"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Fråga som sänds till potentiella visselblåsare"
 
 msgid "Questionnaire"
@@ -977,6 +981,9 @@ msgstr "Frågeformulär"
 
 msgid "Questions"
 msgstr "Frågor"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Mottagare"
@@ -1014,7 +1021,7 @@ msgstr "Vanliga uttryck"
 msgid "Regular expression validator"
 msgstr "Validering av vanliga uttryck"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Kom ihåg ditt leveranskvitto för denna rapport."
 
 msgid "Reminder date"
@@ -1044,7 +1051,7 @@ msgstr "Rapportera statusar"
 msgid "Reports"
 msgstr "Rapporter"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Begär åtkomst till visselblåsarens identitet"
 
 msgid "Request date"
@@ -1089,7 +1096,7 @@ msgstr "Resurs hittas ej"
 msgid "Restrict access to specific IP addresses"
 msgstr "Begränsa åtkomst till specifika IP-adresser"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Återkommande visselblåsare"
 
 msgid "Revoke access"
@@ -1263,6 +1270,9 @@ msgstr "Tips inaktiverade"
 msgid "Submit"
 msgstr "Skicka"
 
+msgid "Submit a report"
+msgstr "Lämna en rapport"
+
 msgid "Subscribed"
 msgstr "Prenumererat"
 
@@ -1376,7 +1386,7 @@ msgstr "Den angivna återställningskoden är fel."
 msgid "The provided reset token is invalid or expired."
 msgstr "Det angivna återställningslösenordet är fel eller har gått ut."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Antingen är läskvittot ogiltigt eller så har rapporten upphört att gälla."
 
 msgid "The specified input is not valid."
@@ -1400,10 +1410,10 @@ msgstr "Användaren är tvungen att ändra sitt lösenord vid nästa inloggning.
 msgid "The validation link is either incorrect or has expired."
 msgstr "Bekräftelselänken är antingen fel eller så har den upphört att gälla."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Visselblåsaren har redan läst den senaste uppdateringen"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Visselblåsaren har ännu inte läst den senaste uppdateringen"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1490,8 +1500,8 @@ msgid "Use as default"
 msgstr "Använd som standard"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Använd koden med 16 siffror i leveranskvittot för att logga in. På detta sätt kan du läsa alla meddelanden som vi har skickat dig och lägga till ytterligare uppgifter."
 
 msgid "Use the first site for administrative purposes only"
@@ -1565,10 +1575,10 @@ msgstr "Svagt"
 msgid "Welcome!"
 msgstr "Välkommen!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Visselblåsare"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Tidpunkt för visselblåsarens senaste besök"
 
 msgid "Whistleblowing Policy"
@@ -1588,8 +1598,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Du ansluter dig till servern utan att vara anonym, och den här servern stödjer bara tips som lämnas anonymt"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Du agerar å visselblåsarens vägnar."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1637,9 +1647,6 @@ msgstr "vänligen ange endast siffror."
 
 msgid "seconds"
 msgstr "sekunder"
-
-msgid "File a report"
-msgstr "Lämna en rapport"
 
 msgid "Select a reporting channel:"
 msgstr "Välj en rapporteringskanal:"
@@ -1903,7 +1910,7 @@ msgstr "Syftet med detta e-postmeddelande är att upplysa dig om att en systemf�
 msgid "The report can be accessed at:"
 msgstr "Rapporten kan nås på:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Åtkomst till visselblåsarens identitet tillåten"
 
 msgid ""
@@ -1911,26 +1918,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Syftet med detta e-postmeddelande är att upplysa dig om att en systemförvaltare har nekat dig åtkomst till visselblåsarens identitet bakom rapporten {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Åtkomst till visselblåsarens identitet nekad"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Syftet med detta e-postmeddelande är att upplysa dig om att en mottagare har begärt åtkomst till visselblåsarens identitet bakom rapporten {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Denna begäran hittar du på adressen:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Ny begäran om åtkomst till visselblåsarens identitet"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Syftet med detta e-postmeddelande är att upplysa dig om att visselblåsaren för rapporten {TipNum} har angett sin identitet."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Visselblåsaren har angett sin identitet"
 
 msgid ""

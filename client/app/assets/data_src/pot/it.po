@@ -59,14 +59,12 @@ msgid "Access requested"
 msgstr "Accesso richiesto"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
-msgstr "L'accesso all'identità del segnalante è stato richiesto al custode."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
+msgstr "L'accesso all'identità della persona segnalante è stato richiesto al custode."
 
 msgid "Account recovery key"
 msgstr "Chiave di recupero account"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Agisci per conto di un segnalante"
 
 msgid "Activities"
 msgstr "Attività"
@@ -113,17 +111,17 @@ msgstr "Permetti al ricevente di modificare la data di scadenza dei report"
 msgid "Allow the recipient to delete reports"
 msgstr "Permetti a questo ricevente di cancellare le segnalazioni."
 
-msgid "Allow the whistleblower to add attachments"
-msgstr "Permetti al segnalante di aggiungere allegati alla segnalazione"
+msgid "Allow the reporting person to add attachments"
+msgstr "Permetti alla persona segnalante di aggiungere allegati alla segnalazione"
 
-msgid "Allow the whistleblower to write comments"
-msgstr "Permetti al segnalante di scrivere commenti"
+msgid "Allow the reporting person to write comments"
+msgstr "Permetti al persona segnalante di scrivere commenti"
 
 msgid "Allow users to sign up"
 msgstr "Permetti agli utenti di registrarsi"
 
-msgid "Allow whistleblowers to select their recipients"
-msgstr "Abilita i segnalanti a selezionare i propri destinatari"
+msgid "Allow reporting persons to select their recipients"
+msgstr "Abilita le persone segnalanti a selezionare i propri destinatari"
 
 msgid "Allowed IP addresses"
 msgstr "Indirizzi IP autorizzati"
@@ -182,8 +180,8 @@ msgstr "Autorizzazione"
 msgid "Authorize"
 msgstr "Autorizza"
 
-msgid "Authorize access to the whistleblower's identity"
-msgstr "Autorizza l'accesso all'identità del segnalante"
+msgid "Authorize access to the reporting person's identity"
+msgstr "Autorizza l'accesso all'identità della persona segnalante"
 
 msgid "Authorized"
 msgstr "Autorizzato"
@@ -345,8 +343,8 @@ msgstr "Negato"
 msgid "Deny"
 msgstr "Nega"
 
-msgid "Deny access to the whistleblower's identity"
-msgstr "Nega accesso all'identità del segnalante"
+msgid "Deny access to the reporting person's identity"
+msgstr "Nega accesso all'identità della persona segnalante"
 
 msgid "Description"
 msgstr "Descrizione"
@@ -467,6 +465,9 @@ msgstr "Abilitato"
 
 msgid "Enter a name for the copy"
 msgstr "Inserisci un nome per la copia"
+
+msgid "Enter a report"
+msgstr "Agisci per conto di un segnalante"
 
 msgid "Enter the two factor authentication code"
 msgstr "Inserisci il codice di autenticazione a due fattori"
@@ -589,8 +590,8 @@ msgstr "Consenti accesso"
 msgid "Group of questions"
 msgstr "Gruppo di domande"
 
-msgid "Have you already filed a report? Enter your receipt."
-msgstr "Hai già effettuato una segnalazione? Inserisci la tua ricevuta."
+msgid "Have you already submitted a report? Enter your access code."
+msgstr "Hai già inviato una segnalazione? Inserisci il tuo codice di accesso."
 
 msgid "Hidden"
 msgstr "Nascosto"
@@ -867,6 +868,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Uno o più riceventi non hanno effettuato il primo accesso. Questo significa che non riceveranno le segnalazioni."
 
+msgid "Open"
+msgstr "Aperto"
+
 msgid "Opened"
 msgstr "Aperta"
 
@@ -963,7 +967,7 @@ msgstr "Gruppo di domande"
 msgid "Question templates"
 msgstr "Modelli di domanda"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Domanda di sollecitazione alla segnalazione"
 
 msgid "Questionnaire"
@@ -977,6 +981,9 @@ msgstr "Questionari"
 
 msgid "Questions"
 msgstr "Domande"
+
+msgid "Read receipt"
+msgstr "Codice di accesso"
 
 msgid "Receivers"
 msgstr "Destinatari"
@@ -1014,8 +1021,8 @@ msgstr "Espressione regolare"
 msgid "Regular expression validator"
 msgstr "Espressione regolare di validazione"
 
-msgid "Remember your receipt for this report."
-msgstr "Memorizza la tua ricevuta per la segnalazione."
+msgid "Remember your access code for this report."
+msgstr "Memorizza il tuo codice di accesso per la segnalazione."
 
 msgid "Reminder date"
 msgstr "Data del promemoria"
@@ -1044,8 +1051,8 @@ msgstr "Stati della segnalazione"
 msgid "Reports"
 msgstr "Segnalazioni"
 
-msgid "Request access to the whistleblower's identity"
-msgstr "Richiesta di accesso all'identità del segnalante"
+msgid "Request access to the reporting person's identity"
+msgstr "Richiesta di accesso all'identità della persona segnalante"
 
 msgid "Request date"
 msgstr "Data della richiesta"
@@ -1089,8 +1096,8 @@ msgstr "Risorsa non trovata"
 msgid "Restrict access to specific IP addresses"
 msgstr "Restringi l'accesso a specifici indirizzi IP"
 
-msgid "Returning whistleblowers"
-msgstr "Segnalanti che ritornano"
+msgid "Returning reporting persons"
+msgstr "Persone segnalanti che ritornano"
 
 msgid "Revoke access"
 msgstr "Revoca accesso"
@@ -1263,6 +1270,9 @@ msgstr "Segnalazioni disabilitate"
 msgid "Submit"
 msgstr "Invia"
 
+msgid "Submit a report"
+msgstr "Invia una segnalazione"
+
 msgid "Subscribed"
 msgstr "Sottoscritte"
 
@@ -1343,7 +1353,7 @@ msgstr "I seguenti destinatari riceveranno la segnalazione e non possono essere 
 msgid ""
 "The following step-by-step procedure will guide you through creating your "
 "whistleblowing platform."
-msgstr "Completa la seguente procedura guidata per creare la tua piattaforma di whistleblowing."
+msgstr "Completa la seguente procedura guidata per creare la tua piattaforma di sengnalazione."
 
 msgid "The link will expire in 7 days."
 msgstr "Il link ha una validità di 7 giorni."
@@ -1376,8 +1386,8 @@ msgstr "La chiave di recupero fornita non è corretta,"
 msgid "The provided reset token is invalid or expired."
 msgstr "Il token di reset fornito non è valido o è scaduto."
 
-msgid "The receipt is either invalid or the report has expired."
-msgstr "La ricevuta inserita non è valida o la segnalazione è scaduta."
+msgid "The access code is either invalid or the report has expired."
+msgstr "Il codice di accesso inserito non è valido o la segnalazione è scaduta."
 
 msgid "The specified input is not valid."
 msgstr "I dati inseriti non sono validi."
@@ -1400,10 +1410,10 @@ msgstr "L'utente sarà invitato a impostare una nuova password al prossimo acces
 msgid "The validation link is either incorrect or has expired."
 msgstr "L'indirizzo di validazione è invalido o scaduto."
 
-msgid "The whistleblower has already read the last update"
-msgstr "Il segnalante ha già letto l'ultimo aggiornamento"
+msgid "The reporting person has already read the last update"
+msgstr "La persona segnalante ha già letto l'ultimo aggiornamento"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Il segnalante non ha ancora letto l'ultimo aggiornamento."
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1490,9 +1500,9 @@ msgid "Use as default"
 msgstr "Usa come default"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
-msgstr "Usa la ricevuta di 16 cifre per ritornare e vedere eventuali messaggi che ti avremo inviato o se pensi che ci sia altro che avresti dovuto allegare."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
+msgstr "Usa il codice di accesso di 16 cifre per ritornare e vedere eventuali messaggi che ti avremo inviato o se pensi che ci sia altro che avresti dovuto allegare."
 
 msgid "Use the first site for administrative purposes only"
 msgstr "Usa il primo sito solo per finalità amministrative"
@@ -1547,7 +1557,7 @@ msgid ""
 " lost in the situation where recipients lose their passwords. On the other "
 "hand, we would not advise using this feature if you want to setup a system "
 "where only recipients are able to access submissions."
-msgstr "Ti suggeriamo di selezionare questa opzione se vuoi proteggere i dati da perdita nella situazione in cui i riceventi perdessero la loro password. Al contratio, non ti suggeriamo di scegliere questa opzione se vuoi installare un sistema in cui solo i riceventi possano accedere alle segnalazioni."
+msgstr "Ti suggeriamo di selezionare questa opzione se vuoi proteggere i dati da perdita nella situazione in cui i riceventi perdessero la loro password. Al contrario, non ti suggeriamo di scegliere questa opzione se vuoi installare un sistema in cui solo i riceventi possano accedere alle segnalazioni."
 
 msgid ""
 "We recommend that you access the “Preferences” section in order to retrieve "
@@ -1565,11 +1575,11 @@ msgstr "Debole"
 msgid "Welcome!"
 msgstr "Benvenuto!"
 
-msgid "Whistleblower"
-msgstr "Whistleblower"
+msgid "Reporting person"
+msgstr "Persona segnalante"
 
-msgid "Whistleblower's last access"
-msgstr "Ultimo accesso del segnalante"
+msgid "Reporting person's last access"
+msgstr "Ultimo accesso della persona segnalante"
 
 msgid "Whistleblowing Policy"
 msgstr "Whistleblowing Policy"
@@ -1588,8 +1598,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Ti stai connettendo a questo nodo in maniera non anonima,  ed esso supporta solo trasmissioni anonime"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Stai operando per conto di un segnalante."
+msgid "You are entering a report received through other channels."
+msgstr "Stai inserendo una segnalazione ricevuta tramite altri canali."
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1637,9 +1647,6 @@ msgstr "si prega di inserire solo numeri."
 
 msgid "seconds"
 msgstr "secondi"
-
-msgid "File a report"
-msgstr "Invia una segnalazione"
 
 msgid "Select a reporting channel:"
 msgstr "Scegli un canale di segnalazione:"
@@ -1855,7 +1862,7 @@ msgid "Date: {EventTime}"
 msgstr "Data: {EventTime}"
 
 msgid "From: Whistleblower"
-msgstr "Da: Whistleblower"
+msgstr "Da: Persona segnalante"
 
 msgid "Date: {SubmissionDate}"
 msgstr "Data: {SubmissionDate}"
@@ -1898,40 +1905,40 @@ msgstr "Fallimento nel rinnovo del certificato HTTPS"
 msgid ""
 "This is an email to notify you that a custodian has authorized you to access"
 " to the whistleblowing identity for the report {TipNum}."
-msgstr "Con la presente email ti notifichiamo che un custode ti ha autorizzato ad accedere all'identità del segnalante per la segnalazione {TipNum}."
+msgstr "Con la presente email ti notifichiamo che un custode ti ha autorizzato ad accedere all'identità della persona segnalante per la segnalazione {TipNum}."
 
 msgid "The report can be accessed at:"
 msgstr "La segnalazione può essere consultata accedendo all'indirizzo:"
 
-msgid "Access to whistleblower's identity authorized"
-msgstr "Accesso all'identità del segnalante autorizzato"
+msgid "Access to reporting person's identity authorized"
+msgstr "Accesso all'identità della persona segnalante autorizzato"
 
 msgid ""
 "This is an email to notify you that a custodian has denied you access to the"
 " whistleblowing identity for the report {TipNum}."
-msgstr "Con la presente email ti notifichiamo che un custode ti ha negato l'accesso all'identità del segnalante per la segnalazione {TipNum}"
+msgstr "Con la presente email ti notifichiamo che un custode ti ha negato l'accesso all'identità della persona segnalante per la segnalazione {TipNum}"
 
-msgid "Access to whistleblower's identity denied"
-msgstr "Accesso all'identità del segnalante negato"
+msgid "Access to reporting person's identity denied"
+msgstr "Accesso all'identità della persona segnalante negato"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
-msgstr "Questa email è per informarti che un ricevente ha richiesto accesso all'identità del segnalante per la segnalazione {TipNum}"
+"reporting person's identity for the report {TipNum}"
+msgstr "Questa email è per informarti che un ricevente ha richiesto accesso all'identità della persona segnalante per la segnalazione {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "La richiesta può  essere acceduta:"
 
-msgid "New request of access to a whistleblower's identity"
-msgstr "Nuova richiesta di accesso all'identità di un segnalante"
+msgid "New request of access to a reporting person's identity"
+msgstr "Nuova richiesta di accesso all'identità di una persona segnalante"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
-msgstr "Con la presente email ti notifichiamo che il segnalante della segnalazione {TipNum} ha fornito la sua identità."
+msgstr "Con la presente email ti notifichiamo che la persona segnalante della segnalazione {TipNum} ha fornito la sua identità."
 
-msgid "The whistleblower has provided their identity"
-msgstr "Il segnalante ha fornito la propria identità"
+msgid "The reporting person has provided their identity"
+msgstr "La persona segnalante ha fornito la propria identità"
 
 msgid ""
 "You're receiving this email because a password reset has been requested for "

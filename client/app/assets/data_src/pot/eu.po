@@ -54,14 +54,12 @@ msgid "Access requested"
 msgstr "Sarbidea eskatu da"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Salatzailearen identitatera sarbidea eskatu zaio jagoleari."
 
 msgid "Account recovery key"
 msgstr "Kontua berreskuratzeko kodea:"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Jarduerak"
@@ -108,16 +106,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Hartzaileei salaketak ezabatzen utzi"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Salatzaileari salaketari eranskin gehiago gehitzea ahalbidetu"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Salatzaileei iruzkinak idaztea ahalbidetu"
 
 msgid "Allow users to sign up"
 msgstr "Utzi erabiltzaileei erregistratzen"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Ahalbidetu salatzaileek haien hartzaileak hautatzea"
 
 msgid "Allowed IP addresses"
@@ -177,7 +175,7 @@ msgstr "Baimena"
 msgid "Authorize"
 msgstr "Baimendu"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Salatzailearen identitatera sarbidea baimendu "
 
 msgid "Authorized"
@@ -340,7 +338,7 @@ msgstr "Ukatua"
 msgid "Deny"
 msgstr "Ukatu"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Salatzailearen identitatera sarbidea ukatu "
 
 msgid "Description"
@@ -463,6 +461,9 @@ msgstr "Gaitua"
 msgid "Enter a name for the copy"
 msgstr "Idatzi izena kopiarentzat"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Sartu autentifikazio kodea bi urratsetan"
 
@@ -584,7 +585,7 @@ msgstr "Eman sarbidea"
 msgid "Group of questions"
 msgstr "Galdera-sorta"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Aurkeztu duzu salaketa? Sartu jarraipenerako kodea."
 
 msgid "Hidden"
@@ -862,6 +863,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Hartzaile batek edo gehiagok ez du egin lehenengo saio-hasiera. Horrek esan nahi du ezingo dutela salaketarik kudeatu."
 
+msgid "Open"
+msgstr "Ireki"
+
 msgid "Opened"
 msgstr "Irekita"
 
@@ -958,7 +962,7 @@ msgstr "Galdera-sorta"
 msgid "Question templates"
 msgstr "Galderen txantiloia"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Salatzaile potentzialei egiteko galdera"
 
 msgid "Questionnaire"
@@ -972,6 +976,9 @@ msgstr "Galdekizunak"
 
 msgid "Questions"
 msgstr "Galderak"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -1009,7 +1016,7 @@ msgstr "Adierazpen erregularra"
 msgid "Regular expression validator"
 msgstr "Esamolde erregularren balioztatzailea"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Arren, gorde kode hau, aurrerago zure salaketaren egoeran sartzeko beharko duzu."
 
 msgid "Reminder date"
@@ -1039,7 +1046,7 @@ msgstr "Salaketa baten egoerak"
 msgid "Reports"
 msgstr "Salaketak"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Salatzailearen identitatera sarbidea eskatu "
 
 msgid "Request date"
@@ -1084,7 +1091,7 @@ msgstr "Baliabidea ez da aurkitu"
 msgid "Restrict access to specific IP addresses"
 msgstr "Sarbidea IP helbide zehatzei murriztu"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1258,6 +1265,9 @@ msgstr "Salaketak jasotzea desgaituta"
 msgid "Submit"
 msgstr "Entregatu"
 
+msgid "Submit a report"
+msgstr "Aurkeztu salaketa."
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1371,7 +1381,7 @@ msgstr "Sartutako berreskuratzeko kodea ez da balizkoa."
 msgid "The provided reset token is invalid or expired."
 msgstr "Emandako token baliogabetua edo iraungi du."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Kodea baliogabetu da edo salaketak iraungi du"
 
 msgid "The specified input is not valid."
@@ -1395,10 +1405,10 @@ msgstr "Erabiltzaileak nahitaez aldatu beharko du pasahitza hurrengoan saioa has
 msgid "The validation link is either incorrect or has expired."
 msgstr "Balioztatzeko esteka okerra da edo iraungi du."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Salatzaileak irakurri du azken eguneratzea. "
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Salatzaileak ez du irakurri azken eguneratzea. "
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1485,8 +1495,8 @@ msgid "Use as default"
 msgstr "Lehenetsi gisa erabili"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Erabili 16 digituko kodea saioa hasteko. Bidaliko dizkizugun mezu guztiak ikusi eta informazio osagarria gehitzea ahalbidetuko dizu."
 
 msgid "Use the first site for administrative purposes only"
@@ -1560,10 +1570,10 @@ msgstr "Ahula"
 msgid "Welcome!"
 msgstr "Ongi etorri!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Salatzailea"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Salatzailearen azken sarrera"
 
 msgid "Whistleblowing Policy"
@@ -1583,7 +1593,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Zerbitzarira modu ez anonimoan ari zara konektatzen, eta zerbitzari honek entrega anonimoak bakarrik erabil ditzake"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1632,9 +1642,6 @@ msgstr "Arren, zenbakiak bakarrik sartu."
 
 msgid "seconds"
 msgstr "segundo"
-
-msgid "File a report"
-msgstr "Aurkeztu salaketa."
 
 msgid "Select a reporting channel:"
 msgstr "Hautatu salaketen kanala:"
@@ -1898,7 +1905,7 @@ msgstr "Posta elektroniko honen bidez jagoleak {TipNum} salaketarentzat informat
 msgid "The report can be accessed at:"
 msgstr "Hemendik sar zaitezke salaketan:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Salatzailearen identitatera sarbidea baimendu da"
 
 msgid ""
@@ -1906,26 +1913,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Posta elektroniko honen bidez jagoleak {TipNum} salaketarentzat informatzailearen nortasuna atzitzeko baimena ematen ez dizula jakinarazten dizugu."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Salatzailearen identitatera sarbidea ukatu da"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Posta elektroniko honen bidez hartzaileak {TipNum} salaketarentzat informatzailearen nortasuna atzitzeko baimena eskatu duela jakinarazten dizugu."
 
 msgid "The request can be accessed at:"
 msgstr "Eskaera hemendik ikus daiteke:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Salatzaile baten nortasuna atzitzeko eskaera berria"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Posta elektroniko honen bitartez jakinarazi nahi dizugu {TipNum} salaketaren salatzaileak bere nortasuna jakinarazi duela."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Salatzaileak bere nortasuna eman du"
 
 msgid ""

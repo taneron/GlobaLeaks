@@ -37,14 +37,12 @@ msgid "Access requested"
 msgstr "Запыт доступу зроблены"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Захавальнік зрабіў запыт атрымаць доступ да інфармацыі пра асобу выкрывальніка."
 
 msgid "Account recovery key"
 msgstr "Ключ аднаўлення ўліковага запісу:"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Актыўнасць"
@@ -91,16 +89,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Дазволіць атрымальніку выдаляць справаздачы"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Дазволіць выкрывальніку дадаваць да справаздачы далучаныя файлы "
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Дазволіць выкрывальніку пакідаць каментары"
 
 msgid "Allow users to sign up"
 msgstr "Дазволіць рэгістрацыю карыстальнікаў"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Дазволіць выкрывальнікам выбіраць атрымальнікаў"
 
 msgid "Allowed IP addresses"
@@ -160,7 +158,7 @@ msgstr "Аўтарызацыя"
 msgid "Authorize"
 msgstr "Дазволіць"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Дазволіць доступ да інфармацыі пра асобу выкрывальніка"
 
 msgid "Authorized"
@@ -323,7 +321,7 @@ msgstr "Адмоўлена"
 msgid "Deny"
 msgstr "Адмовіць"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Адмовіць ў доступе да інфармацыі пра асобу выкрывальніка"
 
 msgid "Description"
@@ -446,6 +444,9 @@ msgstr "Уключаны"
 msgid "Enter a name for the copy"
 msgstr "Увесці назву для копіі"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Увядзіце код двухфактарнай аўтарызацыі"
 
@@ -567,7 +568,7 @@ msgstr "Даць доступ"
 msgid "Group of questions"
 msgstr "Група пытанняў"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Вы ўжо паведамілі інфармацыю? Увесьці код, каб працягнуць размову"
 
 msgid "Hidden"
@@ -845,6 +846,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Адзін ці некалькі атрымальнікаў яшчэ не зрабілі першы ўваход. Гэта азначае, што яны не будуць атрымліваць справаздачы."
 
+msgid "Open"
+msgstr "Адкрыць"
+
 msgid "Opened"
 msgstr "Адкрытая"
 
@@ -941,7 +945,7 @@ msgstr "Група пытанняў"
 msgid "Question templates"
 msgstr "Узоры пытанняў"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Пытанне, каб заахвоціць магчымых выкрывальнікаў"
 
 msgid "Questionnaire"
@@ -955,6 +959,9 @@ msgstr "Анкеты"
 
 msgid "Questions"
 msgstr "Пытанні"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -992,7 +999,7 @@ msgstr "Рэгулярны выраз"
 msgid "Regular expression validator"
 msgstr "Праверка рэгулярных выразаў"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Запомніце атрыманы код вашай справаздачы."
 
 msgid "Reminder date"
@@ -1022,7 +1029,7 @@ msgstr "Статусы справаздачы"
 msgid "Reports"
 msgstr "Справаздачы"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Запыт доступу да інфармацыі пра асобу выкрывальніка"
 
 msgid "Request date"
@@ -1067,7 +1074,7 @@ msgstr "Рэсурс не знойдзены"
 msgid "Restrict access to specific IP addresses"
 msgstr "Абмежаваць доступ толькі для адмысловых IP адрасаў"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1241,6 +1248,9 @@ msgstr "Магчымасць падачы матэрыялаў адключан�
 msgid "Submit"
 msgstr "Адправіць"
 
+msgid "Submit a report"
+msgstr "Падаць справаздачу"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1354,7 +1364,7 @@ msgstr "Уведзены ключ аднаўлення несапраўдны."
 msgid "The provided reset token is invalid or expired."
 msgstr "Уведзены код абнулення або няправільны, або састарэлы."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Код або няправільны, або састарэлы."
 
 msgid "The specified input is not valid."
@@ -1378,10 +1388,10 @@ msgstr "Карыстальнік будзе вымушаны змяніць па
 msgid "The validation link is either incorrect or has expired."
 msgstr "Спасылка на праверку недакладная або яе дзеянне скончылася."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Выкрывальнік ужо прачытаў апошняе абнаўленне"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Выкрывальнік яшчэ не прачытаў апошняе абнаўленне"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1468,8 +1478,8 @@ msgid "Use as default"
 msgstr "Ужываць па змаўчанні"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Для ўваходу ўжыць код з 16 лічбаў. Гэта дазволіць вам праглядаць любыя паведамленні, якія мы вам дасылалі, а таксама далучаць дадатковую інфармацыю."
 
 msgid "Use the first site for administrative purposes only"
@@ -1543,10 +1553,10 @@ msgstr "Слабы"
 msgid "Welcome!"
 msgstr "Вітаем!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Выкрывальнік"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Апошні заход на платформу выкрывальніка"
 
 msgid "Whistleblowing Policy"
@@ -1566,7 +1576,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Вы падлучаецеся да сервера неананімна, а гэты сервер падтрымлівае толькі ананімную падачу матэрыялаў"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1615,9 +1625,6 @@ msgstr "калі ласка, увядзіце толькі лічбы."
 
 msgid "seconds"
 msgstr "секунды"
-
-msgid "File a report"
-msgstr "Падаць справаздачу"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1881,7 +1888,7 @@ msgstr "Гэтым электронным лістом паведамляем, �
 msgid "The report can be accessed at:"
 msgstr "Справаздачу можна атрымаць па адрасе:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Доступ да інфармацыі пра асобу выкрывальніка атрыманы"
 
 msgid ""
@@ -1889,26 +1896,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Гэтым электронным лістом паведамляем, што захавальнік не дазволіў вам атрымаць доступ да інфармацыі пра асобу аўтара справаздачы {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Адмова доступу да інфармацыі пра асобу выкрывальніка"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Гэтым электронным лістом паведамляем, што атрымальнік зрабіў запыт на доступ да інфармацыі пра асобу аўтара справаздачы {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Запыт можна прагледзець па адрасе:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Новы запыт доступу да інфармацыі пра асобу выкрывальніка"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Гэтым электронным лістом паведамляем, што аўтар справаздачы {TipNum} даў дазвол на доступ да інфармацыі пра сваю асобу "
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Выкрывальнік даў дазвол на доступ да інфармацыі пра сваю асобу."
 
 msgid ""

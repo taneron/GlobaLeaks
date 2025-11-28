@@ -41,14 +41,12 @@ msgid "Access requested"
 msgstr "Giriş soraldy"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Gözegçiden gizlin habar ýetirijiň şahsyýet hasabyna girmek üçin haýyş edildi."
 
 msgid "Account recovery key"
 msgstr "Hasaby dikeltmek açary"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Çäreler"
@@ -95,16 +93,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Alyja hasabatlary pozmagy rugsat ber"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Gizlin habar ýetirijilere hasabata goşmaçalar goşmagyna rugsat beriň"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Gizlin habar ýetirijilere teswir ýazmaga rugsat beriň"
 
 msgid "Allow users to sign up"
 msgstr "Ulanyjylara ýazylmagyna rugsat beriň"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Gizlin habar ýetirijilere alyjylaryny saýlamaga rugsat ber"
 
 msgid "Allowed IP addresses"
@@ -164,7 +162,7 @@ msgstr "Awtorizasiýa"
 msgid "Authorize"
 msgstr "Ygtyýar ber"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmegi ygtyýar ber"
 
 msgid "Authorized"
@@ -327,7 +325,7 @@ msgstr "Inkär edildi"
 msgid "Deny"
 msgstr "Inkär et"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmegi inkär et"
 
 msgid "Description"
@@ -450,6 +448,9 @@ msgstr "Açyk"
 msgid "Enter a name for the copy"
 msgstr "Göçürmäniň adyny giriziň"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Iki faktor tassyklanma kody giriziň"
 
@@ -571,7 +572,7 @@ msgstr "Girişi ygtyýar ber"
 msgid "Group of questions"
 msgstr "Soraglar topary"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Hasabat tabşyrdyňyzmy? Kwitansiýaňyzy giriziň."
 
 msgid "Hidden"
@@ -849,6 +850,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Bir ýa-da birnäçe alyjy entek ilkinji içeri girişi ýerine ýetirmedi. Diýmek, olar hasabatlary alyp bilmezler."
 
+msgid "Open"
+msgstr "Açyk"
+
 msgid "Opened"
 msgstr "Açyldy"
 
@@ -945,7 +949,7 @@ msgstr "Sorag topary"
 msgid "Question templates"
 msgstr "Sorag nusgalary"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Mümkin bolan gizlin habar ýetirijilere soramak üçin sorag"
 
 msgid "Questionnaire"
@@ -959,6 +963,9 @@ msgstr "Sowalnamalar"
 
 msgid "Questions"
 msgstr "Soraglar"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -996,7 +1003,7 @@ msgstr "Yzygiderli aňlatma"
 msgid "Regular expression validator"
 msgstr "Yzygiderli aňlatma tassyklaýjy"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Bu hasabat üçin kwitansiýaňyzy ýatda saklaň."
 
 msgid "Reminder date"
@@ -1026,7 +1033,7 @@ msgstr "Statuslary hasabat ber"
 msgid "Reports"
 msgstr "Hasabatlar"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmegi haýyş ediň"
 
 msgid "Request date"
@@ -1071,7 +1078,7 @@ msgstr "Resurs tapylmady"
 msgid "Restrict access to specific IP addresses"
 msgstr "Belli bir IP adreslere girmegi çäklendir"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1245,6 +1252,9 @@ msgstr "Iberilenler ýapyk"
 msgid "Submit"
 msgstr "Iber"
 
+msgid "Submit a report"
+msgstr "Hasabat beriň"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1358,7 +1368,7 @@ msgstr "Berlen dikeldiş açary nädogry."
 msgid "The provided reset token is invalid or expired."
 msgstr "Berlen token belgisi nädogry ýa-da möhleti gutardy."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Kwitansiýa nädogry ýa-da hasabatyň möhleti gutardy."
 
 msgid "The specified input is not valid."
@@ -1382,10 +1392,10 @@ msgstr "Ulanyjy indiki girişde parolyny üýtgetmäge mejbur bolar."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Barlag baglanyşygy nädogry ýa-da möhleti gutardy."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Gizlin habar ýetiriji soňky täzelenmäni eýýäm okady"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Gizlin habar ýetiriji soňky täzelenmäni entek okamady"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1472,8 +1482,8 @@ msgid "Use as default"
 msgstr "Asyl görnüşde ulan"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Içeri girmek üçin 16 sanly kwitansiýany ulanyň. Size iberen habarlarymyzy görmäge we goşmaça maglumat goşmaga mümkinçilik berer."
 
 msgid "Use the first site for administrative purposes only"
@@ -1547,10 +1557,10 @@ msgstr "Gowşak"
 msgid "Welcome!"
 msgstr "Hoş geldiňiz!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Gizlin habar ýetiriji"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Gizlin habar yetirijiniň soňky girişi"
 
 msgid "Whistleblowing Policy"
@@ -1570,7 +1580,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Serwere anonim bolmazdan birigýärsiňiz we bu serwer diňe anonim iberişleri goldaýar"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1619,9 +1629,6 @@ msgstr "diňe sanlar giriziň."
 
 msgid "seconds"
 msgstr "sekunt"
-
-msgid "File a report"
-msgstr "Hasabat beriň"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1885,7 +1892,7 @@ msgstr "Bu, gözegçiniň hasabat üçin gizlin habar ýetirijiniň şahsyýet h
 msgid "The report can be accessed at:"
 msgstr "Hasabata şu ýerden girip bilersiňiz:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmek ygtyýar berildi"
 
 msgid ""
@@ -1893,26 +1900,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Bu, gözegçiniň hasabat üçin gizlin habar ýetirijiniň şahsyýet hasabyna girmäge ret edendigi barada habar bermek üçin email {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmek ret edildi"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Bu, alyjynyň hasabat üçin gizlin habar ýetirijiniň şahsyýetine girmegini haýyş edendigini habar bermek üçin email {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Haýyşa şu ýerden girip bilersiňiz:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Gizlin habar ýetirijiň şahsyýetine girmek üçin täze haýyş"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Bu, hasabat {TipNum} üçin gizlin habar ýetirijiniň şahsyýetini üpjün edendigini habar bermek üçin email"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Gizlin habar ýetiriji şahsyýetini üpjün etdi"
 
 msgid ""

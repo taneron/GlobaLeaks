@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "Isissutissaq qinnutigineqarpoq"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Whistleblowerip kinaassusaata kinaassusersinneqarnissaa ingerlatsisumiit takuumaneqarpoq. "
 
 msgid "Account recovery key"
 msgstr "Kontop ammaqqinnissaanut matuersaat"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Whistleblowerip sinnerlugu iliuseqarit"
 
 msgid "Activities"
 msgstr "Iliuutsit"
@@ -92,16 +90,16 @@ msgstr "Tigusisussaq nalunaarusiap ulloq qaangiuttoorfissaa allanngortissinnaang
 msgid "Allow the recipient to delete reports"
 msgstr "Tigusisussaq nalunaarusianik piiaasinnaatillugu pisinnaatiguk"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Whistleblower pisinnaatiguk kakkiussanik ilanngussisinnaanngorlugu"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Whistleblower pisinnaatiguk oqaatigiumasaanik allattuisinnaatillugu"
 
 msgid "Allow users to sign up"
 msgstr "Atuisut allatsissinnaangortikkit"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Whistleblower tigusisussanik toqqaanissaanik pisinnaatiguk"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "Akuersineq"
 msgid "Authorize"
 msgstr "Akueraa"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Whistleblowerip kinaassusersinneqarnissaanut isersinnaanngornissaa akueriuk"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "Naaggaarneqarpoq"
 msgid "Deny"
 msgstr "Naaggaarpoq"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Whistleblowerip kinaassusersinneqarnissaanut itigartiguk"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "Atuutilersinneqarpoq"
 msgid "Enter a name for the copy"
 msgstr "Ateq ikkutiguk kopi-mik pisussaq"
 
+msgid "Enter a report"
+msgstr "Whistleblowerip sinnerlugu iliuseqarit"
+
 msgid "Enter the two factor authentication code"
 msgstr "Marlunnut akuerisassaq kodea allaguk"
 
@@ -568,7 +569,7 @@ msgstr "Atuisinnaatileruk"
 msgid "Group of questions"
 msgstr "Apeqqutit ataatsimoortut arlallit"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Nalunaarusiaq immersoreerpiuk? Uppernarsaat allagartaa naqiguk. "
 
 msgid "Hidden"
@@ -846,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Tigusisussaq ataaseq imaluunniit arlallit suli login siulleq pisimanngilaat. Taanna isumaqarpoq suli nalunaarusianik tigusaqanngitsut. "
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "Ammarsimavoq"
 
@@ -942,7 +946,7 @@ msgstr "Apeqquteqarfiit"
 msgid "Question templates"
 msgstr "Apeqqutit inissisimaffii (skabeloner)"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pasinapiluttunik kalerriisuusinnaasunik qinnuteqarnermut apeqqutit"
 
 msgid "Questionnaire"
@@ -956,6 +960,9 @@ msgstr "Spørgeskema"
 
 msgid "Questions"
 msgstr "Apeqqutit"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Tigusisussat"
@@ -993,7 +1000,7 @@ msgstr "Taaguutit naliginnaasut"
 msgid "Regular expression validator"
 msgstr "Taaguutit naliginnaasut uppernarsarneri"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Nalunaarusiap allagartaa eqqaamassavat."
 
 msgid "Reminder date"
@@ -1023,7 +1030,7 @@ msgstr "Nalunaarusiat killiffiit"
 msgid "Reports"
 msgstr "Nalunaarusiat"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Whistleblowerip kinaassusaa paasinissaanut piumaguk"
 
 msgid "Request date"
@@ -1068,7 +1075,7 @@ msgstr "Attaveqaat nassaarineqanngilaq"
 msgid "Restrict access to specific IP addresses"
 msgstr "IP-adressit aaliangersimasunut isersinnaatitaaneq killileruk"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Whistleblowerit uteqqittut"
 
 msgid "Revoke access"
@@ -1242,6 +1249,9 @@ msgstr "Nassiussat atorunnaarsinneqarput"
 msgid "Submit"
 msgstr "Nassiutiguk"
 
+msgid "Submit a report"
+msgstr "Nalunaarusiamik nassiussigit"
+
 msgid "Subscribed"
 msgstr "Pisartagaqalerpoq"
 
@@ -1355,7 +1365,7 @@ msgstr "Atuutilersinneqaqqinnissaanut matuersaat atuutinngilaq."
 msgid "The provided reset token is invalid or expired."
 msgstr "Isertaativit taarsernissaanut iserfissaq atuutinngilaq qaangiussimalluniluunniit."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Allagartaq ajorpoq imaluunniit nalunaarusiaq qaanngiuttoorsimavoq."
 
 msgid "The specified input is not valid."
@@ -1379,10 +1389,10 @@ msgstr "Atuisoq tulliani login-ilerpat pinngitsaalisamik isertaat allanngortinne
 msgid "The validation link is either incorrect or has expired."
 msgstr "Uppernarsaasiinermut iserfissaq kukkusuunngikkuni qaangiussimavoq."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Whistleblowerip nutaarsiassaq kingulleq atuareersimavaa"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Whistleblowerip nutaarsiassaq kingulleq suli atuarsimanngilaa"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1479,8 @@ msgid "Use as default"
 msgstr "Malittarisassatut atoruk"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Allagartaq 16-nik kisitsisitalik iserniarnermi atoruk. Taanna atorlugu allagarsiat nassiussimasagut tamaasa takusinnaalissavatit paasissutissanillu allanik ilanngussisinnaallutit. "
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1554,10 @@ msgstr "Sanngiitsoq"
 msgid "Welcome!"
 msgstr "Tikilluarit!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Whistlebloweri"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Whistleblowerip kingullermik iserfia"
 
 msgid "Whistleblowing Policy"
@@ -1567,8 +1577,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Kinaassutsinnik isertuussinak server-imut attaveqarputit, uanilu server-imi nassiussat kinaassutsimik isertuussiviusut kisimik tapersersorneqarput"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Pasinapiluttumik kalerriisoq sinnerlugu ingerlatsivutit."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1616,9 +1626,6 @@ msgstr "Normut kisimi allakkit."
 
 msgid "seconds"
 msgstr "Sekundit"
-
-msgid "File a report"
-msgstr "Nalunaarusiamik nassiussigit"
 
 msgid "Select a reporting channel:"
 msgstr "Nalunaarusiaq sukkut nassiutissanersoq qineruk:"
@@ -1882,7 +1889,7 @@ msgstr "Tassani emailikkut nalunaarfigineqarputit depotforvalterip pisinnaatikka
 msgid "The report can be accessed at:"
 msgstr "Nalunaarusiaq uani takuneqarsinnaavoq: "
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Whistleblowerip kinaassusersinneqarnissaanut akuerineqarpoq"
 
 msgid ""
@@ -1890,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Tassani emailikkut nalunaarfigineqarputit depotforvalterip nalunaarutiginiakkat pillugu whistleblowing-identitetimut isersinnaanissat akuerinngikkaa {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Whistleblowerip kinaassusaa paasinissaanut itigartinneqarpoq"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Una e-mailiuvoq tigusisup pasinapiluttumik kalerriisup nalunaarutiginninnermi kinaassusaanik paasinnikkusulluni isersinnaanissamik kissaateqarsimaneranik ilisimatitsisoq {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Qinnuteqaat uani takuneqarsinnaavoq: "
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Pasinapiluttumik kalerriisup kinaassusaanik paasinnikkusulluni kissaateqarneq nutaaq"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Una e-mail ilinnik pasinapiluttumik kalerriisup kinaassutsimut paasissutissanik {TipNum} ilisimatitsineranik nalunaartoq."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Pasinapiluttumik kalerriisup kinaassutsimut paasissutissani nalunaarutigai"
 
 msgid ""

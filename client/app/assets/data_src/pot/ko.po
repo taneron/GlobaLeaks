@@ -37,14 +37,12 @@ msgid "Access requested"
 msgstr "액세스 요청"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "내부 고발자의 신원 액세스 권한이 관리인에게 요청되었습니다."
 
 msgid "Account recovery key"
 msgstr "계정 복구 키"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "활동"
@@ -91,16 +89,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "수신자가 보고서를 삭제할 수 있도록 허용"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "내부 고발자가 보고서에 첨부 파일을 추가하도록 허용"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "내부 고발자가 댓글을 작성하도록 허용"
 
 msgid "Allow users to sign up"
 msgstr "사용자가 가입하도록 허용"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "내부 고발자가 수신자를 선택하도록 허용"
 
 msgid "Allowed IP addresses"
@@ -160,7 +158,7 @@ msgstr "승인"
 msgid "Authorize"
 msgstr "승인"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "내부 고발자 신원 액세스 부여"
 
 msgid "Authorized"
@@ -323,7 +321,7 @@ msgstr "거부됨"
 msgid "Deny"
 msgstr "거부"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "내부 고발자 신원 액세스 거부"
 
 msgid "Description"
@@ -446,6 +444,9 @@ msgstr "허용돔"
 msgid "Enter a name for the copy"
 msgstr "사본 이름 입력"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "이중 요인 인증 코드 입력"
 
@@ -567,7 +568,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "질문 그룹"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "이미 보고서를 보관하셨습니까? 키 코드를 입력하십시오."
 
 msgid "Hidden"
@@ -845,6 +846,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "한 명 이상의 수신자가 한 번도 로그인하지 않았습니다. 해당 사용자는 보고서를 수신할 수 없습니다."
 
+msgid "Open"
+msgstr "열림"
+
 msgid "Opened"
 msgstr "열림"
 
@@ -941,7 +945,7 @@ msgstr "질문 그룹"
 msgid "Question templates"
 msgstr "질문 템플릿"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "가능한 내부 고발자 요청을 위한 질문"
 
 msgid "Questionnaire"
@@ -955,6 +959,9 @@ msgstr "설문지"
 
 msgid "Questions"
 msgstr "질문"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -992,7 +999,7 @@ msgstr "정규식"
 msgid "Regular expression validator"
 msgstr "정규식 검증"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "보고서 수신을 기억하십시오."
 
 msgid "Reminder date"
@@ -1022,7 +1029,7 @@ msgstr "상태 보고"
 msgid "Reports"
 msgstr "보고서"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "내부 고발자 신원 액세스 요청"
 
 msgid "Request date"
@@ -1067,7 +1074,7 @@ msgstr "리소스를 찾을 수 없음"
 msgid "Restrict access to specific IP addresses"
 msgstr "특정 IP 주소 액세스 제한"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1241,6 +1248,9 @@ msgstr "제출 중단됨"
 msgid "Submit"
 msgstr "제출"
 
+msgid "Submit a report"
+msgstr "보고서 보관"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1354,7 +1364,7 @@ msgstr "제공된 복구 키가 유효하지 않습니다."
 msgid "The provided reset token is invalid or expired."
 msgstr "제공된 재설정 토큰이 유효하지 않거나 만료되었습니다."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "수신이 유효하지 않거나 만료되었습니다."
 
 msgid "The specified input is not valid."
@@ -1378,10 +1388,10 @@ msgstr "사용자는 다음 로그인 시 비밀번호를 변경해야 합니다
 msgid "The validation link is either incorrect or has expired."
 msgstr "검증 링크가 올바르지 않거나 만료되었습니다."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "내부 고발자가 이미 최신 업데이트를 확인했습니다"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "내부 고발자가 아직 최신 업데이트를 확인하지 않았습니다"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1468,8 +1478,8 @@ msgid "Use as default"
 msgstr "기본값으로 사용"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "16자리의 수신 코드로 로그인하십시오. 이를 통해 당사가 보낸 모든 메시지를 볼 수 있으며, 여분의 정보를 추가할 수도 있습니다."
 
 msgid "Use the first site for administrative purposes only"
@@ -1543,10 +1553,10 @@ msgstr "약함"
 msgid "Welcome!"
 msgstr "환영합니다!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "내부 고발자"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "마지막 내부 고발자 액세스"
 
 msgid "Whistleblowing Policy"
@@ -1566,7 +1576,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "사용자는 익명성 보장이 되지 않는 서버에 연결하고 있으며 본 서버는 익명 제출만 지원합니다."
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1615,9 +1625,6 @@ msgstr "숫자만 입력하십시오."
 
 msgid "seconds"
 msgstr "초"
-
-msgid "File a report"
-msgstr "보고서 보관"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1881,7 +1888,7 @@ msgstr "관리자가 {TipNum} 보고서의 내부 고발 신원 액세스 권한
 msgid "The report can be accessed at:"
 msgstr "보고서는 다음 위치에서 액세스할 수 있습니다."
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "내부 고발자의 신원 액세스 권한 승인"
 
 msgid ""
@@ -1889,26 +1896,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "관리인이 {TipNum} 보고서의 내부 고발 신원 액세스 권한을 사용자에 대해 거부했음을 알리는 이메일입니다."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "내부 고발자의 신원 액세스 권한을 거부"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "수신자가 {TipNum} 보고서의 내부 고발 신원 액세스 권한을 요청했음을 알리는 이메일입니다."
 
 msgid "The request can be accessed at:"
 msgstr "해당 요청은 다음 위치에서 액세스할 수 있습니다."
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "내부 고발자의 신원 액세스 권한을 요청"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "{TipNum} 보고서의 내부 고발자가 자신의 신원을 제공했음을 알리는 이메일입니다."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "내부 고발자가 자신의 신원을 제공했습니다"
 
 msgid ""

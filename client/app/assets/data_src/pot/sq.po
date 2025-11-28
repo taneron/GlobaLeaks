@@ -45,14 +45,12 @@ msgid "Access requested"
 msgstr "U kërkua hyrje"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Ruajtësit iu kërkua hyrje te identiteti i nxjerrësit të së fshehtës."
 
 msgid "Account recovery key"
 msgstr "Kyç rimarrjesh llogarie"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Veproni në këmbë të një nxjerrësi të fshehtash"
 
 msgid "Activities"
 msgstr "Veprimtari"
@@ -99,16 +97,16 @@ msgstr "Lejoje marrësin të përpunojë datën e skadimit të raportimit"
 msgid "Allow the recipient to delete reports"
 msgstr "Lejoje marrësin të fshijë raportime"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Lejoji nxjerrësit të së fshehtës të shtojë te raportimi bashkëngjitje"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Lejoji nxjerrësit të së fshehtës të shkruajë komente"
 
 msgid "Allow users to sign up"
 msgstr "Lejoju përdoruesve të regjistrohen"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Lejoju nxjerrësve të të fshehtave të përzgjedhin marrësit e tyre"
 
 msgid "Allowed IP addresses"
@@ -168,7 +166,7 @@ msgstr "Autorizim"
 msgid "Authorize"
 msgstr "Autorizoje"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Autorizoni hyrje te identiteti i nxjerrësit të së fshehtës"
 
 msgid "Authorized"
@@ -331,7 +329,7 @@ msgstr "E mohuar"
 msgid "Deny"
 msgstr "Hidhe poshtë"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Hidhe poshtë kërkesën për hyrje te identiteti i nxjerrësit të së fshehtës"
 
 msgid "Description"
@@ -454,6 +452,9 @@ msgstr "I aktivizuar"
 msgid "Enter a name for the copy"
 msgstr "Jepni një emër për kopjen"
 
+msgid "Enter a report"
+msgstr "Veproni në këmbë të një nxjerrësi të fshehtash"
+
 msgid "Enter the two factor authentication code"
 msgstr "Jepni kodin e mirëfilltësimit dyfaktorësh"
 
@@ -575,7 +576,7 @@ msgstr "Akordoji hyrje"
 msgid "Group of questions"
 msgstr "Grup pyetjesh"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Keni parashtruar tashmë një raportim? Jepni dëftesën tuaj."
 
 msgid "Hidden"
@@ -853,6 +854,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Një ose disa marrës s’kanë kryer ende hyrjen e parë. Kjo do të thotë se s’do të marrin raportime."
 
+msgid "Open"
+msgstr "Hap"
+
 msgid "Opened"
 msgstr "I hapur"
 
@@ -949,7 +953,7 @@ msgstr "Grup pyetjeje"
 msgid "Question templates"
 msgstr "Gjedhe pyetjesh"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pyetje për tërheqje nxjerrësish të mundshëm të fshehtash"
 
 msgid "Questionnaire"
@@ -963,6 +967,9 @@ msgstr "Pyetësorë"
 
 msgid "Questions"
 msgstr "Pyetje"
+
+msgid "Read receipt"
+msgstr "Dëftesë leximi"
 
 msgid "Receivers"
 msgstr "Marrësit"
@@ -1000,7 +1007,7 @@ msgstr "Shprehje e rregullt"
 msgid "Regular expression validator"
 msgstr "Vlerësues shprehjesh të rregullta"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Mos harroni dëftesën tuaj për këtë raportim."
 
 msgid "Reminder date"
@@ -1030,7 +1037,7 @@ msgstr "Gjendje raportimesh"
 msgid "Reports"
 msgstr "Raportime"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Kërko hyrje te identiteti i nxjerrësit të së fshehtës"
 
 msgid "Request date"
@@ -1075,7 +1082,7 @@ msgstr "Burimi s’u gjet"
 msgid "Restrict access to specific IP addresses"
 msgstr "Kufizoju hyrjen adresave IP specifike"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Nxjerrës të rikthyer të fshehtash"
 
 msgid "Revoke access"
@@ -1249,6 +1256,9 @@ msgstr "Parashtrimet të çaktivizuara"
 msgid "Submit"
 msgstr "Parashtrojeni"
 
+msgid "Submit a report"
+msgstr "Depozitoni një raportim"
+
 msgid "Subscribed"
 msgstr "I pajtuar"
 
@@ -1362,7 +1372,7 @@ msgstr "Kyçi i rimarrjeve i dhënë është i pavlefshëm."
 msgid "The provided reset token is invalid or expired."
 msgstr "Token-i i dhënë për ricaktimin është i pavlefshëm, ose ka skaduar."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Ose dëftesa është e pavlefshme, ose raportimi ka skaduar."
 
 msgid "The specified input is not valid."
@@ -1386,10 +1396,10 @@ msgstr "Përdoruesi do të detyrohet të ndryshojë fjalëkalimin e tij gjatë h
 msgid "The validation link is either incorrect or has expired."
 msgstr "Ose lidhja e vlerësimit është e pasaktë, ose ka skaduar."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Nxjerrësi i së fshehtës e ka lexuar tashmë përditësimin e fundit"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Nxjerrësi i së fshehtës s’e ka lexuar ende përditësimin e fundit"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1476,8 +1486,8 @@ msgid "Use as default"
 msgstr "Përdore si parazgjedhje"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Për të bërë hyrjen, përdorni dëftesën me 16 shifra. Do t’ju lejojë të shihni çfarëdo mesazhesh që ju kemi dërguar dhe edhe të shtoni informacion shtesë."
 
 msgid "Use the first site for administrative purposes only"
@@ -1551,10 +1561,10 @@ msgstr "I dobët"
 msgid "Welcome!"
 msgstr "Mirë se vini!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Nxjerrës të fshehte"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Hyrja e fundit nga nxjerrës të fshehtash"
 
 msgid "Whistleblowing Policy"
@@ -1574,8 +1584,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Po lidheni me shërbyesin pa anonimitet dhe ky shërbyes mbulon vetëm parashtrime anonime"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Po veproni në këmbë të një nxjerrësi të fshehtash."
+msgid "You are entering a report received through other channels."
+msgstr "Po hyni në një raportim të marrë përmes kanalesh të tjerë."
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1623,9 +1633,6 @@ msgstr "ju lutemi, jepni vetëm numra."
 
 msgid "seconds"
 msgstr "sekonda"
-
-msgid "File a report"
-msgstr "Depozitoni një raportim"
 
 msgid "Select a reporting channel:"
 msgstr "Përzgjidhni një kanal raportimi:"
@@ -1889,7 +1896,7 @@ msgstr "Ky është një email për t’ju njoftuar se një ruajtës ju ka autori
 msgid "The report can be accessed at:"
 msgstr "Raportimi mund të shihet te:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "U autorizua hyrje te identitet nxjerrësi të fshehte"
 
 msgid ""
@@ -1897,26 +1904,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Ky është një email për t’ju njoftuar se një ruajtës ju ka mohuar njohjen e identitetit të nxjerrësit të së fshehtës për raportimin {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "U hodh poshtë hyrje te identitet nxjerrësi të fshehte"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Ky është një email për t’ju njoftuar se një marrës ka kërkuar hyrje te identiteti i nxjerrësit të së fshehtës për raportimin {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Kërkesa mund të shihet te:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Kërkesë e re për hyrje te identiteti i një nxjerrësi të fshehtash"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Ky është një email për t’ju njoftuar se nxjerrësi i të fshehtës për raportimin {TipNum} ka dhënë identitetin e vet."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Nxjerrësi i të fshehtës ka dhënë identitetin e vet"
 
 msgid ""

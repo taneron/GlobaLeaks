@@ -52,14 +52,12 @@ msgid "Access requested"
 msgstr "Accesul a fost solicitat"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Accesul la identitatea avertizorului a fost solicitată custode."
 
 msgid "Account recovery key"
 msgstr "Cheia de recuperare a contului"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Activități"
@@ -106,16 +104,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Permite destinatarilor să șteargă sesizările"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Permite avertizorului să adauge atașamente sesizării"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Permite avertizorului să scrie comentarii"
 
 msgid "Allow users to sign up"
 msgstr "Permite utilizatorilor să se înscrie"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Permite avertizorilor să selecteze destinatarii"
 
 msgid "Allowed IP addresses"
@@ -175,7 +173,7 @@ msgstr "Autorizare"
 msgid "Authorize"
 msgstr "Autorizează"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Permite accesul la identitatea avertizorului de integritate."
 
 msgid "Authorized"
@@ -338,7 +336,7 @@ msgstr "Neautorizat"
 msgid "Deny"
 msgstr "Refuză"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Interzice accesul la identitatea avertizorului de integritate "
 
 msgid "Description"
@@ -461,6 +459,9 @@ msgstr "Activat"
 msgid "Enter a name for the copy"
 msgstr "Introdu un nume pentru copie"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Introdu codul pentru autentificarea în doi pași."
 
@@ -582,7 +583,7 @@ msgstr "Acordă acces"
 msgid "Group of questions"
 msgstr "Grup de întrebări"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Ai trimis deja o sesizare? Introdu codul înregistrării."
 
 msgid "Hidden"
@@ -860,6 +861,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Unul sau mai mulți destinatari nu s-au autentificat încă pentru prima dată și nu vor primi sesizările. "
 
+msgid "Open"
+msgstr "Deschideți"
+
 msgid "Opened"
 msgstr "În lucru"
 
@@ -956,7 +960,7 @@ msgstr "Grup de întrebări"
 msgid "Question templates"
 msgstr "Șabloane pentru întrebări"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Întrebarea prin care soliciți posibile avertizări"
 
 msgid "Questionnaire"
@@ -970,6 +974,9 @@ msgstr "Chestionare"
 
 msgid "Questions"
 msgstr "Întrebări"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -1007,7 +1014,7 @@ msgstr "Expresie regulată"
 msgid "Regular expression validator"
 msgstr "Verificare expresie regulată"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Ține minte numărul codului de înregistrare pentru această sesizare."
 
 msgid "Reminder date"
@@ -1037,7 +1044,7 @@ msgstr "Statusuri sesizare"
 msgid "Reports"
 msgstr "Sesizări"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Solicită accesul pentru a vizualiza identitatea avertizorului de integritate.  "
 
 msgid "Request date"
@@ -1082,7 +1089,7 @@ msgstr "Nu a fost găsită resursa"
 msgid "Restrict access to specific IP addresses"
 msgstr "Permite accesul doar anumitor adrese IP"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1256,6 +1263,9 @@ msgstr "Sesizări dezactivate"
 msgid "Submit"
 msgstr "Trimite"
 
+msgid "Submit a report"
+msgstr "Depune o sesizare"
+
 msgid "Subscribed"
 msgstr "subscrisă"
 
@@ -1369,7 +1379,7 @@ msgstr "Cheia de recuperare introdusă este invalidă."
 msgid "The provided reset token is invalid or expired."
 msgstr "Codul de resetare introdus este invalid sau a expirat."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Acest cod este fie invalid, fie sesizarea a expirat."
 
 msgid "The specified input is not valid."
@@ -1393,10 +1403,10 @@ msgstr "Utilizatorul va trebui să schimbe parola la următoarea conectare."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Linkul pentru validare este fie incorect, fie a expirat."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Avertizorul de integritate a citit deja ultima actualizare."
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Avertizorul de integritate nu a citit încă ultima actualizare. "
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1483,8 +1493,8 @@ msgid "Use as default"
 msgstr "Folosește ca setare standard"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Folosește numărul de înregistrare din 16 cifre pentru a te autentifica. Îți va permite să vezi ce mesaje ai primit, precum și să adaugi informații suplimentare."
 
 msgid "Use the first site for administrative purposes only"
@@ -1558,10 +1568,10 @@ msgstr "Scăzut"
 msgid "Welcome!"
 msgstr "Bine ai venit!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Avertizor de integritate"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Ultima accesare de către avertizorul de integritate"
 
 msgid "Whistleblowing Policy"
@@ -1581,7 +1591,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Te conectezi la server fără anonimat iar acest server permite doar sesizări anonimizate."
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1630,9 +1640,6 @@ msgstr "Te rog, introdu doar numere."
 
 msgid "seconds"
 msgstr "secunde"
-
-msgid "File a report"
-msgstr "Depune o sesizare"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1896,7 +1903,7 @@ msgstr "Acesta este un e-mail pentru a te anunța că un custode te-a autorizat 
 msgid "The report can be accessed at:"
 msgstr "Sesizarea poate fi accesată la:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Accesul la identitatea avertizorului a fost autorizat."
 
 msgid ""
@@ -1904,26 +1911,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Acesta este un e-mail pentru a te anunța că un custode ți-a refuzat accesul la identitatea avertizorului sesizării {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Accesul la identitatea avertizorului a fost respins."
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Acesta este un e-mail pentru a te anunța că un destinatar a solicitat accesul la identitatea avertizorului sesizării {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Solicitarea poate fi accesată aici: "
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "O nouă cerere de acces la identitatea avertizorului."
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Acesta este un e-mail pentru a te anunța că avertizorul sesizării {TipNum} și-a dezvăluit identitatea."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Avertizorul și-a dezvăluit identitatea."
 
 msgid ""

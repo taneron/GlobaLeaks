@@ -46,14 +46,12 @@ msgid "Access requested"
 msgstr "Vyžiadaný prístup"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Správca bol požiadaný o prístup k identite oznamovateľa."
 
 msgid "Account recovery key"
 msgstr "Kľúč na obnovenie účtu"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Aktivity"
@@ -100,16 +98,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Povoliť príjemcom zmazať podania"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Povoliť oznamovateľovi pripojiť prílohy k podaniu"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Povoliť oznamovateľovi písať komentáre"
 
 msgid "Allow users to sign up"
 msgstr "Povoliť používateľom registráciu"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Povoliť oznamovateľom zvoliť si ich príjemcov"
 
 msgid "Allowed IP addresses"
@@ -169,7 +167,7 @@ msgstr "Autorizácia"
 msgid "Authorize"
 msgstr "Autorizovať"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Povoliť prístup k identite oznamovateľa"
 
 msgid "Authorized"
@@ -332,7 +330,7 @@ msgstr "Odmietnutý"
 msgid "Deny"
 msgstr "Zamietnuť"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Zamietnuť prístup k identite oznamovateľa"
 
 msgid "Description"
@@ -455,6 +453,9 @@ msgstr "Zapnuté"
 msgid "Enter a name for the copy"
 msgstr "Zadajte názov kópie"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Zadajte dvojfaktorový overovací kód"
 
@@ -576,7 +577,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "Skupina otázok"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Už ste vyplnili podanie? Zadajte svoj prístupový kód."
 
 msgid "Hidden"
@@ -854,6 +855,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Jeden alebo viacero príjemcov doteraz nevykonalo prvé prihlásenie. To znamená, že nebudú dostávať správy."
 
+msgid "Open"
+msgstr "Otvorený"
+
 msgid "Opened"
 msgstr "Otvorené"
 
@@ -950,7 +954,7 @@ msgstr "Skupina otázok"
 msgid "Question templates"
 msgstr "Šablóny otázok"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Otázky pre získavanie možných oznamovateľov"
 
 msgid "Questionnaire"
@@ -964,6 +968,9 @@ msgstr "Dotazníky"
 
 msgid "Questions"
 msgstr "Otázky"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Príjemcovia"
@@ -1001,7 +1008,7 @@ msgstr "Regulárny výraz"
 msgid "Regular expression validator"
 msgstr "Validátor regulárnych výrazov"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Zapamätajte si potvrdenie o tomto podaní."
 
 msgid "Reminder date"
@@ -1031,7 +1038,7 @@ msgstr "Stav podania"
 msgid "Reports"
 msgstr "Podania"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Vyžiadaný prístup k identite oznamovateľa"
 
 msgid "Request date"
@@ -1076,7 +1083,7 @@ msgstr "Zdroj nebol nájdený"
 msgid "Restrict access to specific IP addresses"
 msgstr "Obmedziť prístup k určitým IP adresám"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1250,6 +1257,9 @@ msgstr "Podania zakázané"
 msgid "Submit"
 msgstr "Odoslať"
 
+msgid "Submit a report"
+msgstr "podať oznámenie"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1363,7 +1373,7 @@ msgstr "Zadaný obnovovací kľúč je neplatný."
 msgid "The provided reset token is invalid or expired."
 msgstr "Dodaný reset token je neplatný alebo vypršal."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Príjemca je buď neplatný, alebo uplynula platnosť podania."
 
 msgid "The specified input is not valid."
@@ -1387,10 +1397,10 @@ msgstr "Používateľ bude nútený zmeniť svoje heslo pri ďalšom prihlásen�
 msgid "The validation link is either incorrect or has expired."
 msgstr "Odkaz na overenie je buď nesprávny, alebo vypršal."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Oznamovateľ čítal poslednú aktualizáciu."
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Oznamovateľ ešte nečítal poslednú aktualizáciu."
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1477,8 +1487,8 @@ msgid "Use as default"
 msgstr "Použiť ako prednastavené"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Na prihlásenie použite 16-miestny kód. Umožní vám zobraziť všetky správy, ktoré sme vám poslali, a pridať ďalšie informácie."
 
 msgid "Use the first site for administrative purposes only"
@@ -1552,10 +1562,10 @@ msgstr "Slabé"
 msgid "Welcome!"
 msgstr "Vitajte!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Oznamovateľ"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Posledný prístup oznamovateľa"
 
 msgid "Whistleblowing Policy"
@@ -1575,7 +1585,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "K serveru sa pripájate neanonymne, pričom tento konkrétny server podporuje iba anonymné podania"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1624,9 +1634,6 @@ msgstr "Zadajte, prosím, iba čísla."
 
 msgid "seconds"
 msgstr "sekúnd"
-
-msgid "File a report"
-msgstr "podať oznámenie"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1890,7 +1897,7 @@ msgstr "Toto je emailové upozornenie, že Vám správca povolil prístup k iden
 msgid "The report can be accessed at:"
 msgstr "K tomuto podaniu máte prístup:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Prístup k identite oznamovateľa bol schválený"
 
 msgid ""
@@ -1898,26 +1905,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Toto je emailové upozornenie, že správca zamietol Váš prístup k identite oznamovateľa podania {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Prístup k identifikácii oznamovateľa bol zamietnutý"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Toto je emailové upozornenie, že príjemca požaduje prístup k identite oznamovateľa podania {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Žiadosť je dostupná na:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nová žiadosť o prístup k identite oznamovateľa"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Toto je emailové upozornenie, že oznamovateľ podania {TipNum} poskytol svoju identitu."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Oznamovateľ poskytol svoju identitu"
 
 msgid ""

@@ -63,14 +63,12 @@ msgid "Access requested"
 msgstr "درخواست دسترسی ارسال شد"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "دسترسی به هویت افشاگر از سرپرست درخواست شده است."
 
 msgid "Account recovery key"
 msgstr "کلید بازیابی حساب کاربری"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "فعالیت‌ها"
@@ -117,16 +115,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "به گیرندگان اجازه دهید که گزارش‌ها را حذف کنند"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "به افشاگر اجازهٔ افزودن پیوست‌ها به گزارش داده شود"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "به افشاگر اجازهٔ نوشتن نظرات داده شود"
 
 msgid "Allow users to sign up"
 msgstr "اجازهٔ نام‌نویسی به کاربران"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "اجازهٔ انتخاب گیرندگان خود برای افشاگران"
 
 msgid "Allowed IP addresses"
@@ -186,7 +184,7 @@ msgstr "صدور مجوز"
 msgid "Authorize"
 msgstr "مجاز ساختن"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "مجاز ساختن دسترسی به هویت افشاگر"
 
 msgid "Authorized"
@@ -349,7 +347,7 @@ msgstr "غیرمجاز"
 msgid "Deny"
 msgstr "غیرمجاز کردن"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "غیرمجاز کردن دسترسی به هویت افشاگر"
 
 msgid "Description"
@@ -472,6 +470,9 @@ msgstr "فعال"
 msgid "Enter a name for the copy"
 msgstr "وارد کردن یک نام برای نسخهٔ کپی"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "کد احراز هویت دو عاملی را وارد کنید"
 
@@ -593,7 +594,7 @@ msgstr "اعطای دسترسی"
 msgid "Group of questions"
 msgstr "گروه پرسش‌ها"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "آیا از قبل گزارش خود را تشکیل داده‌اید؟ رسید خود را وارد کنید."
 
 msgid "Hidden"
@@ -871,6 +872,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "یک یا چند گیرنده هنوز اولین ورود خود را انجام نداده‌اند. این یعنی آن‌ها گزارش‌ها را دریافت نخواهند کرد."
 
+msgid "Open"
+msgstr "باز کردن"
+
 msgid "Opened"
 msgstr "باز شده"
 
@@ -967,7 +971,7 @@ msgstr "گروه پرسش"
 msgid "Question templates"
 msgstr "قالب‌های پرسش‌"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "پرسش برای جذب افشاگران احتمالی"
 
 msgid "Questionnaire"
@@ -981,6 +985,9 @@ msgstr "پرسش‌نامه‌ها"
 
 msgid "Questions"
 msgstr "پرسش‌ها"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "دریافت‌کننده‌ها"
@@ -1018,7 +1025,7 @@ msgstr "عبارت باقاعده"
 msgid "Regular expression validator"
 msgstr "اعتبارسنج عبارت باقاعده"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "رسید خود را برای این گزارش به یاد داشته باشید."
 
 msgid "Reminder date"
@@ -1048,7 +1055,7 @@ msgstr "وضعیت‌های گزارش"
 msgid "Reports"
 msgstr "گزارش‌ها"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "درخواست دسترسی به هویت افشاگر"
 
 msgid "Request date"
@@ -1093,7 +1100,7 @@ msgstr "منبع یافت نشد"
 msgid "Restrict access to specific IP addresses"
 msgstr "محدود کردن دسترسی به نشانی‌های IP خاص"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1267,6 +1274,9 @@ msgstr "ارسال‌ها غیرفعال شدند"
 msgid "Submit"
 msgstr "ارسال"
 
+msgid "Submit a report"
+msgstr "تشکیل یک گزارش"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1380,7 +1390,7 @@ msgstr "کلید بازیابی ارائه شده نامعتبر است."
 msgid "The provided reset token is invalid or expired."
 msgstr "نشانهٔ تنظیم مجدد یا نامعتبر یا منقضی شده است."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "رسید یا نامعتبر است یا گزارش منقضی شده است."
 
 msgid "The specified input is not valid."
@@ -1404,10 +1414,10 @@ msgstr "کاربر مجبور خواهد شد تا گذرواژهٔ خود را 
 msgid "The validation link is either incorrect or has expired."
 msgstr "پیوند اعتبارسنجی یا نادرست یا انقضا یافته است."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "افشاگر آخرین به‌روزرسانی را خوانده است"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "افشاگر هنوز آخرین به‌روزرسانی را نخوانده است"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1494,8 +1504,8 @@ msgid "Use as default"
 msgstr "استفاده به صورت پیش‌فرض"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "از رسید ۱۶ رقمی برای وارد شدن استفاده کنید. رسید به شما اجازه می‌دهد تا هر پیامی را که به شما ارسال کردیم مشاهده کنید، و همچنین اطلاعات بیشتری اضافه کنید."
 
 msgid "Use the first site for administrative purposes only"
@@ -1569,10 +1579,10 @@ msgstr "ضعیف"
 msgid "Welcome!"
 msgstr "خوش آمدید!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "افشاگر"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "آخرین دسترسی افشاگر"
 
 msgid "Whistleblowing Policy"
@@ -1592,7 +1602,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "شما در حال اتصال به سرور بدون قابلیت ناشناسی هستید و این سرور فقط از ارسال‌های ناشناس پشتیبانی می‌کند"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1641,9 +1651,6 @@ msgstr "لطفاً فقط اعداد را وارد کنید."
 
 msgid "seconds"
 msgstr "ثانیه"
-
-msgid "File a report"
-msgstr "تشکیل یک گزارش"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1907,7 +1914,7 @@ msgstr "این ایمیل به شما اطلاع می‌دهد که یک سرپ�
 msgid "The report can be accessed at:"
 msgstr "گزارش در پایین قابل دسترس است:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "دسترسی به هویت افشاگر مجاز گردید"
 
 msgid ""
@@ -1915,26 +1922,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "این ایمیل به شما اطلاع می‌دهد که یک سرپرست دسترسی شما به هویت افشاگری را برای گزارش {TipNum} رد کرده است."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "دسترسی به هویت افشاگر رد شد."
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "این ایمیل به شما اطلاع می‌دهد که گیرنده خواستار دسترسی به هویت افشاگر برای گزارش {TipNum} شده است."
 
 msgid "The request can be accessed at:"
 msgstr "درخواست در اینجا قابل دسترس است:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "درخواست جدید برای دسترسی به هویت یک افشاگر"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "این ایمیل به شما اطلاع می‌دهد که افشاگر گزارش {TipNum} هویت خود را ارائه کرده است."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "افشاگر، هویت خود را ارائه کرده است"
 
 msgid ""

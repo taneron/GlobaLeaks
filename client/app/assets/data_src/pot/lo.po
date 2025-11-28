@@ -36,14 +36,12 @@ msgid "Access requested"
 msgstr "ໄດ້ຂໍການເຂົ້າເຖິງແລ້ວ"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "ໄດ້ມີການຮ້ອງຂໍການເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສໄປຍັງຜູ້ປົກປ້ອງຂໍ້ມູນແລ້ວ."
 
 msgid "Account recovery key"
 msgstr "ລະຫັດກູ້ຄືນບັນຊີ"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "ກິດຈະກຳຕ່າງໆ"
@@ -90,16 +88,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "ອະນຸຍາດໃຫ້ຜູ້ຮັບລຶບລາຍງານ"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "ອະນຸຍາດໃຫ້ຜູ້ແຈ້ງເບາະແສເພີ່ມເອກະສານຄັດຕິດຕື່ມໃສ່ລາຍງານ"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "ອະນຸຍາດໃຫ້ຜູ້ແຈ້ງເບາະແສຂຽນຄຳຄິດເຫັນໄດ້"
 
 msgid "Allow users to sign up"
 msgstr "ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ລົງທະບຽນ"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "ອະນຸຍາດໃຫ້ຜູ້ແຈ້ງເບາະແສສາມາດເລືອກເອົາຜູ້ຮັບຂອງຕົນ"
 
 msgid "Allowed IP addresses"
@@ -159,7 +157,7 @@ msgstr "ການອະນຸຍາດ"
 msgid "Authorize"
 msgstr "ອະນຸຍາດ"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "ອະນຸຍາດໃຫ້ເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid "Authorized"
@@ -322,7 +320,7 @@ msgstr "ປະຕິເສດແລ້ວ"
 msgid "Deny"
 msgstr "ປະຕິເສດ"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "ປະຕິເສດການເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid "Description"
@@ -445,6 +443,9 @@ msgstr "ເປີດນຳໃຊ້ແລ້ວ"
 msgid "Enter a name for the copy"
 msgstr "ປ້ອນຊື່ສຳລັບການສຳເນົາ"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "ປ້ອນລະຫັດການຢືນຢັນແບບສອງຂັ້ນຕອນ"
 
@@ -566,7 +567,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "ກຸ່ມຂອງຄຳຖາມ"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "ທ່ານໄດ້ຍື່ນລາຍງານແລ້ວບໍ? ປ້ອນໃບບິນຂອງທ່ານ."
 
 msgid "Hidden"
@@ -844,6 +845,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "ມີຜູ້ຮັບໜຶ່ງ ຫຼື ຫຼາຍຄົນຍັງບໍ່ໄດ້\nລົງທະບຽນເຂົ້າສູ່ລະບົບເທື່ອທຳອິດເທື່ອ. ຊຶ່ງ\nໝາຍຄວາມວ່າພວກເຂົາຈະບໍ່ໄດ້ຮັບລາຍງານ."
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "ເປີດແລ້ວ"
 
@@ -940,7 +944,7 @@ msgstr "ກຸ່ມຄຳຖາມ"
 msgid "Question templates"
 msgstr "ແມ່ແບບຄຳຖາມ"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "ຄຳຖາມເພື່ອຊັກຊວນຜູ້ແຈ້ງເບາະແສທີ່ເປັນໄປໄດ້"
 
 msgid "Questionnaire"
@@ -954,6 +958,9 @@ msgstr "ແບບສອບຖາມ"
 
 msgid "Questions"
 msgstr "ຄຳຖາມ"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -991,7 +998,7 @@ msgstr "ການສະແດງອອກທົ່ວໄປ"
 msgid "Regular expression validator"
 msgstr "ຕົວກວດສອບການສະແດງອອກທົ່ວໄປ"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "ບັນທຶກໃບບິນຂອງທ່ານສຳລັບລາຍງານນີ້."
 
 msgid "Reminder date"
@@ -1021,7 +1028,7 @@ msgstr "ລາຍງານສະຖານະ"
 msgid "Reports"
 msgstr "ລາຍງານຕ່າງໆ"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "ຂໍການເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid "Request date"
@@ -1066,7 +1073,7 @@ msgstr "ບໍ່ພົບແຫຼ່ງຂໍ້ມູນ"
 msgid "Restrict access to specific IP addresses"
 msgstr "ຈຳກັດການເຂົ້າເຖິງທີ່ຢູ່ IP ສະເພາະ"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1240,6 +1247,9 @@ msgstr "ການສົ່ງຖືກປິດໃຊ້ງານແລ້ວ"
 msgid "Submit"
 msgstr "ສົ່ງ"
 
+msgid "Submit a report"
+msgstr "ຍື່ນລາຍງານ"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1353,7 +1363,7 @@ msgstr "ລະຫັດກູ້ຄືນທີ່ໃຫ້ມາແມ່ນໃ
 msgid "The provided reset token is invalid or expired."
 msgstr "ໂທເຄັນການຕັ້ງຄືນໃໝ່ແມ່ນໃຊ້ບໍ່ໄດ້ ຫຼື ໝົດອາຍຸແລ້ວ."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "ໃບບິນແມ່ນໃຊ້ບໍ່ໄດ້ ຫຼື ການລາຍງານໄດ້ໝົດອາຍຸແລ້ວ."
 
 msgid "The specified input is not valid."
@@ -1377,10 +1387,10 @@ msgstr "ຜູ້ໃຊ້ຈະຖືກບັງຄັບໃຫ້ປ່ຽນ
 msgid "The validation link is either incorrect or has expired."
 msgstr "ລິ້ງຢືນຢັນບໍ່ຖືກຕ້ອງ ຫຼື ໝົດອາຍຸແລ້ວ."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "ຜູ້ແຈ້ງເບາະແສໄດ້ອ່ານການອັບເດດຄັ້ງຫຼ້າສຸດແລ້ວ"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "ຜູ້ແຈ້ງເບາະແສຍັງບໍ່ໄດ້ອ່ານການອັບເດດຄັ້ງຫຼ້າສຸດເທື່ອ"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1467,8 +1477,8 @@ msgid "Use as default"
 msgstr "ໃຊ້ເປັນຄ່າເລີ່ມຕົ້ນ"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "ໃຊ້ໃບບິນ 16 ຕົວເລກເພື່ອເຂົ້າສູ່ລະບົບ. ມັນຈະອະນຸຍາດໃຫ້ທ່ານສາມາດເບິ່ງທຸກຂໍ້ຄວາມທີ່ພວກເຮົາໄດ້ສົ່ງໃຫ້ທ່ານ ແລະ ຍັງສາມາດເພີ່ມຂໍ້ມູນເພີ່ມຕື່ມໄດ້ອີກດ້ວຍ."
 
 msgid "Use the first site for administrative purposes only"
@@ -1542,10 +1552,10 @@ msgstr "ອ່ອນ"
 msgid "Welcome!"
 msgstr "ຍິນດີຕ້ອນຮັບ!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "ຜູ້ແຈ້ງເບາະແສ"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "ການເຂົ້າຄັ້ງສຸດທ້າຍຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid "Whistleblowing Policy"
@@ -1565,7 +1575,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "ທ່ານກຳລັງເຊື່ອມຕໍ່ກັບເຊີບເວີໂດຍບໍ່ມີການລະບຸຕົວຕົນ ແລະ ເຊີບເວີນີ້ຮອງຮັບພຽງແຕ່ການສົ່ງທີ່ມີການລະບຸຕົວຕົນເທົ່ານັ້ນ"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1614,9 +1624,6 @@ msgstr "ກະລຸນາປ້ອນຕົວເລກເທົ່ານັ້
 
 msgid "seconds"
 msgstr "ວິນາທີ"
-
-msgid "File a report"
-msgstr "ຍື່ນລາຍງານ"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1880,7 +1887,7 @@ msgstr "ນີ້ແມ່ນອີເມວເພື່ອແຈ້ງໃຫ້
 msgid "The report can be accessed at:"
 msgstr "ສາມາດເຂົ້າເຖິງລາຍງານໄດ້ທີ່:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "ມີການອະນຸຍາດໃຫ້ເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສແລ້ວ"
 
 msgid ""
@@ -1888,26 +1895,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "ນີ້ແມ່ນອີເມວເພື່ອແຈ້ງໃຫ້ທ່ານຊາບວ່າ ຜູ້ປົກປ້ອງຂໍ້ມູນໄດ້ປະຕິເສດບໍ່ໃຫ້ທ່ານເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນໃນການແຈ້ງເບາະແສຂອງລາຍງານ {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "ມີການປະຕິເສດບໍ່ໃຫ້ເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "ນີ້ແມ່ນອີເມວເພື່ອແຈ້ງໃຫ້ທ່ານຊາບວ່າ ຜູ້ຮັບໄດ້ຮ້ອງຂໍການເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນໃນການແຈ້ງເບາະແສຂອງລາຍງານ {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "ສາມາດເຂົ້າເຖິງຄຳຮ້ອງຂໍໄດ້ທີ່:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "ຄຳຮ້ອງຂໍໃໝ່ເພື່ອເຂົ້າເຖິງຂໍ້ມູນລະບຸຕົວຕົນຂອງຜູ້ແຈ້ງເບາະແສ"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "ນີ້ແມ່ນອີເມວເພື່ອແຈ້ງໃຫ້ທ່ານຊາບວ່າ ຜູ້ແຈ້ງເບາະແສຂອງລາຍງານ {TipNum} ໄດ້ໃຫ້ຂໍ້ມູນລະບຸຕົວຕົນຂອງຕົນແລ້ວ."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "ຜູ້ແຈ້ງເບາະແສໄດ້ໃຫ້ຂໍ້ມູນລະບຸຕົວຕົນຂອງຕົນແລ້ວ."
 
 msgid ""

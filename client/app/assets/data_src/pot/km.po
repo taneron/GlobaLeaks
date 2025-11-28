@@ -40,14 +40,12 @@ msgid "Access requested"
 msgstr "បានស្នើសុំការប្រើប្រាស់"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "ការចូលប្រើប្រាស់អត្តសញ្ញាណរបស់អ្នករាយការណ៍ត្រូវបានស្នើសុំទៅអ្នកថែរក្សា។"
 
 msgid "Account recovery key"
 msgstr "លេខកូដសង្គ្រោះគណនី"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "សកម្មភាព"
@@ -94,16 +92,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "អនុញ្ញាតអ្នកទទួលលុបរបាយការណ៍"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "អនុញ្ញាតអ្នករាយការណ៍បន្ថែមឯកសារភ្ជាប់ទៅកាន់របាយការណ៍"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "អនុញ្ញាតអ្នករាយការណ៍អោយសរសេរមតិយោបល់"
 
 msgid "Allow users to sign up"
 msgstr "អនុញ្ញាតអ្នកប្រើប្រាស់ចុះឈ្មោះ"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "អនុញ្ញាតអ្នករាយការណ៍ជ្រើសរើសអ្នកទទួលរបស់ពួកគេ"
 
 msgid "Allowed IP addresses"
@@ -163,7 +161,7 @@ msgstr "ការផ្តល់សិទ្ធិ"
 msgid "Authorize"
 msgstr "ផ្តល់សិទ្ធិ"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "ផ្តល់សិទ្ធិការចូលប្រើប្រាស់អត្តសញ្ញាណអ្នករាយការណ៍"
 
 msgid "Authorized"
@@ -326,7 +324,7 @@ msgstr "បានបដិសេធ"
 msgid "Deny"
 msgstr "បដិសេធ"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "បដិសេធការចូលប្រើប្រាស់អត្តសញ្ញាណអ្នករាយការណ៍"
 
 msgid "Description"
@@ -449,6 +447,9 @@ msgstr "បានបើក"
 msgid "Enter a name for the copy"
 msgstr "វាយបញ្ចូលឈ្មោះសម្រាប់ការចម្លង"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "វាយបញ្ចូលលេខកូដផ្ទៀងផ្ទាត់ពីរកត្តា"
 
@@ -570,7 +571,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "ក្រុមសំណួរ"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "តើអ្នកបានបំពេញរបាយការណ៍ហើយឬនៅ? វាយបញ្ចូលរបាយការណ៍របស់អ្នក។"
 
 msgid "Hidden"
@@ -848,6 +849,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "អ្នកទទួលម្នាក់​ ឬច្រើន មិនទាន់ដំណើរការចូលប្រើប្រាស់លើកដំបូងទេ។ នេះមានន័យថា ពួកគេនឹងមិនទទួលបានរបាយការណ៍ទេ។"
 
+msgid "Open"
+msgstr "បើក"
+
 msgid "Opened"
 msgstr "បានបើក"
 
@@ -944,7 +948,7 @@ msgstr "ក្រុមសំណួរ"
 msgid "Question templates"
 msgstr "គំរូសំណួរ"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "សំណួរដែលត្រូវទទូចសុំពីអ្នករាយការណ៍"
 
 msgid "Questionnaire"
@@ -958,6 +962,9 @@ msgstr "កម្រងសំណួរ"
 
 msgid "Questions"
 msgstr "សំណួរ"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -995,7 +1002,7 @@ msgstr "ការបញ្ចេញមតិធម្មតា"
 msgid "Regular expression validator"
 msgstr "ការពិនិត្យសុពលភាពការបញ្ចេញមតិធម្មតា"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "ចងចាំបង្កាន់ដៃរបស់អ្នក​ សម្រាប់របាយការណ៍នេះ។"
 
 msgid "Reminder date"
@@ -1025,7 +1032,7 @@ msgstr "ស្ថានភាពរបាយការណ៍"
 msgid "Reports"
 msgstr "របាយការណ៍"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "សំណើរចូលទៅកាន់អត្តសញ្ញាណអ្នករាយការណ៍"
 
 msgid "Request date"
@@ -1070,7 +1077,7 @@ msgstr "រកមិនឃើញធនធាន"
 msgid "Restrict access to specific IP addresses"
 msgstr "ហាមឃាត់ការចូលប្រើប្រាស់ចំពោះអាសយដ្ឋាន IP ជាក់លាក់ណាមួយ"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1244,6 +1251,9 @@ msgstr "ការដាក់បញ្ជូនត្រូវបានបិទ
 msgid "Submit"
 msgstr "បញ្ជូន"
 
+msgid "Submit a report"
+msgstr "បញ្ចូលរបាយការណ៍"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1357,7 +1367,7 @@ msgstr "លេខកូដសង្គ្រោះដែលបានផ្តល
 msgid "The provided reset token is invalid or expired."
 msgstr "វត្ថុតាងកំណត់ឡើងវិញដែលបានផ្តល់ មិនត្រឹមត្រូវ ឬផុតកំណត់។"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "បង្កាន់ដៃមិនត្រឹមត្រូវ ឬរបាយការណ៍ផុតកំណត់។"
 
 msgid "The specified input is not valid."
@@ -1381,10 +1391,10 @@ msgstr "អ្នកប្រើប្រាស់នឹងត្រូវបង
 msgid "The validation link is either incorrect or has expired."
 msgstr "តំណភ្ជាប់សម្រាប់ផ្ទៀងផ្ទាត់មិនត្រឹមត្រូវ ឬហួសកាលកំណត់។"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "អ្នករាយការណ៍បានអានបច្ចុប្បន្នភាពចុងក្រោយហើយ"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "អ្នករាយការណ៍មិនទាន់បានអានបច្ចុប្បន្នភាពចុងក្រោយទេ"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1471,8 +1481,8 @@ msgid "Use as default"
 msgstr "ប្រើប្រាស់ជាលំនាំដើម"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "ប្រើប្រាស់បង្កាន់ដៃ ១៦ ខ្ទង់ដើម្បីចូលប្រើប្រាស់។ វានឹងអនុញ្ញាតអ្នកឲ្យបង្ហាញសារដែលយើងខ្ញុំបានផ្ញើទៅកាន់អ្នក និងព័ត៌មានបន្ថែមផងដែរ។"
 
 msgid "Use the first site for administrative purposes only"
@@ -1546,10 +1556,10 @@ msgstr "ខ្សោយ"
 msgid "Welcome!"
 msgstr "សូមស្វាគមន៍!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "អ្នករាយការណ៍"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "ការចូលប្រើប្រាស់ចុងកក្រោយរបស់អ្នករាយការណ៍"
 
 msgid "Whistleblowing Policy"
@@ -1569,7 +1579,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "អ្នកកំពុងតភ្ជាប់ទៅកាន់ម៉ាស៊ីនមេ​ដោយគ្មានអនាមិកភាព តែម៉ាស៊ីនមេនេះគាំទ្រតែការបញ្ជូនដែលអនាមិកប៉ុណ្ណោះ"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1618,9 +1628,6 @@ msgstr "សូមវាយបញ្ចូលលេខតែប៉ុណ្ណោ
 
 msgid "seconds"
 msgstr "វិនាទី"
-
-msgid "File a report"
-msgstr "បញ្ចូលរបាយការណ៍"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1884,7 +1891,7 @@ msgstr "នេះជាអុីមែលជូនដំណឹងអ្នកថ
 msgid "The report can be accessed at:"
 msgstr "របាយការណ៍អាចចូលប្រើប្រាស់បាននៅ៖"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "ការចូលប្រើប្រាស់អត្តសញ្ញាណអ្នករាយការណ៍ត្រូវបានអនុញ្ញាត"
 
 msgid ""
@@ -1892,26 +1899,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "នេះជាអុីមែលជូនដំណឹងអ្នកថា អ្នកថែរក្សាម្នាក់បានបដិសេធអ្នកមិនឲ្យចូលប្រើប្រាស់អត្តសញ្ញាណអ្នករាយការណ៍ សម្រាប់របាយការណ៍ {TipNum}។"
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "ការចូលប្រើប្រាស់អត្តសញ្ញាណអ្នករាយការណ៍ត្រូវបានបដិសេធ"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "នេះជាអុីមែលជូនដំណឹងអ្នកថា មានអ្នកទទួលម្នាក់បានស្នើសុំការចូលប្រើប្រាស់ព័ត៌មានអត្តសញ្ញាណរបស់អ្នករាយការណ៍សម្រាប់របាយការណ៍ {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "ការស្នើសុំអាចចូលប្រើប្រាស់បាននៅ៖"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "ការស្នើសុំថ្មីនៃការចូលទៅកាន់អត្តសញ្ញាណរបស់អ្នករាយការណ៍"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "នេះជាអុីមែលជូនដំណឹងអ្នកថា អ្នករាយការណ៍សម្រាប់របាយការណ៍ {TipNum} បានផ្តល់ព័ត៌មានអត្តសញ្ញាណរបស់គេ។"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "អ្នករាយការណ៍បានផ្តល់អត្តសញ្ញាណរបស់គេ"
 
 msgid ""

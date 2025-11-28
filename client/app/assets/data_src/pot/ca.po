@@ -55,14 +55,12 @@ msgid "Access requested"
 msgstr "Accés demanat"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "La persona guardiana ha demanat l'accés a la identitat de l'informador."
 
 msgid "Account recovery key"
 msgstr "Clau de recuperació del compte"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Actuar en nom d'un denunciant"
 
 msgid "Activities"
 msgstr "Activitats"
@@ -109,16 +107,16 @@ msgstr "Permet al destinatari editar la data d'expiració de les denúncies"
 msgid "Allow the recipient to delete reports"
 msgstr "Permet al destinatari esborrar informes"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Permet a les persones reveladores de informació enviar un arxiu adjunt. "
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Permet als informadors escriure comentaris"
 
 msgid "Allow users to sign up"
 msgstr "Permetre als usuaris registrar-se"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Permet als informadors que seleccionin els seus destinataris"
 
 msgid "Allowed IP addresses"
@@ -178,7 +176,7 @@ msgstr "Autorització"
 msgid "Authorize"
 msgstr "Autoritzar"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Autoritza l'accés a la identitat de l'informador"
 
 msgid "Authorized"
@@ -341,7 +339,7 @@ msgstr "Denegat"
 msgid "Deny"
 msgstr "Denegar"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Denega l'accés a la identitat de la persona informadora"
 
 msgid "Description"
@@ -464,6 +462,9 @@ msgstr "Habilitat"
 msgid "Enter a name for the copy"
 msgstr "Introduïu un nom per a la còpia"
 
+msgid "Enter a report"
+msgstr "Actuar en nom d'un denunciant"
+
 msgid "Enter the two factor authentication code"
 msgstr "Introduïu el codi d’autenticació de dues passes"
 
@@ -585,7 +586,7 @@ msgstr "Concedir accés"
 msgid "Group of questions"
 msgstr "Conjunt de preguntes"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Ja heu fet algun enviament? Introduïu el vostre codi de rebut."
 
 msgid "Hidden"
@@ -863,6 +864,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Un o més destinataris encara no han realitzat el primer accés. Això vol dir que no rebran informes."
 
+msgid "Open"
+msgstr "Oberta"
+
 msgid "Opened"
 msgstr "Obert"
 
@@ -959,7 +963,7 @@ msgstr "Grup de preguntes"
 msgid "Question templates"
 msgstr "Plantilla de preguntes"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pregunta per sol·licitar possibles informadors"
 
 msgid "Questionnaire"
@@ -973,6 +977,9 @@ msgstr "Qüestionaris"
 
 msgid "Questions"
 msgstr "Preguntes"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Receptors"
@@ -1010,7 +1017,7 @@ msgstr "Expressió regular"
 msgid "Regular expression validator"
 msgstr "Validador d'expressió regular"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Recorda el teu codi de rebut per a aquest informe."
 
 msgid "Reminder date"
@@ -1040,7 +1047,7 @@ msgstr "Estat de l’informe"
 msgid "Reports"
 msgstr "Informes"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Demana l'accés a la identitat de la persona informadora"
 
 msgid "Request date"
@@ -1085,7 +1092,7 @@ msgstr "Recurs no trobat"
 msgid "Restrict access to specific IP addresses"
 msgstr "Restringeix l'accés a adreces IP específiques"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Denunciants que fan seguiment de la denúncia."
 
 msgid "Revoke access"
@@ -1259,6 +1266,9 @@ msgstr "Enviaments deshabilitats"
 msgid "Submit"
 msgstr "Remet"
 
+msgid "Submit a report"
+msgstr "Presentar un informe"
+
 msgid "Subscribed"
 msgstr "Subscrit"
 
@@ -1372,7 +1382,7 @@ msgstr "La clau de recuperació proporcionada no és vàlida."
 msgid "The provided reset token is invalid or expired."
 msgstr "El token de restabliment proporcionat no és vàlid o està caducat."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "El codi de rebut no és vàlid o l'informe ha caducat."
 
 msgid "The specified input is not valid."
@@ -1396,10 +1406,10 @@ msgstr "L'usuari es veurà forçat a canviar la contrasenya la propera vegada qu
 msgid "The validation link is either incorrect or has expired."
 msgstr "El vincle de validació és incorrecte o ha caducat."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "La persona informadora ja ha llegit la darrera actualització"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "La persona informadora encara no ha llegit la darrera actualització"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1486,8 +1496,8 @@ msgid "Use as default"
 msgstr "s'utilitza com a predeterminat"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Utilitzeu el codi de rebut de 16 dígits per iniciar sessió. Us permetrà veure els missatges que us enviem i també afegir informació addicional."
 
 msgid "Use the first site for administrative purposes only"
@@ -1561,10 +1571,10 @@ msgstr "Baix"
 msgid "Welcome!"
 msgstr "Benvingut!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Persona informadora"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Últim accés de l'Informant"
 
 msgid "Whistleblowing Policy"
@@ -1584,8 +1594,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "S'està connectant al servidor de manera no anònima, i aquest servidor només admet enviaments anònims"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Vosté està operant en nom d'un denunciant"
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1633,9 +1643,6 @@ msgstr "si us plau, introdueix només nombres."
 
 msgid "seconds"
 msgstr "segons"
-
-msgid "File a report"
-msgstr "Presentar un informe"
 
 msgid "Select a reporting channel:"
 msgstr "Tria un canal de denúncia:"
@@ -1899,7 +1906,7 @@ msgstr "Amb aquest missatge de correu electrònic et volem notificar que la pers
 msgid "The report can be accessed at:"
 msgstr "Podeu accedir a l'informe a:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Accés autoritzat a la identitat de la persona informadora"
 
 msgid ""
@@ -1907,26 +1914,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Amb aquest missatge de correu electrònic et volem notificar que la persona guardiana t'ha denegat l'accés a la identitat de la persona informadora de l'informe {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Accés denegat a la identitat de la persona informadora"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Amb aquest missatge de correu electrònic et volem notificar que la persona destinatària ha demanat accedir a la identitat de la persona informadora de la comunicació o alerta {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Pots accedir a la petició a:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nova petició d'accés a la identitat de l'informador"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Amb aquest missatge de correu electrònic et volem notificar que la persona informadora de l'informe {TipNum} ha introduït la seva identitat."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "La persona informadora ha introduït la seva identitat"
 
 msgid ""

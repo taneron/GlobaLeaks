@@ -51,14 +51,12 @@ msgid "Access requested"
 msgstr "Yêu cầu truy cập "
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Yêu cầu xem danh tính của người tố giác đã được gửi tới người bảo quản."
 
 msgid "Account recovery key"
 msgstr "Chìa khóa khôi phục tài khoản"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Các hoạt động"
@@ -105,16 +103,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Cho phép người nhận xóa báo cáo"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Cho phép người tố giác thêm tập tin đính kèm"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Cho phép người tố giác góp ý kiến"
 
 msgid "Allow users to sign up"
 msgstr "Cho phép người dùng đăng ký"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Cho phép người tố giác chọn người nhận"
 
 msgid "Allowed IP addresses"
@@ -174,7 +172,7 @@ msgstr "Xin phép"
 msgid "Authorize"
 msgstr "Cho phép"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Cho phép truy cập danh tính của người tố giác"
 
 msgid "Authorized"
@@ -337,7 +335,7 @@ msgstr "Bị từ chối"
 msgid "Deny"
 msgstr "Từ chối"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Từ chối truy cập danh tính của người tố giác"
 
 msgid "Description"
@@ -460,6 +458,9 @@ msgstr "Bật mở"
 msgid "Enter a name for the copy"
 msgstr "Nhập tên cho bản sao"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Nhập mã xác thực 2 yếu tố "
 
@@ -581,7 +582,7 @@ msgstr "Cho phép truy cập"
 msgid "Group of questions"
 msgstr "Nhóm câu hỏi"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Bạn đã nộp một báo cáo? Điền biên nhận vào."
 
 msgid "Hidden"
@@ -859,6 +860,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Một hoặc nhiều người nhận chưa thực hiện đăng nhập lần đầu. Điều này có nghĩa là họ sẽ không nhận được báo cáo"
 
+msgid "Open"
+msgstr "Open"
+
 msgid "Opened"
 msgstr "Đã mở"
 
@@ -955,7 +959,7 @@ msgstr "Nhóm câu hỏi"
 msgid "Question templates"
 msgstr "Các mẫu câu hỏi"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Câu hỏi để mời gọi người có thể tố giác "
 
 msgid "Questionnaire"
@@ -969,6 +973,9 @@ msgstr "Bảng câu hỏi"
 
 msgid "Questions"
 msgstr "Các câu hỏi"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Người nhận"
@@ -1006,7 +1013,7 @@ msgstr "Biểu thức chính quy"
 msgid "Regular expression validator"
 msgstr "Trình xác nhận biểu thức chính quy"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Ghi nhớ biên nhận cho báo cáo này."
 
 msgid "Reminder date"
@@ -1036,7 +1043,7 @@ msgstr "Trạng thái của báo cáo"
 msgid "Reports"
 msgstr "Báo cáo"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Yêu cầu truy cập danh tính của người tố giác"
 
 msgid "Request date"
@@ -1081,7 +1088,7 @@ msgstr "Không tìm thấy nguồn"
 msgid "Restrict access to specific IP addresses"
 msgstr "Hạn chế truy cập trong một số địa chỉ IP riêng biệt"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1255,6 +1262,9 @@ msgstr "Không nhận báo cáo"
 msgid "Submit"
 msgstr "Đệ nạp"
 
+msgid "Submit a report"
+msgstr "Nộp báo cáo"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1368,7 +1378,7 @@ msgstr "Chìa khóa khôi phục không hợp lệ."
 msgid "The provided reset token is invalid or expired."
 msgstr "Mã token để đặt lại không hợp lệ hoặc đã hết hạn."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Biên nhận không hợp lệ hoặc báo cáo đã hết hạn."
 
 msgid "The specified input is not valid."
@@ -1392,10 +1402,10 @@ msgstr "Người dùng sẽ buộc phải thay đổi mật khẩu trong lần �
 msgid "The validation link is either incorrect or has expired."
 msgstr "Liên kết kiểm nhận không chính xác hoặc đã hết hạn"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Người tố giác đã đọc bản cập nhật cuối"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Người tố giác chưa đọc bản cập nhật cuối"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1482,8 +1492,8 @@ msgid "Use as default"
 msgstr "Dùng như mặc định"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Sử dụng biên nhận 16 ký số để đăng nhập. Nó sẽ cho phép xem tin nhắn chúng tôi gửi cho bạn và cũng để bổ sung thêm thông tin."
 
 msgid "Use the first site for administrative purposes only"
@@ -1557,10 +1567,10 @@ msgstr "Yếu"
 msgid "Welcome!"
 msgstr "Chào mừng bạn!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Người tố giác"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Lần truy cập cuối của người tố giác"
 
 msgid "Whistleblowing Policy"
@@ -1580,7 +1590,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Bạn kết nối với máy chủ mà thiếu ẩn danh trong khi máy chủ này chỉ nhận báo cáo gửi ẩn danh"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1629,9 +1639,6 @@ msgstr "xin chỉ nhập ký số."
 
 msgid "seconds"
 msgstr "giây"
-
-msgid "File a report"
-msgstr "Nộp báo cáo"
 
 msgid "Select a reporting channel:"
 msgstr "Chọn kênh báo cáo:"
@@ -1895,7 +1902,7 @@ msgstr "Email này thông báo cho bạn biết là người bảo quản đã c
 msgid "The report can be accessed at:"
 msgstr "Báo cáo có thể được truy cập nơi đây:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Được phép truy cập vào danh tính người tố giác"
 
 msgid ""
@@ -1903,26 +1910,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Email này thông báo cho bạn biết người bảo quản đã từ chối không cho phép bạn truy cập vào danh tính người tố giác của báo cáo {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Bị từ chối truy cập vào danh tính người tố giác"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Email này thông báo cho bạn biết một người nhận đã yêu cầu truy cập danh tính của người tố giác của báo cáo {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Yêu cầu có thể được truy cập tại:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Có yêu cầu mới muốn biết danh tính của người tố giác"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Đây là một email thông báo cho bạn biết người tố giác của báo cáo {TipNum} đã cung cấp danh tính của họ."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Người tố giác đã cung cấp danh tính của họ"
 
 msgid ""

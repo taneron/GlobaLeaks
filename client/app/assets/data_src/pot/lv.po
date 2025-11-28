@@ -41,14 +41,12 @@ msgid "Access requested"
 msgstr "Piekļuves pieprasījums"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Piekļuve trauksmes cēlēja identitātei lūgta glabātājam."
 
 msgid "Account recovery key"
 msgstr "Konta atkopšanas atslēga"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Darbības"
@@ -95,16 +93,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Atļaut adresātam dzēst ziņojumus"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Atļaut trauksmes cēlējam pievienot pielikumus"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Atļaut trauksmes cēlējam rakstīt komentārus"
 
 msgid "Allow users to sign up"
 msgstr "Atļaut lietotājiem reģistrēties"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Atļaut trauksmes cēlējiem izvēlēties saņēmējus"
 
 msgid "Allowed IP addresses"
@@ -164,7 +162,7 @@ msgstr "Autorizācija"
 msgid "Authorize"
 msgstr "Atļauj"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Atļaut piekļuvi trauksmes cēlēja identitātei"
 
 msgid "Authorized"
@@ -327,7 +325,7 @@ msgstr "Liegts"
 msgid "Deny"
 msgstr "Liedz"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Liegt piekļuvi trauksmes cēlēja identitātei"
 
 msgid "Description"
@@ -450,6 +448,9 @@ msgstr "Iespējots"
 msgid "Enter a name for the copy"
 msgstr "Ievadiet kopijas nosaukumu"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Ievadīt divu faktoru autentifikācijas kodu"
 
@@ -571,7 +572,7 @@ msgstr "Piešķirt piekļuvi"
 msgid "Group of questions"
 msgstr "Jautājumu grupa"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Vai esat jau iesniedzis ziņojumu? Ievadiet ziņojuma numuru."
 
 msgid "Hidden"
@@ -849,6 +850,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Viens vai vairāki adresāti vēl nav veikuši pirmo pieslēgšanos. Tas nozīmē, ka viņi nesaņems ziņojumus."
 
+msgid "Open"
+msgstr "Atvērt"
+
 msgid "Opened"
 msgstr "Atvērts"
 
@@ -945,7 +949,7 @@ msgstr "Jautājumu grupa"
 msgid "Question templates"
 msgstr "Jautājumu formas"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Jautājums, lai uzrunātu iespējamos trauksmes cēlējus"
 
 msgid "Questionnaire"
@@ -959,6 +963,9 @@ msgstr "Aptaujas"
 
 msgid "Questions"
 msgstr "Jautājumi"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Saņēmēji"
@@ -996,7 +1003,7 @@ msgstr "Regulāra izteiksme"
 msgid "Regular expression validator"
 msgstr "Parastais izteiksmes pārbaudītājs"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Atcerieties šī ziņojuma numuru."
 
 msgid "Reminder date"
@@ -1026,7 +1033,7 @@ msgstr "Ziņojuma statusi"
 msgid "Reports"
 msgstr "Pārskati"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Pieprasīt piekļuvi trauksmes cēlēja identitātei"
 
 msgid "Request date"
@@ -1071,7 +1078,7 @@ msgstr "Avots nav atrasts"
 msgid "Restrict access to specific IP addresses"
 msgstr "Ierobežojiet piekļuvi noteiktām IP adresēm"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1245,6 +1252,9 @@ msgstr "Iesniegumi ir atspējoti"
 msgid "Submit"
 msgstr "Iesniegt"
 
+msgid "Submit a report"
+msgstr "Iesniegt ziņojumu"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1358,7 +1368,7 @@ msgstr "Norādītā atkopšanas atslēga nav derīga."
 msgid "The provided reset token is invalid or expired."
 msgstr "Norādītais atiestatīšanas žetons nav derīgs, vai tam ir beidzies derīguma termiņš."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Ziņojuma numurs ir nederīgs, vai arī ziņojumam ir beidzies derīguma termiņš."
 
 msgid "The specified input is not valid."
@@ -1382,10 +1392,10 @@ msgstr "Nākamajā pieteikšanās reizē lietotājs būs spiests mainīt savu pa
 msgid "The validation link is either incorrect or has expired."
 msgstr "Validācijas saite ir nepareiza vai tai ir beidzies derīguma termiņš."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Trauksmes cēlējs ir izlasījis pēdējos jaunumus"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Trauksmes cēlējs nav izlasījis pēdējos jaunumus"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1472,8 +1482,8 @@ msgid "Use as default"
 msgstr "Izmantot kā noklusējumu"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Izmantojiet 16 ciparu ziņojuma identifikācijas numuru, lai ienāktu \"TI Latvia – ALAC\" sistēmā. Tas ļaus jums skatīt ziņojumu, kuru nosūtījāt, mūsu sniegto informāciju, kā arī pievienot papildu informāciju."
 
 msgid "Use the first site for administrative purposes only"
@@ -1547,10 +1557,10 @@ msgstr "Vāja"
 msgid "Welcome!"
 msgstr "Sveicināti!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Trauksmes cēlējs"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Trauksmes cēlēja pēdēja piekļuve"
 
 msgid "Whistleblowing Policy"
@@ -1570,7 +1580,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Jūs pieslēdzaties mezglam bez anonimitātes un šis mezgls atbalsta tikai anonīmus ziņojumus"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1619,9 +1629,6 @@ msgstr "lūdzu, ievadiet tikai skaitļus."
 
 msgid "seconds"
 msgstr "sekundes"
-
-msgid "File a report"
-msgstr "Iesniegt ziņojumu"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1885,7 +1892,7 @@ msgstr "Šis ir e-pasta ziņojums, lai informētu, ka pārzinis ir pilnvarojis j
 msgid "The report can be accessed at:"
 msgstr "Ziņojumam var piekļūt:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Piekļuve trauksmes cēlēja identitātei ir atļauta"
 
 msgid ""
@@ -1893,26 +1900,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Šis ir e-pasta ziņojums, lai informētu, ka pārzinis ir liedzis jums piekļuvi ziņojuma iesniedzēja identitātei {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Piekļuve trauksmes cēlēja identitātei liegta"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Šis ir e-pasta ziņojums, lai informētu, ka adresāts ziņojumam ir pieprasījis piekļuvi ziņotāja identitātei {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Pieprasījumam var piekļūt:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Jauns pieprasījums par piekļuvi trauksmes cēlēja identitātei"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Šis ir e-pasta ziņojums, lai informētu, ka trauksmes cēlējs par ziņojumu {TipNum} ir norādījis savu identitāti."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Trauksmes cēlējs ir norādījis savu identitāti"
 
 msgid ""

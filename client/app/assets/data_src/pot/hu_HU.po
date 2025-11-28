@@ -1,8 +1,8 @@
 # 
 # Translators:
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
-# benewfy <benewfy@gmail.com>, 2015
-# benewfy <benewfy@gmail.com>, 2015-2016
+# 1b2d1cdb6e04db506a4a3a9a77ce72e1_3f4ad99 <6bd8696b3cb62846c4adcb6bdaea20ac_310289>, 2015
+# 1b2d1cdb6e04db506a4a3a9a77ce72e1_3f4ad99 <6bd8696b3cb62846c4adcb6bdaea20ac_310289>, 2015-2016
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2014,2017-2018,2020-2023
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
@@ -17,7 +17,7 @@
 # Melinda <ghostgirl1983@gmail.com>, 2013
 # zala krisztina <zalakri@gmail.com>, 2013
 # Petrovics Sándor, 2015
-# benewfy <benewfy@gmail.com>, 2015
+# 1b2d1cdb6e04db506a4a3a9a77ce72e1_3f4ad99 <6bd8696b3cb62846c4adcb6bdaea20ac_310289>, 2015
 # vargaviktor <viktor.varga@gmail.com>, 2014
 # vargaviktor <viktor.varga@gmail.com>, 2014-2018,2020-2021
 # zala krisztina <zalakri@gmail.com>, 2013,2019-2020,2024
@@ -55,14 +55,12 @@ msgid "Access requested"
 msgstr "Hozzáférés kérve"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "A bejelentő identitásához való hozzáférés kérelmezve a gondnoknak."
 
 msgid "Account recovery key"
 msgstr "Fiók visszaállító kulcs"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Aktivitások"
@@ -109,16 +107,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Engedélyezés a címzetteknek, hogy töröljék a tippeket"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Engedélyezi a bejelentőknek, hogy mellékleteket adjanak hozzá a beadványhoz"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "A bejelentő írhat megjegyzéseket"
 
 msgid "Allow users to sign up"
 msgstr "Felhasználók feliratkozásának engedélyezése"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "A bejelentő kiválaszthatja a címzetteket"
 
 msgid "Allowed IP addresses"
@@ -178,7 +176,7 @@ msgstr "Felhatalmazás"
 msgid "Authorize"
 msgstr "Feljogosít"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Hozzáférés engedélyezése a bejelentők identitásához"
 
 msgid "Authorized"
@@ -341,7 +339,7 @@ msgstr "Elutasított"
 msgid "Deny"
 msgstr "Elutasít"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Hozzáférés megtagadása a bejelentők identitásához"
 
 msgid "Description"
@@ -464,6 +462,9 @@ msgstr "Engedélyezve"
 msgid "Enter a name for the copy"
 msgstr "Adja meg a másolat nevét"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Adja meg a 2-faktoros belépés ellenőrző kódját"
 
@@ -585,7 +586,7 @@ msgstr "Hozzáférés adása"
 msgid "Group of questions"
 msgstr "Kérdések csoportja"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Küldött már be valamit? Adja meg a visszaigazoló kódját."
 
 msgid "Hidden"
@@ -863,6 +864,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Egy vagy több címzett még nem jelentkezett be. Ez azt jelenti, hogy ők nem kapják meg jelentéseket."
 
+msgid "Open"
+msgstr "Megnyitás"
+
 msgid "Opened"
 msgstr "Megnyitott"
 
@@ -959,7 +963,7 @@ msgstr "Kérdéscsoport"
 msgid "Question templates"
 msgstr "Kérdés sablonok"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Kiszivárogtatás kérdés"
 
 msgid "Questionnaire"
@@ -973,6 +977,9 @@ msgstr "Kérdőívek"
 
 msgid "Questions"
 msgstr "kérdések"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Fogadók"
@@ -1010,7 +1017,7 @@ msgstr "Reguláris kifejezés"
 msgid "Regular expression validator"
 msgstr "Szabályos kifejezés érvényesítő"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Jegyezze meg az alábbi visszaigazoló kódot a bejelentésről."
 
 msgid "Reminder date"
@@ -1040,7 +1047,7 @@ msgstr "Jelentés állapotok"
 msgid "Reports"
 msgstr "Jelentések"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Hozzáférés kérése a bejelentők identitásához"
 
 msgid "Request date"
@@ -1085,7 +1092,7 @@ msgstr "Erőforrás nem található."
 msgid "Restrict access to specific IP addresses"
 msgstr "Hozzáférés korlátozása bizonyos IP címekre"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1259,6 +1266,9 @@ msgstr "Beküldések kikapcsolva"
 msgid "Submit"
 msgstr "Küldés"
 
+msgid "Submit a report"
+msgstr "Jelentés beküldése"
+
 msgid "Subscribed"
 msgstr "Feliratkozva"
 
@@ -1372,7 +1382,7 @@ msgstr "A megadott visszaállítási kulcs érvénytelen."
 msgid "The provided reset token is invalid or expired."
 msgstr "A megadott törlési kulcs érvénytelen vagy lejárt."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "A visszaigazoló kód vagy nem érvényes, vagy a bejelentés lezárásra került. "
 
 msgid "The specified input is not valid."
@@ -1396,10 +1406,10 @@ msgstr "A felhasználó kényszeríve lesz, hogy megváltoztassa a jelszavát a 
 msgid "The validation link is either incorrect or has expired."
 msgstr "A validációs link vagy hibás vagy lejárt."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "A bejelentő elolvasta a legfrissebb üzeneteket"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "A bejelentő még nem olvasta a legfrissebb üzeneteket."
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1486,8 +1496,8 @@ msgid "Use as default"
 msgstr "Alapértelmezett"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Használja a 16 számjegyű visszaigazoló kódot a belépéshez. A kód segítségével hozzáférhet az Önnek küldött üzenetekhez és további információkat adhat meg."
 
 msgid "Use the first site for administrative purposes only"
@@ -1561,10 +1571,10 @@ msgstr "Gyenge"
 msgid "Welcome!"
 msgstr "Üdvözöljük!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Bejelentő"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "A bejelentő utolsó belépési időpontja"
 
 msgid "Whistleblowing Policy"
@@ -1584,7 +1594,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "A kiszolgálóhoz anonim módon csatlakozik, ez a kiszolgáló csak névtelen beadványokat fogad el"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1633,9 +1643,6 @@ msgstr "kérjük csak számokat adjon meg."
 
 msgid "seconds"
 msgstr "másodpercet"
-
-msgid "File a report"
-msgstr "Jelentés beküldése"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1899,7 +1906,7 @@ msgstr "Ez egy értesítő email arról, hogy egy gondnok jóváhagyta az identi
 msgid "The report can be accessed at:"
 msgstr "A jelentés elérhető itt:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "A bejelentő identitásához való hozzáférés engedélyezve"
 
 msgid ""
@@ -1907,26 +1914,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Ez egy értesítő email arról, hogy egy gondnok elutasította az identitás hozzáférési kérelmét a {TipNum} jelentés szivárogtatójának identitásához."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "A bejelentő identitásához való hozzáférés megtagadva"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Ez egy értesítő email arról, hogy egy címzett hozzáférést kér a bejelentő identitásához a {TipNum} jelentésben."
 
 msgid "The request can be accessed at:"
 msgstr "Az igénylés a következő címen érhető el:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Új kérés egy bejelentő identitásához hozzáférésre"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Ez egy értesítő email arról, hogy  {TipNum} jelentés bejelentője megadta identitását."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "A bejelentő megadta az identitását."
 
 msgid ""

@@ -8,7 +8,7 @@
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2015,2017,2020
 # Juha Nurmi <juha.nurmi@ahmia.fi>, 2015
 # Max Moiseev <max.moiseev@chamber.fi>, 2020-2023
-# Panu Ahvenharju, 2018-2020,2023
+# c68cd8eebf2051c348a211c1465b3e77_a80bbd6, 2018-2020,2023
 # Ricky Tigg, 2022
 # Ricky Tigg, 2022
 # Sami Kuusisto <sami@6sto.com>, 2015
@@ -47,14 +47,12 @@ msgid "Access requested"
 msgstr "Sisäänpääsy pyydetty"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Valvojalle on lähetetty pyyntö ilmoittajan henkilötietoihin pääsemiseksi."
 
 msgid "Account recovery key"
 msgstr "Tilin palautusavain"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Toimi ilmoittajan puolesta"
 
 msgid "Activities"
 msgstr "Tapahtumat"
@@ -101,16 +99,16 @@ msgstr "Salli vastaanottajan muokata vanhentumispäivää"
 msgid "Allow the recipient to delete reports"
 msgstr "Salli vastaanottajan poistaa raportteja"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Anna ilmoittajan lisätä liitteitä"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Anna ilmoittajan kirjoittaa kommentteja"
 
 msgid "Allow users to sign up"
 msgstr "Salli käyttäjien rekisteröityä"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Anna ilmoittajien valita vastaanottajansa"
 
 msgid "Allowed IP addresses"
@@ -170,7 +168,7 @@ msgstr "Valtuutus"
 msgid "Authorize"
 msgstr "Valtuuta"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Valtuuta pääsy ilmoittajan henkilöllisyyteen"
 
 msgid "Authorized"
@@ -333,7 +331,7 @@ msgstr "Kielletty"
 msgid "Deny"
 msgstr "Kiellä"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Estä pääsy vihjeenantajan henkilöllisyyteen"
 
 msgid "Description"
@@ -456,6 +454,9 @@ msgstr "Käytössä"
 msgid "Enter a name for the copy"
 msgstr "Anna kopiolle nimi"
 
+msgid "Enter a report"
+msgstr "Toimi ilmoittajan puolesta"
+
 msgid "Enter the two factor authentication code"
 msgstr "Syötä kaksivaiheinen todennuskoodi"
 
@@ -577,7 +578,7 @@ msgstr "Käyttöoikeuden myöntäminen"
 msgid "Group of questions"
 msgstr "Kysymysryhmä"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Oletko jo lähettänyt ilmoituksen? Syötä sen koodi."
 
 msgid "Hidden"
@@ -855,6 +856,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Yksi tai useampi vastaanottajista ei ole vielä suorittanut ensimmäistä kirjautumistaan. Tämä tarkoittaa, että he eivät vastaanota ilmoituksia."
 
+msgid "Open"
+msgstr "Avaa"
+
 msgid "Opened"
 msgstr "Avattu"
 
@@ -951,7 +955,7 @@ msgstr "Kysymysryhmä"
 msgid "Question templates"
 msgstr "Kysymysmallit"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Kysymys mahdollisten ilmiantajien hankkimiseksi"
 
 msgid "Questionnaire"
@@ -965,6 +969,9 @@ msgstr "Vihjelomakkeet"
 
 msgid "Questions"
 msgstr "Kysymykset"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Vastaanottajat"
@@ -1002,7 +1009,7 @@ msgstr "Säännöllinen lauseke (regexp)"
 msgid "Regular expression validator"
 msgstr "Säännöllisten lausekkeiden tarkistaja"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Muista ilmoituksen koodi."
 
 msgid "Reminder date"
@@ -1032,7 +1039,7 @@ msgstr "Ilmoitusten vaiheet"
 msgid "Reports"
 msgstr "Ilmoitukset"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Pyydä pääsyä ilmoittajan henkilöllisyyteen"
 
 msgid "Request date"
@@ -1077,7 +1084,7 @@ msgstr "Resurssia ei löydy"
 msgid "Restrict access to specific IP addresses"
 msgstr "Rajoita pääsy tiettyihin IP-osoitteisiin"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Palaavat ilmoittajat"
 
 msgid "Revoke access"
@@ -1251,6 +1258,9 @@ msgstr "Lähetykset poistettu käytöstä"
 msgid "Submit"
 msgstr "Lähetä"
 
+msgid "Submit a report"
+msgstr "Jätä vihje"
+
 msgid "Subscribed"
 msgstr "Tilattu"
 
@@ -1364,7 +1374,7 @@ msgstr "Annettu palautusavain on virheellinen."
 msgid "The provided reset token is invalid or expired."
 msgstr "Annettu nollaustunnus on virheellinen tai vanhentunut."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Koodi on virheellinen tai ilmoitus on vanhentunut."
 
 msgid "The specified input is not valid."
@@ -1388,10 +1398,10 @@ msgstr "Käyttäjän on pakko vaihtaa salasanansa seuraavan kirjautumisen yhteyd
 msgid "The validation link is either incorrect or has expired."
 msgstr "Vahvistuslinkki on joko virheellinen tai vanhentunut."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Vihjeen lähettäjä on jo lukenut viimeisimmän päivityksen"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Vihjeen lähettäjä ei ole vielä lukenut viimeisintä päivitystä"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1478,8 +1488,8 @@ msgid "Use as default"
 msgstr "Käytä oletusarvona"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Kirjaudu sisään 16-numeroisen koodin avulla. Se mahdollistaa viestimisen ja lisätietojen antamisen."
 
 msgid "Use the first site for administrative purposes only"
@@ -1553,10 +1563,10 @@ msgstr "Heikko"
 msgid "Welcome!"
 msgstr "Tervetuloa!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Vihjeenantaja"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Vihjeenantajan viimeisin kirjautumisajankohta"
 
 msgid "Whistleblowing Policy"
@@ -1576,8 +1586,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Muodostat yhteyden palvelimeen ilman nimettömyyttä ja tämä palvelin tukee vain anonyymejä lähetyksiä"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Toimit ilmoittajan puolesta."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1625,9 +1635,6 @@ msgstr "ole hyvä ja syötä vain numeroita."
 
 msgid "seconds"
 msgstr "sekuntia"
-
-msgid "File a report"
-msgstr "Jätä vihje"
 
 msgid "Select a reporting channel:"
 msgstr "Valitse ilmoituskanava:"
@@ -1891,7 +1898,7 @@ msgstr "Tässä sähköpostiviestissä ilmoitetaan, että valvoja on antanut sin
 msgid "The report can be accessed at:"
 msgstr "Ilmoitukseen pääsee osoitteessa:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Pääsy ilmoittajan henkilöllisyyteen valtuutettu"
 
 msgid ""
@@ -1899,26 +1906,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Tässä sähköpostiviestissä ilmoitetaan, että säilytystaho on evännyt sinulta pääsyn ilmoituksen {TipNum} tekijän henkilötietoihin."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Pääsy ilmoittajan henkilöllisyyteen evätty"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Tässä sähköpostiviestissä ilmoitetaan, että vastaanottaja on pyytänyt pääsyä ilmoituksen {TipNum} ilmoittajan henkilötietoihin."
 
 msgid "The request can be accessed at:"
 msgstr "Pyyntöön pääsee osoitteessa:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Uusi pyyntö saada pääsy ilmoittajan henkilöllisyyteen"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Tämä sähköpostiviesti ilmoittaa, että ilmoituksen {TipNum} tekijä on antanut henkilötietonsa."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Vihjeen lähettäjä on antanut henkilötietonsa"
 
 msgid ""

@@ -38,13 +38,11 @@ msgid "Access requested"
 msgstr "அணுகல் கோரப்பட்டது"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுகல் பொறுப்பாளரான கேட்கப்பட்டுள்ளது."
 
 msgid "Account recovery key"
-msgstr ""
-
-msgid "Act on behalf of a whistleblower"
 msgstr ""
 
 msgid "Activities"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "பெற்றவர்கள் சமர்ப்பிப்புகளை நீக்க அனுமதிக்க"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "தகவல் தெரிவிப்பவர் சமர்ப்பிப்பு இணைப்புகளை சேர்க்க அனுமதி"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "தகவல் தெரிவிப்பவர் கருத்துக்கள் எழுத அனுமதி"
 
 msgid "Allow users to sign up"
 msgstr "பயனர்களை டிஜிட்டல் கையெழுத்திட செய்ய அனுமதிக்கவும்"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "இம்மாதிரி தங்கள் பெற்றவர்கள் தேர்ந்தெடுக்க அனுமதிக்கவும்"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "அங்கீகார"
 msgid "Authorize"
 msgstr "அங்கீகரி"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுகவும்"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "மறுக்கப்பட்டது"
 msgid "Deny"
 msgstr "மறு"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுகலை மறு"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "இயக்கப்பட்டது"
 msgid "Enter a name for the copy"
 msgstr "நகலுக்கு ஒரு பெயரை உள்ளிடவும்"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr ""
 
@@ -568,7 +569,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "கேள்விகள் குழு"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "நீங்கள் ஏற்கனவே ஒரு சமர்ப்பிப்பு தாக்கல் செய்துள்ளனர்? உங்கள் முக்கிய குறியீடு உள்ளிடவும்."
 
 msgid "Hidden"
@@ -846,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr ""
 
+msgid "Open"
+msgstr "திற"
+
 msgid "Opened"
 msgstr ""
 
@@ -942,7 +946,7 @@ msgstr "கேள்வி குழு"
 msgid "Question templates"
 msgstr "கேள்வி வார்ப்புருக்கள்"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "கேள்வி சாத்தியம் இம்மாதிரி கோர"
 
 msgid "Questionnaire"
@@ -956,6 +960,9 @@ msgstr "கேள்வித்தாள்கள்"
 
 msgid "Questions"
 msgstr "கேள்விகள்"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -993,7 +1000,7 @@ msgstr "வழக்கமான வெளிப்பாடு"
 msgid "Regular expression validator"
 msgstr "வழக்கமான வெளிப்பாடு வேலிடேட்டருக்கு"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "இந்த சமர்ப்பிப்புக்கான உங்கள் ரசீது நினைவில் கொள்ளுங்கள்."
 
 msgid "Reminder date"
@@ -1023,7 +1030,7 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான வேண்டுகோள் அணுகல்"
 
 msgid "Request date"
@@ -1068,7 +1075,7 @@ msgstr "ஆதாரம் இல்லை"
 msgid "Restrict access to specific IP addresses"
 msgstr "குறிப்பிட்ட ஐபி முகவரிகளுக்கு அணுகல் கட்டுப்படுத்தவும்"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,6 +1249,9 @@ msgstr "சமர்ப்பிப்புகளை முடக்கப்�
 msgid "Submit"
 msgstr "சமர்ப்பி"
 
+msgid "Submit a report"
+msgstr ""
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1355,7 +1365,7 @@ msgstr ""
 msgid "The provided reset token is invalid or expired."
 msgstr "வழங்கப்பட்ட மீட்டமை டோக்கன் தவறானது அல்லது காலாவதியானது."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "ரசீது தவறானது அல்லது சமர்ப்பிப்பு காலாவதியானது."
 
 msgid "The specified input is not valid."
@@ -1379,10 +1389,10 @@ msgstr "அடுத்த முறை பயனர் உள்நுழைவ
 msgid "The validation link is either incorrect or has expired."
 msgstr "சரிபார்த்தல் இணைப்பு தவறானது அல்லது காலாவதியானது."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "தகவல் தெரிவிப்பவர் ஏற்கனவே சமீபத்திய மேம்படுத்தல் படித்து விட்டார்"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "தகவல் தெரிவிப்பவர் இன்னும் சமீபத்திய மேம்படுத்தல் படிக்க முடியாது"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1479,8 @@ msgid "Use as default"
 msgstr "இயல்புநிலையாக பயன்படுத்தவும்"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "உள்நுழைவதற்கு 16 இலக்க ரசீது பயன்படுத்தவும். இது நாங்கள் உங்களுக்கு அனுப்பிய செய்திகளைப் பார்க்கவும், மேலும் கூடுதல் தகவல்களை சேர்க்கவும் அனுமதிக்கும்."
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1554,10 @@ msgstr "பலவீனமான"
 msgid "Welcome!"
 msgstr "வரவேற்பு!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "விசில் ப்ளோயர்"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr ""
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1577,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "நீங்கள் தெரியாத இல்லாமல் சர்வர் இணைக்கப்பட்டால் இந்த சர்வர் அநாமதேய சமர்ப்பிப்புகளை மட்டுமே ஆதரிக்கிறது"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1626,6 @@ msgstr "எண்களை மட்டும் உள்ளிடவும்.
 
 msgid "seconds"
 msgstr "விநாடிகள்"
-
-msgid "File a report"
-msgstr ""
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1882,7 +1889,7 @@ msgstr "சமர்ப்பிப்பு {TipNum} க்கு விஸ்�
 msgid "The report can be accessed at:"
 msgstr "சமர்ப்பிப்பு அணுகலாம்:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுகல் அங்கீகாரம்"
 
 msgid ""
@@ -1890,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr ""
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுகல் மறுக்கப்பட்டது"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "இந்த ஒரு பெறுநர் சமர்ப்பிப்பு {TipNum} க்கான தகவல் தெரிவிப்பவர் அடையாளத்திற்கான அணுக கோரிக்கை விடுத்துள்ளார் என்று அறிவிக்கிறோம் மின்னஞ்சல் உள்ளது"
 
 msgid "The request can be accessed at:"
 msgstr "கோரிக்கை அணுக முடியும்:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "விசில்போலரின் அம்பலப்படுத்தியவர் அணுகல் புதிய கோரிக்கை"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "இந்த சமர்ப்பிப்பு {TipNum} க்கான தகவல் தெரிவிப்பவர் தங்கள் அடையாளத்தை வழங்கப்படும் என்று நீங்கள் தெரிவிக்க மின்னஞ்சல் உள்ளது."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "தகவல் தெரிவிப்பவர் தங்கள் அடையாளத்தை வழங்கியுள்ளது"
 
 msgid ""

@@ -36,14 +36,12 @@ msgid "Access requested"
 msgstr "Ufikiaji umeombwa"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Ufikiaji wa kitambulisho cha mtoa taarifa za siri umeombwa kwa mwangalzi."
 
 msgid "Account recovery key"
 msgstr "Ufunguo wa kurejesha akaunti"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Shughuli"
@@ -90,16 +88,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Ruhusu mpokeaji kufuta ripoti"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Ruhusu mtoa taarifa ya siri kuongeza viambatanisho kwenye ripoti"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Ruhusu mtoa taarifa ya siri kuandika maoni."
 
 msgid "Allow users to sign up"
 msgstr "Ruhusu watumiaji kujisajili"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Ruhusu watoaji wa taarifa za siri kuchagua wapokeaji wao "
 
 msgid "Allowed IP addresses"
@@ -159,7 +157,7 @@ msgstr "Idhini"
 msgid "Authorize"
 msgstr "Idhinisha"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Idhinisha ufikiaji wa kitambulisho cha mtoa taarifa ya siri"
 
 msgid "Authorized"
@@ -322,7 +320,7 @@ msgstr "Imekataliwa"
 msgid "Deny"
 msgstr "Kataa"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Kataa ufikiaji wa kitambulisho cha mtoa taarifa ya siri"
 
 msgid "Description"
@@ -445,6 +443,9 @@ msgstr "Imewezeshwa"
 msgid "Enter a name for the copy"
 msgstr "Ingiza jina la nakala"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Ingiza msimbo wa uthibitishaji wa mara mbili"
 
@@ -566,7 +567,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "Kundi la maswali"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Je, umeshajaza ripoti? Ingiza risiti yako."
 
 msgid "Hidden"
@@ -844,6 +845,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Mpokeaji mmoja au zaidi hawajafanya uingiaji wa kwanza bado. Hii inamaanisha\n\nhawatakuwa wakipokea ripoti."
 
+msgid "Open"
+msgstr "Fungua"
+
 msgid "Opened"
 msgstr "Imefunguliwa"
 
@@ -940,7 +944,7 @@ msgstr "Kundi la swali"
 msgid "Question templates"
 msgstr "Kiolezo cha maswali"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Swali la kuomba watoa taarifa za siri"
 
 msgid "Questionnaire"
@@ -954,6 +958,9 @@ msgstr "Dodoso"
 
 msgid "Questions"
 msgstr "Maswali"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -991,7 +998,7 @@ msgstr "Maneno ya kawaida"
 msgid "Regular expression validator"
 msgstr "Kithibitishaji cha usemi cha kawaida"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Kumbuka risiti yako kwa ripoti hii"
 
 msgid "Reminder date"
@@ -1021,7 +1028,7 @@ msgstr "Hali ya ripoti"
 msgid "Reports"
 msgstr "Ripoti"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Omba ufikiaji wa kitambulisho cha mtoa taarifa ya siri"
 
 msgid "Request date"
@@ -1066,7 +1073,7 @@ msgstr "Rasilimali haikupatikana"
 msgid "Restrict access to specific IP addresses"
 msgstr "Zuia ufikiaji wa anwani maalum za IP"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1240,6 +1247,9 @@ msgstr "Uwasilishaji haujawezeshwa"
 msgid "Submit"
 msgstr "Wasilisha"
 
+msgid "Submit a report"
+msgstr ""
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1353,7 +1363,7 @@ msgstr "Ufunguo wa kurejesha akaunti uliotolewa ni batili."
 msgid "The provided reset token is invalid or expired."
 msgstr "Token ya kuweka upya iliyotolewa sio sahihi au imeisha muda"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Risiti aidha ni batili au ripoti imekwisha muda."
 
 msgid "The specified input is not valid."
@@ -1377,10 +1387,10 @@ msgstr "Mtumiaji atalazimishwa kubadili neno siri lake pale atakapongia tena."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Kiungo cha uthibitishaji labda sio sahihi au kimekwisha muda."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Mtoa habari ya siri ameshasoma huisho la mwisho"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Mtoa habari ya siri hajasoma huisho la mwisho"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1467,8 +1477,8 @@ msgid "Use as default"
 msgstr "Tumia kama chaguo la msingi"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Tumia namba 16 za risiti kuingia. Itakuruhusu kuangalia ujumbe wowote\n\ntuliokutumia, na pia kuongeza taarifa za ziada."
 
 msgid "Use the first site for administrative purposes only"
@@ -1542,10 +1552,10 @@ msgstr "Dhaifu"
 msgid "Welcome!"
 msgstr "Karibu!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Mtoa taarifa za siri"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Mara ya mwisho kwa mtoa taarifa za siri kuingia"
 
 msgid "Whistleblowing Policy"
@@ -1565,7 +1575,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Unaunganisha kwenye seva bila kuficha utambulisho wako na seva hii inapokea\n\nmawasilisho kutoka kwa mtumaji asiyojulikana tu"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1614,9 +1624,6 @@ msgstr "tafadhali ingiza namba tu"
 
 msgid "seconds"
 msgstr "sekunde"
-
-msgid "File a report"
-msgstr ""
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1880,7 +1887,7 @@ msgstr "Barua pepe hii ni kukujulisha ya kwamba mwangalizi amekuidhinisha kuona 
 msgid "The report can be accessed at:"
 msgstr ""
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Ufikiaji wa utambulisho wa mtoa taarifa ya siri umeidhinishwa"
 
 msgid ""
@@ -1888,26 +1895,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Barua pepe hii ni kukujulisha ya kwamba mwangalizi amekataa usifikie utambulisho wa mtoa taarifa ya siri kwa ripoti {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Ufikiaji wa utambulisho wa mtoa taarifa ya siri umekataliwa"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Barua pepe hii ni kukujulisha ya kwamba mpokeaji ameomba kufikia utambulisho wa mtoa taarifa ya siri kwa ripoti {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Ombi linaweza kuonekana kupitia:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Ombi jipya la kufikia utambulisho wa mtoa taarifa ya siri"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Barua pepe hii ni kukujulisha ya kwamba watoa taarifa ya siri ya ripoti {TipNum} wametoa vitambulisho vyao."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Watoa taarifa za siri wametoa vitambulisho vyao"
 
 msgid ""

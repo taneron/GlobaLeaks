@@ -52,13 +52,11 @@ msgid "Access requested"
 msgstr "accès demandé"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "L’accès à l’identité du lanceur d’alerte a été demandé au gardien. "
 
 msgid "Account recovery key"
-msgstr ""
-
-msgid "Act on behalf of a whistleblower"
 msgstr ""
 
 msgid "Activities"
@@ -106,16 +104,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Permettre aux destinataires de supprimer des envois"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Permettre au lanceur d’alerte d’ajouter des fichiers joints à l’envoi"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Permettre au lanceur d’alerte de rédiger des commentaires"
 
 msgid "Allow users to sign up"
 msgstr "Permettre aux utilisateurs de s’inscrire"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Permettre aux lanceurs d’alerte de choisir leurs destinataires"
 
 msgid "Allowed IP addresses"
@@ -175,7 +173,7 @@ msgstr "Autorisation"
 msgid "Authorize"
 msgstr "Autoriser"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Autoriser l’accès à l’identité du lanceur d’alerte"
 
 msgid "Authorized"
@@ -338,7 +336,7 @@ msgstr "refusée"
 msgid "Deny"
 msgstr "Refuser"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Refuser l’accès à l’identité du lanceur d’alerte"
 
 msgid "Description"
@@ -461,6 +459,9 @@ msgstr "Activé"
 msgid "Enter a name for the copy"
 msgstr "Saisir un nom pour la copie"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr ""
 
@@ -582,7 +583,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "Groupe de questions"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Raha efa nametraka fitarainana ianao dia ampidiro eto ambany avy hatrany ny teny miafina tarehimarika miisa 16 azonao."
 
 msgid "Hidden"
@@ -860,6 +861,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr ""
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "Ouvert"
 
@@ -956,7 +960,7 @@ msgstr "Groupe de questions"
 msgid "Question templates"
 msgstr "Modèles de questions"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Question pour attirer les lanceurs d’alerte potentiels"
 
 msgid "Questionnaire"
@@ -970,6 +974,9 @@ msgstr "Questionnaires"
 
 msgid "Questions"
 msgstr "Questions"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -1007,7 +1014,7 @@ msgstr "Expression rationnelle"
 msgid "Regular expression validator"
 msgstr "Valideur d’expression régulière"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Tadidio ary ny tarehimarika miisa 16 omena anao mba ahafahanao miditra indray amin'io fitorohana nataonao io."
 
 msgid "Reminder date"
@@ -1037,7 +1044,7 @@ msgstr "États de envois"
 msgid "Reports"
 msgstr "Envois"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Demander l’accès à l’identité du lanceur d’alerte"
 
 msgid "Request date"
@@ -1082,7 +1089,7 @@ msgstr "La ressource est introuvable"
 msgid "Restrict access to specific IP addresses"
 msgstr "Réserver l’accès à des adresses IP précises"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1256,6 +1263,9 @@ msgstr "Envois désactivés"
 msgid "Submit"
 msgstr "Alefaso"
 
+msgid "Submit a report"
+msgstr ""
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1369,7 +1379,7 @@ msgstr ""
 msgid "The provided reset token is invalid or expired."
 msgstr "Le jeton de réinitialisation fourni est invalide ou expiré."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Soit le reçu est invalide soit votre envoi a expiré."
 
 msgid "The specified input is not valid."
@@ -1393,10 +1403,10 @@ msgstr "L’utilisateur sera forcé de changer le mot de passe lors de la procha
 msgid "The validation link is either incorrect or has expired."
 msgstr "Soit le lien de validation est incorrect soit il est expiré."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr ""
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr ""
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1483,8 +1493,8 @@ msgid "Use as default"
 msgstr "Utiliser comme valeur par défaut"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Ampiasao ny tarehimarika miisa 16 anananao mba ahafahanao miditra amin'ny fitorohana efa nataonao. Rehefa taditra ianao dia ahita ireo hafatra izay alefan'ny tompon'andraikitra mandray ny fitorohana, ary ahafahanao manome fanampim-baovao sy porofo bebe kokoa."
 
 msgid "Use the first site for administrative purposes only"
@@ -1558,10 +1568,10 @@ msgstr "Faible"
 msgid "Welcome!"
 msgstr "Bienvenue !"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Lanceur d’alerte"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr ""
 
 msgid "Whistleblowing Policy"
@@ -1581,7 +1591,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Vous êtes connecté à ce serveur sans anonymat, mais il ne prend en charge que les envois anonymes."
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1630,9 +1640,6 @@ msgstr "veuillez ne saisir que des chiffres."
 
 msgid "seconds"
 msgstr "secondes"
-
-msgid "File a report"
-msgstr ""
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1896,7 +1903,7 @@ msgstr "Le but de ce courriel est de vous signaler qu’un gardien vous a autori
 msgid "The report can be accessed at:"
 msgstr "L’envoi est accessible à :"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "L’accès à l’identité du lanceur d’alerte est autorisé"
 
 msgid ""
@@ -1904,26 +1911,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr ""
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "L’accès à l’identité du lanceur d’alerte est refusé"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Le but de ce courriel est de vous signaler qu’un destinataire a demandé l’accès à l’identité du lanceur d’alerte pour l’envoi {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "La demande est accessible à :"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nouvelle demande d’accès à l’identité d’un lanceur d’alerte "
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Le but de ce courriel est de vous signaler que le lanceur d’alerte de l’envoi {TipNum} a fourni son identité."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Le lanceur d’alerte a fourni son identité"
 
 msgid ""

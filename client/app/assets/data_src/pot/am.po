@@ -37,14 +37,12 @@ msgid "Access requested"
 msgstr "መድረሻ ተጠይቋል"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "የመረጃ ሰጪውን ማንነት ለማየት ሞግዚቱ ተጠይቋል፡፡"
 
 msgid "Account recovery key"
 msgstr "የመለያ መልሶ ማግኛ ቁልፍ"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "ትግበራዎች"
@@ -91,16 +89,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "ተቀባዩ ሪፖርቶች እንዲያጠፋ ፍቀዱ"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "መረጃ ሰጪው ሪፖርቱ ላይ አባሪ እንዲጨምር ፍቀድ"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "መረጃ ሰጪው አስተያየት እንዲሰጥ ፍቀዱ"
 
 msgid "Allow users to sign up"
 msgstr "ተጠቃሚዎች እንዲመዘገቡ ፍቀድ"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "መረጃ ሰጪዎች ተቀባዮቻቸውን እንዲመርጡ ፍቀድ"
 
 msgid "Allowed IP addresses"
@@ -160,7 +158,7 @@ msgstr "ፈቀዳ"
 msgid "Authorize"
 msgstr "ፍቀድ"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "ወደ መረጃሰጪው ማንነት መድረሻ ፍቀድ"
 
 msgid "Authorized"
@@ -323,7 +321,7 @@ msgstr "ተከልክሏል"
 msgid "Deny"
 msgstr "ከልክል"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "ወደ መረጃ ሰጪው ማንነት መድረሻ ከልክል"
 
 msgid "Description"
@@ -446,6 +444,9 @@ msgstr "ነቅቷል"
 msgid "Enter a name for the copy"
 msgstr "ለቅጂው ስም አስገቡ"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "ባለ ሁለት ደረጃ ማረጋገጫ ኮድ አስገቡ"
 
@@ -567,7 +568,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "የጥያቄዎች ቡድን"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "ሪፖርት አስቀድመው አስገብተዋል? ደረሰኝዎን ያስገቡ፡፡"
 
 msgid "Hidden"
@@ -845,6 +846,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "አንድ ወይም ከዚያ በላይ ተቀባዮች አንድም ጊዜ አልገቡም፡፡ ይህም ማለት\nሪፖርቶች አይቀበሉም"
 
+msgid "Open"
+msgstr "ክፈት"
+
 msgid "Opened"
 msgstr "ተከፍቷል"
 
@@ -941,7 +945,7 @@ msgstr "የጥያቄ ቡድን"
 msgid "Question templates"
 msgstr "የጥያቄ ቅንብር ደንቦች"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "መረጃ ሊሰጡ ለሚችሉ አካላት ጥያቄዎች"
 
 msgid "Questionnaire"
@@ -955,6 +959,9 @@ msgstr "መጠይቆች"
 
 msgid "Questions"
 msgstr "ጥያቄዎች"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -992,7 +999,7 @@ msgstr "መደበኛ የሒሳብ ሐረግ"
 msgid "Regular expression validator"
 msgstr "መደበኛ የሒሳብ ሐረግ ማረጋገጫ"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "ለዚህ ሪፖርት የተሰጠዎትን ደረሰኝ ያስታውሱ፡፡"
 
 msgid "Reminder date"
@@ -1022,7 +1029,7 @@ msgstr "ሁኔታዎችን ያሳውቁ"
 msgid "Reports"
 msgstr "ዘገባዎች "
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "የመረጃ ሰጭውን ማንነት መድረሻ ይጠይቁ"
 
 msgid "Request date"
@@ -1067,7 +1074,7 @@ msgstr "ንብረት አልተገኘም"
 msgid "Restrict access to specific IP addresses"
 msgstr "መዳረሻን ለተወሰኑ አይፒ አድራሻዎች ይወስኑ"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1241,6 +1248,9 @@ msgstr "ማስረከቢያው ቦዝኗል"
 msgid "Submit"
 msgstr "አስገባ "
 
+msgid "Submit a report"
+msgstr ""
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1354,7 +1364,7 @@ msgstr "የተሰጠው መልሶ ማግኛ ቁልፍ ትክክል አይደለ�
 msgid "The provided reset token is invalid or expired."
 msgstr "የተሰጠው መልሶ ማስጀመርያ ተለዋጭ ስም ትክክል አይደለም ወይም ተቃጥሏል፡፡"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "ደረሰኙ የተሳሳተ ነው ወይም ሪፖርቱ ተቃጥሏል፡፡"
 
 msgid "The specified input is not valid."
@@ -1378,10 +1388,10 @@ msgstr "ተጠቃሚው ቀጥሎ ሲገባ የይለፍ ቃል ለመቀየር 
 msgid "The validation link is either incorrect or has expired."
 msgstr "የማረጋገጫው አገናኝ ተሳስቷል ወይም ተቃጥሏል፡፡"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "መረጃ ሰጭው የመጨረሻውን ዝመና አስቀድሞ አንብቧል"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "መረጃ ሰጭው የመጨረሻውን ዝመና ገና አላነበበም"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1468,8 +1478,8 @@ msgid "Use as default"
 msgstr "እንደ ነባሪ ተጠቀም"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "ለመግባት ባለ 16 ቁጥሩን ደረሰኝ ይጠቀሙ፡፡ የላክንሎትን መልእክቶች ለማየት እና\n\nተጨማሪ መረጃ ለመጨመር ያስችሎታል፡፡"
 
 msgid "Use the first site for administrative purposes only"
@@ -1543,10 +1553,10 @@ msgstr "ደካማ"
 msgid "Welcome!"
 msgstr "እንኳን ደህና መጡ！"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "መረጃ ሰጪ"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "የመረጃ ሰጪው የመጨረሻ መዳረሻ"
 
 msgid "Whistleblowing Policy"
@@ -1566,7 +1576,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "ያለስምአልባነት ከአገልጋዩ ጋር እየተገናኙ ነው፣ በዚህ አገልጋይ\n\nበስምአልባነት ብቻ ማስረከብ ይቻላል"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1615,9 +1625,6 @@ msgstr "እባኮት ቁጥር ብቻ አስገቡ፡፡"
 
 msgid "seconds"
 msgstr "ሰከንዶች"
-
-msgid "File a report"
-msgstr ""
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1881,7 +1888,7 @@ msgstr "ይህ ኢሜል ሞግዚት ለሪፖርት {TipNum} የመረጃ ሰ�
 msgid "The report can be accessed at:"
 msgstr "ሪፖርቱ እዚህ ላይ መደረስ ይችላል፡-"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "ለመረጃ ሰጪው ማንነት መድረሻ ተፈቅዷል"
 
 msgid ""
@@ -1889,26 +1896,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "ይህ ኢሜል ሞግዚቱ ለሪፖርት {TipNum} የመረጃ ሰጪውን ማንነት እንዳይደርሱ መከልከሉን ያሳውቃል"
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "ለመረጃ ሰጪው ማንነት መድረሻ ተከልክሏል፡፡"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "ይህ ኢሜል ለሪፖርት {TipNum} የመረጃ ሰጪውን ማንነት ለመድረስ ተቀባይ ጥያቄ ማቅረቡን ያሳውቆታል፡፡"
 
 msgid "The request can be accessed at:"
 msgstr "ጥያቄውን እዚህ ላጥ መድረስ ይቻላል፡-"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "የመረጃሰጪውን ማንነት ለመድረስ አዲስ ጥያቄ"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "ይህ ኢሜል የሪፖርት {TipNum} መረጃ ሰጪው ማንነታቸውን መስጠታቸውን ያሳውቃል"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "መረጃ ሰጪው ማንነታቸውን ሰጥተዋል"
 
 msgid ""

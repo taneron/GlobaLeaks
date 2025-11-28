@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "Пристапот е побаран"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Од чуварот беше побаран пристап до идентитетот на свиркачот."
 
 msgid "Account recovery key"
 msgstr "Клуч за враќање на сметка"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Активности"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Дозволи му на примачот да ги избрише извештаите"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Дозволи им на свиркачите да додаваат прилози на извештајот"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Дозволи им на свиркачите да пишуваат коментари"
 
 msgid "Allow users to sign up"
 msgstr "Дозволи им на корисниците да се регистрираат"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Овозможи им на свиркачите да ги избираат нивните примачи"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "Авторизација"
 msgid "Authorize"
 msgstr "Одобри"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Одобри пристап до идентитетот на свиркачот"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "Одбиено"
 msgid "Deny"
 msgstr "Одбиј"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Одбиј пристап до идентитетот на свиркачот"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "Овозможено"
 msgid "Enter a name for the copy"
 msgstr "Внесете име за копијата"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Внесете го кодот за автентикација со два фактора"
 
@@ -568,7 +569,7 @@ msgstr "Дозволен пристап"
 msgid "Group of questions"
 msgstr "Група на прашања"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Дали веќе пополнивте извештај? Внесете ја вашата потврда."
 
 msgid "Hidden"
@@ -846,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Еден или повеќе примачи сеуште не го направиле првото најавување. Ова значи дека тие нема да добиваат извештаи."
 
+msgid "Open"
+msgstr "Отвори"
+
 msgid "Opened"
 msgstr "Отворен"
 
@@ -942,7 +946,7 @@ msgstr "Прашална група"
 msgid "Question templates"
 msgstr "Прашални шамблони"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Прашање за барање на можни свиркачи"
 
 msgid "Questionnaire"
@@ -956,6 +960,9 @@ msgstr "Прашалници"
 
 msgid "Questions"
 msgstr "Прашања"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -993,7 +1000,7 @@ msgstr "Регуларен израз"
 msgid "Regular expression validator"
 msgstr "Валидатор за регуларен израз"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Запаметете ја вашата потврда за овој извештај."
 
 msgid "Reminder date"
@@ -1023,7 +1030,7 @@ msgstr "Извештај за статуси"
 msgid "Reports"
 msgstr "Извештаи"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Побарај пристап до идентитетот на свиркачот"
 
 msgid "Request date"
@@ -1068,7 +1075,7 @@ msgstr "Ресурсот не беше пронајден"
 msgid "Restrict access to specific IP addresses"
 msgstr "Ограничи пристап на одредени IP адреси"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,6 +1249,9 @@ msgstr "Поднесокот е оневозможен"
 msgid "Submit"
 msgstr "Испрати"
 
+msgid "Submit a report"
+msgstr "Поднеси извештај"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1355,7 +1365,7 @@ msgstr "Обезбедениот клуч за враќање не е валид
 msgid "The provided reset token is invalid or expired."
 msgstr "Обезбедениот токен за ресетирање е невалиден или истечен."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Потврдата не е валидна или извештајот е истечен."
 
 msgid "The specified input is not valid."
@@ -1379,10 +1389,10 @@ msgstr "Овој корисник ќе биде принуден да ја пр�
 msgid "The validation link is either incorrect or has expired."
 msgstr "Линкот за валидација е неточен или истечен."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Свиркачот веќе го има прочитано последното ажурирање"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Свиркачот сеуште го нема прочитано последното ажурирање"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1479,8 @@ msgid "Use as default"
 msgstr "Користи како стандарден"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Користете 16 цифрена потврда за да се најавите. Тоа ќе ви овозможи да ги гледате било кои пораки кои ви ги испраќаме, и исто така и да додавате дополнителни информации."
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1554,10 @@ msgstr "Слаба"
 msgid "Welcome!"
 msgstr "Добредојде!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Свиркач"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Последен пристап на свиркачот"
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1577,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Се поврзувате на серверот без анонимност и овој сервер поддржува само анонимни поднесоци"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1626,6 @@ msgstr "ве молиме внесете само броеви."
 
 msgid "seconds"
 msgstr "секунди"
-
-msgid "File a report"
-msgstr "Поднеси извештај"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1882,7 +1889,7 @@ msgstr "Ова е е-пошта за известување дека чувар 
 msgid "The report can be accessed at:"
 msgstr "Кон извештајот може да се пристапи на:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Дозволен пристап до идентитетот на свиркачот"
 
 msgid ""
@@ -1890,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Ова е е-пошта за известување дека чувар не ви дозволи пристап до идентитетот на свиркањето за извештајот {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Одбиен пристап до идентитетот на свиркачот"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Ова е е-пошта за известување дека примач побара пристап до идентитетот на свиркачот за извештајот {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "До барањето може да се пристапи на:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr " Ново барање за пристап до идентитетот на свиркачот"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Ова е е-пошта за известување дека свиркачот за овој извештај {TipNum} го овозможи својот идентитет."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Свиркачот го овозможи својот идентитет"
 
 msgid ""

@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "Ruxsat soʻraldi"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Himoyachi tomonidan oshkor qiluvchining shaxsiy axborotini koʻrishga ruxsat soʻraldi."
 
 msgid "Account recovery key"
 msgstr "Hisobni tiklash kaliti"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Faoliyat"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Qabul qiluvchiga anonim xabarlarni oʻchirish imkonini berish"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr ""
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Oshkor qiluvchilar fikr bildirishiga ruxsat berish"
 
 msgid "Allow users to sign up"
 msgstr "Foydalanuvchilarga roʻyxatdan oʻtish imkonini berish"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Oshkor qiluvchilar qabul qiluvchilarni tanlashiga ruxsat berish"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "Avtorizatsiya"
 msgid "Authorize"
 msgstr "Ruxsat berish"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Oshkor qiluvchining shaxsiga ruxsat berish"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "Rad etildi"
 msgid "Deny"
 msgstr "Rad qilish"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Oshkor qiluvchining shaxsiga ruxsatni rad qilish"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "Yoniq"
 msgid "Enter a name for the copy"
 msgstr "Nusxa nomini kiriting"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Ikki bosqichli hisob tekshiruvi kodini kiriting"
 
@@ -568,7 +569,7 @@ msgstr "Ruxsat berish"
 msgid "Group of questions"
 msgstr "Savollar guruhi"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Allaqachon anonim xabar qilganmisiz? Murojaat raqamingizni kiriting."
 
 msgid "Hidden"
@@ -846,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Qabul qiluvchilardan biri yoki bir nechtasi hali biror marta kirmagan. Demak ular anonim xabar olmaydi."
 
+msgid "Open"
+msgstr "Открыть"
+
 msgid "Opened"
 msgstr "Ochildi"
 
@@ -942,7 +946,7 @@ msgstr "Savol guruhi"
 msgid "Question templates"
 msgstr "Savol andozalari"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Ehtimoliy oshkor qiluvchilarni jalb qiladigan savol"
 
 msgid "Questionnaire"
@@ -956,6 +960,9 @@ msgstr "Savolnomalar"
 
 msgid "Questions"
 msgstr "Savollar"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -993,7 +1000,7 @@ msgstr "Odatiy ifoda"
 msgid "Regular expression validator"
 msgstr "Odatiy ifodani tekshirish"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Xabaringiz murojaat raqamini eslab qoling."
 
 msgid "Reminder date"
@@ -1023,7 +1030,7 @@ msgstr "Anonim xabarlar holati"
 msgid "Reports"
 msgstr "Xabarlar"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Oshkor qiluvchining shaxsini koʻrishga ruxsat soʻrash"
 
 msgid "Request date"
@@ -1068,7 +1075,7 @@ msgstr "Manba topilmadi"
 msgid "Restrict access to specific IP addresses"
 msgstr "Quyidagi IP manzillardan kirishni taqiqlash"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,6 +1249,9 @@ msgstr "Xabar berishlar yopilgan"
 msgid "Submit"
 msgstr "Yuborish"
 
+msgid "Submit a report"
+msgstr "Anonim xabar yuborish"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1355,7 +1365,7 @@ msgstr "Taqdim etilgan tiklash kaliti yaroqsiz."
 msgid "The provided reset token is invalid or expired."
 msgstr "Taqdim etilgan tiklash tokeni yaroqsiz yoki eskirgan."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Anonim xabar yaroqsiz yoki uning muddati eskirgan."
 
 msgid "The specified input is not valid."
@@ -1379,10 +1389,10 @@ msgstr "Foydalanuvchi keyingi safar kirganda parolini almashtirishga majbur boʻ
 msgid "The validation link is either incorrect or has expired."
 msgstr "Tekshiruv havolasi xato yoki eskirgan."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Oshkor qiluvchi oxirgi xabarni allaqachon oʻqigan"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Oshkor qiluvchi oxirgi xabarni hali oʻqimadi"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1479,8 @@ msgid "Use as default"
 msgstr "Birlamchi etib tayinlash"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Kirishda 16 xonali murojaat raqamidan foydalaning. Uning yordamida sizga yuborilgan javoblarni koʻrish va qoʻshimcha axborot yuborish mumkin."
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1554,10 @@ msgstr "Zaif"
 msgid "Welcome!"
 msgstr "Xush kelibsiz!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Oshkor qiluvchi"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Oshkor qiluvchining oxirgi kirgan vaqti"
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1577,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Serverga himoyasiz ulangansiz va bu server faqat anonim xabarlarni qabul qiladi"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1626,6 @@ msgstr "faqat raqam kiriting."
 
 msgid "seconds"
 msgstr "soniya"
-
-msgid "File a report"
-msgstr "Anonim xabar yuborish"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1882,7 +1889,7 @@ msgstr "Bu xat sizga {TipNum} xabari oshkor qiluvchisining shaxsiy axborotini ko
 msgid "The report can be accessed at:"
 msgstr "Anonim xabarni quyida ochish muimkin:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Oshkor qiluvchining shaxsiy axborotini koʻrishga ruxsat berildi"
 
 msgid ""
@@ -1890,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Bu xat sizga {TipNum} xabari oshkor qiluvchisining shaxsiy axborotini koʻrishga himoyachi tomonidan ruxsat rad etilgani haqida xabar qiladi."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Oshkor qiluvchining shaxsiy axborotini koʻrishga ruxsat rad etildi"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Bu xat sizga qabul qiluvchi {TipNum} xabari oshkor qiluvchisining shaxsiy axborotini koʻrishga ruxsat soʻragani haqida xabar qiladi."
 
 msgid "The request can be accessed at:"
 msgstr "Soʻrovni quyida ochish mumkin:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Oshkor qiluvchining shaxsiy axborotini koʻrishga yangi ruxsat soʻrovi"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Bu xat sizga {TipNum} xabari oshkor qiluvchisining shaxsiy axborotini koʻrishga ruxsat berilgani haqida xabar qiladi."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Oshkor qiluvchining shaxsiy axborotiga ruxsat taqdim etildi"
 
 msgid ""

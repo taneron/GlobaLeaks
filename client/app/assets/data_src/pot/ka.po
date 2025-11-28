@@ -36,14 +36,12 @@ msgid "Access requested"
 msgstr "წვდომის მოთხოვნა"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "ინსტრუქტორის ინტენტობაზე წვდომა მოთხოვნილია მეურვესთან."
 
 msgid "Account recovery key"
 msgstr "ანგარიშის აღდგენის კოდი"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "საქმიანობა"
@@ -90,16 +88,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "დართეთ ნება მიმღებს წაშალოს ანგარიშები"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "დართეთ ნება ინსტრუქტორს დაამატოს ანგარიშზე დანართები"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "დართეთ ნება ინტრუქტორმა დააკომენტაროს"
 
 msgid "Allow users to sign up"
 msgstr "მომხმარებლებისთვის რეგისტრაციის ნების დართვა"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "ინსტრუქტორზე წვდომის დაშვება აირჩიოს მიმღებები"
 
 msgid "Allowed IP addresses"
@@ -159,7 +157,7 @@ msgstr "ავტორიზაცია"
 msgid "Authorize"
 msgstr "ავტორიზაცია"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "ინსტრუქტორის ვინაობაზე წვდომის მოთხოვნის ავტორიზება"
 
 msgid "Authorized"
@@ -322,7 +320,7 @@ msgstr "უარყოფილი"
 msgid "Deny"
 msgstr "უარყოფა"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "ინსტრუქტორის ვინაობაზე წვდომის მოთხოვნის უარყოფა"
 
 msgid "Description"
@@ -445,6 +443,9 @@ msgstr "ჩართული"
 msgid "Enter a name for the copy"
 msgstr "შეიყვანეთ სახელი ასლისთვის"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "შეიყვანეთ ორფაქტორიანი ავტორიზაციის კოდი"
 
@@ -566,7 +567,7 @@ msgstr "წვდომის დაშვება"
 msgid "Group of questions"
 msgstr "შეკითხვების ჯგუფი"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "თქვენ უკვე შეავსეთ ანგარიში? შეიყვანეთ თქვენი მიმღები."
 
 msgid "Hidden"
@@ -844,6 +845,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "ერთ ან მეტ მიმღებს ჯერ არ შეუსრულებია პირველი შესვლა. ეს ნიშნავს, რომ ისინი არ მიიღებენ ანგარიშებს."
 
+msgid "Open"
+msgstr "გახსნა"
+
 msgid "Opened"
 msgstr "გახსნილი"
 
@@ -940,7 +944,7 @@ msgstr "შეკითხვის ჯგუფი"
 msgid "Question templates"
 msgstr "შეკითხვის შაბლონები"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "შესაძლო ინსტრუქტორებთან შუამდგომლობის შეკითხვა"
 
 msgid "Questionnaire"
@@ -954,6 +958,9 @@ msgstr "კითხვარები"
 
 msgid "Questions"
 msgstr "შეკითხვები"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -991,7 +998,7 @@ msgstr "რეგულარული ექსპრესია"
 msgid "Regular expression validator"
 msgstr "რეგულარული ექსპრესიის ვალიდაცია"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "გახსოვდეს ამ ანგარიშის მიმღები."
 
 msgid "Reminder date"
@@ -1021,7 +1028,7 @@ msgstr "სტატუსების ანგარიში"
 msgid "Reports"
 msgstr "ანგარიშები"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "მინსტრუქტორის იდენტობაზე წვდომის მოთხოვნა"
 
 msgid "Request date"
@@ -1066,7 +1073,7 @@ msgstr "რესურსი ვერ მოიძებნა"
 msgid "Restrict access to specific IP addresses"
 msgstr "კონკრეტულ IP მისამართებზე წვდომის შეზღუდვა"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1240,6 +1247,9 @@ msgstr "წარდგენები გამორთულია"
 msgid "Submit"
 msgstr "წარდგენა"
 
+msgid "Submit a report"
+msgstr "ანგარიშის დაფაილება"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1353,7 +1363,7 @@ msgstr "წარდგენილი აღდგენის კოდი ა
 msgid "The provided reset token is invalid or expired."
 msgstr "წარდგენილი გადატვირთვის ტოკენი არასწორია ან ვადაგასულია."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "მიმღები არასწორია ან მოხსენება ვადაგასულია."
 
 msgid "The specified input is not valid."
@@ -1377,10 +1387,10 @@ msgstr "მომხმარებელი იძულებული იქ�
 msgid "The validation link is either incorrect or has expired."
 msgstr "შემოწმების ბმული არასწორია ან ვადაგასულია."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "ინსტრუქტორმა უკვე წაიკითხა უკანასკნელი განახლება"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "ინსტრუქტორს ჯერ არ წაუკითხა უკანასკნელი განახლება"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1467,8 +1477,8 @@ msgid "Use as default"
 msgstr "ნაგულისხმევად გამოყენება"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "შესასვლელად გამოიყენეთ 16-ციფრიანი მიღების დასტური. ეს მოგცემთ ჩვენ მიერ გამოგზავნილი ნებისმიერი შეტყობინების დათვალიერების და ასევე დამატებითი ინფორმაციის დამატების საშუალებას."
 
 msgid "Use the first site for administrative purposes only"
@@ -1542,10 +1552,10 @@ msgstr "სუსტი"
 msgid "Welcome!"
 msgstr "მოგესალმებით!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "დარღვევების შეტყობინების პორტალი"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "ინსტრუქტორის ბოლო წვდომა"
 
 msgid "Whistleblowing Policy"
@@ -1565,7 +1575,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "თქვენ უკავშირდებით სერვერს ანონიმურობის გარეშე და ეს სერვერი მხარხაჭერილია მხოლოდ ანონიმური წარდგენებისთვის"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1614,9 +1624,6 @@ msgstr "შეიყვანეთ მხოლოდ ციფრები"
 
 msgid "seconds"
 msgstr "წამში"
-
-msgid "File a report"
-msgstr "ანგარიშის დაფაილება"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1880,7 +1887,7 @@ msgstr "ეს არის ელწერილი, რომელიც გ�
 msgid "The report can be accessed at:"
 msgstr "ანგარიშზე წვდომა შესაძლებელია:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "ინსტრუქტორის ინდენტობაზე წვდომა ავტორიზებულია"
 
 msgid ""
@@ -1888,26 +1895,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "ეს არის ელწერილი შეტყობინებით, რომ მეუვემ უარჰყო თქვენი წვდომა ინტრუქტორის იდენტობაზე ანგარიშისთვის {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "წვდომა ინსტუქტორის იდენტობაზე უარყოფილია"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "ეს არის ელწერილი, რომელიც გაცნობებთ, რომ მიმღებმა მოითხოვა წვდომა ინსტრუქტორის იდენტობისათვის ანგარიშისთვის {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "მოთხოვნა შეიძლება იყოს ხელმისაწვდომი აქ:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "ახალი მოთხოვნა ინსტრუქტორის იდენტობაზე წვდომისთვის"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "ეს არის ელწერილი, რომელიც გაცნობებთ, რომ ინსტუქტორმა, ანგარიშისათვის {TipNum} მოგაწოდათ იდენტობა."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "ინსტრუქტორმა წარმოადგინა იდენტობა"
 
 msgid ""

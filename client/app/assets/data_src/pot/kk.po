@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "Қатынасуға сұратым жіберілді"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Сақтаушыдан хабарлаушының жеке тұлғасына қатынас сұратылды."
 
 msgid "Account recovery key"
 msgstr "Есептік жазбаны қалпына келтіру кілті"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Әрекеттер"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Алушыға есептерді жоюға рұқсат беру"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Хабарлаушыға есепке тіркемелер қосуға рұқсат беру"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Хабарлаушыға түсініктеме жазуға рұқсат ету"
 
 msgid "Allow users to sign up"
 msgstr "Пайдаланушыларға тіркелуге рұқсат ету"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Хабарлаушыларға өз алушыларын таңдауға рұқсат ету"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "Авторизация"
 msgid "Authorize"
 msgstr "Рұқсат беру"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Хабарлаушының жеке басына қатынасуға рұқсат беру"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "Рұқсат берілмеген"
 msgid "Deny"
 msgstr "Рұқсат бермеу"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Хабарлаушының жеке басына қатынасуға рұқсат етпеу"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "Қосылған"
 msgid "Enter a name for the copy"
 msgstr "Көшірменің атауын енгізіңіз"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Екі факторлы аутентификация кодын енгізу"
 
@@ -568,7 +569,7 @@ msgstr "Қатынасуға рұқсат беру"
 msgid "Group of questions"
 msgstr "Сұрақтар тобы"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Есепті толтырып қойдыңыз ба? Түбіртекті енгізіңіз."
 
 msgid "Hidden"
@@ -846,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Бір немесе бірнеше алушы алғашқы кіруді әлі аяқтаған жоқ. Бұл олардың есеп алмайтындарын білдіреді."
 
+msgid "Open"
+msgstr "Ашу"
+
 msgid "Opened"
 msgstr "Ашық"
 
@@ -942,7 +946,7 @@ msgstr "Сұрақтар тобы"
 msgid "Question templates"
 msgstr "Сұрақ үлгілері"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Ықтимал хабарлаушыларды қызықтыруға арналған сұрақ"
 
 msgid "Questionnaire"
@@ -956,6 +960,9 @@ msgstr "Сауалнамалар"
 
 msgid "Questions"
 msgstr "Сұрақтар"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -993,7 +1000,7 @@ msgstr "Тұрақты өрнек"
 msgid "Regular expression validator"
 msgstr "Тұрақты өрнектің валидаторы"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Бұл есеп бойынша түбіртекті есте сақтаңыз."
 
 msgid "Reminder date"
@@ -1023,7 +1030,7 @@ msgstr "Есептің күйлері"
 msgid "Reports"
 msgstr "Есептер"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Хабарлаушының жеке басын куәландыруға қол жеткізуге сұратым жіберу"
 
 msgid "Request date"
@@ -1068,7 +1075,7 @@ msgstr "Ресурс табылмады"
 msgid "Restrict access to specific IP addresses"
 msgstr "Нақты IP мекенжайларына қатынасуды шектеу"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,6 +1249,9 @@ msgstr "Жіберу өшірілген"
 msgid "Submit"
 msgstr "Жіберу"
 
+msgid "Submit a report"
+msgstr "Есеп беру"
+
 msgid "Subscribed"
 msgstr ""
 
@@ -1355,7 +1365,7 @@ msgstr "Берілген қалпына келтіру кілті жарамсы
 msgid "The provided reset token is invalid or expired."
 msgstr "Берілген қалпына келтіру белгісі жарамсыз немесе мерзімі өтіп кеткен."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Түбіртек жарамсыз немесе есеп мерзімі аяқталған."
 
 msgid "The specified input is not valid."
@@ -1379,10 +1389,10 @@ msgstr "Пайдаланушы келесі кірген кезде, құпия�
 msgid "The validation link is either incorrect or has expired."
 msgstr "Тексеру сілтемесі дұрыс емес немесе мерзімі өтіп кеткен."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Хабарлаушы соңғы жаңартуды оқып үлгерді"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Хабарлаушы соңғы жаңартуды әлі оқыған жоқ"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1479,8 @@ msgid "Use as default"
 msgstr "Әдепкі ретінде пайдалану"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Жүйеге кіру үшін, 16 таңбалы түбіртекті пайдаланыңыз. Бұл сізге жіберген кез-келген хабарды көруге, сонымен қатар, қосымша ақпаратты қосуға мүмкіндік береді."
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1554,10 @@ msgstr "Нашар"
 msgid "Welcome!"
 msgstr "Қош келдіңіз!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Хабарлаушы"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Хабарлаушының соңғы рет қатынасуы"
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1577,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Сіз серверге ашық түрде қосыласыз және бұл сервер тек анонимді жіберуді қолдайды"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1626,6 @@ msgstr "тек сан енгізіңіз."
 
 msgid "seconds"
 msgstr "секунд"
-
-msgid "File a report"
-msgstr "Есеп беру"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1882,7 +1889,7 @@ msgstr "Бұл сақтаушы сізге {TipNum} есебі үшін ақпа
 msgid "The report can be accessed at:"
 msgstr "Есеппен мына мекенжай бойынша танысуға болады:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Хабарлаушының жеке басына қатынасуға рұқсат етілген"
 
 msgid ""
@@ -1890,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Бұл сақтаушы сізге {TipNum} есебі үшін ақпараттық куәлікке кіруден бас тартқанын хабарлайтын электрондық хат."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Хабарлаушының  жеке тұлғасына қатынасуға тыйым салынады"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Бұл алушы {TipNum} есебі үшін ақпар берушінің жеке басына қатынасуды сұрағанын хабарлайтын электрондық хат"
 
 msgid "The request can be accessed at:"
 msgstr "Сұратымға мына жерден қатынасуға болады:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Ақпар берушінің жеке басына қатынасу туралы жаңа сұрау"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Бұл сізге {TipNum} есебінің ақпар берушісі өзінің жеке басын көрсеткенін хабарлайтын электрондық хат."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Ақпар беруші олардың жеке тұлғасын көрсетті"
 
 msgid ""
