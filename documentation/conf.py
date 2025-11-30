@@ -46,6 +46,8 @@ version = __version__
 release = __version__
 
 language = 'en'
+language = os.environ.get('READTHEDOCS_LANGUAGE', language)
+
 locale_dirs = ['locale/']
 locale_dir = os.path.join(os.path.dirname(__file__), locale_dirs[0])
 gettext.bindtextdomain('sphinx', locale_dir)
