@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# GlobaLeaks documentation build configuration file, created by
-# sphinx-quickstart on Thu Jul  6 16:34:48 2017.
+# GlobaLeaks documentation build configuration file.
 #
 import gettext
 import glob
@@ -21,10 +20,14 @@ from globaleaks import __author__,  __copyright__, __version__
 base_dir = os.path.dirname(__file__)
 
 autodoc_member_order = 'bysource'
-autodoc_default_flags = ['members', 'show-inheritance', 'undoc-members']
+
+autodoc_default_options = {
+    'members': True,
+    'show-inheritance': True,
+    'undoc-members': True,
+}
 
 extensions = [
-  'sphinx_rtd_theme',
   'sphinx_copybutton',
   'sphinx_sitemap',
   'sphinx.ext.imgconverter'
@@ -47,14 +50,13 @@ locale_dirs = ['locale/']
 locale_dir = os.path.join(os.path.dirname(__file__), locale_dirs[0])
 gettext.bindtextdomain('sphinx', locale_dir)
 gettext.textdomain('sphinx')
-gettext_compact = 'sphinx'
+gettext_compact = False 
 
 exclude_patterns = ['_build']
 show_authors = False
 pygments_style = 'sphinx'
 
-html_theme = 'sphinx_rtd_theme'
-html_logo = 'logo-html.webp'
+html_theme = 'furo'
 html_baseurl = 'https://docs.globaleaks.org/'
 html_favicon = '../client/app/images/favicon.ico'
 html_show_copyright = False
@@ -72,6 +74,25 @@ html_context = {
   'conf_py_path': '/documentation/'
 }
 
+# --- Furo theme options -----------------------------------------------------
+html_theme_options = {
+    "source_repository": "https://github.com/globaleaks/globaleaks-whistleblowing-software",
+    "source_branch": "stable",
+    "source_directory": "documentation/",
+    "html_show_sourcelink": False,
+    "html_copy_source": False,
+    "light_logo": "images/logo-light-html.webp",
+    "dark_logo": "images/logo-dark-html.webp",
+    "light_css_variables": {
+        "color-brand-primary": "#205282",
+        "color-brand-content": "#205282",
+    },
+    "dark_css_variables": {
+        "color-brand-primary": "#79B0E6",
+        "color-brand-content": "#79B0E6",
+    },
+}
+
 latex_elements = {
   'preamble': r'\pdfmapfile{+"../../texmf/fonts/map/dvips/fontawesome7/fontawesome7.map"}',
   'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}, iconpackage=fontawesome7',
@@ -79,23 +100,18 @@ latex_elements = {
 
 latex_documents = []
 
-latex_logo = 'logo-latex.pdf'
+latex_logo = 'images/logo-latex.pdf'
 
 man_pages = [
-(master_doc, 'globaleaks', u'Documentation',
- [author], 1)
+    (master_doc, 'globaleaks', 'GlobaLeaks Documentation', [author], 1)
 ]
 
 texinfo_documents = [
-(master_doc, 'GLOBALEAKS', u'Documentation',
- author, 'GLOBALEAKS', ' GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platforms',
- 'Miscellaneous'),
+    (master_doc, 'GLOBALEAKS', 'GlobaLeaks Documentation',
+     author, 'GLOBALEAKS',
+     'GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platform',
+     'Miscellaneous'),
 ]
-
-html_theme_options = {
-  'style_nav_header_background': '#3679BB',
-}
-
 
 def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
     """
