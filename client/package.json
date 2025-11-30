@@ -77,8 +77,8 @@
     "@types/flowjs__flow.js": "2.13.3",
     "@types/libsodium-wrappers-sumo": "0.7.8",
     "@types/qrcode": "1.5.6",
-    "@typescript-eslint/types": "8.48.0",
-    "@typescript-eslint/utils": "8.48.0",
+    "@typescript-eslint/types": "8.48.1",
+    "@typescript-eslint/utils": "8.48.1",
     "angular-eslint": "20.7.0",
     "axe-core": "4.11.0",
     "cssnano": "7.1.2",
@@ -103,6 +103,6 @@
     "superagent": "10.2.3",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.48.0"
+    "typescript-eslint": "8.48.1"
   }
 }
