@@ -35,7 +35,7 @@
             <button class="btn btn-sm btn-danger" name="enable_tenant" (click)="toggleActivation($event)">{{'Disabled'|translate}} </button>
           }
           @if (tenant.active) {
-            <button class="btn btn-sm btn-primary" name="configure_tenant" (click)="configureTenant($event, tenant.id)">{{'Configure'|translate}}</button>
+            <button class="btn btn-sm btn-outline-secondary" name="configure_tenant" (click)="configureTenant($event, tenant.id)">{{'Configure'|translate}}</button>
           }
           @if (!editing) {
             <button class="btn btn-sm btn-outline-secondary" name="edit_tenant" (click)="toggleEditing($event)">{{'Edit'|translate}}</button>
