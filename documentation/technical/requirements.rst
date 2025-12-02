@@ -42,10 +42,8 @@ Other supported browsers include:
 .. csv-table::
    :header: "Browser", "Version"
 
-   "Mozilla Firefox", ">= 38"
-   "Google Chrome", ">= 45"
-   "Brave", ">= 1.20.110"
+   "Mozilla Firefox", ">= 34"
+   "Google Chrome", ">= 38"
+   "Brave", "any"
    "Edge", "any"
-   "Safari", ">= 8"
-   "iOS", ">= 9"
-   "Android", ">= 4.4"
+   "Safari", ">= 10"
