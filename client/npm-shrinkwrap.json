@@ -1,12 +1,12 @@
 {
   "name": "globaleaks",
-  "version": "5.0.85",
+  "version": "5.0.86",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "globaleaks",
-      "version": "5.0.85",
+      "version": "5.0.86",
       "dependencies": {
         "@angular/common": "v20-lts",
         "@angular/core": "v20-lts",
