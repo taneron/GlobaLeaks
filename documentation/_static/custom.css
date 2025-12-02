@@ -49,6 +49,10 @@
   margin-right: 10px;
 }
 
+img.align-center {
+  margin-bottom: 1rem;
+}
+
 @media not print {
   @media (prefers-color-scheme: dark) {
     body:not([data-theme="light"]) {
