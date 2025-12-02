@@ -30,7 +30,7 @@ legal:
     GlobaLeaks
 organisation:
   name: GlobaLeaks
-  url: https://www.globaleaks.org
+  uri: https://www.globaleaks.org
 intendedAudience:
   scope:
     - agriculture
