@@ -1,3 +1,19 @@
+Changes in version 5.0.86
+    Revise file encryption by adopting Libsodium SecretStream
+    Revise message and file encryption by adding padding to hide original size
+    Perform accessibility review raising use of ARIA (#4623)
+    Optimize SQLITE configuration (#4661)
+    Limit usage of data sources (#4668)
+    Bump Angular library to latest LTS version 20 (#4673)
+    Bump client dependencies to their latest stable versions
+    Fix issues #4489 and #4660
+    Update translations
+    [doc] Reorganize and complete documentation
+    [doc] Improve application-security documentation, extending details about
+      the "No Cookies" approach
+    [doc] Extend encryption documentation with details on the usage of
+      Libsodium SecretStream and the addition of padding
+
 Changes in version 5.0.85
     Fix letsencrypt process on trixie relese (#4657)
     Bump client dependencies to latests stable
