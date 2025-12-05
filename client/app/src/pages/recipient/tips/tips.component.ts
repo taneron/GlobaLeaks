@@ -16,7 +16,7 @@ import {rtipResolverModel} from "@app/models/resolvers/rtips-resolver-model";
 import {Receiver} from "@app/models/receiver/receiver-tip-data";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {HttpService} from "@app/shared/services/http.service";
-import {Observable, from, switchMap} from "rxjs";
+import {concatMap, delay, from, tap} from "rxjs";
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {formatDate, NgClass, DatePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
@@ -101,34 +101,31 @@ export class TipsComponent implements OnInit {
   }
 
   exportTips() {
-    const selectedTips = this.selectedTips.slice();
+    const selectedTips = [...this.selectedTips];
+    this.appDataService.updateShowLoadingPanel(true);
 
-    return from(this.tokenResourceService.getWithProofOfWork()).pipe(
-      switchMap((token: any) => {
-        return new Observable<void>((observer) => {
-          let count = 0;
-
-          const exportOneTip = (tipId: string) => {
-            const url = `api/recipient/rtips/${tipId}/export?token=${token.id}:${token.answer}`;
-            const newWindow = window.open(url);
-
-            if (newWindow) {
-              newWindow.onload = () => {
-                count++;
-                if (count === selectedTips.length) {
-                  observer.complete();
-                }
-              };
-            }
-          };
-
-          for (let i = 0; i < selectedTips.length; i++) {
-            exportOneTip(selectedTips[i]);
-          }
+    from(selectedTips)
+      .pipe(
+        concatMap((tipId: string) =>
+          from(this.tokenResourceService.getWithProofOfWork()).pipe(
+            tap((token: any) => {
+              const url = `api/recipient/rtips/${tipId}/export?token=${token.id}:${token.answer}`;
+              window.open(url);
+            }),
+	    delay(500)
+          )
+        )
+      )
+      .subscribe({
+        next: () => {},
+        error: (error) => {
+          console.error("Export failed", error);
           this.appDataService.updateShowLoadingPanel(false);
-        });
-      })
-    ).subscribe();
+        },
+        complete: () => {
+          this.appDataService.updateShowLoadingPanel(false);
+        }
+      });
   }
 
   reload() {
