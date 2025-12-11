@@ -987,7 +987,7 @@ msgid "Questions"
 msgstr "Sorular"
 
 msgid "Read receipt"
-msgstr ""
+msgstr "Okundu bildirimi"
 
 msgid "Receivers"
 msgstr "Alıcılar"
@@ -1603,7 +1603,7 @@ msgid ""
 msgstr "Şu anda anonim değilsiniz. Bu sistem yalnızca anonim gönderimleri kabul ediyor."
 
 msgid "You are entering a report received through other channels."
-msgstr ""
+msgstr "Diğer kanallardan alınmış bir bildirime giriyorsunuz."
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
