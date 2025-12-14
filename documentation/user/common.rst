@@ -78,5 +78,5 @@ Request support
 ---------------
 In case of any technical problem, question or doubt, you can request the support of the administrator of your platform by clicking on the [:fa:`solid life-ring`] icon in the login status bar or in the #/login page of your platform. Use the popup to submit the request.
 
-.. image:: ../images/user/password_reset_2.png
+.. image:: ../images/user/modal_support.png
    :align: center
