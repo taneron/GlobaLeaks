@@ -1,3 +1,8 @@
+Changes in version 5.0.87
+    Fix interface enabling users to download more reports at once
+    Bump client dependencies to their latest stable versions
+    Update translations
+
 Changes in version 5.0.86
     Revise file encryption by adopting Libsodium SecretStream
     Revise message and file encryption by adding padding to hide original size
