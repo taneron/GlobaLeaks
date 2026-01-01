@@ -101,7 +101,7 @@ def backup(args):
 
     sp.check_call(["tar", "-zcf", args.backuppath, "--exclude='backups'", "-C", args.workdir, '.'])
 
-    if must_stop: sp.check_call(["service", "globaleaks", "stop"])
+    if must_stop: sp.check_call(["service", "globaleaks", "start"])
     print("Success: The archived backup was created at:", args.backuppath)
 
 
