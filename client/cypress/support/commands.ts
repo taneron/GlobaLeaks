@@ -228,12 +228,12 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
 
     if (locator) {
       cy.viewport(1280, 1024);
-      cy.wait(500);
+      cy.wait(50);
       cy.waitForPageIdle();
       return cy.get(locator).screenshot("../" + filename, {overwrite: true});
     }
 
-    cy.wait(500);
+    cy.wait(50);
     cy.waitForPageIdle();
 
     // Ensure the screenshot does not include signs of mouse position/clicks
@@ -250,7 +250,7 @@ Cypress.Commands.add("waitForPageIdle", () => {
         if (window.isAngularStable()) {
           resolve();
         } else {
-          setTimeout(checkAngular, 1000);
+          setTimeout(checkAngular, 50);
         }
       };
 

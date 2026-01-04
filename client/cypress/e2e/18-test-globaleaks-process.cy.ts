@@ -295,7 +295,7 @@ describe("globaleaks process", function () {
     cy.get("#SubmitButton").click();
     cy.get("#ViewReportButton").should("be.visible");
     cy.get("#ViewReportButton").click();
-    cy.wait(10000);
+    cy.wait(5000);
     cy.get("#open_additional_questionnaire").click();
     cy.get("input[type='text']").eq(1).should("be.visible").type("single line text input");
     cy.get("#SubmitButton").click();
