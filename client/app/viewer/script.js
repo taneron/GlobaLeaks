@@ -1,5 +1,14 @@
 /* eslint-disable no-undef */
 
+
+import * as pdfjsLib from 'pdfjs-dist/build/pdf.min.mjs';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs';
+
+import { GlobalWorkerOptions } from 'pdfjs-dist';
+const workerBlob = new Blob([pdfWorker], { type: 'application/javascript' });
+const workerBlobUrl = URL.createObjectURL(workerBlob);
+GlobalWorkerOptions.workerSrc = workerBlobUrl;
+
 const mediaViewer = document.getElementById("media-viewer");
 const pdfViewer = document.getElementById("pdf-viewer");
 const pdfCanvas = document.getElementById("pdf-canvas");

@@ -225,11 +225,10 @@ module.exports = function(grunt) {
       },
       pdfjs: {
         entry: {
-          'pdf.min': './node_modules/pdfjs-dist/legacy/build/pdf.min.mjs',
-          'pdf.worker.min': './node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs',
+          'script.min.js': './app/viewer/script.js',
         },
         output: {
-          filename: '[name].js',
+          filename: '[name]',
           path: path.resolve('app/viewer/'),
           libraryTarget: 'umd',
           globalObject: 'this', // This makes the bundle work in both browser and Node.js
