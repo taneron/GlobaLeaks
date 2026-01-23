@@ -36,7 +36,7 @@
     "@fontsource-variable/noto-sans-thaana": "5.2.8",
     "@fontsource-variable/noto-sans-thai": "5.2.8",
     "@fontsource-variable/noto-serif-tibetan": "5.2.8",
-    "@fontsource/noto-sans-myanmar": "5.2.6",
+    "@fontsource/noto-sans-myanmar": "5.2.7",
     "@fortawesome/fontawesome-svg-core": "7.1.0",
     "@fortawesome/free-solid-svg-icons": "7.1.0",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",
@@ -62,7 +62,7 @@
     "rxjs": "7.8.2"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.2101.1",
+    "@angular-devkit/architect": "0.2003.15",
     "@angular-devkit/build-angular": "20.3.15",
     "@angular-devkit/core": "20.3.15",
     "@angular/cli": "20.3.15",
@@ -75,8 +75,8 @@
     "@types/dompurify": "3.2.0",
     "@types/flowjs__flow.js": "2.13.3",
     "@types/qrcode": "1.5.6",
-    "@typescript-eslint/types": "8.53.1",
-    "@typescript-eslint/utils": "8.53.1",
+    "@typescript-eslint/types": "8.54.0",
+    "@typescript-eslint/utils": "8.54.0",
     "angular-eslint": "20.7.0",
     "axe-core": "4.11.1",
     "cssnano": "7.1.2",
@@ -92,7 +92,7 @@
     "grunt-webpack": "7.0.1",
     "less": "4.5.1",
     "load-grunt-tasks": "5.1.0",
-    "npm-check-updates": "19.3.1",
+    "npm-check-updates": "19.3.2",
     "nyc": "17.1.0",
     "patch-package": "8.0.1",
     "postcss": "8.5.6",
@@ -103,6 +103,6 @@
     "superagent": "10.3.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.53.1"
+    "typescript-eslint": "8.54.0"
   }
 }
