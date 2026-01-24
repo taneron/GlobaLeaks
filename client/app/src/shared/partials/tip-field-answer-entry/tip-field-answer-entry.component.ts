@@ -44,6 +44,7 @@ export class TipFieldAnswerEntryComponent implements OnInit {
   @Input() redactOperationTitle: string;
   @Input() redactMode: boolean;
 
+  listen = false;
   format = "dd/MM/yyyy";
   locale = "en-US";
   audioFiles: Record<string, Blob> = {};
