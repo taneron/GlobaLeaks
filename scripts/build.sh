@@ -93,10 +93,8 @@ git checkout "$TAG" 2>/dev/null || git checkout "tags/$TAG"
 if [ $TESTING -eq 1 ]; then
   cd client && npm install -d && ./node_modules/grunt/bin/grunt build_for_testing
 else
-  cd client && npm install -d && ./node_modules/grunt/bin/grunt
+  cd client && npm install -d && ./node_modules/grunt/bin/grunt build
 fi
-
-cd client && npm install -d && ./node_modules/grunt/bin/grunt build
 
 cd $ROOTDIR
 
