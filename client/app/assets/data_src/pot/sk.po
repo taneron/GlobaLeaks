@@ -6,10 +6,10 @@
 # Jakub Srna <jaksrn@gmail.com>, 2014
 # Jakub Srna <jaksrn@gmail.com>, 2014
 # Lenka Ježková <lenka.jezkova@oziveni.cz>, 2019-2020
-# Roman 'Kaktuxista' Benji <romanbeno273@gmail.com>, 2013-2014
-# Roman 'Kaktuxista' Benji <romanbeno273@gmail.com>, 2014
-# Roman 'Kaktuxista' Benji <romanbeno273@gmail.com>, 2014
-# Roman 'Kaktuxista' Benji <romanbeno273@gmail.com>, 2014
+# 961ba2b45faf5c5c0adbe4a16544b85f_85047c3 <f86a4848aa133cd8e4b545b0500f2963_32937>, 2013-2014
+# 961ba2b45faf5c5c0adbe4a16544b85f_85047c3 <f86a4848aa133cd8e4b545b0500f2963_32937>, 2014
+# 961ba2b45faf5c5c0adbe4a16544b85f_85047c3 <f86a4848aa133cd8e4b545b0500f2963_32937>, 2014
+# 961ba2b45faf5c5c0adbe4a16544b85f_85047c3 <f86a4848aa133cd8e4b545b0500f2963_32937>, 2014
 # Tibor Deak <deaktib@gmail.com>, 2019,2021
 # Tibor Deak <deaktib@gmail.com>, 2019
 msgid ""
@@ -703,6 +703,9 @@ msgstr "Povoliť dostupnosť bez Tor"
 
 msgid "License"
 msgstr "Licencia"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Prístupy interných používateľov"

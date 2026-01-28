@@ -695,6 +695,9 @@ msgstr "Leisti pasiekti platformą be „Tor“"
 msgid "License"
 msgstr "Licencija"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Registruoti vidaus naudotojų prieigas"
 

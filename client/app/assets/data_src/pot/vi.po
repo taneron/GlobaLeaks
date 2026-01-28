@@ -709,6 +709,9 @@ msgstr "Hãy để hệ thống truy cập được mà không cần Tor"
 msgid "License"
 msgstr "Giấy phép"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ghi lại truy cập của người dùng nội bộ"
 

@@ -694,6 +694,9 @@ msgstr "ອະນຸຍາດໃຫ້ສາມາດເຂົ້າເຖິງ
 msgid "License"
 msgstr "ການ​ອະ​ນຸ​ຍາດ"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "ບັນທຶກການເຂົ້າເຖິງຂອງບັນດາຜູ້ໃຊ້ພາຍໃນ"
 

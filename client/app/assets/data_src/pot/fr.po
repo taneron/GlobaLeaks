@@ -1,15 +1,16 @@
 # 
 # Translators:
 # Alexandre Girard <transifex@alexgirard.com>, 2013-2014
-# AO <ao@localizationlab.org>, 2015-2016,2018-2025
-# AO <ao@localizationlab.org>, 2015-2016,2021
+# AO <aol10n@duck.com>, 2026
+# AO <aol10n@duck.com>, 2015-2016,2018-2026
+# AO <aol10n@duck.com>, 2015-2016,2021
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013,2016
 # marco calamari <marcoc@marcoc.it>, 2013
 # Charles Peltier <charles@cl-info.fr>, 2015
-# AO <ao@localizationlab.org>, 2015-2018
-# AO <ao@localizationlab.org>, 2016-2017
-# AO <ao@localizationlab.org>, 2016
-# AO <ao@localizationlab.org>, 2016
+# AO <aol10n@duck.com>, 2015-2018
+# AO <aol10n@duck.com>, 2016-2017
+# AO <aol10n@duck.com>, 2016
+# AO <aol10n@duck.com>, 2016
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2013-2024
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013,2016
@@ -27,7 +28,7 @@
 # Rima Sghaier, 2016
 # Towinet, 2013-2015
 # Trans-fr, 2015
-# AO <ao@localizationlab.org>, 2015-2016
+# AO <aol10n@duck.com>, 2015-2016
 # u <u@451f.org>, 2014
 # u <u@451f.org>, 2014
 # Yvette Agostini <mnemosyne@logioshermes.org>, 2015
@@ -35,7 +36,7 @@
 # Xavier Lalu <xavier.lalu@carredinfo.fr>, 2013
 # Xavier Lalu <xavier.lalu@carredinfo.fr>, 2013
 # yahoe.001, 2015
-# AO <ao@localizationlab.org>, 2015
+# AO <aol10n@duck.com>, 2015
 # Yves Eudes <eudes@lemonde.fr>, 2014-2015
 # yvette.agostini <yvette.agostini@gmail.com>, 2013
 # Yvette Agostini <mnemosyne@logioshermes.org>, 2015
@@ -45,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: AO <ao@localizationlab.org>, 2015-2016,2018-2025\n"
+"Last-Translator: AO <aol10n@duck.com>, 2026\n"
 "Language-Team: French (http://app.transifex.com/otf/globaleaks/language/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -732,6 +733,9 @@ msgstr "Permettre l’accès à la plateforme sans Tor"
 
 msgid "License"
 msgstr "Licence"
+
+msgid "Listen"
+msgstr "Écouter"
 
 msgid "Log accesses of internal users"
 msgstr "Journaliser les accès des utilisateurs internes"

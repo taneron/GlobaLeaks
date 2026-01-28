@@ -699,6 +699,9 @@ msgstr "Tor がなくてもプラットフォームが到達するようにす�
 msgid "License"
 msgstr "ライセンス"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "内部ユーザーのログアクセス"
 

@@ -695,6 +695,9 @@ msgstr "የመሳርያ ስርኣቱ ያለ ቶር እንዲገኝ አድርግ"
 msgid "License"
 msgstr "ፍቃድ"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "የውስጥ ተጠቃሚዎች የመግባት መዳረሻዎች"
 

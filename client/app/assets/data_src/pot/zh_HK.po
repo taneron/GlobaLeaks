@@ -696,6 +696,9 @@ msgstr "訪客可以透過 Tor 以外的瀏覽器訪問平台"
 msgid "License"
 msgstr "授權"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "記錄内部使用者的存取"
 

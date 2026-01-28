@@ -695,6 +695,9 @@ msgstr "اجازه دسترسی داشتن به پلتفورم بدون نیاز
 msgid "License"
 msgstr "جواز"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "ثبت دسترسی های کاربران داخلی"
 

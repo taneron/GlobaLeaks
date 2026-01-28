@@ -695,6 +695,9 @@ msgstr "Tor အသုံးမပြုဘဲ ပလက်ဖောင်းသ�
 msgid "License"
 msgstr "လိုင်စင်"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "အတွင်းပိုင်း အသုံးပြုသူများ၏ ဝင်ရောက်ခွင့် မှတ်တမ်း"
 

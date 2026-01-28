@@ -699,6 +699,9 @@ msgstr "Ļaut platformai būtu sasniedzamai bez Tor"
 msgid "License"
 msgstr "Licence"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Iekšējo lietotāju piekļuves žurnāliem"
 

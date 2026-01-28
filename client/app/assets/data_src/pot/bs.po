@@ -699,6 +699,9 @@ msgstr "Dopustite da platforma bude dostupna i bez Tora"
 msgid "License"
 msgstr "Licenca"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Log pristupa internih korisnika"
 

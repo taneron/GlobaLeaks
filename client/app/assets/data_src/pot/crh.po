@@ -694,6 +694,9 @@ msgstr "Tor олмайып платформа иришимине изин бер
 msgid "License"
 msgstr "Лицензия"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ички къулланыджыларнынъ авторизация журналы"
 

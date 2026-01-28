@@ -700,6 +700,9 @@ msgstr "Platforma naj bo dostopna brez brskalnika Tor"
 msgid "License"
 msgstr "Licenca"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Beleži dostope notranjih uporabnikov."
 

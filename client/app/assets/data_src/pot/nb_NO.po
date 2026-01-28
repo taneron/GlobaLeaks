@@ -696,6 +696,9 @@ msgstr "Tillat at plattformen nås uten Tor"
 msgid "License"
 msgstr "Lisens"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Loggtilganger til interne brukere"
 

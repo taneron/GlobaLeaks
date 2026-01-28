@@ -734,6 +734,9 @@ msgstr "Dejar que la plataforma sea alcanzable sin Tor"
 msgid "License"
 msgstr "Licencia"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Registrar los accesos de los usuarios internos"
 

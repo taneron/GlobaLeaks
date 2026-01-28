@@ -694,6 +694,9 @@ msgstr "اجازه ورکړئ چې دغه پلټفارم له Tor پرته د ل
 msgid "License"
 msgstr "جواز"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "د داخلي کارنونو د دننه کېدو لاسرسی"
 

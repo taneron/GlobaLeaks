@@ -717,6 +717,9 @@ msgstr "Låt användarna nå plattformen utan Tor"
 msgid "License"
 msgstr "Licens"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Interna användares loggåtkomst"
 

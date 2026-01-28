@@ -706,6 +706,9 @@ msgstr "پلیٹ فارم کو ٹور کے بغیر قابل رسائی ہونے
 msgid "License"
 msgstr "اختیار دینا"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "داخلی صارفین کی لاگ رسائی "
 

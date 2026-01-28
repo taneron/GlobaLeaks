@@ -695,6 +695,9 @@ msgstr "Luba juurdepääsu platvormile ilma Tor-ita"
 msgid "License"
 msgstr "Litsents"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Registreeri sisemiste kasutajate kasutuskorrad"
 

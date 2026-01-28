@@ -701,6 +701,9 @@ msgstr "Platformanın Tor olmadan da açılmasını təmin edin"
 msgid "License"
 msgstr "Lisenziya"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Daxili istifadəçilərin girişləri"
 

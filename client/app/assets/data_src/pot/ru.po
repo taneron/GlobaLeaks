@@ -724,6 +724,9 @@ msgstr "Позволить доступ к платформе без Tor"
 msgid "License"
 msgstr "Лицензия"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Журнал авторизации внутренних пользователей"
 

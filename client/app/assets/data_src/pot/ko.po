@@ -695,6 +695,9 @@ msgstr "Tor 없는 플랫폼 액세스 허용"
 msgid "License"
 msgstr "라이선스"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "내부 사용자 액세스 기록"
 

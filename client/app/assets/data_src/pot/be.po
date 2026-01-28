@@ -695,6 +695,9 @@ msgstr "Зрабіць платформу даступнай без Tor"
 msgid "License"
 msgstr "Ліцэнзія"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Журналы доступу ўнутраных карыстальнікаў"
 

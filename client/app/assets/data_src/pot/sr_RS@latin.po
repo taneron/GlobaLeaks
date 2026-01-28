@@ -700,6 +700,9 @@ msgstr "Dozvoli da platforma bude dostupna van pregledača Tor"
 msgid "License"
 msgstr "Licenca"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Evidentiraj pristup internih korisnika"
 

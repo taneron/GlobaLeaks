@@ -711,6 +711,9 @@ msgstr ""
 msgid "License"
 msgstr "רישיון"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr ""
 

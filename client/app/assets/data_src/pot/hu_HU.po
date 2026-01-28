@@ -713,6 +713,9 @@ msgstr "Tegye elérhetővé a platformot Tor nélkül"
 msgid "License"
 msgstr "Licensz"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Belső felhasználók belépési logja"
 

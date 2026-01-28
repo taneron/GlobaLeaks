@@ -705,6 +705,9 @@ msgstr "Salli palvelun käyttö ilman Tor-selainta"
 msgid "License"
 msgstr "Lisenssi"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Tallenna sisäisten käyttäjien kirjautumiset"
 

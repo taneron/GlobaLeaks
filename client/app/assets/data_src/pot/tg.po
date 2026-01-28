@@ -702,6 +702,9 @@ msgstr "Барномаро бидуни Tor дастрас кардан "
 msgid "License"
 msgstr "Иҷозатнома"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Дастрасии корбарони дохилӣ ба номгӯ"
 

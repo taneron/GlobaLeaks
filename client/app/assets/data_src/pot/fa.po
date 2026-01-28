@@ -13,7 +13,7 @@
 # Hamed Behravan <behravan.hamed@gmail.com>, 2015
 # 1bdf31d1c1e9cb24d6578874174ff2c7, 2016
 # Kamyar Behrang <k.g.behrang@gmail.com>, 2016
-# Reza Ghasemi, 2019
+# dbd82f578acec8feffe57fdc74c1b2dd_27ca09d, 2019
 # 6d974eae263d7aab17b09900ac13d6de_bb09837, 2013
 # mohammad.s.n, 2013
 # Morpheus, 2013
@@ -22,7 +22,7 @@
 # Morpheus, 2013
 # Peyman A <pymnpe@gmail.com>, 2018
 # Reza Ghasemi, 2019
-# Reza Ghasemi, 2019-2020
+# dbd82f578acec8feffe57fdc74c1b2dd_27ca09d, 2019-2020
 # signal89, 2014
 # signal89, 2014
 # b0b47d46632b78a09a40de799fda9a65, 2019
@@ -720,6 +720,9 @@ msgstr "قابل دسترس بودن پلتفرم بدون نیاز به Tor"
 
 msgid "License"
 msgstr "پروانه"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "ثبت دسترسی‌های کاربران داخلی"

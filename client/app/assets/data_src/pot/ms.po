@@ -694,6 +694,9 @@ msgstr "Benarkan platform boleh dicapai tanpa Tor"
 msgid "License"
 msgstr "Lesen"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Akses log pengguna dalaman"
 

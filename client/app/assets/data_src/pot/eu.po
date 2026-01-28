@@ -712,6 +712,9 @@ msgstr "Plataforma Tor gabe irisgarria izateari uztea"
 msgid "License"
 msgstr "Lizentzia"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Erregistratu barne-erabiltzaileen sarbideak"
 

@@ -2,20 +2,21 @@
 # Translators:
 # Anja Xhakani <anja@ura.design>, 2021
 # Besnik Bleta <besnik@programeshqip.org, 2021
-# Besnik Bleta <besnik@programeshqip.org>, 2021-2025
+# Besnik Bleta <besnik@programeshqip.org>, 2021-2026
 # Bujar Tafili, 2015
 # Bujar Tafili, 2015
 # Florent <fspahija@kdi-kosova.org>, 2021-2022
 # F Nilaj <activisti@protonmail.com>, 2016
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2015-2022,2024
+# Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2026
 # Jakub Srna <jaksrn@gmail.com>, 2014
-# Roman 'Kaktuxista' Benji <romanbeno273@gmail.com>, 2014
+# 961ba2b45faf5c5c0adbe4a16544b85f_85047c3 <f86a4848aa133cd8e4b545b0500f2963_32937>, 2014
 # Tibor Deak <deaktib@gmail.com>, 2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2021-2025\n"
+"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2026\n"
 "Language-Team: Albanian (http://app.transifex.com/otf/globaleaks/language/sq/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -702,6 +703,9 @@ msgstr "Lejojeni platformën të jetë e përdorshme pa Tor"
 
 msgid "License"
 msgstr "Licencë"
+
+msgid "Listen"
+msgstr "Ascolta"
 
 msgid "Log accesses of internal users"
 msgstr "Regjistro hyrje përdoruesish të brendshëm"

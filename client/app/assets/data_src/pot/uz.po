@@ -696,6 +696,9 @@ msgstr "Platforma Tor ishlatmasdan ham ochilaversin"
 msgid "License"
 msgstr "Litsenziya"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ichki foydalanuvchilar kirishini jurnalga yozish"
 

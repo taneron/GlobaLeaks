@@ -701,6 +701,9 @@ msgstr "টর ছাড়া প্ল্যাটফর্মটিতে প
 msgid "License"
 msgstr "লাইসেন্স"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "অভ্যন্তরীণ ব্যবহারকারীদের লগ অ্যাক্সেসগুলি"
 

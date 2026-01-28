@@ -694,6 +694,9 @@ msgstr "Бу соупини Tor ишләтмәйму уланғили болид
 msgid "License"
 msgstr "Нәшр һоқуқи"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ички ишләткүчиләрниң зийарәтлирини хатирилә"
 

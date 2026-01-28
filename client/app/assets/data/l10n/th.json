@@ -220,6 +220,7 @@
   "Latest selectable date": "วันที่สุดท้ายที่ให้เลือกได้",
   "Let the platform be reachable without Tor": "เปิดให้แพลตฟอร์มสามารถถูกมองเห็นได้แม้ไม่ใช้ Tor",
   "License": "สัญญาอนุญาต",
+  "Listen": "Listen",
   "Log accesses of internal users": "บันทึกการเข้าถึงของผู้ใช้ภายใน",
   "Log in": "ลงชื่อเข้า",
   "Logging level": "ระดับการบันทึก",

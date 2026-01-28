@@ -696,6 +696,9 @@ msgstr "Թույլ տալ, որ հարթակը հասանելի լինի առա�
 msgid "License"
 msgstr "Լիցենզիա"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ներքին օգտվողների մուտքի գրանցում"
 

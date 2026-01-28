@@ -694,6 +694,9 @@ msgstr "Bu soupini Tor ishletmeymu ulan’ghili bolidighan qil"
 msgid "License"
 msgstr "Neshr hoquqi"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ichki ishletküchilerning ziyaretlirini xatirile"
 

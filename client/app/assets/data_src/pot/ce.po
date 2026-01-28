@@ -696,6 +696,9 @@ msgstr "Tor а йоцуш, тlекхочийлехь хилийта платфо
 msgid "License"
 msgstr "Лицензи"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Чоьхьарчу пайдаэцархойн журналашна тlекхочийла"
 

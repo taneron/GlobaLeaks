@@ -704,6 +704,9 @@ msgstr "เปิดให้แพลตฟอร์มสามารถถู
 msgid "License"
 msgstr "สัญญาอนุญาต"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "บันทึกการเข้าถึงของผู้ใช้ภายใน"
 

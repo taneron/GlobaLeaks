@@ -31,8 +31,8 @@
 # b33a4006134bb6ee62b30fc0fac5cec6, 2014
 # b33a4006134bb6ee62b30fc0fac5cec6, 2014
 # b33a4006134bb6ee62b30fc0fac5cec6, 2014
-# lamine Kacimi <k_lamine27@yahoo.fr>, 2015
-# lamine Kacimi <k_lamine27@yahoo.fr>, 2015
+# Lamine Kacimi <k_lamine27@yahoo.fr>, 2015
+# Lamine Kacimi <k_lamine27@yahoo.fr>, 2015
 # mohammad ali <ilir95palira@gmail.com>, 2017
 # Muhammad Elghdban <Mohamed.Elghdban@gmail.com>, 2020
 # Muhammad Elghdban <Mohamed.Elghdban@gmail.com>, 2020,2023-2024
@@ -742,6 +742,9 @@ msgstr "اسمح للمنصّة بأن تكون قابلة للوصول بدون
 
 msgid "License"
 msgstr "الترخيص"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "تسجيل بيانات دخول المستخدمين الداخليين"

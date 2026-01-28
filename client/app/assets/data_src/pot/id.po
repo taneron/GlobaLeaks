@@ -719,6 +719,9 @@ msgstr "Perbolehkan platform diakses tanpa menggunakan Tor"
 msgid "License"
 msgstr "Lisensi"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Akses catatan pengguna internal"
 

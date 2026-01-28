@@ -715,6 +715,9 @@ msgstr "允许平台可不使用 Tor 访问"
 msgid "License"
 msgstr "许可"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "记录内部用户访问"
 

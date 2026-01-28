@@ -698,6 +698,9 @@ msgstr "បើកវេទិកាឲ្យចូលបានដោយមិន
 msgid "License"
 msgstr "អាជ្ញាប័ណ្ណ"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "ការចូលប្រើប្រាស់របស់អ្នកប្រើប្រាស់ខាងក្នុង"
 

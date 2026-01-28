@@ -707,6 +707,9 @@ msgstr "Povolit dostupnost bez Tor."
 msgid "License"
 msgstr "Licence"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Přístupy interních uživatelů"
 

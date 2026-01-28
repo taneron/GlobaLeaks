@@ -710,6 +710,9 @@ msgstr "Permite ca platforma să fie accesibilă fără Tor."
 msgid "License"
 msgstr "Licență"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Logare acces utilizatori interni"
 

@@ -694,6 +694,9 @@ msgstr "Fanya jukwaa lifikike bila Tor"
 msgid "License"
 msgstr "Leseni"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Ingia ufikiaji wa watumiaji wa ndani"
 
