@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 
-
 import * as pdfjsLib from 'pdfjs-dist/build/pdf.min.mjs';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs';
+import * as pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs';
 
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 const workerBlob = new Blob([pdfWorker], { type: 'application/javascript' });
