@@ -1,3 +1,14 @@
+Changes in version 5.0.88
+    Fix sorting on reports' list (#4730)
+    Improve UI in relation to masked files (#4724)
+    Enable angular zoneless mode (#4632)
+    Avoid to compress images with brotly since they are already optimized
+    Optimize PDF.js packaging
+    Fix bug preventing gl-admin script to restart the service after backup (#4714)
+    [doc] Revise documentation about No-Cookies Policy and usage of Session Storage
+    Bump client dependencies to latest stable versions
+    Update translations
+
 Changes in version 5.0.87
     Fix interface enabling users to download more reports at once
     Bump client dependencies to their latest stable versions
