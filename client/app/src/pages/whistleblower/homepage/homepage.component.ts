@@ -1,4 +1,4 @@
-import {Component, inject} from "@angular/core";
+import {ChangeDetectorRef, Component, inject} from "@angular/core";
 import {AppDataService} from "@app/app-data.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DisclaimerComponent} from "@app/shared/modals/disclaimer/disclaimer.component";
@@ -21,7 +21,7 @@ export class HomepageComponent {
   protected appConfigService = inject(AppConfigService);
   protected appDataService = inject(AppDataService);
   private modalService = inject(NgbModal);
-
+  private cdr = inject(ChangeDetectorRef);
 
   openSubmission() {
     if (this.appDataService.public.node.disclaimer_text) {
@@ -37,6 +37,7 @@ export class HomepageComponent {
       modalRef.componentInstance.confirmFunction = () => {
         observer.complete()
         this.appConfigService.setPage("submissionpage");
+        this.cdr.markForCheck();
         return this.appDataService.page;
       };
     });
