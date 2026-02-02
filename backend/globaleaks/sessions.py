@@ -4,7 +4,7 @@ from globaleaks.settings import Settings
 from globaleaks.state import State
 from globaleaks.utils.crypto import sha256, GCE
 from globaleaks.utils.tempdict import TempDict
-from globaleaks.utils.utility import datetime_now, uuid4
+from globaleaks.utils.utility import uuid4
 
 
 class Session(dict):
@@ -22,8 +22,6 @@ class Session(dict):
             'user_tid': user_tid,
             'username': '',
             'role': user_role,
-            'ratelimit_time': datetime_now(),
-            'ratelimit_count': 0,
             'files': [],
             'token': State.tokens.new(tid),
             'properties': {},

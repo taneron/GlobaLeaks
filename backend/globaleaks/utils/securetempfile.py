@@ -4,20 +4,23 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher
 from cryptography.hazmat.primitives.ciphers.algorithms import ChaCha20
 
-CHUNK_SIZE = 4096
+CHUNK_SIZE = 64000
+
 
 class SecureTemporaryFile:
     fd = enc = dec = None
+    position = 0
 
-    def __init__(self, filesdir):
+    def __init__(self, filesdir, filename=None):
         """
         Initializes an ephemeral file with ChaCha20 encryption.
         Creates a new random file path and generates a unique encryption key and nonce.
 
         :param filesdir: The directory where the ephemeral file will be stored.
-        :param filenames: Optional filename. If not provided, a UUID4 is used.
+        :param filename: Optional filename. If not provided, a UUID4 is used.
         """
-        filename = str(uuid.uuid4())
+        filename = filename or str(uuid.uuid4())
+        self.mode = None
         self.filepath = os.path.join(filesdir, filename)
         self.cipher = Cipher(ChaCha20(os.urandom(32), os.urandom(16)), mode=None, backend=default_backend())
 
@@ -40,14 +43,17 @@ class SecureTemporaryFile:
         """
         if not self.fd:
             self.fd = os.open(self.filepath, os.O_RDWR | os.O_CREAT | os.O_APPEND)
+            os.lseek(self.fd, self.position, os.SEEK_SET)
 
-        self.enc = self.cipher.encryptor()
-        self.dec = self.cipher.decryptor()
+        if (not self.enc and not self.dec) or self.mode != mode:
+            self.mode = mode
+            self.enc = self.cipher.encryptor()
+            self.dec = self.cipher.decryptor()
 
-        if mode == 'r':
-            self.seek(0)
-        else:
-            self.seek(self.size)
+            if mode == 'r':
+                self.seek(0)
+            else:
+                self.seek(self.size)
 
         return self
 
@@ -58,6 +64,7 @@ class SecureTemporaryFile:
         :param data: Data to write to the file, can be a string or bytes.
         """
         os.write(self.fd, self.enc.update(data))
+        self.position += len(data)
 
     def read(self, size=None):
         """
@@ -78,7 +85,9 @@ class SecureTemporaryFile:
                 break
 
             data += self.dec.update(chunk)
-            bytes_read += len(chunk)
+            chunk_length = len(chunk)
+            bytes_read += chunk_length
+            self.position += chunk_length
 
             if size is not None and bytes_read >= size:
                 break
@@ -91,16 +100,22 @@ class SecureTemporaryFile:
 
         :param offset: The offset to seek to.
         """
-        position = 0
-        self.dec = self.cipher.decryptor()
-        self.enc = self.cipher.encryptor()
-        os.lseek(self.fd, 0, os.SEEK_SET)
-        discard_size = offset - position
+        if offset < self.position:
+            self.position = 0
+            self.dec = self.cipher.decryptor()
+            self.enc = self.cipher.encryptor()
+            os.lseek(self.fd, 0, os.SEEK_SET)
+            discard_size = offset
+        else:
+            discard_size = offset - self.position
+
         while discard_size > 0:
             to_read = min(CHUNK_SIZE, discard_size)
             data = self.dec.update(os.read(self.fd, to_read))
             data = self.enc.update(data)
             discard_size -= to_read
+
+        self.position = offset
 
     def tell(self):
         """
@@ -108,7 +123,7 @@ class SecureTemporaryFile:
 
         :return: The current position in the file.
         """
-        return os.lseek(self.fd, 0, os.SEEK_CUR)
+        return self.position
 
     def close(self):
         """
@@ -116,9 +131,7 @@ class SecureTemporaryFile:
         """
         if self.fd:
             os.close(self.fd)
-            del self.enc
-            del self.dec
-            self.fd = self.enc = self.dec = None
+            self.fd = None
 
     def __enter__(self):
         """

@@ -1,17 +1,17 @@
-
-
-const translationModule = TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: createTranslateLoader,
-      deps: [HttpClient],
-    },
-  })
-;
-
-// https://github.com/globaleaks/GlobaLeaks/issues/3277
-// Create a proxy to override localStorage methods with sessionStorage methods
 (function() {
+  // Limit usage of setAttribute on 'stlyle'
+  // This is intended to limit our own libraries to scatter CSP policies violations,
+  // it is not intended as a block for an attacker that is already limited by the CSP.
+  const originalSetAttribute = Element.prototype.setAttribute;
+
+  Element.prototype.setAttribute = function(name, value) {
+    if (name.toLowerCase() !== 'style') {
+      originalSetAttribute.call(this, name, value);
+    }
+  };
+
+  // https://github.com/globaleaks/GlobaLeaks/issues/3277
+  // Create a proxy to override localStorage methods with sessionStorage methods
   const localStorageProxy = {
     getItem: (key: string) => sessionStorage.getItem(key),
     setItem: (key: string, value: string) => sessionStorage.setItem(key, value),
@@ -31,6 +31,7 @@ const translationModule = TranslateModule.forRoot({
   });
 })();
 
+import '@app/icons';
 import { ReceiptValidatorDirective } from "@app/shared/directive/receipt-validator.directive";
 import { mockEngine } from "@app/services/helper/mocks";
 import { MarkdownRendererService } from '@app/services/helper/markdown.service';
@@ -38,42 +39,48 @@ import { TranslatorPipe } from "@app/shared/pipes/translate";
 import { TranslateService, TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient, HttpClient } from "@angular/common/http";
 import { appInterceptor, ErrorCatchingInterceptor, CompletedInterceptor } from "@app/services/root/app-interceptor.service";
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy, NgOptimizedImage } from "@angular/common";
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { FlowInjectionToken, NgxFlowModule } from "@flowjs/ngx-flow";
-import { NgbDatepickerI18n, NgbModule, NgbPaginationConfig, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbDatepickerI18n, NgbModule, NgbPaginationConfig, NgbTooltipConfig, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { CustomDatepickerI18n } from "@app/shared/services/custom-datepicker-i18n";
 import { appRoutes } from "@app/app.routes";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
-import { provideAnimations } from "@angular/platform-browser/animations";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { FormsModule } from "@angular/forms";
-import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
+import { provideNgIdleKeepalive } from "@ng-idle/keepalive";
 import { MarkdownModule, MARKED_OPTIONS } from "ngx-markdown";
-import { AppComponent, createTranslateLoader } from "@app/pages/app/app.component";
-import { importProvidersFrom } from "@angular/core";
+import { AppComponent } from "@app/pages/app/app.component";
+import { provideRouter } from "@angular/router";
+import { ApplicationRef, enableProdMode, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import Flow from "@flowjs/flow.js";
-import {provideRouter} from "@angular/router";
 
-
-import { ApplicationRef } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
+enableProdMode();
 
 bootstrapApplication(AppComponent, {
     providers: [
+        provideZonelessChangeDetection(),
         provideRouter(appRoutes),
-        importProvidersFrom(NgbModule, BrowserModule, translationModule, NgSelectModule, FormsModule, NgbTooltipModule, NgIdleKeepaliveModule.forRoot(), MarkdownModule.forRoot({
-            markedOptions: {
-                provide: MARKED_OPTIONS,
-                useFactory: (rendererService: MarkdownRendererService) => ({
-                  breaks: true,
-                  renderer: rendererService.getCustomRenderer(),
-                }),
-                deps: [MarkdownRendererService]
-            }
-        }), NgxFlowModule, NgOptimizedImage),
-        ReceiptValidatorDirective,
-        TranslatorPipe, TranslateService,
+        provideNgIdleKeepalive(),
+        importProvidersFrom(NgbModule,
+                            BrowserModule,
+                            NgSelectModule,
+                            NgxFlowModule,
+                            FormsModule,
+                            NgbTooltipModule,
+                            MarkdownModule.forRoot({
+                              markedOptions: {
+                                provide: MARKED_OPTIONS,
+                                useFactory: (rendererService: MarkdownRendererService) => ({
+                                  breaks: true,
+                                  renderer: rendererService.getCustomRenderer(),
+                                }),
+                                deps: [MarkdownRendererService]
+                              }
+                            }),
+                            TranslateModule.forRoot({
+                              loader: provideTranslateHttpLoader({prefix:"l10n/", suffix:""}),
+                            })),
         { provide: APP_BASE_HREF, useValue: "/" },
         { provide: HTTP_INTERCEPTORS, useClass: appInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorCatchingInterceptor, multi: true },
@@ -95,9 +102,20 @@ bootstrapApplication(AppComponent, {
             return config;
           }
         },
+	{
+          provide: NgbTooltipConfig,
+          useFactory: () => {
+            const config = new NgbTooltipConfig();
+	    config.triggers = 'mouseenter:mouseleave';
+
+	    return config;
+	  }
+        },
         { provide: 'MockEngine', useValue: mockEngine },
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations(),
+        ReceiptValidatorDirective,
+        TranslatorPipe,
+        TranslateService,
+        provideHttpClient(withInterceptorsFromDi())
     ]
 }).then(moduleRef => {
     // Expose Angular stability status to Cypress

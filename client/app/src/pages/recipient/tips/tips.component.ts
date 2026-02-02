@@ -1,34 +1,34 @@
 import {Component, HostListener, OnInit, inject} from "@angular/core";
 import {AppConfigService} from "@app/services/root/app-config.service";
-import {NgbDate, NgbModal, NgbPagination, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationFirst, NgbPaginationLast, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbDate, NgbModal, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {AppDataService} from "@app/app-data.service";
 import {GrantAccessComponent} from "@app/shared/modals/grant-access/grant-access.component";
 import {RevokeAccessComponent} from "@app/shared/modals/revoke-access/revoke-access.component";
+import {TransferAccessComponent} from "@app/shared/modals/transfer-access/transfer-access.component";
 import {PreferenceResolver} from "@app/shared/resolvers/preference.resolver";
 import {RTipsResolver} from "@app/shared/resolvers/r-tips-resolver.service";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {TranslateService} from "@ngx-translate/core";
 import {IDropdownSettings, NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
-import {filter, orderBy} from "lodash-es";
 import {TokenResource} from "@app/shared/services/token-resource.service";
 import {Router, RouterLink} from "@angular/router";
 import {rtipResolverModel} from "@app/models/resolvers/rtips-resolver-model";
 import {Receiver} from "@app/models/receiver/receiver-tip-data";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {HttpService} from "@app/shared/services/http.service";
-import {Observable, from, switchMap} from "rxjs";
+import {concatMap, delay, from, tap} from "rxjs";
 import {HttpClient, HttpResponse} from "@angular/common/http";
-import {formatDate, NgClass, SlicePipe, DatePipe} from "@angular/common";
+import {formatDate, NgClass, DatePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {DateRangeSelectorComponent} from "@app/shared/components/date-selector/date-selector.component";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
-import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
 
 @Component({
     selector: "src-tips",
     templateUrl: "./tips.component.html",
     standalone: true,
-    imports: [RouterLink, FormsModule, NgClass, NgMultiSelectDropDownModule, DateRangeSelectorComponent, NgbPagination, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationFirst, NgbPaginationLast, NgbTooltipModule, SlicePipe, DatePipe, TranslatorPipe, OrderByPipe]
+    imports: [DatePipe, FormsModule, NgClass, NgMultiSelectDropDownModule, DateRangeSelectorComponent, NgbTooltipModule, PaginatedInterfaceComponent, RouterLink, TranslatorPipe]
 })
 export class TipsComponent implements OnInit {
   private http = inject(HttpClient);
@@ -37,18 +37,15 @@ export class TipsComponent implements OnInit {
   private appConfigServices = inject(AppConfigService);
   private router = inject(Router);
   protected RTips = inject(RTipsResolver);
-  protected preference = inject(PreferenceResolver);
+  protected preferencesService = inject(PreferenceResolver);
   private modalService = inject(NgbModal);
   protected utils = inject(UtilsService);
   protected appDataService = inject(AppDataService);
   private translateService = inject(TranslateService);
   private tokenResourceService = inject(TokenResource);
 
-  search: string | undefined;
   selectedTips: string[] = [];
   filteredTips: rtipResolverModel[];
-  currentPage: number = 1;
-  itemsPerPage: number = 20;
   reportDateFilter: [number, number] | null = null;
   updateDateFilter: [number, number] | null = null;
   expiryDateFilter: [number, number] | null = null;
@@ -61,16 +58,16 @@ export class TipsComponent implements OnInit {
   dropdownContextData: { id: number; label: string; }[] = [];
   dropdownScoreModel: { id: number; label: string; }[] = [];
   dropdownScoreData: { id: number; label: string; }[] = [];
-  sortKey: string = "creation_date";
-  sortReverse: boolean = true;
-  channelDropdownVisible: boolean = false;
-  statusDropdownVisible: boolean = false;
-  scoreDropdownVisible: boolean = false;
+  sortKey = "creation_date";
+  sortReverse = true;
+  channelDropdownVisible = false;
+  statusDropdownVisible = false;
+  scoreDropdownVisible = false;
   index: number;
   date: { year: number; month: number };
-  reportDatePicker: boolean = false;
-  lastUpdatePicker: boolean = false;
-  expirationDatePicker: boolean = false;
+  reportDatePicker = false;
+  lastUpdatePicker = false;
+  expirationDatePicker = false;
   dropdownSettings: IDropdownSettings = {
     idField: "id",
     textField: "label",
@@ -103,99 +100,32 @@ export class TipsComponent implements OnInit {
     this.selectedTips = [];
   }
 
-  openGrantAccessModal(): void {
-    this.utils.runUserOperation("get_users_names", {}, false).subscribe({
-      next: response => {
-        const names = response as Record<string, string>;
-        const selectableRecipients: Receiver[] = [];
-        this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
-          if (receiver.id !== this.authenticationService.session.user_id) {
-            receiver.name = names[receiver.id];
-            selectableRecipients.push(receiver);
-          }
-        });
-        const modalRef = this.modalService.open(GrantAccessComponent, {backdrop: 'static', keyboard: false});
-        modalRef.componentInstance.selectableRecipients = selectableRecipients;
-        modalRef.componentInstance.confirmFun = (receiver_id: Receiver) => {
-          const req = {
-            operation: "grant",
-            args: {
-              rtips: this.selectedTips,
-              receiver: receiver_id.id
-            },
-          };
-          this.utils.runOperation("api/recipient/operations", req.operation, req.args, true)
-            .subscribe(() => {
-              this.reload();
-            });
-        };
-        modalRef.componentInstance.cancelFun = null;
-      }
-    });
-  }
-
-  openRevokeAccessModal() {
-    this.utils.runUserOperation("get_users_names", {}, false).subscribe(
-      {
-        next: response => {
-          const names = response as Record<string, string>;
-          const selectableRecipients: Receiver[] = [];
-          this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
-            if (receiver.id !== this.authenticationService.session.user_id) {
-              receiver.name = names[receiver.id];
-              selectableRecipients.push(receiver);
-            }
-          });
-          const modalRef = this.modalService.open(RevokeAccessComponent, {backdrop: 'static', keyboard: false});
-          modalRef.componentInstance.selectableRecipients = selectableRecipients;
-          modalRef.componentInstance.confirmFun = (receiver_id: Receiver) => {
-            const req = {
-              operation: "revoke",
-              args: {
-                rtips: this.selectedTips,
-                receiver: receiver_id.id
-              },
-            };
-            this.utils.runOperation("api/recipient/operations", req.operation, req.args, true)
-              .subscribe(() => {
-                this.reload();
-              });
-          };
-          modalRef.componentInstance.cancelFun = null;
-        }
-      }
-    );
-  }
-
   exportTips() {
-    const selectedTips = this.selectedTips.slice();
+    const selectedTips = [...this.selectedTips];
+    this.appDataService.updateShowLoadingPanel(true);
 
-    return from(this.tokenResourceService.getWithProofOfWork()).pipe(
-      switchMap((token: any) => {
-        return new Observable<void>((observer) => {
-          let count = 0;
-
-          const exportOneTip = (tipId: string) => {
-            const url = `api/recipient/rtips/${tipId}/export?token=${token.id}:${token.answer}`;
-            const newWindow = window.open(url);
-
-            if (newWindow) {
-              newWindow.onload = () => {
-                count++;
-                if (count === selectedTips.length) {
-                  observer.complete();
-                }
-              };
-            }
-          };
-
-          for (let i = 0; i < selectedTips.length; i++) {
-            exportOneTip(selectedTips[i]);
-          }
+    from(selectedTips)
+      .pipe(
+        concatMap((tipId: string) =>
+          from(this.tokenResourceService.getWithProofOfWork()).pipe(
+            tap((token: any) => {
+              const url = `api/recipient/rtips/${tipId}/export?token=${token.id}:${token.answer}`;
+              window.open(url);
+            }),
+	    delay(500)
+          )
+        )
+      )
+      .subscribe({
+        next: () => {},
+        error: (error) => {
+          console.error("Export failed", error);
           this.appDataService.updateShowLoadingPanel(false);
-        });
-      })
-    ).subscribe();
+        },
+        complete: () => {
+          this.appDataService.updateShowLoadingPanel(false);
+        }
+      });
   }
 
   reload() {
@@ -264,20 +194,18 @@ export class TipsComponent implements OnInit {
 
   onChanged(model: { id: number; label: string; }[], type: string) {
     this.processTips();
-    if (model.length > 0 && type === "Score") {
+    if (model.length > 0) {
       this.dropdownContextModel = [];
       this.dropdownStatusModel = [];
-      this.dropdownScoreModel = model;
-    }
-    if (model.length > 0 && type === "Status") {
-      this.dropdownContextModel = [];
       this.dropdownScoreModel = [];
-      this.dropdownStatusModel = model;
-    }
-    if (model.length > 0 && type === "Context") {
-      this.dropdownStatusModel = [];
-      this.dropdownScoreModel = [];
-      this.dropdownContextModel = model;
+
+      if (type === "Score") {
+        this.dropdownScoreModel = model;
+      } else if (type === "Status") {
+        this.dropdownStatusModel = model;
+      } else if (type === "Context") {
+        this.dropdownContextModel = model;
+      }
     }
     this.applyFilter();
   }
@@ -286,45 +214,28 @@ export class TipsComponent implements OnInit {
     return filter.length > 0;
   };
 
-  toggleChannelDropdown() {
-    this.channelDropdownVisible = !this.channelDropdownVisible;
+  resetFiltersStatus() {
+    this.channelDropdownVisible = false;
     this.statusDropdownVisible = false;
     this.scoreDropdownVisible = false;
     this.reportDatePicker = false;
     this.lastUpdatePicker = false;
     this.expirationDatePicker = false;
+  }
+
+  toggleChannelDropdown() {
+    this.resetFiltersStatus();
+    this.channelDropdownVisible = !this.channelDropdownVisible;
   }
 
   toggleStatusDropdown() {
+    this.resetFiltersStatus();
     this.statusDropdownVisible = !this.statusDropdownVisible;
-    this.channelDropdownVisible = false;
-    this.scoreDropdownVisible = false;
-    this.reportDatePicker = false;
-    this.lastUpdatePicker = false;
-    this.expirationDatePicker = false;
   }
 
   toggleScoreDropdown() {
+    this.resetFiltersStatus();
     this.scoreDropdownVisible = !this.scoreDropdownVisible;
-    this.channelDropdownVisible = false;
-    this.statusDropdownVisible = false;
-    this.reportDatePicker = false;
-    this.lastUpdatePicker = false;
-    this.expirationDatePicker = false;
-  }
-
-  onSearchChange(search: string | number | undefined) {
-    search = String(search);
-
-    if (typeof search !== "undefined") {
-      this.currentPage = 1;
-      this.filteredTips = this.RTips.dataModel;
-      this.processTips();
-
-      this.filteredTips = orderBy(filter(this.filteredTips, (tip) => {
-        return this.utils.searchInObject(tip, search);
-      }), "update_date");
-    }
   }
 
   orderbyCast(data: rtipResolverModel[]): rtipResolverModel[] {
@@ -400,7 +311,7 @@ export class TipsComponent implements OnInit {
   }
 
   exportToCsv(): void {
-    this.utils.generateCSV(JSON.stringify(this.getDataCsv()), 'reports',this.getDataCsvHeaders());
+    this.utils.generateCSV('reports', this.getDataCsv());
   }
 
   getDataCsv(): any[] {
@@ -409,7 +320,6 @@ export class TipsComponent implements OnInit {
       id: tip.id,
       progressive: tip.progressive,
       important: tip.important,
-      reportStatus: this.utils.isDatePassed(tip.reminder_date),
       context_name: tip.context_name,
       label: tip.label,
       status: tip.submissionStatusStr,
@@ -419,7 +329,7 @@ export class TipsComponent implements OnInit {
       last_access: formatDate(tip.last_access, 'dd-MM-yyyy HH:mm', 'en-US'),
       comment_count: tip.comment_count,
       file_count: tip.file_count,
-      subscription: tip.subscription === 0 ? 'Non sottoscritta' : tip.subscription === 1 ? 'Sottoscritta' : 'Sottoscritta successivamente',
+      subscription: tip.subscription === 0 ? 'Not subscribed' : tip.subscription === 1 ? 'Subscribed' : 'Sottoscritta successivamente',
       receiver_count: tip.receiver_count
     }));
   }

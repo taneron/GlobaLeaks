@@ -7,7 +7,7 @@
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # Jiří Podhorecký <jirka.p@volny.cz>, 2019
-# Jiří Skryja, 2022-2024
+# Jiří Skryja, 2022-2025
 # Jiří Podhorecký <jirka.p@volny.cz>, 2019
 # Jiří Podhorecký <jirka.p@volny.cz>, 2018-2019,2021
 # Lenka Ježková <lenka.jezkova@oziveni.cz>, 2019-2020
@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Jiří Skryja, 2022-2024\n"
+"Last-Translator: Jiří Skryja, 2022-2025\n"
 "Language-Team: Czech (http://app.transifex.com/otf/globaleaks/language/cs/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +31,7 @@ msgid "0 = auto"
 msgstr "0 = automaticky"
 
 msgid "Accept multiple answers"
-msgstr "Akceptovat více odpovědí"
+msgstr "Přijmout více odpovědí"
 
 msgid "Accept multiple file uploads"
 msgstr "Akceptován příjem více souborů"
@@ -49,14 +49,12 @@ msgid "Access requested"
 msgstr "Požádáno o přístup"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Správce byl požádán o přístup k identitě oznamovatele"
 
 msgid "Account recovery key"
 msgstr "Klíč pro obnovení účtu"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Jednat ve prospěch oznamovatele"
 
 msgid "Activities"
 msgstr "Aktivity"
@@ -103,16 +101,16 @@ msgstr "Umožnit příjemci upravit datum vypršení platnosti zpráv."
 msgid "Allow the recipient to delete reports"
 msgstr "Povolit příjemcům smazat oznámení"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Povolit oznamovateli přidat přílohy k oznámení"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Povolit oznamovateli psát komentáře"
 
 msgid "Allow users to sign up"
 msgstr "Povolit uživatelům registraci"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Povolit oznamovatelům zvolit příjemce"
 
 msgid "Allowed IP addresses"
@@ -172,7 +170,7 @@ msgstr "Autorizace"
 msgid "Authorize"
 msgstr "Autorizovat"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Povolit přístup k identitě oznamovatelů"
 
 msgid "Authorized"
@@ -335,7 +333,7 @@ msgstr "Zamítnutý"
 msgid "Deny"
 msgstr "Zamítnout"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Zamítnout přístup k identitě oznamovatelů"
 
 msgid "Description"
@@ -458,6 +456,9 @@ msgstr "Zapnuto"
 msgid "Enter a name for the copy"
 msgstr "Zadejte název kopie"
 
+msgid "Enter a report"
+msgstr "Jednat ve prospěch oznamovatele"
+
 msgid "Enter the two factor authentication code"
 msgstr "Zadejte dvoufaktorový ověřovací kód"
 
@@ -524,7 +525,7 @@ msgstr "Daňový kód"
 msgid "Footer"
 msgstr "Patička"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Z bezpečnostních důvodů je třeba kód změnit."
 
 msgid ""
@@ -579,7 +580,7 @@ msgstr "Poskytnout přístup"
 msgid "Group of questions"
 msgstr "Skupina otázek"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Už jste podal oznámení? Zadejte své potvrzení."
 
 msgid "Hidden"
@@ -705,6 +706,9 @@ msgstr "Povolit dostupnost bez Tor."
 
 msgid "License"
 msgstr "Licence"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Přístupy interních uživatelů"
@@ -857,6 +861,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Jeden nebo více příjemců dosud neprovedli první přihlášení. To znamená, že nebudou dostávat zprávy."
 
+msgid "Open"
+msgstr "Otevřít"
+
 msgid "Opened"
 msgstr "Otevřeno"
 
@@ -953,7 +960,7 @@ msgstr "Skupina otázek"
 msgid "Question templates"
 msgstr "Šablony dotazů"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Otázky pro získávání možných oznamovatelů"
 
 msgid "Questionnaire"
@@ -967,6 +974,9 @@ msgstr "Dotazníky"
 
 msgid "Questions"
 msgstr "Dotazy"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Příjemci"
@@ -1004,7 +1014,7 @@ msgstr "Regulární výraz"
 msgid "Regular expression validator"
 msgstr "Validátor regulárních výrazů"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Zapamatujte si potvrzení o tomto oznámení."
 
 msgid "Reminder date"
@@ -1034,7 +1044,7 @@ msgstr "Stav oznámení"
 msgid "Reports"
 msgstr "Reporty"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Požádát o přístup k identitě oznamovatele"
 
 msgid "Request date"
@@ -1079,7 +1089,7 @@ msgstr "Zdroj nenalezen"
 msgid "Restrict access to specific IP addresses"
 msgstr "Omezit přístup k určitým IP adresám"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Vracející se oznamovatelé"
 
 msgid "Revoke access"
@@ -1253,8 +1263,14 @@ msgstr "Podání oznámení zakázána"
 msgid "Submit"
 msgstr "Odeslat"
 
+msgid "Submit a report"
+msgstr "Podat oznámení"
+
 msgid "Subscribed"
-msgstr "Předplacené"
+msgstr "Přihlášeno"
+
+msgid "Subscribed later"
+msgstr "Přihlášeno později"
 
 msgid "Subscription date"
 msgstr "Datum předplatného"
@@ -1363,7 +1379,7 @@ msgstr "Zadaný obnovovací klíč je neplatný."
 msgid "The provided reset token is invalid or expired."
 msgstr "Zaslaný reset token je neplatný nebo vypršela jeho platnost."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Příjemce je buď neplatný nebo platnost oznámení vypršela."
 
 msgid "The specified input is not valid."
@@ -1387,10 +1403,10 @@ msgstr "Uživatel bude bude muset po prvním přihlášení změnit heslo."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Odkaz k ověření je buď nesprávný nebo vypršel."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Oznamovatel si přečetl poslední aktualizaci."
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Oznamovatel ještě nečetl poslední aktualizaci."
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1477,8 +1493,8 @@ msgid "Use as default"
 msgstr "Použít jako výchozí"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Použijte 16. místný kód k přihlášení. Umožní vám zobrazit všechny zprávy, které jsme vám poslali, a také přidat další informace."
 
 msgid "Use the first site for administrative purposes only"
@@ -1552,10 +1568,10 @@ msgstr "Slabý"
 msgid "Welcome!"
 msgstr "Vítejte!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Oznamovatel"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Poslední přístup oznamovatele"
 
 msgid "Whistleblowing Policy"
@@ -1575,8 +1591,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Připojujete se k serveru neanonymně. Tento server podporuje pouze anonymní oznámení."
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Jednáte ve prospěch oznamovatele."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1624,9 +1640,6 @@ msgstr "Vkládejte prosím pouze čísla."
 
 msgid "seconds"
 msgstr "sekund"
-
-msgid "File a report"
-msgstr "Podat oznámení"
 
 msgid "Select a reporting channel:"
 msgstr "Vyberte kanál hlášení:"
@@ -1758,22 +1771,6 @@ msgstr "Platforma bude automaticky smazána:"
 msgid "Access instructions"
 msgstr "Přístupové pokyny"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Byl detekován vyšší počet aktivit než je obvyklé."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Toto může být projevem probíhajícího útoku (například někdo se snaží zaplavit Váš server zbytečnými informacemi) nebo může jít o pouhý nárůst popularity Vašeho webu."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Prozkoumat hlášení za účelem zjištění zda je legitimní."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktivity s neobvyklou statistikou:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Dostupné místo na disku: {FreeMemory}/{TotalMemory}"
 
@@ -1791,14 +1788,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Globaleaks technologie zajišťuje serverovou kontrolu stavu jednotlivých komponent a upozorní Vás na případné situace, které vyžadují vaši zvýšenou pozornost."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Pro více informací se přihlašte do administrátorského rozhraní a projděte sekci \"Systémové statistiky\" a \"Anomálie\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomálie detekována na uzlu {NodeName}."
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1914,7 +1903,7 @@ msgstr "Toto je e-mailové upozornění, že správce Vám povolil přístup k i
 msgid "The report can be accessed at:"
 msgstr "Oznámení je dostupné na adrese:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Přístup k identitě oznamovatele schválen"
 
 msgid ""
@@ -1922,26 +1911,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Toto je e-mailové upozornění, že správce Vám zamítl přístup k identitě oznamovatele oznámení {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Přístup k identitě oznamovatele zamítnut"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Toto je emailové upozornění, že příjemce požaduje přístup k identitě oznamovatele oznámení {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Oznámení je dostupné na adrese:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nový požadavek na přístup k identitě oznamovatele"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Toto je e-mailové upozornění, že oznamovatel oznámení {TipNum} poskytl svou identitu."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Oznamovatel poskytl svou identitu"
 
 msgid ""

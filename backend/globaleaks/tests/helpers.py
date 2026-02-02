@@ -1,9 +1,11 @@
 """
 Utilities and basic TestCases.
 """
+import base64
 import json
 import mimetypes
 import os
+import secrets
 import shutil
 
 from datetime import timedelta
@@ -12,7 +14,6 @@ from nacl.encoding import Base32Encoder, Base64Encoder
 
 from urllib.parse import urlsplit  # pylint: disable=import-error
 
-from sqlalchemy import exists, func
 
 from twisted.internet.address import IPv4Address
 from twisted.internet.defer import inlineCallbacks, returnValue, Deferred
@@ -23,13 +24,13 @@ from twisted.web.test.requesthelper import DummyRequest
 
 from . import TEST_DIR
 
-from globaleaks import db, models, orm, event, jobs, __version__, DATABASE_VERSION
+from globaleaks import db, models, orm, jobs, __version__, DATABASE_VERSION
 from globaleaks.db.appdata import load_appdata
 from globaleaks.orm import transact, tw
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.handlers.admin.context import create_context, get_context
-from globaleaks.handlers.admin.field import db_create_field
-from globaleaks.handlers.admin.questionnaire import db_get_questionnaire
+from globaleaks.handlers.admin.field import create_field, db_create_field
+from globaleaks.handlers.admin.questionnaire import db_get_questionnaire, create_questionnaire
 from globaleaks.handlers.admin.step import db_create_step
 from globaleaks.handlers.admin.tenant import create as create_tenant, db_wizard
 from globaleaks.handlers.admin.user import create_user
@@ -43,10 +44,10 @@ from globaleaks.rest.api import JSONEncoder
 from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State, TenantState
-from globaleaks.utils import tempdict, token
+from globaleaks.utils import tempdict
 from globaleaks.utils.crypto import GCE, generateRandomKey, sha256
 from globaleaks.utils.securetempfile import SecureTemporaryFile
-from globaleaks.utils.utility import datetime_now, datetime_never, uuid4
+from globaleaks.utils.utility import datetime_now, uuid4
 from globaleaks.utils.log import log
 
 GCE.options['OPSLIMIT'] = 1
@@ -78,7 +79,6 @@ GCE_orig_generate_keypair = GCE.generate_keypair
 TOKEN = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0"
 TOKEN_SALT = b"eed1d4c5a8e97f4f953d4bddd62957ac5f9e94af6a025c6b95300d72ba41b57e"
 TOKEN_ANSWER = b"61af2d7fb2796730c9fb9e357ed4c0f9c87d8c6f6976c4ca3731238db43e87b0:142"
-
 
 def mock_nullfunction(*args, **kwargs):
     return
@@ -153,6 +153,8 @@ def init_state():
     orm.set_thread_pool(FakeThreadPool())
 
     State.settings.enable_api_cache = False
+    State.settings.enable_rate_limiting = False
+
     State.tenants[1] = TenantState()
     State.tenants[1].cache.hostname = 'www.globaleaks.org'
     State.tenants[1].cache.encryption = True
@@ -184,7 +186,7 @@ def get_dummy_step():
     }
 
 
-def get_dummy_field():
+def get_dummy_field(type='checkbox'):
     return {
         'id': '',
         'instance': 'template',
@@ -194,7 +196,7 @@ def get_dummy_field():
         'fieldgroup_id': '',
         'label': 'antani',
         'placeholder': '',
-        'type': 'checkbox',
+        'type': type,
         'description': 'field description',
         'hint': 'field hint',
         'multi_entry': False,
@@ -276,13 +278,18 @@ class MockDict:
             'contexts': []
         }
 
+        self.dummyQuestionnaire = {
+            'id': 'test',
+            'name': 'test'
+        }
+
         self.dummyContext = {
             'id': '',
             'name': 'Already localized name',
             'description': 'Already localized desc',
             'order': 0,
             'receivers': [],
-            'questionnaire_id': 'default',
+            'questionnaire_id': 'test',
             'additional_questionnaire_id': '',
             'select_all_receivers': True,
             'tip_timetolive': 20,
@@ -297,7 +304,6 @@ class MockDict:
             'context_id': '',
             'answers': {},
             'receivers': [],
-            'removed_files': [],
             'mobile': False
         }
 
@@ -323,7 +329,6 @@ class MockDict:
             'allow_indexing': False,
             'disable_submissions': False,
             'disable_privacy_badge': False,
-            'timezone': 0,
             'default_language': 'en',
             'default_questionnaire': 'default',
             'admin_language': 'en',
@@ -486,12 +491,13 @@ def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
     request.uri = uri
     request.path = path
     request.args = args
+    request.nonce = base64.b64encode(secrets.token_bytes(16))
     request._serverName = host
 
     request.code = 200
     request.hostname = b''
     request.headers = None
-    request.client_ip = client_addr
+    request.client_ip = client_addr.decode()
     request.client_ua = b''
     request.client_using_mobile = False
     request.client_using_tor = False
@@ -539,9 +545,6 @@ def forge_request(uri=b'https://www.globaleaks.org/', tid=1,
 
             return ret
 
-        def close(self):
-            pass
-
     request.content = fakeBody()
 
     return request
@@ -578,9 +581,6 @@ class TestGL(unittest.TestCase):
 
         yield db.refresh_tenant_cache()
 
-        self.state.reset_minutely()
-        self.state.reset_hourly()
-
         self.internationalized_text = load_appdata()['node']['whistleblowing_button']
 
     @transact
@@ -601,6 +601,7 @@ class TestGL(unittest.TestCase):
         self.dummyWizard = dummyStuff.dummyWizard
         self.dummySignup = dummyStuff.dummySignup
         self.dummyNetwork = dummyStuff.dummyNetwork
+        self.dummyQuestionnaire = dummyStuff.dummyQuestionnaire
         self.dummyContext = dummyStuff.dummyContext
         self.dummySubmission = dummyStuff.dummySubmission
         self.dummyAdmin = self.get_dummy_user('admin', 'admin')
@@ -643,18 +644,23 @@ class TestGL(unittest.TestCase):
         return {**new_r, **new_u}
 
     def fill_random_field_recursively(self, answers, field):
-        field_type = field['type']
+        value = {'value': ''}
 
+        field_type = field['type']
         if field_type == 'checkbox':
             value = {}
             for option in field['options']:
                 value[option['id']] = 'True'
-        elif field_type == 'selectbox':
+        elif field_type == 'selectbox' or field_type == 'multichoice':
             value = {'value': field['options'][0]['id']}
         elif field_type == 'date':
             value = {'value': datetime_now()}
+        elif field_type == 'daterange':
+            value = {'value': '1741734000000:1742425200000'}
         elif field_type == 'tos':
             value = {'value': 'True'}
+        elif field_type == 'fileupload' or field_type == 'voice':
+            pass
         elif field_type == 'fieldgroup':
             value = {}
             for child in field['children']:
@@ -699,7 +705,6 @@ class TestGL(unittest.TestCase):
         returnValue({
             'context_id': context_id,
             'receivers': context['receivers'],
-            'removed_files': [],
             'identity_provided': False,
             'score': 0,
             'answers': answers,
@@ -721,14 +726,6 @@ class TestGL(unittest.TestCase):
         """
         for _ in range(n):
             session.files.append(self.get_dummy_attachment())
-
-    def pollute_events(self, number_of_times=10):
-        for _ in range(number_of_times):
-            for event_obj in event.events_monitored:
-                for x in range(2):
-                    e = event.Event(event_obj, timedelta(seconds=1.0 * x))
-                    self.state.tenants[1].RecentEventQ.append(e)
-                    self.state.tenants[1].EventQ.append(e)
 
     @transact
     def get_rtips(self, session):
@@ -781,7 +778,6 @@ class TestGL(unittest.TestCase):
 
 
 class TestGLWithPopulatedDB(TestGL):
-    complex_field_population = False
     population_of_recipients = 2
     population_of_submissions = 2
     population_of_attachments = 2
@@ -837,21 +833,38 @@ class TestGLWithPopulatedDB(TestGL):
 
         yield self.mock_users_keys()
 
+        # fill_data/create 'test' questionnaire'
+        self.dummyQuestionnaire = yield create_questionnaire(1, None, self.dummyQuestionnaire, 'en')
+
+        # create a first step including every type of question
+        step = get_dummy_step()
+        step['questionnaire_id'] = self.dummyQuestionnaire['id']
+        step = yield tw(db_create_step, 1, step, 'en')
+        fieldgroup_id = ''
+        for t in models.field_types:
+            field = get_dummy_field(t)
+            field['step_id'] = step['id']
+            field = yield create_field(1, field, 'en')
+            if t == 'fieldgroup':
+                fieldgroup_id = field['id']
+
+        # create children fields for the fieldgroup created
+        for t in models.field_types:
+            field = get_dummy_field(t)
+            field['fieldgroup_id'] = fieldgroup_id
+            field = yield create_field(1, field, 'en')
+
+        # create a second step including the whistleblower identity question
+        step = get_dummy_step()
+        step['questionnaire_id'] = self.dummyQuestionnaire['id']
+        step = yield tw(db_create_step, 1, step, 'en')
+        yield self.add_whistleblower_identity_field_to_step(step['id'])
+
         # fill_data/create_context
         self.dummyContext['receivers'] = [self.dummyReceiver_1['id'], self.dummyReceiver_2['id']]
         self.dummyContext = yield create_context(1, None, self.dummyContext, 'en')
 
-        self.dummyQuestionnaire = yield tw(db_get_questionnaire, 1, self.dummyContext['questionnaire_id'], 'en')
-
-        self.dummyQuestionnaire['steps'].append(get_dummy_step())
-        self.dummyQuestionnaire['steps'][1]['questionnaire_id'] = self.dummyContext['questionnaire_id']
-        self.dummyQuestionnaire['steps'][1]['label'] = 'Whistleblower identity'
-        self.dummyQuestionnaire['steps'][1]['order'] = 1
-        self.dummyQuestionnaire['steps'][1] = yield tw(db_create_step, 1, self.dummyQuestionnaire['steps'][1], 'en')
-
-        if self.complex_field_population:
-            yield self.add_whistleblower_identity_field_to_step(self.dummyQuestionnaire['steps'][1]['id'])
-
+        # fill_data create_tenant
         for i in range(1, self.population_of_tenants):
             name = 'tenant-' + str(i+1)
             t = yield create_tenant({'mode': 'default', 'name': name, 'active': True, 'subdomain': name})
@@ -888,7 +901,6 @@ class TestGLWithPopulatedDB(TestGL):
         self.dummySubmission['identity_provided'] = False
         self.dummySubmission['answers'] = yield self.fill_random_answers(self.dummyContext['questionnaire_id'])
         self.dummySubmission['score'] = 0
-        self.dummySubmission['removed_files'] = []
         self.dummySubmission['receipt'] = receipt
 
         itip_id = yield create_submission(1, self.dummySubmission, session, True, False)
@@ -927,12 +939,17 @@ class TestGLWithPopulatedDB(TestGL):
         yield self.perform_post_submission_actions()
 
     @transact
-    def set_itip_expiration(self, session, date):
+    def set_itips_expiration(self, session, date):
         session.query(models.InternalTip).update({'expiration_date': date})
 
     @transact
-    def set_itips_near_to_expire(self, session):
+    def set_itips_expiration_as_near_to_expire(self, session):
         date = datetime_now() + timedelta(hours=self.state.tenants[1].cache.notification.tip_expiration_threshold - 1)
+        session.query(models.InternalTip).update({'expiration_date': date})
+
+    @transact
+    def set_itips_expiration_as_expired(self, session):
+        date = datetime_now()
         session.query(models.InternalTip).update({'expiration_date': date})
 
 
@@ -986,7 +1003,7 @@ class TestHandler(TestGLWithPopulatedDB):
                 user_id = self.dummyCustodian['id']
 
         if role is not None:
-            if role == 'whistlebower':
+            if role == 'whistleblower' and user_id == None:
                 session = initialize_submission_session(1)
             else:
                 session = Sessions.new(tid, user_id, 1, role, USER_PRV_KEY, USER_ESCROW_PRV_KEY if role == 'admin' else '')
@@ -1048,9 +1065,6 @@ class TestCollectionHandler(TestHandler):
 
     @inlineCallbacks
     def test_get(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1062,9 +1076,6 @@ class TestCollectionHandler(TestHandler):
 
     @inlineCallbacks
     def test_post(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         for k, v in self._test_desc['data'].items():
@@ -1093,9 +1104,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_get(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1107,9 +1115,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_put(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')
@@ -1128,9 +1133,6 @@ class TestInstanceHandler(TestHandler):
 
     @inlineCallbacks
     def test_delete(self):
-        if not self._test_desc:
-            return
-
         data = self.get_dummy_request()
 
         data = yield self._test_desc['create'](1, self.session, data, 'en')

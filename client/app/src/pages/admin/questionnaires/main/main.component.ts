@@ -14,13 +14,14 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
 import {TranslateModule} from "@ngx-translate/core";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
 
 
 @Component({
     selector: "src-main",
     templateUrl: "./main.component.html",
     standalone: true,
-    imports: [FormsModule, NgbTooltipModule, NgClass, QuestionnairesListComponent, TranslatorPipe, OrderByPipe, TranslateModule]
+    imports: [FormsModule, NgbTooltipModule, NgClass, PaginatedInterfaceComponent, QuestionnairesListComponent, TranslatorPipe, TranslateModule]
 })
 export class MainComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
@@ -30,11 +31,10 @@ export class MainComponent implements OnInit, OnDestroy {
   private cdr = inject(ChangeDetectorRef);
   protected questionnairesResolver = inject(QuestionnairesResolver);
 
-
   private destroy$ = new Subject<void>();
   questionnairesData: questionnaireResolverModel[] = [];
   new_questionnaire: { name: string } = {name: ""};
-  showAddQuestionnaire: boolean = false;
+  showAddQuestionnaire = false;
   @ViewChild('keyUploadInput') keyUploadInput: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {

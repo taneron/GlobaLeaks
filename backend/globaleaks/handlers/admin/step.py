@@ -66,12 +66,14 @@ def db_update_step(session, tid, step_id, request, language):
 
 
 def db_delete_step(session, tid, step_id):
-    subquery = session.query(models.Questionnaire.id).filter(models.Questionnaire.tid == tid).subquery()
+    questionnaire_ids = [qid for (qid,) in session.query(models.Questionnaire.id).filter(
+        models.Questionnaire.tid == tid
+    ).all()]
 
     db_del(session,
            models.Step,
            (models.Step.id == step_id,
-            models.Step.questionnaire_id.in_(subquery)))
+            models.Step.questionnaire_id.in_(questionnaire_ids)))
 
 
 @transact

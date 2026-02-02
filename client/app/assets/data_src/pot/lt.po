@@ -37,14 +37,12 @@ msgid "Access requested"
 msgstr "Prašymas gauti prieigą"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Saugotojui pateiktas prašymas leisti susipažinti su pranešėjo tapatybe."
 
 msgid "Account recovery key"
 msgstr "Paskyros atkūrimo raktas"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Veikti pranešėjo vardu"
 
 msgid "Activities"
 msgstr "Veiklos"
@@ -91,16 +89,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Leisti gavėjui pranešimus ištrinti"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Leisti pranešėjui prie pranešimo pridėti priedų"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Leisti pranešėjui rašyti komentarus"
 
 msgid "Allow users to sign up"
 msgstr "Leisti naudotojams registruotis"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Leisti pranešėjams pasirinkti gavėjus"
 
 msgid "Allowed IP addresses"
@@ -160,7 +158,7 @@ msgstr "Įgaliojimas"
 msgid "Authorize"
 msgstr "Suteikti leidimą"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Leisti susipažinti su informatoriaus tapatybe"
 
 msgid "Authorized"
@@ -323,7 +321,7 @@ msgstr "Leidimas atmestas"
 msgid "Deny"
 msgstr "Atmesti leidimą"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Neleisti susipažinti su informatoriaus tapatybe"
 
 msgid "Description"
@@ -446,6 +444,9 @@ msgstr "Įgalinta"
 msgid "Enter a name for the copy"
 msgstr "Įveskite kopijos pavadinimą"
 
+msgid "Enter a report"
+msgstr "Veikti pranešėjo vardu"
+
 msgid "Enter the two factor authentication code"
 msgstr "Įveskite dviejų veiksnių tapatybės nustatymo kodą"
 
@@ -512,7 +513,7 @@ msgstr "Fiskalinis kodas"
 msgid "Footer"
 msgstr "Poraštė"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Saugumo sumetimais kodą reikia pakeisti."
 
 msgid ""
@@ -567,7 +568,7 @@ msgstr "Suteikti prieigą"
 msgid "Group of questions"
 msgstr "Klausimų grupė"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Ar jau pateikėte pranešimą? Įveskite pranešimo patvirtinimą"
 
 msgid "Hidden"
@@ -693,6 +694,9 @@ msgstr "Leisti pasiekti platformą be „Tor“"
 
 msgid "License"
 msgstr "Licencija"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Registruoti vidaus naudotojų prieigas"
@@ -845,6 +849,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Vienas ar daugiau gavėjų dar neprisijungė pirmąjį kartą. Tai reiškia, kad jie pranešimų negaus."
 
+msgid "Open"
+msgstr "Atidaryti"
+
 msgid "Opened"
 msgstr "Atidarytas"
 
@@ -941,7 +948,7 @@ msgstr "Klausimo grupė"
 msgid "Question templates"
 msgstr "Klausimų šablonai"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Klausimas, kuriuo siekiama išsiaiškinti galimus pranešėjus"
 
 msgid "Questionnaire"
@@ -955,6 +962,9 @@ msgstr "Klausimynai"
 
 msgid "Questions"
 msgstr "Klausimai"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Gavėjai"
@@ -992,7 +1002,7 @@ msgstr "Įprastoji išraiška"
 msgid "Regular expression validator"
 msgstr "Įprastosios išraiškos tvirtintojas"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Nepamirškite šio pranešimo patvirtinimo kodo."
 
 msgid "Reminder date"
@@ -1022,7 +1032,7 @@ msgstr "Pranešimo statusai"
 msgid "Reports"
 msgstr "Pranešimai"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Prašymas leisti susipažinti su informatoriaus tapatybe"
 
 msgid "Request date"
@@ -1067,7 +1077,7 @@ msgstr "Resurso nerasta"
 msgid "Restrict access to specific IP addresses"
 msgstr "Apriboti prieigą tam tikriems IP adresams"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Grįžtantys pranešėjai"
 
 msgid "Revoke access"
@@ -1241,8 +1251,14 @@ msgstr "Pateikimai išjungti"
 msgid "Submit"
 msgstr "Pateikti"
 
+msgid "Submit a report"
+msgstr "Teikti pranešimą"
+
 msgid "Subscribed"
 msgstr "Prenumeruota"
+
+msgid "Subscribed later"
+msgstr ""
 
 msgid "Subscription date"
 msgstr "Prenumeratos data"
@@ -1351,7 +1367,7 @@ msgstr "Pateiktas atkūrimo raktas netinkamas."
 msgid "The provided reset token is invalid or expired."
 msgstr "Pateiktas atkūrimo simbolis negaliojantis arba jo galiojimo laikas pasibaigęs."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Pranešimo patvirtinimas neteisingas arba pranešimas nebegalioja."
 
 msgid "The specified input is not valid."
@@ -1375,10 +1391,10 @@ msgstr "Kito prisijungimo metu naudotojas bus priverstas pakeisti slaptažodį."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Patvirtinimo nuoroda neteisinga arba nebegalioja."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Informatorius jau perskaitė paskutinį atnaujinimą"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Informatorius dar neperskaitė paskutinio atnaujinimo"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1465,8 +1481,8 @@ msgid "Use as default"
 msgstr "Naudoti kaip numatytąjį"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Norėdami prisijungti, naudokite 16 skaitmenų patvirtinimo kodą. Tai leis jums peržiūrėti visus pranešimus, kuriuos jums išsiuntėme, taip pat pridėti papildomos informacijos."
 
 msgid "Use the first site for administrative purposes only"
@@ -1540,10 +1556,10 @@ msgstr "Silpnas"
 msgid "Welcome!"
 msgstr "Sveiki!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Pranešėjas"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Paskutinis pranešėjo prisijungimas"
 
 msgid "Whistleblowing Policy"
@@ -1563,8 +1579,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Jungiatės prie serverio ne anonimiškai, o šis serveris palaiko tik anoniminius pateikimus"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Jūs veikiate pranešėjo vardu."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1612,9 +1628,6 @@ msgstr "rašykite tik skaičius."
 
 msgid "seconds"
 msgstr "sekundės"
-
-msgid "File a report"
-msgstr "Teikti pranešimą"
 
 msgid "Select a reporting channel:"
 msgstr "Pasirinkite pranešimų kanalą:"
@@ -1746,22 +1759,6 @@ msgstr "Platforma bus automatiškai ištrinta:"
 msgid "Access instructions"
 msgstr "Nurodymai dėl prieigos"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Neseniai aptiktų veiksmų skaičius yra didesnis nei įprastai."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Tai gali būti atakos ženklas (pvz., kažkas užplūdo jūsų serverį fiktyvia informacija) arba tiesiog naudojimo šuolis dėl padidėjusio jūsų projekto matomumo."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Išnagrinėkite klausimą, kad nustatytumėte, ar jis teisėtas, ar ne."
-
-msgid "The activities with unusual stats are:"
-msgstr "Veiksmai su neįprasta statistika yra:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Laisva vieta diske: {FreeMemory}/{TotalMemory}"
 
@@ -1779,14 +1776,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "„GlobaLeaks“ technologijoje yra serverio būsenos tikrinimo komponentas, kuris jus perspės, jei į ką nors reikės atkreipti dėmesį."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Norėdami gauti daugiau informacijos, prisijunkite prie administravimo sąsajos ir peržiūrėkite skyrius „Sistemos statistika“ ir „Neatitikimai“."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Neatitikimas aptiktas {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1902,7 +1891,7 @@ msgstr "Šiuo el. laišku pranešama, kad saugotojas suteikė jums teisę sužin
 msgid "The report can be accessed at:"
 msgstr "Pranešimą rasite:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Leidimas susipažinti su pranešėjo tapatybe"
 
 msgid ""
@@ -1910,26 +1899,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Šiuo el. laišku pranešama, kad saugotojas atsisakė suteikti prieigą prie pranešimo pranešėjo tapatybės {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Neleidžiama susipažinti su pranešėjo tapatybe"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Šiuo el. laišku pranešama, kad gavėjas paprašė suteikti prieigą prie pranešimo pranešėjo tapatybės {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Prašymą rasite:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Naujas prašymas leisti sužinoti pranešėjo tapatybę"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Šiuo el. laišku pranešama, kad pranešimo pranešėjas {TipNum} savo tapatybę nurodė."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Pranešėjas nurodė savo tapatybę"
 
 msgid ""

@@ -1,23 +1,36 @@
 # -*- coding: utf-8 -*-
 #
-# GlobaLeaks documentation build configuration file, created by
-# sphinx-quickstart on Thu Jul  6 16:34:48 2017.
+# GlobaLeaks documentation build configuration file.
 #
 import gettext
+import glob
 import os
+import pathlib
+import shutil
 import sys
 
+from docutils import nodes
+from docutils.parsers.rst import roles
+
+sys.path.append(os.path.abspath('./_ext'))
 sys.path.insert(0, os.path.abspath('../backend'))
 
 from globaleaks import __author__,  __copyright__, __version__
 
+base_dir = os.path.dirname(__file__)
+
 autodoc_member_order = 'bysource'
-autodoc_default_flags = ['members', 'show-inheritance', 'undoc-members']
+
+autodoc_default_options = {
+    'members': True,
+    'show-inheritance': True,
+    'undoc-members': True,
+}
 
 extensions = [
-  'sphinx_rtd_theme',
   'sphinx_copybutton',
-  'sphinx_sitemap'
+  'sphinx_sitemap',
+  'sphinx.ext.imgconverter'
 ]
 
 templates_path = ['_templates']
@@ -33,18 +46,19 @@ version = __version__
 release = __version__
 
 language = 'en'
+language = os.environ.get('READTHEDOCS_LANGUAGE', language)
+
 locale_dirs = ['locale/']
 locale_dir = os.path.join(os.path.dirname(__file__), locale_dirs[0])
 gettext.bindtextdomain('sphinx', locale_dir)
 gettext.textdomain('sphinx')
-gettext_compact = 'sphinx'
+gettext_compact = False 
 
 exclude_patterns = ['_build']
 show_authors = False
 pygments_style = 'sphinx'
 
-html_theme = 'sphinx_rtd_theme'
-html_logo = 'logo-html.png'
+html_theme = 'furo'
 html_baseurl = 'https://docs.globaleaks.org/'
 html_favicon = '../client/app/images/favicon.ico'
 html_show_copyright = False
@@ -62,33 +76,74 @@ html_context = {
   'conf_py_path': '/documentation/'
 }
 
+# --- Furo theme options -----------------------------------------------------
+html_theme_options = {
+    "source_repository": "https://github.com/globaleaks/globaleaks-whistleblowing-software",
+    "source_branch": "stable",
+    "source_directory": "documentation/",
+    "html_show_sourcelink": False,
+    "html_copy_source": False,
+    "light_logo": "images/logo-light-html.webp",
+    "dark_logo": "images/logo-dark-html.webp",
+    "light_css_variables": {
+        "color-brand-primary": "#205282",
+        "color-brand-content": "#205282",
+    },
+    "dark_css_variables": {
+        "color-brand-primary": "#79B0E6",
+        "color-brand-content": "#79B0E6",
+    },
+}
+
 latex_elements = {
-  'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}',
+  'preamble': r'\pdfmapfile{+"../../texmf/fonts/map/dvips/fontawesome7/fontawesome7.map"}',
+  'sphinxsetup': 'InnerLinkColor={HTML}{205282}, OuterLinkColor={HTML}{205282}, iconpackage=fontawesome7',
 }
 
 latex_documents = []
 
-latex_logo = 'logo-latex.pdf'
+latex_logo = 'images/logo-latex.pdf'
 
 man_pages = [
-(master_doc, 'globaleaks', u'Documentation',
- [author], 1)
+    (master_doc, 'globaleaks', 'GlobaLeaks Documentation', [author], 1)
 ]
 
 texinfo_documents = [
-(master_doc, 'GLOBALEAKS', u'Documentation',
- author, 'GLOBALEAKS', ' GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platforms',
- 'Miscellaneous'),
+    (master_doc, 'GLOBALEAKS', 'GlobaLeaks Documentation',
+     author, 'GLOBALEAKS',
+     'GlobaLeaks is free, open source whistleblowing software enabling anyone to easily set up and maintain a secure reporting platform',
+     'Miscellaneous'),
 ]
 
-html_theme_options = {
-  'style_nav_header_background': '#3679BB',
-}
+def fa_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    """
+    Role :fa:`regular address-book` → \faIcon[regular]{address-book}
+    Role :fa:`solid circle-info`   → \faIcon[solid]{circle-info}
+    Role :fa:`address-book`        → \faIcon{address-book}
+    """
+    parts = text.strip().split()
+    if len(parts) == 2:
+        style, icon = parts
+        latex_code = f"\\faIcon[{style}]{{{icon}}}"
+        html_code = f'<i class="fa-{style} fa-{icon}"></i>'
+    else:
+        # default to solid style
+        icon = parts[0] if parts else "question"
+        latex_code = f"\\faIcon{{{icon}}}"
+        html_code = f'<i class="fa-solid fa-{icon}"></i>'
+
+    node = nodes.raw('', latex_code, format='latex')
+    html_node = nodes.raw('', html_code, format='html')
+    return [node, html_node], []
+
 
 def setup(app):
+    # register our local :fa: role
+    roles.register_local_role('fa', fa_role)
     translation = gettext.translation('sphinx', localedir=locale_dir, languages=[app.config.language], fallback=True)
     document_title = translation.gettext('Documentation')
     app.config.latex_documents = [(master_doc, 'GlobaLeaks.tex', document_title, '', 'manual'),]
 
     app.add_css_file("custom.css")
+    app.add_css_file("fa7/css/all.min.css")
     app.add_js_file("custom.js")

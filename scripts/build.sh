@@ -2,8 +2,8 @@
 
 set -e
 
-TARGETS="bionic bookworm bullseye buster focal jammy noble"
-DISTRIBUTION="bookworm"
+TARGETS="bionic bookworm bullseye buster focal jammy noble trixie"
+DISTRIBUTION="trixie"
 TAG="stable"
 LOCAL_ENV=0
 NOSIGN=0
@@ -15,12 +15,12 @@ usage() {
   echo " -h"
   echo -e " -t tagname (build specific release/branch)"
   echo -e " -l (Use local repository & enviroment)"
-  echo -e " -d distribution (available: bionic, bookworm, bullseye, buster, focal, jammy, noble)"
+  echo -e " -d distribution (available: bionic, bookworm, bullseye, buster, focal, jammy, noble, trixie)"
   echo -e " -n (do not sign)"
   echo -e " -p (push on repository)"
 }
 
-while getopts "d:t:nph:l" opt; do
+while getopts "d:t:nph:lz" opt; do
   case $opt in
     d) DISTRIBUTION="$OPTARG"
     ;;
@@ -31,6 +31,8 @@ while getopts "d:t:nph:l" opt; do
     p) PUSH=1
     ;;
     l) LOCAL_ENV=1
+    ;;
+    z) TESTING=1
     ;;
     h)
         usage
@@ -54,7 +56,7 @@ fi
 # Preliminary Requirements Check
 ERR=0
 echo "Checking preliminary GlobaLeaks Build requirements"
-for REQ in git npm debuild dput brotli
+for REQ in git npm debuild brotli
 do
   if which $REQ >/dev/null; then
     echo " + $REQ requirement meet"
@@ -77,13 +79,22 @@ BUILDSRC="$BUILDDIR/src"
 
 mkdir -p $BUILDSRC && cd $BUILDSRC
 
+# Clone shallowly
 if [ $LOCAL_ENV -eq 1 ]; then
-  git clone --branch="$TAG" --depth=1 file://$(pwd)/../../../globaleaks-whistleblowing-software .
+  git clone --depth=1 file://$(pwd)/../../../globaleaks-whistleblowing-software .
 else
-  git clone --branch="$TAG" --depth=1 https://github.com/globaleaks/globaleaks-whistleblowing-software.git .
+  git clone --depth=1 https://github.com/globaleaks/globaleaks-whistleblowing-software.git .
 fi
 
-cd client && npm install -d && ./node_modules/grunt/bin/grunt build
+# Fetch and checkout the ref (branch or tag)
+git fetch --depth=1 origin "$TAG"
+git checkout "$TAG" 2>/dev/null || git checkout "tags/$TAG"
+
+if [ $TESTING -eq 1 ]; then
+  cd client && npm install -d && ./node_modules/grunt/bin/grunt build_for_testing
+else
+  cd client && npm install -d && ./node_modules/grunt/bin/grunt build
+fi
 
 cd $ROOTDIR
 
@@ -107,7 +118,7 @@ for TARGET in $TARGETS; do
   fi
 
   cp debian/controlX/control.$TARGET  debian/control
-  cp backend/requirements/requirements-$TARGET.txt backend/requirements.txt
+  cp backend/requirements/requirements.txt.$TARGET backend/requirements.txt
 
   sed -i "s/stable; urgency=/$TARGET; urgency=/g" debian/changelog
 

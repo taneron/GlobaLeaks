@@ -1,6 +1,6 @@
-sphinx
+sphinx @ git+https://github.com/sphinx-doc/sphinx.git@de745a9eaa2c1b40a70d835e7a99a832f405afb6
 sphinx-intl
-sphinx_rtd_theme
 sphinx-autobuild
 sphinx-copybutton
 sphinx-sitemap
+furo

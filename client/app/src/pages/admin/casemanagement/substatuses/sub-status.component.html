@@ -3,7 +3,7 @@
     <span class="col-md-8">
       <span>{{'Substatuses'|translate}}</span>
       <button class="btn btn-sm btn-primary" id="add-sub-status" (click)="toggleAddSubStatus()">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fas fa-plus"></i>
         <span>{{'Add'|translate}}</span>
       </button>
     </span>
@@ -15,8 +15,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label>{{'Label'|translate}}</label>
-                <input name="label" class="form-control" [(ngModel)]="newSubStatus.label" type="text" required>
+                <label for="new-substatus-label">{{'Label'|translate}}</label>
+                <input id="new-substatus-label" name="label" class="form-control" [(ngModel)]="newSubStatus.label" type="text" required>
                 @if (newSubStatusList.form.get('label')?.errors?.['required']) {
                   <div class="text-danger">
                     <span>{{'This field is mandatory'|translate}}</span>
@@ -29,7 +29,7 @@
             <div class="col-md-12">
               <div class="form-group clearfix">
                 <button class="float-start btn btn-primary" id="add-submission-sub-status" [disabled]="newSubStatusList.invalid" (click)="addSubmissionSubStatus(); toggleAddSubStatus()">
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fas fa-plus"></i>
                   <span> Add</span>
                 </button>
               </div>
@@ -51,12 +51,12 @@
               <span class="float-end">
                 @if (!first) {
                   <button id="move-up-button" class="btn btn-sm btn-primary" (click)="moveSsUp($event, index)" ngbTooltip="{{'Move up' | translate}}">
-                    <i class="fa-solid fa-chevron-up"></i>
+                    <i class="fas fa-chevron-up"></i>
                   </button>
                 }
                 @if (!last) {
                   <button id="move-down-button" class="btn btn-sm btn-primary" (click)="moveSsDown($event, index)" ngbTooltip="{{'Move down' | translate}}">
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fas fa-chevron-down"></i>
                   </button>
                 }
                 @if (!this.subStatusEditing[index]) {
@@ -86,8 +86,8 @@
               <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label>{{'Label'|translate}}</label>
-                    <input class="form-control" name="substatus.label" [(ngModel)]="substatus.label" type="text" required />
+                    <label for="substatus-label-{{substatus.id}}">{{'Label'|translate}}</label>
+                    <input id="substatus-label-{{substatus.id}}" class="form-control" name="substatus.label" [(ngModel)]="substatus.label" type="text" required />
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -101,9 +101,9 @@
                 </div>
                 <div class="col-md-1">
                   <div class="form-group">
-                    <label></label>
+                    <label for="substatus-timetolive-{{substatus.id}}" class="visually-hidden">{{'Expiration date' | translate}}</label>
                     @if (isCustomOptionSelected(substatus.tip_timetolive_option)) {
-                      <input class="form-control" name="substatus.tip_timetolive" [(ngModel)]="substatus.tip_timetolive" type="number" min="1" required/>
+                      <input id="substatus-timetolive-{{substatus.id}}" class="form-control" name="substatus.tip_timetolive" [(ngModel)]="substatus.tip_timetolive" type="number" min="1" required/>
                     }
                   </div>
                 </div>

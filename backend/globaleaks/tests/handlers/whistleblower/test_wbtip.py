@@ -3,7 +3,6 @@ from twisted.internet.defer import inlineCallbacks
 from globaleaks.handlers import auth
 from globaleaks.handlers.whistleblower import wbtip
 from globaleaks.jobs.delivery import Delivery
-from globaleaks.rest import errors
 from globaleaks.tests import helpers
 
 
@@ -101,7 +100,6 @@ class TestOperationChangeReceipt(helpers.TestHandlerWithPopulatedDB):
     @inlineCallbacks
     def test_put(self):
         old_receipt = self.dummySubmission['receipt']
-        print(self.dummySubmission['receipt'])
         new_receipt = '1234123412341234'
 
         # 1. Verify the old receipt works

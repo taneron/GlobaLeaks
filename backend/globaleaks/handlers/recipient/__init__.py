@@ -9,8 +9,7 @@ from sqlalchemy.sql.expression import distinct, func, and_, or_
 from globaleaks import models
 from globaleaks.handlers.base import BaseHandler
 from globaleaks.handlers.recipient.rtip import db_grant_tip_access, db_revoke_tip_access, db_notify_grant_access
-from globaleaks.models import serializers
-from globaleaks.orm import db_get, db_del, db_log, transact
+from globaleaks.orm import db_get, db_log, transact
 from globaleaks.rest import requests, errors
 from globaleaks.utils.crypto import GCE
 
@@ -62,11 +61,16 @@ def get_receivertips(session, tid, receiver_id, user_key, language, args={}):
                                  .group_by(models.ReceiverTip.internaltip_id):
         receiver_count_by_itip[itip_id] = count
 
-    # Retrieve all the contexts associated with the current receiver
-    receiver_contexts = set()
-    for context_id in session.query(models.ReceiverContext.context_id) \
-                             .filter(models.ReceiverContext.receiver_id == receiver_id):
-        receiver_contexts.add(context_id[0])
+    # Retrieve all channels that include this recipient, but only if
+    # the recipients of those channels are not selectable.
+    receiver_contexts = [
+        context_id[0] for context_id in session.query(models.Context.id)
+                                               .join(models.ReceiverContext,
+                                                     models.Context.id == models.ReceiverContext.context_id)
+                                               .filter(models.Context.allow_recipients_selection == False,
+                                                       models.ReceiverContext.receiver_id == receiver_id
+                                                      ).all()
+    ]
 
     dict_ret = dict()
     # Fetch rtip, internaltip and associated questionnaire schema
@@ -79,7 +83,7 @@ def get_receivertips(session, tid, receiver_id, user_key, language, args={}):
                                                        models.InternalTipData.key == 'whistleblower_identity'),
                                                   isouter=True) \
                                             .filter(or_(models.InternalTip.context_id.in_(receiver_contexts),
-                                                    models.ReceiverTip.receiver_id == receiver_id),
+                                                        models.ReceiverTip.receiver_id == receiver_id),
                                                     models.InternalTip.update_date >= updated_after,
                                                     models.InternalTip.update_date <= updated_before,
                                                     models.InternalTip.id == models.ReceiverTip.internaltip_id,
@@ -148,6 +152,10 @@ def perform_tips_operation(session, tid, user_id, user_cc, operation, args):
     :param operation: An operation command (grant/revoke)
     :param args: The operation arguments
     """
+    log_data = {
+        'recipient_id': args['receiver']
+    }
+
     receiver = db_get(session, models.User, models.User.id == user_id)
 
     result = session.query(models.InternalTip, models.ReceiverTip) \
@@ -156,21 +164,30 @@ def perform_tips_operation(session, tid, user_id, user_cc, operation, args):
                                          models.InternalTip.id.in_(args['rtips']))
 
     if operation == 'grant' and receiver.can_grant_access_to_reports:
-        notify = False
+        notified = False
         for itip, rtip in result:
-            new_receiver, _ = db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, args['receiver'])
-            if new_receiver:
-                notify = True
-                db_log(session, tid=tid, type='grant_access', user_id=user_id, object_id=itip.id)
+           new_receiver, _ = db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, args['receiver'])
+           if new_receiver:
+                db_log(session, tid=tid, type='grant_access', user_id=user_id, object_id=itip.id, data=log_data)
 
-        if notify:
-            db_notify_grant_access(session, new_receiver)
+                if not notified:
+                    db_notify_grant_access(session, new_receiver)
+                    notified = True
 
     elif operation == 'revoke' and receiver.can_grant_access_to_reports:
         for itip, _ in result:
             if db_revoke_tip_access(session, tid, user_id, itip, args['receiver']):
-                db_log(session, tid=tid, type='revoke_access', user_id=user_id, object_id=itip.id)
+                db_log(session, tid=tid, type='revoke_access', user_id=user_id, object_id=itip.id, data=log_data)
 
+    elif operation == 'transfer' and receiver.can_transfer_access_to_reports:
+        for itip, _ in result:
+            new_receiver, _ = db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, args['receiver'])
+            if new_receiver:
+                db_revoke_tip_access(session, tid, user, itip, user_id)
+                db_log(session, tid=tid, type='transfer_access', user_id=user_id, object_id=itip.id, data=log_data)
+                if not notified:
+                    db_notify_grant_access(session, new_receiver)
+                    notified = True
 
     else:
         raise errors.ForbiddenOperation

@@ -1,5 +1,4 @@
 import os
-import sys
 
 from globaleaks.orm import make_db_uri, set_db_uri, enable_orm_debug
 from globaleaks.utils.singleton import Singleton
@@ -33,6 +32,7 @@ class SettingsClass(object, metaclass=Singleton):
         self.src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         self.backend_script = os.path.abspath(os.path.join(self.src_path, 'globaleaks/backend.py'))
 
+        self.pidfile_path = '/run/globaleaks/globaleaks.pid'
         self.ramdisk_path = '/dev/shm/globaleaks'
         self.working_path = '/var/globaleaks'
         self.client_path = None
@@ -73,18 +73,15 @@ class SettingsClass(object, metaclass=Singleton):
 
         self.exceptions_email_minutely_limit = 1
 
-        self.enable_input_length_checks = True
-
         self.mail_timeout = 15  # seconds
         self.mail_attempts_limit = 3  # per mail limit
 
         self.acme_directory_url = 'https://acme-v02.api.letsencrypt.org/directory'
 
         self.enable_api_cache = True
+        self.enable_rate_limiting = True
 
     def eval_paths(self):
-        self.pidfile_path = os.path.join(self.ramdisk_path, 'globaleaks.pid')
-
         self.files_path = os.path.abspath(os.path.join(self.working_path, 'files'))
         self.attachments_path = os.path.abspath(os.path.join(self.working_path, 'attachments'))
         self.tmp_path = os.path.abspath(os.path.join(self.working_path, 'tmp'))
@@ -123,6 +120,7 @@ class SettingsClass(object, metaclass=Singleton):
         self.bind_local_ports = [8080, 8082, 8083, 8443]
         self.bind_remote_ports = []
         self.working_path = os.path.join(self.src_path, 'workingdir')
+        self.pidfile_path = os.path.join(self.working_path, 'globaleaks.pid')
 
     def load_cmdline_options(self, options):
         self.nodaemon = options.nodaemon

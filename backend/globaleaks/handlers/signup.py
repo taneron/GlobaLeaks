@@ -1,5 +1,4 @@
 # Handlers implementing platform signup
-from sqlalchemy import not_
 from twisted.internet.threads import deferToThread
 from globaleaks import models
 from globaleaks.db import sync_refresh_tenant_cache
@@ -41,13 +40,13 @@ def signup(session, request, language):
 
     # Delete the tenants created for the same subdomain that have still not been activated
     # Ticket reference: https://github.com/globaleaks/globaleaks-whistleblowing-software/issues/2640
-    subquery = session.query(models.Tenant.id) \
-                      .filter(models.Subscriber.subdomain == request['subdomain'],
-                              not_(models.Subscriber.activation_token.is_(None)),
-                              models.Tenant.id == models.Subscriber.tid) \
-                      .subquery()
+    tids = [tid for (tid,) in session.query(models.Tenant.id).filter(
+        models.Subscriber.subdomain == request['subdomain'],
+        models.Subscriber.activation_token.isnot(None),
+        models.Tenant.id == models.Subscriber.tid
+    ).all()]
 
-    db_del(session, models.Tenant, models.Tenant.id.in_(subquery))
+    db_del(session, models.Tenant, models.Tenant.id.in_(tids))
 
     tenant = db_create_tenant(session, {'active': False,
                                         'name': request['subdomain'],

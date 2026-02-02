@@ -13,7 +13,7 @@ from globaleaks.rest import errors, requests
 from globaleaks.state import State
 from globaleaks.transactions import db_get_user
 from globaleaks.utils.crypto import GCE, generateRandomPassword, sha256
-from globaleaks.utils.utility import datetime_now, datetime_null, uuid4
+from globaleaks.utils.utility import datetime_null, uuid4
 
 
 def db_create_user(session, tid, user_session, request, language):
@@ -76,6 +76,7 @@ def db_create_user(session, tid, user_session, request, language):
 
     if request.get('send_activation_link', False):
         token = db_generate_password_reset_token(session, user)
+        db_log(session, tid=tid, type='send_password_reset_email', user_id=user_session.user_id, object_id=user.id)
     else:
         token = None
 

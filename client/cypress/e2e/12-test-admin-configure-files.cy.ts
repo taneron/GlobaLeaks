@@ -18,7 +18,10 @@ describe("Admin configure files", () => {
 
     cy.get(".modal [type='password']").clear().type(Cypress.env("user_password"));
     cy.get(".modal .btn-primary").click();
+
     cy.get("[name='authenticationData.session.permissions.can_upload_files']").should("be.checked");
+
+    cy.takeScreenshot("admin/site_settings_files");
 
     const customCSSFile = "files/test.css";
     cy.fixture(customCSSFile).then((fileContent) => {
@@ -34,26 +37,12 @@ describe("Admin configure files", () => {
       });
     });
 
-    const customJSFile = "files/test.js.txt";
-    cy.fixture(customJSFile).then((fileContent) => {
-      cy.get('div.uploadfile.file-script input[type="file"]').then(($input) => {
-        const inputElement = $input[0] as HTMLInputElement;
-        const blob = new Blob([fileContent], { type: 'application/javascript' });
-        const testFile = new File([blob], 'file-name.js', { type: 'application/javascript' });
-        const dataTransfer = new DataTransfer();
-
-        dataTransfer.items.add(testFile);
-        inputElement.files = dataTransfer.files;
-        cy.wrap($input).trigger('change', { force: true });
-      });
-    });
-
-    const customFile = "files/test.txt";
+    const customFile = "files/test.pdf";
     cy.fixture(customFile).then((fileContent) => {
       cy.get("div.file-custom input").then(($input) => {
         const inputElement = $input[0] as HTMLInputElement;
-        const blob = new Blob([fileContent], { type: "text/plain" });
-        const testFile = new File([blob], customFile, { type: "text/plain" });
+        const blob = new Blob([fileContent], { type: "application/pdf" });
+        const testFile = new File([blob], customFile, { type: "application/pdf" });
         const dataTransfer = new DataTransfer();
 
         dataTransfer.items.add(testFile);
@@ -62,7 +51,7 @@ describe("Admin configure files", () => {
       });
     });
 
-    cy.get('table#fileList').find('td#file_name').should('contain', 'test.txt').should('be.visible');
+    cy.get('table#fileList').find('td#file_name').should('contain', 'test.pdf').should('be.visible');
     cy.get("table#fileList").get(".fa-download").last().click();
     cy.get("table#fileList").get(".fa-trash").last().click();
 

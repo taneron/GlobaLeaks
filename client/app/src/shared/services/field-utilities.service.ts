@@ -123,20 +123,22 @@ export class FieldUtilitiesService {
     const score = scope.points_to_sum * scope.points_to_mul;
     if (scope.context) {
       if (score < scope.context.score_threshold_medium) {
-        scope.score = 1;
+        scope.score = 0;
       } else if (score < scope.context.score_threshold_high) {
-        scope.score = 2;
+        scope.score = 1;
       } else {
-        scope.score = 3;
+        scope.score = 2;
       }
     }
   }
 
-  updateAnswers(scope: any, parent: any, list: any, answers: any) {
+  updateAnswers(scope: any, parent: any, list: any, answers: any, partOfWhistleblowerIdentity: boolean) {
     let entry, option, i, j;
 
+    partOfWhistleblowerIdentity = partOfWhistleblowerIdentity || (parent && parent.template_id === 'whistleblower_identity');
+
     list.forEach((field: any) => {
-      if (this.isFieldTriggered(parent, field, scope.answers, scope.score)) {
+      if (this.isFieldTriggered(parent, field, scope.answers, scope.score, scope.submission && scope.submission.submission.identity_provided, partOfWhistleblowerIdentity)) {
         if (!(field.id in answers)) {
           answers[field.id] = [{}];
         }
@@ -148,10 +150,10 @@ export class FieldUtilitiesService {
 
       if (field.id in answers) {
         for (i = 0; i < answers[field.id].length; i++) {
-          this.updateAnswers(scope, field, field.children, answers[field.id][i]);
+          this.updateAnswers(scope, field, field.children, answers[field.id][i], partOfWhistleblowerIdentity);
         }
       } else {
-        this.updateAnswers(scope, field, field.children, {});
+        this.updateAnswers(scope, field, field.children, {}, partOfWhistleblowerIdentity);
       }
 
       if (!field.enabled) {
@@ -208,8 +210,8 @@ export class FieldUtilitiesService {
                 scope.block_submission = true;
               }
 
-              if (scope.submissionService && option.trigger_receiver.length) {
-                scope.submissionService.override_receivers = option.trigger_receiver;
+              if (scope.submission && option.trigger_receiver.length) {
+                scope.submission.override_receivers = option.trigger_receiver;
               }
             }
           }
@@ -228,29 +230,39 @@ export class FieldUtilitiesService {
       return;
     }
 
-    if (scope.submissionService) {
-      scope.submissionService.override_receivers = [];
+    if (scope.submission) {
+      scope.submission.override_receivers = [];
     }
 
     scope.questionnaire.steps.forEach((step: any) => {
-      step.enabled = this.isFieldTriggered(null, step, scope.answers, scope.score);
-      this.updateAnswers(scope, step, step.children, scope.answers);
+      step.enabled = this.isFieldTriggered(null, step, scope.answers, scope.score, scope.submission && scope.submission.submission.identity_provided, false);
+      this.updateAnswers(scope, step, step.children, scope.answers, false);
     });
 
-    if (scope.context) {
-      scope.submissionService.submission.score = scope.score;
-      scope.submissionService.blocked = scope.block_submission;
+    for (let key in scope.uploads) {
+      if (!scope.uploads[key].field.enabled) {
+        delete scope.uploads[key];
+      }
+    }
+
+    if (scope.submission) {
+      scope.submission.submission.score = scope.score;
+      scope.submission.blocked = scope.block_submission;
     }
   }
 
 
-  isFieldTriggered(parent: any, field: any, answers: Answers | WhistleblowerIdentity, score: number) {
+  isFieldTriggered(parent: any, field: any, answers: Answers | WhistleblowerIdentity, score: number, identity_provided: boolean, partOfIdentityQuestion: boolean) {
     let count = 0;
     let i;
 
     field.enabled = false;
 
     if (parent !== null && !parent.enabled) {
+      return false;
+    }
+
+    if (partOfIdentityQuestion && !identity_provided) {
       return false;
     }
 
@@ -290,7 +302,6 @@ export class FieldUtilitiesService {
   }
 
   parseFields(fields: any, parsedFields: any) {
-
     fields.forEach((field: any) =>{
       parsedFields = this.parseField(field, parsedFields);
     });

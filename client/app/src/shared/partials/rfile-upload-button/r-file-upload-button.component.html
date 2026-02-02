@@ -9,7 +9,7 @@
           <input [attr.id]="'customFile-' + fileInput" [name]="'input-' + fileInput" id="customFile-{{fileInput}}" [(ngModel)]="fileModel" type="file" flowButton [flow]="flow.flowJs" [style.display]="'none'" class="custom-file-input" [required]="entry.required_status"/>
         }
         <label [attr.for]="'customFile-' + fileInput" for="customFile-{{fileInput}}" class="btn btn-sm btn-outline-secondary">
-        <i class="fa-solid fa-upload"></i>
+        <i class="fas fa-upload"></i>
         <span> {{'Upload'|translate}}</span>
       </label>
       <span class="mx-2">{{'Select a file or drag it here.'|translate}}</span>
@@ -23,7 +23,7 @@
                 <span>{{'File size not accepted.' | translate}}</span> {{errorFile.flowFile.name}} {{'Maximum file size is:' | translate}} {{appDataService.public.node.maximum_filesize}} MB
               </div>
             }
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissError();errorFile.flowFile.cancel(); showError=false; fileModel = null"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissError();errorFile.flowFile.cancel(); showError=false; fileModel = null"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></button>
           </div>
         </div>
       }
@@ -45,7 +45,7 @@
     </div>
     @if (confirmButton && !formUploader) {
       <button id="files-action-confirm" class="btn btn-sm btn-outline-secondary" (click)="onConfirmClick()">
-        <i class="fa-solid fa-upload"></i>
+        <i class="fas fa-upload"></i>
         <span>{{'Confirm'|translate}}</span>
       </button>
     }

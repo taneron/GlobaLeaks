@@ -3,7 +3,7 @@
 # Andrea Bras, 2018
 # Andrea Bras, 2018
 # Andre Julian <andrejulian30@gmail.com>, 2016-2017,2021
-# Arif Budiman <arifbudiman@gmail.com>, 2015
+# Arif Budiman <arifbudiman@gmail.com>, 2015,2025
 # 60a7195fef6c024fc4543508ee7b9125_16c098e <65d84944c477a84ea662625b6f5f6919_712353>, 2018
 # Cadas Propopuli Azzam Baribin <cadas.propopuli@gmail.com>, 2018
 # Caroline Dianty <Diantycaroline@gmail.com>, 2018
@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2017-2018,2020-2022\n"
+"Last-Translator: Arif Budiman <arifbudiman@gmail.com>, 2015,2025\n"
 "Language-Team: Indonesian (http://app.transifex.com/otf/globaleaks/language/id/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,20 +55,18 @@ msgid "Access control"
 msgstr "Kendali akses"
 
 msgid "Access date"
-msgstr ""
+msgstr "Tanggal akses"
 
 msgid "Access requested"
 msgstr "Akses yang diminta"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Akses untuk identitas informan publik telah diminta oleh pihak penjaga"
 
 msgid "Account recovery key"
 msgstr "Kunci pemulihan akun"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Aktivitas"
@@ -110,21 +108,21 @@ msgid "Advanced"
 msgstr "Mahir"
 
 msgid "Allow the recipient to edit the reports' expiration date"
-msgstr ""
+msgstr "Izinkan penerima mengubah tanggal kedaluwarsa laporan"
 
 msgid "Allow the recipient to delete reports"
 msgstr "Izinkan penerima untuk menghapus laporan"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Izinkan informan publik untuk menambahkan lampiran ke dalam laporan"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Izinkan informan publik untuk menulis komentar"
 
 msgid "Allow users to sign up"
 msgstr "Izinkan pengguna untuk mendaftar"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Izinkan informan publik untuk memilih penerima laporan mereka"
 
 msgid "Allowed IP addresses"
@@ -134,7 +132,7 @@ msgid "An update is available:"
 msgstr "Pembaruan tersedia:"
 
 msgid "Analyst"
-msgstr ""
+msgstr "Analis"
 
 msgid "Anomalies"
 msgstr "Anomali"
@@ -158,7 +156,7 @@ msgid "Assign score points"
 msgstr "Menentukan poin skor "
 
 msgid "Assigned to"
-msgstr ""
+msgstr "Ditugaskan ke:"
 
 msgid "Attachment"
 msgstr "Lampiran"
@@ -184,7 +182,7 @@ msgstr "Otorisasi"
 msgid "Authorize"
 msgstr "Mengizinkan"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Izinkan akses ke identitas informan publik "
 
 msgid "Authorized"
@@ -212,10 +210,10 @@ msgid "Block the submission"
 msgstr "Blokir kiriman"
 
 msgid "By confirming, you will edit the expiration date to:"
-msgstr ""
+msgstr "Dengan mengkonfirmasi, anda akan mengubah tanggal kedaluwarsa ke:"
 
 msgid "By confirming, you will set a reminder on date:"
-msgstr ""
+msgstr "Dengan mengkonfirmasi, anda akan menyetel pengingat pada tanggal:"
 
 msgid ""
 "By enabling this feature, you will contribute to the development and "
@@ -235,7 +233,7 @@ msgid "Certificate Signing Request"
 msgstr "Permintaan Penandatanganan Sertifikat"
 
 msgid "Change status"
-msgstr ""
+msgstr "Ubah status"
 
 msgid "Change your password"
 msgstr "Ubah kata sandi"
@@ -244,10 +242,10 @@ msgid "Changelog"
 msgstr "Catatan Perubahan "
 
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 msgid "Channels"
-msgstr ""
+msgstr "Kanal"
 
 msgid "Check your inbox to activate it."
 msgstr "Periksa kotak masuk Anda untuk mengaktifkannya."
@@ -336,7 +334,7 @@ msgstr "Rentang tanggal"
 msgid ""
 "Default mail configuration in use. Please consider using a private mail "
 "server."
-msgstr ""
+msgstr "Saat ini konfigurasi pesan default digunakan. Mohon pertimbangkan menggunakan server mail privat."
 
 msgid "Delete"
 msgstr "Hapus"
@@ -347,7 +345,7 @@ msgstr "Ditolak"
 msgid "Deny"
 msgstr "Menolak"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Tolak akses ke identitas informan publik "
 
 msgid "Description"
@@ -366,7 +364,7 @@ msgid "Details of the PGP key:"
 msgstr "Detil dari kunci PGP:"
 
 msgid "Devices"
-msgstr ""
+msgstr "Peranti"
 
 msgid "Disable"
 msgstr "Nonaktifkan"
@@ -402,7 +400,7 @@ msgid "Download"
 msgstr "Unduh"
 
 msgid "Download copy of the Privacy Policy"
-msgstr ""
+msgstr "Unduh salinan Kebijakan Privasi"
 
 msgid "Download the Tor Browser"
 msgstr "Unduh Peramban Tor"
@@ -432,7 +430,7 @@ msgid "Enable"
 msgstr "Aktifkan"
 
 msgid "Enable PGP"
-msgstr ""
+msgstr "Nyalakan PGP"
 
 msgid "Enable administrators to change user passwords"
 msgstr "Aktifkan administrator untuk mengubah kata sandi pengguna"
@@ -470,6 +468,9 @@ msgstr "Aktifkan"
 msgid "Enter a name for the copy"
 msgstr "Masukan nama untuk salinan"
 
+msgid "Enter a report"
+msgstr "Bertindak mewakili informan publik"
+
 msgid "Enter the two factor authentication code"
 msgstr "Masukkan kode autentikasi dua faktor"
 
@@ -492,7 +493,7 @@ msgid "Error!"
 msgstr "Gagal!"
 
 msgid "Everyone"
-msgstr ""
+msgstr "Semua"
 
 msgid "Example:"
 msgstr "Contoh:"
@@ -531,13 +532,13 @@ msgid "First"
 msgstr "Pertama"
 
 msgid "Fiscal code"
-msgstr ""
+msgstr "Kode fiskal"
 
 msgid "Footer"
 msgstr "Catatan kaki"
 
-msgid "For security reasons the code needs to be changed."
-msgstr ""
+msgid "For security reasons, the code needs to be changed."
+msgstr "Untuk keamanan, kode perlu diganti."
 
 msgid ""
 "For security reasons, password changes are required at regular intervals."
@@ -574,16 +575,16 @@ msgid "Give this admin ability to change user passwords"
 msgstr "Izinkan admin ini untuk mengubah kata sandi pengguna"
 
 msgid "Give this user ability to grant user access to reports"
-msgstr ""
+msgstr "Beri pengguna ini kemampuan untuk memberi pengguna lain akses ke laporan"
 
 msgid "Give this user ability to mask information"
-msgstr ""
+msgstr "Beri pengguna ini kemampuan untuk menyamarkan informasi"
 
 msgid "Give this user ability to permanently redact masked information"
-msgstr ""
+msgstr "Beri pengguna ini kemampuan permanen untuk meredaksi informasi yang tersamar"
 
 msgid "Give this user ability to transfer reports to other users"
-msgstr ""
+msgstr "Beri pengguna ini kemampuan untuk mentransfer laporan ke pengguna lainnya"
 
 msgid "Grant access"
 msgstr "Memberikan akses"
@@ -591,7 +592,7 @@ msgstr "Memberikan akses"
 msgid "Group of questions"
 msgstr "Sekelompok pertanyaan"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Apakah Anda telah mengirimkan laporan? Masukkan tanda terima Anda."
 
 msgid "Hidden"
@@ -619,7 +620,7 @@ msgid "I have read and agree to the terms of the license."
 msgstr "Saya telah membaca dan setuju dengan persyaratan lisensi."
 
 msgid "I've read and accept the Privacy Policy"
-msgstr ""
+msgstr "Saya telah membaca dan menerima Kebijakan Privasi"
 
 msgid "ID"
 msgstr "ID"
@@ -653,7 +654,7 @@ msgid ""
 msgstr "Pada langkah ini, jawaban-jawaban pada pertanyaan berikut tidak lengkap atau tidak valid:"
 
 msgid "Initially anonymous"
-msgstr ""
+msgstr "Mulanya anonim"
 
 msgid "Input validation"
 msgstr "Masukkan validasi"
@@ -718,6 +719,9 @@ msgstr "Perbolehkan platform diakses tanpa menggunakan Tor"
 msgid "License"
 msgstr "Lisensi"
 
+msgid "Listen"
+msgstr ""
+
 msgid "Log accesses of internal users"
 msgstr "Akses catatan pengguna internal"
 
@@ -754,7 +758,7 @@ msgid "Mark as important"
 msgstr "Tandai sebagai penting"
 
 msgid "Mask"
-msgstr ""
+msgstr "Tutupi"
 
 msgid "Max"
 msgstr "Maks"
@@ -769,7 +773,7 @@ msgid "Maximum number of selectable recipients:"
 msgstr "Jumlah tertinggi penerima yang dapat dipilih:"
 
 msgid "Me only"
-msgstr ""
+msgstr "Hanya saya"
 
 msgid "Medium"
 msgstr "Sedang"
@@ -835,7 +839,7 @@ msgid "None"
 msgstr "Tidak ada"
 
 msgid "Not provided."
-msgstr ""
+msgstr "Tidak disediakan."
 
 msgid "Notifications"
 msgstr "Notifikasi"
@@ -868,6 +872,9 @@ msgid ""
 "One or more recipients have not performed the first login yet. This means "
 "they won't be receiving reports."
 msgstr "Satu penerima atau lebih belum masuk untuk pertama kali. Ini berarti mereka tidak akan menerima laporan."
+
+msgid "Open"
+msgstr "Open"
 
 msgid "Opened"
 msgstr "Terbuka"
@@ -965,7 +972,7 @@ msgstr "Kelompok pertanyaan"
 msgid "Question templates"
 msgstr "Format pertanyaan"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pertanyaan untuk mengumpulkan kemungkinan informan publik"
 
 msgid "Questionnaire"
@@ -980,8 +987,11 @@ msgstr "Kuesioner"
 msgid "Questions"
 msgstr "Pertanyaan"
 
-msgid "Receivers"
+msgid "Read receipt"
 msgstr ""
+
+msgid "Receivers"
+msgstr "Penerima"
 
 msgid "Recipient"
 msgstr "Penerima"
@@ -996,13 +1006,13 @@ msgid "Recipients have requested you to fill an additional questionnaire."
 msgstr "Penerima meminta Anda untuk mengisi kuesioner tambahan."
 
 msgid "Recipients only"
-msgstr ""
+msgstr "Hanya penerima"
 
 msgid "Recipients selected:"
 msgstr "Penerima yang terpilih:"
 
 msgid "Redact"
-msgstr ""
+msgstr "Meredaksi"
 
 msgid "Refresh"
 msgstr "Perbarui"
@@ -1016,17 +1026,17 @@ msgstr "Ekspresi reguler "
 msgid "Regular expression validator"
 msgstr "Validator ekspresi reguler "
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Ingat tanda terima Anda untuk laporan ini."
 
 msgid "Reminder date"
-msgstr ""
+msgstr "Tanggal pengingat"
 
 msgid "Remove"
 msgstr "Hapus"
 
 msgid "Reopen"
-msgstr ""
+msgstr "Buka kembali"
 
 msgid "Reply motivation"
 msgstr "Balas motivasi"
@@ -1046,7 +1056,7 @@ msgstr "Status laporan"
 msgid "Reports"
 msgstr "Laporan"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Meminta akses ke identitas informan publik"
 
 msgid "Request date"
@@ -1091,7 +1101,7 @@ msgstr "Sumber tidak ditemukan "
 msgid "Restrict access to specific IP addresses"
 msgstr "Batasi akses ke alamat IP tertentu"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1158,10 +1168,10 @@ msgid "Select an option"
 msgstr "Pilih sebuah opsi"
 
 msgid "Select the recipients of your report"
-msgstr ""
+msgstr "Pilih penerima laporan anda"
 
 msgid "Select your language"
-msgstr ""
+msgstr "Pilih bahasa"
 
 msgid "Selection box"
 msgstr "Kotak pilihan"
@@ -1179,7 +1189,7 @@ msgid "Send reset link"
 msgstr "Kirim tautan pengaturan ulang"
 
 msgid "Set a reminder"
-msgstr ""
+msgstr "Atur pengingat"
 
 msgid "Set password"
 msgstr "Atur kata sandi"
@@ -1200,7 +1210,7 @@ msgid "Show"
 msgstr "Tampilkan"
 
 msgid "Show channels in alphabetical order"
-msgstr ""
+msgstr "Tampilkan kanal sesuai urutan abjad"
 
 msgid "Show recipients in alphabetical order"
 msgstr "Tunjukkan penerima-penerima berdasarkan susunan abjad"
@@ -1265,11 +1275,17 @@ msgstr "Pengiriman dinonaktifkan "
 msgid "Submit"
 msgstr "Kirim"
 
+msgid "Submit a report"
+msgstr "Buat laporan"
+
 msgid "Subscribed"
-msgstr ""
+msgstr "Berlangganan"
+
+msgid "Subscribed later"
+msgstr "Berlangganan nanti"
 
 msgid "Subscription date"
-msgstr ""
+msgstr "Tanggal berlangganan"
 
 msgid "Substatuses"
 msgstr "Sub status"
@@ -1311,7 +1327,7 @@ msgid "Text shown after the user has selected the option."
 msgstr "Teks yang ditampilkan pada pengguna setelah opsi dipilih."
 
 msgid "Text shown on top of the interface for selecting channels"
-msgstr ""
+msgstr "Teks yang ditampilkan di atas halaman untuk memilih kanal"
 
 msgid "Text shown upon negative answer"
 msgstr "Teks akan ditampilkan setelah jawaban negatif"
@@ -1345,7 +1361,7 @@ msgid ""
 msgstr "Prosedur berurutan berikut akan memandu pembuatan platform laporan informasi publik anda."
 
 msgid "The link will expire in 7 days."
-msgstr ""
+msgstr "Tautan akan kadaluwarsa dalam 7 hari."
 
 msgid ""
 "The manual configuration wizard will guide you through the setup of HTTPS "
@@ -1375,7 +1391,7 @@ msgstr "Kunci pemulihan yang diberikan tidak valid."
 msgid "The provided reset token is invalid or expired."
 msgstr "Token pengaturan ulang yang diberikan tidak valid atau kedaluwarsa "
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Tanda terima tidak valid atau laporan telah kedaluwarsa."
 
 msgid "The specified input is not valid."
@@ -1399,10 +1415,10 @@ msgstr "Pengguna diharuskan untuk mengganti kata sandi pada proses masuk berikut
 msgid "The validation link is either incorrect or has expired."
 msgstr "Tautan validasi tidak benar atau sudah berakhir."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Informan publik telah membaca pembaruan terakhir"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Informan publik belum membaca pembaruan terakhir"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1447,7 +1463,7 @@ msgid "Transfer"
 msgstr "Transfer"
 
 msgid "Transfer access"
-msgstr ""
+msgstr "Transfer akses"
 
 msgid "Trigger conditions"
 msgstr "Kondisi pemicu"
@@ -1471,7 +1487,7 @@ msgid "URL redirects"
 msgstr "Pengalihan URL"
 
 msgid "Unhide"
-msgstr ""
+msgstr "Tampilkan"
 
 msgid "Unselect"
 msgstr "Batal pilih"
@@ -1489,8 +1505,8 @@ msgid "Use as default"
 msgstr "Gunakan sebagai pengaturan bawaan"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Gunakan 16 angka tanda terima untuk masuk. Anda akan dapat melihat setiap pesan yang kami kirimkan dan juga untuk menambah informasi tambahan."
 
 msgid "Use the first site for administrative purposes only"
@@ -1530,7 +1546,7 @@ msgid "View your report"
 msgstr "Lihat laporan Anda"
 
 msgid "Voice"
-msgstr ""
+msgstr "Suara"
 
 msgid "Waiting for authorization"
 msgstr "Menunggu otorisasi"
@@ -1564,14 +1580,14 @@ msgstr "Lemah"
 msgid "Welcome!"
 msgstr "Selamat datang!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Informan publik"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Akses terakhir informan publik"
 
 msgid "Whistleblowing Policy"
-msgstr ""
+msgstr "Kebijakan Informan Publik"
 
 msgid "Whistleblowing button"
 msgstr "Tombol laporan informasi publik"
@@ -1587,7 +1603,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Anda sudah terhubung dengan server tanpa anonimitas dan server ini hanya mendukung pengiriman anonim "
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1637,11 +1653,8 @@ msgstr "mohon hanya masukkan nomor."
 msgid "seconds"
 msgstr "detik"
 
-msgid "File a report"
-msgstr "Buat laporan"
-
 msgid "Select a reporting channel:"
-msgstr ""
+msgstr "Pilih kanal pelaporan:"
 
 msgid "Please summarize your report in a few words."
 msgstr "Deskripsikan laporan Anda dalam beberapa kata."
@@ -1723,7 +1736,7 @@ msgid "Other"
 msgstr "Lainnya"
 
 msgid "Specify"
-msgstr ""
+msgstr "Perinci"
 
 msgid "Dear {RecipientName},"
 msgstr "Yang terhormat {RecipientName},"
@@ -1770,24 +1783,8 @@ msgstr "Platform akan dihapus secara otomatis pada:"
 msgid "Access instructions"
 msgstr "Instruksi untuk mengakses"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Jumlah aktivitas yang baru-baru ini terdeteksi tampaknya lebih tinggi dari biasanya."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Ini bisa menjadi tanda sebuah serangan (contohnya, seseorang membanjiri server Anda dengan informasi palsu) atau hanya lonjakan penggunaan karena peningkatan visibilitas proyek Anda."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Periksa isu untuk menentukan apakah itu sah atau tidak"
-
-msgid "The activities with unusual stats are:"
-msgstr "Kegiatan dengan statistik yang tidak biasa adalah:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
-msgstr ""
+msgstr "Disk space yang tersedia: {FreeMemory}/{TotalMemory}"
 
 msgid ""
 "The server cannot guarantee that a new report can be stored, so submissions "
@@ -1803,14 +1800,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Teknologi GlobaLeaks mencakup sebuah komponen pemeriksaan status server yang akan mengingatkan jika ada sesuatu yang membutuhkan perhatian anda."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Untuk info lebih lanjut, masuk ke antarmuka Administrator dan lihat ke pilihan \"Statistik Sistem\" dan \"Anomali\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomali terdeteksi di {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1926,7 +1915,7 @@ msgstr "Surel ini memberi tahu Anda bahwa seorang pihak penjaga telah memberikan
 msgid "The report can be accessed at:"
 msgstr "Laporan dapat diakses di:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Akses ke identitas informan publik telah diizinkan."
 
 msgid ""
@@ -1934,26 +1923,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Surel ini memberi tahu Anda bahwa seorang pihak penjaga telah menolak akses Anda terhadap identitas informan publik terkait laporannya {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Akses ke identitas informan publik telah ditolak "
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Surel ini memberi tahu Anda bahwa seorang penerima telah meminta akses ke identitas informan publik untuk laporan {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Permintaan dapat diakses di:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Permintaan baru untuk mengakses identitas informan publik "
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Surel ini memberi tahu Anda bahwa informan publik untuk laporan {TipNum} telah memberikan identitasnya."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Informan publik telah memberikan identitasnya"
 
 msgid ""

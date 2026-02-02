@@ -1,11 +1,10 @@
-import {Component, Input, OnInit, inject} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output, inject} from "@angular/core";
 import {NodeResolver} from "@app/shared/resolvers/node.resolver";
 import {HttpService} from "@app/shared/services/http.service";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {NewStep} from "@app/models/admin/new-step";
 import {QuestionnaireService} from "@app/pages/admin/questionnaires/questionnaire.service";
 import {Step, questionnaireResolverModel} from "@app/models/resolvers/questionnaire-model";
-
 import {FormsModule} from "@angular/forms";
 import {StepsListComponent} from "../steps-list/steps-list.component";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
@@ -23,10 +22,11 @@ export class StepsComponent implements OnInit {
   protected utilsService = inject(UtilsService);
   private httpService = inject(HttpService);
 
+  @Output() dataToParent = new EventEmitter<string>();
   @Input() questionnaire: questionnaireResolverModel;
-  showAddStep: boolean = false;
+  showAddStep = false;
   step: Step;
-  editing: boolean = false;
+  editing = false;
   new_step: { label: string } = {label: ""};
 
   ngOnInit(): void {
@@ -43,10 +43,10 @@ export class StepsComponent implements OnInit {
     step.label = this.new_step.label;
     step.order = this.utilsService.newItemOrder(this.questionnaire.steps, "order");
 
-    this.httpService.requestAddAdminQuestionnaireStep(step).subscribe(() => {
+    this.httpService.requestAddAdminQuestionnaireStep(step).subscribe((newStep: Step) => {
+      this.questionnaire.steps.push(newStep);
       this.new_step = {label: ""};
-      return this.questionnaireService.sendData();
-
+      this.dataToParent.emit();
     });
   }
 }

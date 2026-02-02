@@ -1,9 +1,12 @@
-Setup
-=====
+SETUP & MAINTENANCE
+===================
 
 .. toctree::
   :name: setup
   :maxdepth: 4
 
-  InstallationGuide.rst
-  PlatformWizard.rst
+  installation.rst
+  initialization.rst
+  upgrade.rst
+  backup-and-restore.rst
+  troubleshooting.rst

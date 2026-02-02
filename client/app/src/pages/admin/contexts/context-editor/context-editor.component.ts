@@ -37,14 +37,14 @@ export class ContextEditorComponent implements OnInit {
   @Input() index: number;
   @Input() editContext: NgForm;
   @Output() dataToParent = new EventEmitter<string>();
-  editing: boolean = false;
-  showAdvancedSettings: boolean = false;
-  showSelect: boolean = false;
+  editing = false;
+  showAdvancedSettings = false;
+  showSelect = false;
   questionnairesData: questionnaireResolverModel[] = [];
   usersData: userResolverModel[] = [];
   nodeData: nodeResolverModel;
   selected = {value: []};
-  adminReceiversById: { [userId: string]: userResolverModel } = {};
+  adminReceiversById: Record<string, userResolverModel> = {};
 
   ngOnInit(): void {
     this.questionnairesData = this.questionnairesResolver.dataModel;

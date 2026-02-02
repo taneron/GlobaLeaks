@@ -5,14 +5,14 @@ import {RedactInformationComponent} from '@app/shared/modals/redact-information/
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
-  providedIn: 'root', 
+  providedIn: 'root',
 })
 export class MaskService {
   private modalService = inject(NgbModal);
 
 
   getSelectedRanges(select: boolean, selected_ranges: any[],redactTextArea:ElementRef) {
-    
+
     const elem = redactTextArea.nativeElement;
     const selectedText = elem.value.substring(elem.selectionStart, elem.selectionEnd);
 
@@ -156,7 +156,7 @@ export class MaskService {
   }
 
   redactInfo(type:string, id:string, entry:string, content:string,tip:RecieverTipData | WbTipData){
-    const modalRef = this.modalService.open(RedactInformationComponent, {backdrop: 'static', keyboard: false});
+    const modalRef = this.modalService.open(RedactInformationComponent, {backdrop: 'static', keyboard: false, ariaLabelledBy: 'modal-title'});
     modalRef.componentInstance.arg={
       tip: tip,
       redaction: this.getRedaction(id, entry,tip),

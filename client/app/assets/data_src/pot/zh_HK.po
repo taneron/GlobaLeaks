@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "已發送存取請求"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "已向保管人請求吹哨者的個人身份。"
 
 msgid "Account recovery key"
 msgstr "帳號修復金鑰"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "活動"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "允許此接收者刪除報告"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "吹哨者可在提交報告時新增附件"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "允許此吹哨者撰寫註釋"
 
 msgid "Allow users to sign up"
 msgstr "接受新用戶註冊"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "允許吹哨者選擇其接收者"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "授權"
 msgid "Authorize"
 msgstr "批准"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "批准讀取吹哨者的個人身份"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "已拒絕"
 msgid "Deny"
 msgstr "拒絕"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "拒絕讀取吹哨者的個人身份"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "已啟用"
 msgid "Enter a name for the copy"
 msgstr "為此複本命名"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "輸入雙重認證碼"
 
@@ -513,7 +514,7 @@ msgstr "税控码"
 msgid "Footer"
 msgstr "頁尾文字"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -568,7 +569,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "問題組"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "想查看您之前提交的報告？在此輸入收據號碼："
 
 msgid "Hidden"
@@ -694,6 +695,9 @@ msgstr "訪客可以透過 Tor 以外的瀏覽器訪問平台"
 
 msgid "License"
 msgstr "授權"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "記錄内部使用者的存取"
@@ -846,6 +850,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "有接收者尚未進行首次登入，故他們暫時不會收到報告。"
 
+msgid "Open"
+msgstr "開啟"
+
 msgid "Opened"
 msgstr "已讀"
 
@@ -942,7 +949,7 @@ msgstr "問題組"
 msgid "Question templates"
 msgstr "問題範本"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "給吹哨者的徵求"
 
 msgid "Questionnaire"
@@ -956,6 +963,9 @@ msgstr "問卷"
 
 msgid "Questions"
 msgstr "問題"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "接收者"
@@ -993,7 +1003,7 @@ msgstr "正規表示式"
 msgid "Regular expression validator"
 msgstr "正規表示式驗證"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "請謹記此報告的收據號碼。"
 
 msgid "Reminder date"
@@ -1023,7 +1033,7 @@ msgstr "報告狀態"
 msgid "Reports"
 msgstr "報告"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "請求讀取吹哨者的個人身份"
 
 msgid "Request date"
@@ -1068,7 +1078,7 @@ msgstr "找不到資源"
 msgid "Restrict access to specific IP addresses"
 msgstr "限制指定 IP 地址才可登入此平台"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,7 +1252,13 @@ msgstr "已停止接收報告"
 msgid "Submit"
 msgstr "提交"
 
+msgid "Submit a report"
+msgstr "提交報告"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1352,7 +1368,7 @@ msgstr "所提供的修復金鑰無效。"
 msgid "The provided reset token is invalid or expired."
 msgstr "所提供的重置令牌無效或過期。"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "收據號碼無效或報告已到期。"
 
 msgid "The specified input is not valid."
@@ -1376,10 +1392,10 @@ msgstr "使用者在下次登入時必須更改密碼。"
 msgid "The validation link is either incorrect or has expired."
 msgstr "驗證連結無效或過期。"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "吹哨者已閱讀最新的消息"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "吹哨者尚未閱讀最新的消息"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1466,8 +1482,8 @@ msgid "Use as default"
 msgstr "使用爲預設值"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "您可使用此 16 位數字的收據號碼登入至報告頁面，以便添加資料或查看我們的回覆。"
 
 msgid "Use the first site for administrative purposes only"
@@ -1541,10 +1557,10 @@ msgstr "弱"
 msgid "Welcome!"
 msgstr "您好！"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "吹哨者"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "吹哨者最近一次存取"
 
 msgid "Whistleblowing Policy"
@@ -1564,7 +1580,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "您並沒有以匿名的方式連接到此伺服器，而其只能接收匿名的報告。"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1613,9 +1629,6 @@ msgstr "請只輸入數字。"
 
 msgid "seconds"
 msgstr "秒"
-
-msgid "File a report"
-msgstr "提交報告"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1747,22 +1760,6 @@ msgstr "平台將於此日期自動刪除："
 msgid "Access instructions"
 msgstr "存取指示"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "偵測到高於正常的最近活動。"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "這可能是平台遭到攻擊的跡象（例如某人試圖以偽造資訊來充斥您的伺服器），或者只是出於網站能見度提升而導致的正常使用量增長。"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "查驗此事故，以確定其性質。"
-
-msgid "The activities with unusual stats are:"
-msgstr "數據不尋常的活動如下："
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1777,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks 軟件包含了伺服器狀態檢查程序，它會在必要時警告你提高警惕。"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "如欲了解更多，請登入管理員介面並查看「系統數據」及「異常狀況」部份。"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "在 {NodeName} 偵測到異常狀況"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1903,7 +1892,7 @@ msgstr "謹以此電郵通知您，保管人已批准您可讀取報告 {TipNum}
 msgid "The report can be accessed at:"
 msgstr "按此查看報告："
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "已批准讀取吹哨者的個人身份"
 
 msgid ""
@@ -1911,26 +1900,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "謹以此電郵通知您，保管人已拒絕您申請讀取報告 {TipNum} 吹哨者個人身份之請求。"
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "已拒絕讀取吹哨者的個人身份"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "謹以此電郵通知您，某接收者剛發出請求以讀取報告 {TipNum} 的吹哨者個人身份。"
 
 msgid "The request can be accessed at:"
 msgstr "按此查看請求："
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "讀取吹哨者個人身份的新請求"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "謹以此電郵通知您，報告 {TipNum} 的吹哨者已提供其個人身份。"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "吹哨者已提供其個人身份"
 
 msgid ""

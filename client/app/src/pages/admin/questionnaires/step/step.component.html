@@ -4,12 +4,12 @@
       <div>
         <span>{{ 'Questions' | translate }}</span>
         <button class="btn btn-sm btn-primary show-add-question-btn" id="add-question" (click)="toggleAddQuestion()">
-          <i class="fa-solid fa-plus"></i>
+          <i class="fas fa-plus"></i>
           <span>{{ 'Add new question' | translate }}</span>
         </button>
         @if (fieldTemplatesData.length > 0) {
           <button class="btn btn-sm btn-primary show-add-question-from-template-btn" (click)="toggleAddQuestionFromTemplate()">
-            <i class="fa-solid fa-plus"></i>
+            <i class="fas fa-plus"></i>
             <span>{{ 'Add question from template' | translate }}</span>
           </button>
         }
@@ -35,7 +35,7 @@
       <div class="col-md-12">
         <div id="field-{{index}}" class="fieldBox">
           <form #editField="ngForm">
-            <src-fields (dataToParent)="listenToFields()" [editField]="editField" [field]="field" [parsedFields]="parsedFields" [fields]="step.children" [step]="step" [type]="'step'"></src-fields>
+            <src-fields (dataToParent)="listenToFields()" [editField]="editField" [type]="'step'" [step]="step" [field]="field" [fields]="step.children" [parsedFields]="parsedFields"></src-fields>
           </form>
         </div>
       </div>

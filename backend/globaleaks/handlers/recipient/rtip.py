@@ -5,7 +5,7 @@ import os
 import re
 import time
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from nacl.encoding import Base64Encoder
 from twisted.internet.threads import deferToThread
@@ -76,7 +76,7 @@ def db_grant_tip_access(session, tid, user_id, user_cc, itip, rtip, receiver_id)
                                                         models.ReceiverTip.internaltip_id == itip.id).one_or_none()
 
     if existing:
-        return
+        return None, None
 
     new_receiver = db_get(session,
                           models.User,
@@ -547,7 +547,8 @@ def update_tip_submission_status(session, tid, user_id, rtip_id, status_id, subs
     for user in session.query(models.User) \
                        .filter(models.User.id == models.ReceiverTip.receiver_id,
                                models.ReceiverTip.internaltip_id == itip.id,
-                               models.ReceiverTip.receiver_id != user_id):
+                               models.ReceiverTip.receiver_id != user_id,
+                               models.ReceiverTip.last_notification < models.ReceiverTip.last_access):
         db_notify_report_update(session, user, rtip, itip)
 
     db_update_submission_status(session, tid, user_id, itip, status_id, substatus_id)
@@ -590,8 +591,7 @@ def db_access_rfile(session, tid, user_id, rfile_id):
     return db_get(session,
                   models.ReceiverFile,
                   (models.ReceiverFile.id == rfile_id,
-                   models.ReceiverFile.internaltip_id.in_(itips_ids),
-                   models.InternalTip.tid == tid))
+                   models.ReceiverFile.internaltip_id.in_(itips_ids)))
 
 
 @transact
@@ -609,7 +609,6 @@ def register_rfile_on_db(session, tid, user_id, itip_id, uploaded_file):
                         .filter(models.InternalTip.id == itip_id,
                                 models.ReceiverTip.receiver_id == user_id,
                                 models.ReceiverTip.internaltip_id == models.InternalTip.id,
-                                models.InternalTip.status != 'closed',
                                 models.InternalTip.tid == tid).one()
 
     rtip.last_access = datetime_now()
@@ -721,8 +720,6 @@ def redact_report(session, user_id, report, enforce=False):
         if comment['id'] in redactions_by_reference_id:
             comment['content'] = redact_content(comment['content'], redactions_by_reference_id[comment['id']][0].temporary_redaction, '0x2591')
 
-    report['wbfiles'] = [x for x in report['wbfiles'] if x['ifile_id'] not in redactions_by_reference_id]
-
     return report
 
 
@@ -768,6 +765,8 @@ def db_postpone_expiration(session, itip, expiration_date):
 
     prev_expiration_date = itip.expiration_date
     itip.expiration_date = expiration_date
+
+    itip.update_date = datetime_now()
 
     return prev_expiration_date, expiration_date
 

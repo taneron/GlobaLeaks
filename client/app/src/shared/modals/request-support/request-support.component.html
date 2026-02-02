@@ -1,16 +1,14 @@
 <div class="modal-header">
-  <div class="modal-title">{{'Request support'|translate}}</div>
-  <button type="button" class="btn close" (click)="activeModal.dismiss()" [attr.aria-label]="'Close'|translate">
-    <i class="fa-solid fa-times"></i>
-  </button>
+  <h5 id="modal-title" class="modal-title">{{'Request support'|translate}}</h5>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()" [attr.aria-label]="'Close' | translate"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></button>
 </div>
 <div class="modal-body">
   <form #SupportRequest="ngForm" name="SupportRequest" id="SupportRequest" novalidate>
     @if (!sent) {
       <div>
         <div class="form-group">
-          <label>{{'Email address'|translate}}</label>
-          <input class="form-control" name="email" [(ngModel)]="arg.mail_address" type="email" [pattern]="Constants.emailRegexp" required />
+          <label for="support-request-email">{{'Email address'|translate}}</label>
+          <input id="support-request-email" class="form-control" name="email" [(ngModel)]="arg.mail_address" type="email" [pattern]="Constants.emailRegexp" required />
           @if (SupportRequest.form.get('email')?.errors?.['required']) {
             <div class="text-danger">{{'This field is mandatory'|translate}}</div>
           }
@@ -19,9 +17,9 @@
           }
         </div>
         <div class="form-group">
-          <label>{{'Text'|translate}}</label>
+          <label for="support-request-message">{{'Text'|translate}}</label>
           <div>
-            <textarea class="form-control" name="message" [(ngModel)]="arg.text" required></textarea>
+            <textarea id="support-request-message" class="form-control" name="message" [(ngModel)]="arg.text" required></textarea>
           </div>
           @if (SupportRequest.form.get('message')?.errors?.['required']) {
             <div class="text-danger">{{'This field is mandatory'|translate}}</div>
@@ -44,7 +42,7 @@
     </button>
   }
   <a id="modal-action-cancel" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">
-    <i class="fa-solid fa-times"></i>
+    <i class="fas fa-xmark"></i>
     <span>{{'Close'|translate}}</span>
   </a>
 </div>

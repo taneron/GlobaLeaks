@@ -16,94 +16,22 @@
 
 * {
   font-family: "Inter", sans-serif;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-legend,
-.rst-content .toctree-wrapper p.caption {
-  color: #1d1f2a;
-}
-
-a,
-a:active,
-a:visited,
-a:focus {
-  color: #204f82;
-}
-
-a:hover {
-  color: #3679BB;
+  --font-stack: "Inter", sans-serif;
+  --font-stack--headings: "Inter", sans-serif;
 }
 
 .highlight {
-  background-color: #eef5fc;
+  background-color: #EEF5FC;
 }
 
-.rst-content tt.literal,
-.rst-content tt.literal,
-.rst-content code.literal {
-  color: #3679BB;
-}
-
-.wy-nav-side {
-  background-color: #103253;
-}
-
-.wy-nav-top a,
-.wy-nav-top a:active,
-.wy-nav-top a:focus,
-.wy-nav-top a:hover,
-.wy-nav-top a:visited,
-.wy-nav-side a,
-.wy-nav-side a:active,
-.wy-nav-side a:focus,
-.wy-nav-side a:hover,
-.wy-nav-side a:visited,
-.wy-side-nav-search>div.switch-menus>div.language-switch select,
-.wy-side-nav-search>div.switch-menus>div.version-switch select {
-  color: #FFF;
-}
-
-.wy-side-nav-search>div.switch-menus>div.language-switch select:active,
-.wy-side-nav-search>div.switch-menus>div.language-switch select:focus,
-.wy-side-nav-search>div.switch-menus>div.language-switch select:hover,
-.wy-side-nav-search>div.switch-menus>div.version-switch select:active,
-.wy-side-nav-search>div.switch-menus>div.version-switch select:focus,
-.wy-side-nav-search>div.switch-menus>div.version-switch select:hover {
-  background: none; 
-  color: #FFF;
-}
-
-.wy-nav-top {
-  background-color: #3679BB;
-}
-
-.wy-menu .caption-text {
-  color: #5794d5;
-}
-
-vertical li.current > a {
-  color: #1d1f2a;
-}
-
-.document ul,
-.document li {
-  list-style: disc;
-}
-
-.centered-content {
+.introduction-banner {
   display: table;
   margin: 1em auto;
+  font-size: 0.5rem;
+  text-align: center;
 }
 
 .donation-banner {
-  background-color: #fff;
   padding: 10px;
   text-align: center;
   width: 100%;
@@ -121,18 +49,14 @@ vertical li.current > a {
   margin-right: 10px;
 }
 
-@media screen and (min-width: 767px) {
-  .wy-nav-content {
-    max-width: 100% !important;
-  }
+img.align-center {
+  margin-bottom: 1rem;
+}
 
-  .wy-table-responsive table td,
-  .wy-table-responsive table th {
-    white-space: normal !important;
-  }
-
-  .wy-table-responsive {
-    overflow: visible !important;
-    max-width: 100%;
+@media not print {
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+    --color-code-background: #1D1F24;
+    --color-code-foreground: #F5F7FA;
   }
 }

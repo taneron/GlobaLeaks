@@ -98,6 +98,7 @@ def duplicate_questionnaire(session, tid, user_session, questionnaire_id, new_na
 
     :param session: An ORM session
     :param tid: A tnenat ID
+    :param user_session: The session of the user performing the operation
     :param questionnaire_id A questionnaire ID
     :param new_name: The name to be assigned to the new questionnaire
     """

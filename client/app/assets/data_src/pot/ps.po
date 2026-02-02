@@ -36,14 +36,12 @@ msgid "Access requested"
 msgstr "لاسرسی غوښتل شوی"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "د افشاګر پیژندګلوي ته لاسرسی لرل ساتونکي ته لیږل شوی."
 
 msgid "Account recovery key"
 msgstr "د اکاونټ د تر لاسه کولو رمز"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "فعالیتونه"
@@ -90,16 +88,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "تر لاسه کوونکي ته اجازه ورکړئ تر څو رپوټونه پاک کړي"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "افشاګر ته اجازه ورکړئ چې له دې رپوټ سره ضمیمې اضافه کړي"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "افشاګر ته اجازه ورکړئ تر څو تبصرې ولیکي"
 
 msgid "Allow users to sign up"
 msgstr "د نوم لیکنې لپاره کارنونو ته اجازه ورکول"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "افشاګرانو ته اجازه ورکړئ تر څو خپل تر لاسه کوونکي وټاکي"
 
 msgid "Allowed IP addresses"
@@ -159,7 +157,7 @@ msgstr "اجازه ورکول"
 msgid "Authorize"
 msgstr "جواز ورکول"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "د افشاګر پیژندګلوي ته د لاسرسي لرلو جواز ورکول"
 
 msgid "Authorized"
@@ -322,7 +320,7 @@ msgstr "رد شوی"
 msgid "Deny"
 msgstr "ردول"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "د افشاګر پیژندګلوي ته لاسرسی لرل ردول"
 
 msgid "Description"
@@ -445,6 +443,9 @@ msgstr "فعال"
 msgid "Enter a name for the copy"
 msgstr "د کاپي لپاره یو نوم دننه کړئ"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "د دوه عامله تصدیق کوډ دننه کړئ"
 
@@ -511,7 +512,7 @@ msgstr ""
 msgid "Footer"
 msgstr "فوټر"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -566,7 +567,7 @@ msgstr "د لاسرسي ورکول"
 msgid "Group of questions"
 msgstr "د پوښتنو ګروپ"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "ایا تاسې له پخوا څخه یو رپوټ ډک کړی دی؟ خپل رسید دننه کړئ."
 
 msgid "Hidden"
@@ -692,6 +693,9 @@ msgstr "اجازه ورکړئ چې دغه پلټفارم له Tor پرته د ل
 
 msgid "License"
 msgstr "جواز"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "د داخلي کارنونو د دننه کېدو لاسرسی"
@@ -844,6 +848,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "یوه یا ګڼو تر لاسه کوونو تر اوسه پورې د لومړی ځل لپاره نه دي دننه شوي. دا په دې معنی ده چې هغوی به رپوټونه نه وي تر لاسه کړي."
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "پرانیستل شوی"
 
@@ -940,7 +947,7 @@ msgstr "د پوښتې ګروپ"
 msgid "Question templates"
 msgstr "د پوښتنې ټیمپلیټونه"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "د احتمالي افشاګرانو د غوښتنې لپاره پوښتنه"
 
 msgid "Questionnaire"
@@ -954,6 +961,9 @@ msgstr "پوښتنلیکونه"
 
 msgid "Questions"
 msgstr "پوښتنې"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -991,7 +1001,7 @@ msgstr "منظم بیان"
 msgid "Regular expression validator"
 msgstr "د منظم بیان تایید کوونکی"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "د همدې رپوټ لپاره خپل رسید په یاد وساتئ،"
 
 msgid "Reminder date"
@@ -1021,7 +1031,7 @@ msgstr "د وضعیتونو رپوټ کول"
 msgid "Reports"
 msgstr "رپوټونه"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "د افشاګر پیژندګلوي ته لاسرسی لرل وغواړئ"
 
 msgid "Request date"
@@ -1066,7 +1076,7 @@ msgstr "سرچینه و نه موندل شوه"
 msgid "Restrict access to specific IP addresses"
 msgstr "مشخص د IP پتو ته لاسرسی محدود کړئ"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1240,7 +1250,13 @@ msgstr "تسلیمي غیرفعالې دي"
 msgid "Submit"
 msgstr "تسلیمول"
 
+msgid "Submit a report"
+msgstr "د رپوټ ورکول"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1350,7 +1366,7 @@ msgstr "وړاندې شوی د تر لاسه کولو رمز ناسم دی."
 msgid "The provided reset token is invalid or expired."
 msgstr "وړاندې شوی د نوي کولو ټوکین ناسم یا هم انقضاء شوی دی."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "یا رسید ناسم دی یا رپوټ انقضاء شوی."
 
 msgid "The specified input is not valid."
@@ -1374,10 +1390,10 @@ msgstr "کارن به اړ کړل شي تر څو خپل پټ نوم په رات�
 msgid "The validation link is either incorrect or has expired."
 msgstr "د تایید لینک یا ناسم دی یا انقضاء شوی."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "افشاګر له پخوا څخه وروستی اپډیټ لوستی"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "افشاګر تر اوسه وروستی اپډیټ نه دی لوستی"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1464,8 +1480,8 @@ msgid "Use as default"
 msgstr "په عادي حالت کې کارول"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "حساب ته د ننوتو لپاره له 16 رقمي رسید څخه کار واخلئ. دا به تاسې ته اجازه درکړي تر څو هر هغه پیغام ووینئ کوم چې موږ تاسې ته لیږلي دي، او همداشان و به کولای شئ چې اضافي معلومات پکې اضافه کړئ."
 
 msgid "Use the first site for administrative purposes only"
@@ -1539,10 +1555,10 @@ msgstr "ضعیف"
 msgid "Welcome!"
 msgstr "ښه راغلاست!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "افشاګر"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "د افشاګر وروستی لاسرسی"
 
 msgid "Whistleblowing Policy"
@@ -1562,7 +1578,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "تاسې له سرور سره پرته له کومې ناپیژندتیا وصل شوي یاست او دغه سرور یوازې ناپیژانده تسلیمي مني"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1611,9 +1627,6 @@ msgstr "مهرباني وکړئ یوازې شمېرې دننه کړئ."
 
 msgid "seconds"
 msgstr "ثانیې"
-
-msgid "File a report"
-msgstr "د رپوټ ورکول"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1745,22 +1758,6 @@ msgstr "دغه پلټفارم به په اتومات ډول په دې نېټه �
 msgid "Access instructions"
 msgstr "د لاسرسي لارښوونې"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "د هغو فعالیتونو شمېر چې په دې وروستیو کې تر سترګو شوی داسې ښکاري چې تر معمول کچې ډېر لوړ دی."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "دا کېدای شي د یوه برید نښه وي (د بېلګې په توګه، یو کس چې ستاسې سرور یې په جعلی اطلاعاتو سره غرق کړی وي) یا هم ستاسې د پروژې د زیات لید له کبله د زیاتې کارونې له کبله وي. "
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "دا موضوع وازمویئ تر څو په ډاګه شي چې ایا قانوني ده که نه."
-
-msgid "The activities with unusual stats are:"
-msgstr "له غیرمعمول وضعیت سره مل فعالیتونه عبارت دې له:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1775,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "د GlobaLeaks ټکنالوژۍ کې د سرور د وضعیت د کتلو برخه هم شامله ده چې که کله کوم شي ستاسې پاملرنې ته اړتیا درلوده نو تاسې به خبر کړي."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "د لا زیاتو معلوماتو لپاره، اداري رابط ته دننه شئ او د \"سیستم وضعیت\" او \"ګډې وډې\" برخې وګورئ."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "په {NodeName} کې ګډوډ شی تشخیص شو "
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1901,7 +1890,7 @@ msgstr "دا برېښنالیک تاسې خبروي چې یوه ساتونکي �
 msgid "The report can be accessed at:"
 msgstr "دغه رپوټ ته کېدای شي لاندې لاسرسی ولری:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "د افشاګر پیژندګلوي ته لاسرسی مجاز شوی"
 
 msgid ""
@@ -1909,26 +1898,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "دا برېښنالیک تاسې خبروي چې یوه ساتونکي د رپوت لپاره د افشاګر پیژندګلوي ته ستاسې لاسرسی رد کړی دی {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "د افشاګر پیژندګلوي ته لاسرسی رد شو"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "دا برېښنالیک تاسې خبروي چې یوه تر لاسه کوونکي کس د رپوټ په خاطر د افشاګر پیژندګلوي ته د لاسرسي لرلو غوښتنه کړې ده {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "دغې غوښتنې ته لاندې لاسرسی کېدای شي:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "د افشاګر پیژندګلوي ته د لاسرسي لرلو لپاره نوي غوښتنه"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "دا برېښنالیک تاسې خبروي چې د رپوټ {TipNum} افشاګر خپله پیژندګلوي درته وړاندې کړي ده."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "افشارګر خپله پیژندګلوي وړاندې کړي ده"
 
 msgid ""

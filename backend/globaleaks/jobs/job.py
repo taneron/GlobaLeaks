@@ -42,15 +42,22 @@ class Job(task.LoopingCall):
 
     @defer.inlineCallbacks
     def run(self):
-        self.begin()
-
         try:
-            yield self.operation()
-        except Exception as e:
-            if not self.state.shutdown:
-                self.on_error(e)
+            self.begin()
 
-        self.end()
+            try:
+                yield self.operation()
+            except Exception as e:
+                if not self.state.shutdown:
+                    self.on_error(e)
+
+        finally:
+            # always call end, even if operation() or on_error() raises
+            try:
+                if self.active is not None:
+                    self.end()
+            except:
+                pass
 
     def begin(self):
         self.active = defer.Deferred()

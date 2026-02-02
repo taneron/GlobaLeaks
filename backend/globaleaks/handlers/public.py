@@ -10,6 +10,7 @@ from globaleaks.models.config import ConfigFactory, ConfigL10NFactory
 from globaleaks.orm import db_get, db_query, transact
 from globaleaks.state import State
 
+
 default_questionnaires = ['default']
 default_questions = ['whistleblower_identity']
 
@@ -393,6 +394,13 @@ def serialize_field(session, tid, field, language, data=None, serialize_template
         for attr in data['attrs'].get(field.template_id, {}):
             attrs[attr.name] = serialize_field_attr(attr, language)
 
+    if field.template_id and field.template_id in ['whistleblower_identity']:
+        # correct attributes for questions using default templates
+        attrs = {k: attrs.get(k, v) for k, v in State.field_attrs.get(field.template_id, {}).items()}
+    else:
+        # correct the attributes based on the actual descriptor
+        attrs = {k: attrs.get(k, v) for k, v in State.field_attrs.get(f_to_serialize.type, {}).items()}
+
     children = []
     if field.instance != 'reference' or serialize_templates:
         children = [serialize_field(session, tid, f, language, data, serialize_templates=serialize_templates) for f in data['fields'].get(f_to_serialize.id, [])]
@@ -467,7 +475,7 @@ def serialize_questionnaire(session, tid, questionnaire, language, serialize_tem
     :param serialize_templates: A boolean to require template serialization
     :return: The serialized resource
     """
-    steps = session.query(models.Step).filter(models.Step.questionnaire_id == questionnaire.id,
+    steps = session.query(models.Step).filter(models.Step.questionnaire_id == models.Questionnaire.id,
                                               models.Questionnaire.id == questionnaire.id) \
                                       .order_by(models.Step.order)
 

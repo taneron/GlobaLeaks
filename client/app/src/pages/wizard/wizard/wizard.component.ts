@@ -37,7 +37,7 @@ export class WizardComponent implements OnInit {
   private utilsService = inject(UtilsService);
   private cryptoService = inject(CryptoService);
 
-  step: number = 1;
+  step = 1;
   emailRegexp = Constants.emailRegexp;
   password_score = 0;
   admin_password = "";
@@ -113,7 +113,7 @@ export class WizardComponent implements OnInit {
 
   goToAdminInterface() {
     const promise = () => {
-      this.translationService.onChange(this.translationService.language);
+      this.translationService.setLanguage(this.translationService.language);
       this.appConfigService.reinit(false);
       this.appConfigService.loadAdminRoute("/admin/home");
     };

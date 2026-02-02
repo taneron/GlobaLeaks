@@ -1,13 +1,24 @@
-* {
+*, *::before, *::after {
+  animation: none !important;
   transition: none !important;
 }
 
 .reveal {
   opacity: 1;
-  animation: fadeIn 0s forwards;
 }
 
 #PageOverlay,
-#Loader {
+#Loader,
+.tooltip {
   display: none;
+}
+
+.modal-content,
+.dropdown-menu {
+  border: unset;
+  border-radius: unset;
+}
+
+table {
+  font-size: 0.8125rem;
 }

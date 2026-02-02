@@ -41,14 +41,12 @@ msgid "Access requested"
 msgstr "アクセスをリクエストしました"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "内部告発者の身元へのアクセスを管理人にリクエストしました。"
 
 msgid "Account recovery key"
 msgstr "アカウント回復鍵"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "活動"
@@ -95,16 +93,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "受信者が報告を削除することを許可する"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "その内部告発者が、報告に添付ファイルを追加することを許可する"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "その内部告発者が、コメントを書くことを許可"
 
 msgid "Allow users to sign up"
 msgstr "ユーザーによるサインアップを許可"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "内部告発者が、受信者を選択することを許可"
 
 msgid "Allowed IP addresses"
@@ -164,7 +162,7 @@ msgstr "認証"
 msgid "Authorize"
 msgstr "承認"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "内部告発者の身元へのアクセスを承認"
 
 msgid "Authorized"
@@ -327,7 +325,7 @@ msgstr "拒否"
 msgid "Deny"
 msgstr "拒否"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "内部告発者の身元へのアクセスを拒否"
 
 msgid "Description"
@@ -450,6 +448,9 @@ msgstr "有効"
 msgid "Enter a name for the copy"
 msgstr "コピーの名前を入力してください"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "2要素認証コードを入力"
 
@@ -516,7 +517,7 @@ msgstr "財務コード"
 msgid "Footer"
 msgstr "フッター"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -571,7 +572,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "質問のグループ"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "すでに報告を行っていますか？あなたの受領番号を入力してください。"
 
 msgid "Hidden"
@@ -697,6 +698,9 @@ msgstr "Tor がなくてもプラットフォームが到達するようにす�
 
 msgid "License"
 msgstr "ライセンス"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "内部ユーザーのログアクセス"
@@ -849,6 +853,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "1名以上の受信者はまだ一度もログインを実行していません。 つまり、彼らは報告を受け取らない可能性があるということです。"
 
+msgid "Open"
+msgstr "開く"
+
 msgid "Opened"
 msgstr "開きました"
 
@@ -945,7 +952,7 @@ msgstr "質問グループ"
 msgid "Question templates"
 msgstr "質問のテンプレート"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "内部告発の質問"
 
 msgid "Questionnaire"
@@ -959,6 +966,9 @@ msgstr "アンケート"
 
 msgid "Questions"
 msgstr "質問"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "受信者"
@@ -996,7 +1006,7 @@ msgstr "正規表現"
 msgid "Regular expression validator"
 msgstr "正規表現バリデーター"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "この報告の受領番号を覚えておいてください。"
 
 msgid "Reminder date"
@@ -1026,7 +1036,7 @@ msgstr "報告状況"
 msgid "Reports"
 msgstr "報告書"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "内部告発者の身元にアクセスするリクエスト"
 
 msgid "Request date"
@@ -1071,7 +1081,7 @@ msgstr "リソースが見つかりません"
 msgid "Restrict access to specific IP addresses"
 msgstr "特定のIPアドレスにアクセスを制限する"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1245,8 +1255,14 @@ msgstr "提出は無効です"
 msgid "Submit"
 msgstr "提出"
 
+msgid "Submit a report"
+msgstr "報告を保存する"
+
 msgid "Subscribed"
 msgstr "購読済み"
+
+msgid "Subscribed later"
+msgstr ""
 
 msgid "Subscription date"
 msgstr ""
@@ -1355,7 +1371,7 @@ msgstr "指定された回復鍵は無効です。"
 msgid "The provided reset token is invalid or expired."
 msgstr "指定されたリセットトークンが無効または期限切れです。"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "受領番号が無効であるか、報告が有効期限切れです。"
 
 msgid "The specified input is not valid."
@@ -1379,10 +1395,10 @@ msgstr "次回ログイン時に、受信者はパスワードを変更するこ
 msgid "The validation link is either incorrect or has expired."
 msgstr "検証リンクが間違っているか、有効期限が切れています。"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "この内部告発者は既に最後の更新を読んでいます"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "この内部告発者はまだ最後の更新を読んでいません"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1485,8 @@ msgid "Use as default"
 msgstr "デフォルトとして使用する"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "16桁の受領番号を使用してログインください。私たちがあなたに送信したメッセージを表示したり、追加の情報を入力することができます。"
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1560,10 @@ msgstr "弱い"
 msgid "Welcome!"
 msgstr "ようこそ!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "内部告発者"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "WBの最終アクセス"
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1583,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "あなたは匿名性が無いままサーバーに接続しています。このサーバーは匿名による提出のみをサポートします。"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1632,6 @@ msgstr "数字のみで入力してください。"
 
 msgid "seconds"
 msgstr "秒"
-
-msgid "File a report"
-msgstr "報告を保存する"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1750,22 +1763,6 @@ msgstr "プラットフォームは自動的に削除されます:"
 msgid "Access instructions"
 msgstr "アクセス方法"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "最近検出された活動の数が、通常よりも高いようです。"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "これは攻撃の兆候かもしれませんし (例えば、偽の情報でサーバーをあふれさせるなど)、あなたのプロジェクトが注目を集めたために利用が跳ね上がったせいかもしれません。"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "問題が正当なものかどうかを調べます。"
-
-msgid "The activities with unusual stats are:"
-msgstr "異常な統計の活動は次のとおりです:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1783,14 +1780,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks テクノロジーは、あなたが何かの注意を必要とする場合に警告を表示する、サーバー状態のチェックコンポーネントが含まれています。"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "詳細については、管理者インターフェースにログインし、「システム統計」と「異常」のセクションを見てください。"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} で異変を検出しました"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1906,7 +1895,7 @@ msgstr "これは、報告 {TipNum} の内部告発者の身元にあなたが�
 msgid "The report can be accessed at:"
 msgstr "報告は以下からアクセスできます:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "内部告発者の身元へのアクセスを承認しました"
 
 msgid ""
@@ -1914,26 +1903,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "これは、報告 {TipNum} の内部告発者の身元にあなたがアクセスすることを、管理人が否認したことを通知するメールです。"
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "内部告発者の身元へのアクセスを否認しました"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "これは、受信者が報告 {TipNum} の内部告発者の身元にアクセスすることをリクエストしたことを通知するメールです"
 
 msgid "The request can be accessed at:"
 msgstr "リクエストは以下からアクセスできます:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "内部告発者の身元にアクセスする新しいリクエスト"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "これは、報告 {TipNum} の内部告発者が身元を提供したことを通知するメールです。"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "内部告発者が身元を提供しました"
 
 msgid ""

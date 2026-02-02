@@ -1,11 +1,9 @@
 import random
 import time
-import warnings
 import sqlite3
-import threading
 
 from sqlalchemy import create_engine, event
-from sqlalchemy.exc import OperationalError, SAWarning
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import sessionmaker
 
 from twisted.internet import reactor
@@ -27,11 +25,6 @@ SQLITE_READ=20
 SQLITE_SELECT=21
 SQLITE_TRANSACTION=22
 SQLITE_UPDATE=23
-
-THREAD_LOCAL = threading.local()
-
-
-warnings.filterwarnings('ignore', '.', SAWarning)
 
 
 def make_db_uri(db_file):
@@ -64,13 +57,17 @@ def get_engine(db_uri=None, foreign_keys=True, orm_lockdown=True):
                                                      'length',
                                                      'lower',
                                                      'min',
-                                                     'max']):
+                                                     'max',
+                                                     'substr']):
             return sqlite3.SQLITE_OK
         else:
             return sqlite3.SQLITE_DENY
 
     @event.listens_for(engine, "connect")
     def do_connect(conn, connection_record):
+        conn.execute('PRAGMA journal_mode=WAL')
+        conn.execute('PRAGMA synchronous=FULL')
+        conn.execute('PRAGMA cache_size=-32000')
         conn.execute('PRAGMA trusted_schema=OFF')
         conn.execute('PRAGMA temp_store=MEMORY')
 
@@ -169,10 +166,7 @@ class transact(object):
         Wrap provided function calling it inside a thread and
         passing the ORM session to it.
         """
-        global THREAD_LOCAL
-        session = getattr(THREAD_LOCAL, 'session', None)
-        if not session:
-            session = THREAD_LOCAL.session = get_session()
+        session = get_session()
 
         retries = 0
 

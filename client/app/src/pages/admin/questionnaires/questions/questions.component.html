@@ -3,13 +3,13 @@
     <div>
       <span>{{ 'Question templates' | translate }}</span>
       <button class="btn btn-sm btn-primary show-add-question-btn" (click)="toggleAddQuestion()">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fas fa-plus"></i>
         <span>{{ 'Add' | translate }}</span>
       </button>
       <span class="custom-file">
-        <input type="file" hidden #uploadInput (change)="importQuestion(uploadInput.files)" />
-        <label (click)="uploadInput.click()" class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-upload"></i>{{'Import' | translate}}
+        <input id="import-question-file" type="file" hidden #uploadInput (change)="importQuestion(uploadInput.files)" />
+        <label for="import-question-file" (click)="uploadInput.click()" class="btn btn-sm btn-outline-secondary">
+          <i class="fas fa-upload"></i>{{'Import' | translate}}
         </label>
       </span>
     </div>
@@ -17,17 +17,18 @@
   @if (showAddQuestion) {
     <div class="config-section col-md-6">
       @if (questionnairesData.length > 0) {
-        <src-add-field [step]="step" [type]="'template'" (dataToParent)="listenToAddField()"></src-add-field>
+        <src-add-field [fields]="fields" [type]="'template'" (dataToParent)="listenToAddField()"></src-add-field>
       }
     </div>
   }
-  @for (field of fields | orderBy:'label' ; track field; let index = $index) {
-    <div class="col-md-12">
+
+  <app-paginated-interface [items]="fields" [filterField]="'name'" [orderBy]="'label'">
+    <ng-template #content let-item="item" let-index="index">
       <div id="field-{{index}}" class="fieldBox">
         <form #editField="ngForm">
-          <src-fields [editField]="editField" [field]="field" [fields]="fields" [type]="'template'"></src-fields>
+          <src-fields [editField]="editField" [type]="'template'" [field]="item" [fields]="fields"></src-fields>
         </form>
       </div>
-    </div>
-  }
+    </ng-template>
+  </app-paginated-interface>
 </div>

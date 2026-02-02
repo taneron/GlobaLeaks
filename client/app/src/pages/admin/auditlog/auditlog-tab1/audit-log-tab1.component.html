@@ -1,35 +1,20 @@
-@if (this.auditLog.slice()) {
-  <table id="userList" class="table table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>{{'Date'|translate}}</th>
-        <th>{{'Type'|translate}}</th>
-        <th>{{'User'|translate}}</th>
-        <th>{{'Object'|translate}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (data of getPaginatedData(); track data) {
-        <tr>
-          <td>{{ data.date | date:'dd-MM-yyyy HH:mm' }}</td>
-          <td>{{ data.type }}</td>
-          <td>{{ data.user_id }}</td>
-          <td>{{ data.object_id }}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
-  @if (auditLog.length > pageSize) {
-    <div>
-       <ngb-pagination dir="ltr" class="d-flex justify-content-center" [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="auditLog.length">
-          <ng-template ngbPaginationFirst><i class="fa-solid fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-          <ng-template ngbPaginationPrevious><i class="fa-solid fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-          <ng-template ngbPaginationNext><i class="fa-solid fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-          <ng-template ngbPaginationLast><i class="fa-solid fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
-       </ngb-pagination>
-    </div>
-  }
-  <div class="d-flex justify-content-end"><button class="btn btn-sm btn-link" type="button" (click)="exportAuditLog()"> <i class="fa-solid fa-download"></i> <span>{{ 'Export' | translate }}</span> </button> @if (nodeResolver.dataModel.root_tenant) {
-    <span><a class="btn btn-sm btn-link" type="button" (click)="utilsService.saveAs(authenticationService, 'globaleaks.log', '/api/admin/auditlog/debug')"> <i class="fa-solid fa-download"></i> globaleaks.log </a> <a class="btn btn-sm btn-link" type="button" (click)="utilsService.saveAs(authenticationService, 'access.log', '/api/admin/auditlog/access')"> <i class="fa-solid fa-download"></i> access.log</a></span>
-  }</div>
-}
+<app-paginated-interface [mode]="'table'" [items]="this.auditLog">
+  <ng-template #header>
+    <tr>
+      <th>{{'Date'|translate}}</th>
+      <th>{{'Type'|translate}}</th>
+      <th>{{'User'|translate}}</th>
+      <th>{{'Object'|translate}}</th>
+    </tr>
+  </ng-template>
+  <ng-template #content let-data="item" let-index="index">
+    <tr>
+      <td>{{ data.date | date:'dd-MM-yyyy HH:mm' }}</td>
+      <td>{{ data.type }}</td>
+      <td>{{ data.user_id }}</td>
+      <td>{{ data.object_id }}</td>
+    </tr>
+  </ng-template>
+</app-paginated-interface>
+<div class="d-flex justify-content-end"><button class="btn btn-sm btn-link" type="button" (click)="exportAuditLog()"><i class="fas fa-download"></i><span>{{ 'Export' | translate }}</span></button> @if (nodeResolver.dataModel.root_tenant) { <span><a class="btn btn-sm btn-link" type="button" (click)="utilsService.saveAs(authenticationService, 'globaleaks.log', '/api/admin/auditlog/debug')"><i class="fas fa-download"></i> globaleaks.log </a><a class="btn btn-sm btn-link" type="button" (click)="utilsService.saveAs(authenticationService, 'access.log', '/api/admin/auditlog/access')"><i class="fas fa-download"></i> access.log</a></span>
+}</div>

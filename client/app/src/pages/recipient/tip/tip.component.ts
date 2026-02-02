@@ -1,8 +1,9 @@
 import {ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild, inject} from "@angular/core";
+import {FormsModule} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppConfigService} from "@app/services/root/app-config.service";
 import {TipService} from "@app/shared/services/tip-service";
-import {NgbModal, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLinkButton, NgbNavLinkBase, NgbNavContent, NgbNavOutlet, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLinkButton, NgbNavLinkBase, NgbNavContent, NgbNavOutlet, NgbTooltipModule, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu} from "@ng-bootstrap/ng-bootstrap";
 import {AppDataService} from "@app/app-data.service";
 import {ReceiverTipService} from "@app/services/helper/receiver-tip.service";
 import {GrantAccessComponent} from "@app/shared/modals/grant-access/grant-access.component";
@@ -46,26 +47,30 @@ import {TranslatorPipe} from "@app/shared/pipes/translate";
     templateUrl: "./tip.component.html",
     standalone: true,
     imports: [
-    NgClass,
-    TipInfoComponent,
-    TipReceiverListComponent,
-    TipQuestionnaireAnswersComponent,
-    WhistleBlowerIdentityReceiverComponent,
-    TipFilesReceiverComponent,
-    NgbNav,
-    NgbNavItem,
-    NgbNavItemRole,
-    NgbNavLinkButton,
-    NgbNavLinkBase,
-    NgbNavContent,
-    NgTemplateOutlet,
-    NgbNavOutlet,
-    NgbTooltipModule,
-    TipUploadWbFileComponent_1,
-    TipCommentsComponent_1,
-    TranslateModule,
-    TranslatorPipe
-],
+      FormsModule,
+      NgClass,
+      TipInfoComponent,
+      TipReceiverListComponent,
+      TipQuestionnaireAnswersComponent,
+      WhistleBlowerIdentityReceiverComponent,
+      TipFilesReceiverComponent,
+      NgbNav,
+      NgbNavItem,
+      NgbNavItemRole,
+      NgbNavLinkButton,
+      NgbNavLinkBase,
+      NgbNavContent,
+      NgTemplateOutlet,
+      NgbNavOutlet,
+      NgbTooltipModule,
+      NgbDropdown,
+      NgbDropdownToggle,
+      NgbDropdownMenu,
+      TipUploadWbFileComponent_1,
+      TipCommentsComponent_1,
+      TranslateModule,
+      TranslatorPipe
+    ],
 })
 export class TipComponent implements OnInit {
   private translateService = inject(TranslateService);
@@ -95,16 +100,17 @@ export class TipComponent implements OnInit {
   showEditLabelInput: boolean;
   active: string;
   loading = true;
-  redactMode:boolean = false;
+  redactMode = false;
   redactOperationTitle: string;
   tabs: Tab[];
+  submission: any;
 
   ngOnInit() {
-    this.loadTipDate();
+    this.loadTipData();
     this.cdr.detectChanges();
   }
 
-  loadTipDate() {
+  loadTipData() {
     this.tip_id = this.activatedRoute.snapshot.paramMap.get("tip_id");
     this.redactOperationTitle = this.translateService.instant('Mask') + ' / ' + this.translateService.instant('Redact');
     const requestObservable: Observable<any> = this.httpService.receiverTip(this.tip_id);
@@ -116,7 +122,9 @@ export class TipComponent implements OnInit {
           this.loading = false;
           this.RTipService.initialize(response);
           this.tip = this.RTipService.tip;
-          this.activatedRoute.queryParams.subscribe((params: { [x: string]: string; }) => {
+          this.submission = { submission: this.tip, identity_provided: this.tip.identity_provided };
+
+          this.activatedRoute.queryParams.subscribe((params: Record<string, string>) => {
             this.tip.tip_id = params["tip_id"];
           });
 
@@ -129,6 +137,7 @@ export class TipComponent implements OnInit {
           setTimeout(() => {
               this.initNavBar();
           });
+          this.cdr.markForCheck();
         }
       }
     );
@@ -154,13 +163,18 @@ export class TipComponent implements OnInit {
     });
   }
 
+  updateLabel(label: string) {
+    this.httpService.tipOperation("set", {"key": "label", "value": label}, this.RTipService.tip.id).subscribe(() => {
+    });
+  }
+
   openGrantTipAccessModal(): void {
     this.utils.runUserOperation("get_users_names", {}, false).subscribe({
       next: response => {
         const names = response as Record<string, string>;
         const selectableRecipients: Receiver[] = [];
         this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
-          if (receiver.id !== this.authenticationService.session.user_id && !this.tip.receivers_by_id[receiver.id]) {
+          if (receiver.id !== this.authenticationService.session.user_id && (!this.tip.receivers_by_id[receiver.id] || !this.tip.receivers_by_id[receiver.id].active)) {
             receiver.name = names[receiver.id];
             selectableRecipients.push(receiver);
           }
@@ -191,7 +205,7 @@ export class TipComponent implements OnInit {
           const names = response as Record<string, string>;
           const selectableRecipients: Receiver[] = [];
           this.appDataService.public.receivers.forEach(async (receiver: Receiver) => {
-            if (receiver.id !== this.authenticationService.session.user_id && this.tip.receivers_by_id[receiver.id]) {
+            if (receiver.id !== this.authenticationService.session.user_id && (this.tip.receivers_by_id[receiver.id] && this.tip.receivers_by_id[receiver.id].active)) {
               receiver.name = names[receiver.id];
               selectableRecipients.push(receiver);
             }
@@ -400,7 +414,7 @@ export class TipComponent implements OnInit {
   }
 
   listenToFields() {
-    this.loadTipDate();
+    this.loadTipData();
   }
 
   protected readonly JSON = JSON;

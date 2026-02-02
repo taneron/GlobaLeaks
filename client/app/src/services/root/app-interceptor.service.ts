@@ -12,7 +12,6 @@ import {TokenResponse} from "@app/models/authentication/token-response";
 import {CryptoService} from "@app/shared/services/crypto.service";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {AppDataService} from "@app/app-data.service";
-import {TranslationService} from "@app/services/helper/translation.service";
 import {ErrorCodes} from "@app/models/app/error-code";
 import {of} from 'rxjs';
 import {timer} from 'rxjs';

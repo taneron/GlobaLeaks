@@ -1,9 +1,9 @@
 <div class="modal-header">
-  <div class="modal-title">{{ 'Privacy Policy' | translate }}</div>
+  <h5 id="modal-title" class="modal-title">{{ 'Privacy Policy' | translate }}</h5>
 </div>
 <div class="modal-body">
   <div>
-    <div class="tos-text">{{appDataService.public.node.user_privacy_policy_text}}</div>
+    <div class="tos-text" tabindex="0" role="region" [attr.aria-label]="'Privacy Policy' | translate">{{appDataService.public.node.user_privacy_policy_text}}</div>
     @if (appDataService.public.node.user_privacy_policy_url) {
       <a href="{{appDataService.public.node.user_privacy_policy_url}}" target="_blank">{{ 'Download copy of the Privacy Policy' | translate }}</a>
     }
@@ -15,7 +15,7 @@
 </div>
 <div class="modal-footer">
   <button id="modal-action-ok" class="btn btn-primary" [disabled]="!accept" (click)="confirm()">
-    <i class="fa-solid fa-check"></i>
+    <i class="fas fa-check"></i>
     <span>{{ 'Confirm' | translate }}</span>
   </button>
 </div>

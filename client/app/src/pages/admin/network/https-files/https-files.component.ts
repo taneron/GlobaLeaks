@@ -27,7 +27,7 @@ export class HttpsFilesComponent implements OnInit {
 
   @Output() dataToParent = new EventEmitter<string>();
   @Input() tlsConfig: TlsConfig;
-  @Input() state: number = 0;
+  @Input() state = 0;
   @ViewChild('pkInput') pkInput: ElementRef<HTMLInputElement>;
   @ViewChild('certificateInput') certificateInput: ElementRef<HTMLInputElement>;
   @ViewChild('iCertificateInput') iCertificateInput: ElementRef<HTMLInputElement>;
@@ -74,7 +74,7 @@ export class HttpsFilesComponent implements OnInit {
   }
 
   deleteFile(fileResource: FileResource) {
-    const modalRef = this.modalService.open(ConfirmationComponent, {backdrop: 'static', keyboard: false});
+    const modalRef = this.modalService.open(ConfirmationComponent, {backdrop: 'static', keyboard: false, ariaLabelledBy: 'modal-title'});
     modalRef.componentInstance.arg = fileResource.name;
     modalRef.componentInstance.confirmFunction = (arg: string) => {
       return this.httpService.requestDeleteTlsConfigFilesResource(arg).subscribe(() => {
@@ -96,7 +96,7 @@ export class HttpsFilesComponent implements OnInit {
       this.iCertificateInput.nativeElement.value = "";
     }
   }
-  
+
   downloadCSR() {
     this.httpService.downloadCSRFile().subscribe(
       (response: Blob) => {
@@ -116,7 +116,7 @@ export class HttpsFilesComponent implements OnInit {
   }
 
   resetCfg() {
-    const modalRef = this.modalService.open(ConfirmationComponent, {backdrop: 'static', keyboard: false});
+    const modalRef = this.modalService.open(ConfirmationComponent, {backdrop: 'static', keyboard: false, ariaLabelledBy: 'modal-title'});
     modalRef.componentInstance.arg = null;
     modalRef.componentInstance.confirmFunction = () => {
       return this.httpService.requestDeleteTlsConfigResource().subscribe(() => {

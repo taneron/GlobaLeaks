@@ -43,14 +43,12 @@ msgid "Access requested"
 msgstr "Giriş tələb olunur"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Mühafizəçidən informasiya ötürənin kimliyinə giriş tələb olunur."
 
 msgid "Account recovery key"
 msgstr "Hesabı qaytarma açarı"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Fəaliyyətlər"
@@ -97,16 +95,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Alıcının hesabatları silməsinə icazə verin"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "İnformasiya ötürənin hesabata əlavələr etməsinə icazə verin"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "İnformasiya ötürənlərin şərh yazmasına icazə verin"
 
 msgid "Allow users to sign up"
 msgstr "İstifadəçilərin qeydiyyatına icazə verin"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "İnformasiya ötürənlərə öz alıcılarını seçmək imkanı verin"
 
 msgid "Allowed IP addresses"
@@ -166,7 +164,7 @@ msgstr "Səlahiyyətvermə"
 msgid "Authorize"
 msgstr "İcazə ver"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "İnformasiya ötürənin kimliyinə girişə icazə ver"
 
 msgid "Authorized"
@@ -329,7 +327,7 @@ msgstr "Rədd edildi"
 msgid "Deny"
 msgstr "Rədd et"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "İnformasiya ötürənin kimliyinə girişi rədd et"
 
 msgid "Description"
@@ -452,6 +450,9 @@ msgstr "Aktivdir"
 msgid "Enter a name for the copy"
 msgstr "Nüsxə üçün ad əlavə edin"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "İki pilləli təsdiqləmə kodunu daxil et"
 
@@ -518,7 +519,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Alt məlumat"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -573,7 +574,7 @@ msgstr "Giriş ver"
 msgid "Group of questions"
 msgstr "Suallar qrupu"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Hesabatı artıq göndərmisiz? Açar şifrəni daxil edin"
 
 msgid "Hidden"
@@ -699,6 +700,9 @@ msgstr "Platformanın Tor olmadan da açılmasını təmin edin"
 
 msgid "License"
 msgstr "Lisenziya"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Daxili istifadəçilərin girişləri"
@@ -851,6 +855,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Bir və ya daha artıq alıcı ilk girişini hələ etməyib. Ona görə də hesabatları ala bilməyəcəklər."
 
+msgid "Open"
+msgstr "Açın"
+
 msgid "Opened"
 msgstr "Açılıb"
 
@@ -947,7 +954,7 @@ msgstr "Sual qrupu"
 msgid "Question templates"
 msgstr "Sual şablonları"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "İnformasiya ötürənə sual verə bilərsiniz"
 
 msgid "Questionnaire"
@@ -961,6 +968,9 @@ msgstr "Sorğular"
 
 msgid "Questions"
 msgstr "Suallar"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Alıcılar"
@@ -998,7 +1008,7 @@ msgstr "Daimi ifadə"
 msgid "Regular expression validator"
 msgstr "İfadəni daimi yoxlayan inspektor"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Bu təqdimat üçün açar şifrənizi unutmayın."
 
 msgid "Reminder date"
@@ -1028,7 +1038,7 @@ msgstr "Hesabatın statusu"
 msgid "Reports"
 msgstr "Hesabatlar"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "İnformasiya ötürənin kimliyinə giriş istə"
 
 msgid "Request date"
@@ -1073,7 +1083,7 @@ msgstr "Resurs tapılmadı"
 msgid "Restrict access to specific IP addresses"
 msgstr "Xüsusi İP ünvanlara girişi qadağa edin"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1247,7 +1257,13 @@ msgstr "Göndərmələr deaktiv edildi"
 msgid "Submit"
 msgstr "Göndər"
 
+msgid "Submit a report"
+msgstr "Hesabat göndər"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1357,7 +1373,7 @@ msgstr "Verilən qaytarma açarı etibarsızdır."
 msgid "The provided reset token is invalid or expired."
 msgstr "Verilən sıfırlama tokeni etibarsızdır, ya da köhnədir."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Açar şifrə etibarsızdır, ya da hesabat müddəti başa çatıb."
 
 msgid "The specified input is not valid."
@@ -1381,10 +1397,10 @@ msgstr "İstifadəçi növbəti giriş zamanı şifrəsini dəyişməyə məcbur
 msgid "The validation link is either incorrect or has expired."
 msgstr "Təsdiqləmə linki ya səhv, ya da köhnədir."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "İnformasiya ötürən son yeniləməni oxuyub"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "İnformasiya ötürən son yeniləməni hələ oxumayıb"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1471,8 +1487,8 @@ msgid "Use as default"
 msgstr "Standart kimi istifadə et"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Daxil olmaq üçün 16 rəqəmli şifrədən istifadə edin. Bu, sizə göndərdiyimiz bütün mesajları görməyinizə, həmçinin əlavə məlumat yükləməyə imkan verəcək. "
 
 msgid "Use the first site for administrative purposes only"
@@ -1546,10 +1562,10 @@ msgstr "Zəif"
 msgid "Welcome!"
 msgstr "Xoş gördük!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "İnformasiya ötürən"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Məlumatlandıranın son girişi"
 
 msgid "Whistleblowing Policy"
@@ -1569,7 +1585,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Siz serverə məxfiliyinizi qorumadan qoşulmusuz və bu server yalnız anonim göndərmələri dəstəkləyir"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1618,9 +1634,6 @@ msgstr "xahiş edirik, yalnız rəqəmləri qeyd edin"
 
 msgid "seconds"
 msgstr "saniyələr"
-
-msgid "File a report"
-msgstr "Hesabat göndər"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1752,22 +1765,6 @@ msgstr "Platforma avtomatik olaraq silinəcək:"
 msgid "Access instructions"
 msgstr "Giriş qaydaları"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Son zamanlarda qeydə alınan fəaliyyətlərin sayı həmişəkindən yüksəkdir."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Bu, hücumla (məsələn, kimsə serverinizi saxta məlumatlarla doldurur), yaxud layihənizə baxış  sayının çoxalmasıyla bağlı artımın əlaməti ola bilər."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Bu məsələnin qanuni olub-olmadığını yoxlayın."
-
-msgid "The activities with unusual stats are:"
-msgstr "Qeyri-adi statistikası olan fəaliyyətlər:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1785,14 +1782,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Diqqətinizi tələb edən məsələ olanda GlobaLeaks texnologiyası serverin statusunu yoxlayan hissə vasitəsiylə sizə xəbərdarlıq edəcək."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Ətraflı məlumat üçün İdarəetmə ekranına daxil olun və \"Sistem Statistikaları\" və ya \"Anomaliyalar\" bölmələrinə baxın. "
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} -da aşkarlanan anomaliya"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1908,7 +1897,7 @@ msgstr "Bu məktub sizə, məlumatlandırma platformasına keçidinizin mühafiz
 msgid "The report can be accessed at:"
 msgstr "Hesabat əldə edilə bilər:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Məlumatlandırma platformasına keçidə icazə verildi"
 
 msgid ""
@@ -1916,26 +1905,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Bu məktub sizə, məlumatlandırma platformasına keçidinizin mühafizəçi tərəfindən təsdiqlənmədiyini bildirməkçün göndərilib {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Məlumatlandırma platformasına keçid rədd edildi"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Bu məktub sizə, alıcının məlumat platformasına keçid tələb etdiyini bildirməkçün göndərilib {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Tələbə baxmaq üçün:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Məlumat platformasına yeni keçid tələbi"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Bu məktub sizə, informasiya ötürənin {TipNum} öz kimliyi haqda məlumatı verdiyini bildirməkçün göndərilib."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "İnformasiya ötürən öz kimliyini göstərib. "
 
 msgid ""

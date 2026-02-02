@@ -19,6 +19,27 @@ declare global {
   }
 }
 
+// Define at the top of the spec file or just import it
+function terminalLog(violations) {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
+    } ${violations.length === 1 ? 'was' : 'were'} detected`
+  )
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length
+    })
+  )
+
+  cy.task('table', violationData)
+}
+
 Cypress.Commands.add("login_admin", (username, password, url, firstlogin) => {
   username = username === undefined ? "admin" : username;
   password = password === undefined ? Cypress.env("user_password") : password;
@@ -129,6 +150,8 @@ Cypress.Commands.add("login_receiver", (username, password, url, firstlogin) => 
 Cypress.Commands.add("login_whistleblower", (receipt) => {
   cy.visit("/");
 
+  cy.takeScreenshot("whistleblower/receipt_input", "#WhistleblowerLoginBox");
+
   cy.get('[name="receipt"]').type(receipt);
   cy.get("#ReceiptButton").click();
 });
@@ -199,32 +222,24 @@ Cypress.Commands.add("takeScreenshot", (filename: string, locator?: string) => {
     return;
   }
 
-  if (locator == '.modal') {
-    cy.get(".modal").invoke(
-      "attr",
-      "style",
-      "height: auto; position: absolute;"
-    );
-  }
-
   return cy.document().then((doc) => {
-    cy.viewport(1920, doc.body.scrollHeight);
+    cy.injectAxe()
+    cy.checkA11y(null, null, terminalLog, true);
 
-    cy.wait(500);
-
-    cy.waitForPageIdle();
-
-    if (locator && locator !== ".modal") {
-      return cy.get(locator).screenshot("../" + filename, {overwrite: true, scale: true});
+    if (locator) {
+      cy.viewport(1280, 1024);
+      cy.wait(50);
+      cy.waitForPageIdle();
+      return cy.get(locator).screenshot("../" + filename, {overwrite: true});
     }
 
-    cy.get('#FooterBox').scrollIntoView();
+    cy.wait(50);
+    cy.waitForPageIdle();
 
-    return cy.screenshot("../" + filename, {
-      capture: "fullPage",
-      overwrite: true,
-      scale: true
-    });
+    // Ensure the screenshot does not include signs of mouse position/clicks
+    cy.get('body').click(0, 0);
+
+    return cy.screenshot("../" + filename, {overwrite: true, scale: true });
   });
 });
 
@@ -235,33 +250,12 @@ Cypress.Commands.add("waitForPageIdle", () => {
         if (window.isAngularStable()) {
           resolve();
         } else {
-          setTimeout(checkAngular, 1000);
+          setTimeout(checkAngular, 50);
         }
       };
 
       checkAngular();
     });
-  });
-});
-
-Cypress.Commands.add("waitForTipImageUpload", (attempts = 0) => {
-  const maxAttempts = 10;
-  cy.get('body').then($body => {
-    if ($body.find('#fileListBody').length > 0) {
-      cy.get('#fileListBody')
-        .find('tr')
-        .then($rows => {
-          if ($rows.length === 2) {
-            cy.log('Condition met: 2 rows found');
-          } else if (attempts < maxAttempts) {
-            cy.get('#link-reload').click();
-            cy.waitForTipImageUpload(attempts + 1);
-          }
-        });
-    } else if (attempts < maxAttempts) {
-      cy.get('#link-reload').click();
-      cy.waitForTipImageUpload(attempts + 1);
-    }
   });
 });
 

@@ -1,6 +1,9 @@
 import ipaddress
 
+from functools import lru_cache
 
+
+@lru_cache(maxsize=1024)
 def parse_csv_ip_ranges_to_ip_networks(ip_str):
     """Parse a list of IP addresses and/or CIDRs
 
@@ -39,6 +42,7 @@ def parse_csv_ip_ranges_to_ip_networks(ip_str):
     return ip_network_list
 
 
+@lru_cache(maxsize=8192)
 def check_ip(client_ip, ip_filter):
     try:
         ip_networks = parse_csv_ip_ranges_to_ip_networks(ip_filter)
@@ -55,3 +59,16 @@ def check_ip(client_ip, ip_filter):
         return False
 
     return False
+
+
+@lru_cache(maxsize=8192)
+def get_ip_identity(client_ip):
+    ip = ipaddress.ip_address(client_ip)
+
+    if ip.version == 4:
+        return str(ip)
+
+    # IPv6 /64 via bitmask (più veloce)
+    network_int = int(ip) & ((1 << 128) - (1 << 64))
+    network = ipaddress.IPv6Address(network_int)
+    return f"{network}/64"

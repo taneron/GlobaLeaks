@@ -1,15 +1,11 @@
 from email import message_from_bytes
-from io import BytesIO
 from twisted.internet.defer import Deferred, fail, succeed
 from twisted.test.proto_helpers import MemoryReactorClock
 from twisted.trial import unittest
 from twisted.mail.smtp import ESMTPSenderFactory
-from twisted.internet.endpoints import TCP4ClientEndpoint
-from twisted.protocols import tls
 from unittest.mock import patch
 
 from globaleaks.utils.mail import MIME_mail_build, sendmail
-from globaleaks.utils.socks import SOCKS5ClientEndpoint
 
 
 class TestMailUtils(unittest.TestCase):
@@ -33,12 +29,11 @@ class TestMailUtils(unittest.TestCase):
         self.assertIn("=?utf-8?", mail_content["Subject"])
         self.assertEqual(mail_content.get_payload()[0].get_payload(decode=True).decode(), "Bødÿ")
 
+    @patch("globaleaks.utils.mail.reactor", new_callable=lambda: MemoryReactorClock())
     @patch("globaleaks.utils.mail.TCP4ClientEndpoint.connect", return_value=succeed(None))
     @patch("globaleaks.utils.mail.ESMTPSenderFactory")
-    def test_sendmail_success(self, mock_factory, mock_connect):
+    def test_sendmail_success(self, mock_factory, mock_connect, mock_reactor):
         """Test that sendmail initiates an SMTP connection correctly and handles success."""
-        reactor = MemoryReactorClock()
-
         mock_factory.return_value = ESMTPSenderFactory(
             username="user".encode(),
             password="pass".encode(),
@@ -65,11 +60,10 @@ class TestMailUtils(unittest.TestCase):
         self.assertIsInstance(d, Deferred)
         self.assertEqual(mock_connect.call_count, 1)
 
+    @patch("globaleaks.utils.mail.reactor", new_callable=lambda: MemoryReactorClock())
     @patch("globaleaks.utils.mail.TCP4ClientEndpoint.connect", side_effect=lambda *args, **kwargs: fail(Exception("Connection Failed")))
-    def test_sendmail_failure(self, mock_connect):
+    def test_sendmail_failure(self, mock_connect, mock_reactor):
         """Test that sendmail handles failures correctly."""
-        reactor = MemoryReactorClock()
-
         d = sendmail(tid=1,
                      smtp_host="smtp.example.com",
                      smtp_port=587,
@@ -90,9 +84,10 @@ class TestMailUtils(unittest.TestCase):
         d.addCallback(callback)
         self.assertEqual(mock_connect.call_count, 1)
 
+    @patch("globaleaks.utils.mail.reactor", new_callable=lambda: MemoryReactorClock())
     @patch("globaleaks.utils.mail.TCP4ClientEndpoint.connect", return_value=succeed(None))
     @patch("globaleaks.utils.mail.tls.TLSMemoryBIOFactory")
-    def test_sendmail_ssl_security(self, mock_tls, mock_connect):
+    def test_sendmail_ssl_security(self, mock_tls, mock_connect, mock_reactor):
         """Test sendmail with SSL security option."""
         d = sendmail(tid=1,
                      smtp_host="smtp.example.com",
@@ -111,8 +106,9 @@ class TestMailUtils(unittest.TestCase):
         self.assertIsInstance(d, Deferred)
         self.assertEqual(mock_tls.call_count, 1)
 
+    @patch("globaleaks.utils.mail.reactor", new_callable=lambda: MemoryReactorClock())
     @patch("globaleaks.utils.mail.SOCKS5ClientEndpoint.connect", return_value=succeed(None))
-    def test_sendmail_anonymized(self, mock_socks_connect):
+    def test_sendmail_anonymized(self, mock_socks_connect, mock_reactor):
         """Test sendmail with anonymized SOCKS5 proxy connection."""
         d = sendmail(tid="test_tid",
                      smtp_host="smtp.example.com",
@@ -147,7 +143,7 @@ class TestMailUtils(unittest.TestCase):
                      subject="Test Subject",
                      body="Test Body",
                      anonymize=False)
-        
+
         def callback(result):
             self.assertFalse(result)
 

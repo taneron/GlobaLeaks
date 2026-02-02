@@ -30,7 +30,7 @@ export class TipFieldAnswerEntryComponent implements OnInit {
   protected appDataService = inject(AppDataService);
   protected modalService = inject(NgbModal);
   protected utilsService = inject(UtilsService);
-  private maskService = inject(MaskService);
+  protected maskService = inject(MaskService);
   protected preferenceResolver = inject(PreferenceResolver);
   private http = inject(HttpClient);
   private sanitizer = inject(DomSanitizer);
@@ -44,13 +44,13 @@ export class TipFieldAnswerEntryComponent implements OnInit {
   @Input() redactOperationTitle: string;
   @Input() redactMode: boolean;
 
+  listen = false;
   format = "dd/MM/yyyy";
   locale = "en-US";
-  audioFiles: { [reference_id: string]: Blob } = {};
+  audioFiles: Record<string, Blob> = {};
   iframeUrl: SafeResourceUrl;
   @ViewChild("viewer") viewerFrame: ElementRef;
   tipService:WbtipService|ReceiverTipService;
-  filteredWbFiles: WbFile[];
   wbfile:WbFile;
 
   ngOnInit(): void {
@@ -61,43 +61,50 @@ export class TipFieldAnswerEntryComponent implements OnInit {
       this.tipService = this.rTipService;
     }
     if(this.tipService.tip){
-      this.filteredWbFiles = this.filterWbFilesByReferenceId(this.tipService.tip.wbfiles);
+      this.filterWbFilesByReferenceId(this.tipService.tip.wbfiles,this.entry['index']);
     }
     if(this.field.type === "voice"){
-      this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl("viewer/index.html");
       this.loadAudioFile(this.field.id);
     }
   }
 
   loadAudioFile(reference_id: string): void {
-     for (const wbfile of this.tipService.tip.wbfiles) {
-        if (wbfile.reference_id === reference_id) {
-        const id = wbfile.id;
-        const url = this.getApiUrl(id);
-
-        this.http.get(url, {
-          headers: {
-            'x-session': this.authenticationService.session.id
-          },
-          responseType: 'blob'
-        }).subscribe((response: Blob) => {
-          this.audioFiles[reference_id] = response;
-          window.addEventListener("message", (message: MessageEvent) => {
-            const iframe = this.viewerFrame?.nativeElement;
-            if (message.source !== iframe?.contentWindow) {
-              return;
-            }
-            const data = {
-              tag: "audio",
-              blob: this.audioFiles[reference_id],
-            };
-            iframe.contentWindow.postMessage(data, "*");
-          });
-        });
-
-        break;
-       }
+    for (const wbfile of this.tipService.tip.wbfiles) {
+      if (wbfile.reference_id !== reference_id) {
+        continue;
       }
+
+      if (this.maskService.isMasked(wbfile.ifile_id, this.tipService.tip)) {
+        break;
+      }
+
+      this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl("viewer/index.html");
+
+      const id = wbfile.id;
+      const url = this.getApiUrl(id);
+
+      this.http.get(url, {
+        headers: {
+          'x-session': this.authenticationService.session.id
+        },
+        responseType: 'blob'
+      }).subscribe((response: Blob) => {
+        this.audioFiles[reference_id] = response;
+        window.addEventListener("message", (message: MessageEvent) => {
+          const iframe = this.viewerFrame?.nativeElement;
+          if (message.source !== iframe?.contentWindow) {
+            return;
+          }
+          const data = {
+            tag: "audio",
+            blob: this.audioFiles[reference_id],
+          };
+          iframe.contentWindow.postMessage(data, "*");
+        });
+      });
+
+      break;
+    }
   }
 
   private getApiUrl(id: string): string {
@@ -139,10 +146,10 @@ export class TipFieldAnswerEntryComponent implements OnInit {
    return this.maskService.maskingContent(id,index,value,this.tipService.tip)
   }
 
-  filterWbFilesByReferenceId(wbfiles: WbFile[]): WbFile[] {
-    return wbfiles.filter((wbfile: WbFile) => wbfile.reference_id === this.field.id);
+  filterWbFilesByReferenceId(wbfiles: WbFile[], index:any): WbFile[] {
+   return wbfiles.filter((wbfile: WbFile) => wbfile.reference_id === `${this.field.id}-${index}`);
   }
-  
+
   selectedFile(file: WbFile) {
     this.wbfile = file;
   }

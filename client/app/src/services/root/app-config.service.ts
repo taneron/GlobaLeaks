@@ -26,9 +26,9 @@ export class AppConfigService {
   private appDataService = inject(AppDataService);
   private fieldUtilitiesService = inject(FieldUtilitiesService);
   private ngZone = inject(NgZone);
-  private isRunning: boolean = false;
+  private isRunning = false;
 
-  public sidebar: string = "";
+  public sidebar = "";
 
   constructor() {
     this.init();
@@ -36,28 +36,8 @@ export class AppConfigService {
 
   init() {
     this.activatedRoute.paramMap.subscribe(_ => {
-      const currentURL = window.location.hash.substring(2).split("?")[0];
-      this.initRoutes(currentURL);
       this.localInitialization();
     });
-  }
-
-  initRoutes(currentURL: string) {
-    if (this.authenticationService && this.authenticationService.session && currentURL !== "login") {
-      const queryParams = this.activatedRoute.snapshot.queryParams;
-      const param = sessionStorage.getItem("language");
-      if (param) {
-        queryParams["lang"] = param;
-      }
-
-      if (this.authenticationService.session.role === "admin") {
-        this.router.navigate(["/admin"], {queryParams}).then();
-      } else if (this.authenticationService.session.role === "receiver") {
-        this.router.navigate(["/recipient"], {queryParams}).then();
-      } else if (this.authenticationService.session.role === "custodian") {
-        this.router.navigate(["/custodian"], {queryParams}).then();
-      }
-    }
   }
 
   public setHomepage() {
@@ -73,7 +53,7 @@ export class AppConfigService {
     this.httpService.getPublicResource().subscribe({
       next: data => {
         if (data.body !== null) {
-          this.appDataService.public = data.body;
+          this.appDataService.updatePublic(data.body);
         }
         this.appDataService.contexts_by_id = this.utilsService.array_to_map(this.appDataService.public.contexts);
         this.appDataService.receivers_by_id = this.utilsService.array_to_map(this.appDataService.public.receivers);
@@ -117,24 +97,9 @@ export class AppConfigService {
           }
         });
 
-        let storageLanguage = sessionStorage.getItem("language");
-        const queryParams = this.activatedRoute.snapshot.queryParams;
-        if (languageInit) {
-          if (!storageLanguage) {
-            storageLanguage = this.appDataService.public.node.default_language;
-            sessionStorage.setItem("language", storageLanguage);
-          }
-          if(!queryParams["lang"]){
-            const setTitle = () => {
-              this.titleService.setTitle();
-            };
-            this.translationService.onChange(storageLanguage, setTitle);
-          } else {
-            this.translationService.onChange(storageLanguage);
-          }
-        } else {
-          this.translationService.onChange(storageLanguage || 'en');
-        }
+        this.translationService.setLanguage(sessionStorage.getItem("language") ||
+                                            this.appDataService.public.node.default_language ||
+                                            'en');
 
         this.titleService.setTitle();
         this.onValidateInitialConfiguration();

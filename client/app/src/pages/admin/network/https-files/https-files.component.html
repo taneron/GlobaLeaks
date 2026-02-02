@@ -7,20 +7,20 @@
         <span class="float-end">
           @if (!tlsConfig.files.key.set) {
             <span>
-              <input type="file" hidden #pkInput (change)="postFile(pkInput.files,fileResources.key)" />
-              <label id="keyUpload" (click)="pkInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
+              <input id="upload-private-key-file" type="file" hidden #pkInput (change)="postFile(pkInput.files,fileResources.key)" />
+              <label for="upload-private-key-file" id="keyUpload" (click)="pkInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
             </span>
           }
           @if (!tlsConfig.files.key.set) {
             <button id="pkGen" class="btn btn-sm btn-primary" (click)="genKey()">
-              <i class="fa-solid fa-cog"></i>
+              <i class="fas fa-gear"></i>
               <span>{{ 'Generate' | translate }}</span>
             </button>
           }
           @if (tlsConfig.files.key.set) {
             <span>
               <button id="deleteKey" class="btn btn-sm btn-danger" (click)="deleteFile(fileResources.key)">
-                <i class="fa-solid fa-times"></i>
+                <i class="fas fa-xmark"></i>
                 <span>{{ 'Delete' | translate }}</span>
               </button>
             </span>
@@ -38,7 +38,7 @@
               <span class="float-end">
                 @if (!csr_state.open) {
                   <button id="csrGen" class="btn btn-sm btn-primary" (click)="csr_state.open = true">
-                    <i class="fa-solid fa-cog"></i>
+                    <i class="fas fa-gear"></i>
                     <span>{{ 'Generate' | translate }}</span>
                   </button>
                 }
@@ -60,11 +60,11 @@
                 <span class="clearfix">
                   <span class="float-end">
                     <button id="downloadCsr" class="btn btn-sm btn-primary" (click)="downloadCSR()">
-                      <i class="fa-solid fa-file-export"></i>
+                      <i class="fas fa-file-export"></i>
                       <span>{{ 'Download' | translate }}</span>
                     </button>
                     <button id="deleteCsr" class="btn btn-sm btn-danger" (click)="deleteFile(fileResources.csr)">
-                      <i class="fa-solid fa-times"></i>
+                      <i class="fas fa-xmark"></i>
                       <span>{{ 'Delete' | translate }}</span>
                     </button>
                   </span>
@@ -88,14 +88,14 @@
             <span class="float-end">
               @if (!tlsConfig.files.cert.set) {
                 <span>
-                  <input type="file" hidden #certificateInput (change)="postFile(certificateInput.files,fileResources.cert)" />
-                  <label id="certUpload" (click)="certificateInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
+                  <input id="upload-certificate-file" type="file" hidden #certificateInput (change)="postFile(certificateInput.files,fileResources.cert)" />
+                  <label for="upload-certificate-file" id="certUpload" (click)="certificateInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
                 </span>
               }
               @if (tlsConfig.files.cert.set) {
                 <span>
                   <button id="deleteCert" class="btn btn-sm btn-danger" (click)="deleteFile(fileResources.cert)">
-                    <i class="fa-solid fa-times"></i>
+                    <i class="fas fa-xmark"></i>
                     <span>{{ 'Delete' | translate }}</span>
                   </button>
                 </span>
@@ -118,14 +118,14 @@
             <div class="float-end">
               @if (!tlsConfig.files.chain.set) {
                 <span>
-                  <input type="file" hidden #iCertificateInput (change)="postFile(iCertificateInput.files,fileResources.chain)" />
-                  <label id="chainUpload" (click)="iCertificateInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
+                  <input id="upload-chain-file" type="file" hidden #iCertificateInput (change)="postFile(iCertificateInput.files,fileResources.chain)" />
+                  <label for="upload-chain-file" id="chainUpload" (click)="iCertificateInput.click()" class="btn btn-sm btn-primary">{{'Upload' | translate}}</label>
                 </span>
               }
               @if (tlsConfig.files.chain.set) {
                 <span>
                   <button id="deleteChain" class="btn btn-sm btn-danger" (click)="deleteFile(fileResources.chain)">
-                    <i class="fa-solid fa-times"></i>
+                    <i class="fas fa-xmark"></i>
                     <span>{{ 'Delete' | translate }}</span>
                   </button>
                 </span>

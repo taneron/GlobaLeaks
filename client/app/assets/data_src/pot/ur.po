@@ -48,14 +48,12 @@ msgid "Access requested"
 msgstr "رسائی کی درخواست کی"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "مخبر کی شناخت تک رسائی نگرانی کرنے کی درخواست کی گئی ہے."
 
 msgid "Account recovery key"
 msgstr "اکاؤنٹ کی بازیابی کی کلید "
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "سرگرمیاں "
@@ -102,16 +100,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "وصول کنندگان کو اختیار دیجیے کہ تجاویز حذف کر سکیں"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "مخبر کو اٹیچمنٹ شامل کرنے کی اجازت دیں"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "مخبر کو تبصرے لکھنے کے لئے کی اجازت دیں"
 
 msgid "Allow users to sign up"
 msgstr "صارفین کو سائن اپ کرنے کی اجازت دیں۔ "
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "whistleblowers کے ان کے وصول کنندگان کو منتخب کرنے کی اجازت دیں"
 
 msgid "Allowed IP addresses"
@@ -171,7 +169,7 @@ msgstr "کا اجازت"
 msgid "Authorize"
 msgstr "اجازت دیں"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "مخبر کی شناخت تک رسائی کی اجازت دیں"
 
 msgid "Authorized"
@@ -334,7 +332,7 @@ msgstr "تردید"
 msgid "Deny"
 msgstr "انکار"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "مخبر کی شناخت تک رسائی سے انکار"
 
 msgid "Description"
@@ -457,6 +455,9 @@ msgstr "فعال"
 msgid "Enter a name for the copy"
 msgstr "کاپی کا نام درج کریں۔ "
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "دو عنصر کی توثیق کا کوڈ درج کریں۔ "
 
@@ -523,7 +524,7 @@ msgstr "مالیاتی کوڈ "
 msgid "Footer"
 msgstr "ذیلی تحریر"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -578,7 +579,7 @@ msgstr "رسائی فراہم کریں۔"
 msgid "Group of questions"
 msgstr "سوالات کے گروپ"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "کیا آپ  پہلے ہی گزارش جمع کرا چکے ہیں ؟ اپنی رسید جمع کرائیے "
 
 msgid "Hidden"
@@ -704,6 +705,9 @@ msgstr "پلیٹ فارم کو ٹور کے بغیر قابل رسائی ہونے
 
 msgid "License"
 msgstr "اختیار دینا"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "داخلی صارفین کی لاگ رسائی "
@@ -856,6 +860,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "ایک یااس سے زیادہ وصول کنندگان نے ابھی تک پہلا لاگ ان انجام نہیں دیا-اس کامطلب ہے کہ وہ رپورٹس وصول نہیں کریں گے-"
 
+msgid "Open"
+msgstr "کھولیں"
+
 msgid "Opened"
 msgstr "کھلا ہوا"
 
@@ -952,7 +959,7 @@ msgstr "سوال گروپ"
 msgid "Question templates"
 msgstr "سوال ٹیمپلیٹس"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "مخبر سوال "
 
 msgid "Questionnaire"
@@ -966,6 +973,9 @@ msgstr "سوالنامے"
 
 msgid "Questions"
 msgstr "سوالات "
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "وصول کنندگان"
@@ -1003,7 +1013,7 @@ msgstr "با قاعدہ اظہار"
 msgid "Regular expression validator"
 msgstr "مستقل اظہار جوازدہندہ"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "اس داخلے کے لیے اپنا کلیدی کوڈ ذہن نشین رکھیے"
 
 msgid "Reminder date"
@@ -1033,7 +1043,7 @@ msgstr "اسٹیٹس کی اطلاع دیں۔ "
 msgid "Reports"
 msgstr "رپورٹس"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "مخبر کی شناخت تک رسائی کی درخواست"
 
 msgid "Request date"
@@ -1078,7 +1088,7 @@ msgstr "وسیلہ نہیں ملا "
 msgid "Restrict access to specific IP addresses"
 msgstr "مخصوص  IP addresses تک رسائی کو محدود کریں۔ "
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1252,7 +1262,13 @@ msgstr "گذارشات غیر فعال ہیں۔ "
 msgid "Submit"
 msgstr "جمع کرائیں"
 
+msgid "Submit a report"
+msgstr "رپورٹ درج کروائیں۔"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1362,7 +1378,7 @@ msgstr "فراہم کردہ ریکوری کلید غلط ہے۔ "
 msgid "The provided reset token is invalid or expired."
 msgstr "فراہم کردہ ٹوکن غلط ہے یا ختم ہو چکا ہے۔ "
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "کلیدی کوڈ یا تو قابلِ قبول نہیں یا داخل کردہ گذارشات غیر مؤثر ہوچکی ہیں۔"
 
 msgid "The specified input is not valid."
@@ -1386,10 +1402,10 @@ msgstr "صارف اگلے لاگ ان پر اپنا پاس ورڈ تبدیل ک�
 msgid "The validation link is either incorrect or has expired."
 msgstr "توثیق کا لنک یا تو غلط ہے یا اس کی میعاد ختم ہو گئی ہے۔ "
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "مخبر نے پہلے ہی تازہ ترین اپ ڈیٹ پڑھا ہے"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "مخبر نے ابھی تک تازہ ترین اپ ڈیٹ نہیں پڑھا ہے"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1476,8 +1492,8 @@ msgid "Use as default"
 msgstr "بطور ڈی فالٹ استعمال کریں"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "لاگ اِن کے لیے 16 ہندسوں پر مشتمل اپنا کلیدی کوڈ استعمال میں لاتے ہوئے وہ پیغامات دیکھیں جو ہم آپ کو بھیجیں گے اور اگر آپ کچھ اور سوچ رہے ہوں تو آپ کو انہیں بھی شامل کردینا چاہیے۔"
 
 msgid "Use the first site for administrative purposes only"
@@ -1551,10 +1567,10 @@ msgstr "کمزور"
 msgid "Welcome!"
 msgstr "خوش آمدید!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "مخبر"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "مخبر کی آخری رسائی "
 
 msgid "Whistleblowing Policy"
@@ -1574,7 +1590,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "آپ اپنا نام ظاہر نہ کئے بغیر نوڈ سے منسلک ہیں اور یہ نوڈ صرف گمنام گذارشات کی تائید کرتی ہے۔"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1623,9 +1639,6 @@ msgstr "براہ کرم صرف نمبر درج کریں۔ "
 
 msgid "seconds"
 msgstr "سیکنڈ"
-
-msgid "File a report"
-msgstr "رپورٹ درج کروائیں۔"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1757,22 +1770,6 @@ msgstr "پلیٹ فارم مندرجہ ذیل پر خود بخود حذف ہو �
 msgid "Access instructions"
 msgstr "رسائی کی ہدایات "
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "سرگرمیوں حال ہی پتہ چلنے کی تعداد معمول سے زیادہ ہو جائے کرنے کے لئے ظاہر."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "یہ یا صرف ایک کے استعمال کی بڑھتی ہوئی وارداتوں کی وجہ سے اپنے منصوبے کی ایک بڑھتی ہوئی نمائش کرنے کے لئے ایک حملے (کسی بوگس معلومات کے ساتھ آپ کے سرور سیلاب مثال کے طور پر) کی ایک علامت ہو سکتی ہے."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "مسئلہ کا جائزہ لیں کہ آیا یہ جائز ہے یا نہیں۔ "
-
-msgid "The activities with unusual stats are:"
-msgstr "غیر معمولی اعدادوشمار کے ساتھ سرگرمیوں ہیں:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1790,14 +1787,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks ٹیکنالوجی ایک سرور کی حیثیت کی جانچ پڑتال جزو جس صورت میں کسی چیز آپ کی توجہ کی ضرورت ہوتی ہے اگر آپ کو آگاہ کرے گا بھی شامل ہے."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "مزید معلومات کے لیے، ایڈمن انٹرفیس میں لاگ ان کریں اور \"سسٹم کے اعدادوشمار\" اور \"انامالیز\" سیکشنز کو دیکھیں۔ "
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "اسنگتی {NodeName} میں پتہ چلا"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1913,7 +1902,7 @@ msgstr "اس سے آپ کو مطلع کرنے کے لئے ایک ای میل ہ�
 msgid "The report can be accessed at:"
 msgstr "تجویز تک یہاں رسائی حاصل کر سکتے ہیں:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "مخبر کی شناخت تک رسائی کی اجازت"
 
 msgid ""
@@ -1921,26 +1910,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "یہ آپ کو مطلع کرنے کے لیے ایک ای میل ہے کہ ایک نگران نے آپ کو رپورٹ {TipNum} کے لیے مخبر کی شناخت تک رسائی سے انکار کر دیا ہے۔ "
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "مخبر کی شناخت تک رسائی کی تردید"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "یہ ایک وصول کنندہ جمع کرانے {TipNum} کے لئے مخبر کی شناخت تک رسائی کی درخواست ہے کہ آپ کو مطلع کرنے کے لئے ایک ای میل ہے"
 
 msgid "The request can be accessed at:"
 msgstr "درخواست یہاں سے حاصل کی جا سکتی ہے: "
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "مخبر کی شناخت تک رسائی کی نئی درخواست"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "یہ کہ جمع کرانے {TipNum} کے لئے whistleblower کی اپنی شناخت فراہم کی ہے آپ کو مطلع کرنے کے لئے ایک ای میل ہے."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "whistleblower کی اپنی شناخت فراہم کی ہے"
 
 msgid ""

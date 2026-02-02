@@ -1,7 +1,6 @@
 # Handlers dealing with platform authentication
 import json
 from datetime import timedelta
-from random import SystemRandom
 from sqlalchemy import exists, func, or_, and_
 
 from nacl.encoding import Base64Encoder
@@ -18,7 +17,7 @@ from globaleaks.sessions import initialize_submission_session, Sessions
 from globaleaks.settings import Settings
 from globaleaks.state import State
 from globaleaks.utils.crypto import GCE, sha256
-from globaleaks.utils.utility import datetime_now, deferred_sleep, uuid4
+from globaleaks.utils.utility import datetime_now, uuid4
 
 
 def db_login_failure(session, tid, whistleblower=False):
@@ -27,34 +26,6 @@ def db_login_failure(session, tid, whistleblower=False):
     db_log(session, tid=tid, type='whistleblower_login_failure' if whistleblower else 'login_failure')
 
     raise errors.InvalidAuthentication
-
-
-def login_delay(tid):
-    """
-    The function in case of failed_login_attempts introduces
-    an exponential increasing delay between 0 and 42 seconds
-
-    the function implements the following table:
-     ----------------------------------
-    | failed_attempts |      delay     |
-    | x < 5           | 0              |
-    | 5               | random(5, 25)  |
-    | 6               | random(6, 36)  |
-    | 7               | random(7, 42)  |
-    | 8 <= x <= 42    | random(x, 42)  |
-    | x > 42          | 42             |
-     ----------------------------------
-    """
-    failed_attempts = Settings.failed_login_attempts.get(tid, 0)
-
-    if failed_attempts < 5:
-        return
-
-    n = failed_attempts * failed_attempts
-    min_sleep = failed_attempts if failed_attempts < 42 else 42
-    max_sleep = n if n < 42 else 42
-
-    return deferred_sleep(SystemRandom().randint(min_sleep, max_sleep))
 
 
 @transact
@@ -231,8 +202,6 @@ class AuthenticationHandler(BaseHandler):
         if tid == 0:
             tid = self.request.tid
 
-        yield login_delay(tid)
-
         session = yield login(tid,
                               request['username'],
                               request['password'],
@@ -258,8 +227,6 @@ class TokenAuthHandler(BaseHandler):
     def post(self):
         request = self.validate_request(self.request.content.read(), requests.TokenAuthDesc)
 
-        yield login_delay(self.request.tid)
-
         session = Sessions.get(request['authtoken'])
         if session is None:
             yield tw(db_login_failure, self.request.tid, 0)
@@ -281,8 +248,6 @@ class ReceiptAuthHandler(BaseHandler):
     @inlineCallbacks
     def post(self):
         request = self.validate_request(self.request.content.read(), requests.ReceiptAuthDesc)
-
-        yield login_delay(self.request.tid)
 
         connection_check(self.request.tid, 'whistleblower',
                          self.request.client_ip, self.request.client_using_tor)
@@ -340,6 +305,9 @@ class SessionHandler(BaseHandler):
                      user_id=self.session.properties.get("operator_session"))
         else:
             yield tw(db_log, tid=self.session.tid,  type='logout', user_id=self.session.user_id)
+
+        if not self.session.properties.get('management_session', False):
+            self.request.setHeader(b'Clear-Site-Data', b'"*"')
 
         del Sessions[self.session.id]
 

@@ -13,13 +13,14 @@ import {NgClass} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {UserEditorComponent} from "../user-editor/user-editor.component";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
-import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
+
 
 @Component({
     selector: "src-users-tab1",
     templateUrl: "./users-tab1.component.html",
     standalone: true,
-    imports: [FormsModule, NgbTooltipModule, NgClass, UserEditorComponent, TranslatorPipe, OrderByPipe]
+    imports: [FormsModule, NgbTooltipModule, NgClass, PaginatedInterfaceComponent, TranslatorPipe, UserEditorComponent, TranslatorPipe]
 })
 export class UsersTab1Component implements OnInit {
   private httpService = inject(HttpService);
@@ -30,7 +31,7 @@ export class UsersTab1Component implements OnInit {
 
   showAddUser = false;
   tenantData: tenantResolverModel;
-  usersData: userResolverModel[];
+  usersData: userResolverModel[] = [];
   new_user: { username: string, role: string, name: string, email: string, send_activation_link: boolean } = {
     username: "",
     role: "",

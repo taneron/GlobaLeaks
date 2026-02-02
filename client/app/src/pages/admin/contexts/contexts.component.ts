@@ -13,13 +13,14 @@ import {FormsModule} from "@angular/forms";
 import {ContextEditorComponent} from "@app/pages/admin/contexts/context-editor/context-editor.component";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
 
 
 @Component({
     selector: "src-contexts",
     templateUrl: "./contexts.component.html",
     standalone: true,
-    imports: [FormsModule, NgbTooltipModule, NgClass, ContextEditorComponent, TranslatorPipe]
+    imports: [ContextEditorComponent, FormsModule, NgbTooltipModule, NgClass, PaginatedInterfaceComponent, TranslatorPipe]
 })
 export class ContextsComponent implements OnInit {
   protected preference = inject(PreferenceResolver);
@@ -30,7 +31,7 @@ export class ContextsComponent implements OnInit {
   protected contexts = inject(ContextsResolver);
   protected utilsService = inject(UtilsService);
 
-  showAddContext: boolean = false;
+  showAddContext = false;
   new_context: { name: string; } = {name: ""};
   contextsData: contextResolverModel[] = [];
 

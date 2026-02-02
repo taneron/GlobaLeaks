@@ -14,6 +14,7 @@
 # erinm, 2021
 # tyfjoh, 2014
 # Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2013-2023
+# Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
 # b33a4006134bb6ee62b30fc0fac5cec6, 2013
@@ -50,7 +51,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GlobaLeaks\n"
 "PO-Revision-Date: 2013-05-29 17:59+0000\n"
-"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2013-2023\n"
+"Last-Translator: Giovanni Pellerano <giovanni.pellerano@globaleaks.org>, 2025\n"
 "Language-Team: Dutch (http://app.transifex.com/otf/globaleaks/language/nl/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -80,14 +81,12 @@ msgid "Access requested"
 msgstr "Toegang gevraagd"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "De toezichthouder heeft een aanvraag ingediend om toegang te krijgen tot de identiteit van de klokkenluider."
 
 msgid "Account recovery key"
 msgstr "Herstelcode voor je account"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Activiteiten"
@@ -134,16 +133,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Sta ontvangers toe tips te verwijderen"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "De klokkenluider toestaan bestanden toe te voegen aan een inzending"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "De klokkenluider toestaan reacties achter te laten"
 
 msgid "Allow users to sign up"
 msgstr "Gebruikers toestaan zich in te schijven"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Klokkenluiders toestaan hun ontvangers te selecteren"
 
 msgid "Allowed IP addresses"
@@ -203,7 +202,7 @@ msgstr "Autorisatie"
 msgid "Authorize"
 msgstr "Verlenen"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Verleen toegang tot de identiteit van de klokkenluider"
 
 msgid "Authorized"
@@ -366,7 +365,7 @@ msgstr "Afgewezen"
 msgid "Deny"
 msgstr "Afwijzen"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Wijs toegang tot de identiteit van de klokkenluider af"
 
 msgid "Description"
@@ -489,6 +488,9 @@ msgstr "Ingeschakeld"
 msgid "Enter a name for the copy"
 msgstr "Voer een naam in voor de kopie"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Vul de two-factor-authentication code in"
 
@@ -555,7 +557,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Voettekst"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -610,8 +612,8 @@ msgstr "Toegang verlenen"
 msgid "Group of questions"
 msgstr "Vragengroep"
 
-msgid "Have you already filed a report? Enter your receipt."
-msgstr "Hebt u al een inzending ingediend? Voer uw 16 cijferige code in."
+msgid "Have you already submitted a report? Enter your access code."
+msgstr "Heeft u al een tip ingediend? Voer uw 16-cijferige code in."
 
 msgid "Hidden"
 msgstr "Verborgen"
@@ -736,6 +738,9 @@ msgstr "Het platform is bereikbaar zonder Tor"
 
 msgid "License"
 msgstr "Licentie"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Log toegang door interne-gebruikers"
@@ -888,6 +893,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Een of meer ontvangers hebben nog nooit ingelogd. Dit betekent dat ze geen meldingen ontvangen."
 
+msgid "Open"
+msgstr "Openen"
+
 msgid "Opened"
 msgstr "Geopend"
 
@@ -984,7 +992,7 @@ msgstr "Vragengroep"
 msgid "Question templates"
 msgstr "Formuliersjablonen"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Vraag om potentiële klokkenluiders aan te spreken"
 
 msgid "Questionnaire"
@@ -998,6 +1006,9 @@ msgstr "Vragenlijsten"
 
 msgid "Questions"
 msgstr "Vragen"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Ontvangers"
@@ -1035,7 +1046,7 @@ msgstr "Reguliere expressie"
 msgid "Regular expression validator"
 msgstr "Reguliere expressie controleren"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Onthoud de code voor uw inzending."
 
 msgid "Reminder date"
@@ -1065,7 +1076,7 @@ msgstr "Status van de inzending"
 msgid "Reports"
 msgstr "Inzendingen"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Vraag toegang tot de identiteit van de klokkenluider"
 
 msgid "Request date"
@@ -1110,7 +1121,7 @@ msgstr "Bron niet gevonden"
 msgid "Restrict access to specific IP addresses"
 msgstr "Beperk toegang voor specifieke IP-adressen"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1284,7 +1295,13 @@ msgstr "Inzendingen uitgeschakeld"
 msgid "Submit"
 msgstr "Verstuur"
 
+msgid "Submit a report"
+msgstr "Dien een rapport in"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1394,7 +1411,7 @@ msgstr "De ingediende herstelcode is ongeldig."
 msgid "The provided reset token is invalid or expired."
 msgstr "De ingediende herstel token is ongeldig of verlopen."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "De code is of ongeldig ofwel verlopen."
 
 msgid "The specified input is not valid."
@@ -1418,10 +1435,10 @@ msgstr "De gebruiker moet zijn wachtwoord veranderen bij een volgende login."
 msgid "The validation link is either incorrect or has expired."
 msgstr "De validatiekoppeling is ofwel incorrect of is verlopen."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "De klokkenluider heeft de laatste update al gelezen"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "De klokkenluider heeft de laatste update nog niet gelezen"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1508,8 +1525,8 @@ msgid "Use as default"
 msgstr "Markeer als standaard"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Gebruik deze 16-cijferige code om in te loggen. Hiermee heeft u de mogelijkheid berichten te bekijken die ontvangers aan y verstuurd hebben, en u kun tevens extra informatie toevoegen"
 
 msgid "Use the first site for administrative purposes only"
@@ -1583,10 +1600,10 @@ msgstr "Zwak"
 msgid "Welcome!"
 msgstr "Welkom"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Klokkenluider"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Laatste toegang van de klokkenluider"
 
 msgid "Whistleblowing Policy"
@@ -1606,7 +1623,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "U bent een niet-anonieme verbinding tot stand aan het brengen met de server en deze server ondersteunt alleen anonieme inzendingen"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1656,69 +1673,66 @@ msgstr "vul enkel getallen in."
 msgid "seconds"
 msgstr "seconden"
 
-msgid "File a report"
-msgstr "Dien een rapport in"
-
 msgid "Select a reporting channel:"
 msgstr ""
 
 msgid "Please summarize your report in a few words."
-msgstr "Beschrijf je inzending in een paar woorden."
+msgstr "Omschrijf uw tip in enkele woorden."
 
 msgid "Describe your report in detail."
 msgstr "Geef een gedetailleerde beschrijving van je inzending."
 
 msgid "Where did the facts happen?"
-msgstr "Waar is zijn de feiten gebeurd?"
+msgstr "Op welke locatie(s) hebben de gebeurtenissen plaatsgevonden?"
 
 msgid "When did the facts happen?"
-msgstr "Wanneer zijn de feiten gebeurd?"
+msgstr "Wanneer (jaar, maand, dag) hebben de\ngebeurtenissen plaatsgevonden?"
 
 msgid "I'm a victim"
 msgstr "Ik ben een slachtoffer"
 
 msgid "I'm involved in the facts"
-msgstr "Ik ben betrokken bij de feiten"
+msgstr "Ik ben betrokken bij de gebeurtenissen"
 
 msgid "I witnessed the facts in person"
-msgstr "Ik was persoonlijk getuige van de feiten"
+msgstr "Ik was getuige van de gebeurtenissen"
 
 msgid "I was personally told by a direct witness"
-msgstr "Het werd mij persoonlijk verteld door een getuige"
+msgstr "Ik hoorde het van een directe getuige"
 
 msgid "It is a rumor I heard"
-msgstr "Het was een gerucht dat ik hoorde"
+msgstr "Het is een gerucht dat ik gehoord heb"
 
 msgid "How are you involved in the reported facts?"
-msgstr "Hoe ben je betrokken bij de ingezonden feiten?"
+msgstr "Wat is uw betrokkenheid bij de gebeurtenissen?"
 
 msgid "Do you have evidence to support your report?"
-msgstr "Heb je bewijzen die jouw inzending ondersteunen?"
+msgstr "Heeft u bewijzen ter ondersteuning van uw tip/inzending?"
 
 msgid "Please attach the evidence to support your report."
-msgstr "Voeg alsjeblieft bewijsmateriaal toe aan je inzending."
+msgstr "Voeg alstublieft bewijsmateriaal toe ter ondersteuning"
 
 msgid "Please describe the evidence in detail."
-msgstr "Beschrijf alsjeblieft het bewijsmateriaal in detail."
+msgstr "Beschrijf het bewijs in detail."
 
 msgid ""
 "A thorough description of the submitted evidence enhances our ability to "
 "evaluate claims and investigate. Please take care to reference significant "
 "portions of any videos, images or documents submitted."
-msgstr "Een gedetailleerde beschrijving van het ingediende bewijsmateriaal verbetert ons vermogen om claims te evalueren en te onderzoeken. Zorg ervoor dat je verwijst naar belangrijke delen van de ingediende video's, afbeeldingen of documenten."
+msgstr "Een gedetailleerde beschrijving helpt ons bij het beoordelen en onderzoeken van het bewijsmateriaal. Refereer, waar mogelijk, naar relevante onderdelen van de ingediende video’s, foto’s of documenten."
 
 msgid "Have you reported the facts to other organizations and/or individuals?"
-msgstr "Heb je de feiten ook bij andere organisaties en/of individuen gerapporteerd?"
+msgstr "Heeft u de gebeurtenissen ook bij andere organisaties en/of personen gemeld?"
 
 msgid ""
 "Please list the organizations and/or individuals you have informed about "
 "these facts."
-msgstr "Vermeld alsjeblieft de organisaties en/of individuen die je over deze feiten hebt geïnformeerd. "
+msgstr "Vermeld alstublieft bij welke organisaties en/of personen u de gebeurtenissen heeft gemeld."
 
 msgid ""
 "Have these organizations investigated your claims? If so, what was the "
 "outcome?"
-msgstr "Hebben deze organisaties jouw claims onderzocht? Zoja, wat het het resultaat?"
+msgstr "Welk resultaat hoopt u te bereiken met onze steun?"
 
 msgid "What is the outcome you want to achieve with our support?"
 msgstr "Wat is het resultaat dat je hoopt te bereiken met onze ondersteuning?"
@@ -1789,22 +1803,6 @@ msgstr "Het platvorm wordt automatisch gewist op:"
 msgid "Access instructions"
 msgstr "Toegangsinstructies"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Het aantal recente activiteiten blijkt hoger dan gebruikelijk te zijn."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Dit zou een een teken van een aanval kunnen zijn, bijvoorbeeld iemand die je server bestookt met onjuiste informatie, of een piek in het gebruik door verhoogde zichtbaarheid van uw project"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Bekijk het probleem om vast te stellen of het legitiem is of niet."
-
-msgid "The activities with unusual stats are:"
-msgstr "De gebeurtenissen met ongebruikelijke statistieken zijn:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1822,14 +1820,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "De GlobaLeaks-technologie bevat een serverstatus-controlerend component dat je alarmeert in het geval er iets je aandacht vereist."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Voor meer informatie, log in op de Administratie-interface en controleer de delen “Systeemstatistieken” en “Anomalieën”."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Onregelmatigheid vastgesteld in {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1945,7 +1935,7 @@ msgstr "Dit is een e-mail om u te informeren dat een toezichthouder jou gemachti
 msgid "The report can be accessed at:"
 msgstr "Hier krijg je toegang tot de inzending:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Toegang tot de identiteit van de klokkenluider is goedgekeurd"
 
 msgid ""
@@ -1953,26 +1943,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Dit is een e-mail om u te informeren dat een toezichthouder jou geen toegang verleent tot de klokkenluider's identiteit betreffende deze inzending {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Toegang tot de identiteit van de klokkenluider is ontzegd"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Dit is een e-mail om u te informeren dat een ontvanger toegang heeft gevraagd tot de identiteit van de klokkenluider van de inzending {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Het verzoek kan worden benaderd via:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nieuwe aanvraag om de identiteit van een klokkenluider te mogen openen"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Dit is een e-mail om je te informeren dat de klokkenluider van de inzending {TipNum} zijn identiteit kenbaar heeft gemaakt."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "De klokkenluider heeft zich geïdentificeerd."
 
 msgid ""

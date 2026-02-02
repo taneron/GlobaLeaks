@@ -32,9 +32,9 @@ export class TipUploadWbFileComponent {
   @Input() key: string;
   @Output() dataToParent = new EventEmitter<string>();
   collapsed = false;
-  file_upload_description: string = "";
-  fileInput: string = "fileinput";
-  showError: boolean = false;
+  file_upload_description = "";
+  fileInput = "fileinput";
+  showError = false;
   errorFile: FlowFile | null;
 
   onFileSelected(files: FileList | null) {
@@ -47,6 +47,7 @@ export class TipUploadWbFileComponent {
       flowJsInstance.on("fileSuccess", (_) => {
         this.dataToParent.emit()
         this.errorFile = null;
+        this.cdr.detectChanges();
       });
       flowJsInstance.on("fileError", (file, _) => {
         this.showError = true;

@@ -31,9 +31,9 @@ export class VoiceRecorderComponent implements OnInit {
   @Input() entry: any;
   _fakeModel: string;
   fileInput: string;
-  seconds: number = 0;
+  seconds = 0;
   activeButton: string | null = null;
-  isRecording: boolean = false;
+  isRecording = false;
   audioPlayer: boolean | string | null = null;
   mediaRecorder: MediaRecorder | null = null;
   recording_blob: any = null;
@@ -62,9 +62,9 @@ export class VoiceRecorderComponent implements OnInit {
   }
 
   triggerRecording(fileId: string): void {
-    this.activeButton = "record";
-
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      this.activeButton = "record";
+
       navigator.mediaDevices.getUserMedia({audio: true})
         .then((stream) => {
           this.startRecording(fileId, stream).then();
@@ -96,6 +96,7 @@ export class VoiceRecorderComponent implements OnInit {
         }
         this.stopRecording().subscribe();
       }
+      this.cd.markForCheck();
     }, 1000);
 
     this.enableNoiseSuppression(stream).subscribe();
@@ -198,16 +199,10 @@ export class VoiceRecorderComponent implements OnInit {
         }, { once: true });
 
         this.audioPlayer = true;
+        (this.flow as any).field = this.field;
         this.uploads[this.fileInput] = this.flow;
         this.submissionService.setSharedData(this.flow);
         this.notifyFileUpload.emit(this.uploads);
-
-        if (this.entry) {
-          if (!this.entry.files) {
-            this.entry.files = [];
-          }
-          this.entry.files.push(this.recording_blob.uniqueIdentifier);
-        }
       }
 
       this.cd.detectChanges();
@@ -232,9 +227,6 @@ export class VoiceRecorderComponent implements OnInit {
     this.initAudioContext()
     this.submissionService.setSharedData(null);
     delete this.uploads[this.fileInput];
-    if (this.entry && this.entry.files) {
-      delete this.entry.files;
-    }
   }
 
   enableNoiseSuppression(stream: MediaStream): Observable<void> {
@@ -292,7 +284,7 @@ export class VoiceRecorderComponent implements OnInit {
       modulatorBandFilter.frequency.value = vocoderBands[i].freq;
       modulatorBandFilter.Q.value = vocoderBands[i].Q;
       const rectifier: WaveShaperNode = audioContext.createWaveShaper();
-      rectifier.curve = this.generateRectifierCurve();
+      rectifier.curve = this.generateRectifierCurve() as Float32Array<ArrayBuffer>;
       const postRectifierBandFilter: BiquadFilterNode = audioContext.createBiquadFilter();
       postRectifierBandFilter.type = 'lowpass';
       postRectifierBandFilter.frequency.value = 20;

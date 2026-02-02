@@ -1,43 +1,28 @@
-@if (this.users.slice()) {
-  <table id="userList" class="table table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>{{'ID'|translate}}</th>
-        <th>{{'Username'|translate}}</th>
-        <th>{{'Role'|translate}}</th>
-        <th>{{'Name'|translate}}</th>
-        <th>2FA</th>
-        <th>{{'Creation date'|translate}}</th>
-        <th>{{'Last access'|translate}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (data of getPaginatedData(); track data) {
-        <tr>
-          <td>{{data.id}}</td>
-          <td>{{data.username}}</td>
-          <td>{{data.role}}</td>
-          <td>{{data.name}}</td>
-          <td> <i class="fa" [ngClass]="{'fa-check': data.two_factor, 'fa-times': !data.two_factor}"></i> </td>
-          <td>{{data.creation_date | date:'dd-MM-yyyy HH:mm'}}</td>
-          <td>{{data.last_login | date:'dd-MM-yyyy HH:mm'}}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
-  @if (users.length > pageSize) {
-    <div>
-        <ngb-pagination dir="ltr" class="d-flex justify-content-center" [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="users.length">
-            <ng-template ngbPaginationFirst><i class="fa-solid fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationPrevious><i class="fa-solid fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationNext><i class="fa-solid fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationLast><i class="fa-solid fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationFirst><i class="fa-solid fa-backward-fast" ngbTooltip="{{'First' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationPrevious><i class="fa-solid fa-backward-step" ngbTooltip="{{'Previous' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationNext><i class="fa-solid fa-forward-step" ngbTooltip="{{'Next' | translate}}"></i></ng-template>
-            <ng-template ngbPaginationLast><i class="fa-solid fa-forward-fast" ngbTooltip="{{'Last' | translate}}"></i></ng-template>
-         </ngb-pagination>
-    </div>
-    }
-    <div class="d-flex justify-content-end"><button class="btn btn-sm btn-link" type="button" (click)="exportAuditLog()"> <i class="fa-solid fa-download"></i> <span>{{ 'Export' | translate }}</span></button></div>
-  }
+<app-paginated-interface [mode]="'table'" [items]="this.users">
+  <ng-template #header>
+    <tr>
+      <th>{{'ID'|translate}}</th>
+      <th>{{'Username'|translate}}</th>
+      <th>{{'Role'|translate}}</th>
+      <th>{{'Name'|translate}}</th>
+      <th>2FA</th>
+      <th>{{'Creation date'|translate}}</th>
+      <th>{{'Last access'|translate}}</th>
+    </tr>
+  </ng-template>
+  <ng-template #content let-data="item" let-index="index">
+    <tr>
+      <td>{{data.id}}</td>
+      <td>{{data.username}}</td>
+      <td>{{data.role}}</td>
+      <td>{{data.name}}</td>
+      <td>
+        @if (data.two_factor) {<i class="fas fa-xmark"></i>}
+        @if (!data.two_factor) {<i class="fas fa-check"></i>}
+      </td>
+      <td>{{data.creation_date | date:'dd-MM-yyyy HH:mm'}}</td>
+      <td>{{data.last_login | date:'dd-MM-yyyy HH:mm'}}</td>
+    </tr>
+  </ng-template>
+</app-paginated-interface>
+<div class="d-flex justify-content-end"><button class="btn btn-sm btn-link" type="button" (click)="exportAuditLog()"><i class="fas fa-download"></i><span>{{ 'Export' | translate }}</span></button></div>

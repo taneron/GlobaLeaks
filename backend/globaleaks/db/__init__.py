@@ -1,9 +1,7 @@
 import os
 import sys
 import traceback
-import warnings
-
-from sqlalchemy.exc import SAWarning
+import sqlalchemy
 
 from globaleaks import models, DATABASE_VERSION
 from globaleaks.handlers.admin.https import db_load_tls_configs
@@ -45,10 +43,16 @@ def create_db():
     Utility function to create a new database
     """
     engine = get_engine(orm_lockdown=False)
-    engine.execute('PRAGMA foreign_keys = ON')
-    engine.execute('PRAGMA secure_delete = ON')
-    engine.execute('PRAGMA auto_vacuum = FULL')
-    engine.execute('PRAGMA automatic_index = ON')
+
+    conn = engine.connect()
+    try:
+        conn.execute(sqlalchemy.text('PRAGMA foreign_keys = ON'))
+        conn.execute(sqlalchemy.text('PRAGMA secure_delete = ON'))
+        conn.execute(sqlalchemy.text('PRAGMA auto_vacuum = FULL'))
+        conn.execute(sqlalchemy.text('PRAGMA automatic_index = ON'))
+    finally:
+        conn.close()
+
     Base.metadata.create_all(engine)
 
 
@@ -57,7 +61,11 @@ def compact_db():
     Execute VACUUM command to deallocate database space
     """
     engine = get_engine(orm_lockdown=False)
-    engine.execute('VACUUM')
+    conn = engine.connect()
+    try:
+        conn.execute(sqlalchemy.text('VACUUM'))
+    finally:
+        conn.close()
 
 
 @transact_sync
@@ -80,22 +88,19 @@ def update_db():
         return 0
 
     try:
-        with warnings.catch_warnings():
-            from globaleaks.db import migration
-            warnings.simplefilter("ignore", category=SAWarning)
+        from globaleaks.db import migration
+        log.err('Found an already initialized database version: %d', db_version)
 
-            log.err('Found an already initialized database version: %d', db_version)
+        if db_version != DATABASE_VERSION:
+            log.err('Performing schema migration from version %d to version %d',
+                    db_version, DATABASE_VERSION)
 
-            if db_version != DATABASE_VERSION:
-                log.err('Performing schema migration from version %d to version %d',
-                        db_version, DATABASE_VERSION)
+            migration.perform_migration(db_version)
+        else:
+            migration.perform_data_update(db_file_path)
+            compact_db()
 
-                migration.perform_migration(db_version)
-            else:
-                migration.perform_data_update(db_file_path)
-                compact_db()
-
-            sync_clean_untracked_files()
+        sync_clean_untracked_files()
 
     except Exception as exception:
         log.err('Failure: %s', exception)

@@ -7,20 +7,19 @@ import {UtilsService} from "@app/shared/services/utils.service";
 import {QuestionnaireService} from "@app/pages/admin/questionnaires/questionnaire.service";
 import {Subject, takeUntil} from "rxjs";
 import {fieldtemplatesResolverModel} from "@app/models/resolvers/field-template-model";
-import {Step, questionnaireResolverModel} from "@app/models/resolvers/questionnaire-model";
-
-import {AddFieldComponent} from "../add-field/add-field.component";
+import {Step, questionnaireResolverModel} from "@app/models/resolvers/questionnaire-model"
+import {AddFieldComponent} from "../add-field/add-field.component";;
 import {FormsModule} from "@angular/forms";
 import {FieldsComponent} from "../fields/fields.component";
-import {TranslatorPipe} from "@app/shared/pipes/translate";
-import {OrderByPipe} from "@app/shared/pipes/order-by.pipe";
 import {TranslateModule} from "@ngx-translate/core";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
+
 
 @Component({
     selector: "src-questions",
     templateUrl: "./questions.component.html",
     standalone: true,
-    imports: [AddFieldComponent, FormsModule, FieldsComponent, TranslatorPipe, OrderByPipe, TranslateModule]
+    imports: [AddFieldComponent, FieldsComponent, FormsModule, PaginatedInterfaceComponent, TranslateModule]
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   private questionnaireService = inject(QuestionnaireService);
@@ -30,8 +29,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   private fieldTemplates = inject(FieldTemplatesResolver);
   private questionnairesResolver = inject(QuestionnairesResolver);
 
-  showAddQuestion: boolean = false;
-  fields: fieldtemplatesResolverModel[];
+  showAddQuestion = false;
+  fields: fieldtemplatesResolverModel[] = [];
   questionnairesData: questionnaireResolverModel[] = [];
   step: Step;
   @ViewChild('uploadInput') uploadInput: ElementRef<HTMLInputElement>;

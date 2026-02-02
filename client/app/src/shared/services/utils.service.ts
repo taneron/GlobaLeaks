@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {RequestSupportComponent} from "@app/shared/modals/request-support/request-support.component";
 import {HttpService} from "@app/shared/services/http.service";
-import {TokenResource} from "@app/shared/services/token-resource.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, from, map, switchMap} from "rxjs";
 import {ConfirmationWithPasswordComponent} from "@app/shared/modals/confirmation-with-password/confirmation-with-password.component";
@@ -40,7 +39,6 @@ export class UtilsService {
   private activatedRoute = inject(ActivatedRoute);
   private appDataService = inject(AppDataService);
   private cryptoService = inject(CryptoService);
-  private tokenResource = inject(TokenResource);
   private translateService = inject(TranslateService);
   private clipboardService = inject(ClipboardService);
   private http = inject(HttpClient);
@@ -86,17 +84,6 @@ export class UtilsService {
     return ret;
   }
 
-  download(url: string): Observable<void> {
-    return from(this.tokenResource.getWithProofOfWork()).pipe(
-      switchMap((token: any) => {
-        window.open(`${url}?token=${token.id}:${token.answer}`);
-        return new Observable<void>((observer) => {
-          observer.complete();
-        });
-      })
-    );
-  }
-
   isUploading(uploads?: any) {
     if (uploads) {
       for (const key in uploads) {
@@ -107,14 +94,6 @@ export class UtilsService {
     }
     return false;
   }
-
-  removeStyles(renderer: Renderer2, document:Document, link:string){
-    const defaultBootstrapLink = document.head.querySelector(`link[href="${link}"]`);
-    if (defaultBootstrapLink) {
-      renderer.removeChild(document.head, defaultBootstrapLink);
-    }
-  }
-
 
   resumeFileUploads(uploads: any) {
     if (uploads) {
@@ -182,7 +161,8 @@ export class UtilsService {
         this.router.navigate([this.router.url]).then();
       });
   }
-  onFlowUpload(flowJsInstance:Flow, file:File){
+
+  onFlowUpload(flowJsInstance:Flow, file:File) {
     const fileNameParts = file.name.split(".");
     const fileExtension = fileNameParts.pop();
     const fileNameWithoutExtension = fileNameParts.join(".");
@@ -229,7 +209,6 @@ export class UtilsService {
   }
 
   reloadCurrentRouteFresh(removeQueryParam = false) {
-
     let currentUrl = this.router.url;
     if (removeQueryParam) {
       currentUrl = this.router.url.split("?")[0];
@@ -241,7 +220,7 @@ export class UtilsService {
   }
 
   showWBLoginBox() {
-    return this.appDataService.page === "submissionpage";
+    return this.router.url.startsWith("/submission");
   }
 
   showUserStatusBox() {
@@ -252,8 +231,8 @@ export class UtilsService {
   }
 
   isWhistleblowerPage() {
-    const currentUrl = this.router.url;
-    return this.appDataService.public.node.wizard_done && (!this.authenticationService.session || (location.hash==="#/" || location.hash.startsWith("#/submission"))) && ((currentUrl === "/" && !this.appDataService.public.node.enable_signup) || currentUrl === "/submission" || currentUrl === "/blank");
+    const currentHash = location.hash;
+    return currentHash === "#/" || currentHash === "#/submission";
   }
 
   stopPropagation(event: Event) {
@@ -280,7 +259,7 @@ export class UtilsService {
     if (this.appDataService.public.node.custom_support_url) {
       window.open(this.appDataService.public.node.custom_support_url, "_blank");
     } else {
-      this.modalService.open(RequestSupportComponent,{backdrop: "static",keyboard: false});
+      this.modalService.open(RequestSupportComponent,{backdrop: "static", keyboard: false});
     }
   }
 
@@ -345,7 +324,7 @@ export class UtilsService {
     return date.getTime() >= 32503680000000;
   }
 
-  deleteFromList(list:  { [key: string]: Field}[], elem: { [key: string]: Field}) {
+  deleteFromList(list:  Record<string, Field>[], elem: Record<string, Field>) {
     const idx = list.indexOf(elem);
     if (idx !== -1) {
       list.splice(idx, 1);
@@ -463,7 +442,7 @@ export class UtilsService {
 
   getMinPostponeDate(currentExpirationDate: string) {
     const currDate = new Date(currentExpirationDate);
-    var minDate = new Date();
+    const minDate = new Date();
     minDate.setDate(minDate.getDate() + 91);
     return currDate > minDate ? minDate : currDate;
   }
@@ -483,7 +462,7 @@ export class UtilsService {
     return this.httpService.requestAdminL10NResource(lang);
   }
 
-  updateAdminL10NResource(data: {[key: string]: string}, lang: string) {
+  updateAdminL10NResource(data: Record<string, string>, lang: string) {
     return this.httpService.requestUpdateAdminL10NResource(data, lang);
   }
 
@@ -555,9 +534,9 @@ export class UtilsService {
       let modalRef;
 
       if (this.preferenceResolver.dataModel.two_factor) {
-        modalRef = this.modalService.open(ConfirmationWith2faComponent,{backdrop: "static",keyboard: false});
+        modalRef = this.modalService.open(ConfirmationWith2faComponent,{backdrop: "static", keyboard: false, ariaLabelledBy: 'modal-title'});
       } else {
-        modalRef = this.modalService.open(ConfirmationWithPasswordComponent,{backdrop: "static",keyboard: false});
+        modalRef = this.modalService.open(ConfirmationWithPasswordComponent,{backdrop: "static", keyboard: false, ariaLabelledBy: 'modal-title'});
       }
 
       modalRef.componentInstance.confirmFunction = (secret: string) => {
@@ -570,7 +549,7 @@ export class UtilsService {
   openConfirmableModalDialogReport(arg: string, scope: any): Observable<string> {
     scope = !scope ? this : scope;
     return new Observable((observer) => {
-      const modalRef = this.modalService.open(DeleteConfirmationComponent,{backdrop: "static",keyboard: false});
+      const modalRef = this.modalService.open(DeleteConfirmationComponent,{backdrop: "static", keyboard: false, ariaLabelledBy: 'modal-title'});
       modalRef.componentInstance.arg = arg;
       modalRef.componentInstance.scope = scope;
       modalRef.componentInstance.confirmFunction = () => {
@@ -717,17 +696,35 @@ export class UtilsService {
       };
     });
   }
-  generateCSV(dataString: string, fileName: string, headerx: string[]): void {
-    const data = JSON.parse(dataString);
 
+  generateCSV(fileName: string, data: Record<string, any>[], headerx?: string[]): void {
     if (!Array.isArray(data)) {
       console.error('Invalid data format');
       return;
     }
 
-    const headers = Object.keys(data[0] || {});
-    const newHeader = headerx.join(',');
-    const csvContent = `${newHeader ? `${newHeader}\n` : ""}${data.map(row => headers.map(header => row[header]).join(',')).join('\n')}`;
+    const headers = headerx ?? Object.keys(data[0] || {});
+    const headerLine = headers.join(',');
+
+    const csvRows = data.map(row =>
+      headers.map(header => {
+        let cell = row[header];
+
+        // If it's an object or array, stringify it
+        if (typeof cell === 'object' && cell !== null) {
+          cell = JSON.stringify(cell);
+        }
+
+        // Escape commas, quotes, and newlines
+        if (typeof cell === 'string' && (cell.includes(',') || cell.includes('"') || cell.includes('\n'))) {
+          return `"${cell.replace(/"/g, '""')}"`;
+        }
+
+        return cell ?? ''; // Fallback to empty string
+      }).join(',')
+    );
+
+    const csvContent = `${headerLine}\n${csvRows.join('\n')}`;
 
     if (!csvContent.trim()) {
       console.warn('No data to export');
@@ -742,7 +739,7 @@ export class UtilsService {
   }
 
   public viewRFile(file: WbFile) {
-    const modalRef = this.modalService.open(FileViewComponent, {backdrop: 'static', keyboard: false});
+    const modalRef = this.modalService.open(FileViewComponent, {backdrop: 'static', keyboard: false, ariaLabelledBy: 'modal-title'});
     modalRef.componentInstance.args = {
       file: file,
       loaded: false,

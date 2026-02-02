@@ -14,7 +14,7 @@ export class WbTipData {
   tor: boolean;
   mobile: boolean;
   reminder_date: string;
-  enable_whistleblower_identity: boolean;
+  identity_provided: boolean;
   last_access: string;
   score: number;
   status: string;
@@ -134,7 +134,7 @@ export class Receiver {
 
 export class Data {
   whistleblower_identity: WhistleblowerIdentity;
-  whistleblower_identity_provided: boolean = false;
+  whistleblower_identity_provided = false;
 }
 
 export interface MsgReceiversSelector {
@@ -142,8 +142,7 @@ export interface MsgReceiversSelector {
   value: string;
 }
 
-export interface ReceiversById {
-  [key: string]: {
+export type ReceiversById = Record<string, {
     name: string;
-  };
-}
+    active: boolean;
+  }>;

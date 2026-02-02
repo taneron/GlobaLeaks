@@ -7,7 +7,7 @@ from globaleaks import models
 from globaleaks.handlers.recipient import rtip
 from globaleaks.jobs.delivery import Delivery
 from globaleaks.tests import helpers
-from globaleaks.utils.utility import datetime_never, datetime_now, get_expiration
+from globaleaks.utils.utility import datetime_never, datetime_now
 
 
 class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
@@ -36,7 +36,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     def test_postpone(self):
         expiration = datetime_now()
 
-        yield self.set_itip_expiration(expiration)
+        yield self.set_itips_expiration(expiration)
 
         rtip_descs = yield self.get_rtips()
 
@@ -58,7 +58,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
 
     @inlineCallbacks
     def test_postpone_of_reports_with_no_expiration(self):
-        yield self.set_itip_expiration(datetime_never())
+        yield self.set_itips_expiration(datetime_never())
 
         rtip_descs = yield self.get_rtips()
 
@@ -82,7 +82,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     def test_postpone_of_reports_with_date_below_minimum_threshold(self):
         expiration = datetime_now()
 
-        yield self.set_itip_expiration(expiration)
+        yield self.set_itips_expiration(expiration)
 
         rtip_descs = yield self.get_rtips()
 
@@ -108,7 +108,7 @@ class TestRTipInstance(helpers.TestHandlerWithPopulatedDB):
     def test_postpone_of_reports_with_date_over_maximum_threshold(self):
         expiration = datetime_now()
 
-        yield self.set_itip_expiration(expiration)
+        yield self.set_itips_expiration(expiration)
 
         rtip_descs = yield self.get_rtips()
 

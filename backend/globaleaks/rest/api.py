@@ -2,9 +2,14 @@
 #   ***
 #
 #   This file defines the URI mapping for the GlobaLeaks API and its factory
+import base64
 import inspect
 import json
 import re
+import secrets
+
+from functools import lru_cache
+from typing import List, Tuple
 
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -29,7 +34,6 @@ from globaleaks.handlers import admin, \
                                 security, \
                                 signup, \
                                 sitemap, \
-                                support, \
                                 staticfile, \
                                 support, \
                                 user, \
@@ -45,6 +49,10 @@ tid_regexp = r'([0-9]+)'
 uuid_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})'
 uuid_regexp_or_closed = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|closed)'
 key_regexp = r'([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-z_]{0,100})'
+
+COMPILED_RE_MOBILE_UA = re.compile(br'Mobi|Android', re.IGNORECASE)
+COMPILED_RE_TID_UUID = re.compile(br'^/t/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})')
+COMPILED_RE_TID_SUB = re.compile(br'^/t/([0-9a-z-]+)')
 
 api_spec = [
     ('/api/health', health.HealthStatusHandler),
@@ -169,6 +177,52 @@ default_api = staticfile.StaticFileHandler
 default_regexp = re.compile(r'/([a-zA-Z0-9_\-\/\.\@]*)')
 
 
+@lru_cache(maxsize=128)
+def expand_language(lang: str):
+    parts = lang.split('-')
+    return [
+        '-'.join(parts[:i])
+        for i in range(len(parts), 0, -1)
+    ]
+
+
+@lru_cache(maxsize=1000)
+def parse_accept_language(raw_header: str) -> List[str]:
+    """
+    Parse Accept-Language according to RFC.
+    Returns language tags ordered by preference.
+    """
+    if not raw_header:
+        return []
+
+    parsed: List[Tuple[str, float, int]] = []
+
+    for index, item in enumerate(raw_header.split(',')):
+        parts = item.strip().split(';')
+        lang = parts[0].lower()
+
+        if not lang:
+            continue
+
+        q = 1.0
+        for param in parts[1:]:
+            param = param.strip()
+            if param.startswith('q='):
+                try:
+                    q = float(param[2:])
+                except ValueError:
+                    q = 0.0
+
+        parsed.append((lang, q, index))
+
+    # Order by:
+    # 1. highest q-value
+    # 2. original order (stable)
+    parsed.sort(key=lambda x: (-x[1], x[2]))
+
+    return [lang for lang, _, _ in parsed]
+
+
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -192,7 +246,7 @@ class Trie:
             node = node.children[part]
 
         # Attach the full regexp and handler at the leaf node
-        node.descriptors.append((re.compile(regexp), handler))
+        node.descriptors.append((regexp, handler))
 
     def search(self, path):
         """
@@ -248,6 +302,7 @@ class APIResourceWrapper(Resource):
 
             self.registry.insert(prefix, re.compile(regexp), handler)
 
+    @lru_cache(maxsize=2048)
     def resolve_handler(self, path):
         return self.registry.search(path)
 
@@ -341,6 +396,7 @@ class APIResourceWrapper(Resource):
         request.language = 'en'
         request.multilang = False
         request.finished = False
+        request.nonce = base64.b64encode(secrets.token_bytes(16))
 
         request.client_ip = request.getClientIP()
         if isinstance(request.client_ip, bytes):
@@ -355,10 +411,10 @@ class APIResourceWrapper(Resource):
 
         request.client_ua = request.headers.get(b'user-agent', b'')
 
-        request.client_using_mobile = re.search(b'Mobi|Android', request.client_ua, re.IGNORECASE) is not None
+        request.client_using_mobile = COMPILED_RE_MOBILE_UA.search(request.client_ua) is not None
 
         if not State.tenants[1].cache.wizard_done or \
-          request.hostname == b'127.0.0.1' or \
+          request.hostname.lower() in (b'127.0.0.1', b'localhost') or \
           (State.tenants[1].cache.hostname == '' and isIPAddress(request.hostname)):
             request.tid = 1
         else:
@@ -366,19 +422,26 @@ class APIResourceWrapper(Resource):
 
         if request.tid == 1:
             try:
-                match1 = re.match(b'^/t/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})(/.*)', request.path)
-                match2 = re.match(b'^/t/([0-9a-z-]+)(/.*)$', request.path)
-
-                if match1 is not None:
-                    groups = match1.groups()
-                    tid = State.tenant_uuid_id_map[groups[0].decode()]
-                    request.tid, request.path = tid, groups[1]
-                elif match2 is not None:
-                    groups = match2.groups()
-                    tid = State.tenant_subdomain_id_map[groups[0].decode()]
-                    request.tid, request.path = tid, groups[1]
+                m = COMPILED_RE_TID_UUID.match(request.path)
+                if m:
+                    tid_bytes, rest = m.groups()
+                    tid = State.tenant_uuid_id_map.get(tid_bytes.decode())
+                    if tid is not None:
+                        request.tid = tid
+                        request.path = rest
+                else:
+                    m = COMPILED_RE_TID_SUB.match(request.path)
+                    if m:
+                        sub_bytes, rest = m.groups()
+                        tid = State.tenant_subdomain_id_map.get(sub_bytes.decode())
+                        if tid is not None:
+                            request.tid = tid
+                            request.path = rest
             except:
                 pass
+
+        if request.path == b'/':
+            request.path = b'/index.html'
 
         if request.tid is None:
             # Tentative domain correction in relation to presence / absence of 'www.' prefix
@@ -540,10 +603,10 @@ class APIResourceWrapper(Resource):
                           b"sandbox;"
                           b"trusted-types;"
                           b"require-trusted-types-for 'script';"
-                          b"report-uri /api/report;")
+                          b"report-to csp-endpoint")
 
         # CSP Policy on the entry point
-        if request.path == b'/' or request.path == b'/index.html':
+        if request.path == b'/index.html':
             request.setHeader(b'Content-Security-Policy',
                               b"base-uri 'none';"
                               b"connect-src 'self';"
@@ -555,26 +618,10 @@ class APIResourceWrapper(Resource):
                               b"img-src 'self';"
                               b"media-src 'self';"
                               b"script-src 'self';"
-                              b"style-src 'self';"
-                              b"trusted-types angular angular#bundler dompurify default;"
-                              b"require-trusted-types-for 'script';")
-
-            # Duplicate the above rule to get reports about any violations except for inline styles
-            request.setHeader(b'Content-Security-Policy-Report-Only',
-                              b"base-uri 'none';"
-                              b"connect-src 'self';"
-                              b"default-src 'none';"
-                              b"font-src 'self';"
-                              b"form-action 'none';"
-                              b"frame-ancestors 'none';"
-                              b"frame-src 'self';"
-                              b"img-src 'self';"
-                              b"media-src 'self';"
-                              b"script-src 'self';"
-                              b"style-src 'self' 'unsafe-inline';"
+                              b"style-src 'self' 'nonce-" + request.nonce + b"';"
                               b"trusted-types angular angular#bundler dompurify default;"
                               b"require-trusted-types-for 'script';"
-                              b"report-uri /api/report;")
+                              b"report-to csp-endpoint")
 
         # CSP Policy for the crypto worker with reporting of any violation
         elif request.path == b'/workers/crypto.worker.js':
@@ -587,7 +634,7 @@ class APIResourceWrapper(Resource):
                               b"sandbox;"
                               b"trusted-types;"
                               b"require-trusted-types-for 'script';"
-                              b"report-uri /api/report;")
+                              b"report-to csp-endpoint")
 
         # CSP Policy for the file viewer
         elif request.path.startswith(b'/viewer'):
@@ -604,27 +651,14 @@ class APIResourceWrapper(Resource):
                                   b"style-src 'self';"
                                   b"sandbox allow-scripts;"
                                   b"trusted-types;"
-                                  b"require-trusted-types-for 'script';")
-
-                # Duplicate the above rule to get reporting of violations except for inline styles
-                request.setHeader(b'Content-Security-Policy-Report-Only',
-                                  b"base-uri 'none';"
-                                  b"default-src 'none';"
-                                  b"connect-src blob:;"
-                                  b"form-action 'none';"
-                                  b"frame-ancestors 'self';"
-                                  b"img-src blob:;"
-                                  b"media-src blob:;"
-                                  b"script-src 'self';"
-                                  b"style-src 'self' 'unsafe-inline';"
-                                  b"sandbox allow-scripts;"
-                                  b"trusted-types;"
                                   b"require-trusted-types-for 'script';"
-                                  b"report-uri /api/report;")
+                                  b"report-to csp-endpoint")
 
                 request.setHeader(b"Cross-Origin-Resource-Policy", "cross-origin")
             else:
                 request.setHeader(b'Access-Control-Allow-Origin', "null")
+
+        request.setHeader(b'Reporting-Endpoints', "csp-endpoint=\"/api/report\"")
 
         # Disable features that could be used to deanonymize the user
         microphone = False
@@ -655,13 +689,9 @@ class APIResourceWrapper(Resource):
                                                  b"screen-wake-lock=(),"
                                                  b"serial=(),"
                                                  b"speaker-selection=(),"
-                                                 b"storage-access=(),"
                                                  b"usb=(),"
                                                  b"web-share=(),"
                                                  b"xr-spatial-tracking=()")
-
-        # Prevent old browsers not supporting CSP frame-ancestors directive to includes the platform within an iframe
-        request.setHeader(b'X-Frame-Options', b'deny')
 
         # Prevent the browsers to implement automatic mime type detection and execution.
         request.setHeader(b'X-Content-Type-Options', b'nosniff')
@@ -690,41 +720,22 @@ class APIResourceWrapper(Resource):
             request.setHeader(b'X-Check-Tor', b'False')
 
     def detect_language(self, request):
-        locales = []
-
-        # Retrieve and decode the 'accept-language' header
-        accept_language = request.headers.get(b'accept-language', b'').decode()
-
-        # Get the tenant data once to avoid redundant lookups
-        tenant_cache = State.tenants.get(request.tid)
-
-        # Check if tenant exists and is cached
-        if tenant_cache:
-            enabled_languages = tenant_cache.cache.languages_enabled
-            default_language = tenant_cache.cache.default_language
-
-            for language in accept_language.split(","):
-                parts = language.strip().split(";")
-                score = 1.0  # Default score
-
-                if len(parts) > 1 and parts[1].startswith("q="):
-                    try:
-                        score = float(parts[1][2:])
-                    except (ValueError, TypeError):
-                        score = 0  # Fallback if q-value is invalid
-
-                # Append language with score if it's enabled for the tenant
-                if parts[0] in enabled_languages:
-                    locales.append((parts[0], score))
-
-            if locales:
-               # Use max() to pick the language with the highest score
-               request.language = max(locales, key=lambda pair: pair[1])[0]
-            else:
-               # Fallback to default language if no matching locale found
-                request.language = default_language
-        else:
-            # Fallback to default 'en' if tenant doesn't exist or no valid languages enabled
+        tenant = State.tenants.get(request.tid)
+        if not tenant:
             request.language = 'en'
+            return request.language
 
+        cache = tenant.cache
+
+        raw_header = request.headers.get(
+            b'accept-language', b''
+        ).decode()
+
+        for lang in parse_accept_language(raw_header):
+            for candidate in expand_language(lang):
+                if candidate in cache.languages_enabled:
+                    request.language = candidate
+                    return request.language
+
+        request.language = cache.default_language
         return request.language

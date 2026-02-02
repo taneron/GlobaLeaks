@@ -38,14 +38,12 @@ msgid "Access requested"
 msgstr "Тlекхочийла дехна"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Iорадаккхархочун цIарна тlекхочийла дехна lуналхочуьнга."
 
 msgid "Account recovery key"
 msgstr "Аккаунт меттахIоторан догlа"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Жигараллаш"
@@ -92,16 +90,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "ДIаэцархочунна аьрзнаш дIадайъа бакъо луо"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Iорадаккхархочунна магийта орзана тIе юкъаехкина файлаш тIетоха"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Iорадаккхархочунна бакъо ло комменташ язъян"
 
 msgid "Allow users to sign up"
 msgstr "Пайдаэцархошна чуязбала магаде"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Iорадаккхархошна шайн дIаэцархой харжа пурба дала"
 
 msgid "Allowed IP addresses"
@@ -161,7 +159,7 @@ msgstr "Бакъо ялар"
 msgid "Authorize"
 msgstr "Бакъо яла"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Iорадаккхархочун цIарна тlекхачар бакъо луо"
 
 msgid "Authorized"
@@ -324,7 +322,7 @@ msgstr "ТIе ца дитина"
 msgid "Deny"
 msgstr "Тlе ма эца"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Iорадаккхархочун цIарна тlекхачар дехка"
 
 msgid "Description"
@@ -447,6 +445,9 @@ msgstr "Магийна"
 msgid "Enter a name for the copy"
 msgstr "Копин цlе чуязъе"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Ши-факторан аутентификацин код чуязъе"
 
@@ -513,7 +514,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Лахара колонтитул"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -568,7 +569,7 @@ msgstr "ТIекхача бакъо луо"
 msgid "Group of questions"
 msgstr "Хаттарийн гулам"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Ахь арз хIинцале чуделлий? Хьайн квитанци чуязде."
 
 msgid "Hidden"
@@ -694,6 +695,9 @@ msgstr "Tor а йоцуш, тlекхочийлехь хилийта платфо
 
 msgid "License"
 msgstr "Лицензи"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Чоьхьарчу пайдаэцархойн журналашна тlекхочийла"
@@ -846,6 +850,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Цхьамма я масех дIаэцархочо системи чувалар кхочуш ца дина. Цундела цаьрга аьрзнаш кхочур дац."
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "Диллина"
 
@@ -942,7 +949,7 @@ msgstr "Хаттарийн гулам"
 msgid "Question templates"
 msgstr "Хаттаран шаблонаш"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Хила тарлуш болу Iорадаккхархой тlеозон хаттар"
 
 msgid "Questionnaire"
@@ -956,6 +963,9 @@ msgstr "Хеттарш"
 
 msgid "Questions"
 msgstr "Хаттарш"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -993,7 +1003,7 @@ msgstr "Рожехь болу гайтам"
 msgid "Regular expression validator"
 msgstr "Рожехь болу гайтамаш бакъдаран гlирс"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "ХIокху орзах делла квитанци дагахь латтаде."
 
 msgid "Reminder date"
@@ -1023,7 +1033,7 @@ msgstr "Аьрзнийн статусаш"
 msgid "Reports"
 msgstr "Аьрзнаш"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Iорадаккхархочун цIарна тlекхачар деха"
 
 msgid "Request date"
@@ -1068,7 +1078,7 @@ msgstr "Ресурс ца карийна"
 msgid "Restrict access to specific IP addresses"
 msgstr "Билггалчу IP-адресашна тlекхачарна доза тоха"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1242,7 +1252,13 @@ msgstr "Чудаларш ца магийна"
 msgid "Submit"
 msgstr "Чулуо"
 
+msgid "Submit a report"
+msgstr "Арз чудала"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1352,7 +1368,7 @@ msgstr "ХIара меттахIоторан догlа бакъ дац."
 msgid "The provided reset token is invalid or expired."
 msgstr "Схьайелла йолу юхакирдаран маркер я бакъ яц, я цуьнан хан дlаяьлла. "
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Квитанци я бакъ дац, я цуьнан леларан хан дlаяьлла."
 
 msgid "The specified input is not valid."
@@ -1376,10 +1392,10 @@ msgstr "Пайдаэцархочунна парол хийцар тIедилли
 msgid "The validation link is either incorrect or has expired."
 msgstr "Бакъдаран линк я нийса яц, я цуьнан леларан хан чекхъяьлла."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Iорадаккхархочо хlинцале дешна тlаьххьара карладаккхар"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Iорадаккхархочо хlинца а ца дешна тlаьххьара карладаккхар"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1466,8 +1482,8 @@ msgid "Use as default"
 msgstr "Пайдаэца юьхьанцарчу рожах санна"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Системи чувала, 16 терахь долчу квитанцех пайдаэца.  Цо таро лур ю хьуна оха дlадоуьйтучу а косте хьажа, ткъа иштта сов информации тIетоха. "
 
 msgid "Use the first site for administrative purposes only"
@@ -1541,10 +1557,10 @@ msgstr "Гlийла"
 msgid "Welcome!"
 msgstr "Марша догlийла!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Iорадаккхархо"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Iорадаккхархочун тlаьххьара тlекхачар"
 
 msgid "Whistleblowing Policy"
@@ -1564,7 +1580,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Хьо цIехьулъяр доцуш тlетасалуш ву серверна, хIокху серверо цIехьулъеш чудаларшна бен гIортор еш яц"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1613,9 +1629,6 @@ msgstr "терахьаш бен ма яздехьа."
 
 msgid "seconds"
 msgstr "сикондаш"
-
-msgid "File a report"
-msgstr "Арз чудала"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1747,22 +1760,6 @@ msgstr "Платформа шашах дlайоккхур ю:"
 msgid "Access instructions"
 msgstr "Тlекхочийлин хьокъехь долу куьйгалла"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "ТIаьххьарчу хенахь тусаделлачу жигараллийн терахь хlинццалц хуьлучул а лакхара долчух тера ду."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Хlара тlелатаран билгало хила тарло (масала, цхьамма хьан сервер харцхаамех юзуш ю) я хьан проектах пайда оьцуш болу нах алссамбовлуш хила а там бу."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "ГIуллакх зиэ, и бакъонца ду я дац хьажа."
-
-msgid "The activities with unusual stats are:"
-msgstr "Башха статистика йолу жигараллаш:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1780,14 +1777,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологино чулоцу серверан статус зуьйш компонент; цо хаам бийр бу, ахь тидам бан безаш хlума хилахь."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Алсамо информаци эшахь, урхаллин интрефейс чу а валий, хьажа \"Системин статистика\" а, \"Аномалеш\" а секцешка."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Аномали тусаелла кхузахь {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1903,7 +1892,7 @@ msgstr "Кху электронан кехатца хаам бо хьоьга, �
 msgid "The report can be accessed at:"
 msgstr "Орзана тIекхача йиш ю хIокху адресца:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Iорадаккхархочун цIарна тlекхочийла магийна"
 
 msgid ""
@@ -1911,26 +1900,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Кху электронан кехатца хаам бо хьоьга, цхьана lуналхочо хьуна Iорадаккхархочун цIарна тlекхача бакъо елла ца хиларх {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Iорадаккхархочун цIарна тlекхочийла ца магийна"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Кху электронан кехатца хаам бо хьоьга, цхьана дIаэцархочо Iорадаккхархочун цIарна тlекхача бакъо йоьхуш хиларх {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Дехарна тIекхочийла ду кхузахь:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Iорадаккхархочун цIарна тlекхача керла дехар"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Кху электронан кехатца хаам бо хьоьга, Iорадаккхархочо шен цIарна тlекхача бакъо елла хиларх {TipNum}."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Iорадаккхархочо шен цIе йовзийтина"
 
 msgid ""

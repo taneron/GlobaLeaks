@@ -17,21 +17,14 @@ export class MarkdownRendererService {
     const customRenderer = new Renderer();
 
     customRenderer.link = ({ href, title, tokens }: Link): string => {
-      let text = ''
-      if (tokens && tokens[0] && tokens[0].raw) {
-        text = tokens[0].raw;
-      }
+      const text = tokens?.[0]?.raw || href;
 
-      // Extract the image Markdown (e.g., ![Alt](src))
+      // Detect if the markdown code includes images
       const match = text.match(/!\[(.*?)\]\((.*?)\)/);
-      if (match) {
-        const alt = match[1]; // Alt text
-        const src = match[2]; // Image URL
-        return `<a target="_blank" href="${href}"><img src="${src}" alt="${alt}" /></a>`;
-      }
 
-      // Fallback to standard link rendering for non-image links
-      return `<a target="_blank" href="${href}" ${title ? ` title="${title}"` : ""}>${text}</a>`;
+      return match
+        ? `<a href="${href}"><img src="${match[2]}" alt="${match[1]}" /></a>`
+        : `<a href="${href}"${title ? ` title="${title}"` : ''}>${text}</a>`;
     };
 
     return customRenderer;

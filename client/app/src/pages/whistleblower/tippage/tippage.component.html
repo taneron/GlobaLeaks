@@ -1,10 +1,14 @@
 @if (wbTipService.tip) {
-  <div class="reveal" [ngClass]="['report-status-' + tip.status, 'report-substatus-' + tip.substatus]">
+  <div class="reveal" [ngClass]="['report-status-' + wbTipService.tip.status, 'report-substatus-' + wbTipService.tip.substatus]">
     <div id="Toolbar" class="row">
       <div class="col-md-12">
-        <span id="link-reload" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary">
-          <i class="fa-solid fa-sync"></i>
-        </span>
+        <div class="d-flex justify-content-end">
+          <div class="d-flex align-items-center">
+            <button id="link-reload" type="button" (click)="reload()" ngbTooltip="{{'Refresh' | translate}}" class="btn btn-outline-secondary" [attr.aria-label]="'Refresh' | translate">
+              <i class="fas fa-arrows-rotate"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     @if (shouldShowAdditionalQuestionnaire()) {
@@ -19,23 +23,23 @@
         <src-tip-info [tipService]="wbTipService"></src-tip-info>
       </div>
     </div>
-    @if (wbTipService.tip.receivers && wbTipService.tip.receivers.length > 1) {
+    <div class="row">
+      <div class="col-md-12">
+        <src-tip-receiver-list [tipService]="wbTipService"></src-tip-receiver-list>
+      </div>
+    </div>
+    @if (wbTipService.tip.data) {
       <div class="row">
-        <div class="col-md-12">
-          <src-tip-receiver-list [tipService]="wbTipService"></src-tip-receiver-list>
+        <div [ngClass]="{'col-md-12': !wbTipService.tip.whistleblower_identity_field,'col-md-6': wbTipService.tip.whistleblower_identity_field}">
+          <src-tip-questionnaire-answers [tipService]="wbTipService"></src-tip-questionnaire-answers>
         </div>
+        @if (wbTipService.tip.whistleblower_identity_field && wbTipService.tip.whistleblower_identity_field.enabled) {
+          <div class="col-md-6">
+            <src-whistleblower-identity [uploadEstimateTime]="calculateEstimatedTime()" [uploadProgress]="calculateProgress()" [isUploading]="uploading()" (onFormUpdate)="onFormChange()" (provideIdentityInformation)=provideIdentityInformation($event) [answers]="answers" [step]="wbTipService.tip.whistleblower_identity_field" [field]="wbTipService.tip.whistleblower_identity_field" [submission]="submission" [uploads]="uploads"></src-whistleblower-identity>
+          </div>
+        }
       </div>
     }
-    <div class="row">
-      <div [ngClass]="{'col-md-12': !wbTipService.tip.enable_whistleblower_identity,'col-md-6': wbTipService.tip.enable_whistleblower_identity}">
-        <src-tip-questionnaire-answers [tipService]="wbTipService"></src-tip-questionnaire-answers>
-      </div>
-      @if (wbTipService.tip.enable_whistleblower_identity) {
-        <div class="col-md-6">
-          <src-whistleblower-identity [uploadEstimateTime]="calculateEstimatedTime()" [uploadProgress]="calculateProgress()" [isUploading]="uploading()" (onFormUpdate)="onFormChange()" (provideIdentityInformation)=provideIdentityInformation($event) [answers]="answers" [step]="wbTipService.tip.whistleblower_identity_field" [field]="wbTipService.tip.whistleblower_identity_field"></src-whistleblower-identity>
-        </div>
-      }
-    </div>
     <div class="row">
       <div class="col-md-12">
         <src-tip-files-whistleblower [fileUploadUrl]="fileUploadUrl"></src-tip-files-whistleblower>
@@ -45,7 +49,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6 col-sm-12">
         @if (wbTipService) {
           <src-tip-comments [tipService]="wbTipService" [key]="'public'"></src-tip-comments>
         }

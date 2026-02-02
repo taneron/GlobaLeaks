@@ -1,3 +1,4 @@
+import copy
 from sqlalchemy.sql.expression import not_
 
 from globaleaks import models
@@ -6,8 +7,7 @@ from globaleaks.handlers.public import serialize_field, trigger_map
 from globaleaks.models import fill_localized_keys
 from globaleaks.orm import db_add, db_get, db_del, transact, tw
 from globaleaks.rest import errors, requests
-from globaleaks.settings import Settings
-from globaleaks.utils.fs import read_json_file
+from globaleaks.state import State
 
 
 def fieldtree_ancestors(session, field_id):
@@ -100,14 +100,14 @@ def db_update_fieldoptions(session, field_id, options, language):
     if not options_ids:
         return
 
-    subquery = session.query(models.FieldOption.id) \
-                      .filter(models.FieldOption.field_id == field_id,
-                              not_(models.FieldOption.id.in_(options_ids))) \
-                      .subquery()
+    ids = [id for (id,) in session.query(models.FieldOption.id).filter(
+        models.FieldOption.field_id == field_id,
+        not_(models.FieldOption.id.in_(options_ids))
+    ).all()]
 
     db_del(session,
            models.FieldOption,
-           models.FieldOption.id.in_(subquery))
+           models.FieldOption.id.in_(ids))
 
 
 def db_update_fieldattr(session, field_id, attr_name, attr_dict, language):
@@ -172,14 +172,12 @@ def check_field_association(session, tid, request):
         raise errors.InputValidationError
 
     if request.get('template_id', '') and session.query(models.Field).filter(models.Field.id == request['template_id'],
-                                                                             not_(models.Field.tid.in_(
-                                                                                 {1, tid}))).count():
+                                                                             not_(models.Field.tid.in_({1, tid}))).count():
         raise errors.InputValidationError
 
-    if request.get('step_id', '') and session.query(models.Field).filter(models.Step.id == request['step_id'],
-                                                                         models.Questionnaire.id == models.Step.questionnaire_id,
-                                                                         not_(models.Questionnaire.tid.in_(
-                                                                             {1, tid}))).count():
+    if request.get('step_id', '') and session.query(models.Step).filter(models.Step.id == request['step_id'],
+                                                                        models.Questionnaire.id == models.Step.questionnaire_id,
+                                                                         not_(models.Questionnaire.tid.in_({1, tid}))).count():
         raise errors.InputValidationError
 
     if request.get('fieldgroup_id', ''):
@@ -213,14 +211,12 @@ def db_create_field(session, tid, request, language):
 
     check_field_association(session, tid, request)
 
-    field_attrs = read_json_file(Settings.field_attrs_file)
-
     if not request.get('template_id'):
         field = db_add(session, models.Field, request)
 
         attrs = request.get('attrs')
         if not attrs:
-            attrs = field_attrs.get(field.type, {})
+            attrs = copy.deepcopy(State.field_attrs.get(field.type, {}))
 
         options = request.get('options')
 
@@ -234,14 +230,14 @@ def db_create_field(session, tid, request, language):
             if request.get('step_id', '') == '':
                 raise errors.InputValidationError("Cannot associate whistleblower identity field to a fieldgroup")
 
-            q_id = session.query(models.Questionnaire.id) \
-                          .filter(models.Questionnaire.id == models.Step.questionnaire_id,
-                                  models.Step.id == request['step_id'])
+            q_id = session.query(models.Questionnaire.id).join(models.Step).filter(
+                models.Step.id == request['step_id']
+            ).scalar()
 
             field = session.query(models.Field) \
                            .filter(models.Field.template_id == 'whistleblower_identity',
                                    models.Field.step_id == models.Step.id,
-                                   models.Step.questionnaire_id.in_(q_id.subquery())).one_or_none()
+                                   models.Step.questionnaire_id == q_id).one_or_none()
 
             if field is not None:
                 raise errors.InputValidationError("Whistleblower identity field already present")
@@ -257,7 +253,7 @@ def db_create_field(session, tid, request, language):
 
         attrs = request.get('attrs')
         if not attrs:
-            attrs = field_attrs.get(field.template_id, {})
+            attrs = copy.deepcopy(State.field_attrs.get(field.template_id, {}))
 
         db_update_fieldattrs(session, field.id, attrs, None)
 

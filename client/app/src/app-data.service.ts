@@ -1,21 +1,13 @@
-import {Injectable} from "@angular/core";
-import {ErrorCodes} from "@app/models/app/error-code";
-import {LanguagesSupported, Root} from "@app/models/app/public-model";
-import {BehaviorSubject, Observable} from "rxjs";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
+import { ErrorCodes } from "@app/models/app/error-code";
+import { LanguagesSupported, Root } from "@app/models/app/public-model";
 
 @Injectable({
   providedIn: "root"
 })
 export class AppDataService {
-  private showLoadingPanelSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  showLoadingPanel$: Observable<boolean> = this.showLoadingPanelSubject.asObservable();
-  language:string = "en"
-
-  updateShowLoadingPanel(newValue: boolean) {
-    this.showLoadingPanelSubject.next(newValue);
-  }
-
-  public = <Root>{};
+  language = "en";
   errorCodes = new ErrorCodes();
   pageTitle = "Globaleaks";
   projectTitle = "";
@@ -36,4 +28,24 @@ export class AppDataService {
   context_id = "";
   contexts_by_id: any = {};
   questionnaires_by_id: any = {};
+
+  private showLoadingPanelSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  showLoadingPanel$: Observable<boolean> = this.showLoadingPanelSubject.asObservable();
+
+  public publicSubject: BehaviorSubject<Root> = new BehaviorSubject<Root>({} as Root);
+  public$: Observable<Root> = this.publicSubject.asObservable();
+
+  constructor() {}
+
+  updateShowLoadingPanel(newValue: boolean) {
+    this.showLoadingPanelSubject.next(newValue);
+  }
+
+  get public(): Root {
+    return this.publicSubject.getValue();
+  }
+
+  updatePublic(newPublic: Root) {
+    this.publicSubject.next({...newPublic});
+  }
 }

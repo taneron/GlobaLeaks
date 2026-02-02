@@ -1,5 +1,6 @@
 export class tenantResolverModel {
   id: number;
+  uuid: string;
   creation_date: string;
   active: boolean;
   hostname: string;

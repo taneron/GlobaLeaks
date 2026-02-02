@@ -1,5 +1,5 @@
 class WhistleblowerPage {
-  public static performSubmission(arg?:string) {
+  public static performSubmission(number_of_attachments:number) {
     cy.visit("#/");
     cy.takeScreenshot("whistleblower/home");
 
@@ -17,20 +17,15 @@ class WhistleblowerPage {
 
     cy.get("#step-0-field-6-0-input-0").type("...");
 
-    if(arg && arg =="single_file_upload"){
+    if (number_of_attachments >= 1) {
       cy.get("#step-0-field-5-0-input-0 input[type='file']").selectFile({
         contents: "./cypress/fixtures/files/test.pdf",
         fileName: "test.pdf",
         mimeType: "application/pdf"
       }, {"force": true});
-      
-    } else {
-      cy.get("#step-0-field-5-0-input-0 input[type='file']").selectFile({
-        contents: "./cypress/fixtures/files/test.pdf",
-        fileName: "test.pdf",
-        mimeType: "application/pdf"
-      }, {"force": true});
+    }
   
+    if (number_of_attachments >= 2) {
       cy.get("#step-0-field-5-0-input-0 input[type='file']").selectFile({
         contents: "./cypress/fixtures/files/test.zip",
         fileName: "test.zip",

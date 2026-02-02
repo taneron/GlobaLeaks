@@ -1,0 +1,73 @@
+%%{init: { 'logLevel': 'debug', 'theme': 'default', 'themeVariables': {
+              'tagLabelColor': '#FFFFFF',
+              'tagLabelBackground': '#103253',
+              'tagLabelBorder': '#103253',
+              'tagLabelFontSize': '16px',
+              'commitLabelColor': '#FFFFFF',
+              'commitLabelBackground': '#103253',
+              'commitLabelFontSize': '14px',
+              'git0': '#3679bb',
+              'git1': '#103253',
+              'git2': '#FFD644',
+              'git3': '#103253',
+              'git3': '#103253',
+              'git3': '#103253',
+              'git4': '#103253',
+              'git5': '#FFD644',
+              'git6': '#FFD644',
+              'git7': '#FFD644',
+              'git8': '#3679bb',
+              'git9': '#3679bb',
+              'gitInv0': '#DE1B1B',
+              'gitInv1': '#DE1B1B',
+              'gitInv2': '#DE1B1B',
+              'gitInv3': '#DE1B1B',
+              'gitInv4': '#DE1B1B',
+              'gitInv5': '#DE1B1B',
+              'gitInv6': '#DE1B1B',
+              'gitInv7': '#DE1B1B',
+              'gitInv8': '#DE1B1B',
+              'gitInv9': '#DE1B1B',
+              'gitBranchLabel0': '#ffffff',
+              'gitBranchLabel1': '#ffffff',
+              'gitBranchLabel2': '#000000',
+              'gitBranchLabel3': '#ffffff',
+              'gitBranchLabel4': '#ffffff',
+              'gitBranchLabel5': '#000000',
+              'gitBranchLabel6': '#000000',
+              'gitBranchLabel7': '#000000',
+              'gitBranchLabel8': '#ffffff',
+              'gitBranchLabel9': '#ffffff'
+       }, 'gitGraph': {'showBranches': true, 'mainBranchName': 'stable'}} }%%
+
+gitGraph
+    commit id: " "
+    commit id: "v1.0.0" tag: "Release 1.0.0"
+    branch patch/1.0.1 order: 0
+    branch devel order: 2
+    branch feature/XYZ order: 2
+    checkout feature/XYZ
+    commit id: "Work on Feature XYZ - part 1"
+    checkout patch/1.0.1
+    commit id: "[FIX] Fix typo in config"
+    commit id: "[CI] Add test for config fix"
+    branch review/patch/1.0.1 order: 1
+    commit id: "Review: patch/1.0.1"
+    checkout stable
+    merge review/patch/1.0.1
+    checkout feature/XYZ
+    commit id: "Work on Feature XYZ - part 2"
+    checkout devel
+    checkout feature/XYZ
+    branch review/feature/XYZ order: 2
+    commit id: "Review: feature/XYZ"
+    checkout devel
+    merge review/feature/XYZ
+    commit id: "v1.0.1" tag: "Release 1.0.1 (minor)"
+    checkout devel
+    merge stable
+    branch review/release/2.0.0 order: 2
+    commit id: "Review: release 1.0.0"
+    checkout stable
+    merge review/release/2.0.0
+    commit id: "v2.0.0" tag: "Release 2.0.0"

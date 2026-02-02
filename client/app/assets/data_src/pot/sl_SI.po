@@ -42,14 +42,12 @@ msgid "Access requested"
 msgstr "Zahtevek za dostop"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Zahtevek za dostop do identitete prijavitelja je bil posredovan skrbniku."
 
 msgid "Account recovery key"
 msgstr "Ključ za obnovo računa"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Ukrepanje v imenu prijavitelja nepravilnosti"
 
 msgid "Activities"
 msgstr "Aktivnosti"
@@ -96,16 +94,16 @@ msgstr "Prejemniku omogočite urejanje datuma izteka veljavnosti prijav."
 msgid "Allow the recipient to delete reports"
 msgstr "Dovoli prejemniku, da zbriše prijave"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Prijavitelju dovoli dodajanje prilog"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Prijavitelju dovoli pisanje komentarjev"
 
 msgid "Allow users to sign up"
 msgstr "Dovoli uporabnikom, da se registrirajo"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Prijaviteljem dovoli izbiro prejemnika"
 
 msgid "Allowed IP addresses"
@@ -165,7 +163,7 @@ msgstr "Avtorizacija"
 msgid "Authorize"
 msgstr "Odobri"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Odobri dostop do identitete prijavitelja"
 
 msgid "Authorized"
@@ -328,7 +326,7 @@ msgstr "Zavrnjeno"
 msgid "Deny"
 msgstr "Zavrni"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Zavrni dostop do identitete prijavitelja"
 
 msgid "Description"
@@ -451,6 +449,9 @@ msgstr "Omogočeno"
 msgid "Enter a name for the copy"
 msgstr "Vnesite ime za kopijo"
 
+msgid "Enter a report"
+msgstr "Ukrepanje v imenu prijavitelja nepravilnosti"
+
 msgid "Enter the two factor authentication code"
 msgstr "Vnesite kodo za dvostopenjsko preverjanje"
 
@@ -517,7 +518,7 @@ msgstr "Matična številka"
 msgid "Footer"
 msgstr "Noga"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Iz varnostnih razlogov je treba kodo spremeniti."
 
 msgid ""
@@ -572,7 +573,7 @@ msgstr "Omogoči dostop"
 msgid "Group of questions"
 msgstr "Skupina vprašanj"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Ali ste že oddali prijavo? Vnesite kodo."
 
 msgid "Hidden"
@@ -698,6 +699,9 @@ msgstr "Platforma naj bo dostopna brez brskalnika Tor"
 
 msgid "License"
 msgstr "Licenca"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Beleži dostope notranjih uporabnikov."
@@ -850,6 +854,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Eden ali več prejemnikov še ni opravilo prve prijave v uporabniški račun. To pomeni, da še ne prejemajo prijav."
 
+msgid "Open"
+msgstr "Odpri"
+
 msgid "Opened"
 msgstr "Odprto"
 
@@ -946,7 +953,7 @@ msgstr "Skupina vprašanj"
 msgid "Question templates"
 msgstr "Predloge vprašalnikov"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Vprašanje za morebitne prijavitelje"
 
 msgid "Questionnaire"
@@ -960,6 +967,9 @@ msgstr "Vprašalniki"
 
 msgid "Questions"
 msgstr "Vprašanja"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Prejemniki"
@@ -997,7 +1007,7 @@ msgstr "Regularni izraz"
 msgid "Regular expression validator"
 msgstr "Potrjevalnik regularnih izrazov"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Zapomnite si kodo svoje prijave."
 
 msgid "Reminder date"
@@ -1027,7 +1037,7 @@ msgstr "Statusi prijav"
 msgid "Reports"
 msgstr "Prijave"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Zahtevek za dostop do identitete prijavitelja"
 
 msgid "Request date"
@@ -1072,7 +1082,7 @@ msgstr "Vira ni mogoče najti"
 msgid "Restrict access to specific IP addresses"
 msgstr "Omejite dostop določenim IP naslovom"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Večkratni prijavitelji suma nepravilnosti"
 
 msgid "Revoke access"
@@ -1246,8 +1256,14 @@ msgstr "Prispevki so onemogočeni"
 msgid "Submit"
 msgstr "Oddaj"
 
+msgid "Submit a report"
+msgstr "Oddaj prijavo"
+
 msgid "Subscribed"
 msgstr "Naročen"
+
+msgid "Subscribed later"
+msgstr ""
 
 msgid "Subscription date"
 msgstr "Datum naročnine"
@@ -1356,7 +1372,7 @@ msgstr "Ključ za obnovo računa ni veljaven."
 msgid "The provided reset token is invalid or expired."
 msgstr "Vneseno potrdilo za ponastavitev je neveljavno ali je poteklo. "
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Šifra ključa je neveljavna ali pa je prijavi potekla veljavnost."
 
 msgid "The specified input is not valid."
@@ -1380,10 +1396,10 @@ msgstr "Uporabnik bo pozvan k menjavi gesla ob naslednji prijavi."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Povezava za preverjanje veljavnosti je napačna ali je potekla."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Prijavitelj je že prebral zadnjo posodobitev"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Prijavitelj še ni prebral zadnje posodobitve"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1470,8 +1486,8 @@ msgid "Use as default"
 msgstr "Uporabi kot privzeto"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Za ponovno prijavo uporabite 16-mestno kodo. Le tako boste lahko pregledali vsa sporočila, ki smo vam jih naknadno poslali. Po potrebi boste lahko vnesli tudi dodatne informacije in v skladu z zakonskimi roki boste obveščeni o reševanju svoje prijave."
 
 msgid "Use the first site for administrative purposes only"
@@ -1545,10 +1561,10 @@ msgstr "Šibko"
 msgid "Welcome!"
 msgstr "Dobrodošli!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Prijavitelj"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Prijaviteljev zadnji dostop"
 
 msgid "Whistleblowing Policy"
@@ -1568,8 +1584,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Z vozliščem se povezujete neanonimno, toda to vozlišče podpira zgolj anonimne naznanitve."
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Delujete v imenu prijavitelja nepravilnosti."
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1617,9 +1633,6 @@ msgstr "vpišite samo številke."
 
 msgid "seconds"
 msgstr "sekund"
-
-msgid "File a report"
-msgstr "Oddaj prijavo"
 
 msgid "Select a reporting channel:"
 msgstr "Izberi kanal za prijavo:"
@@ -1751,22 +1764,6 @@ msgstr "Platforma bo samodejno izbrisana dne: "
 msgid "Access instructions"
 msgstr "Navodila za dostop"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Število trenutno zaznanih dejavnosti se zdi višje kot običajno."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "To je lahko znak napada (na primer nekdo, ki vaš strežnik preplavi z lažnimi informacijami) ali zgolj porast uporabe zaradi večje vidnosti vašega projekta."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Preučite zadevo, da ugotovite, ali je utemeljena ali ne."
-
-msgid "The activities with unusual stats are:"
-msgstr "Dejavnosti z nenavadnimi statističnimi podatki:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Razpoložljiv prostor na disku: {FreeMemory}/{TotalMemory}"
 
@@ -1784,14 +1781,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "V tehnologijo GlobaLeaks je vključena komponenta za preverjanje stanja strežnika, ki vas bo opozorila, če bo kaj zahtevalo vašo pozornost."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Za več informacij se vpišite v vmesnik za administratorje in si oglejte rubriki \"Sistemska statistika\" in \"Anomalije\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalija zaznana na strežniku {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1907,7 +1896,7 @@ msgstr "S tem e-poštnim sporočilom vas obveščamo, da vam je skrbnik odobril 
 msgid "The report can be accessed at:"
 msgstr "Prijava je na voljo:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Dostop do identitete prijavitelja odobren"
 
 msgid ""
@@ -1915,26 +1904,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "S tem e-poštnim sporočilom vas obveščamo, da vam je skrbnik zavrnil dostop do identitete prijavitelja v postopku prijave {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Dostop do identitete prijavitelja zavrnjen"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "S tem e-poštnim sporočilom vas obveščamo, da je prejemnik zahteval dostop do identitete prijavitelja v postopku prijave {TipNum}."
 
 msgid "The request can be accessed at:"
 msgstr "Zahtevek je na voljo:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Nov zahtevek za dostop do identitete prijavitelja"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "S tem e-poštnim sporočilom vas obveščamo, da je prijavitelj v postopku prijave {TipNum} navedel svojo identiteto."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Prijavitelj je razkril svojo identiteto"
 
 msgid ""

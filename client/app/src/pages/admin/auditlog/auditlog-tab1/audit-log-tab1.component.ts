@@ -5,15 +5,17 @@ import {NodeResolver} from "@app/shared/resolvers/node.resolver";
 import {UtilsService} from "@app/shared/services/utils.service";
 import {AuthenticationService} from "@app/services/helper/authentication.service";
 import {DatePipe} from "@angular/common";
-import {NgbPagination, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationFirst, NgbPaginationLast, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {TranslatorPipe} from "@app/shared/pipes/translate";
 import {TranslateModule} from "@ngx-translate/core";
+import {PaginatedInterfaceComponent} from "@app/shared/components/paginated-interface/paginated-interface.component";
+
 
 @Component({
     selector: "src-auditlog-tab1",
     templateUrl: "./audit-log-tab1.component.html",
     standalone: true,
-    imports: [NgbPagination, NgbPaginationPrevious, NgbPaginationNext, NgbPaginationFirst, NgbPaginationLast, NgbTooltipModule, DatePipe, TranslatorPipe, TranslateModule]
+    imports: [DatePipe, NgbTooltipModule, PaginatedInterfaceComponent, TranslatorPipe, TranslateModule]
 })
 export class AuditLogTab1Component implements OnInit {
   protected authenticationService = inject(AuthenticationService);
@@ -21,8 +23,6 @@ export class AuditLogTab1Component implements OnInit {
   protected nodeResolver = inject(NodeResolver);
   protected utilsService = inject(UtilsService);
 
-  currentPage = 1;
-  pageSize = 20;
   auditLog: auditlogResolverModel[] = [];
 
   ngOnInit() {
@@ -37,14 +37,7 @@ export class AuditLogTab1Component implements OnInit {
     }
   }
 
-
-  getPaginatedData(): auditlogResolverModel[] {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    return this.auditLog.slice(startIndex, endIndex);
-  }
-
   exportAuditLog() {
-    this.utilsService.generateCSV(JSON.stringify(this.auditLog), 'auditlog', ["Date", "Type", "User", "Object", "data"]);
+    this.utilsService.generateCSV('auditlog', this.auditLog, ['date', 'type', 'user_id', 'object_id', 'data']);
   }
 }

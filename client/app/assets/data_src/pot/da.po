@@ -46,14 +46,12 @@ msgid "Access requested"
 msgstr "Adgang anmodet"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Forespørgsel om whistleblowerens identitet er blevet videregivet til den tilsynsførende."
 
 msgid "Account recovery key"
 msgstr "Kontogendannelsesnøgle"
-
-msgid "Act on behalf of a whistleblower"
-msgstr "Handle på vegne af whistleblower"
 
 msgid "Activities"
 msgstr "Aktiviteter"
@@ -100,16 +98,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Tillad modtageren at slette indberetninger"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Tillad whistlebloweren at tilføje vedhæftelser til indsendelsen"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Tillad whistlebloweren at skrive kommentarer"
 
 msgid "Allow users to sign up"
 msgstr "Tillad brugere at tilmelde sig"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Tillad whistleblowere at vælge deres modtagere"
 
 msgid "Allowed IP addresses"
@@ -169,7 +167,7 @@ msgstr "Autorisation"
 msgid "Authorize"
 msgstr "Godkend"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Godkend adgang til whistleblowerens identitet"
 
 msgid "Authorized"
@@ -332,7 +330,7 @@ msgstr "Afvist"
 msgid "Deny"
 msgstr "Afvis"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Afvis adgang til whistleblowerens identitet"
 
 msgid "Description"
@@ -455,6 +453,9 @@ msgstr "Aktiveret"
 msgid "Enter a name for the copy"
 msgstr "Indtast et navn på kopien"
 
+msgid "Enter a report"
+msgstr "Handle på vegne af whistleblower"
+
 msgid "Enter the two factor authentication code"
 msgstr "Indtast to-faktor-autentificeringskoden"
 
@@ -521,7 +522,7 @@ msgstr "Finanskode"
 msgid "Footer"
 msgstr "Sidefod"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr "Af sikkerhedshensyn, er det nødvendigt at ændre koden."
 
 msgid ""
@@ -576,7 +577,7 @@ msgstr "Tildel adgang"
 msgid "Group of questions"
 msgstr "Gruppe af spørgsmål"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Har du allerede indsendt en indberetning? Indtast din nøglekode."
 
 msgid "Hidden"
@@ -702,6 +703,9 @@ msgstr "Tillad at platformen kan tilgås uden Tor"
 
 msgid "License"
 msgstr "Licens"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Log interne brugeres adgang"
@@ -854,6 +858,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "En eller flere modtagere har ikke logget ind for første gang endnu. Det betyder, at de ikke vil modtage indsendelser."
 
+msgid "Open"
+msgstr "Åbn"
+
 msgid "Opened"
 msgstr "Åbnet"
 
@@ -950,7 +957,7 @@ msgstr "Spørgsmåls-gruppe"
 msgid "Question templates"
 msgstr "Spørgsmålsskabeloner"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Spørgsmål der skal bruges til at anmode om nye whistleblowere"
 
 msgid "Questionnaire"
@@ -964,6 +971,9 @@ msgstr "Spørgeskemaer"
 
 msgid "Questions"
 msgstr "Spørgsmål"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Modtagere"
@@ -1001,7 +1011,7 @@ msgstr "Almindeligt udtryk"
 msgid "Regular expression validator"
 msgstr "Regulært udtryk-validator"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Husk din nøglekode for denne indsendelse."
 
 msgid "Reminder date"
@@ -1031,7 +1041,7 @@ msgstr "Status for indsendelser"
 msgid "Reports"
 msgstr "Indberetninger"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Anmod om adgang til whistleblowerens identitet"
 
 msgid "Request date"
@@ -1076,7 +1086,7 @@ msgstr "Ressourcen kan ikke findes"
 msgid "Restrict access to specific IP addresses"
 msgstr "Begræns adgang til specifikke IP-numre"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr "Tilbagevendende whistleblowere"
 
 msgid "Revoke access"
@@ -1250,8 +1260,14 @@ msgstr "Indsendelser er slået fra"
 msgid "Submit"
 msgstr "Indsend"
 
+msgid "Submit a report"
+msgstr "Indsend en rapportering"
+
 msgid "Subscribed"
 msgstr "Abonnerer "
+
+msgid "Subscribed later"
+msgstr ""
 
 msgid "Subscription date"
 msgstr "Tilmeld-dato"
@@ -1360,7 +1376,7 @@ msgstr "Den indtastede gendannelsesnøgle er forkert."
 msgid "The provided reset token is invalid or expired."
 msgstr "Den indtastede nulstillingskode er ugyldig eller udløbet."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Nøglekoden er enten forkert eller indsendelsen er udløbet."
 
 msgid "The specified input is not valid."
@@ -1384,10 +1400,10 @@ msgstr "Brugeren bliver tvunget til at skifte adgangskode ved næste login."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Bekræftelseslinket er ugyldig eller udløbet."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Whistlebloweren har allerede læst den seneste opdatering."
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Whistlebloweren har ikke læst den seneste opdatering endnu."
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1474,8 +1490,8 @@ msgid "Use as default"
 msgstr "Brug som standard"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Brug 16-tals nøglekoden til at logge ind. Du får mulighed for at se alle beskeder, der er sendt til dig, og du får mulighed for at tilføje yderligere oplysninger."
 
 msgid "Use the first site for administrative purposes only"
@@ -1549,10 +1565,10 @@ msgstr "Svag"
 msgid "Welcome!"
 msgstr "Velkommen!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Whistleblower"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Whistleblowerens seneste adgang"
 
 msgid "Whistleblowing Policy"
@@ -1572,8 +1588,8 @@ msgid ""
 "only anonymous submissions"
 msgstr "Du forbinder til serveren uden anonymitet og denne server tillader kun anonymiserede indsendelser"
 
-msgid "You are operating on behalf of a whistleblower."
-msgstr "Du handler på vegne af en whistleblower"
+msgid "You are entering a report received through other channels."
+msgstr ""
 
 msgid ""
 "You are strongly advised to visit this site using the app called Tor "
@@ -1621,9 +1637,6 @@ msgstr "Skriv venligst kun tal."
 
 msgid "seconds"
 msgstr "sekunder"
-
-msgid "File a report"
-msgstr "Indsend en rapportering"
 
 msgid "Select a reporting channel:"
 msgstr "Vælg en rapporterings-kanal"
@@ -1755,22 +1768,6 @@ msgstr "Platformen vil blive automatisk slettet den:"
 msgid "Access instructions"
 msgstr "Adgangsvejledning"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Antallet af aktiviteter, der senest er registreret forekommer højere end normalt."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Det kan være tegn på et angreb (for eksempel at nogen forsøger at overbelaste din server med falske oplysninger) eller blot forhøjet trafik som følge af større synlighed omkring dit projekt."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Undersøg forholdene og afklar om de er legitime eller ej."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktiviteterne med usædvanlig statistik er:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr "Tilgængelig diskplads: {FreeMemory}/{TotalMemory}"
 
@@ -1788,14 +1785,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Globaleaks-programmet indeholder et komponent, der kontrollerer serverens status, og som vil advare dig, hvis noget kræver opmærksomhed."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "For yderligere oplysninger, log ind på administrationssiden og kontroller sektionerne med \"Systemstatistik\" og \"afvigelser\"."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Afvigelse sporet i {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1911,7 +1900,7 @@ msgstr "Dette er en e-mail for at underrette dig om, at en tilsynsførende har a
 msgid "The report can be accessed at:"
 msgstr "Indberetningen kan tilgås på:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Adgang til whistleblowers identitet godkendes"
 
 msgid ""
@@ -1919,26 +1908,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Dette er en e-mail for at underrette dig om, at en tilsynsførende har autoriseret dig til at få adgang til whistleblowerens identitet i forbindelse med indsendelsen {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Adgang til whistleblowers identitet afvist"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Dette er en e-mail for at underrette dig om at en modtager har anmodet om adgang til whistleblowerens identitet vedrørende indsendelsen {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Anmodningen kan tilgås på:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Ny forespørgsel om adgang til whistleblowerens identitet"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Dette er en e-mail for at underrette dig om, at whistleblower for indsendelsen {TipNum} har angivet sin identitet."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Whistlebloweren har oplyst sin identitet"
 
 msgid ""

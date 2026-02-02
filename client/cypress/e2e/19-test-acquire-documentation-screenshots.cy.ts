@@ -18,9 +18,6 @@ describe("acquire screenshots necessary for user documentation - Admin Section",
     cy.takeScreenshot("admin/site_settings_main_configuration");
     cy.takeScreenshot("admin/site_settings_logo_detail", "#Content");
 
-    cy.get('[data-cy="files"]').first().click();
-    cy.takeScreenshot("admin/site_settings_files");
-
     cy.get('[data-cy="languages"]').first().click();
     cy.takeScreenshot("admin/site_settings_languages");
     cy.takeScreenshot("admin/site_settings_languages_detail", "#Content");
@@ -82,6 +79,16 @@ describe("acquire screenshots necessary for user documentation - Admin Section",
   });
 });
 
+describe("Acquire screenshots necessary for user documentation - Recipient Section", () => {
+  it("should capture screenshots of the recipient section", function () {
+    cy.login_receiver();
+    cy.takeScreenshot("recipient/home");
+    cy.get("#recipient_settings").click();
+    cy.takeScreenshot("recipient/settings");
+    cy.logout();
+  });
+});
+
 describe("Acquire screenshots necessary for user documentation - Analyst Section", () => {
   it("should capture screenshots of the analyst section", function () {
     cy.login_analyst();
@@ -98,22 +105,6 @@ describe("Acquire screenshots necessary for user documentation - Custodian Secti
     cy.takeScreenshot("custodian/home");
     cy.get("#custodian_requests").first().click();
     cy.takeScreenshot("custodian/requests");
-    cy.logout();
-  });
-});
-
-describe("Acquire screenshots necessary for user documentation - Recipient Section", () => {
-  it("should capture screenshots of the recipient section", function () {
-    cy.login_receiver();
-    cy.takeScreenshot("recipient/home");
-    cy.get("#recipient_settings").click();
-    cy.takeScreenshot("recipient/settings");
-    cy.visit("/#/recipient/reports");
-    cy.get("#tip-0").first().click();
-    cy.get('[id="tip-action-mask"]').should('be.visible').click();
-    cy.get("#edit-question").should('be.visible').first().click();
-    cy.takeScreenshot("recipient/masking-popup", ".modal");
-    cy.get("#close-redact-modal").should('be.visible').first().click();
     cy.logout();
   });
 });

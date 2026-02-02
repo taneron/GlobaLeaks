@@ -43,7 +43,7 @@ export class UserEditorComponent implements OnInit {
   editing = false;
   setPasswordArgs: { user_id: string, password: string };
   changePasswordArgs: { password_change_needed: string };
-  passwordStrengthScore: number = 0;
+  passwordStrengthScore = 0;
   nodeData: nodeResolverModel;
   preferenceData: preferenceResolverModel;
   authenticationData: AuthenticationService;
@@ -81,7 +81,9 @@ export class UserEditorComponent implements OnInit {
   }
 
   disable2FA(user: userResolverModel) {
-    this.utilsService.runAdminOperation("disable_2fa", {"value": user.id}, true).subscribe();
+    this.utilsService.runAdminOperation("disable_2fa", {"value": user.id}, false).subscribe(_ => {
+      user.two_factor = false;
+    });
   }
 
   async setPassword(setPasswordArgs: { user_id: string, password: string }) {
@@ -133,6 +135,7 @@ export class UserEditorComponent implements OnInit {
         observer.complete()
         return this.utilsService.deleteAdminUser(arg.id).subscribe(_ => {
           this.utilsService.deleteResource(this.users, arg);
+          this.sendDataToParent();
         });
       };
     });

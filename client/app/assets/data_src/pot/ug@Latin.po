@@ -36,14 +36,12 @@ msgid "Access requested"
 msgstr "Ziyaret hoquqi telep qilindi"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Saqlighuchi pash qilghuchining kimligini ziyaret qilishni telep qildi."
 
 msgid "Account recovery key"
 msgstr "Hésap eslige keltürüsh achquchi"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Pa’aliyetler"
@@ -90,16 +88,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Tapshuriwalghuchilarning melumatlarni öchürishige ruxset qil"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Pash qilghuchining melumatqa qoshumche qisturishigha ruxset qil"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Pash qilghuchining baha yézishige ruxset qil"
 
 msgid "Allow users to sign up"
 msgstr "Ishletküchilerning tizimlitishigha ruxset qil"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Pash qilghuchilarning öz tapshuriwalghuchilirini tallishigha ruxset qil"
 
 msgid "Allowed IP addresses"
@@ -159,7 +157,7 @@ msgstr "Hoquq"
 msgid "Authorize"
 msgstr "Hoquq ber"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Pash qilghuchining kimlikini ziyaret qilishqa hoquq ber"
 
 msgid "Authorized"
@@ -322,7 +320,7 @@ msgstr "Ret qilin’ghan"
 msgid "Deny"
 msgstr "Ret qil"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Pash qilghuchining kimlikini ziyaret qilishni ret qiling"
 
 msgid "Description"
@@ -445,6 +443,9 @@ msgstr "Qozghitilghan"
 msgid "Enter a name for the copy"
 msgstr "Kupiye üchün bir nam kirgüzüng"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Ikki qedemlik toghrulash kodini kirgüz"
 
@@ -511,7 +512,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Bet asti"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -566,7 +567,7 @@ msgstr "Hoquq ber"
 msgid "Group of questions"
 msgstr "Su’al guruppiliri"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Alliburun bir melumat toshquzghanmitingiz? taloningizni kirgüzüng:"
 
 msgid "Hidden"
@@ -692,6 +693,9 @@ msgstr "Bu soupini Tor ishletmeymu ulan’ghili bolidighan qil"
 
 msgid "License"
 msgstr "Neshr hoquqi"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Ichki ishletküchilerning ziyaretlirini xatirile"
@@ -844,6 +848,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Bir yaki birdin köp tapshuriwalghuchilar téxiche tunji tizimgha kirishni ijra qilmaptu. Bu ular melumatlarni tapshuriwalalmaydu, dégenlik."
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "Échilghan"
 
@@ -940,7 +947,7 @@ msgstr "Su’al guruppisi"
 msgid "Question templates"
 msgstr "Su’al qélipliri"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pash qilghuchi bolush mümkinchiligi bar kishilerdin sorilidighan su’allar"
 
 msgid "Questionnaire"
@@ -954,6 +961,9 @@ msgstr "Ray sinashlar"
 
 msgid "Questions"
 msgstr "Su’allar"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -991,7 +1001,7 @@ msgstr "Muntizim ipade"
 msgid "Regular expression validator"
 msgstr "Muntizim ipade toghrilughuchi"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Bu melumatning talonini ésingizde tutung."
 
 msgid "Reminder date"
@@ -1021,7 +1031,7 @@ msgstr "Doklat haletliri"
 msgid "Reports"
 msgstr "Melumatlar"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Pash qilghuchining kimlikini ziyaret qilishni telep qiling"
 
 msgid "Request date"
@@ -1066,7 +1076,7 @@ msgstr "Menbe tépilmidi"
 msgid "Restrict access to specific IP addresses"
 msgstr "Ziyaret qilishni belgilen’gen IP adrésliri bilenla chekle"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1240,7 +1250,13 @@ msgstr "Yollash toxtitildi"
 msgid "Submit"
 msgstr "Yolla"
 
+msgid "Submit a report"
+msgstr "Bir melumat yolla"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1350,7 +1366,7 @@ msgstr "Teminlen’gen eslige keltürüsh achquchi inawetsiz."
 msgid "The provided reset token is invalid or expired."
 msgstr "Teminlen’gen eslige qayturush belgisi inawetsiz yaki sürüki toshqan."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Taloningz inawetsiz yaki melumatingizning sürüki toshüp ketken."
 
 msgid "The specified input is not valid."
@@ -1374,10 +1390,10 @@ msgstr "Ishletküchiler kéyinki qétim tizimgha kirgende, parolini özgertishke
 msgid "The validation link is either incorrect or has expired."
 msgstr "Delillesh ulanmisi xata yaki sürüki toshqan."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Pash qilghuchi axirqi yéngilanmini alliqachan oqudi"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Pash qilghuchi axirqi yéngilanmini téxi oqumidi"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1464,8 +1480,8 @@ msgid "Use as default"
 msgstr "Köngüldikidek ishlet"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Tizimgha kirish üchün 16 xaniliq talon kodini ishliting. u sizning biz ewetken herqandaq uchurni körüshingiz, hemde qoshumche uchur qoshushingizgha ruxset qilidu."
 
 msgid "Use the first site for administrative purposes only"
@@ -1539,10 +1555,10 @@ msgstr "Ajiz"
 msgid "Welcome!"
 msgstr "Xosh kepsiz!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Pash qilghuchi"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Pash qilghuchining axirqi ziyariti"
 
 msgid "Whistleblowing Policy"
@@ -1562,7 +1578,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Siz mulazimétirgha namsizlashmay turup uliniwatisiz, hemde bu mulazimétir peqet namsiz yollashnila qollaydu"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1611,9 +1627,6 @@ msgstr "Peqetla san kirgüzüng"
 
 msgid "seconds"
 msgstr "Sékont"
-
-msgid "File a report"
-msgstr "Bir melumat yolla"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1745,22 +1758,6 @@ msgstr "Supa bu waqitta aptomatik öchürülgüsi:"
 msgid "Access instructions"
 msgstr "Ziyaret körsetmiliri"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Yéqindin buyan pa’aliyetlerning sani normal waqittikidin köpiyip ketkendek qilidu. "
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Bu belkim bir hujum (mesilen beziler saxta uchur bilen sistémingizni tolduriwatqan) ning alamiti bolishi yaki türingizning nami chiqishigha egiship kélip chiqqan bir demlik ishlitish pellisi bolishimu mümkin."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Buning bir normal ishmu emesligini ayrish üchün, mesilini tekshürüng."
-
-msgid "The activities with unusual stats are:"
-msgstr "Binormal pa’aliyetlerning istatistikisi bular:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1778,14 +1775,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "‏GlobaLeaks téxnikisi mulazimétir halitini tekshürüsh zapchaslirini öz ichige alidu. ular diqqitingizge erzigüdek birer ehwal bolghanda sizni agahlanduridu."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Téximu köp uchur üchün, bashqurghuchi ara yüzige kirip «sistéma haletliri» we «binormalliqlar» bölimige qarang."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "‏{NodeName} ning ichide binormalliq bayqaldi"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1901,7 +1890,7 @@ msgstr "Bu élxet sizge saqlighuchining {TipNum} luq melumatning pash qilghuchi 
 msgid "The report can be accessed at:"
 msgstr "Melumatni bu yerdin köreleysiz:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Pash qilghuchining kimlikini ziyaret qilishqa hoquq bérildi"
 
 msgid ""
@@ -1909,26 +1898,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Bu élxet sizge saqlighuchining {TipNum} luq melumatining pash qilghuchi kimlikini ziyaret qilishningizni ret qilghinini uqturush üchündur."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Pash qilghuchining kimlikini ziyaret qilish ret qilindi"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Bu élxet sizge tapshuriwalghuchining {TipNum} luq melumatning pash qilghuchisining kimlikini ziyaret qilishni telep qilghinini uqturush üchündur."
 
 msgid "The request can be accessed at:"
 msgstr "Telepni bu yerdin köreleysiz:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Pash qilghuchining kimlikini ziyaret qilish yéngi telipi"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Bu élxet sizge {TipNum} luq melumatning pash qilghuchisining öz kimlkini teminligenlikini uqturush üchündur. "
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Bu pash qilghuchilar öz kimliklirini teminligen."
 
 msgid ""

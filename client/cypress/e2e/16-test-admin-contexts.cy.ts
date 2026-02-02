@@ -8,15 +8,13 @@ describe("admin configure, add, and delete channels", () => {
     cy.get("#context-0").within(() => {
       cy.get("#edit_context").click();
 
-      for (let i = 0; i <= 2; i++) {
-        cy.get(".add-receiver-btn").click();
-        cy.get('ng-select[name="selected.value"]').click();
-        if (i === 0) {
-          cy.get('ng-select[name="selected.value"]').contains('Recipient').click();
-        } else {
-          cy.get('ng-select[name="selected.value"]').contains(`Recipient${i + 1}`).click();
-        }
-      }
+      cy.get(".add-receiver-btn").click();
+      cy.get('ng-select[name="selected.value"]').click();
+      cy.get('ng-select[name="selected.value"]').contains("Recipient").click();
+
+      cy.get(".add-receiver-btn").click();
+      cy.get('ng-select[name="selected.value"]').click();
+      cy.get('ng-select[name="selected.value"]').contains("Recipient2").click();
 
       cy.get("#advance_context").click();
       cy.get("#save_context").click();

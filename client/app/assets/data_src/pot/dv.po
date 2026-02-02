@@ -41,14 +41,12 @@ msgid "Access requested"
 msgstr "އެކްސެސް ހޯދުމަށް އެދެވިއްޖެ"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީ ހާމަކުރުމަށް ކަސްޓޯޑިއަން ކައިރިން އެދެވިއްޖެ"
 
 msgid "Account recovery key"
 msgstr "އެކައުންޓް އަލުންހޯއްދަވަން ބޭނުންވާނެ ކީ"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "އެކްޓިވިޓީސް"
@@ -95,16 +93,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "ރިސިޕިއަންޓަށް ރިޕޯޓު ފުހެލުމުގެ ހުއްދަ ދިނުމަށް"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "ރިޕޯޓުގައި އާ ފައިލްތައް ހިމެނުމުގެ ހުއްދަ ވިސިލްބްލޯވާރ އަށް ދިނުމަށް "
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "ކޮމެންޓްސް ލިޔުމުގެ ހުއްދަ ވިސިލްބްލޯވާރ އަށް ދިނުމަށް"
 
 msgid "Allow users to sign up"
 msgstr "އިތުރު މީހުން ސައިން އަޕް ކުރުމުގެ ހުއްދަ ދިނުމަށް"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "ރިޕޯޓުފޮނުވާނެ ފަރާތްތައް އިޙްތިޔާރުކުރުމުގެ ހުއްދަ ވިސިލްބްލޯވާރ އަށް ދިނުމަށް"
 
 msgid "Allowed IP addresses"
@@ -164,7 +162,7 @@ msgstr "އޮތޮރައިޒޭޝަން"
 msgid "Authorize"
 msgstr "އޮތަރައިޒް ކުރަން"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީ ހިއްސާކުރުމަށް އޮތޮރައިޒްކުރުމަށް"
 
 msgid "Authorized"
@@ -327,7 +325,7 @@ msgstr "އޮތަރައިޒްއެއް ނުވޭ"
 msgid "Deny"
 msgstr "އޮތަރައިޒް ނުކުރަން"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީ ހިއްސާނުކުރެވޭނެ"
 
 msgid "Description"
@@ -450,6 +448,9 @@ msgstr "އެނޭބަލްޑް"
 msgid "Enter a name for the copy"
 msgstr "ކޮޕީއަށް ނަމެއް ހިޔާރުކުރައްވާ"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "ޓޫ ފެކްޓަރ އޮތެންޓިފިކޭޝަން ކޯޑު ޖައްސަވާ"
 
@@ -516,7 +517,7 @@ msgstr ""
 msgid "Footer"
 msgstr "ތިރީ ހަވާސާ"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -571,7 +572,7 @@ msgstr "އެކްސެސް ދިނުން"
 msgid "Group of questions"
 msgstr "ސުވާލުތަކެއް"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "ރިޕޯޓް ފައިލް ކޮށްފައިވާނަމަ ރަސީދު ނަންބަރ ޖައްސަވާ"
 
 msgid "Hidden"
@@ -697,6 +698,9 @@ msgstr "ޓީ.އޯ.އާރް އާއިނުލާ ޕްލެޓްފޯމަށް ވަދެވ�
 
 msgid "License"
 msgstr "ލައިސަންސް"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "އިންޓާނަލް ޔޫސާރސްގެ ލޮގް އެކްސެސްތައް"
@@ -849,6 +853,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "އެއް ފަރާތައް ނުވަތަ އެއަށް ވުރެ ގިނަ ފަރާތުން ފުރަތަމަ ލޮގްއިން އަދި ފުރިހަމަ ނުކުރޭ.  އެހެންވީމާ އެފަރާތް ނުވަތަ ފަރާތްތަކަށް އެއްވެސް ރިޕޯޓެއް ނުލިބޭނެ"
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "ހުޅުވާފައި"
 
@@ -945,7 +952,7 @@ msgstr "ސުވާލުގެ ގިންތި"
 msgid "Question templates"
 msgstr "ސުވާލު ޓެންޕްލޭޓްސް"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "ވިސިލްބްލޯވަރއެއްކަން ކަށަވަރުކުރަން އަހާނެ ސުވާލު"
 
 msgid "Questionnaire"
@@ -959,6 +966,9 @@ msgstr "ސުވާލުކަރުދާސް"
 
 msgid "Questions"
 msgstr "ސުވާލުތައް"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -996,7 +1006,7 @@ msgstr "ރެގިއުލަރ އެކްސްޕްރެޝަން"
 msgid "Regular expression validator"
 msgstr "ރެގިއުލާ އެކްސްޕްރެޝަން ވެލިޑޭޓަރ"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "މި ރިޕޯޓާއޮި ގުޅޭ ރަސީދު ހަނދާން ބަހައްޓަވާ"
 
 msgid "Reminder date"
@@ -1026,7 +1036,7 @@ msgstr "ރިޕޯޓް ސްޓޭޓަސެސް"
 msgid "Reports"
 msgstr "ރިޕޯޓްތަށް"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "ވިސިލްބްލޯވަރގެ މައުލޫމާތު ހޯދަން އެދުމަށް"
 
 msgid "Request date"
@@ -1071,7 +1081,7 @@ msgstr "ތިޔަ ހޯއްދަވާ ވަޞީލަތެއް ނުފެނުނު"
 msgid "Restrict access to specific IP addresses"
 msgstr "ވަކި އައިޕީ އެޑްރެސްތަަަކަކަށް އެކަނި ވަނުމަށް ހުއްދަ ދިނުން"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1245,7 +1255,13 @@ msgstr "ސަބްމިޝަން ޑީސްއޭބަލްޑް "
 msgid "Submit"
 msgstr "ސަބްމިޓް ކުރައްވާ"
 
+msgid "Submit a report"
+msgstr "ރިޕޯޓެއް ފައިލް ކުރުން"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1355,7 +1371,7 @@ msgstr "ދީފައިވާ ރިކަވަރީ ކީ  ރަނގަޅެއްނޫން"
 msgid "The provided reset token is invalid or expired."
 msgstr "ދީފައިވާ ރީސެޓް ޓޯކަން ރަނގަޅެއް ނޫން ނުވަތަ ވަނީ މުއްދަތު ހަމަވެފައި"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "ޖެއްސެވި ރަސީދު  ރަނގަޅެއް ނޫން ނުވަތަ ރިޕޯޓުވަނީ އެކްސްޕަޔަރ ވެފައި"
 
 msgid "The specified input is not valid."
@@ -1379,10 +1395,10 @@ msgstr "ދެން  ލޮގް އިންވާ ފަހަރު މި އެކައުންޓްގ
 msgid "The validation link is either incorrect or has expired."
 msgstr "ތިޔަ ބޭނުންފުޅު ކުރެއްވި ވެލިޑޭޝަން ލިންކް ރަނގަޅެއް ނޫން ނުވަތަ ވަނީ އެކްސްޕަޔަރ ވެފައި"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "ތިޔަ ވިސިލްބްލޯވާ ވަނީ އެންމެ ފަހުގެ އަޕްޑޭޓްސް ކިޔާފައި"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr " ތިޔަ ވިސިލްބްލޯވާ  އެންމެ ފަހުގެ އަޕްޑޭޓްސް އަދި ނުކިޔާ"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1469,8 +1485,8 @@ msgid "Use as default"
 msgstr "ޑިފައުލްޓް ގޮތުގެ ބޭނުންހިފުމަށް"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "ލޮގްއިން ވުމަށް ލިބިފައިވާ 16 އަކުރުގެ ރަސީދު ބޭނުންކުރައްވާ. މި ރަސީދު ބޭނުން ކޮށްގެން ތިޔަ ފަރާތަށް ލިބިފައިވާ މެސެޖުތަކާއި އިތުރު މައްލޫއްމާތު ފެންނާނެ"
 
 msgid "Use the first site for administrative purposes only"
@@ -1544,10 +1560,10 @@ msgstr "ބަލިކަށި"
 msgid "Welcome!"
 msgstr "މަރުހަބާ!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "ވިސިލްބްލޯވަރ"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "ވިސްލްބްލޯވަރގެ އެންމެ ފަހުގެ އެކްސެސް"
 
 msgid "Whistleblowing Policy"
@@ -1567,7 +1583,7 @@ msgid ""
 "only anonymous submissions"
 msgstr " ތިޔަ ފަރާތުން ސާރވާއަށް ކަނެކްޓްވަނީ ޒާތީ މައުލޫމާތު ސިއްރުވާގޮތަކަށް ނޫން. މި ސާރވާ ސަޕޯޓުކުރަނީ ހަމައެކަނި ކާކުކަން ނޭނގޭ ގޮތައް ހުށައަޅާ ސަބްމިޝަންސް "
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1616,9 +1632,6 @@ msgstr "ހަމައެކަނި ނަންބަރު ޖައްސަވާށެވެ"
 
 msgid "seconds"
 msgstr "ސިކުންތު "
-
-msgid "File a report"
-msgstr "ރިޕޯޓެއް ފައިލް ކުރުން"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1750,22 +1763,6 @@ msgstr "ޕްލެޓްފޯމު އޮޓޮމެޓިކުން  ޑިލީޓްވާނީ"
 msgid "Access instructions"
 msgstr "އިރުޝާދުތަކަށް އެކްސެސްވުމަށް"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "އާންމު މިންވަރަށް ވުރެ އެކްޓިވިޓީސްގެ އަދަދު ކުއްލިގޮތަކަށް ވަރަށް ގިނަވެފައިވާކަން ފާހަގަކުރެވިއްޖެ"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "މިއީ ސިސްޓަމްއަށް ލިބޭ ހަމަލާއެއްގެ ނިޝާނެއް (މިސާލަކަށް ކޮންމެވެސް ފަރާތަކުން ސާރވާއަށް ނުރަނގަޅު ބައިވަރު މައުލޫމާތު އަޕްލޯޑްކުރަމުން ދިއުން) ނުވަތަ ތިޔަ ފަރާތުގެ ޕްރޮޖެކްޓުގެ ވިސިބިލިޓީ އިތުރުވުމުގެ ސަބަބުން އައި ޔޫސޭޖް ސްޕައިކްއެއް"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "މިއީ ޞައްޙަ މައްސަލައެއްކަން ކަށަވަރު ކުރެއްވުމަށް އިތުރަށް ބައްލަވާ"
-
-msgid "The activities with unusual stats are:"
-msgstr "އެކްޓިވިޓީތަކުގެ ތެރޭގައި އާދަޔާ ހިލާފުކަމަށް ފާހަގަ ކުރެވޭ ތަފާސް ހިސާބު ހިމެނެނީ"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1783,14 +1780,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "ގްލޯބަލް ލީކްސް ޓެކްނޮލޮޖީ ތެރޭގައި ތިޔަ ފަރާތުގެ ސަމާލުކަމަށް ގެނައުމަށް މި ސަރވާގައި ސްޓޭޓަސް ޗެކް ކުރާނެ ކޮމްފޯނެންޓެއް ހިމެނޭ"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "އިތުރު މައުލޫމާތު ބޭނުންނަމަ 'އެޑްމިނިސްޓްރޭޝަން އިންޓަފޭސް' އަށް ލޮގް އިން ކުރައްވާފައި 'ސިސްޓަމް ސްޓެޓްސް' އަދި 'އެނޮމަލީސް' ސެކްޝަން ބައްލަވާ"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr " އެނޯމަލީ ޑިޓެކްޓެޑް އިން {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1906,7 +1895,7 @@ msgstr "މި އީމެއިލްއަކީ {TipNum} ރިޕޯޓްގެ ވިސިލްބް
 msgid "The report can be accessed at:"
 msgstr "މި ރިޕޯޓަށް އެކްސެސްވުމަށް :"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީއާ ގުޅޭ މައުލޫމާތަށް އެކްސެސް ލިބިއްޖެ"
 
 msgid ""
@@ -1914,26 +1903,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "މި އީމެއިލަކީ  ރިޕޯޓު {TipNum} ގެ ވިސްލްބްލޯވަރގެ އައިޑެންޓިޓީ ހޯދުމަށް އޮތް އެކްސެސް ތިޔަ ފަރާތަށް ދިނުމަށް ކަސްޓޯޑިއަންއެއް އިންކާރުކުރިކަން  އެންގުމަށް ފޮނުވިފައިވާ އީމެއިލެއް "
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީއާ ގުޅޭ މައުލޫމާތު ލިބުމުގެ ޙުއްދައެއް ނުލިބޭ"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "މި އީމެއިލަކީ ރިޕޯޓު {TipNum}  ގެ ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީ ހޯދަން ރިސިޕިއަންޓެއް އެދިފައިވާކަން އަންގައި ދިނުމަށް ފޮނުވިފައިވާ އީމެއިލްއެއް"
 
 msgid "The request can be accessed at:"
 msgstr "އެދިފައިވާ މަޢުލޫމާތު ހޯދޭނީ:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީގެ  މައުލޫމާތު ހޯދަން އެދޭ އައު ރިކުއެސްޓް"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "މި އީމެއިލްއަކީ {TipNum} ރިޕޯޓްގެ ވިސިލްބްލޯވަރ އެފަރާތުގެ އައިޑެންޓިޓީއާއި ގުޅޭ މައުލޫމާތު ހުށަހަޅާފައިވާކަން  އެންގުމަށް ފޮނުވިފައިވާ އީމެއިލްއެއް"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "ވިސިލްބްލޯވަރގެ އައިޑެންޓިޓީއާއި ގުޅޭ މައުލޫމާތު ވަނީ ހުށަހަޅާފައި"
 
 msgid ""

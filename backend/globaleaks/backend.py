@@ -71,13 +71,13 @@ class Service(service.Service):
 
         return defer.DeferredList(deferred_list)
 
-    @defer.inlineCallbacks
     def deferred_start(self):
         try:
             ret = update_db()
 
             if ret == -1 or self.state.settings.migrate_only:
-                reactor.stop()
+                if reactor.running:
+                    reactor.stop()
                 return
 
             if ret == 0:

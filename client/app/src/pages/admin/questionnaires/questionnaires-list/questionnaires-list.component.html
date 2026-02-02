@@ -18,11 +18,11 @@
         </button>
       }
       <button class="downloadButton btn btn-sm btn-outline-secondary" (click)="exportQuestionnaire(questionnaire)">
-        <i class="fa-solid fa-file-export"></i>
+        <i class="fas fa-file-export"></i>
         <span>{{ 'Export' | translate }}</span>
       </button>
       <button class="btn btn-sm btn-outline-secondary" (click)="duplicateQuestionnaire(questionnaire)">
-        <i class="fa-solid fa-clone"></i>
+        <i class="fas fa-clone"></i>
         <span>{{ 'Duplicate' | translate }}</span>
       </button>
       @if (questionnaire.editable) {
@@ -39,8 +39,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label>{{ 'Name' | translate }}</label>
-          <input name="name" class="form-control" [(ngModel)]="questionnaire.name" type="text" required>
+          <label for="questionnaire-name-{{questionnaire.id}}">{{ 'Name' | translate }}</label>
+          <input id="questionnaire-name-{{questionnaire.id}}" name="name" class="form-control" [(ngModel)]="questionnaire.name" type="text" required>
           @if (editQuestionnaire.form.get('name')?.errors?.['required']) {
             <div class="text-danger">
               <span>{{ 'This field is mandatory' | translate }}</span>

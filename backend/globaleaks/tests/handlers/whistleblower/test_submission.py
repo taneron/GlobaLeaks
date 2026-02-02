@@ -1,18 +1,14 @@
-from twisted.internet.defer import inlineCallbacks, returnValue
+from twisted.internet.defer import inlineCallbacks
 
 from globaleaks.handlers import auth
 from globaleaks.handlers.whistleblower import submission, wbtip
 from globaleaks.jobs import delivery
-from globaleaks.models.config import db_set_config_variable
-from globaleaks.orm import tw
 from globaleaks.rest import errors
 from globaleaks.tests import helpers
 
 
 class TestSubmission(helpers.TestHandlerWithPopulatedDB):
     _handler = submission.SubmissionInstance
-
-    complex_field_population = True
 
     files_created = 6
 

@@ -27,7 +27,7 @@ export class TriggerReceiverComponent implements OnInit {
   confirmFunction: (data: Option) => void;
 
   selected: { value: []; name: string };
-  admin_receivers_by_id: { [userId: string]: userResolverModel } = {};
+  admin_receivers_by_id: Record<string, userResolverModel> = {};
   userData: userResolverModel[] = [];
 
   ngOnInit(): void {

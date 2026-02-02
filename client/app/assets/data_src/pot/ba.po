@@ -37,14 +37,12 @@ msgid "Access requested"
 msgstr "Инеүгә рөхсәт һоралды"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Һаҡлаусыға информатор шәхситенә рөхсәткә үтенес ебәрелде"
 
 msgid "Account recovery key"
 msgstr "Иҫәп яҙмаһын тергеҙеүгә асҡыс"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Әүҙемлек"
@@ -91,16 +89,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Ҡабул итеүсегә отчеттарҙы юйыу рөхсәте биреү"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Информаторға ебәрелгән документарға ҡушымта өҫтәргә рөхсәт итергә"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Информаторға комментарийҙар өҫтәргә рөхсәт итергә"
 
 msgid "Allow users to sign up"
 msgstr "Ҡулланыусыларға теркәлеү рөхсәте бирергә"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Информаторҙарға ҡабул итеүселәрҙе һайлау мөмкинлеге биреү"
 
 msgid "Allowed IP addresses"
@@ -160,7 +158,7 @@ msgstr "Авторизация"
 msgid "Authorize"
 msgstr "Рөхсәт итергә"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Информатор шәхсиәтенә инеү мөмкинлегенә рөхсәт бирергә"
 
 msgid "Authorized"
@@ -323,7 +321,7 @@ msgstr "Кире ҡағылды"
 msgid "Deny"
 msgstr "Кире ҡағырға"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Информатор шәхсиәтенә  инеү мөмкинлеген тыйырға"
 
 msgid "Description"
@@ -446,6 +444,9 @@ msgstr "Ҡабыҙылған"
 msgid "Enter a name for the copy"
 msgstr "Күсермәнең исемен яҙығыҙ"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Аутентификацияның ике факорлы кодын яҙығыҙ"
 
@@ -512,7 +513,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Аҫҡы колонтитул"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -567,7 +568,7 @@ msgstr "Инеү мөмкинлеге биреү"
 msgid "Group of questions"
 msgstr "Һорауҙар төркөмө"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Һеҙ отчет ебәрҙегеҙме? Үҙегеҙҙең квитанцияғыҙҙы индерегеҙ"
 
 msgid "Hidden"
@@ -693,6 +694,9 @@ msgstr "Платформаға Tor ҡулланмайынса инеү мөмк�
 
 msgid "License"
 msgstr "Лицензия"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Эске ҡулланыусыларҙың авторизация журналы"
@@ -845,6 +849,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Бер йәки бер нисә ҡулланыусы тәүге инеүҙе башҡармаған. Был уларҙың отчет алмаясағын белдерә."
 
+msgid "Open"
+msgstr ""
+
 msgid "Opened"
 msgstr "Асыҡ"
 
@@ -941,7 +948,7 @@ msgstr "Һорауҙар йыйылмаһы"
 msgid "Question templates"
 msgstr "Һорауҙар өсөн ҡалыптар"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Потенциаль информаторҙар өсөн һорауҙар"
 
 msgid "Questionnaire"
@@ -955,6 +962,9 @@ msgstr "Һорауламалар"
 
 msgid "Questions"
 msgstr "Һорауҙар"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -992,7 +1002,7 @@ msgstr "Даими сағылыш"
 msgid "Regular expression validator"
 msgstr "Даими сағылыш валидаторы"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Отчетығыҙ квитанцияһын хәтерегеҙҙә ҡалдырығыҙ"
 
 msgid "Reminder date"
@@ -1022,7 +1032,7 @@ msgstr "Отчеттарҙың статустары"
 msgid "Reports"
 msgstr "Отчёттар"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Информатор шәхсиәтенә инеүгә рөхсәт һорарға"
 
 msgid "Request date"
@@ -1067,7 +1077,7 @@ msgstr "Ресурс табылманы"
 msgid "Restrict access to specific IP addresses"
 msgstr "Ҡайһы бер IP-адрестарына инеү мөмкинлеген сикләү"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1241,7 +1251,13 @@ msgstr "Ябыҡ материалдарҙы ҡуйыу"
 msgid "Submit"
 msgstr "Тапшырырға"
 
+msgid "Submit a report"
+msgstr "Отчет бирергә"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1351,7 +1367,7 @@ msgstr "Күрһәтелгән тергеҙеү асҡысы дөрөҫ түге
 msgid "The provided reset token is invalid or expired."
 msgstr "Алып ташлау өсөн күрһәтелгән маркеры дөрөҫ түгел йәки уның ғәмәл мөҙҙәте уҙған"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Квитанция дөрөҫ түгел йәки отчеттың ғәмәл мөҙҙәте үткән"
 
 msgid "The specified input is not valid."
@@ -1375,10 +1391,10 @@ msgstr "Яңынан ингәнендә ҡулланыусы  паролен а�
 msgid "The validation link is either incorrect or has expired."
 msgstr "Һылтанма тикшереү өсөн дөрөҫ түгел йәки уның мөҙҙәте үткән"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Информатор һуңғы яңыртыуҙар менән танышып та сыҡҡан"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Информатор һуңғы яңыртыу менән әлегә танышмаған"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1465,8 +1481,8 @@ msgid "Use as default"
 msgstr "Йәшереп ҡалдырылған буйынса ҡулланыу"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Системаға инеү өсөн 16 һандан торған квитанция ҡулланығыҙ. Был һеҙгә ебәрелгән бөтә хәбәрҙәрҙе лә уҡырға, мәғлүмәт өҫтәргә мөмкинлек бирәсәк"
 
 msgid "Use the first site for administrative purposes only"
@@ -1540,10 +1556,10 @@ msgstr "Көсһөҙ"
 msgid "Welcome!"
 msgstr "Рәхим итегеҙ!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Информатор"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Информаторҙың һуңғы инеүе"
 
 msgid "Whistleblowing Policy"
@@ -1563,7 +1579,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Һеҙҙең серверға ҡушылыуығыҙ ананим түгел, был сервер тик аноним материалдар менән генә эшләй"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1612,9 +1628,6 @@ msgstr "Зинһар, тик цифрҙар ғына яҙығыҙ"
 
 msgid "seconds"
 msgstr "секунд"
-
-msgid "File a report"
-msgstr "Отчет бирергә"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1746,22 +1759,6 @@ msgstr "Платформа автоматик рәүештә юйыласаҡ"
 msgid "Access instructions"
 msgstr "Инеү өсөн инструкция"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Күптән түгел табылған әүҙемлек күрһәткесе ҡәҙимгеһенән юғарыраҡ"
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Был һөжүм билдәһе  (мәҫәлән, кемдер һеҙҙең серверға ялған мәғлүмәт тейәй) йәки һеҙҙең проекттың киң танылыуы арҡаһында ҡулланыуҙың иң юғары нөктәһе булырға мөмкин"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Эш нимәлә икәнен тикшерегеҙ: һүҙ ғәҙәти әүҙемлек тураһында барамы әллә юҡмы? "
-
-msgid "The activities with unusual stats are:"
-msgstr "Типик булмаған статистикалы әүҙемлек"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1779,14 +1776,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks технологияһы сервер торошон тикшереү компонентын да үҙ эсенә ала, әгәр нимәлер иғтибарығыҙҙы талап итһә, ул һеҙгә хәбәр итәсәк "
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Мәғлүмәт алыу өсөн, администратор панелена инегеҙ ҙә \"Система статистикаһы\" һәм \"Аномалия\" бүлектәренә күсегеҙ"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName}- та аномалия табылды"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1902,7 +1891,7 @@ msgstr "Был хәбәр аша һеҙгә һаҡлаусының информ�
 msgid "The report can be accessed at:"
 msgstr "Отчет түбәндәге биттә:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Информатор шәхсиәтенә инергә рөхсәт"
 
 msgid ""
@@ -1910,26 +1899,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Был хәбәр аша һеҙгә һаҡлаусының информатор шәхсиәтенә {TipNum} отчетына ярашлы инеү тыйылыуын еткерәбеҙ"
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Информатор шәхсиәтенә инеү мөмкинлеге кире ҡағылды"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Был хәбәр аша һеҙгә һаҡлаусының информатор шәхсиәтенә {TipNum} отчетына ярашлы инеү мөмкинлеге һоралғанын еткерәбеҙ"
 
 msgid "The request can be accessed at:"
 msgstr "Үтенес түбәндәге биттә:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Информатор шәхсиәтенә инеү мөмкинлегенә яңы үтенес"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Был хәбәр аша   һеҙгә  {TipNum} отчетын ебәреүсе информаторҙың үҙе хаҡында мәғлүмәт биреүен еткерәбеҙ"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Информаторүҙе хаҡында мәғлүмәт бирҙе"
 
 msgid ""

@@ -1,25 +1,343 @@
 name: Build
 
-on: [ push, pull_request ]
-
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      target_distribution:
+        description: 'Target distribution (bionic, bookworm, bullseye, focal, jammy, noble, trixie)'
+        required: false
+        default: trixie
+        type: choice
+        options:
+          - bionic
+          - bookworm
+          - bullseye
+          - focal
+          - jammy
+          - noble
+          - trixie
 # Declare default permissions as read only.
 permissions: read-all
-
+env:
+  TARGET_DISTRIBUTION: ${{ github.event.inputs.target_distribution || 'trixie' }}
 jobs:
-  run_build:
+  build_and_test:
     runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        distribution: ${{ fromJson(github.event.inputs.target_distribution == 'all' && '["bionic", "bookworm", "bullseye", "focal", "jammy", "noble", "trixie"]' || format('["{0}"]', github.event.inputs.target_distribution || 'trixie')) }}
     steps:
       - name: Check out repository code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v6.0.1
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Install git
-        run: |
-          sudo apt-get update -q
-          sudo apt-get install -y git
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: 'lts/*'
 
-      - name: Run tests
+      - name: Install build dependencies
         run: |
-          cd $GITHUB_WORKSPACE
-          ./.github/workflows/scripts/run_build.sh
+          sudo apt update -q
+          sudo apt install -y git curl wget ca-certificates gnupg lsb-release jq
+          sudo apt install -y build-essential debhelper devscripts
+          sudo apt install -y brotli dh-apparmor
+          sudo apt install -y dh-python pybuild-plugin-pyproject python3-all python3-setuptools python3-sphinx
+          sudo apt install -y docker-compose
+          # Install Chrome for Cypress
+          curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google.gpg
+          echo "deb [signed-by=/usr/share/keyrings/google.gpg arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt update -q
+          sudo apt install -y google-chrome-stable
+
+      - name: Build packages for target distribution
+        run: |
+          echo "Building packages"
+          # Run the build script with local environment flag
+          COMMIT_HASH=$(git rev-parse HEAD)
+          ./scripts/build.sh -d $TARGET_DISTRIBUTION -t $COMMIT_HASH -n -l -z
+
+      - name: Build and start Docker container
+        run: |
+          ./docker/generate_docker_compose.sh $TARGET_DISTRIBUTION > ./docker/docker-compose.yml
+          cp scripts/install.sh docker/files/
+          cp build/$TARGET_DISTRIBUTION/*.deb docker/files/globaleaks.deb
+
+          cd ./docker
+
+          docker-compose up -d --build
+          echo "Waiting for service to be ready..."
+          timeout 120 bash -c "until curl -k https://localhost:8443 2>/dev/null; do sleep 5; done" || {
+            echo "Error: service failed to start"
+            docker-compose logs "globaleaks"
+            exit 1
+          }
+          echo "✅ service ready"
+
+      - name: Install Cypress and Lighthouse dependencies
+        run: |
+          cd client
+          # Check Node.js and npm versions
+          echo "Node.js version: $(node --version)"
+          echo "npm version: $(npm --version)"
+          # Clear npm cache to avoid any potential issues
+          npm cache clean --force || true
+          # Use existing package.json (without --silent to see errors)
+          echo "Installing npm dependencies..."
+          npm ci --include=dev || {
+            echo "npm ci failed, trying alternative approach..."
+            # Fallback: regular npm install with older syntax
+            npm install --only=dev || npm install --include=dev
+          }
+          # Verify Cypress installation
+          echo "Verifying Cypress installation..."
+          npx cypress verify
+          echo "Cypress dependencies installed successfully"
+          # Install Lighthouse globally for CI use
+          echo "Installing Lighthouse CLI..."
+          npm install -g lighthouse@11.7.1
+
+      - name: Run Cypress tests and Lighthouse audits
+        run: |
+          cd client
+          test_results=()
+          lighthouse_results=()
+          echo "🔍 Running Lighthouse audits"
+          mkdir -p lighthouse-results
+          # Run Lighthouse audits for multiple pages
+          lighthouse_exit_code=0
+          # Audit home page
+          echo "  Auditing home page..."
+          lighthouse https://localhost:8443 \
+            --chrome-flags="--headless --no-sandbox --disable-gpu --disable-dev-shm-usage --allow-running-insecure-content --disable-web-security --allow-insecure-localhost --ignore-certificate-errors --ignore-ssl-errors --ignore-certificate-errors-spki-list" \
+            --preset=desktop \
+            --output=json \
+            --output=html \
+            --output-path=./lighthouse-results/lighthouse-report-home \
+            --only-categories=performance,accessibility,best-practices,seo || lighthouse_exit_code=$?
+          # Audit submission page
+          echo "  Auditing submission page..."
+          lighthouse https://localhost:8443/#/submission \
+            --chrome-flags="--headless --no-sandbox --disable-gpu --disable-dev-shm-usage --allow-running-insecure-content --disable-web-security --allow-insecure-localhost --ignore-certificate-errors --ignore-ssl-errors --ignore-certificate-errors-spki-list" \
+            --preset=desktop \
+            --output=json \
+            --output=html \
+            --output-path=./lighthouse-results/lighthouse-report-submission \
+            --only-categories=performance,accessibility,best-practices,seo || lighthouse_exit_code=$?
+          # Audit login page
+          echo "  Auditing login page..."
+          lighthouse https://localhost:8443/#/login \
+            --chrome-flags="--headless --no-sandbox --disable-gpu --disable-dev-shm-usage --allow-running-insecure-content --disable-web-security --allow-insecure-localhost --ignore-certificate-errors --ignore-ssl-errors --ignore-certificate-errors-spki-list" \
+            --preset=desktop \
+            --output=json \
+            --output=html \
+            --output-path=./lighthouse-results/lighthouse-report-login \
+            --only-categories=performance,accessibility,best-practices,seo || lighthouse_exit_code=$?
+          # Check Lighthouse results and thresholds for all pages
+          all_failed_checks=""
+          all_passed_scores=""
+          for page in "home" "submission" "login"; do
+            report_file="./lighthouse-results/lighthouse-report-${page}.report.json"
+            if [ -f "$report_file" ]; then
+              echo "  Checking $page page scores..."
+              # Extract scores using jq (JSON processor)
+              if command -v jq >/dev/null 2>&1; then
+                perf_score=$(jq -r '.categories.performance.score * 100 | floor' "$report_file" 2>/dev/null || echo "0")
+                a11y_score=$(jq -r '.categories.accessibility.score * 100 | floor' "$report_file" 2>/dev/null || echo "0")
+                bp_score=$(jq -r '.categories["best-practices"].score * 100 | floor' "$report_file" 2>/dev/null || echo "0")
+                seo_score=$(jq -r '.categories.seo.score * 100 | floor' "$report_file" 2>/dev/null || echo "0")
+              else
+                # Fallback: use grep and basic text parsing
+                perf_score=$(grep -o '"performance":{"id":"performance","title":"Performance","score":[0-9.]*' "$report_file" | grep -o '[0-9.]*$' | awk '{print int($1*100)}' || echo "0")
+                a11y_score=$(grep -o '"accessibility":{"id":"accessibility","title":"Accessibility","score":[0-9.]*' "$report_file" | grep -o '[0-9.]*$' | awk '{print int($1*100)}' || echo "0")
+                bp_score=$(grep -o '"best-practices":{"id":"best-practices","title":"Best Practices","score":[0-9.]*' "$report_file" | grep -o '[0-9.]*$' | awk '{print int($1*100)}' || echo "0")
+                seo_score=$(grep -o '"seo":{"id":"seo","title":"SEO","score":[0-9.]*' "$report_file" | grep -o '[0-9.]*$' | awk '{print int($1*100)}' || echo "0")
+              fi
+              # Check thresholds for this page
+              page_failed_checks=""
+              [ "$perf_score" -lt 60 ] && page_failed_checks="$page_failed_checks ${page}-performance:${perf_score}%(min:60%)"
+              [ "$a11y_score" -lt 85 ] && page_failed_checks="$page_failed_checks ${page}-accessibility:${a11y_score}%(min:85%)"
+              [ "$bp_score" -lt 80 ] && page_failed_checks="$page_failed_checks ${page}-best-practices:${bp_score}%(min:80%)"
+              [ "$seo_score" -lt 95 ] && page_failed_checks="$page_failed_checks ${page}-seo:${seo_score}%(min:95%)"
+              if [ -n "$page_failed_checks" ]; then
+                all_failed_checks="$all_failed_checks$page_failed_checks"
+              fi
+              page_scores="${page}(perf:${perf_score}% a11y:${a11y_score}% bp:${bp_score}% seo:${seo_score}%)"
+              all_passed_scores="$all_passed_scores $page_scores"
+            else
+              echo "❌ Lighthouse report not found for $page page: $report_file"
+              all_failed_checks="$all_failed_checks ${page}-missing"
+            fi
+          done
+          # Determine overall result
+          if [ -n "$all_failed_checks" ]; then
+            lighthouse_validation="FAILED:$all_failed_checks"
+            echo "❌ Lighthouse audit failed: $all_failed_checks"
+            lighthouse_results+=("LIGHTHOUSE_FAIL")
+          else
+            lighthouse_validation="PASSED:$all_passed_scores"
+            echo "✅ Lighthouse audit passed: $all_passed_scores"
+            lighthouse_results+=("LIGHTHOUSE_PASS")
+          fi
+          echo "🧪 Running Cypress tests on port 8443..."
+          # Run Cypress tests and capture exit code
+          if npx cypress run --browser chrome --config baseUrl="https://127.0.0.1:8443"; then
+            echo "✅ Cypress tests passed"
+            test_results+=("CYPRESS_PASS")
+          else
+            echo "❌ Cypress tests failed"
+            test_results+=("CYPRESS_FAIL")
+          fi
+
+          # Print comprehensive summary
+          echo ""
+          echo "🏁 Test Results Summary:"
+          echo "========================"
+          echo "Cypress Results:"
+          for result in "${test_results[@]}"; do
+            echo "  $result"
+          done
+          echo ""
+          echo "Lighthouse Results:"
+          for result in "${lighthouse_results[@]}"; do
+            echo "  $result"
+          done
+          # Check if any tests failed
+          failed=false
+          if echo "${test_results[@]}" | grep -q "FAIL"; then
+            echo ""
+            echo "❌ Some Cypress tests failed"
+            failed=true
+          fi
+          if echo "${lighthouse_results[@]}" | grep -q "FAIL\|ERROR"; then
+            echo ""
+            echo "❌ Some Lighthouse audits failed"
+            failed=true
+          fi
+          if [ "$failed" = true ]; then
+            exit 1
+          else
+            echo ""
+            echo "✅ All tests and audits passed!"
+          fi
+
+      - name: Upload Lighthouse results to repository
+        if: github.ref == 'refs/heads/stable'
+        env:
+          LIGHTHOUSE_REPO_PAT: ${{ secrets.LIGHTHOUSE_REPO_PAT }}
+        run: |
+          cd client
+          # Calculate average scores
+          total_perf=0; total_a11y=0; total_bp=0; total_seo=0; count=0
+          for page in "home" "submission" "login"; do
+            file="./lighthouse-results/lighthouse-report-${page}.report.json"
+            if [ -f "$file" ]; then
+              perf=$(jq -r '.categories.performance.score * 100 | floor' "$file")
+              a11y=$(jq -r '.categories.accessibility.score * 100 | floor' "$file")
+              bp=$(jq -r '.categories["best-practices"].score * 100 | floor' "$file")
+              seo=$(jq -r '.categories.seo.score * 100 | floor' "$file")
+              total_perf=$((total_perf + perf)); total_a11y=$((total_a11y + a11y))
+              total_bp=$((total_bp + bp)); total_seo=$((total_seo + seo)); count=$((count + 1))
+            fi
+          done
+          if [ $count -gt 0 ]; then
+            avg_perf=$((total_perf / count)); avg_a11y=$((total_a11y / count))
+            avg_bp=$((total_bp / count)); avg_seo=$((total_seo / count))
+            # Function to get badge color
+            get_color() {
+              if [ $1 -ge 90 ]; then echo "brightgreen"
+              elif [ $1 -ge 70 ]; then echo "yellow"
+              elif [ $1 -ge 50 ]; then echo "orange"
+              else echo "red"; fi
+            }
+            # Create badge JSON files using jq
+            echo "{\"schemaVersion\":1,\"label\":\"Performance\",\"message\":\"${avg_perf}%\",\"color\":\"$(get_color $avg_perf)\"}" > perf.json
+            echo "{\"schemaVersion\":1,\"label\":\"Accessibility\",\"message\":\"${avg_a11y}%\",\"color\":\"$(get_color $avg_a11y)\"}" > a11y.json
+            echo "{\"schemaVersion\":1,\"label\":\"Best Practices\",\"message\":\"${avg_bp}%\",\"color\":\"$(get_color $avg_bp)\"}" > bp.json
+            echo "{\"schemaVersion\":1,\"label\":\"SEO\",\"message\":\"${avg_seo}%\",\"color\":\"$(get_color $avg_seo)\"}" > seo.json
+
+            # Set up Git configuration for the action
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+            # Clone the lighthouse audit repository
+            REPO="https://github.com/globaleaks/globaleaks-lighthouse-audit.git"
+            BRANCH="main"
+            TMP_DIR=$(mktemp -d)
+
+            echo "Cloning repository..."
+            # Clone repository, create main branch if it doesn't exist
+            if ! git clone --branch "$BRANCH" "https://$LIGHTHOUSE_REPO_PAT@github.com/globaleaks/globaleaks-lighthouse-audit.git" "$TMP_DIR" 2>/dev/null; then
+              echo "Main branch doesn't exist, cloning and creating it..."
+              git clone "https://$LIGHTHOUSE_REPO_PAT@github.com/globaleaks/globaleaks-lighthouse-audit.git" "$TMP_DIR"
+              cd "$TMP_DIR"
+              git checkout -b "$BRANCH"
+              cd -
+            fi
+
+            # Copy HTML report to root if available
+            if [ -f "./lighthouse-results/lighthouse-report-home.report.html" ]; then
+              cp "./lighthouse-results/lighthouse-report-home.report.html" "$TMP_DIR/report.html"
+            fi
+
+            # Copy JSON badge files to badges directory
+            mkdir -p "$TMP_DIR/badges"
+            for badge_file in perf.json a11y.json bp.json seo.json; do
+              if [ -f "$badge_file" ]; then
+                cp "$badge_file" "$TMP_DIR/badges/"
+              else
+                echo "⚠️  Warning: $badge_file not found, skipping..."
+              fi
+            done
+
+            # Navigate to repository and commit changes
+            cd "$TMP_DIR"
+
+            # Check if there are any changes to commit
+            if [ -n "$(git status --porcelain)" ]; then
+              git add .
+              if git commit -m "Update Lighthouse badges and report - $(date -u '+%Y-%m-%d %H:%M:%S') UTC"; then
+                if git push origin "$BRANCH"; then
+                  echo "✅ Updated badges: Performance:${avg_perf}% Accessibility:${avg_a11y}% Best-Practices:${avg_bp}% SEO:${avg_seo}%"
+                  echo "✅ All badges and report updated in repository"
+                else
+                  echo "❌ Error: Failed to push to repository"
+                  exit 1
+                fi
+              else
+                echo "❌ Error: Failed to commit changes"
+                exit 1
+              fi
+            else
+              echo "ℹ️  No changes detected, skipping commit"
+            fi
+
+            # Clean up
+            cd /
+            rm -rf "$TMP_DIR"
+
+            # Clean up local files
+            rm -f perf.json a11y.json bp.json seo.json
+          fi
+
+      - name: Cleanup Docker containers
+        if: always()
+        run: |
+          cd docker
+          docker-compose down || true
+          echo "Cleanup completed"
+
+      - name: Upload test and audit artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: test-artifacts
+          path: |
+            client/cypress/screenshots/
+            client/cypress/videos/
+            client/lighthouse-results/
+            build/**/*.deb
+          retention-days: 7

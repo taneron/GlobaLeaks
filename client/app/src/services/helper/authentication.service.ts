@@ -31,8 +31,8 @@ export class AuthenticationService {
 
   public session: any = undefined;
   permissions: { can_upload_files: boolean }
-  loginInProgress: boolean = false;
-  requireAuthCode: boolean = false;
+  loginInProgress = false;
+  requireAuthCode = false;
   loginData: LoginDataRef = new LoginDataRef();
 
   constructor() {
@@ -67,15 +67,7 @@ export class AuthenticationService {
 
   setSession(response: Session) {
     this.session = response;
-    if (this.session.role === "whistleblower") {
-      this.session.homepage = "/";
-    } else {
-      const role = this.session.role === "receiver" ? "recipient" : this.session.role;
-
-      this.session.homepage = "/" + role + "/home";
-      this.session.preferencespage = "/" + role + "/preferences";
-      window.sessionStorage.setItem("session", JSON.stringify(this.session));
-    }
+    window.sessionStorage.setItem("session", JSON.stringify(this.session));
   }
 
   resetPassword(username: string) {
@@ -135,7 +127,17 @@ export class AuthenticationService {
                 this.router.navigate([response.redirect]).then();
               }
             }
+
+            if (response.role === "whistleblower") {
+              response.homepage = "/";
+            } else {
+               const role = response.role === "receiver" ? "recipient" : response.role;
+               response.homepage = "/" + role + "/home";
+               response.preferencespage = "/" + role + "/preferences";
+            }
+
             this.setSession(response);
+
             if (response && response && response.properties && response.properties.new_receipt) {
               const receipt = response.properties.new_receipt;
               const formattedReceipt = this.formatReceipt(receipt);

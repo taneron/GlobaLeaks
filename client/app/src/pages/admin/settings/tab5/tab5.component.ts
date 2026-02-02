@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, inject} from "@angular/core";
+import {Component, Input, OnInit, inject, OnDestroy} from "@angular/core";
 import {NgForm, FormsModule} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Constants} from "@app/shared/constants/constants";
@@ -23,7 +23,7 @@ import {Subscription} from "rxjs";
     standalone: true,
     imports: [FormsModule, NgClass, TranslatorPipe, TranslateModule]
 })
-export class Tab5Component implements OnInit {
+export class Tab5Component implements OnInit, OnDestroy {
   private authenticationService = inject(AuthenticationService);
   private modalService = inject(NgbModal);
   private appConfigService = inject(AppConfigService);

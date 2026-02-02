@@ -35,14 +35,12 @@ msgid "Access requested"
 msgstr "Pristup je zatražen"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "Od čuvara je zatražen pristup identitetu uzbunjivača."
 
 msgid "Account recovery key"
 msgstr "Ključ za oporavak naloga"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "Aktivnosti"
@@ -89,16 +87,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "Dozvoli primaocu da briše prijave"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "Dozvoli uzbunjivaču da dodaje priloge u prijavu"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "Dozvolite uzbunjivaču da piše komentare"
 
 msgid "Allow users to sign up"
 msgstr "Dozvoli korisnicima da se registruju"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "Dozvoli uzbunjivačima da odaberu primaoce"
 
 msgid "Allowed IP addresses"
@@ -158,7 +156,7 @@ msgstr "Ovlašćenje"
 msgid "Authorize"
 msgstr "Odobri"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "Odobrite pristup identitetu uzbunjivača"
 
 msgid "Authorized"
@@ -321,7 +319,7 @@ msgstr "Odbijen"
 msgid "Deny"
 msgstr "Zabrani"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "Zabranite pristup identitetu uzbunjivača"
 
 msgid "Description"
@@ -444,6 +442,9 @@ msgstr "Omoguceno"
 msgid "Enter a name for the copy"
 msgstr "Unesite naziv kopije"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "Unesite kôd za dvostruku potvrdu identiteta"
 
@@ -510,7 +511,7 @@ msgstr ""
 msgid "Footer"
 msgstr "Podnožje stranice"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -565,7 +566,7 @@ msgstr "Odobri pristup"
 msgid "Group of questions"
 msgstr "Grupa pitanja"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "Da li ste već podnijeli prijavu? Unesite svoju potvrdu prijema."
 
 msgid "Hidden"
@@ -691,6 +692,9 @@ msgstr "Dozvoli da platforma bude dostupna bez Tor-a"
 
 msgid "License"
 msgstr "Лиценца"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "Evidentiraj pristupe internih korisnika"
@@ -843,6 +847,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "Jedan ili više primalaca još nijesu izvršili prvo prijavljivanje. To znači da oni neće primati prijave."
 
+msgid "Open"
+msgstr "Отворено"
+
 msgid "Opened"
 msgstr "Otvoreno"
 
@@ -939,7 +946,7 @@ msgstr "Grupa pitanja"
 msgid "Question templates"
 msgstr "Obrasci za pitanja"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "Pitanje za pronalaženje potencijalnih uzbunjivača"
 
 msgid "Questionnaire"
@@ -953,6 +960,9 @@ msgstr "Upitnici"
 
 msgid "Questions"
 msgstr "Pitanja"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr "Nоvinаri"
@@ -990,7 +1000,7 @@ msgstr "Regularni izraz"
 msgid "Regular expression validator"
 msgstr "Validator regularnog izraza"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "Zapamtite svoju potvrdu prijema za ovu prijavu."
 
 msgid "Reminder date"
@@ -1020,7 +1030,7 @@ msgstr "Statusi prijava"
 msgid "Reports"
 msgstr "Prijave"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "Zatražite pristup identitetu uzbunjivača"
 
 msgid "Request date"
@@ -1065,7 +1075,7 @@ msgstr "Resurs nije pronađen"
 msgid "Restrict access to specific IP addresses"
 msgstr "Ograniči pristup na određene IP adrese"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1239,7 +1249,13 @@ msgstr "Podnesci su onemogućeni"
 msgid "Submit"
 msgstr "Pošalji"
 
+msgid "Submit a report"
+msgstr "Podnesi prijavu"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1349,7 +1365,7 @@ msgstr "Navedeni ključ za oporavak je nevažeći."
 msgid "The provided reset token is invalid or expired."
 msgstr "Navedeni token za resetovanje je nevažeći ili je istekao."
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "Potvrda prijema je nevažeća ili je prijava istekla."
 
 msgid "The specified input is not valid."
@@ -1373,10 +1389,10 @@ msgstr "Korisnik će biti primoran da promijeni lozinku pri sljedećoj prijavi."
 msgid "The validation link is either incorrect or has expired."
 msgstr "Veza za validaciju je netačna ili je istekla."
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "Uzbunjivač je već pročitao posljednje ažuriranje"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "Uzbunjivač još nije pročitao posljednje ažuriranje"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1463,8 +1479,8 @@ msgid "Use as default"
 msgstr "Koristi kao podrazumijevanu vrijednost"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "Za prijavljivanje koristite potvrdu prijema od 16 cifara. Omogućiće vam da vidite sve poruke koje smo vam poslali, kao i da unesete dodatne informacije."
 
 msgid "Use the first site for administrative purposes only"
@@ -1538,10 +1554,10 @@ msgstr "Slabo"
 msgid "Welcome!"
 msgstr "Dobro došli!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "Uzbunjivаč"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "Posljednji pristup uzbunjivača"
 
 msgid "Whistleblowing Policy"
@@ -1561,7 +1577,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "Povezujete se sa serverom bez anonimnosti, a ovaj server podržava samo anonimne prijave"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1610,9 +1626,6 @@ msgstr "Unesite samo brojeve."
 
 msgid "seconds"
 msgstr "sekunde"
-
-msgid "File a report"
-msgstr "Podnesi prijavu"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1744,22 +1757,6 @@ msgstr "Platforma će se automatski izbrisati:"
 msgid "Access instructions"
 msgstr "Uputstva za pristup"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "Izgleda da je broj nedavno otkrivenih aktivnosti veći nego obično."
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "Ovo bi mogao biti znak napada (na primjer, neko je na vaš server unio mnoštvo lažnih informacija) ili samo porast upotrebe zbog povećane vidljivosti vašeg projekta."
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "Istražite ovo pitanje da biste utvrdili da li je legitimno ili ne."
-
-msgid "The activities with unusual stats are:"
-msgstr "Aktivnosti sa neobičnom statistikom su:"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1777,14 +1774,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "Tehnologija GlobaLeaks uključuje komponentu za provjeru statusa servera koja će vas upozoriti u slučaju da na nešto treba naročito da obratite pažnju."
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "Da biste se detaljnije informisali, prijavite se u interfejs za administraciju i pogledajte odjeljke „Statistika sistema“ i „Nepravilnosti“."
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "Anomalija je otkrivena u {NodeName}"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1900,7 +1889,7 @@ msgstr "Ovo je e-poruka sa obavještenjem da vas je čuvar ovlastio za pristup i
 msgid "The report can be accessed at:"
 msgstr "Prijavi se može pristupiti na:"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "Odobren je pristup identitetu uzbunjivača"
 
 msgid ""
@@ -1908,26 +1897,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "Ovo je e-poruka sa obavještenjem da vam je čuvar odbio pristup identitetu koji podnosi prijavu {TipNum}."
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "Pristup identitetu uzbunjivača je odbijen"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "Ovo je e-poruka s obavještenjem da je primalac zatražio pristup identitetu uzbunjivača za prijavu {TipNum}"
 
 msgid "The request can be accessed at:"
 msgstr "Zahtjevu se može pristupiti na:"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "Novi zahtjev za pristup identitetu uzbunjivača"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "Ovo je e-poruka s obavještenjem da je uzbunjivač za prijavu {TipNum} otkrio svoj identitet."
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "Uzbunjivač je otkrio svoj identitet"
 
 msgid ""

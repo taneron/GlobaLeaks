@@ -43,14 +43,12 @@ msgid "Access requested"
 msgstr "প্রবেশের অনুরোধ করা হয়েছে"
 
 msgid ""
-"Access to the whistleblower's identity has been requested to the custodian."
+"Access to the reporting person's identity has been requested to the "
+"custodian."
 msgstr "হুইসেল ব্লোয়ারের পরিচয় অ্যাক্সেস করতে তত্ত্বাবধায়ক থেকে অনুরোধ করা হয়েছে।"
 
 msgid "Account recovery key"
 msgstr "অ্যাকাউন্ট পুনরুদ্ধারের চাবি"
-
-msgid "Act on behalf of a whistleblower"
-msgstr ""
 
 msgid "Activities"
 msgstr "কার্যকলাপ"
@@ -97,16 +95,16 @@ msgstr ""
 msgid "Allow the recipient to delete reports"
 msgstr "প্রাপককে প্রতিবেদনগুলি মুছে ফেলার অনুমতি দিন"
 
-msgid "Allow the whistleblower to add attachments"
+msgid "Allow the reporting person to add attachments"
 msgstr "হুইসেল ব্লোয়ারকে প্রতিবেদনে সংযুক্তি যুক্ত করতে দিন"
 
-msgid "Allow the whistleblower to write comments"
+msgid "Allow the reporting person to write comments"
 msgstr "হুইসেল ব্লোয়ারকে মন্তব্য লেখার অনুমতি দিন"
 
 msgid "Allow users to sign up"
 msgstr "ব্যবহারকারীদের সাইন আপ করার অনুমতি দিন"
 
-msgid "Allow whistleblowers to select their recipients"
+msgid "Allow reporting persons to select their recipients"
 msgstr "হুইসেল ব্লোয়ারদের তাদের প্রাপকগুলি নির্বাচন করতে অনুমতি দিন"
 
 msgid "Allowed IP addresses"
@@ -166,7 +164,7 @@ msgstr "অনুমোদন"
 msgid "Authorize"
 msgstr "অনুমোদন"
 
-msgid "Authorize access to the whistleblower's identity"
+msgid "Authorize access to the reporting person's identity"
 msgstr "হুইসেল ব্লোয়ারের পরিচয়ে প্রবেশের অনুমোদন দিন"
 
 msgid "Authorized"
@@ -329,7 +327,7 @@ msgstr "অস্বীকৃত"
 msgid "Deny"
 msgstr "বাতিল"
 
-msgid "Deny access to the whistleblower's identity"
+msgid "Deny access to the reporting person's identity"
 msgstr "হুইসেল ব্লোয়ারের পরিচয়ে প্রবেশ বাতিল করুন"
 
 msgid "Description"
@@ -452,6 +450,9 @@ msgstr "সক্রিয় করা"
 msgid "Enter a name for the copy"
 msgstr "অনুলিপিটির জন্য একটি নাম লিখুন"
 
+msgid "Enter a report"
+msgstr ""
+
 msgid "Enter the two factor authentication code"
 msgstr "টু-ফ্যাক্টর অথেনটিকেশন কোডটি লিখুন"
 
@@ -518,7 +519,7 @@ msgstr ""
 msgid "Footer"
 msgstr "ফুটার"
 
-msgid "For security reasons the code needs to be changed."
+msgid "For security reasons, the code needs to be changed."
 msgstr ""
 
 msgid ""
@@ -573,7 +574,7 @@ msgstr ""
 msgid "Group of questions"
 msgstr "দলবদ্ধ প্রশ্ন"
 
-msgid "Have you already filed a report? Enter your receipt."
+msgid "Have you already submitted a report? Enter your access code."
 msgstr "আপনি কি ইতিমধ্যে একটি রিপোর্ট জমা করেছেন? আপনার রসিদ নাম্বার লিখুন"
 
 msgid "Hidden"
@@ -699,6 +700,9 @@ msgstr "টর ছাড়া প্ল্যাটফর্মটিতে প
 
 msgid "License"
 msgstr "লাইসেন্স"
+
+msgid "Listen"
+msgstr ""
 
 msgid "Log accesses of internal users"
 msgstr "অভ্যন্তরীণ ব্যবহারকারীদের লগ অ্যাক্সেসগুলি"
@@ -851,6 +855,9 @@ msgid ""
 "they won't be receiving reports."
 msgstr "এক বা একাধিক প্রাপক এখনও প্রথমবার লগইন করেননি। এর অর্থ তারা রিপোর্ট পাবেন না।"
 
+msgid "Open"
+msgstr "খুলুন"
+
 msgid "Opened"
 msgstr "খোলা হয়েছে"
 
@@ -947,7 +954,7 @@ msgstr "প্রশ্নের গ্রুপ"
 msgid "Question templates"
 msgstr "প্রশ্নের টেমপ্লেট"
 
-msgid "Question to solicit possible whistleblowers"
+msgid "Question to solicit possible reporting persons"
 msgstr "সম্ভাব্য হুইসেল ব্লোয়ারদের কাছে জিজ্ঞাস্য প্রশ্ন"
 
 msgid "Questionnaire"
@@ -961,6 +968,9 @@ msgstr "প্রশ্নাবলী"
 
 msgid "Questions"
 msgstr "প্রশ্নাবলী"
+
+msgid "Read receipt"
+msgstr ""
 
 msgid "Receivers"
 msgstr ""
@@ -998,7 +1008,7 @@ msgstr "নিয়মিত অভিব্যাক্তি"
 msgid "Regular expression validator"
 msgstr "নিয়মিত অভিব্যক্তি যাচাইকারক"
 
-msgid "Remember your receipt for this report."
+msgid "Remember your access code for this report."
 msgstr "এই রিপোর্টের  জন্য আপনার রসিদ মনে রাখবেন।"
 
 msgid "Reminder date"
@@ -1028,7 +1038,7 @@ msgstr "স্ট্যাটাস রিপোর্ট করুন"
 msgid "Reports"
 msgstr "রিপোর্টগুলি"
 
-msgid "Request access to the whistleblower's identity"
+msgid "Request access to the reporting person's identity"
 msgstr "হুইসেল ব্লোয়ারের পরিচয়ে প্রবেশের অনুরোধ করুন"
 
 msgid "Request date"
@@ -1073,7 +1083,7 @@ msgstr "রিসোর্স পাওয়া যায় নি"
 msgid "Restrict access to specific IP addresses"
 msgstr "নির্দিষ্ট আইপি ঠিকানাগুলিতে প্রবেশ সীমাবদ্ধ করুন"
 
-msgid "Returning whistleblowers"
+msgid "Returning reporting persons"
 msgstr ""
 
 msgid "Revoke access"
@@ -1247,7 +1257,13 @@ msgstr "জমা অক্ষম করা হয়েছে"
 msgid "Submit"
 msgstr "দাখিল করা"
 
+msgid "Submit a report"
+msgstr "একটি রিপোর্ট জমা দিন"
+
 msgid "Subscribed"
+msgstr ""
+
+msgid "Subscribed later"
 msgstr ""
 
 msgid "Subscription date"
@@ -1357,7 +1373,7 @@ msgstr "প্রদত্ত পুনরুদ্ধার কী টি অ�
 msgid "The provided reset token is invalid or expired."
 msgstr "সরবরাহকৃত রিসেট টোকেনটি অবৈধ বা মেয়াদোত্তীর্ণ।"
 
-msgid "The receipt is either invalid or the report has expired."
+msgid "The access code is either invalid or the report has expired."
 msgstr "রসিদটি অবৈধ বা রিপোর্টের মেয়াদ শেষ হয়ে গেছে।"
 
 msgid "The specified input is not valid."
@@ -1381,10 +1397,10 @@ msgstr "ব্যবহারকারীকে পরবর্তী লগই�
 msgid "The validation link is either incorrect or has expired."
 msgstr "যাচাইয়ের লিঙ্কটি সঠিক নয় বা মেয়াদ শেষ হয়ে গেছে।"
 
-msgid "The whistleblower has already read the last update"
+msgid "The reporting person has already read the last update"
 msgstr "হুইসেল ব্লোয়ার ইতিমধ্যে শেষ আপডেটটি পড়েছেন"
 
-msgid "The whistleblower has not read the last update yet"
+msgid "The reporting person has not read the last update yet"
 msgstr "হুইসেল ব্লোয়ার এখনও শেষ আপডেটটি পড়েননি"
 
 msgid "Then, copy and paste the following address into the Tor Browser:"
@@ -1471,8 +1487,8 @@ msgid "Use as default"
 msgstr "ডিফল্ট হিসাবে ব্যবহার করুন"
 
 msgid ""
-"Use the 16 digit receipt to log in. It will allow you to view any messages "
-"we sent you, and also to add extra info."
+"Use the 16 digit access code to log in. It will allow you to view any "
+"messages we sent you, and also to add extra info."
 msgstr "লগ ইন করতে ১৬ অক্ষরের রশিদটি ব্যবহার করুন এটি আপনাকে পাঠানো কোনও বার্তা দেখতে এবং অতিরিক্ত তথ্য যুক্ত করার অনুমতি দেয়।"
 
 msgid "Use the first site for administrative purposes only"
@@ -1546,10 +1562,10 @@ msgstr "দুর্বল"
 msgid "Welcome!"
 msgstr "স্বাগতম!"
 
-msgid "Whistleblower"
+msgid "Reporting person"
 msgstr "হুইসেল ব্লোয়ার"
 
-msgid "Whistleblower's last access"
+msgid "Reporting person's last access"
 msgstr "হুইসেল ব্লোয়ারের শেষবার প্রবেশ"
 
 msgid "Whistleblowing Policy"
@@ -1569,7 +1585,7 @@ msgid ""
 "only anonymous submissions"
 msgstr "আপনি পরিচয় লুকানো ছাড়াই সার্ভারের সাথে সংযোগ করছেন এবং এই সার্ভারটি কেবল বেনামে জমা দেওয়া সমর্থন করে"
 
-msgid "You are operating on behalf of a whistleblower."
+msgid "You are entering a report received through other channels."
 msgstr ""
 
 msgid ""
@@ -1618,9 +1634,6 @@ msgstr "অনুগ্রহ করে শুধু মাত্র নাম�
 
 msgid "seconds"
 msgstr "সেকেন্ড"
-
-msgid "File a report"
-msgstr "একটি রিপোর্ট জমা দিন"
 
 msgid "Select a reporting channel:"
 msgstr ""
@@ -1752,22 +1765,6 @@ msgstr "প্ল্যাটফর্মটি স্বয়ংক্রি�
 msgid "Access instructions"
 msgstr "প্রবেশের নির্দেশাবলী"
 
-msgid ""
-"The number of activities recently detected appears to be higher than usual."
-msgstr "সনাক্ত করা সাম্প্রতিক ক্রিয়াকলাপগুলির সংখ্যা স্বাভাবিকের চেয়ে বেশি। "
-
-msgid ""
-"This could be a sign of an attack (for example, someone flooding your server"
-" with bogus information) or just a usage spike due to an increased "
-"visibility of your project."
-msgstr "এটি কোনও আক্রমণের চিহ্ন হতে পারে (উদাহরণস্বরূপ, কেউ আপনার সার্ভারকে আবোল তাবোল তথ্য দিয়ে প্লাবিত করছে) বা আপনার প্রকল্পের বর্ধিত দৃশ্যমানতার কারণে ব্যবহারের উত্থান।"
-
-msgid "Examine the issue to determine whether it is legitimate or not."
-msgstr "বিষয়টি সঠিক কিনা তা নিশ্চিত হবার জন্য পরীক্ষা করুন।"
-
-msgid "The activities with unusual stats are:"
-msgstr "অস্বাভাবিক পরিসংখ্যান সহ ক্রিয়াকলাপগুলি হ'লঃ"
-
 msgid "Available disk space: {FreeMemory}/{TotalMemory}"
 msgstr ""
 
@@ -1785,14 +1782,6 @@ msgid ""
 "GlobaLeaks technology includes a server status checking component which will"
 " alert you in case something requires your attention."
 msgstr "GlobaLeaks প্রযুক্তিতে একটি সার্ভারের অবস্থা পরীক্ষার উপাদান রয়েছে যা কোনও বিষয়ে আপনার দৃষ্টি আকর্ষণ করার প্রয়োজন হলে আপনাকে সতর্ক করবে।"
-
-msgid ""
-"For more information, log in to the Administration interface and look at the"
-" \"System Stats\" and \"Anomalies\" sections."
-msgstr "আরও তথ্যের জন্য, প্রশাসনিক ইন্টারফেসে লগ ইন করুন এবং \"সিস্টেমের পরিসংখ্যান\" এবং \"অসঙ্গতি\" বিভাগটি দেখুন।"
-
-msgid "Anomaly detected in {NodeName}"
-msgstr "{NodeName} -এ অসঙ্গতি সনাক্ত করা হয়েছে"
 
 msgid ""
 "This is an email to inform you that the PGP key of the following users is "
@@ -1908,7 +1897,7 @@ msgstr "এই ইমেইলটি আপনাকে অবহিত কর�
 msgid "The report can be accessed at:"
 msgstr "রিপোর্টটিতে এখান থেকে প্রবেশ করা যেতে পারেঃ"
 
-msgid "Access to whistleblower's identity authorized"
+msgid "Access to reporting person's identity authorized"
 msgstr "হুইসেল ব্লোয়ারের পরিচয় অনুমোদিত"
 
 msgid ""
@@ -1916,26 +1905,26 @@ msgid ""
 " whistleblowing identity for the report {TipNum}."
 msgstr "এই ইমেইলটি আপনাকে অবহিত করতে যে, কোনও তত্ত্বাবধায়ক আপনাকে {TipNum}  রিপোর্টের জন্য হুইসেল ব্লোয়িং পরিচয় দেখার জন্য বাঁধা দিয়েছে। "
 
-msgid "Access to whistleblower's identity denied"
+msgid "Access to reporting person's identity denied"
 msgstr "হুইসেল ব্লোয়ারের পরিচয় অনঅনুমোদিত"
 
 msgid ""
 "This is an email to notify you that a recipient has requested access to the "
-"whistleblower's identity for the report {TipNum}"
+"reporting person's identity for the report {TipNum}"
 msgstr "এটি আপনাকে অবহিত করতে একটি ইমেইল যে, কোনও প্রাপক {TipNum} রিপোর্টের জন্য হুইসেল ব্লোয়ারের পরিচয় জানার জন্য অনুরোধ করেছেন। "
 
 msgid "The request can be accessed at:"
 msgstr "অনুরোধটিতে এখানে প্রবেশ করা যেতে পারেঃ"
 
-msgid "New request of access to a whistleblower's identity"
+msgid "New request of access to a reporting person's identity"
 msgstr "হুইসেল ব্লোয়ারের পরিচয় জানার জন্য নতুন অনুরোধ"
 
 msgid ""
-"This is an email to notify you that the whistleblower for the report "
+"This is an email to notify you that the reporting person for the report "
 "{TipNum} has provided their identity."
 msgstr "এটি আপনাকে অবহিত করতে একটি ইমেইল যে, {TipNum} রিপোর্টের হুইসেল ব্লোয়ার তাদের পরিচয় সরবরাহ করেছে।"
 
-msgid "The whistleblower has provided their identity"
+msgid "The reporting person has provided their identity"
 msgstr "হুইসেল ব্লোয়ার তাদের পরিচয় সরবরাহ করেছে।"
 
 msgid ""

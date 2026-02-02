@@ -1,7 +1,7 @@
 
 from globaleaks import __version__, DATABASE_VERSION
 from globaleaks.utils.crypto import GCE
-from globaleaks.utils.utility import datetime_never, uuid4
+from globaleaks.utils.utility import uuid4
 
 
 class Item:
@@ -104,11 +104,18 @@ ConfigDescriptor = {
     'threshold_free_disk_megabytes_low': Int(default=1000),
     'threshold_free_disk_percentage_high': Int(default=3),
     'threshold_free_disk_percentage_low': Int(default=10),
-    'threshold_reports_per_hour': Int(default=20),
-    'threshold_reports_per_hour_per_ip': Int(default=5),
-    'threshold_attachments_per_hour_per_ip': Int(default=120),
+    'threshold_logins_per_minute_per_system': Int(default=1000),
+    'threshold_logins_per_minute_per_tenant': Int(default=20),
+    'threshold_logins_per_minute_per_ip': Int(default=20),
+    'threshold_logins_per_minute_per_tenant_per_ip': Int(default=1),
+    'threshold_reports_per_hour_per_system': Int(default=1000),
+    'threshold_reports_per_hour_per_tenant': Int(default=10),
+    'threshold_reports_per_hour_per_ip': Int(default=10),
+    'threshold_reports_per_hour_per_tenant_per_ip': Int(default=5),
     'threshold_attachments_per_hour_per_report': Int(default=30),
-    'timezone': Int(default=0),
+    'threshold_operations_per_hour_per_report': Int(default=30),
+    'threshold_operations_per_minute_per_report': Int(default=20),
+    'threshold_operations_per_second_per_report': Int(default=1),
     'timestamp_daily_notifications': Int(default=0),
     'tip_expiration_threshold': Int(default=72),  # Hours
     'tor_onion_key': Unicode(),
@@ -180,12 +187,19 @@ ConfigFilters = {
         'threshold_free_disk_megabytes_low',
         'threshold_free_disk_percentage_high',
         'threshold_free_disk_percentage_low',
-        'threshold_reports_per_hour',
+        'threshold_logins_per_minute_per_system',
+        'threshold_logins_per_minute_per_tenant',
+        'threshold_logins_per_minute_per_ip',
+        'threshold_logins_per_minute_per_tenant_per_ip',
+        'threshold_reports_per_hour_per_system',
+        'threshold_reports_per_hour_per_tenant',
         'threshold_reports_per_hour_per_ip',
-        'threshold_attachments_per_hour_per_ip',
+        'threshold_reports_per_hour_per_tenant_per_ip',
         'threshold_attachments_per_hour_per_report',
+        'threshold_operations_per_hour_per_report',
+        'threshold_operations_per_minute_per_report',
+        'threshold_operations_per_second_per_report',
         'timestamp_daily_notifications',
-        'timezone',
         'two_factor',
         'unread_reminder_time',
         'version',
@@ -218,7 +232,7 @@ ConfigFilters = {
         'maximum_filesize',
         'mode',
         'name',
-        'onionsite',
+        'onionservice',
         'password_change_period',
         'pgp',
         'receipt_salt',
@@ -232,11 +246,18 @@ ConfigFilters = {
         'threshold_free_disk_megabytes_low',
         'threshold_free_disk_percentage_high',
         'threshold_free_disk_percentage_low',
-        'threshold_reports_per_hour',
+        'threshold_logins_per_minute_per_system',
+        'threshold_logins_per_minute_per_tenant',
+        'threshold_logins_per_minute_per_ip',
+        'threshold_logins_per_minute_per_tenant_per_ip',
+        'threshold_reports_per_hour_per_system',
+        'threshold_reports_per_hour_per_tenant',
         'threshold_reports_per_hour_per_ip',
-        'threshold_attachments_per_hour_per_ip',
+        'threshold_reports_per_hour_per_tenant_per_ip',
         'threshold_attachments_per_hour_per_report',
-        'timezone',
+        'threshold_operations_per_hour_per_report',
+        'threshold_operations_per_minute_per_report',
+        'threshold_operations_per_second_per_report',
         'tor',
         'two_factor',
         'version',
@@ -325,7 +346,8 @@ ConfigFilters = {
         'name',
         'onionservice',
         'subdomain',
-        'rootdomain'
+        'rootdomain',
+        'uuid'
     ]
 }
 
